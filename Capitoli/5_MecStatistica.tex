@@ -488,94 +488,130 @@ Si suppone che gli spin siano debolmente interagenti, ovvero che scambino una qu
 
 \section{Entropia}\label{entropia}
 
-Si considerano due sistemi \(\mathbb{S}_{1}\) e \(\mathbb{S}_{2}\), composti rispettivamente da \(N_{1}\) e \(N_{2}\) particelle e con energia \(U_{1}\) e \(U_{2}\). I due sistemi sono messi in contatto così che possano scambiare energia ma non materia; ovvero, i due sistemi sono messi in contatto termico ma non diffusivo.
+Si considerano due sistemi, \(\mathbb{S}_{1}\) e \(\mathbb{S}_{2}\), composti rispettivamente da \(N_{1}\) e \(N_{2}\) particelle, con energie \(U_{1}\) e \(U_{2}\). I due sistemi sono messi in contatto in modo da poter scambiare energia, ma non materia: si tratta quindi di un contatto termico, ma non diffusivo.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=2.37891in,height=1.5625in,alt={P2432\#yIS1}]{media/5_MecStatistica/image51.pdf}\caption{Sistemi posti in contatto}
 \end{figure}
 
-Aver posto in contatto i due sistemi, si ottiene un sistema \(\mathbb{S}\) con \(N = N_{1} + N_{2}\) particelle e con energia totale \(U = U_{1} + U_{2}\). Si suppone che il sistema complessivo \(S\) sia isolato dall'ambiente esterno, così da non poter scambiare energia con l'ambiente.
+Una volta messi in contatto, i due sistemi formano un sistema complessivo \(\mathbb{S}\), con \(N = N_{1} + N_{2}\) particelle e energia totale \(U = U_{1} + U_{2}\). Si suppone che il sistema \(\mathbb{S}\) sia isolato rispetto all’ambiente esterno, quindi non può scambiare energia con esso.
 
-Si considera il sistema \(\mathbb{S}_{1}\), la cui energia dipende dallo stato delle sue particelle. Sia \(s_{1}\) la variabile che enumera le configurazioni possibili per il sistema \(\mathbb{S}_{1}\), come, ad esempio, il numero degli spin nello stato \(\left| + \right\rangle\). L'energia del sistema considerato dipende dalla configurazione del sistema:
+Si considera il sistema \(\mathbb{S}_{1}\), la cui energia dipende dallo stato delle sue particelle. Sia \(s_{1}\) una variabile che enumera le configurazioni possibili del sistema, ad esempio il numero di spin nello stato \(\left| + \right\rangle\). L’energia del sistema è funzione della configurazione:
 
-\[U_{1} = U_{1}\left( s_{1} \right)\]
+\[
+U_{1} = U_{1}(s_{1})
+\]
 
-La variabile \(s_{1}\) non identifica un'unica configurazione ma un insieme di configurazioni, aventi tutte la stessa energia totale \(U_{1}\left( s_{1} \right)\).
+La variabile \(s_{1}\) non identifica una singola configurazione, ma un insieme di configurazioni con la stessa energia \(U_{1}(s_{1})\).
 
-La numerosità degli stati ammissibili \(g\) è una funzione del numero di particelle e dell'energia del sistema:
+La numerosità degli stati ammissibili \(g\) è funzione del numero di particelle e dell’energia:
 
-\[g_{1}\left( U_{1}\left( s_{1} \right),N_{1} \right)\]
+\[
+g_{1}(U_{1}(s_{1}), N_{1})
+\]
 
 Analogo discorso vale per il sistema \(\mathbb{S}_{2}\), la cui numerosità degli stati ammissibili è:
 
-\[g_{2}\left( U_{s}\left( s_{2} \right),N_{2} \right)\]
+\[
+g_{2}(U_{2}(s_{2}), N_{2})
+\]
 
-Ponendo in contatto i due sistemi l'energia totale, costante nel tempo, è data da:
+Ponendo in contatto, i due sistemi l'energia totale, costante nel tempo, è data da:
 
-\[U = U_{1}\left( s_{1} \right) + U_{2}\left( s_{2} \right)\]
+\[
+U = U_{1}\left( s_{1} \right) + U_{2}\left( s_{2} \right)
+\]
 
 È possibile descrivere l'energia del secondo sistema in funzione dell'energia totale e dell'energia del primo sistema:
 
-\[U_{2}\left( s_{2} \right) = U - U_{1}\left( s_{1} \right)\]
+\[
+U_{2}\left( s_{2} \right) = U - U_{1}\left( s_{1} \right)
+\]
 
-La numerosità degli stati nel sistema \(\mathbb{S}_{2}\) può essere scritta come:
+La numerosità degli stati del secondo sistema può essere scritta come:
 
-\[g_{2}\left( U - U_{1}\left( s_{1} \right),N_{2} \right)\]
+\[
+g_{2}(U - U_{1}(s_{1}), N_{2})
+\]
 
-Da questo ragionamento si evince che, aumentando l'energia del sistema \(U_{1}\), aumenta il numero delle sue configurazioni ammissibili; mentre il sistema \(\mathbb{S}_{2}\) riduce la sua energia, dunque, la numerosità dei suoi stati ammissibili si riduce.
+Da questo ragionamento si evince che, al variare dell'energia del sistema \(\mathbb{S}_{1}\), varia la sua numerosità degli stati ammissibili. Poiché l'energia totale è costante, un aumento dell'energia di \(\mathbb{S}_{1}\) comporta una diminuzione dell'energia di \(\mathbb{S}_{2}\), influenzando a sua volta la numerosità dei suoi stati ammissibili. La configurazione più probabile corrisponde al massimo del prodotto \(g_1 g_2\).
 
-Si fissa il valore di \(s_{1}\) del sistema \(\mathbb{S}_{1}\), in questo modo anche l'energia \(U_{1}\) è fissata. Il numero di configurazioni possibili per il sistema complessivo \(\mathbb{S =}\mathbb{S}_{1} + \mathbb{S}_{2}\) è dato dal prodotto delle numerosità:
+Fissando il valore di \(s_{1}\), è univocamente determinata anche la sua energia \(U_{1}\). Il numero di configurazioni possibili per il sistema complessivo \(\mathbb{S} = \mathbb{S}_{1} + \mathbb{S}_{2}\) è dato dal prodotto delle numerosità:
 
-\[g(U,N) = g_{1}\left( U_{1}\left( s_{1} \right),N_{1} \right)g_{2}\left( U - U_{1}\left( s_{1} \right),N_{2} \right)\]
+\[
+g(U,N) = g_{1}\left( U_{1}\left( s_{1} \right),N_{1} \right)g_{2}\left( U - U_{1}\left( s_{1} \right),N_{2} \right)
+\]
 
-Dove \(N = N_{1} + N_{2}\). Per ogni stato ammissibile del primo del primo sistema, il secondo può trovarsi in uno qualunque dei suoi stati ammissibili, il cui numero dipende dall'energia del sistema \(\mathbb{S}_{1}\). In altre parole, al variare dell'enumerazione \(s_{1}\) del primo sistema, varia anche la numerosità degli stati ammissibili del sistema totale. Esiste, di conseguenza, un massimo della funzione \(g(U,N)\), ottenuto ponendo uguale a \(0\) la derivata di \(g\) rispetto all'energia:
+dove \(N = N_{1} + N_{2}\). Per ogni stato ammissibile del primo del primo sistema, il secondo può trovarsi in uno qualunque dei suoi stati ammissibili, il cui numero dipende dall'energia del sistema \(\mathbb{S}_{1}\). In altre parole, al variare dell'enumerazione \(s_{1}\) del primo sistema, varia anche la numerosità degli stati ammissibili del sistema totale. Esiste, di conseguenza, un massimo della funzione \(g(U,N)\), ottenuto ponendo uguale a \(0\) la derivata di \(g\) rispetto all'energia:
 
-\[\frac{\partial g}{\partial U} = \frac{\partial g}{\partial U_{1}} = \frac{\partial}{\partial U_{1}}\left[ g_{1}\left( U_{1}\left( s_{1} \right),N_{1} \right)g_{2}\left( U - U_{1}\left( s_{1} \right),N_{2} \right) \right)\]
+\[
+\frac{\partial g}{\partial U} = \frac{\partial g}{\partial U_{1}} = \frac{\partial}{\partial U_{1}}\left[ g_{1}\left( U_{1}\left( s_{1} \right),N_{1} \right)g_{2}\left( U - U_{1}\left( s_{1} \right),N_{2} \right) \right)
+\]
 
 Per le proprietà delle derivate si ha:
 
-\[\frac{\partial g}{\partial U_{1}} = \frac{\partial g_{1}}{\partial U_{1}}g_{2} - g_{1}\frac{\partial g_{2}}{\partial U_{1}}\]
+\[
+\frac{\partial g}{\partial U_{1}} = \frac{\partial g_{1}}{\partial U_{1}}g_{2} - g_{1}\frac{\partial g_{2}}{\partial U_{1}}
+\]
 
-Dove il meno è legato alla dipendenza di \(g_{2}\) da \(- U_{1}\). In condizione di massimo, deve risultare:
+Il segno meno deriva dalla dipendenza di \(g_{2}\) da \(-U_{1}\). In condizione di massimo, è valida la relazione:
 
 \[\frac{\partial g}{\partial U} = 0\]
 
 Ovvero:
 
-\[\frac{\partial g_{1}}{\partial U_{1}}g_{2} - g_{1}\frac{\partial g_{2}}{\partial U_{1}} = 0 \Leftrightarrow \frac{\partial g_{1}}{\partial U_{1}}g_{2} = g_{1}\frac{\partial g_{2}}{\partial U_{1}}\]
+\[\
+frac{\partial g_{1}}{\partial U_{1}}g_{2} - g_{1}\frac{\partial g_{2}}{\partial U_{1}} = 0 \Leftrightarrow \frac{\partial g_{1}}{\partial U_{1}}g_{2} = g_{1}\frac{\partial g_{2}}{\partial U_{1}}
+\]
 
-Si divide per \(g_{1}g_{2}\):
+Dividendo per \(g_{1} g_{2}\):
 
-\[\frac{1}{g_{1}}\frac{\partial g_{1}}{\partial U_{1}} = \frac{1}{g_{2}}\frac{\partial g_{2}}{\partial U_{1}}\]
+\[
+\frac{1}{g_{1}} \frac{\partial g_{1}}{\partial U_{1}} = \frac{1}{g_{2}} \frac{\partial g_{2}}{\partial U_{1}}
+\]
 
-È noto che:
+Poiché:
 
-\[\frac{\partial}{\partial U_{1}}\left( \ln g_{1} \right) = \frac{1}{g_{1}}\frac{\partial g_{1}}{\partial U_{1}}\]
+\[
+\frac{\partial}{\partial U_{1}} \ln g_{1} = \frac{1}{g_{1}} \frac{\partial g_{1}}{\partial U_{1}}
+\]
 
-Dunque, è possibile scrivere:
+Si ottiene:
 
-\[\frac{\partial}{\partial U_{1}}\left( \ln g_{1} \right) = \frac{\partial}{\partial U_{1}}\left( \ln g_{2} \right)\]
+\[
+\frac{\partial}{\partial U_{1}} \ln g_{1} = \frac{\partial}{\partial U_{1}} \ln g_{2}
+\]
 
-Si definisce entropia di un sistema \(\sigma\), quantità adimensionale, come il logaritmo della molteplicità degli stati aventi tutti la stessa energia:
+Si definisce \textbf{entropia adimensionale} o \textbf{logaritmo della molteplicità} di un sistema \(\sigma\) come il logaritmo della molteplicità degli stati aventi tutti la stessa energia:
 
-\[S = \sigma = \ln g\]
+\[
+\sigma = \ln g
+\]
+
+Si definisce \textbf{entropia di Boltzmann} come:
+
+\[
+S = k_B \ln g = k_B \sigma
+\]
 
 Tramite il concetto di entropia è possibile riscrivere la relazione precedente come:
 
-\[\left. \ \frac{\partial\sigma}{\partial U} \right|_{1} = \left. \ \frac{\partial\sigma}{\partial U} \right|_{2}\]
+\[
+\left. \ \frac{\partial\sigma}{\partial U} \right|_{1} = \left. \ \frac{\partial\sigma}{\partial U} \right|_{2}
+\]
 
-L'entropia nel sistema \(\mathbb{S}_{1}\) è uguale a quella del sistema \(\mathbb{S}_{2}\) una volta raggiunto l'equilibrio termodinamico, rappresentato dalla configurazione più probabile, coincidente con il massimo della numerosità.
+Questa relazione implica che, una volta raggiunto l’equilibrio termico, i due sistemi hanno la stessa temperatura. Le entropie possono essere diverse, poiché dipendono dal numero di particelle e dalle configurazioni possibili.
 
-La legge zero della termodinamica classica afferma che, se due corpi sono posti a contatto, dopo un certo tempo, raggiungono la stessa temperatura. Con il ragionamento effettuato si è visto che due sistemi, messi in contatto termico ma non diffusivo, raggiungono la stessa variazione di entropia, rispetto l'energia \(U_{1}\). Da questo risultato si definisce la temperatura come:
+La legge zero della termodinamica afferma che due sistemi posti in contatto termico raggiungono la stessa temperatura. Dal ragionamento precedente, si definisce la temperatura come:
 
-\[\frac{\partial\sigma}{\partial U} = \frac{1}{k_{B}T}\]
+\[
+\frac{\partial\sigma}{\partial U} = \frac{1}{k_{B}T}
+\]
 
-Dove \(k_{B}\) è la costante di Boltzmann, utile affinché l'equazione sia valida dal punto di vista dimensionale:
+dove \(k_B = 1.38 \cdot 10^{-23} \, \text{J/K}\) è la costante di Boltzmann, necessaria per garantire la correttezza dimensionale.
 
-\[k_{B} = 1.38 \cdot 10^{- 23}JK^{- 1}\]
-
-L'entropia è legata al disordine del sistema: più un sistema ha un alto numero di configurazioni ammissibili e più è disordinato, poiché aumenta la sua numerosità.
+L’entropia è legata al disordine del sistema: maggiore è il numero di configurazioni ammissibili, maggiore è il disordine e quindi l’entropia.
 
 \section{Distribuzione di Boltzmann}\label{distribuzione-di-boltzmann}
 
@@ -618,7 +654,7 @@ Applicando l'esponenziale si ha:
 
 Sostituendo questo risultato nel rapporto tra le probabilità si ottiene:
 
-\[\frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \frac{g_{2}\left( U - \varepsilon_{1}^{\alpha},N_{2} \right)}{g_{2}\left( U - \varepsilon_{1}^{\beta},N_{2} \right)} = \frac{\exp\left[ \sigma\left( U - \varepsilon_{1}^{\alpha},N_{2} \right) \right)}{\exp\left[ \sigma\left( U - \varepsilon_{1}^{\beta},N_{2} \right) \right)}\]
+\[\frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \frac{g_{2}\left( U - \varepsilon_{1}^{\alpha},N_{2} \right)}{g_{2}\left( U - \varepsilon_{1}^{\beta},N_{2} \right)} = \frac{\exp\left[ \sigma\left( U - \varepsilon_{1}^{\alpha},N_{2} \right) \right)}{\exp\left( \sigma\left( U - \varepsilon_{1}^{\beta},N_{2} \right) \right)}\]
 
 Siccome \(\varepsilon_{1}^{\alpha},\varepsilon_{1}^{\beta} \ll U\), è possibile sviluppare in serie di Taylor, arrestato al primo ordine, la funzione entropia:
 
@@ -634,7 +670,7 @@ Lo sviluppo si scrive come:
 
 Si sostituisce questo risultato nel rapporto tra le due probabilità:
 
-\[\frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \frac{\exp\left[ \sigma\left( U - \varepsilon_{1}^{\alpha},N_{2} \right) \right)}{\exp\left[ \sigma\left( U - \varepsilon_{1}^{\beta},N_{2} \right) \right)} \simeq \frac{\exp\left[ \sigma(U) \right)\exp\left[ - \frac{\varepsilon_{1}^{\alpha}}{k_{B}T} \right)}{\exp\left[ \sigma(U) \right)\exp\left[ - \frac{\varepsilon_{1}^{\beta}}{k_{B}T} \right)}\]
+\[\frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \frac{\exp\left[ \sigma\left( U - \varepsilon_{1}^{\alpha},N_{2} \right) \right)}{\exp\left( \sigma\left( U - \varepsilon_{1}^{\beta},N_{2} \right) \right)} \simeq \frac{\exp\left( \sigma(U) \right)\exp\left( - \frac{\varepsilon_{1}^{\alpha}}{k_{B}T} \right)}{\exp\left[ \sigma(U) \right)\exp\left( - \frac{\varepsilon_{1}^{\beta}}{k_{B}T} \right)}\]
 
 Dato che l'entropia è la stessa per entrambe le configurazione, si semplifica \(\exp\left[ \sigma(U) \right)\):
 
