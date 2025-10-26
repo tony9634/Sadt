@@ -1,0 +1,1131 @@
+\begin{center}
+\vfill
+    \chapter{Meccanica relativistica}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+\section{Discordanza tra meccanica ed elettromagnetismo}\label{cenni-di-relativituxe0-ristretta}
+
+Verso la fine del 1800, le previsioni della meccanica classica non erano in grado di spiegare i fenomeni rilevati sperimentalmente riguardanti la velocità della luce. In questo periodo storico, le equazioni di Maxwell indicavano che ogni radiazione elettromagnetica si propaga nello spazio con velocità costante \(c\).
+
+L'esperimento di Michelson-Morley del 1881 dimostrò che la velocità della luce \(c\) è la stessa in tutti i sistemi di riferimento inerziali, indipendentemente dal loro moto relativo. Questo risultato non era in accordo con le previsioni teoriche della meccanica classica, basata sul principio di relatività galileiana.
+
+\subsection{Trasformazioni galileiane}\label{trasformazioni-galileiane}
+
+Per comprendere le previsioni della meccanica classica si dati due sistemi di riferimento inerziali in moto relativo tra loro con velocità costante \(\vec{v}\). Si suppone che il movimento del sistema \(K'\) rispetto al sistema \(K\) avvenga solamente lungo \(x\). Con questa ipotesi la trattazione non perde di generalità, infatti, per i moti traslatori è sempre possibile definire un asse lungo cui avviene il moto. Gli altri assi restano paralleli.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=2.71102in,height=1.62939in,alt={P763\#yIS1}]{media/2_Relatività/image11.pdf}\caption{Sistemi di riferimento in moto relativo}
+\end{figure}
+
+In questo caso, le trasformazioni galileiane si scrivono come:
+
+\[
+\begin{cases}
+x = x' + vt \\
+y = y' \\
+z = z'
+\end{cases} \Leftrightarrow \begin{cases}
+v_{x} = v_{x'} + v \\
+v_{y} = v_{y'} \\
+v_{z} = v_{z'}
+\end{cases} 
+\]
+
+Da queste relazioni si evince che, se una radiazione elettromagnetica viaggia con velocità \(c\) nel sistema \(K'\), un osservatore nel sistema \(K\) la misurerebbe a una velocità pari a \(c + v\). Tale considerazione è in contrasto con l'esperimento di Michelson e Morley. Questa incongruenza discende dall'aver considerato il tempo uguale per i due sistemi di riferimento inerziali, in moto relativo tra loro \cite{kittel1965meccanica}.
+
+\section{Relatività ristretta}\label{relativituxe0-ristretta}
+
+Assumendo che il principio di relatività sia valido, nel `900 Einstein dimostrò che il concetto di tempo non è assoluto ma relativo. Si considerano, dunque, due sistemi inerziali \(K\) e \(K'\), di cui il primo fermo mentre il secondo in moto lungo la direzione delle \(x\) positive con velocità \(v\). Se è valido il principio di relatività, le equazioni di Maxwell devono essere le stesse per ogni sistema inerziale. Di conseguenza la velocità della luce \(c\) deve essere la stessa sia in \(K\) che \(K'\).
+
+Siano \(A\), \(B\) e \(C\) tre punti sull'asse delle \(x'\), con \(A\) e \(C\) equidistanti da \(B\), sorgente luminosa. I tre punti sono solidali con il sistema riferimento \(K'\), ovvero sono fermi rispetto a esso. Se anche l'osservatore è solidale con il sistema di riferimento \(K'\), vede i tre punti fermi, dunque, la luce, procedendo con velocità \(c\) in entrambe le direzioni, giungere contemporaneamente sui punti \(A\) e \(C\).
+
+Per un osservatore solidale con \(K\) i tre punti si muovono con velocità \(v\) nel verso positivo delle \(x\). In particolare, \(A\) insegue la sorgente luminosa, mentre \(C\) si allontana da essa. La luce, dovendo compiere percorsi diversi, raggiunge prima il punto \(A\) e, successivamente, il punto \(C\).
+
+Da questo esempio discende che, cambiando sistema di riferimento, gli eventi che in un sistema di riferimento \(K'\) sono contemporanei, non lo sono nel sistema di riferimento \(K\). Si conclude, quindi, che il tempo è un concetto relativistico legato al sistema di riferimento considerato. Bisogna collegare la coordinata temporale \(t'\) del sistema in moto \(K'\) con la rispettiva \(t\) del sistema di riferimento \(K\), in modo che sia rispettato il principio di invarianza della velocità della luce delle equazioni di Maxwell.
+
+A tale scopo si supponga che un'onda luminosa sferica si propaghi partendo dall'origine del sistema di coordinate \(K\) e si propaghi con velocità \(c\) nello spazio. Questo fenomeno deve essere osservato allo stesso modo anche nel sistema di riferimento \(K'\). Si suppone che l'origine di quest'ultimo sistema di riferimento coincida con quella di \(K\), all'atto di emissione dell'onda luminosa. Per i due sistemi valgono le relazioni:
+
+\[
+\begin{cases}
+x^{2} + y^{2} + z^{2} = r^{2} \\
+{x'}^{2} + {y'}^{2} + {z'}^{2} = {r'}^{2}
+\end{cases} 
+\]
+
+Dove, i raggi sono dati da:
+
+\[r = ct,\ \ r' = ct'\]
+
+Inoltre, per le ipotesi fatte sui due sistemi di riferimento, risulta:
+
+\[
+\begin{cases}
+x^{2} + y^{2} + z^{2} = c^{2}t^{2} \\
+{x'}^{2} + {y'}^{2} + {z'}^{2} = c^{2}{t'}^{2}
+\end{cases}
+\]
+
+Siccome gli eventi non sono simultanei nei due sistemi di riferimento, \(t' \neq t\).
+
+Einstein ipotizzo un legame di tipo lineare tra il tempo e lo spazio in \(K'\) con le analoghe quantità in \(K\), ovvero:
+
+\[
+\begin{cases}
+t' = gx + et \\
+x' = ax + bt
+\end{cases}
+\]
+
+Queste equazioni sono dette trasformazioni di Lorentz generalizzate.
+
+Si sostituisce queste relazioni nell'equazione che descrive l'espansione dell'onda in \(K'\):
+
+\[(ax + bt)^{2} + y^{2} + z^{2} = c^{2}(gx + et)^{2}\]
+
+Sviluppando i quadrati:
+
+\[a^{2}x^{2} + 2abxt + b^{2}t^{2} + y^{2} + z^{2} = c^{2}g^{2}x^{2} + 2c^{2}gext + c^{2}e^{2}t^{2}\]
+
+Raccogliendo, si ha:
+
+\[\left( a^{2} - c^{2}g^{2} \right)x^{2} + \left( 2ab - 2c^{2}ge \right)xt + y^{2} + z^{2} = \left( c^{2}e^{2} - b^{2} \right)t^{2}\]
+
+Questa equazione descrive l'onda nel sistema di riferimento \(K\), quindi, deve essere paragonata all'equazione:
+
+\[x^{2} + y^{2} + z^{2} = c^{2}t^{2}\]
+
+Uguagliando i coefficienti dei termini corrispondente, si ha:
+
+\[
+\begin{cases}
+a^{2} - c^{2}g^{2} = 1 \\
+2ab - 2c^{2}ge = 0 \\
+c^{2}e^{2} - b^{2} = c^{2}
+\end{cases}
+\]
+
+Il sistema ottenuto presenta tre equazioni, nelle incognite \(a\), \(b\), \(e\) e \(g\). È, dunque, necessario aggiungere una quarta equazione. Al fine di colmare il grado di libertà si fissa il rapporto tra due incognite. Si considerano le trasformazioni di Lorentz generalizzate e se ne calcola il differenziale:
+
+\[
+\begin{cases}
+t' = gx + et \\
+x' = ax + bt
+\end{cases}  \Leftrightarrow \begin{cases}
+dt' = g\ dx + e\ dt \\
+dx' = a\ dx + b\ dt
+\end{cases} 
+\]
+
+Se la sorgente luminosa è solidale col sistema \(K\), ovvero è ferma in tale sistema, allora la variazione della sua coordinata \(x\) deve essere nulla; per cui:
+
+\[dx = 0\]
+
+Si ottiene:
+
+\[
+\begin{cases}
+dt' = e\ dt \\
+dx' = b\ dt
+\end{cases}
+\]
+
+Dividendo membro a membro si ha:
+
+\[\frac{dx'}{dt'} = \frac{b}{e}\frac{dt}{dt}\ \]
+
+Siccome la variazione di \(t\) considerata è relativa al sistema \(K\), i \(dt\) sono uguali, dunque possono essere semplificati:
+
+\[\frac{dx'}{dt'} = \frac{b}{e}\]
+
+Si considera un punto fermo in \(K'\); per il quale la sua coordinata \(x'\) è costante, dunque, \(dx' = 0\). Si considera l'equazione \(x' = a\ dx + b\ dt\). Ponendo \(dx' = 0\) si ottiene:
+
+\[a\ dx + b\ dt = 0 \Leftrightarrow \frac{dx}{dt} = - \frac{b}{a}\]
+
+La velocità del punto fermo in \(K'\), misurata nel sistema \(K\), è proprio \(dx/dt\). Poiché il sistema \(K'\) si muove rispetto a \(K\) con velocità \(v\), un punto fermo in \(K'\) ha, per l'osservatore in \(K\), una velocità \(v\). Pertanto, è valida la relazione:
+
+\[\frac{dx}{dt} = - \frac{b}{a} \Leftrightarrow v = - \frac{b}{a}\]
+
+Da cui si ricava:
+
+\[b = av\]
+
+Il primo termine è la velocità del sistema \(K'\) rispetto a \(K\), cambiata di segno. In conclusione, la quarta equazione è:
+
+\[\frac{b}{e} = - v \Leftrightarrow b = - ve\]
+
+Si ottiene il sistema:
+
+\[
+\begin{cases}
+a^{2} - c^{2}g^{2} = 1 \\
+ab - c^{2}ge = 0 \\
+c^{2}e^{2} - b^{2} = c^{2} \\
+b = - ve
+\end{cases}
+\]
+
+Si considera la terza equazione:
+
+\[c^{2}e^{2} - b^{2} = c^{2}\]
+
+Si sostituisce l'ultima:
+
+\[c^{2}e^{2} - v^{2}e^{2} = c^{2}\]
+
+Da cui è possibile ricavare \(e\):
+
+\[e^{2} = \frac{c^{2}}{c^{2} - v^{2}} = \frac{1}{1 - \left( \frac{v}{c} \right)^{2}}\]
+
+\[e = \frac{1}{\sqrt{1 - \left( \frac{v}{c} \right)^{2}}}\]
+
+Noto \(e\) è possibile risalire a \(b\) dalla quarta equazione:
+
+\[b = - ve = - \frac{v}{\sqrt{1 - \left( \frac{v}{c} \right)^{2}}}\]
+
+Dalla seconda equazione è possibile ricavare \(g\) in funzione di \(a\):
+
+\[c^{2}ge = ab \Leftrightarrow g = \frac{1}{c^{2}}a\frac{b}{e}\]
+
+Per la quarta equazione, si ha:
+
+\[g = - \frac{v}{c^{2}}a\]
+
+Si sostituisce questo risultato nella prima equazione:
+
+\[a^{2} - c^{2}g^{2} = 1 \Leftrightarrow a^{2} - c^{2}\frac{v^{2}}{c^{4}}a^{2} = 1 \Leftrightarrow \left( 1 - \frac{v^{2}}{c^{2}} \right)a^{2} = 1 \Leftrightarrow a = \frac{1}{\sqrt{1 - \left( \frac{v}{c} \right)^{2}}}\]
+
+Noto \(a\), è possibile risalire a \(g\):
+
+\[g = - \frac{v}{c^{2}}a = - \frac{v}{c^{2}}\frac{1}{\sqrt{1 - \left( \frac{v}{c} \right)^{2}}}\]
+
+I coefficienti determinati sono, dunque:
+
+\[\left\{ \begin{matrix}
+a = \frac{1}{\sqrt{1 - \left( \frac{v}{c} \right)^{2}}} \\
+b = - \frac{v}{\sqrt{1 - \left( \frac{v}{c} \right)^{2}}} \\
+g = - \frac{v}{c^{2}}\frac{1}{\sqrt{1 - \left( \frac{v}{c} \right)^{2}}} \\
+e = \frac{1}{\sqrt{1 - \left( \frac{v}{c} \right)^{2}}}
+\end{matrix} \right.\ \]
+
+Dato che il rapporto della velocità di movimento del sistema di riferimento sulla velocità della luce compare frequentemente, si pone:
+
+\[\frac{v}{c} = \beta\]
+
+La quantità:
+
+\[\gamma = \frac{1}{\sqrt{1 - \left( \frac{v}{c} \right)^{2}}} = \frac{1}{\sqrt{1 - \beta^{2}}}\ \]
+
+È detto fattore di Lorentz. Con queste definizioni, i coefficienti delle equazioni di composizione possono essere scritti come:
+
+\[
+\begin{cases}
+a = \gamma \\
+b = - v\gamma \\
+\displaystyle g = - \frac{v}{c^{2}}\gamma \\
+e = \gamma
+\end{cases} \Leftrightarrow \begin{cases}
+a = \gamma \\
+b = - \beta\gamma c \\
+\displaystyle g = - \frac{\beta}{c}\gamma \\
+e = \gamma
+\end{cases} 
+\]
+
+Le leggi di trasformazioni tra il sistema \(K\) e \(K'\) sono, quindi \cite{landau1975campi,feynman1964vol1}:
+
+\[\begin{cases}
+x' = ax + bt \\
+y' = y \\
+z' = z \\
+t' = gx + et
+\end{cases} \Leftrightarrow \begin{cases}
+x' = \gamma x - \beta\gamma ct \\
+y' = y \\
+z' = z \\
+\displaystyle t' = - \frac{\beta}{c}\gamma x + \gamma t
+\end{cases}
+\]
+
+\subsection{Composizione delle velocità}\label{composizione-delle-velocituxe0}
+
+Si determinano, ora, le leggi di trasformazione per la velocità; a tale scopo si differenziano le equazioni appena ottenute. Si ottengono così le trasformazioni di Lorentz:
+
+\[
+\begin{cases}
+dx' = \gamma\ dx - \beta\gamma c\ dt \\
+dy' = dy \\
+dz' = dz \\
+\displaystyle dt' = - \frac{\beta}{c}\gamma\ dx + \gamma\ dt
+\end{cases}
+\]
+
+Dividendo una delle variazioni spaziali per \(dt'\) si ottengono le velocità lungo gli assi nel sistema \(K'\). Si inizia con \(v_{x'}\), dunque, si divide \(dx'\) con \(dt'\)
+
+\[v_{x'} = \frac{dx'}{dt'} = \frac{\gamma(dx - \beta c\ dt)}{\gamma\left( - \frac{\beta}{c}\ dx + dt \right)} = \frac{dx - \beta c\ dt}{- \frac{\beta}{c}\ dx + dt}\]
+
+Al secondo membro si mette in evidenza \(dt\):
+
+\[v_{x'} = \frac{\frac{dx}{dt} - \beta c}{- \frac{\beta}{c}\frac{dx}{dt} + 1}\]
+
+Ma:
+
+\[\frac{dx}{dt} = v_{x}\]
+
+È la componente di velocità lungo l'asse \(x\) con cui si muove un fenomeno nel sistema \(K\):
+
+\[v_{x'} = \frac{v_{x} - \beta c}{- \frac{\beta}{c}v_{x} + 1}\]
+
+Lungo \(y'\), la velocità è data da:
+
+\[v_{y'} = \frac{dy'}{dt'} = \frac{dy}{\gamma\left( - \frac{\beta}{c}\ dx + dt \right)}\]
+
+Moltiplicando e dividendo per \(dt\) al secondo membro, si ha:
+
+\[v_{y'} = \frac{dy'}{dt'} = \frac{\frac{dy}{dt}}{\gamma\left( - \frac{\beta}{c}\frac{dx}{dt} + 1 \right)}\]
+
+Dove compare la componente di velocità lungo l'asse \(x\) con cui si muove un fenomeno nel sistema \(K\):
+
+\[\frac{dy}{dt} = v_{y} \Rightarrow v_{y'} = \frac{dy'}{dt'} = \frac{v_{y}}{\gamma\left( - \frac{\beta}{c}v_{x} + 1 \right)}\]
+
+Analogamante, per la componente lungo \(z'\) si ha:
+
+\[v_{z'} = \frac{dz'}{dt'} = \frac{dz}{\gamma\left( - \frac{\beta}{c}\ dx + dt \right)} = \frac{v_{z}}{\gamma\left( - \frac{\beta}{c}v_{x} + 1 \right)}\]
+
+Si considera il caso in cui la velocità \(v_{x} = c\), ovvero il sistema \(K'\) viaggia alla velocità della luce. Nel sistema \(K'\), la velocità \(v_{x'}\), diventa:
+
+\[v_{x'} = \left. \ \frac{v_{x} - \beta c}{- \frac{\beta}{c}v_{x} + 1} \right|_{v_{x} = c} = \frac{c - \beta c}{- \frac{\beta}{c}c + 1} = c\frac{1 - \beta}{1 - \beta} = c\]
+
+La trasformazione di Lorentz verificano, quindi, i risultati sperimentali ottenuti da Michelson e Morley, ovvero l'invarianza della velocità della luce al variare del sistema di riferimento inerziale. Tuttavia, le leggi di trasformazione sono più complesse di quelle galileiane.
+
+\subsection{Fattore di Lorentz}\label{fattore-di-lorentz}
+
+Le velocità considerate nella maggior parte delle applicazioni pratiche sono molto minori della velocità della luce:
+
+\[\frac{v_{x}}{c} \ll 1\]
+
+In questo caso, il fattore di Lorentz tende all'unità:
+
+\[\gamma = \frac{1}{\sqrt{1 - \left( \frac{v}{c} \right)^{2}}} \simeq 1,\ \ \frac{v_{x}}{c} \ll 1\]
+
+In questo limite, la relatività ristretta ricade nella meccanica classica. Date le velocità raggiunte generalmente dalle apparecchiature umane, è possibile considerare la propagazione della luce quasi istantanea, ignorando gli effetti relativistici.
+
+La meccanica classica, in ultima analisi, è un caso particolare della meccanica relativistica di Einstein. Al crescere della velocità, il fattore di Lorentz, sempre positivo, tende a crescere. Nel caso limite in cui \(v = c\), allora:
+
+\[\gamma = \left. \ \frac{1}{\sqrt{1 - \left( \frac{v}{c} \right)^{2}}} \right|_{v = c} \rightarrow \infty\]
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=2.70069in,height=2.16528in,alt={P870\#yIS1}]{media/2_Relatività/image12.pdf}\caption{Andamento del fattore di Lorentz}
+\end{figure}
+
+La velocità della luce \(c\) è un limite irraggiungibile per la teoria della meccanica relativistica.
+
+\subsection{Dilatazione dei tempi}\label{dilatazione-dei-tempi}
+
+Si considerano due sistemi di riferimento inerziali \(K\) e \(K'\), in moto relativo tra loro con velocità \(v\) lungo la direzione delle \(x\) positive. Si suppone che \(K\) sia fermo.
+
+Dalle trasformazioni di Lorentz:
+
+\[
+\begin{cases}
+dx' = \gamma(dx - \beta c)dt \\
+dy' = dy \\
+dz' = dz \\
+\displaystyle dt' = \gamma\left( - \frac{\beta}{c}dx + dt \right)
+\end{cases}
+\]
+
+Si considerano solamente la prima e la quarta equazione. Tramite queste si ricavano le coordinate del sistema di riferimento fisso \(K\) in funzione di quelle relative a \(K'\)
+
+\[
+\begin{cases}
+dx' = \gamma(dx - \beta c)dt \\
+\displaystyle dt' = \gamma\left( - \frac{\beta}{c}dx + dt \right)
+\end{cases}  \Leftrightarrow \begin{cases}
+\displaystyle \frac{1}{\gamma}dx' = dx - \beta c\ dt \\
+\displaystyle \frac{1}{\gamma}dt' = - \frac{\beta}{c}\ dx + dt
+\end{cases} \Leftrightarrow \begin{cases}
+\displaystyle dx = \frac{1}{\gamma}dx' + \beta c\ dt \\
+\displaystyle dt = \frac{1}{\gamma}dt' + \frac{\beta}{c}\ dx
+\end{cases}
+\]
+
+Si sostituisce la prima equazione nella seconda:
+
+\[dt = \frac{1}{\gamma}dt' + \frac{\beta}{c}\ dx \Leftrightarrow dt = \frac{1}{\gamma}dt' + \frac{\beta}{c}\ \left( \frac{1}{\gamma}dx' + \beta c\ dt \right)\]
+
+Risolvendo, si ha:
+
+\[dt = \frac{1}{\gamma}dt' + \frac{\beta}{\gamma c}\ dx' + \beta^{2}dt\]
+
+Si portano i termini contenenti \(dt\) al primo membro:
+
+\[\left( 1 - \beta^{2} \right)dt = \frac{1}{\gamma}dt' + \frac{\beta}{\gamma c}\ dx'\]
+
+Isolando \(dt\), si ha:
+
+\[dt = \frac{1}{\gamma\left( 1 - \beta^{2} \right)}\left( dt' + \frac{\beta}{c}\ dx' \right)\]
+
+Per definizione, il fattore di Lorentz può essere scritto come:
+
+\[\gamma = \frac{1}{\sqrt{1 - \beta^{2}}}\]
+
+Sostituendo questo risultato nell'espressione per \(dt\) si ottiene:
+
+\[dt = \frac{\sqrt{1 - \beta^{2}}}{\left( 1 - \beta^{2} \right)}\left( dt' + \frac{\beta}{c}\ dx' \right) = \frac{1}{\sqrt{1 - \beta^{2}}}\left( dt' + \frac{\beta}{c}\ dx' \right) = \gamma\left( dt' + \frac{\beta}{c}\ dx' \right)\]
+
+Noto \(dt\), è possibile ricavare \(dx\) dalla prima equazione:
+
+\[dx = \frac{1}{\gamma}dx' + \beta c\ dt = \frac{1}{\gamma}dx' + \beta c\gamma\left( dt' + \frac{\beta}{c}\ dx' \right) = \frac{1}{\gamma}dx' + \beta c\gamma\ dt' + \beta^{2}\gamma\ dx'\]
+
+Si raccoglie \(\gamma\) al secondo membro:
+
+\[dx = \gamma\left\lbrack \left( \frac{1}{\gamma^{2}} + \beta^{2} \right)dx' + \beta c\ dt' \right\rbrack\]
+
+Dove, per definizione del fattore di Lorentz:
+
+\[\frac{1}{\gamma^{2}} + \beta^{2} = 1 - \beta^{2} + \beta^{2} = 1\]
+
+Con questo risultato, si ottiene l'espressione per \(dx\):
+
+\[dx = \gamma\left( dx' + \beta c\ dt' \right)\]
+
+Le due equazioni, per \(dx\) e \(dt\), sono, in definitiva:
+
+\[
+\begin{cases}
+dx = \gamma\left( dx' + \beta c\ dt' \right) \\
+\displaystyle dt = \gamma\left( dt' + \frac{\beta}{c}\ dx' \right)
+\end{cases}
+\]
+
+Si considera un punto solidale col sistema di riferimento \(K'\), ovvero fermo rispetto a esso. Ne discende che \(dx' = 0\), in quanto la variazione lungo l'asse \(x\) è nulla, essendo, appunto, il punto fermo. Nel sistema di riferimento \(K\), la variazione temporale è data da:
+
+\[dt = \left. \ \gamma\left( dt' + \frac{\beta}{c}\ dx' \right) \right|_{dx' = 0} = \gamma\ dt'\]
+
+Si definisce tempo proprio \(\tau\) il tempo che una particela vede scorrere nel sistema di riferimento in cui è in quiete. Con questa definizione, la relazione può essere scritta come:
+
+\[dt = \gamma\ d\tau\]
+
+Dato che il fattore di Lorentz è maggiore di \(1\) in caso di movimento, gli intervalli di tempo misurati in un sistema di riferimento \(K\), in cui il punto è in modo, sono maggiori di quelli misurati nel sistema proprio del punto, in cui è fermo. Ne consegue che il tempo misurato in \(K\) (dove l\textquotesingle oggetto si muove) scorre più lentamente del tempo proprio, ovvero del tempo misurato in \(K'\) (dove l'oggetto è fermo).
+
+Per apprezzare tale effetto, noto come dilatazione dei tempi, il fattore di Lorentz \(\gamma\) deve essere significativamente maggiore di \(1\). Tale condizione si verifica quando la velocità con cui si muove \(K'\) rispetto a \(K\) deve essere prossima alla velocità della luce.
+
+Nel caso limite in cui \(K'\) si muove alla velocità della luce, il fattore di Lorentz tende all'infinito, di conseguenza, anche il tempo tende a esplodere:
+
+\[dt = \left. \ \gamma\ d\tau \right|_{v = c} \rightarrow \infty\]
+
+Nel limite classico, quindi con velocità molto minori della velocità della luce \(c\), il fattore di Lorentz è circa unitario (\(\gamma \simeq 1,v \ll c\)), dunque, la dilatazione dei tempi non è apprezzabile:
+
+\[dt = \left. \ \gamma\ d\tau \right|_{v \ll c} \simeq d\tau\]
+
+A differenza degli intervalli di tempo misurati nei vari sistemi di riferimento, il tempo proprio \(\tau\) è univocamente determinato noto \(\gamma\), ovvero la velocità relativa di \(K'\) rispetto al sistema di riferimento \(K\), in cui si effettua la misura.
+
+\subsection{Contrazione delle lunghezze}\label{contrazione-delle-lunghezze}
+
+Si considerano due sistemi di riferimento inerziali \(K\) e \(K'\), in moto relativo tra loro con velocità \(v\) lungo la direzione delle \(x\) positive. Si suppone che \(K\) sia fermo. Si suppone di osservare due punti nel sistema \(K'\), nello stesso istante; dunque, la variazione temporlae \(dt'\) è nulla.
+
+Nel sistema di riferimento in moto \(K'\) si misura una distanza \(dx'\), mentre un osservatore nel sistema di riferimento fisso \(K\) misura una distanza \(dx\), legata a \(dx'\), dalle trasformazioni di Lorentz.
+
+\[
+\begin{cases}
+dx = \gamma\left( dx' + \beta c\ dt' \right) \\
+\displaystyle dt = \gamma\left( dt' + \frac{\beta}{c}\ dx' \right)
+\end{cases} 
+\]
+
+Per misurare la lunghezza di un oggetto in movimento, l'osservatore nel sistema fisso $K$ deve misurare le posizioni delle estremità simultaneamente nel suo sistema, cioè $\delta t=0$. La seconda equazione si scrive come:
+
+\[dt = \gamma\left( dt' + \frac{\beta}{c}\ dx' \right) \Leftrightarrow\ \gamma\left( dt' + \frac{\beta}{c}\ dx' \right) = 0
+\]
+
+Da cui si ricava:
+
+\[
+dt' = - \frac{\beta}{c}\ dx'
+\]
+
+Si sostituisce tale risultato nella prima equazione:
+
+\[
+dx = \gamma\left( dx' + \beta c\ dt' \right) = \gamma\left( dx' + \beta c\ \left(- \frac{\beta}{c}\ dx' \right) \right) = 
+\]
+
+Si svolgono il prodotto dei termini tra parentesi si ottiene:
+
+\[
+= \gamma\left( dx' - \beta^2dx'\right) =
+\]
+
+Raccogliendo $dx'$, si ricava:
+
+\[
+= \gamma dx' \left( 1 - \beta^2\right) =
+\]
+
+Si è visto che $1-\beta^2=\gamma^-2$. Sostituendo tale risultato nell'equazione appena determinata, si ottiene:
+
+\[
+= \gamma dx' \left(\frac{1}{\gamma^2}\right) =
+\]
+
+Semplificando $\gamma$ si ottiene la relazione che lega la lunghezza nel sistema $K$, ovvero $dx$, con quella nel sistema $K'$, $dx'$:
+
+\[
+dx = \frac{1}{\gamma} dx'
+\]
+
+Siccome \(\gamma > 1,v > 0\), la misura \(dx\), nel sistema di riferimento \(K\), in cui i due punti sono in moto, è minore di quella ottenuta nel sistema \(K'\), in cui i due punti sono in quiete, \(dx'\).
+
+La distanza tra due punti è massima nel sistema in cui sono in quiete. Inoltre, a differenza della misura ottenuta negli altri sistemi di riferimento, quella valutata nel sistema di riferimento in cui i due punti sono fermi è univocamente determinata, noto \(\gamma\), ovvero la velocità relativa tra i due sistemi.
+
+Infine, noto \(\gamma\) e \(dx'\), è possibile risalire al valore della misura \(dx\) in qualsiasi sistema di riferimento inerziale.
+
+\subsection{Energia e quantità di moto relativistiche}\label{energia-e-quantituxe0-di-moto-relativistiche}
+
+Si vuole ricavare le relazioni di energia e quantità di moto nella teoria relativistica. A tale scopo, si considera il principio di minima azione, in quanto più semplice da trattare. L'azione di una particella libera \(S\) deve essere invariante rispetto alle trasformazioni di Lorentz, in quanto è una quantità scalare e non una funzione vettoriale. L'azione è, infatti, l'integrale della lagrangiana nel tempo. Nel campo relativistico, l'azione deve essere l'integrale di una quantità quantizzante la traiettoria della particella.
+
+Siccome l'azione deve essere invariante, non è possibile integrare la lagrangiana sul tempo \(t\) di un sistema di riferimento qualsiasi; il tempo stesso deve essere invariante.
+
+Si sceglie di integrare rispetto al tempo proprio della particella, univocamente definito, noto il fattore di Lorentz \(\gamma\). In prima approssimazione, è possibile definire l'azione relativistica, in analogia con la meccanica classica, come:
+
+\[S = \int{\alpha d\tau}\]
+
+Dove \(\alpha\) è una quantità da determinare.
+
+Il tempo proprio \(d\tau\) è legato al tempo misurato in un qualsiasi sistema di riferimento inerziale, in moto rispetto a quello proprio della particella, dalla relazione:
+
+\[dt = \gamma d\tau = \frac{1}{\sqrt{1 - \frac{v^{2}}{c^{2}}}}d\tau\]
+
+Ricavando \(d\tau\), si ottiene:
+
+\[d\tau = \frac{1}{\gamma}dt = \sqrt{1 - \frac{v^{2}}{c^{2}}}dt\]
+
+Con questo risultato, l'azione può essere scritta come:
+
+\[S = \int{\alpha d\tau} = \int{\alpha\sqrt{1 - \frac{v^{2}}{c^{2}}}dt}\]
+
+La meccanica relativistica deve inglobare la meccanica classica, nel caso limite in cui \(v \ll c\). In questa condizione l'azione deve essere uguale a quella classica, ovvero, la quantità \(\alpha\) deve coincidere con la lagrangiana classica. Per \(v \ll c\), risulta che:
+
+\[\sqrt{1 - \frac{v^{2}}{c^{2}}} \simeq \left( 1 - \frac{1}{2}\frac{v^{2}}{c^{2}} \right),\ \ v \ll c\]
+
+Con questo risultato l'azione, nel limite classico, può essere scritta come:
+
+\[s = \int{\alpha\sqrt{1 - \frac{v^{2}}{c^{2}}}dt} \simeq \int{\alpha\left( 1 - \frac{1}{2}\frac{v^{2}}{c^{2}} \right)dt}\]
+
+Nell'approssimazione classica, l'azione è data da:
+
+\[S = \int{L_{class}dt}\]
+
+L'integrando coincide con la lagrangiana relativistica $L_{appr}^r$, nel limite delle meccanica classica, in cui le velocità in gioco sono molto minori della velocità della luce. Questa quantità deve coincidere con la lagrangiana classica ($L_{class}$), a meno di una costante additiva, in quanto le equazioni di Eulero-Lagrange dipendono solamente dalla derivata della lagrangiana.
+
+Per una particella libera in assenza di un campo di potenziale, la lagrangiana coincide con l'energia cinetica, per cui l'azione è data da:
+
+\[S = \int{L_{class}dt} = \int{\frac{1}{2}m_{0}v^{2}dt}\]
+
+Dove \(m_{0}\) è la massa inerziale. Confrontando l'azione ottenuta nel limite classico, per \(v \ll c\), con quella scritta nella teoria classica, si uguagliano i termini in \(v^{2}\): poiché la parte costante non influenza le equazioni di Eulero-Lagrange. Si ottiene:
+
+\[- \frac{1}{2}\alpha\frac{v^{2}}{c^{2}} = \frac{1}{2}m_{0}v^{2}\]
+
+Da cui si ricava \(\alpha\) come:
+
+\[\alpha = - m_{0}c^{2}\]
+
+Con questo risultato si ha la certezza che, nel limite \(v \ll c\), la lagrangiana relativistica e quella classica coincidano, a meno di una costante \(- m_{0}c^{2}\). Infatti, risulta che:
+
+\[
+L_{appr}^r=\alpha\left( 1 - \frac{1}{2}\frac{v^{2}}{c^{2}} \right) = - m_{0}c^{2}\left( 1 - \frac{1}{2}\frac{v^{2}}{c^{2}} \right) = - m_{0}c^{2} + \frac{1}{2}m_{0}v^{2} = - m_{0}c^{2} + L_{class}
+\]
+
+La costante non influenza il risultato dell'equazione di Eulero-Lagrange, dunque, può essere trascurata senza problemi.
+
+La lagrangiana deve rispettare il principio di Fermat del minor tempo, secondo il quale, tra tutti i possibili percorsi che uniscono due punti,
+un raggio di luce segue il cammino che richiede il minor tempo e che, di conseguenza, minimizza l'azione.
+
+L'azione relativistica può essere espressa come:
+
+\[s = \int{\alpha\sqrt{1 - \frac{v^{2}}{c^{2}}}dt} = \int{- m_{0}c^{2}\sqrt{1 - \frac{v^{2}}{c^{2}}}dt}\]
+
+La lagrangiana relativistica è, dunque:
+
+\[L^{r} = - m_{0}c^{2}\sqrt{1 - \frac{v^{2}}{c^{2}}} = - m_{0}c^{2}\sqrt{1 - \frac{\vec{v} \cdot \vec{v}}{c^{2}}}\]
+
+Dall'equivalenza tra meccanica newtoniana e meccanica lagrangiana è possibile ricavare la definizione di momento lineare generalizzato alla meccanica relativistica:
+
+\[\vec{p} = \frac{\partial L}{\partial\vec{v}} = \frac{\partial}{\partial\vec{v}}\left( - m_{0}c^{2}\sqrt{1 - \frac{\vec{v} \cdot \vec{v}}{c^{2}}} \right) = \frac{m_{0}\vec{v}}{\sqrt{1 - \frac{v^{2}}{c^{2}}}}\]
+
+Da questa relazione è possibile osservare che la massa relativistica è legata alla massa inerziale dalla relazione:
+
+\[m = \frac{m_{0}}{\sqrt{1 - \frac{v^{2}}{c^{2}}}} = \gamma m_{0}\]
+
+\(m_{0}\) è detta massa a riposo e rappresenta la quantità di materia che possiede un corpo da fermo. La massa \(m\) di una particella dipende, invece, dalla velocità con cui si muove. Nel limite classico, \(v \ll c\), il fattore di Lorentz è prossimo all'unità, per cui, la massa relativistica \(m\) coincide con la massa a riposo:
+
+\[m \simeq m_{0},\ \ v \ll c\]
+
+Se la velocità \(v\) tende a raggiungere la velocità della luce, il fattore di Lorentz tende a diventare infinito; di conseguenza, anche la massa relativistica tende a divergere:
+
+\[m \rightarrow \infty,\ \ v \rightarrow \infty\]
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5.00154in,height=4.13889in,alt={P963\#yIS1}]{media/2_Relatività/image13.pdf}\caption{Andamento della massa relativistica in funzione della velocità}
+\end{figure}
+
+La divergenza della massa relativistica al crescere della velocità spiega perché non sia possibile superare la velocità della luce \(c\). Infatti, l'energia fornita a una particella in parte ne aumenta la velocità e in parte ne accresce la massa relativistica. Di conseguenza, per superare la velocità della luce \(c\) è necessario fornire un'energia infinita, violando il principio di conservazione dell'energia.
+
+La quantità di moto, a differenza del limite classico, è legata alla massa relativistica, che a sua volta dipende dalla velocità. Di conseguenza, la quantità di moto non dipende più in modo lineare dalla velocità:
+
+\[\vec{p} = m\vec{v}\]
+
+Essa presenta, invece, una relazione più complessa, poiché anche la massa dipende dalla velocità:
+
+\[\vec{p} = \frac{m_{0}\vec{v}}{\sqrt{1 - \frac{v^{2}}{c^{2}}}}\]
+
+La massa \(m\), nel piano \(p - v\), rappresenta la pendenza della curva quantità di moto in funzione della velocità. Nella teoria relativistica, non si ha una retta. L'andamento della quantità di moto relativistica è lineare nel limite classico, dunque per \(v \ll c\).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4.54852in,height=3.76256in,alt={P971\#yIS1}]{media/2_Relatività/image14.pdf}\caption{Andamento della quantità di moto relativistica}
+\end{figure}
+
+Per valutare l'energia relativistica si ricorre alla definizione di lagrangiana:
+
+\[L^{r} = T - U\]
+
+L'energia totale del sistema è data da:
+
+\[E = T + U\]
+
+Nota la lagrangiana è possibile ricavare l'energia totale del sistema. Sommando, infatti, le due equazioni, si ha:
+
+\[L^{r} + E = T - U + T + U = 2T \Leftrightarrow E = 2T - L^{r}\]
+
+È possibile scrivere che:
+
+\[2T = \vec{p} \cdot \vec{v} = \frac{\partial L}{\partial\vec{v}} \cdot \vec{v}\]
+
+Con questo risultato l'energia totale può essere espressa come:
+
+\[E = \frac{\partial L}{\partial\vec{v}} \cdot \vec{v} - L\]
+
+Sostituendo le espressioni ricavate per la quantità di moto e lagrangiana nell'ambito della teoria relativistica, si ha:
+
+\[E = \frac{\partial L}{\partial\vec{v}} \cdot \vec{v} - L = \frac{m_{0}\vec{v}}{\sqrt{1 - \frac{v^{2}}{c^{2}}}} \cdot \vec{v} + m_{0}c^{2}\sqrt{1 - \frac{v^{2}}{c^{2}}} = \frac{m_{0}v^{2}}{\sqrt{1 - \frac{v^{2}}{c^{2}}}} + m_{0}c^{2}\sqrt{1 - \frac{v^{2}}{c^{2}}}\]
+
+Si esegue il minimo comune multiplo al secondo membro e, successivamente, si svolgono i prodotti:
+
+\[E = \frac{m_{0}v^{2} + m_{0}c^{2}\left( 1 - \frac{v^{2}}{c^{2}} \right)}{\sqrt{1 - \frac{v^{2}}{c^{2}}}} = \frac{m_{0}v^{2} + m_{0}c^{2} - m_{0}v^{2}}{\sqrt{1 - \frac{v^{2}}{c^{2}}}}\]
+
+L'energia totale è, quindi, data da:
+
+\[E = \frac{m_{0}}{\sqrt{1 - \frac{v^{2}}{c^{2}}}}c^{2}\]
+
+Questa relazione rappresenta una delle equazioni più note di Einstein e della relatività ristretta \cite{landau1994meccanica,feynman1964vol1}. Il termine \(m_{0}c^{2}\) rappresenta un termine energetico, legato allo stato di quiete della particella. Infatti, nel limite classico, è possibile approssimare in serie di Taylor il denominatore:
+
+\[
+\frac{1}{\sqrt{1 - \frac{v^{2}}{c^{2}}}}\simeq 1 + \frac{1}{2}\frac{v^{2}}{c^{2}}
+\]
+
+Sostituendo tale risultato nell'equazione per l'energia $E$, si ottiene:
+
+\[
+E = \frac{m_{0}}{\sqrt{1 - \frac{v^{2}}{c^{2}}}}c^{2}\simeq m_{0}c^{2}\left(1 + \frac{1}{2}\frac{v^{2}}{c^{2}}\right)
+\]
+
+Svolgendo i prodotti, si ricava l'espressione per l'energia totale nel limite classico:
+
+\[
+E\simeq m_{0}c^{2} +\frac{1}{2}m_{0}v^{2} ,\ \ v \ll c
+\]
+
+L'energia totale della particella è data dalla somma dell'energia a riposo ($m_{0}c^{2}$) e del termine di energia cinetica caratteristico della meccanica classica per una particella libera.
+
+Se, invece, la velocità \(v\) approssima quella della luce, l'energia tende a divergere:
+
+\[E \rightarrow \infty,\ \ v \rightarrow \infty\]
+
+Questo risultato ribadisce il concetto che, per portare una particella con massa a riposo \(m_{0}\) da ferma alla velocità della luce \(c\), bisogna fornire un'energia infinita.
+
+Anche in meccanica relativistica valgono i teoremi di conservazione, tuttavia, i principi di conservazione della massa e dell'energia sono sostituiti dal principio di conservazione della massa-energia.
+
+\section{Quadrivettori}\label{quadrivettori}
+
+Lo spazio-tempo o cronotopo è lo spazio quadridimensionale introdotto da Einstein nella relatività ristretta, composto da tre coordinate spaziali e una temporale. Ogni fenomeno fisico è descritto da eventi nello spazio-tempo del tipo \((ct,x,y,z)\), detti quadrivettori. È necessario introdurre come prima componente \(ct\) in modo da avere delle quantità dimensionalmente omogenee nel quadrivettore; inoltre, il quadrivettore è denotato con l'apice \(\alpha\):
+
+\[s^{\alpha} = \begin{pmatrix}
+ct, x, y, z
+\end{pmatrix}
+\]
+
+Si definisce distanza \(s\) il quadrivettore \(s^{\alpha}\) e l'origine come:
+
+\[s^{2} = c^{2}t^{2} - \left( x^{2} + y^{2} + z^{2} \right)\]
+
+Il termine \(x^{2} + y^{2} + z^{2}\) coincide con la distanza euclidea. Inoltre, la grandezza \(s^{2}\) è detta intervallo ed è invariante rispetto alle trasformazioni di Lorentz \cite{landau1994meccanica}. Dalla distanza \(s\) si deduce che lo spazio-tempo non rispetta la metrica euclidea. La definizione di \(s\) è scelta in modo da ottenere equazioni simili alla meccanica classica.
+
+Si definisce velocità la derivata del quadrivettore spostamento \(s^{\alpha}\) rispetto al tempo proprio \(\tau\) della particella:
+
+\[
+{u}^{\alpha} = \frac{d{s}^{\alpha}}{d\tau} =
+\begin{pmatrix}
+\displaystyle c\frac{dt}{d\tau}, \displaystyle \frac{dx}{d\tau}, \displaystyle \frac{dy}{d\tau}, \displaystyle \frac{dz}{d\tau}
+\end{pmatrix}
+\]
+
+La variazione del tempo proprio di una particella è legata alla variazione del tempo \(dt\), osservata in un qualsiasi sistema di riferimento inerziale, dalla relazione:
+
+\[d\tau = \frac{1}{\gamma}dt \Leftrightarrow d\tau = \sqrt{1 - \frac{v^{2}}{c^{2}}}dt\]
+
+La velocità può essere espressa come:
+
+\[{u}^{\alpha} = \frac{d{s}^{\alpha}}{d\tau} = \frac{1}{\sqrt{1 - \frac{v^{2}}{c^{2}}}}\frac{d{s}^{\alpha}}{dt} = \gamma\frac{d{s}^{\alpha}}{dt}\]
+
+Svolgendo l'operazione di derivata, il quadrivettore velocità si esprime come:
+
+\[
+{u}^{\alpha} = \gamma \begin{pmatrix}
+\displaystyle c\frac{dt}{dt}, \displaystyle \frac{dx}{dt},  \displaystyle \frac{dy}{dt}, \displaystyle \frac{dz}{dt}
+\end{pmatrix} = \gamma \begin{pmatrix}
+c, v_{x}, v_{y}, v_{z}
+\end{pmatrix}
+\]
+
+In meccanica, il vettore velocità lungo i tre assi si esprime come:
+
+\[
+\vec{v} = \begin{pmatrix}
+v_{x}, v_{y}, v_{z}
+\end{pmatrix}
+\]
+
+Il quadrivettore velocità può essere espresso come:
+
+\[{u}^{\alpha} = \gamma
+\begin{pmatrix}
+c,\vec{v}
+\end{pmatrix}
+\]
+
+È possibile esprimere il quadrivettore in termini di quantità di moto ed energia. Infatti, per definizione di quantità di moto, risulta:
+
+\[\vec{p} = m_{0} \vec{v} \Leftrightarrow \vec{v} = \frac{1}{m_{0}}\vec{p}\]
+
+L'energia, invece, può essere espressa come:
+
+\[E = m_{0} c^{2} \Leftrightarrow c = \frac{E}{m_{0}c}\]
+
+Il quadrivettore velocità, espresso in termini energetici, è dato da:
+
+\[{u}^{\alpha} = \gamma \begin{pmatrix}
+\displaystyle \frac{E}{m_{0}c}, \displaystyle\frac{1}{m_{0}}\vec{p}
+\end{pmatrix}
+\]
+
+È possibile definire anche l'operazione di moltiplicazione tra quadrivettori. A tale scopo si adopera la notazione di Einstein secondo la quale ogni indice che compare all'interno di un fattore più di una volta viene sommato al variare di tutti i possibili valori che l'indice può assumere. Ad esempio, il prodotto vettoriale tra vettori  \(n\)-dimensionali, mediante la notazione di Einstein, è:
+
+\[
+\vec{x}\times\vec{y} = \sum_{i=1}^{n}{\left(\sum_{j=1}^{n}{\left(\sum_{k=0}^{n}{\left(\varepsilon_{ijk} x_{j} y_{k} \vec{e}_{i}\right)}\right)}\right)} = \varepsilon_{ijk} x^{j} y^{k} \vec{e}^{i}
+\]
+
+Dove \(\varepsilon_{ijk}\) è il simbolo di Levi-Civita e \(\vec{e}_{i}\) è la \(i\)-esimo vettore della base canonica di \(\mathbb{R}^{3}\).
+
+Si applica tale notazione al fine di valutare il modulo del quadrivettore velocità:
+
+\[u_{\alpha}u^{\alpha} = \gamma^{2}\left( c^{2} - v^{2} \right) = c^{2}\gamma^{2}\left( 1 - \frac{v^{2}}{c^{2}} \right)\]
+
+Dopo aver raccolto \(c^{2}\), per definizione di \(\gamma\), è possibile scrivere:
+
+\[u_{\alpha}u^{\alpha} = c^{2}\gamma^{2}\gamma^{- 2} = c^{2}\]
+
+Il modulo quadro del quadrivettore velocità è la velocità della luce al quadrato, \(c^{2}\), dunque, è invariante rispetto alle trasformazioni di Lorentz.
+
+La quantità di moto nello spazio-tempo è data da:
+
+\[
+{p}^{\alpha} = m_{0}{u}^{\alpha} = m_{0}\gamma\begin{pmatrix}
+c,\vec{v}
+\end{pmatrix} = \begin{pmatrix}
+m_{0}\gamma c,m_{0}\gamma\vec{v}
+\end{pmatrix}
+\]
+
+Il termine \(m_{0}\gamma\) rappresenta la massa relativistica \(m\), dunque, la relazione \({p}^{\alpha}\) può essere scritta come:
+
+\[
+ {p}^{\alpha} = \begin{pmatrix}
+m c,m\vec{v}
+\end{pmatrix}
+\]
+
+Si è visto che \(E=mc^{2}\Leftrightarrow mc=E/c\) e \(\vec{p}=m\vec{v}\). Da queste relazione si evince che il quadrivettore quantità di moto è:
+
+\[
+{p}^{\alpha} = \begin{pmatrix}
+\displaystyle \frac{E}{c}, \vec{p}
+\end{pmatrix}
+\]
+
+Si valuta il modulo del quadrivettore quantità di moto:
+
+\[p^{\alpha}p^{\alpha} = \frac{E^{2}}{c^{2}} - p^{2}\]
+
+Dove \(E = \gamma m_{0}c^{2}\) e \(p = \gamma m_{0}v\), per cui:
+
+\[p_{\alpha}p^{\alpha} = \frac{E^{2}}{c^{2}} - p^{2} = \frac{\gamma^{2}m^{2}_{0}c^{4}}{c^{2}} - \gamma^{2}m^{2}_{0}v^{2} = \gamma^{2}m^{2}_{0}c^{2} - \gamma^{2}m^{2}_{0}v^{2}\]
+
+Raccogliendo \(\gamma^{2}m^{2}_{0}c^{2}\) si ha:
+
+\[
+p^{\alpha}p^{\alpha} = \gamma^{2}m^{2}_{0}c^{2}\left( 1 - \frac{v^{2}}{c^{2}} \right)
+\]
+
+Per definizione del fattore di Lorentz si ha:
+
+\[p_{\alpha}p^{\alpha} = m^{2}_{0}c^{2}\]
+
+Siccome \(E = m_{0}c^{2}\), la quantità di moto può essere espressa anche in termini energetici:
+
+\[p_{\alpha}p^{\alpha} = m_{0}E\]
+
+Infine, il vettore quantità di moto \(\vec{p}\) può essere espresso in termini energetici, infatti:
+
+\[E = m_{0}c^{2} \Leftrightarrow m_{0} = \frac{E}{c^{2}}\]
+
+Per cui:
+
+\[\vec{p} = m_{0}\vec{v} \Leftrightarrow \vec{p} = \frac{E}{c^{2}}\vec{v}\]
+
+Tale equazione è molto utile nel campo della medicina radiologica in cui le particelle raggiungono quasi la velocità della luce. In questo caso, la quantità di moto è data da:
+
+\[p = \frac{E}{c^{2}}c = \frac{E}{c}\]
+
+Questa relazione descrive la quantità di moto dei fotoni.
+
+\subsection{Legge di trasformazione dei quadrivettori}\label{legge-di-trasformazione-dei-quadrivettori}
+
+Per comodità è possibile scrivere le trasformazioni di Lorentz in forma matriciale; così è più semplice determinare il modo in cui un quadrivettore in un sistema di riferimento \(K\) si trasforma in un quadrivettore nel sistema di riferimento \(K'\).
+
+Si parte dalle trasformazioni di Lorentz:
+
+\[ \begin{cases}
+\displaystyle t' = \gamma\left( - \frac{\beta}{c}x + t \right) \\
+x' = \gamma(x - \beta ct) \\
+y' = y \\
+z' = z
+\end{cases} 
+\]
+
+Si moltiplicano entrambi i membri della prima equazione, in modo da ottenere le quantità \(ct\) e \(ct'\) presenti nei quadrivettori dello spostamento:
+
+\[
+\begin{cases}
+ct' = \gamma ct - \beta\gamma x \\
+x' = - \gamma\beta ct + \gamma x \\
+y' = y \\
+z' = z
+\end{cases}
+\]
+
+Si pone \({s'}^{\alpha}\) il quadrivettore spostamento nel sistema di riferimento \(K'\) e \({s}^{\alpha}\) il quadrivettore spostamento nel sistema di riferimento \(K\):
+
+\[{s'}^{\alpha} =\begin{pmatrix}
+ct' \\
+x' \\
+y' \\
+z'
+\end{pmatrix},\ \ {s}^{\alpha} = \begin{pmatrix}
+ct \\
+x \\
+y \\
+z
+\end{pmatrix}
+\]
+
+La matrice di trasformazione di Lorentz è data da:
+
+\[
+\boldsymbol{\Lambda} = \begin{pmatrix}
+\gamma & - \beta\gamma & 0 & 0 \\
+- \beta\gamma & \gamma & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\]
+
+Le trasformazioni di Lorentz in forma matriciale si scrivono come:
+
+\[\begin{pmatrix}
+ct' \\
+x' \\
+y' \\
+z'
+\end{pmatrix} = \begin{pmatrix}
+\gamma & - \beta\gamma & 0 & 0 \\
+ - \beta\gamma & \gamma & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix} \begin{pmatrix}
+ct \\
+x \\
+y \\
+z
+\end{pmatrix} \]
+
+In forma compatta, si ha:
+
+\[{s'}^{\alpha} =\boldsymbol{\Lambda} {s}^{\alpha}\]
+
+Derivando rispetto al tempo si ottengono le trasformazioni della velocità per passare dal sistema \(K\) a \(K'\):
+
+\[
+\frac{d{{s}'}^{\alpha}}{dt} = \boldsymbol{\Lambda}\frac{d{s}^{\alpha}}{dt}
+\]
+
+La matrice di trasformazione di Lorentz è costante rispetto al tempo poiché la velocità relativa tra i due sistemi di riferimento è fissata, dunque, i termini \(\beta\) e \(\gamma\) sono costanti.
+
+Si è visto che:
+
+\[\gamma\frac{d{s}^{\alpha}}{dt} = {u}^{\alpha} \Leftrightarrow \frac{d{s}^{\alpha}}{dt} = \frac{1}{\gamma}{u}^{\alpha} =\gamma\left( \frac{E}{m_{0}c},\frac{1}{m_{0}}\vec{p} \right)\]
+
+Per cui è possibile scrivere le equazioni di composizione della velocità in forma matriciale:
+
+\[
+\begin{pmatrix}
+\displaystyle \frac{E'}{m_{0}c} \\
+\displaystyle \frac{p_{x'}}{m_{0}} \\
+\displaystyle \frac{p_{y'}}{m_{0}} \\
+\displaystyle \frac{p_{z'}}{m_{0}}
+\end{pmatrix} = \begin{pmatrix}
+\gamma & - \beta\gamma & 0 & 0 \\
+ - \beta\gamma & \gamma & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix} \begin{pmatrix}
+\displaystyle \frac{E}{m_{0}c} \\
+\displaystyle \frac{p_{x}}{m_{0}} \\
+\displaystyle \frac{p_{y}}{m_{0}} \\
+\displaystyle \frac{p_{z}}{m_{0}}
+\end{pmatrix} \Leftrightarrow  \begin{pmatrix}
+\displaystyle \frac{E'}{m_{0}c} \\
+v_{x'} \\
+v_{y'} \\
+v_{z'}
+\end{pmatrix} = \begin{pmatrix}
+\gamma & - \beta\gamma & 0 & 0 \\
+ - \beta\gamma & \gamma & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix} \begin{pmatrix}
+\displaystyle \frac{E}{m_{0}c} \\
+v_{x} \\
+v_{y} \\
+v_{z}
+\end{pmatrix}
+\]
+
+Moltiplicando entrambi i membri per \(m_{0}\) si ottiene la trasformazione della quantità di moto:
+
+\[
+\begin{pmatrix}
+\displaystyle \frac{E'}{c} \\
+p_{x'} \\
+p_{y'} \\
+p_{z'}
+\end{pmatrix}  = \begin{pmatrix}
+\gamma & - \beta\gamma & 0 & 0 \\
+ - \beta\gamma & \gamma & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix} \begin{pmatrix}
+\displaystyle \frac{E}{c} \\
+p_{x} \\
+p_{y} \\
+p_{z}
+\end{pmatrix}
+\]
+
+Le componenti dei quadrivettori spostamento, velocità e quantità di moto variano in base al sistema di riferimento, tuttavia, il loro quadrato è costante, dunque, è invariante rispetto alle trasformazioni di Lorentz.
+
+\section{Urto anelastico}\label{urti-anelastico}
+
+Un urto anelastico è un particolare tipo di urto in cui si conserva solamente la quantità di moto del sistema, mentre l'energia cinetica è non si conserva ma si trasforma in massa a riposo. Fondamentalmente le due particelle dopo l'urto si fondono in un'unica particella, come, ad esempio, due nuclei di idrogeno collidono, producendo un nucleo di elio.
+
+Si pone l'origine del sistema di riferimento \(S\) nel centro di massa delle due particelle. Se le due particelle di masse identiche \(m\) hanno velocità uguali ed oppose, risulta che la somma delle quantità di moto deve essere nulla:
+
+\[{\vec{p}}_{1} + {\vec{p}}_{2} = \gamma m_{0}{\vec{v}}_{1} + \gamma m_{0}{\vec{v}}_{2} = \vec{0}\]
+
+Poiché:
+
+\[m_{1} = m_{2} = m_{0},\ \ {\vec{v}}_{1} = - {\vec{v}}_{2}\]
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=2.72254in,height=1.55in,alt={P1073\#yIS1}]{media/2_Relatività/image15.pdf}\caption{Urto anelastico tra due particelle}
+\end{figure}
+
+L'energia di una particella secondo la meccanica relativistica è data da:
+
+\[E = \gamma m_{0}c^{2}\]
+
+Siccome le velocità, in modulo, e le masse delle due particelle sono uguali, anche le energie coincidono, ovvero:
+
+\[E_{1} = E_{2} = E\]
+
+Dopo l'urto la particella risultate è in quiete nel centro di massa, per cui il fattore di Lorentz è unitario. L'energia della particella risultante, di massa a riposo \(M_{0}\), è, dunque:
+
+\[E = M_{0}c^{2},\ \ \gamma = 1\]
+
+Per la conservazione dell'energia, la somma delle energie delle particelle prima dell'urto deve essere uguale all'energia della particella dopo l'urto, \(E_{R}\):
+
+\[E_{R} = E_{1} + E_{2} = 2E\]
+
+Esplicitando le equazioni, si ha:
+
+\[2\gamma m_{0}c^{2} = M_{0}c^{2}\]
+
+Semplificando \(c^{2}\), si ha:
+
+\[M_{0} = 2\gamma m_{0} = 2\frac{m_{0}}{\sqrt{1 - \frac{v^{2}}{c^{2}}}}\]
+
+Poiché le due particelle, prima dell'urto, erano in moto, il fattore di Lorentz è maggiore dell'unità, di conseguenza, la massa \(M_{0}\) della particella risultante a valle dell'urto è maggiore della somma delle due masse a riposo iniziali. Questo fenomeno può essere spiegato ammettendo che l'energia cinetica posseduta dalle particelle prima dell'urto sia convertita in massa a riposo.
+
+\section{Conservazione dell'energia}\label{conservazione-dellenergia}
+
+Il principio di conservazione dell'energia può essere verificato a partire a partire dal principio di conservazione del momento lineare e applicando le leggi di trasformazioni di Lorentz al quadrivettore energia-momento. Si considera un sistema di riferimento \(S'\) con origine non coincidente con il centro di massa del sistema. Supponendo che il moto avvenga solamente lungo una direzione, è possibile scrivere:
+
+\[p_{x_{1}'} + p_{x_{2}'} = p_{x_{3}'}\]
+
+Dove \(1\), \(2\) e \(3\) distinguono le tre particelle prima e dopo l'urto. Si applica la trasformazione di Lorentz per la quantità di moto:
+
+\[
+\begin{pmatrix}
+\displaystyle \frac{E'}{c} \\
+p_{x'} \\
+p_{y'} \\
+p_{z'}
+\end{pmatrix} = \begin{pmatrix}
+\gamma & - \beta\gamma & 0 & 0 \\
+ - \beta\gamma & \gamma & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix} \begin{pmatrix}
+\displaystyle \frac{E}{c} \\
+p_{x} \\
+p_{y} \\
+p_{z}
+\end{pmatrix}
+\]
+
+Da cui si ricavano le equazioni:
+
+\[
+\begin{cases}
+\displaystyle \frac{E'}{c} = \gamma\frac{E}{c} - \beta\gamma p_{x} \\
+\displaystyle p_{x'} = - \beta\gamma\frac{E}{c} + p_{x}
+\end{cases}
+\]
+
+Utilizzando la seconda equazione è possibile riscrivere il bilancio della quantità di modo:
+
+\[p_{x_{1}'} + p_{x_{2}'} = p_{x_{3}'} \Leftrightarrow - \beta\gamma\frac{E_{1}}{c} + \gamma p_{x_{1}} - \beta\gamma\frac{E_{2}}{c} + \gamma p_{x_{2}} = - \beta\gamma\frac{E_{3}}{c} + \gamma p_{x_{3}}\]
+
+Se la particella risultante è in quiete nel sistema \(S\), la sua quantità di moto \(p_{x_{3}}\) è nulla. Raccogliendo la primo membro si ha:
+
+\[- \beta\gamma\frac{E_{1}}{c} - \beta\gamma\frac{E_{2}}{c} + \gamma\left( p_{x_{1}} + p_{x_{2}} \right) = - \beta\gamma\frac{E_{3}}{c}\]
+
+Per il principio di identità di polinomi deve risultare che:
+
+\[\begin{cases}
+p_{x_{1}} + p_{x_{2}} = 0 \\
+\displaystyle - \beta\gamma\frac{E_{1}}{c} - \beta\gamma\frac{E_{2}}{c} = - \beta\gamma\frac{E_{3}}{c}
+\end{cases} 
+\]
+
+Semplificando i termini comuni nella seconda equazione, si ha:
+
+\[E_{1} + E_{2} = E_{3}\]
+
+Da cui discende la conservazione dell'energia.
+
+\section{Esempio carica in moto in campo elettrico}\label{esempio-carica-in-moto-in-campo-elettrico}
+
+Si considera una particella carica in un campo elettrico \({\vec{E}}_{ext}\) uniforme in una regione dello spazio e costante nel tempo. La carica è soggetta alla forza di Lorentz:
+
+\[\vec{F} = q{\vec{E}}_{ext}\]
+
+Per la meccanica newtoniana, risulta:
+
+\[\vec{F} = \frac{d\vec{p}}{dt} = \vec{\dot{p}}\]
+
+Per cui la legge di Lorentz si scrive anche:
+
+\[\vec{\dot{p}} = q{\vec{E}}_{ext}\]
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.025in,height=1.71908in,alt={P1111\#yIS1}]{media/2_Relatività/image16.pdf}\caption{Particella immersa in un campo elettrico costante e uniforme}
+\end{figure}
+
+Si suppone che il moto avvenga solamente lungo l'asse \(x\):
+
+\[{\dot{p}}_{x} = qE_{ext,x}\]
+
+Si integra tale equazione rispetto al tempo. In ipotesi di velocità iniziale nulla, si ha:
+
+\[p_{x} = \int_{0}^{t}{qE_{ext,x}dt'} = qE_{ext,x}t\]
+
+Nella teoria classica, la velocità della particella cresce linearmente nel tempo. Infatti, dividendo l'equazione per la quantità di moto appena ottenuta per la massa, risulta:
+
+\[v_{x} = \frac{q}{m}E_{ext,x}t\]
+
+Secondo la meccanica relativistica, la velocità non può aumentare indefinitamente, in quando la velocità della luce è un limite invalicabile. A tale scopo, si studia lo stesso fenomeno mediante un approccio relativistico. Il modulo quadro del quadrivettore quantità di moto è dato da:
+
+\[p_{\alpha}p^{\alpha} = \frac{E^{2}}{c^{2}} - p_{x}^{2}\]
+
+Dove \(p_{\alpha}p^{\alpha} = m^{2}_{0}c^{2}\), per cui si ha:
+
+\[m^{2}_{0}c^{2} = \frac{E^{2}}{c^{2}} - p_{x}^{2}\]
+
+Da questa equazione, si ricava l'energia della particella \(E\):
+
+\[E = c\sqrt{m^{2}_{0}c^{2} + p^{2}}\]
+
+La quantità di moto è data da \(p_{x} = qE_{ext,x}t\), per cui si ottiene:
+
+\[E = c\sqrt{m^{2}_{0}c^{2} + q^{2}E_{ext,x}^{2}t^{2}}\]
+
+La velocità della particella è legata all'energia dalla relazione:
+
+\[\vec{p} = \frac{E}{c^{2}}\vec{v}\]
+
+Proiettando questa equazione sull'asse del moto, si ha:
+
+\[p_{x} = \frac{E}{c^{2}}v_{x} \Leftrightarrow v_{x} = \frac{c^{2}}{E}p_{x}\]
+
+Sostituendo le relazioni per \(p_{x}\) e l'energia, si ricava
+
+\[v_{x} = \frac{c^{2}}{E}p_{x} = \frac{c^{2}qE_{ext,x}t}{c\sqrt{m^{2}_{0}c^{2} + q^{2}E_{ext,x}^{2}t^{2}}} = \frac{cqE_{ext,x}t}{\sqrt{m^{2}_{0}c^{2} + q^{2}E_{ext,x}^{2}t^{2}}}\]
+
+Per \(t \rightarrow \infty\) la velocità tende a quella della luce:
+
+\[\lim_{t \rightarrow \infty}v_{x} = \lim_{t \rightarrow \infty}\frac{cqE_{ext,x}t}{\sqrt{m^{2}_{0}c^{2} + q^{2}E_{ext,x}^{2}t^{2}}} \rightarrow \frac{cqE_{ext,x}t}{qE_{ext,x}t} = c\]
+
+Tale equazione è coerente con il principio di limite teorico invalicabile per la velocità della luce. Infatti, affinché una particella di massa a riposo \(m_{0}\) raggiunga la velocità della luce deve essere accelerata per un tempo indefinito.
+
+Per piccoli intervalli temporali, è valida l'approssimazione classica in cui la velocità è proporzionale al tempo \(t\) mediante una costante di proporzionalità:
+
+\[v_{x} \simeq \frac{q}{m}E_{ext,x}t,\ \ t \ll \frac{m_{0}c}{qE_{ext,x}}\]
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4.31102in,height=3.54331in,alt={P1138\#yIS1}]{media/2_Relatività/image17.pdf}\caption{Andamento della velocità in funzione del tempo per particella accelerata}
+\end{figure}
+
+Nel limite classico, il concetto di massa inerziale coincide con quello di massa a riposo relativistico.

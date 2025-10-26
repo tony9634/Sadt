@@ -1,0 +1,2056 @@
+\begin{center}
+\vfill
+    \chapter{Meccanica quantistica}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+
+\section{Incongruenze del modello fisico del '900}\label{cenni-di-meccanica-quantistica}
+
+All'inizio del Novecento, il modello matematico utilizzato per descrivere i fenomeni naturali mostrava alcune incongruenze rispetto ai risultati sperimentali. La fisica classica non era in grado di spiegare diversi fenomeni osservati, tra cui:
+
+\begin{itemize}
+\item
+  La stabilità dell'elettrone orbitante attorno al nucleo: secondo l'elettrodinamica classica, un elettrone in moto circolare dovrebbe emettere radiazione elettromagnetiche e perdere energia, spiraleggiando verso il nucleo. Tuttavia, gli atomi sono stabili;
+\item
+  La distribuzione spettrale della radiazione del corpo nero: la teoria classica prevedeva una divergenza dell'energia emessa alle alte frequenze (catastrofe ultravioletta), in contrasto con le osservazioni sperimentali;
+\item
+  L'effetto fotoelettrico: la luce incidente su una superficie metallica può liberare elettroni, ma il fenomeno non era spiegabile con la teoria ondulatoria classica della luce.
+\end{itemize}
+
+Oltre a questi problemi, vi erano ulteriori discrepanze tra il modello classico e le osservazioni sperimentali, che mettevano in discussione la concezione tradizionale della materia. Tra gli esperimenti più significativi si annoverano:
+
+\begin{itemize}
+\item
+  \textbf{Esperimento della doppia fenditura (double slit)}: quando elettroni (o fotoni) passano attraverso due fenditure, producono un'interferenza tipica delle onde, anche se inviati uno alla volta. Questo suggerisce che ogni particella interferisce con sé stessa, manifestando una natura ondulatoria;
+\item
+  \textbf{Esperimento di Stern-Gerlach}: un fascio di atomi d'argento viene fatto passare attraverso un campo magnetico non uniforme. Il fascio si divide in due componenti discrete, rivelando la quantizzazione del momento angolare (spin) e la non continuità dei valori osservabili;
+\item
+  \textbf{Spettro di assorbimento atomico}: gli atomi assorbono solo specifiche frequenze di luce, corrispondenti a transizioni tra livelli energetici discreti. Questo conferma che l'energia degli elettroni è quantizzata.
+\end{itemize}
+
+Queste difficoltà portarono alla necessità di rivedere i fondamenti della fisica. Nacque così la \textbf{meccanica quantistica}, una nuova teoria che descrive il comportamento della materia e dell'energia su scala microscopica, introducendo concetti come la quantizzazione, la probabilità e la dualità onda-particella \cite{messiah1961quantum, wichmann1971quantistica, feynman1965vol3}.
+
+\subsection{Stabilità dell'atomo}\label{stabilituxe0-dellelettrone}
+Secondo la meccanica classica e l'elettromagnetismo basato sulle equazioni di Maxwell, una carica elettrica in movimento, come l'elettrone orbitante attorno al nucleo, dovrebbe emettere energia sotto forma di radiazione elettromagnetica. Questo processo comporterebbe una perdita continua di energia, con conseguente riduzione del raggio orbitale fino al collasso dell'elettrone sul nucleo.
+
+Tuttavia, le osservazioni sperimentali mostrano chiaramente che gli atomi, in particolare quelli di elementi stabili e non radioattivi, mantengono una struttura stabile nel tempo. Questa evidente discrepanza tra teoria classica e realtà sperimentale rappresentava uno dei problemi fondamentali della fisica all'inizio del Novecento.
+
+La soluzione a questa incongruenza fu proposta da Niels Bohr nel 1913, con l'introduzione di un modello atomico quantizzato: l'elettrone può occupare solo determinate orbite stazionarie, in cui non emette radiazione. Il passaggio da un'orbita all'altra avviene mediante l'assorbimento o l'emissione di quanti di energia (o fotoni), in accordo con la relazione di Planck.
+
+\subsection{Corpo nero}\label{corpo-nero}
+
+Il corpo nero è un oggetto ideale che assorbe completamente tutta la radiazione elettromagnetica incidente, senza rifletterla né trasmetterla. In base al principio di conservazione dell'energia, un corpo nero riscaldato deve emettere radiazione elettromagnetica in modo continuo, su tutte le frequenze.
+
+Sebbene il corpo nero sia un'astrazione teorica, nella pratica può essere approssimato da un oggetto cavo con pareti nere e una piccola apertura. La radiazione elettromagnetica che entra nella cavità ha una probabilità molto bassa di uscire, rendendo il sistema un buon approssimante del comportamento ideale.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.72015in,height=1.21296in,alt={P1625\#yIS1}]{media/4_Quantiatica/image31.pdf}
+\caption{Modello pratico di corpo nero}
+\end{figure}
+
+Secondo la fisica classica, basata sulle equazioni di Maxwell, l'intensità della radiazione emessa da un corpo nero dovrebbe aumentare indefinitamente al diminuire della lunghezza d'onda \(\lambda\), portando a una divergenza nota come \textbf{catastrofe ultravioletta}. Questo risultato teorico è in netto contrasto con le osservazioni sperimentali.
+
+In realtà, lo spettro di emissione del corpo nero dipende dalla temperatura e presenta un andamento continuo e finito. Esiste una lunghezza d'onda per cui l'intensità è massima, che si sposta verso valori più bassi all'aumentare della temperatura (legge di Wien). Dopo il massimo, l'intensità decresce, in accordo con la legge di Rayleigh-Jeans solo per lunghezze d'onda elevate.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4.31856in,height=3.93519in,alt={P1629\#yIS1}]{media/4_Quantiatica/image32.pdf}
+\caption{Spettro di emissione del corpo nero a diverse temperature}
+\end{figure}
+
+La risoluzione teorica di questo problema fu proposta da Max Planck nel 1900, segnando l'inizio della meccanica quantistica. Planck ipotizzò che l'energia della radiazione non fosse continua, ma quantizzata, ovvero composta da multipli interi, detti \textit{quanti} o pacchetti di energia, di una determinata energia fondamentale.
+
+L'energia emessa o assorbita da un oscillatore è proporzionale alla frequenza della radiazione, secondo la relazione:
+
+\[
+E = h\nu
+\]
+
+dove \(E\) è l'energia del quanto, \(\nu\) è la frequenza della radiazione, e \(h\) è la costante di Planck. Questa ipotesi permise di descrivere correttamente lo spettro osservato e introdusse il concetto fondamentale di quantizzazione dell'energia.
+
+\subsection{Effetto fotoelettrico}\label{effetto-fotoelettrico}
+
+L'effetto fotoelettrico è un fenomeno che descrive l'interazione tra la radiazione elettromagnetica e la materia, caratterizzato dall'emissione di elettroni da una superficie, generalmente metallica, quando irradiata con energia elettromagnetica.
+
+Sperimentalmente, si osserva che ponendo due elettrodi metallici all'interno di un'ampolla di vetro, resa trasparente alla radiazione incidente e sottoposta a un vuoto molto spinto, si genera una corrente elettrica quando uno degli elettrodi viene irradiato da una sorgente luminosa.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=2.98611in,height=2.19407in,alt={P1636\#yIS1}]{media/4_Quantiatica/image33.pdf}\caption{Circuito per l'effetto fotoelettrico}
+\end{figure}
+
+Gli elettroni emessi dall'elettrodo irradiato, dotati di energia cinetica non nulla, vengono accelerati dal campo elettrico generato da una batteria, raggiungendo il secondo elettrodo collegato al polo positivo. In questo modo, si chiude il circuito elettrico e si rileva una corrente.
+
+Applicando una differenza di potenziale tale da impedire il passaggio degli elettroni, si può misurare l'energia cinetica massima degli elettroni emessi. Infatti, quando la tensione di arresto è sufficiente a fermare anche gli elettroni più energetici, la corrente si annulla. Conoscendo tale tensione, si può determinare l'energia cinetica degli elettroni espulsi.
+
+Si applica una differenza di potenziale tale da bloccare la circolazione di corrente nel circuito, nonostante l'irraggiamento dell'elettrodo. In questa situazione, un elettrone, espulso per effetto fotoelettrico con una certa energia cinetica, si trova in un campo elettrico che lo decelera fino a farlo tornare sull'elettrodo che l'ha prodotto. Nota la tensione applicata, si riesce a determinare l'energia dell'elettrone espulso.
+
+Secondo la fisica classica, l'energia dei fotoelettroni avrebbe dovuto dipendere dall'intensità della radiazione incidente: una luce più intensa avrebbe dovuto fornire più energia agli elettroni, indipendentemente dalla sua frequenza. Tuttavia, l'esperimento mostrò che l'energia degli elettroni dipende esclusivamente dalla frequenza della radiazione, e non dalla sua intensità.
+
+
+Albert Einstein risolse questa incongruenza nel 1905, estendendo l'ipotesi di Planck: la luce è composta da quanti di energia (fotoni), ciascuno con energia proporzionale alla frequenza della radiazione
+
+\[
+E = h\nu
+\]
+
+dove \(E\) è l'energia del fotone, \(\nu\) è la frequenza della radiazione, e \(h\) è la costante di Planck. Se l'energia del fotone è sufficiente a superare la funzione lavoro del materiale, l'elettrone viene espulso. Per questa spiegazione rivoluzionaria, Einstein ricevette il Premio Nobel per la Fisica nel 1921.
+
+\subsection{Double slit}\label{double-slit}
+
+La meccanica classica descriveva l'elettrone come una particella orbitante attorno al nucleo. Tuttavia, l'esperimento della \textbf{doppia fenditura} (o \textbf{double slit}) ha rivelato la natura ondulatoria dell'elettrone, mettendo in crisi la visione corpuscolare della materia.
+
+In questo esperimento, un fascio di elettroni viene emesso da un filamento riscaldato e fatto passare attraverso due fenditure parallele. Sullo schermo di rilevazione, anziché osservare due bande corrispondenti alle fenditure, si forma una figura di interferenza: una sequenza di frange chiare e scure, tipica dei fenomeni ondulatori. Le frange scure indicano interferenza distruttiva, mentre quelle chiare corrispondono a interferenza costruttiva.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=3.02778in,height=2.29079in,alt={P1647\#yIS1}]{media/4_Quantiatica/image34.pdf}\caption{Figura di interferenza della doppia fenditura}
+\end{figure}
+
+Il comportamento degli elettroni in questo esperimento può essere interpretato attraverso il principio di Huygens dei fenomeni ondulatori, secondo cui ogni punto \(d\Sigma\) di un fronte d'onda \(\Sigma\) può essere considerato come sorgente secondaria di onde sferiche. La perturbazione risultante in un punto dello spazio è data dalla sovrapposizione di tutte le onde secondarie che vi giungono.
+
+Questo risultato è sorprendente, poiché gli elettroni sono particelle dotate di massa. Inoltre, in altri esperimenti, come l'effetto fotoelettrici, gli elettroni interagiscono con i fotoni come particelle, attraverso urti elastici. Questi due comportamenti apparentemente contraddittori hanno portato alla formulazione del concetto di \textbf{dualismo onda-corpuscolo}.
+
+Nel 1924, Louis de Broglie propose che a ogni particella materiale fosse associata un'onda, con lunghezza d'onda inversamente proporzionale alla quantità di moto:
+
+\[
+\lambda = \frac{h}{p}
+\]
+
+dove \(\lambda\) è la lunghezza d'onda associata alla particella, \(h\) è la costante di Planck, e \(p\) è la quantità di moto. Questa ipotesi fu confermata sperimentalmente e rappresenta uno dei pilastri della meccanica quantistica.
+
+\subsection{Esperimento di Stern e Gerlach}\label{esperimento-di-stern-e-gerlach}
+
+L'esperimento di Stern e Gerlach, condotto nel 1922, ha fornito una prova diretta della quantizzazione del momento angolare e ha rivelato l'esistenza di una proprietà fondamentale delle particelle: lo \textbf{spin}.
+
+Nel setup sperimentale, un fascio di atomi d'argento viene fatto passare attraverso un campo magnetico non uniforme. Secondo la fisica classica, il momento magnetico degli atomi dovrebbe orientarsi in modo continuo rispetto al campo, producendo una distribuzione continua sullo schermo di rilevazione.
+
+Tuttavia, ciò che si osserva è una separazione netta del fascio in due sole componenti distinte. Questo risultato indica che il momento magnetico, quindi il momento angolare, non può assumere valori arbitrari, ma solo determinati valori discreti. In particolare, per gli atomi d'argento, che hanno un solo elettrone nel guscio esterno, il momento angolare intrinseco (spin) può assumere solo due orientamenti: "su" e "giù".
+
+Questo esperimento ha dimostrato che:
+
+\begin{itemize}
+\item Il momento magnetico è \textbf{quantizzato}, non continuo.
+\item Le particelle subatomiche possiedono uno \textbf{spin}, una proprietà intrinseca non spiegabile dalla meccanica classica.
+\item Le misure in meccanica quantistica possono dare solo risultati discreti, anche se il sistema sembra poter assumere infiniti stati.
+\end{itemize}
+
+L'esperimento di Stern-Gerlach è uno dei pilastri della meccanica quantistica, poiché mostra in modo diretto la discrezione degli stati quantici e l'impossibilità di descrivere il comportamento microscopico della materia con modelli classici.
+
+
+\subsection{Spettro di assorbimento}\label{spettro-di-assorbimento}
+
+Lo spettro di assorbimento di un elemento o composto chimico è l'insieme delle radiazioni elettromagnetiche assorbite quando la sostanza viene esposta a una sorgente luminosa. Le sostanze assorbono radiazioni solo a determinate frequenze, generando uno spettro a righe caratteristiche.
+
+Nei primi anni del Novecento, la meccanica classica non era in grado di prevedere lo spettro di assorbimento degli atomi. Si osservava, infatti, che le sostanze non assorbono tutte le frequenze della radiazione incidente, ma solo alcune, indipendentemente dalla loro intensità.
+
+Lo spettro risultante, osservato a valle dell'esposizione, è dato dalla radiazione incidente privata delle lunghezze d'onda assorbite dal materiale. In altre parole, lo spettro presenta delle bande scure, corrispondenti alle frequenze assorbite.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=3.34722in,height=2.81542in,alt={P1658\#yIS1}]{media/4_Quantiatica/image35.pdf}\caption{Spettro di assorbimento e di emissione}
+\end{figure}
+
+
+Una soluzione empirica per prevedere lo spettro di assorbimento dell'atomo di idrogeno fu proposta da Johannes Rydberg, secondo cui la lunghezza d'onda è data da:
+
+\[
+\frac{1}{\lambda} = R_{H}\left( \frac{1}{n_{1}^{2}} - \frac{1}{n_{2}^{2}} \right)
+\]
+
+dove \(n_1, n_2 \in \mathbb{N}\) e \(R_H\) è la costante di Rydberg.
+
+La formulazione di Rydberg si basa su considerazioni energetiche e suggerisce l'esistenza di livelli energetici discreti. Ogni transizione tra due livelli corrisponde all'assorbimento (o emissione) di una radiazione elettromagnetica con frequenza ben definita.
+
+Il lavoro di Rydberg permise di prevedere lo spettro di assorbimento dell'atomo di idrogeno, ma non ne spiegava il motivo. La spiegazione teorica arrivò successivamente con il modello atomico di Bohr e, più in generale, con la meccanica quantistica, che introdusse il concetto di quantizzazione dell’energia negli stati atomici.
+
+
+\section{Teoria della meccanica quantistica}\label{teoria-della-meccanica-quantistica}
+
+In fisica teorica sono state sviluppate due principali formulazioni della teoria quantistica: una \textbf{non relativistica}, sufficiente per descrivere il comportamento degli atomi e la struttura della materia, e una \textbf{relativistica}, necessaria per trattare particelle che si muovono alla velocità della luce o interagiscono ad alte energie \cite{landau1975quantistica_rel}.
+
+La teoria quantistica relativistica è nota come \textbf{elettrodinamica quantistica} (QED, \textit{Quantum Electrodynamics}). Essa descrive con grande precisione il comportamento dei fotoni, le particelle mediatrici del campo elettromagnetico, e le loro interazioni con le particelle cariche, come gli elettroni.
+
+Una delle previsioni fondamentali della QED è l'esistenza delle \textbf{antiparticelle}, entità con caratteristiche opposte rispetto alla materia ordinaria. Un esempio è il \textbf{positrone}, antiparticella dell'elettrone, che possiede la stessa massa ma carica elettrica opposta.
+
+La meccanica quantistica non relativistica si basa sui risultati ottenuti da:
+\begin{itemize}
+\item Max Planck, con l'ipotesi della quantizzazione dell'energia per spiegare la radiazione del corpo nero;
+\item Albert Einstein, con l'interpretazione quantistica dell'effetto fotoelettrico;
+\item Louis de Broglie, con la proposta della dualità onda-corpuscolo per la materia.
+\end{itemize}
+
+Questi contributi hanno posto le basi per lo sviluppo della meccanica quantistica, una teoria che descrive il comportamento delle particelle microscopiche in termini probabilistici, introducendo concetti come la funzione d’onda, il principio di indeterminazione e la quantizzazione degli stati energetici \cite{dirac1930principles, messiah1961quantum, wichmann1971quantistica, feynman1965vol3}.
+
+\subsection{Quantizzazione della materia}\label{quantizzazione-della-materia}
+
+L'ipotesi di partenza della meccanica quantistica è la natura quantizzata della materia, secondo cui le grandezze fisiche a livello microscopico non variano in modo continuo, ma assumono solo valori discreti, multipli interi di una quantità fondamentale. Questo principio è compatibile con i risultati teorici di Einstein e Planck e consente di spiegare fenomeni come lo spettro di assorbimento a righe degli atomi.
+
+
+Gli elettroni all'interno di un atomo possiedono una certa energia, determinata dal livello energetico in cui si trovano. Quando un fotone incide sull'atomo, può essere assorbito da un elettrone solo se la sua energia è maggiore o uguale alla differenza tra due livelli energetici ammissibili. L'energia del fotone è data dalla relazione:
+
+\[
+E = h\nu
+\]
+
+dove \(E\) è l'energia del fotone, \(\nu\) è la sua frequenza, e \(h\) è la costante di Planck. Da questa relazione si deduce che l'energia della radiazione dipende esclusivamente dalla frequenza, e non dall'intensità.
+
+Se il fotone viene assorbito, l'elettrone si eccita e salta a un livello energetico superiore. Successivamente, l'elettrone tende a tornare al livello originario, emettendo un fotone con la stessa energia di quello assorbito. Poiché gli elettroni possono occupare solo livelli energetici quantizzati e stabili, non collassano sul nucleo, garantendo la stabilità dell'atomo.
+
+\subsection{Dualismo onda-particella}\label{dualismo-onda-particella}
+
+L'ipotesi di Louis de Broglie, formulata nel 1924, ha fornito una spiegazione teorica al comportamento osservato nell'esperimento della doppia fenditura. Secondo questa ipotesi, a ogni particella materiale, come l'elettrone, è associata un'onda, descritta da una funzione d'onda \(\Psi(\vec{r}, t)\), che racchiude le informazioni sullo stato quantico della particella.
+
+Poiché la particella manifesta anche una natura ondulatoria, le si può associare un'energia secondo la relazione di Planck:
+
+\[
+E = h\nu
+\]
+
+dove \(E\) è l'energia, \(\nu\) è la frequenza dell'onda associata, e \(h\) è la costante di Planck. La frequenza è legata alla pulsazione \(\omega\) dalla relazione:
+
+\[
+\nu = \frac{\omega}{2\pi}
+\]
+
+Sostituendo nella formula dell'energia, si ottiene:
+
+\[
+E = \frac{h}{2\pi}\omega = \hslash\omega
+\]
+
+Si definisce \(h\) tagliato, \(\hslash\), la costante di Planck normalizzata o ridotta di \(2\pi\):
+
+\[
+E = \hslash\omega
+\]
+
+Alla particella è anche associata una quantità di moto \(p\). Per una particella relativistica, si ha:
+
+\[
+E = mc^2 \quad \text{e} \quad p = \frac{E}{c}
+\]
+
+Per l'ipotesi di de Broglie \(E = \hslash\omega\), la quantità di moto dipende della pulsazione:
+
+\[
+p = \hslash\frac{\omega}{c}
+\]
+
+Si definisce numero d'onda \(k\) come:
+
+\[
+k = \frac{\omega}{c}
+\]
+
+Con questa definizione, è possibile scrivere la quantità di moto come:
+
+\[
+p = \hslash k
+\]
+
+Ragionando in termini di frequenza \(\nu\), si ha:
+
+\[
+p = \frac{h\nu}{c}
+\]
+
+Infine, ricordando che \(\lambda = \frac{c}{\nu}\), si può scrivere:
+
+\[
+p = \frac{h}{\lambda}
+\]
+
+Queste relazioni mostrano come le proprietà dinamiche di una particella, come energia e quantità di moto, siano legate a grandezze tipiche delle onde, ovvero frequenza e lunghezza d’onda, confermando il dualismo onda-corpuscolo alla base della meccanica quantistica.
+
+
+\subsection{Funzione d'onda associata alla particella}\label{funzione-donda-associata-alla-particella}
+
+Si consideri una particella libera in moto lungo l'asse \(x\). In base all'ipotesi di de Broglie, a tale particella può essere associata una funzione d'onda \(\Psi(x,t)\), che ne descrive lo stato quantico. Nel caso più semplice, la funzione d'onda assume la forma di un'onda piana, espressa come esponenziale complesso:
+
+\[
+\Psi(x,t) = \exp\left( j(kx - \omega t) \right)
+\]
+
+Una qualsiasi forma d'onda può essere ottenuta come sovrapposizione di infinite onde piane.
+
+I parametri \(k\) (numero d'onda) e \(\omega\) (pulsazione) possono essere espressi in funzione delle grandezze fisiche della particella:
+
+\[
+k = \frac{p}{\hslash} \quad \text{e} \quad \omega = \frac{E}{\hslash}
+\]
+
+Sostituendo nella funzione d'onda si ottiene:
+
+\[
+\Psi(x,t) = \exp\left( \frac{j}{\hslash}\left(px - Et\right) \right)
+\]
+
+Nel caso tridimensionale, la funzione d'onda assume la forma:
+
+\[
+\Psi(\vec{r},t) = \exp\left( \frac{j}{\hslash} \left(\vec{p} \cdot \vec{r} - Et\right) \right)
+\]
+
+Secondo l'interpretazione di Born, il modulo quadro della funzione d'onda associata alla particella rappresenta la densità di probabilità di trovare la particella nella posizione \(\vec{r}\) al tempo \(t\):
+
+\[
+P(\vec{r},t) = \left| \Psi(\vec{r},t) \right|^{2}
+\]
+
+Nel caso dell’onda piana, la probabilità risulta uniforme nello spazio. Tuttavia, poiché tale funzione si estende all’infinito, non è normalizzabile e non rappresenta una situazione fisica realistica. Per descrivere particelle localizzate, si utilizzano combinazioni di onde piane, dette \textit{pacchetti d’onda}.
+
+In questo contesto, il concetto classico di orbita, inteso come traiettoria deterministica, non è più applicabile. La meccanica quantistica descrive la posizione della particella in termini probabilistici. Si definisce \textbf{orbitale} la regione dello spazio in cui è massima la probabilità di trovare l'elettrone ed è data da \(\left| \Psi(\vec{r},t) \right|^{2}\).
+
+
+\section{Principio di indeterminazione di Heisenberg}\label{principio-di-indeterminazione-di-heisenberg}
+
+Il principio di indeterminazione di Heisenberg è coerente con l’interpretazione probabilistica della meccanica quantistica proposta da Born. Secondo questo principio, non è possibile conoscere con precisione e simultaneamente la posizione e la quantità di moto di una particella. Indicando con \({\Delta}x\) l’incertezza sulla posizione e con \({\Delta}p\) quella sulla quantità di moto, si ha:
+
+\[
+{\Delta}x {\Delta}p \geq \frac{\hslash}{2}
+\]
+
+Questo significa che, se la posizione viene determinata con estrema precisione (\({\Delta}x \rightarrow 0\)), l’incertezza sulla quantità di moto deve aumentare (\({\Delta}p \rightarrow \infty\)) per mantenere valida la disuguaglianza. Analogamente, maggiore è la precisione sulla misura della quantità di moto meno precisa è la conoscenza della posizione, ovvero \({\Delta}p \rightarrow 0\) allora \({\Delta}x \rightarrow \infty\).
+
+Il principio può essere esteso anche alla coppia energia-tempo, come:
+
+\[
+{\Delta}E {\Delta}t \geq \frac{\hslash}{2}
+\]
+
+In questo contesto, $\Delta t$ rappresenta l'intervallo di tempo durante il quale l'energia del sistema è definita. Questo significa che una misura precisa dell’energia ($\Delta E \rightarrow 0$) richiede un intervallo di tempo $\Delta t$ sufficientemente lungo (tendente a infinito), mentre una misura molto rapida ($\Delta t$ piccolo) comporta una maggiore incertezza sull’energia ($\Delta E$ grande).
+
+Questo principio rappresenta un limite fondamentale alla conoscenza dello stato di una particella e riflette la natura intrinsecamente probabilistica della meccanica quantistica.
+
+L’indeterminazione può essere interpretata come una conseguenza del processo di misura. Per determinare la posizione di una particella, ad esempio un elettrone, è necessario interagire con essa, ad esempio mediante fotoni. Questa interazione modifica inevitabilmente lo stato della particella. Nel mondo macroscopico, tale effetto è trascurabile, poiché l’energia dei fotoni è molto inferiore rispetto a quella degli oggetti con cui interagiscono, e quindi non ne altera significativamente lo stato.
+
+\section{Equazione di Schrödinger}\label{equazione-di-schruxf6dinger}
+
+La meccanica ondulatoria di Schrödinger è una teoria quantistica non relativistica, valida per particelle che si muovono a velocità molto inferiori a quella della luce \(c\). In questa descrizione si trascurano fenomeni come la creazione e l'annichilazione di particelle, poiché le energie coinvolte in tali processi sono troppo elevate per essere trattate nel contesto non relativistico della meccanica ondulatoria. Si osservi che il fotone è l'unica particella che può essere creata e distrutta con semplicità, tramite i fenomeni di emissione e assorbimento. Questi fenomeni sono descritti dalla meccanica ondulatoria.
+
+La teoria si applica principalmente agli stati stazionari delle particelle e rappresenta la base della meccanica quantistica non relativistica. Da essa sono state sviluppate estensioni relativistiche, come l’equazione di Klein-Gordon e quella di Dirac, quest’ultima capace di prevedere l’esistenza del positrone \cite{dirac1930principles, landau1975quantistica_rel}.
+
+La funzione d’onda associata a una particella libera può essere espressa come:
+
+\[
+\Psi(\vec{r},t) = \exp\left( \frac{j}{\hslash}(\vec{p} \cdot \vec{r} - Et) \right)
+\]
+
+La funzione d’onda deve soddisfare un’equazione differenziale che descriva la sua evoluzione nel tempo. Per l'ipotesi di Schrödinger, la funzione d'onda contiene tutte le informazioni necessarie a definire il moto della particella, per questo motivo l'equazione che permette di ricavare la funzione d'onda deve essere un'equazione differenziale, contenente la sua derivata temporale al primo ordine. In questo modo è possibile ricavare la funzione d'onda in ogni istante temporale, noto l'istante iniziale.
+
+Inoltre, la teoria di Schrödinger non considera gli effetti relativistici. Un primo tentativo di includere la relatività fu formulato da Klein-Gordon che, appunto, considerarono l'equazione con una derivata temporale al secondo ordine.
+
+Dirac, infine, scrisse un'equazione relativistica corretta da cui fu possibile prevedere l'esistenza del positrone \cite{dirac1930principles}.
+
+Per ricavare l'equazione di Schrödinger, si applica il gradiente alla funzione d'onda piana:
+
+\[
+\vec{\nabla}\Psi\left(\vec{r},t \right) = \frac{\partial\Psi}{\partial\vec{r}} = \frac{\partial}{\partial\vec{r}}\exp\left( \frac{j}{\hslash}\left( \vec{p} \cdot \vec{r} - Et \right) \right) = \frac{j}{\hslash}\vec{p}\exp\left( \frac{j}{\hslash}\left( \vec{p} \cdot \vec{r} - Et \right) \right)
+\]
+
+Il gradiente può essere riscritto come:
+
+\[
+\vec{\nabla}\Psi\left( \vec{r},t \right) = \frac{j}{\hslash}\vec{p}\,\Psi\left( \vec{r},t \right)
+\]
+
+Per valutare il laplaciano della funzione d'onda, si applica la divergenza al gradiente di \(\Psi\):
+
+\[
+\vec{\nabla} \cdot \vec{\nabla}\Psi\left( \vec{r},t \right) = \nabla^{2}\Psi\left( \vec{r},t \right) = \frac{j}{\hslash}\left( \vec{\nabla} \cdot \left(\vec{p}\Psi\left( \vec{r},t \right)\right) \right) = 
+\]
+
+Per le proprietà dell'operatore divergenza è possibile scrivere:
+
+\[
+ = \frac{j}{\hslash}\left(\Psi\left( \vec{r},t \right) \vec{\nabla} \cdot \vec{p} + \vec{p}\cdot \vec{\nabla}\Psi\left( \vec{r},t \right) 
+ \right) = 
+\]
+
+Poiché il vettore quantità di moto per una particella libera è costante, la sua divergenza è nulla (\(\vec{\nabla} \cdot \vec{p} = 0\)), per cui risulta:
+
+\[
+\vec{\nabla} \cdot \vec{\nabla}\Psi\left( \vec{r},t \right) = \frac{j}{\hslash}\vec{p}\cdot\vec{\nabla}\,\Psi\left( \vec{r},t \right)
+\]
+
+Il laplaciano della funzione d'onda si scrive come:
+
+\[
+\nabla^{2}\Psi = \frac{j}{\hslash}\vec{p}\cdot\vec{\nabla}\,\Psi\left( \vec{r},t \right) = \frac{j}{\hslash}\vec{p}\cdot\left( \frac{j}{\hslash}\vec{p}\,\Psi\left( \vec{r},t \right) \right) = \left( \frac{j}{\hslash} \right)^{2}\Psi\left( \vec{r},t \right) \vec{p}\cdot\vec{p}
+\]
+
+Per le proprietà del prodotto scalare e delle potenze dell'unità immaginaria, si scrive:
+
+\[
+\nabla^{2}\Psi = - \left( \frac{p}{\hslash} \right)^{2}\Psi  
+\]
+
+La derivata temporale di \(\Psi\) è, invece:
+
+\[\frac{\partial\Psi}{\partial t} = \frac{\partial}{\partial t}\exp\left( \frac{j}{\hslash}\left( \vec{p} \cdot \vec{r} - Et \right) \right) = - \frac{j}{\hslash}E\exp\left( \frac{j}{\hslash}\left( \vec{p} \cdot \vec{r} - Et \right) \right)
+\]
+
+Ovvero:
+
+\[\frac{\partial\Psi}{\partial t} = - \frac{j}{\hslash}E\Psi\]
+
+L'equazione di Schrödinger è ottenuta confrontando le due quantità ottenute:
+
+\[
+\begin{cases}
+\displaystyle \nabla^{2}\Psi = - \left( \frac{p}{\hslash} \right)^{2}\Psi \\
+\displaystyle \frac{\partial\Psi}{\partial t} = - \frac{j}{\hslash}E\Psi
+\end{cases} 
+\]
+
+Si isola \(\Psi\) per entrambe le equazione:
+
+\[
+\begin{cases}
+\displaystyle\Psi = - \frac{\hslash^{2}}{p^{2}}\nabla^{2}\Psi \\
+\displaystyle\Psi = - \frac{\hslash}{jE}\frac{\partial\Psi}{\partial t}
+\end{cases} \Leftrightarrow \begin{cases}
+\displaystyle \Psi = - \frac{\hslash^{2}}{p^{2}}\nabla^{2}\Psi \\
+\displaystyle \Psi = j\frac{\hslash}{E}\frac{\partial\Psi}{\partial t}
+\end{cases}
+\]
+
+Uguagliando i secondi membri delle due equazioni si ottiene:
+
+\begin{equation}
+    - \frac{\hslash^{2}}{p^{2}}\nabla^{2}\Psi = j\frac{\hslash}{E}\frac{\partial\Psi}{\partial t} 
+    \label{eq:eq1}
+\end{equation}
+
+
+
+Per una particella libera, l’energia totale o hamiltoniana  coincide con l'energia cinetica:
+
+\[
+H = E = T = \frac{1}{2}mv^{2} = \frac{p^{2}}{2m}
+\]
+
+Dall'ultima uguaglianza si isola il termine \(p^{2}\):
+
+\[
+p^{2} = 2mE
+\]
+
+Sostituendo questo risultato nell'equazione differenziale ottenuta, si ha;
+
+\[
+- \frac{\hslash^{2}}{2mE}\nabla^{2}\Psi = j\frac{\hslash}{E}\frac{\partial\Psi}{\partial t}
+\]
+
+Si semplifica \(\hslash\) ed \(E\), ottenendo l'equazione:
+
+\[
+\frac{\hslash}{2m}\nabla^{2}\Psi + j\frac{\partial\Psi}{\partial t} = 0
+\]
+
+Questa relazione rappresenta la forma standard dell’equazione di Schrödinger per una particella libera. 
+
+Nel caso in cui la particella si trovi in un campo di potenziale,  dipendente dalla posizione e dal tempo \(U(\vec{r},t)\), l’equazione si modifica includendo il termine di energia potenziale al secondo membro:
+
+\[
+j\hslash\frac{\partial\Psi}{\partial t} = \left( -\frac{\hslash^{2}}{2m}\nabla^{2} + U(\vec{r},t) \right)\Psi
+\]
+
+Questa equazione descrive l’evoluzione temporale della funzione d’onda \(\Psi(\vec{r},t)\), che contiene tutte le informazioni sullo stato quantico della particella. La sua soluzione consente di determinare la probabilità di trovare la particella in una certa posizione e in un certo istante.
+
+\section{Operatori in meccanica quantistica}\label{operatori-in-meccanica-quantistica}
+In meccanica quantistica, a ogni grandezza fisica osservabile è associato un operatore matematico \(\hat{f}\) che agisce sullo spazio delle funzioni d'onda:
+
+\[
+\hat{f} : \Psi \rightarrow \varphi
+\]
+
+L'operatore \(\hat{f}\) è un'applicazione lineare che trasforma una funzione d'onda \(\Psi\) in un'altra funzione d'onda \(\varphi\), ovvero porta una particella da uno stato quantico iniziale a uno finale. I valori misurabili della grandezza fisica corrispondono agli autovalori dell'operatore \(\hat{f}\), ottenuti risolvendo l'equazione agli autovalori:
+
+\[
+\hat{f} \Psi = f \Psi
+\]
+
+In questo contesto, un’osservabile è una grandezza fisica misurabile, rappresentata da un operatore lineare, in genere complesso, che agisce sullo spazio degli stati quantici.
+
+Essendo \(\hat{f}\) un operatore lineare, vale la proprietà:
+
+\[
+\hat{f}\left( c_{1}\Psi_{1} + c_{2}\Psi_{2} \right) = c_{1}\hat{f}\left( \Psi_{1} \right) + c_{2}\hat{f}\left( \Psi_{2} \right)
+\]
+
+In meccanica quantistica, la quantità di moto (o momento lineare) è associata all'operatore:
+
+\[
+\hat{\vec{p}} = -j\hslash\vec{\nabla}
+\]
+
+che, in coordinate cartesiane, si scrive:
+
+\[
+\hat{\vec{p}} = -j\hslash
+\begin{pmatrix}
+\displaystyle \frac{\partial}{\partial x} \\
+\displaystyle \frac{\partial}{\partial y} \\
+\displaystyle \frac{\partial}{\partial z}
+\end{pmatrix}
+\]
+
+L'energia di una particella libera è descritta dall'operatore hamiltoniano:
+
+\[
+\hat{H} = \frac{1}{2m} \hat{\vec{p}} \cdot \hat{\vec{p}} = \frac{1}{2m} (-j\hslash\vec{\nabla}) \cdot (-j\hslash\vec{\nabla}) = -\frac{\hslash^{2}}{2m}\nabla^{2}
+\]
+
+che, in coordinate cartesiane, si scrive:
+
+\[
+\hat{H} = -\frac{\hslash^{2}}{2m}\left( \frac{\partial^{2}}{\partial x^{2}} + \frac{\partial^{2}}{\partial y^{2}} + \frac{\partial^{2}}{\partial z^{2}} \right)
+\]
+
+Se la particella è immersa in un campo di potenziale \(U\left(\vec{r},t\right)\), l'operatore hamiltoniano, rappresentante l'energia totale della particella, si generalizza come:
+
+\[
+\hat{H} =  -\frac{\hslash^{2}}{2m}\nabla^{2} + U\left(\vec{r},t\right)
+\]
+
+Il momento angolare è associato all'operatore:
+
+\[
+\vec{\hat{L}} = \vec{r} \times \hat{\vec{p}} = \vec{r} \times \left( -j\hslash\vec{\nabla} \right) = -j\hslash\, \vec{r} \times \vec{\nabla}
+\]
+
+\begin{table}[ht]
+    \centering
+    \caption{Operatori Fondamentali in Meccanica Quantistica}
+    \label{tab:operatori-quantistici}
+    \begin{tabular}{|l|c|c|}
+        \hline
+        \textbf{Osservabile} & \textbf{Simbolo Classico} & \textbf{Operatore Quantistico ($\hat{f}$)} \\
+        \hline
+        Posizione & $\vec{r}$ & $\hat{\vec{r}} = \vec{r}$ \\
+        \hline
+        Quantità di Moto & $\vec{p}$ & $\hat{\vec{p}} = -j\hslash\vec{\nabla}$ \\
+        \hline
+        Energia Cinetica & $T = \frac{p^2}{2m}$ & $\hat{T} = -\frac{\hslash^{2}}{2m}\nabla^{2}$ \\
+        \hline
+        Energia Potenziale & $U(\vec{r},t)$ & $\hat{U} = U(\vec{r},t)$ \\
+        \hline
+        Energia Totale (Hamiltoniana) & $H = T + U$ & $\hat{H} = -\frac{\hslash^{2}}{2m}\nabla^{2} + U(\vec{r},t)$ \\
+        \hline
+        Momento Angolare & $\vec{L} = \vec{r} \times \vec{p}$ & $\vec{\hat{L}} = -j\hslash\, (\vec{r} \times \vec{\nabla})$ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Utilizzando la definizione dell'operatore hamiltoniano, è possibile riscrivere in forma compatta l'equazione di Schrödinger per una particella immersa in un campo potenziale variabile nel tempo e con la posizione:
+
+\[
+j\hslash\frac{\partial \Psi}{\partial t} = -\frac{\hslash^2}{2m} \nabla^2 \Psi + U(\vec{r},t)\Psi
+\]
+
+Poiché \(\hat{H} = -\hslash^{2}/{2m}\,\nabla^{2} + U\left(\vec{r},t\right)\), si può scrivere:
+
+\[
+\left( U\left( \vec{r},t \right) -\frac{\hslash^{2}}{2m}\nabla^{2}\right) \Psi = j\hslash\frac{\partial\Psi}{\partial t}
+\]
+
+Si ottiene così la forma operativa dell’equazione di Schrödinger:
+
+\[
+\hat{H}\Psi = j\hslash\frac{\partial\Psi}{\partial t}
+\]
+
+oppure, portando tutti i termini da un lato:
+
+\[
+\hat{H}\Psi - j\hslash\frac{\partial\Psi}{\partial t} = 0
+\]
+
+\section{Equazione di Schrödinger per stati stazionari}\label{equazione-di-schruxf6dinger-per-stati-stazionari}
+
+La funzione d'onda \(\Psi\left( \vec{r},t \right)\), espressa come un'onda piana, può essere scritta come:
+
+\[
+\Psi\left( \vec{r},t \right) = \exp\left( \frac{j}{\hslash}\left( \vec{p} \cdot \vec{r} - Et \right) \right) = \exp\left( \frac{j}{\hslash}\vec{p} \cdot \vec{r} \right)\exp\left( - \frac{j}{\hslash}Et \right)
+\]
+
+Si definisce \(\phi\left( \vec{r} \right)\) come la parte della funzione d'onda dipendente dalla posizione:
+
+\[
+\phi\left( \vec{r} \right) = \exp\left( \frac{j}{\hslash}\vec{p} \cdot \vec{r} \right)
+\]
+
+L'equazione di Schrödinger si scrive quindi come:
+
+\[
+\Psi\left( \vec{r},t \right) = \phi\left( \vec{r} \right)\exp\left( - \frac{j}{\hslash}Et \right)
+\]
+
+Se l'energia del sistema è costante, l'hamiltoniana non dipende dal tempo. Si applica questo operatore alla funzione d'onda:
+
+\[
+\hat{H}\Psi = \hat{H}\left( \phi\left( \vec{r} \right)\exp\left( - \frac{j}{\hslash}Et \right) \right)
+\]
+
+Per definizione dell'operatore hamiltoniano, si ha:
+
+\[
+\hat{H}\Psi = \left( -\frac{\hslash^{2}}{2m}\nabla^{2} + V(\vec{r}) \right)\left( \phi\left( \vec{r} \right)\exp\left( - \frac{j}{\hslash}Et \right) \right)
+\]
+
+Poiché $V(\vec{r})$ è un operatore di moltiplicazione e l'esponenziale temporale non dipende dalla posizione (dunque, può essere portato all'esterno del Laplaciano) si ottiene:
+
+\[
+\hat{H}\Psi = - \frac{\hslash^{2}}{2m}\exp\left( - \frac{j}{\hslash}Et \right)\nabla^{2}\phi\left( \vec{r} \right) + V(\vec{r})\phi\left( \vec{r} \right) \exp\left( - \frac{j}{\hslash}Et \right)
+\]
+
+Raccogliendo opportunamente, si ha:
+
+\[
+\hat{H}\Psi = \exp\left( - \frac{j}{\hslash}Et \right)\left( -\frac{\hslash^{2}}{2m}\nabla^{2} + V(\vec{r}) \right)\phi\left( \vec{r} \right)
+\]
+
+Per definizione dell'operatore hamiltoniano, si ricava:
+
+\[
+\hat{H}\Psi = \exp\left( - \frac{j}{\hslash}Et \right)\hat{H}\phi\left( \vec{r} \right)
+\]
+
+Si calcola ora la derivata temporale di \(\Psi\):
+
+\[
+\frac{\partial\Psi}{\partial t} = \frac{\partial}{\partial t}\left( \phi\left( \vec{r} \right)\exp\left( - \frac{j}{\hslash}Et \right) \right)
+\]
+
+Poiché \(\phi\left( \vec{r} \right)\) non dipende dal tempo, ma solamente dalla posizione, può essere portata all'esterno del simbolo di derivata:
+
+\[
+\frac{\partial\Psi}{\partial t} = \phi\left( \vec{r} \right)\frac{\partial}{\partial t}\exp\left( - \frac{j}{\hslash}Et \right) = - \frac{j}{\hslash}E\phi\left( \vec{r} \right)\exp\left( - \frac{j}{\hslash}Et \right)
+\]
+
+Si considera l'equazione di Schrödinger in termini di hamiltoniana, \(\hat{H}\Psi - j\hslash\partial\Psi/\partial t = 0\). Si è visto che:
+
+\[
+\begin{cases}
+\displaystyle\frac{\partial\Psi}{\partial t} = - \frac{j}{\hslash}E\phi\left( \vec{r} \right)\exp\left( - \frac{j}{\hslash}Et \right) \\
+\displaystyle\hat{H}\Psi = \exp\left( - \frac{j}{\hslash}Et \right)\hat{H}\phi\left( \vec{r} \right)
+\end{cases} 
+\]
+
+Sostituendo:
+
+\[
+\exp\left( - \frac{j}{\hslash}Et \right)\hat{H}\phi\left( \vec{r} \right) - j\hslash\left( - \frac{j}{\hslash}E\phi\left( \vec{r} \right)\exp\left( - \frac{j}{\hslash}Et \right) \right) = 0
+\]
+
+Svolgendo i prodotti, si ottiene:
+
+\[
+\exp\left( - \frac{j}{\hslash}Et \right)\hat{H}\phi\left( \vec{r} \right) - E\phi\left( \vec{r} \right)\exp\left( - \frac{j}{\hslash}Et \right) = 0
+\]
+
+Semplificando il termine esponenziale, si ottiene:
+
+\[
+\hat{H}\phi\left( \vec{r} \right) = E\phi\left( \vec{r} \right)
+\]
+
+Si ottiene un'equazioni agli autovettori e autovalori; infatti, è possibile scrivere:
+
+\[\left( \hat{H} - E \right)\phi\left( \vec{r} \right) = 0\]
+
+Dove \(E\) è l'energia totale del sistema supposta costante. L'energia \(E\) rappresenta gli autovalori dell'operatore hamiltoniano \(\hat{H}\). Questo risultato è coerente con gli esperimenti, poiché gli autovalori sono, in genere, un'infinità numerabile e, dunque, discreti.
+
+La meccanica ondulatoria i Schrödinger prevede la quantizzazione dell'energia degli orbitali atomici. La soluzione dell'equazione agli autovalori permette di ottenere i livelli energetici del sistema e le autofunzioni \(\phi\left( \vec{r} \right)\), il cui modulo quadro rappresenta la probabilità che la particella del sistema si trovi un quel livello energetico.
+
+Sia \(V\left( \vec{r} \right)\) l'energia potenziale a cui la particella è soggetta, ad esempio un elettrone attratto dal nucleo. L'operatore hamiltoniano si scrive:
+
+\[
+\hat{H} = - \frac{\hslash^{2}}{2m}\nabla^{2} + V\left( \vec{r} \right)
+\]
+
+Con \({\hat{E}}_{c}\) operatore energia cinetica:
+
+\[
+{\hat{E}}_{c} = - \frac{\hslash^{2}}{2m}\nabla^{2}
+\]
+
+L'operatore hamiltoniano è dato da:
+
+\[
+\hat{H} = \hat{E} = - \frac{\hslash^{2}}{2m}\nabla^{2} + V\left( \vec{r} \right)
+\]
+
+Nel caso dell'elettrone attratto dal nucleo, il potenziale è di tipo coulombiano:
+
+\[
+V\left( \vec{r} \right) = -\frac{1}{4\pi\varepsilon_{0}}\frac{Ze^{2}}{r}
+\]
+
+Dove \(Z\) è il numero atomico, ovvero il numero di protoni nel nucleo.
+
+L'equazione agli autovettori dell'hamiltoniano si scrive come:
+
+
+\[
+\hat{H}\phi\left( \vec{r} \right) - \ E\phi\left( \vec{r} \right) = 0 \Leftrightarrow - \frac{\hslash^{2}}{2m}\nabla^{2}\phi + V\left( \vec{r} \right)\phi = E\phi
+\]
+
+Moltiplicando per \(- 1\), si ha:
+
+\[
+\frac{\hslash^{2}}{2m}\nabla^{2}\phi - V\left( \vec{r} \right)\phi + E\phi = 0
+\]
+
+Raccogliendo, si ha:
+
+\[
+\left( \frac{\hslash^{2}}{2m}\nabla^{2} + \left( E - V\left( \vec{r} \right) \right) \right) \phi = 0
+\]
+
+In generale, è possibile scrivere un'equazione agli autovalori per ogni operatore. I corrispondenti autovalori sono i valori che quell'operatore può assumere.
+
+Ad esempio, gli autovalori del momento angolare sono i possibili valori del momento angolare ottenuti risolvendo l'equazione agli autovalori:
+
+\[
+\hat{L}\phi = L\phi
+\]
+
+In presenza di un campo magnetico, l'energia totale dell'elettrone o particella è data da:
+
+\[
+E = E_{c} + V\left( \vec{r} \right)
+\]
+
+Dove il potenziale è dato da:
+
+\[
+V\left( \vec{r} \right) = \vec{\mu} \cdot \vec{B}
+\]
+
+Il momento magnetico è legato al momento angolare dal fattore giromagnetico:
+
+\[
+\hat{\vec{\mu}} = - \gamma\hat{\vec{L}}
+\]
+
+Dunque, il potenziale può essere espresso come:
+
+\[
+V\left( \vec{r} \right) = - \gamma\hat{\vec{L}} \cdot \vec{B}
+\]
+
+In definitiva, l'operatore hamiltoniano si scrive:
+
+\[
+\hat{H} = - \frac{\hslash^{2}}{2m}\nabla^{2} - \gamma\hat{\vec{L}} \cdot \vec{B}
+\]
+
+\subsection{Buco di potenziale}\label{buco-di-potenziale}
+
+Secondo la meccanica classica, l'energia cinetica di una particella è:
+
+\[
+T = \frac{1}{2}mv^{2}
+\]
+
+Mentre l'energia totale è data da:
+
+\[
+E = T + V
+\]
+
+Con \(V\) energia potenziale. Dalla relazione per l'energia totale è possibile valutare l'energia cinetica in funzione di quella totale e potenziale:
+
+\[
+T = E - V
+\]
+
+Nella teoria classica, la particella è in moto se l'energia cinetica è positiva, ovvero:
+
+\[
+T > 0 \Leftrightarrow E > V
+\]
+
+Pertanto, in ambito classico, il moto della particella può avvenire solo nelle regioni in cui \(E > V\).
+
+Si considera ora una buca di potenziale unidimensionale definita da:
+
+\[
+V(x) = \begin{cases}
+0 & 0 < x < a \\
+\infty & x \leq 0 \text{ oppure } x \geq a
+\end{cases}
+\]
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=2.67857in,height=0.86783in,alt={P1856C2T1\#yIS1}]{media/4_Quantiatica/image36.pdf}\caption{Buca di potenziale}
+\end{figure}
+
+La particella può muoversi solo all'interno della regione di spazio \(0 < x < a\), dunque, la funzione d'onda \(\phi\left( \vec{r} \right)\) è nulla all'esterno della buca di potenziale, in cui \(V \rightarrow \infty\).
+
+
+L'equazione di Schrödinger ha soluzioni non nulle solo dove il potenziale è finito. In termini di hamiltoniana:
+
+\[
+\hat{H}\phi(x) = E\phi(x)
+\]
+
+Poiché la particella è libera all'interno della buca, l'operatore hamiltoniano nel caso generale è:
+
+\[
+\hat{H} = - \frac{\hslash^{2}}{2m}\nabla^{2}
+\]
+
+Il moto avviene solamente lungo l'asse \(x\), per cui l'operatore è:
+
+\[
+\hat{H} = - \frac{\hslash^{2}}{2m}\frac{d^{2}}{d x^{2}}
+\]
+
+L'equazione di Schrödinger per la buca di potenziale e, quindi:
+
+\[
+- \frac{\hslash^{2}}{2m}\frac{d^{2}\phi}{dx^{2}} = E\phi
+\Leftrightarrow
+\frac{d^{2}\phi}{dx^{2}} + \frac{2mE}{\hslash^{2}}\phi = 0
+\]
+
+L'equazione ottenuta coincide con l'oscillatore armonico, la cui soluzione è del tipo:
+
+\[\phi(x) = A\cos\left( \sqrt{\frac{2mE}{\hslash^{2}}}x \right) + B\sin\left( \sqrt{\frac{2mE}{\hslash^{2}}}x \right)\]
+
+Dove \(A\) e \(C\) sono due costanti dipendenti dalle condizioni al contorno, ottenute considerando la funzione d'onda continua nei punti \(x = a\) e \(x = b\):
+
+\[
+\begin{cases}
+\phi(a) = 0 \\
+\phi(0) = 0
+\end{cases} 
+\]
+
+Si applica la prima condizione \(\phi(a) = 0 \):
+
+\[
+\phi(a) = A\cos\left( \sqrt{\frac{2mE}{\hslash^{2}}}0 \right) + B\sin\left( \sqrt{\frac{2mE}{\hslash^{2}}}0 \right) = 0
+\]
+
+Da cui risulta:
+
+\[
+\phi(0) = A = 0
+\]
+
+Si applica la seconda condizione al contorno:
+
+\[
+\phi(a) = B\sin\left( \sqrt{\frac{2mE}{\hslash^{2}}}a \right) = 0
+\]
+
+Le soluzioni dell'equazione:
+
+\[
+\sin\left( \sqrt{\frac{2mE}{\hslash^{2}}}a \right) = 0
+\]
+
+sono un'infinità numerabile:
+
+\[
+\sqrt{\frac{2mE_{n}}{\hslash^{2}}}a = n\pi,\ n\in\mathbb{N}
+\]
+
+Si ricava \(E_{n}\):
+
+\[
+\frac{a}{\hslash}\sqrt{2mE_{n}} = n\pi \Leftrightarrow \sqrt{2mE_{n}} = \frac{\hslash^{2}}{a^{2}}n\pi,\ n\in \mathbb{N}
+\]
+
+Si eleva al quadrato e si divide ambo i membro per \(2m\):
+
+\[
+E_{n} = \frac{\hslash^{2}}{2ma^{2}}n^{2}\pi^{2},\ n\in \mathbb{N}
+\]
+
+Gli \(E_{n}\) sono gli autovalori possibili dell'operatore hamiltoniano e, di conseguenza, i possibili livelli energetici che può assumere la particella in una buca di potenziale monodimensionale. Come si nota, i livelli energetici sono quantizzati, in accordo con le previsioni sperimentali.
+
+Si considera, ora, il caso tridimensionale, ovvero la particella si muove in una scatola di potenziale. La funzione potenziale è data da:
+
+\[
+V(x,y,z) = \begin{cases}
+0 & 0 < x < a,\ 0 < y < b,0 < z < c\  \\
+\infty & altrove
+\end{cases} 
+\]
+
+L'equazione di Schrödinger fornisce valori non nulli solamente nella regione di spazio in cui il potenziale è finito \(\left[ 0;a\right] \times \left[ 0;b\right] \times \left[0;c\right]\). In termini di hamiltoniano, costante nel tempo, si ha:
+
+\[
+\hat{H}\phi\left( \vec{r} \right) - E\phi\left( \vec{r} \right) = 0
+\]
+
+Esplicitando l'operatore hamiltoniano, si ottiene:
+
+\[
+- \frac{\hslash^{2}}{2m}\nabla^{2}\ \phi\left( \vec{r} \right) - E\phi\left( \vec{r} \right) = 0
+\]
+
+Ricavando il laplaciano di \(\phi\):
+
+\[
+\nabla^{2}\ \phi + \frac{2m}{\hslash^{2}}E\phi = 0
+\]
+
+In coordinate cartesiane, l'equazione è data:
+
+\[
+\frac{\partial^{2}\phi}{\partial x^{2}} + \frac{\partial^{2}\phi}{\partial y^{2}} + \frac{\partial^{2}\phi}{\partial z^{2}} + \frac{2m}{\hslash^{2}}E\phi = 0
+\]
+
+Si applica il metodo delle variabile separabili, secondo cui la soluzione è del tipo:
+
+\[
+\phi\left( \vec{r} \right) = \alpha(x)\beta(y)\gamma(z)
+\]
+
+Si sostituisce questa espressione nell'equazione di Schrödinger in coordinate cartesiane:
+
+\[
+\beta\gamma\frac{\partial^{2}\alpha}{\partial x^{2}} + \alpha\gamma\frac{\partial^{2}\beta}{\partial y^{2}} + \alpha\beta\frac{\partial^{2}\gamma}{\partial z^{2}} + \frac{2mE}{\hslash^{2}}\alpha\beta\gamma = 0
+\]
+
+Si divide per \(\phi\left( \vec{r} \right) = \alpha(x)\beta(y)\gamma(z)\):
+
+\[\frac{1}{\alpha}\ \frac{\partial^{2}\alpha}{\partial x^{2}} + \frac{1}{\beta}\ \frac{\partial^{2}\beta}{\partial y^{2}} + \frac{1}{\gamma}\frac{\partial^{2}\gamma}{\partial z^{2}} + \frac{2mE}{\hslash^{2}} = 0\]
+
+I tre termini dipendono solamente da una variabile spaziale, dunque, è possibile scrivere tre equazioni diverse:
+
+\[
+\begin{cases}
+\displaystyle\frac{\partial^{2}\alpha}{\partial x^{2}} + k_{x}^{2}\alpha = 0 \\
+\displaystyle\frac{\partial^{2}\beta}{\partial y^{2}} + k_{y}^{2}\beta = 0 \\
+\displaystyle\frac{\partial^{2}\gamma}{\partial z^{2}} + k_{z}^{2}\gamma = 0
+\end{cases}
+\]
+
+La soluzione delle equazioni è del tipo:
+
+\[
+f(q) = c\exp\left( - jk_{q}q \right),\ \ q = x,y,z
+\]
+
+Dunque, la integrale generale è del tipo:
+
+\[
+\phi(x,y,z) = \left( A_x \cos(k_x x) + B_x \sin(k_x x) \right) \cdot \left( A_y \cos(k_y y) + B_y \sin(k_y y) \right) \cdot \left( A_z \cos(k_z z) + B_z \sin(k_z z) \right)
+\]
+
+Dove:
+\[
+k_x = \sqrt{2m\frac{E_x}{\hslash^2}},\ k_y = \sqrt{2m\frac{E_y}{\hslash^2}}\, k_z = \sqrt{2m\frac{E_z}{\hslash^2}}
+\]
+mentre $A_i$ e $B_i$ sono costanti determinate dalle condizioni al contorno.
+
+Le condizione da imporre riguardano la continuità della funzione d'onda ai bordi della buca di potenziale:
+
+\[
+\begin{cases}
+\phi(0,y,z) = 0 \\
+\phi(a,y,z) = 0 \\
+\phi(x,0,z) = 0 \\
+\phi(x,b,z) = 0 \\
+\phi(x,y,0) = 0 \\
+\phi(x,y,c) = 0
+\end{cases} 
+\]
+
+Le condizioni al contorno portano a un'equazione del tipo:
+
+\[
+\sin\left( ak_{x} \right) = 0
+\]
+
+La cui soluzioni sono:
+
+\[
+k_{x} = n_{x}\frac{\pi}{a},\ \ n_{x}\in \mathbb{N}
+\]
+
+Da cui si ottengono gli autovalori lungo \(x\) dell'equazione di Schrödinger:
+
+\[
+E_{x} = k_{x}^{2}\frac{\hslash}{2m} = n_{x}^{2}\frac{\pi^{2}}{a^{2}}\frac{\hslash^{2}}{2m},\ \ n_{x}\in\mathbb{ N}
+\]
+
+Analogo risultato lo si ottiene per \(E_{y}\):
+
+\[
+E_{y} = n_{y}^{2}\frac{\pi^{2}}{b^{2}}\frac{\hslash^{2}}{2m},\ \ n_{y}\in\mathbb{ N}
+\]
+
+ed \(E_{z}\):
+
+\[E_{z} = n_{z}^{2}\frac{\pi^{2}}{c^{2}}\frac{\hslash^{2}}{2m},\ \ n_{z}\in\mathbb{N}\]
+
+La somma dei tre autovalori deve essere uguale all'energia totale:
+
+\[
+E_{n} = E_{x} + E_{z} + E_{z}
+\]
+
+Sostituendo i valori ottenuti si ottengono gli autovalori dell'operatore hamiltoniano per la geometria considerata:
+
+\[
+E_{n} = \left( \frac{n_{x}^{2}}{a^{2}} + \frac{n_{y}^{2}}{b^{2}} + \frac{n_{z}^{2}}{c^{2}} \right)\frac{\pi^{2}\hslash^{2}}{2m},\ \ n_{x},n_{y},n_{z}\in \mathbb{N}
+\]
+
+Allo stesso modo è possibile ottenere i livelli energetici per un atomo qualsiasi, come quello di idrogeno. In questo caso, il potenziale in cui è immerso l'elettrone è di tipo coulombiano:
+
+\[V(r) = \frac{1}{4\pi\varepsilon_{0}}\frac{e^{2}}{r}\]
+
+La risoluzione dell'equazione di Schrödinger in coordinate sferiche fornisce i livelli energetici dell'atomo.
+
+Le previsioni teoriche, ovvero livelli energetici ricavati dalla risoluzione dell'equazione di Schrödinger, coincidono con l'energia dei livelli energetici dell'atomo. Ne discende che, mediante l'equazione di Schrödinger è possibile ottenere una previsione teorica anche per gli spettri di assorbimento. Infatti, nota l'energia degli orbitali, è nota anche l'energia, \(E = h\nu\), che il fotone deve possedere affinché sia assorbito dall'elettrone. L'energia del fotone deve essere maggiore della differenza dell'energia dei due livelli energetici coinvolti.
+
+\subsection{Gradino di potenziale}\label{gradino-di-potenziale}
+
+In meccanica classica il moto di una particella non può avvenire nella regione di spazio in cui la sua energia \(E\) è minore  del potenziale \(V\) che insiste in quella regione di spazio (\(E < V\)). In altre parole, se la particella non ha energia sufficiente, non riesce a superare il gradino di potenziale.
+
+Si consideri una particella elementare, come un elettrone, con energia \(E\), lanciata verso un gradino di potenziale \(V_0\), definita come:
+
+\[
+V(x) = \begin{cases}
+V_{0} & x > 0 \\
+0 & x < 0
+\end{cases} 
+\]
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5.10848in,height=0.63328in,alt={P1933\#yIS1}]{media/4_Quantiatica/image37.pdf}\caption{Gradino di potenziale}
+\end{figure}
+
+È possibile scrivere l'equazione di Schrödinger per le due regioni dello spazio, in base al potenziale \(V(x)\). Essendo il moto monodimensionale, risulta:
+
+\[
+\begin{cases}
+\displaystyle \frac{\partial^{2}\phi}{\partial x^{2}} + \frac{2mE}{\hslash^{2}}\phi = 0 & x < 0 \\
+\displaystyle \frac{\partial^{2}\phi}{\partial x^{2}} + \frac{2m}{\hslash^{2}}\left( E - V_{0} \right)\phi = 0 & x > 0
+\end{cases}
+\]
+
+La prima equazione presenta una soluzione del tipo:
+
+\[
+\phi(x) = A\exp\left( j\frac{\sqrt{2mE}}{\hslash}x \right) + C\exp\left( - j\frac{\sqrt{2mE}}{\hslash}x \right)
+\]
+
+All'interfaccia del gradino di potenziale, si genera un'onda riflessa che prosegue in verso retrogrado. Dunque, Nella regione di spazio \(x < 0\) vi sono due onde: una progressiva (o incidente) e una regressiva (o riflessa). Nell'equazione, $A$ è il coefficiente dell'onda incidente e $C$ quello della riflessa.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5.25in,height=0.81494in,alt={P1940\#yIS1}]{media/4_Quantiatica/image38.pdf}\caption{Onda riflessa e trasmessa all'interfaccia}
+\end{figure}
+
+Nella regione \(x > 0\) supponendo che \(E < V_{0}\), l'esponenziale dell'onda deve essere reale e negativo, ovvero:
+
+\[
+\phi(x) = B\exp\left( - \frac{\sqrt{2m(V_{0} - E)}}{\hslash}x \right)
+\]
+
+Applicando la condizione di continuità della funzione d'onda all'interfaccia \(x = 0\), risulta che:
+
+\[
+\phi\left( 0^{-} \right) = \phi\left( 0^{+} \right)
+\]
+
+Ovvero:
+
+\[
+A + C = B
+\]
+
+Esiste, dunque, una probabilità non nulla di trovare la particella oltre il gradino di potenziale. Tuttavia, poiché l'onda nella regione di spazio \(x>0\) presenta un esponenziale reale, la probabilità di trovare la particella elementare oltre il gradino di potenziale decresce rapidamente con la distanza. Nonostante ciò, trovare la particella oltre il gradino di potenziale è un evento possibile, soprattutto in prossimità dell'interfaccia. 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=3.77117in,height=2.41667in,alt={P1949\#yIS1}]{media/4_Quantiatica/image39.pdf}\caption{Probabilità di rilevare la particella oltre il gradino di potenziale}
+\end{figure}
+
+L'effetto del gradino di potenziale è sfruttato nei dispositivi a semiconduttore.
+
+\subsection{Effetto tunnel}\label{effetto-tunnel}
+
+Si suppone che il potenziale sia confinato in una regione dello spazio, ovvero del tipo:
+
+\[V(x) = \begin{cases}
+0 & x < 0 \\
+V_{0} & 0 \leq x \leq a \\
+0 & x > 0
+\end{cases} 
+\]
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6.52905in,height=0.84849in,alt={P1955\#yIS1}]{media/4_Quantiatica/image40.pdf}\caption{Impulso di tensione}
+\end{figure}
+
+Si suppone che la particella provenga da sinistra, ovvero proceda nel verso delle \(x\) crescenti. Nella prima regione (\(x < 0\)), l'equazione di Schrödinger stazionaria è:
+
+\[
+\frac{d^2\phi}{dx^2} + \frac{2mE}{\hslash^2}\phi = 0
+\]
+
+La cui soluzione prevede due onde: una progressiva e una regressiva a causa dei fenomeni di riflessione:
+
+\[
+\phi_{x < 0}(x) = I\exp\left( j\frac{\sqrt{2mE}}{\hslash}x \right) + R\exp\left( - j\frac{\sqrt{2mE}}{\hslash}x \right)
+\]
+
+dove \(I\) è l'ampiezza dell'onda incidente e \(R\) quella dell'onda riflessa.
+
+Nella regione intermedia (\(0 < x < a\)), dove il potenziale è costante e maggiore dell'energia della particella (\(V_0 > E\)), l'equazione diventa:
+
+\[
+\frac{d^{2}\phi}{d x^{2}} + \frac{2m}{\hslash^{2}}\left( E - V_{0} \right)\phi = 0,\ 0 < x < a
+\]
+
+Per la presenza dell'interfaccia successiva, per ottenere la soluzione completa, è necessario prevedere la presenza di due onde: una progressiva e una regressiva:
+
+\[
+\phi_{0 < x < a}(x) = \ A\exp\left( \frac{\sqrt{2m(V_0 - E)}}{\hslash}x \right) + B\exp\left( - \frac{\sqrt{2m(V_0 - E)}}{\hslash}x \right)
+\]
+
+Dove gli esponenziali sono reali a causa della condizione \(V_{0} > E\).
+
+Nella regione \(x > a\), invece, si ha un'unica onda poiché non vi sono fenomeni di riflessione. L'equazione stazionaria è la stessa della regione per \(x < 0\):
+
+\[\frac{d^{2}\phi}{d x^{2}} + \frac{2mE}{\hslash^{2}}\phi = 0,\ \ x > a\]
+
+Dove la soluzione è:
+
+\[
+\phi_{x > a}(x) = S\exp\left( j\frac{\sqrt{2mE}}{\hslash}x \right)
+\]
+
+Oltre l'impulso di tensione di ampiezza \(V_{0}\) maggiore di \(E\) della particella, esiste una probabilità non nulla di trovare la particella. Tale fenomeno è noto come effetto tunnel e rappresenta uno dei risultati più controintuitivi e utilizzati della meccanica quantistica.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=4.07292in,height=1.87026in,alt={P1971\#yIS1}]{media/4_Quantiatica/image41.pdf}\caption{Effetto tunnel}
+\end{figure}
+
+L'effetto tunnel ha importanti applicazioni, tra cui il Microscopio a Scansione a Effetto Tunnel (STM) e i diodi tunnel.
+
+%fenomeno della \textbf{scintillazione}, utilizzato per ridurre la dose di radiazione somministrata al paziente durante esami radiologici.
+
+\section{Meccanica quantistica con notazione di Dirac}\label{meccanica-quantistica-con-notazione-di-dirac}
+
+La \textbf{meccanica ondulatoria}, sviluppata principalmente da Schrödinger, e la \textbf{meccanica matriciale}, introdotta da Heisenberg, sono due formulazioni della meccanica quantistica elaborate nello stesso periodo storico. Dirac ha dimostrato l'equivalenza tra le due teorie attraverso un approccio algebrico basato sugli \textbf{spazi di Hilbert}, una generalizzazione dello spazio euclideo.
+
+Ogni sistema microscopico è descritto, in ogni istante, da uno \textbf{stato quantico} rappresentato da un vettore nello spazio di Hilbert, indicato con \(\left| \varphi \right\rangle\), dove \(\varphi\) rappresenta lo stato del sistema.
+
+Uno spazio di Hilbert \(H = \left( \mathbb{H}, \left\langle \cdot \middle| \cdot \right\rangle \right)\) è uno spazio vettoriale \textbf{complesso} dotato di un \textbf{prodotto interno sesquilineare} e \textbf{positivo definito}. Una forma sesquilineare è una funzione \(B: V \times V \rightarrow F\) lineare nel primo argomento e coniugata lineare nel secondo.  Essendo uno spazio lineare, vale il \textbf{principio di sovrapposizione}. Le principali proprietà dello spazio di Hilbert sono:
+
+\begin{itemize}
+  \item \textbf{Prodotto interno}: esiste un prodotto interno \(\left\langle \cdot \middle| \cdot \right\rangle\) tale che, detta \(d\) la distanza indotta dal prodotto interno, lo spazio metrico \(\left( \mathbb{H}, d \right)\) è \textbf{completo}, ovvero ogni successione di Cauchy converge in \(\mathbb{H}\).
+  \item \textbf{Norma}: si può definire una norma associata al prodotto interno:
+  \[
+  \left\| \vec{v} \right\| = \sqrt{\left\langle \vec{v} \middle| \vec{v} \right\rangle}
+  \]
+  \item \textbf{Distanza}: la distanza tra due vettori è definita come:
+  \[
+  d\left( \vec{u}, \vec{v} \right) = \sqrt{\left\langle \vec{u} - \vec{v} \middle| \vec{u} - \vec{v} \right\rangle}
+  \]
+\end{itemize}
+
+Le grandezze fisiche misurabili in un esperimento sono dette \textbf{osservabili} e corrispondono a \textbf{operatori hermitiani} (o della meccanica quantistica) che agiscono sullo spazio di Hilbert. Un operatore quantistico, come \(\hat{A}\), agisce su uno stato \(\left| \varphi \right\rangle\) per generare un nuovo stato \(\left| b \right\rangle\):
+
+\[
+\hat{A} \left| \varphi \right\rangle = \left| b \right\rangle
+\]
+
+L'operazione di misura \textbf{perturba} lo stato del sistema microscopico. In altre parole, la misura \textbf{modifica} lo stato quantico. Questo fenomeno è alla base del \textbf{principio di indeterminazione di Heisenberg}, secondo il quale non è possibile conoscere simultaneamente con precisione due grandezze coniugate (come energia e intervallo temporale). Il principio si esprime come:
+
+\[
+\Delta E \Delta t \geq \frac{\hslash}{2}
+\]
+
+Per calcolare l'energia di una particella, si applica l'\textbf{operatore hamiltoniano} \(\hat{H}\) allo stato \(\left| \varphi \right\rangle\):
+
+\[
+\hat{H} \left| \varphi \right\rangle = E \left| \varphi \right\rangle
+\]
+
+L'operatore hamiltoniano cambia lo stato del sistema. In questo caso, \(E\) è un \textbf{autovalore} dell'operatore \(\hat{H}\). Il sistema può assumere solo i valori energetici corrispondenti agli autovalori dell'operatore applicato.
+
+Analogamente, per misurare il \textbf{momento angolare} si applica l'operatore \(\hat{L}\):
+
+\[
+\hat{L} \left| \varphi \right\rangle = L \left| \varphi \right\rangle
+\]
+
+Il momento angolare è \textbf{quantizzato}, quindi il sistema può assumere solo i valori corrispondenti agli autovalori dell'operatore \(\hat{L}\).
+
+\subsection{Autovalori dell'operatore hamiltoniano}\label{autovalori-delloperatore-hamiltoniano}
+
+Per un elettrone legato a un nucleo atomico, gli autovalori dell'operatore hamiltoniano rappresentano i possibili \textbf{livelli energetici} degli orbitali \(s\), \(p\), \(d\) e \(f\). Ogni orbitale può contenere al massimo \textbf{due elettroni con spin opposto}, secondo il \textbf{principio di esclusione di Pauli}, che stabilisce che due fermioni non possono occupare lo stesso stato quantico simultaneamente.
+
+Questi livelli energetici sono discreti e quantizzati, e corrispondono alle soluzioni dell'equazione di Schrödinger per l'atomo. La struttura elettronica degli atomi è quindi determinata dagli autovalori dell'hamiltoniano, che definiscono le energie consentite per ciascun elettrone.
+
+\subsection{Risultato dell'operatore di misura}\label{risultato-delloperatore-di-misura}
+
+In generale, il risultato di una misura deve essere un \textbf{autovalore} dell'operatore di misura. Il valore della grandezza fisica in esame, in altre parole, deve essere una soluzione dell'equazione:
+
+\[
+\hat{A} \left| a \right\rangle = a_{n} \left| a \right\rangle
+\]
+
+Una misura può dare come esito uno qualsiasi degli autovalori \(a_{n}\) dell'operatore \(\hat{A}\). L'autovettore associato all'autovalore è detto \textbf{autostato}. Se lo stato iniziale del sistema è un autostato dell'operatore, la misura restituirà con certezza l'autovalore corrispondente. In altre parole, se un sistema si trova in un autostato \(\left| a_{n} \right\rangle\) con autovalore \(a_{n}\), allora il risultato della misura sarà proprio \(a_{n}\).
+
+Se, invece, il sistema si trova in uno stato qualsiasi \(\left| \varphi \right\rangle\), questo può essere espresso come combinazione lineare degli autostati dell'operatore:
+
+\[
+\left| \varphi \right\rangle = \sum_{n} \varphi_{n} \left| a_{n} \right\rangle
+\]
+
+Gli autostati \(\left| a_{n} \right\rangle\) di un operatore di misura \(\hat{A}\)  formano una \textbf{base ortonormale} dello spazio di Hilbert, quindi ogni stato può essere scritto come loro combinazione lineare. Applicando l'operatore \(\hat{A}\) allo stato \(\left| \varphi \right\rangle\):
+
+\[
+\hat{A} \left| \varphi \right\rangle = \hat{A} \sum_{n} \varphi_{n} \left| a_{n} \right\rangle
+\]
+
+Per linearità dell'operatore sommatoria, è possibile scrivere:
+
+\[
+\hat{A}\left| \varphi \right\rangle = \sum_{n}^{}{\varphi_{n}\hat{A}\left| a_{n} \right\rangle}
+\]
+
+Dato che \(\left| a_{n} \right\rangle\) è autovettore dell'operatore applicato, \(\hat{A}\left| a_{n} \right\rangle = a_{n}\left| a_{n} \right\rangle\), risulta:
+
+\[
+\hat{A}\left| \varphi \right\rangle = \ \sum_{n}^{}{\varphi_{n}a_{n}\left| a_{n} \right\rangle}
+\]
+
+Ovvero, si è espresso lo stato \(\hat{A}\left| \varphi \right\rangle\) come combinazione degli autovettori dell'operatore \(\hat{A}\).
+
+In meccanica quantistica non è possibile prevedere con certezza il risultato della misura, ma è possibile calcolare la \textbf{probabilità} che il sistema transiti dallo stato iniziale \(\varphi\) nello stato \(\left| a_{n} \right\rangle\), attraverso l'operatore di misura \(\hat{A}\). Questa è data dal modulo quadro del prodotto scalare:
+
+\[
+\left| \left\langle a_{n} \middle| \varphi \right\rangle \right|^2
+\]
+
+La notazione di Dirac (o bra-ket) distingue tra il vettore di stato nello spazio di Hilbert e il suo coniugato hermitiano:
+\begin{itemize}
+    \item Ket: La notazione $\left| \varphi \right\rangle$ è detta ket e rappresenta il vettore di stato del sistema nello spazio di Hilbert ($\mathbb{H}$).
+    \item Bra: La notazione $\left\langle \varphi \right|$ è detta bra e rappresenta il vettore duale o coniugato hermitiano del ket $\left| \varphi \right\rangle$. Il bra appartiene allo spazio duale di $\mathbb{H}$ ($\mathbb{H}^*$).
+\end{itemize}
+
+Il prodotto scalare tra i due vettori è il bra-ket (la parola "bra-ket" deriva dalla contrazione delle due notazioni, $\left\langle \text{bra} \middle| \text{ket} \right\rangle$):
+
+\[
+\left\langle a_{n} \middle| \varphi \right\rangle
+\]
+
+Questo prodotto è un numero complesso che proietta lo stato iniziale $\left| \varphi \right\rangle$ sull'autostato $\left| a_{n} \right\rangle$, fornendo l'ampiezza di probabilità del risultato $a_n$.
+
+Dirac assunse che il \textbf{valor medio} (o \textbf{valore di aspettazione}) di una grandezza fisica, associata all'operatore \(\hat{A}\), per un sistema nello stato \(\left| \varphi \right\rangle\), come:
+
+\[
+\left\langle \hat{A} \right\rangle = \left\langle \varphi \right| \hat{A} \left| \varphi \right\rangle
+\]
+
+Ad esempio, l'energia media \(\left\langle E \right\rangle\) si ottiene applicando l'operatore hamiltoniano:
+
+\[
+\left\langle E \right\rangle = \left\langle \varphi \right| \hat{H} \left| \varphi \right\rangle
+\]
+
+In generale, il vettore \(\varphi\) può essere espresso come combinazione lineare degli autostati dell'operatore di misura \(\hat{A}\):
+
+\[
+\left| \varphi \right\rangle = \sum_{n} \varphi_{n} \left| a_{n} \right\rangle
+\]
+
+Il valor medio dell'operatore di misura è, dunque:
+
+\[
+\left\langle \varphi \right|\hat{A}\left| \varphi \right\rangle = \left\langle \varphi \right|\hat{A}\sum_{n}^{}{\varphi_{n}\left| a_{n} \right\rangle
+}
+\]
+
+Per la linearità si ha:
+
+\[
+\left\langle \varphi \right|\hat{A}\left| \varphi \right\rangle = \left\langle \varphi \right|\hat{A}\sum_{n}^{}{\varphi_{n}\left| a_{n} \right\rangle} = \left\langle \varphi \right|\sum_{n}^{}{\varphi_{n}\hat{A}\left| a_{n} \right\rangle}
+\]
+
+Anche il vettore bra può essere espresso mediante gli autovettori dell'operatore \(\hat{A}\), tuttavia, si rende necessario l'uso del complesso coniugato, in modo che il prodotto scalare sia reale:
+
+\[
+\left\langle \varphi \right| = \sum_{k} \varphi_{k}^{*} \left\langle a_{k} \right|
+\]
+
+Sostituendo nell'espresso per il valor medio si ha:
+
+\[
+\left\langle \varphi \right|\hat{A}\left| \varphi \right\rangle = \sum_{k}^{}{\varphi_{k}^{*}\left\langle a_{k} \right|}\sum_{n}^{}{\varphi_{n}\hat{A}\left| a_{n} \right\rangle} = \sum_{n}^{}{\sum_{k}^{}{\varphi_{k}^{*}\varphi_{n}\left\langle a_{k} \right|\hat{A}\left| a_{n} \right\rangle}}
+\]
+
+Poiché \(\hat{A} \left| a_{n} \right\rangle = a_{n} \left| a_{n} \right\rangle\), ovvero \(\left| a_{n} \right\rangle\) sono gli autostati dell'operatore \(\hat{A}\), si ha:
+
+\[
+\left\langle \varphi \right|\hat{A}\left| \varphi \right\rangle  = \sum_{n}^{}{\sum_{k}^{}{\varphi_{k}^{*}\varphi_{n}\left\langle a_{k} \right|\hat{A}\left| a_{n} \right\rangle}} = \sum_{n}^{}{\sum_{k}^{}{\varphi_{k}^{*}\varphi_{n}a_{n}\left\langle a_{k} \middle| a_{n} \right\rangle}}
+\]
+
+Si scelgono gli autostati dell'operatore \(\hat{A}\) in modo che siano ortonormali, ovvero sono ortogonali tra loro, mentre la loro norma è unitaria. Per cui risulta:
+
+\[
+\left\langle a_{k} \middle| a_{n} \right\rangle = \delta_{kn} =  \begin{cases}
+1,\ \  & k = n \\
+0,\ \  & k \neq n
+\end{cases}
+\]
+
+Dunque, il valor medio si esprime come:
+
+\[
+\left\langle \varphi \right|\hat{A}\left| \varphi \right\rangle = \sum_{n}^{}{\left| \varphi_{n} \right|^{2}a_{n}}
+\]
+
+La probabilità che la misura dia come risultato \(a_{n}\) è quindi \(\left| \varphi_{n} \right|^2\).
+
+Se la misura ha dato come risultato \(a_{k}\), il sistema si trova nello stato \(\left| a_{k} \right\rangle\). 
+
+Se la misura ha dato come risultato \(a_{k}\), il sistema, dopo la misura, si trova nello stato corrispondente all'autovalore \(a_{k}\), ovvero nell'autostato \(\left| a_{k} \right\rangle\). Di conseguenza, lo stato precedente alla misura non è più conoscibile, ma quello successivo sì.
+
+Se si ripete la misura in un tempo sufficientemente breve, il risultato sarà nuovamente \(a_{k}\), poiché il sistema si trova già in un autostato dell'operatore \(\hat{A}\). Tuttavia, se il tempo tra le due misure è troppo lungo, il sistema potrebbe decadere in uno stato diverso, rendendo il risultato imprevedibile.
+
+\subsection{Evoluzione libera degli stati}\label{evoluzione-libera-degli-stati}
+
+Se il sistema microscopico non viene perturbato, evolve liberamente secondo l'equazione differenziale deterministica di Schrödinger:
+
+\[
+\hat{H}\left| \varphi \right\rangle = j\hslash\frac{d}{dt}\left| \varphi \right\rangle
+\]
+
+Dove \(\hat{H}\) è l'hamiltoniana del sistema.
+A seguito della misura dell'operatore \(\hat{H}\), il sistema microscopico collassa in un autostato \(\left| \varphi_{n} \right\rangle\) con autovalore \(E_{n}\), che rappresenta l'energia dello stato:
+
+\[\
+\hat{H}\left| \varphi_{n} \right\rangle = E_{n}\left| \varphi_{n} \right\rangle
+\]
+
+L'equazione di Schrödinger si scrive:
+
+\[
+j\hslash\frac{d}{dt}\left| \varphi_{n} \right\rangle = \hat{H}\left| \varphi_{n} \right\rangle = E_{n}\left| \varphi_{n} \right\rangle
+\]
+
+La soluzione di questa equazione differenziale è:
+
+\[
+\left| \varphi_{n}(t) \right\rangle = \left| \varphi_{n}\left( t_{0} \right) \right\rangle\exp\left( -j\frac{E_{n}}{\hslash}\left( t - t_{0} \right) \right)
+\]
+
+Dove \(t_{0}\) è l'istante di misura.
+
+Per uno stato generico \(\left| \varphi \right\rangle\), è possibile generalizzare questo risultato sviluppando lo stato iniziale come combinazione lineare degli autostati dell'operatore hamiltoniano, con coefficienti \(c_n = \left\langle \varphi_{n}(t_0) \middle| \varphi(t_0) \right\rangle\):
+
+\[
+\left| \varphi(t_0) \right\rangle = \sum_{n}^{}{c_{n}\left| \varphi_{n}\left( t_{0} \right) \right\rangle}
+\]
+
+L'evoluzione dello stato generico è data dall'evoluzione di ciascun autostato componente:
+
+\[
+\left| \varphi(t) \right\rangle = \sum_{n}^{}{c_{n}\left| \varphi_{n}\left( t_{0} \right) \right\rangle\exp\left\lbrack -j\frac{E_{n}}{\hslash}\left( t - t_{0} \right) \right\rbrack}
+\]
+
+
+È possibile giungere al \textbf{principio di indeterminazione di Heisenberg} osservando che, nello spazio vettoriale degli stati, gli operatori non soddisfano in generale la proprietà algebrica commutativa. Dati due operatori \(\hat{A}\) e \(\hat{B}\), si ha:
+
+\[
+\hat{A}\hat{B} \neq \hat{B}\hat{A}
+\]
+
+Ciò implica che la misura consecutiva di due grandezze fisiche diverse su un sistema microscopico non porta allo stesso risultato, indipendentemente dall'ordine con cui si effettuano le misure. Di conseguenza, non è possibile determinare simultaneamente quantità di moto e posizione, in accordo con il principio di Heisenberg:
+
+\[
+{\Delta}p{\Delta}x \geq \frac{\hslash}{2}
+\]
+
+In altre parole, una misura di posizione altera la misura della quantità di moto e viceversa. Questo effetto è legato alla necessità di perturbare il sistema per osservare una grandezza. Se si misura la posizione, non è più possibile ottenere altre informazioni sullo stato iniziale del sistema. Nota la posizione della particella, si dice che la \textbf{funzione d'onda collassa}, poiché la probabilità di ritrovare la particella in altre posizioni si annulla.
+
+Nel contesto probabilistico della meccanica quantistica, il concetto deterministico di \textbf{traiettoria} perde di significato.
+
+\subsection{Notazione di Dirac per lo spin}\label{notazione-di-dirac-per-lo-spin}
+
+L'esperimento di Stern e Gerlach ha evidenziato che il momento angolare delle particelle microscopiche deve essere quantizzato. Affinché i risultati sperimentali siano in accordo con le previsioni teoriche, è necessario ammettere l'esistenza dell'operatore spin \(\hat{S}\), rappresentante il \textbf{momento angolare intrinseco} di una particella.
+
+Nel caso di un protone o di un elettrone in un campo magnetico, gli stati possibili dello spin sono due, indicati con \(+\) e \(-\), in base alle due possibili orientazioni lungo la direzione \(z\).
+
+Siano \(\left| + \right\rangle\) e \(\left| - \right\rangle\) i due stati dello spin, e \(\hat{S}_z\) l'operatore di spin lungo l'asse \(z\). Applicando la misura del momento magnetico \(\hat{S}_z\) a uno stato \(\left| \varphi \right\rangle\), si ha:
+
+
+\[
+\hat{S}_z \left| \varphi \right\rangle = s_z \left| \varphi \right\rangle
+\]
+
+dove \(s_z\) sono gli autovalori dell'operatore \(\hat{S}_z\), che possono assumere solo due valori:
+
+\[
++ \frac{\hslash}{2}, \quad - \frac{\hslash}{2}
+\]
+
+
+I vettori \(\left| + \right\rangle\) e \(\left| - \right\rangle\) sono gli autovettori dell'operatore \({\hat{S}}_{z}\), dunque, risulta:
+
+\[
+\hat{S}_z \left| + \right\rangle = + \frac{\hslash}{2} \left| + \right\rangle, \quad
+\hat{S}_z \left| - \right\rangle = - \frac{\hslash}{2} \left| - \right\rangle
+\]
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=2.72257in,height=2.79167in,alt={P2063\#yIS1}]{media/4_Quantiatica/image42.pdf}\caption{Orientazione dello spin}
+\end{figure}
+
+Un qualsiasi stato può essere espresso come combinazione lineare dei due autostati dell'operatore \({\hat{S}}_{z}\):
+
+\[
+\left| \varphi \right\rangle = \varphi_{+}\left| + \right\rangle + \varphi_{-}\left| - \right\rangle
+\]
+
+L'operazione di misura dello spin \({\hat{S}}_{z}\) lungo l'asse \(z\) è fondamentale poiché le proiezioni del momento magnetico della particella lungo gli altri assi si dimostra essere dipendente da \({\hat{S}}_{z}\).
+
+Sia \(\left\langle \varphi \right|\) lo stato iniziale e \(\left| \psi \right\rangle\) lo stato finale. La quantità \(\left\langle \varphi \right| \hat{S}_z \left| \psi \right\rangle\) rappresenta la misura della proiezione del momento magnetico lungo \(z\).
+
+Sia \(\left\langle \varphi \right|\) lo stato iniziale dello spin della particella e \(\left| \psi \right\rangle\) lo stato finale. La quantità \(\left\langle \varphi \right|{\hat{S}}_{z}\left| \psi \right\rangle\) indica rappresenta la misura della proiezione del momento magnetico lungo \(z\) di una particella inizialmente nello stato \(\left\langle \varphi \right|\). A fine della misura, la particella si porta nello stato \(\left| \psi \right\rangle\). Se lo stato iniziale coincide con l'autostato \(\left\langle + \right|\) e anche quello finale \(\left| + \right\rangle\), allora risulta:
+
+\[
+\left\langle + \right|{\hat{S}}_{z}\left| + \right\rangle = \left\langle + \right|\left( + \frac{\hslash}{2} \right)\left| + \right\rangle = + \frac{\hslash}{2}\left\langle + \middle| + \right\rangle
+\]
+
+Siccome gli autovettori sono ortonormali, risulta:
+
+\[
+\left\langle + \middle| + \right\rangle = 1
+\]
+
+Quindi, in definitiva, si ottiene:
+
+\[
+\left\langle + \right|{\hat{S}}_{z}\left| + \right\rangle = + \frac{\hslash}{2}
+\]
+
+Se lo stato iniziale coincide con l'autostato \(\left\langle - \right|\) e anche quello finale \(\left| - \right\rangle\), poiché gli autovettori sono ortonormali, si ha:
+
+\[
+\left\langle - \right|{\hat{S}}_{z}\left| - \right\rangle = \left\langle - \right| - \frac{\hslash}{2}\left| - \right\rangle = - \frac{\hslash}{2}\left\langle - \middle| - \right\rangle = - \frac{\hslash}{2}
+\]
+
+Se lo stato iniziale coincide con l'autostato \(\left\langle + \right|\) e anche quello finale \(\left| - \right\rangle\), risulta:
+
+\[
+\left\langle + \right|{\hat{S}}_{z}\left| - \right\rangle = \left\langle + \right| - \frac{\hslash}{2}\left| - \right\rangle = - \frac{\hslash}{2}\left\langle + \middle| - \right\rangle = 0
+\]
+
+Se lo stato iniziale coincide con l'autostato \(\left\langle - \right|\) e anche quello finale \(\left| + \right\rangle\), risulta:
+
+\[
+\left\langle - \right|{\hat{S}}_{z}\left| + \right\rangle = \left\langle - \right| + \frac{\hslash}{2}\left| + \right\rangle = + \frac{\hslash}{2}\left\langle - \middle| + \right\rangle = 0
+\]
+
+Siccome i vettori della base dell'operatore \({\hat{S}}_{z}\) sono due, è possibile associare il vettore \((1,0)^{T}\) all'autostato \(\left| + \right\rangle\) e \((0,1)^{T}\) all'autostato \(\left| - \right\rangle\). Dato che sono possibili quattro combinazioni, tra stato iniziale e finale dopo la misura, l'operatore \({\hat{S}}_{z}\) ha dimensione finita. È possibile associare una matrice alla trasformazione:
+
+\[
+\begin{pmatrix}
+\left\langle + \right|{\hat{S}}_{z}\left| + \right\rangle & \left\langle + \right|{\hat{S}}_{z}\left| - \right\rangle \\
+\left\langle - \right|{\hat{S}}_{z}\left| + \right\rangle & \left\langle - \right|{\hat{S}}_{z}\left| - \right\rangle
+\end{pmatrix} = \begin{pmatrix}
+ + \frac{\hslash}{2} & 0 \\
+0 & - \frac{\hslash}{2}
+\end{pmatrix} = \frac{\hslash}{2}\begin{pmatrix}
+1 & 0 \\
+0 & - 1
+\end{pmatrix}
+\]
+
+La matrice:
+
+\[
+\boldsymbol{\sigma}_{z} = \begin{pmatrix}
+1 & 0 \\
+0 & - 1
+\end{pmatrix}
+\]
+
+È detta matrice di Pauli e riassume i valori dello spin lungo l'asse \(z\) e consente di scrivere l'operatore di misura del momento magnetico come:
+
+\[{\hat{S}}_{z} = \frac{\hslash}{2}{\boldsymbol{\sigma}}_{z}\]
+
+Tramite la matrice di Pauli è possibile, inoltre, calcolare lo stato finale di una particella. Ad esempio, se lo stato iniziale di una particella è \(\left\langle + \right|\), lo stato finale può essere espresso come:
+
+\[
+{\hat{S}}_{z}\left| + \right\rangle = \frac{\hslash}{2}{\boldsymbol{\sigma}}_{z}\left| + \right\rangle = \frac{\hslash}{2}\begin{pmatrix}
+1 & 0 \\
+0 & - 1
+\end{pmatrix}\left( \begin{array}{r}
+1 \\
+0
+\end{array} \right) = \frac{\hslash}{2}\left( \begin{array}{r}
+1 \\
+0
+\end{array} \right) = \frac{\hslash}{2}\left| + \right\rangle
+\]
+
+È possibile definire le matrici di Pauli anche per la misura del momento magnetico intrinseco lungo gli altri assi, come:
+
+\[
+\hat{S}_x = \frac{\hslash}{2}
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}, \quad
+\hat{S}_y = \frac{\hslash}{2}
+\begin{pmatrix}
+0 & -j \\
+j & 0
+\end{pmatrix}
+\]
+
+Se una particella si trova in uno stato \(\left| + \right\rangle\), autovettore di \({\hat{S}}_{z}\), allora lungo \(x\) si ha uno stato:
+
+\[
+{\hat{S}}_{x}\left| + \right\rangle = \frac{\hslash}{2}\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}\left( \begin{array}{r}
+1 \\
+0
+\end{array} \right) = \frac{\hslash}{2}\left( \begin{array}{r}
+0 \\
+1
+\end{array} \right) = \frac{\hslash}{2}\left| - \right\rangle
+\]
+
+Se, invece, lo stato iniziale è \(\left| - \right\rangle\), lungo l'asse \(x\), si ha:
+
+\[{
+\hat{S}}_{x}\left| - \right\rangle = \frac{\hslash}{2}\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}\left( \begin{array}{r}
+0 \\
+1
+\end{array} \right) = \frac{\hslash}{2}\left( \begin{array}{r}
+1 \\
+0
+\end{array} \right) = \frac{\hslash}{2}\left| + \right\rangle
+\]
+
+I vettori \(\left| + \right\rangle\) e \(\left| - \right\rangle\) non sono una base per l'operatore \({\hat{S}}_{x}\) poiché, l'applicazione di questo operatore a uno dei due vettori, non restituisce un vettore parallelo.
+
+Analogamente, è possibile ripetere lo stesso discorso per l'operatore \({\hat{S}}_{y}\):
+
+\[{\hat{S}}_{y}\left| + \right\rangle = \frac{\hslash}{2}\begin{pmatrix}
+0 & - j \\
+j & 0
+\end{pmatrix}\left( \begin{array}{r}
+1 \\
+0
+\end{array} \right) = j\frac{\hslash}{2}\left( \begin{array}{r}
+0 \\
+1
+\end{array} \right) = j\frac{\hslash}{2}\left| - \right\rangle\]
+
+\[{\hat{S}}_{y}\left| - \right\rangle = \frac{\hslash}{2}\begin{pmatrix}
+0 & - j \\
+j & 0
+\end{pmatrix}\left( \begin{array}{r}
+0 \\
+1
+\end{array} \right) = - j\frac{\hslash}{2}\left( \begin{array}{r}
+1 \\
+0
+\end{array} \right) = - j\frac{\hslash}{2}\left| + \right\rangle\]
+
+Anche per \({\hat{S}}_{y}\), i vettori \(\left| + \right\rangle\) e \(\left| - \right\rangle\) non sono una base per questo operatore.
+
+Posizionando un campo magnetico \(\vec{B}\) diretto lungo l'asse \(z\) e misurando \(\hat{S}_z\), si ottiene un valore certo di \(S_z\) (\(\pm \hslash/2\)). Tuttavia, a causa della \textbf{non-commutatività} degli operatori di spin, ovvero:
+
+\[
+[\hat{S}_i, \hat{S}_j] \neq 0 \quad \text{per } i \neq j,
+\]
+
+lo stato risultante \(\left| + \right\rangle\) o \(\left| - \right\rangle\) non è un autostato di \(\hat{S}_x\) o \(\hat{S}_y\). Di conseguenza, non è possibile conoscere simultaneamente le componenti dello spin lungo gli assi \(x\) e \(y\): la misura di \(S_z\) rende le componenti \(S_x\) e \(S_y\) completamente \textbf{indeterminate}, con valore di aspettazione nullo e massima incertezza:
+
+\[
+\Delta S_x = \Delta S_y = \frac{\hslash}{2}
+\]
+
+Non è dunque possibile ricostruire tridimensionalmente il vettore momento intrinseco con precisione illimitata.
+
+\subsection{Split dei livelli energetici}\label{split-dei-livelli-energetici}
+
+Considerando un nucleo immerso in un campo magnetico \(\vec{B}\) diretto lungo l'asse \(z\), l'operatore hamiltoniano totale \(\hat{H}\) si compone dell'hamiltoniano imperturbato \(\hat{H}^{(0)}\) (energia cinetica e potenziale) e dell'energia potenziale magnetica \(\hat{U}\):
+
+\[
+\hat{H} = \hat{H}^{(0)} + \hat{U} = \left( \frac{{\hat{p}}^{2}}{2m} + \hat{V} \right) - \hat{\vec{\mu}} \cdot \vec{B}
+\]
+
+dove \(\hat{V}\) è l'energia potenziale coulombiana che agisce sul nucleo, \(\hat{\vec{\mu}}\) è l'operatore momento magnetico intrinseco e \(\hat{U}\) è l'energia potenziale magnetica:
+
+\[
+\hat{U} = - \hat{\mu} \cdot \vec{B}
+\]
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.94783in,height=2.39583in,alt={P2108\#yIS1}]{media/4_Quantiatica/image43.pdf}
+\caption{Nucleo immerso in un campo magnetico}
+\end{figure}
+
+Proiettando lungo \(z\), il momento magnetico è legato all'operatore di spin dal rapporto giromagnetico \(\gamma\): \(\hat{\mu}_z = \gamma \hat{S}_z\). Poiché il campo magnetico ha solo componente lungo \(\hat{\imath}_z\), ovvero \(\vec{B} = B \hat{\imath}_z\), l'hamiltoniano si scrive:
+
+\[
+\hat{H} = \left( \frac{{\hat{p}}^{2}}{2m} + \hat{V} \right) - \gamma{\hat{S}}_{z}B
+\]
+
+Sia \(E_n^{(0)}\) l'autovalore di \(\hat{H}^{(0)}\) per uno stato orbitale \(\left| \varphi_n \right\rangle\), tale che:
+
+\[
+\left( \frac{{\hat{p}}^{2}}{2m} + \hat{V} \right)\left| \varphi_{n} \right\rangle = E_{n}^{(0)}\left| \varphi_{n} \right\rangle
+\]
+
+Assumendo che lo stato totale sia separabile in una parte orbitale e una di spin, \(\left| \psi_{n,s} \right\rangle = \left| \varphi_n \right\rangle \otimes \left| s_z \right\rangle\), l'applicazione dell'hamiltoniano produce:
+
+\[
+\hat{H}\left| \psi_{n,s} \right\rangle = E_{n}^{(0)}\left| \psi_{n,s} \right\rangle - \gamma B{\hat{S}}_{z}\left| \psi_{n,s} \right\rangle
+\]
+
+L'operatore \(\hat{S}_z\) possiede solo due autovalori per lo spin \(1/2\):
+
+\[
+s_z = \pm \frac{\hslash}{2}
+\]
+
+Sostituendo tali autovalori, l'energia totale si divide in due livelli:
+
+\[
+E = E_n^{(0)} - \gamma B s_z =
+\begin{cases}
+E_{\text{low}} = E_n^{(0)} - \frac{\hslash}{2} \gamma B & \text{per } s_z = +\frac{\hslash}{2} \text{ (Spin Up, } \left| + \right\rangle \text{)} \\
+E_{\text{high}} = E_n^{(0)} + \frac{\hslash}{2} \gamma B & \text{per } s_z = -\frac{\hslash}{2} \text{ (Spin Down, } \left| - \right\rangle \text{)}
+\end{cases}
+\]
+
+Per effetto del campo magnetico diretto lungo \(z\), ogni autovalore dell'energia si divide in due livelli energetici che differiscono di:
+
+\[
+\Delta E = E_{\text{high}} - E_{\text{low}} = \hslash \gamma B
+\]
+
+Questo fenomeno è noto come \textbf{split dei livelli energetici} o \textbf{effetto Zeeman nucleare}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5.59819in,height=1.7684in,alt={P2123\#yIS1}]{media/4_Quantiatica/image44.pdf}\caption{Split di livelli energetici di un nucleo immerso in un campo magnetico}
+\end{figure}
+
+L'hamiltoniano di un nucleo in un campo magnetico diretto lungo l'asse \(z\) contiene i termini \(\pm \frac{\hslash}{2} \gamma B\). Gli spin si orientano quindi in direzione parallela o antiparallela rispetto al campo magnetico applicato.
+
+Si può trascurare il termine \(\hat{p}^{2}/2m\) poiché il nucleo, avendo massa elevata, può essere considerato fermo. Se il nucleo è in equilibrio, anche il potenziale coulombiano può essere trascurato. L'hamiltoniano si riduce quindi a:
+
+\[
+\hat{H}\left| \varphi_{n} \right\rangle = - \gamma B{\hat{S}}_{z}\left| \varphi_{n} \right\rangle
+\]
+
+Se lo stato del nucleo è \(\left| + \right\rangle\), allora:
+
+\[
+\hat{H}\left| + \right\rangle = - \gamma B{\hat{S}}_{z}\left| + \right\rangle = - \frac{\hslash}{2}\gamma B
+\]
+
+Per $\gamma > 0$ come nel protone, lo spin è parallelo al campo magnetico poiché il nucleo possiede la minima energia. Al contrario, se lo stato è \(\left| - \right\rangle\), risulta:
+
+\[
+\hat{H}\left| - \right\rangle = - \gamma B{\hat{S}}_{z}\left| - \right\rangle = \frac{\hslash}{2}\gamma B
+\]
+
+ Per $\gamma > 0$, lo spin è antiparallelo al campo magnetico poiché il suo nucleo possiede energia massima.
+
+\subsection{Energia media di un nucleo in base allo spin}\label{energia-media-di-un-nucleo-in-base-allo-spin}
+
+Uno stato qualsiasi del sistema microscopico è descritto dal vettore ket \(\left| \psi \right\rangle\), che può essere decomposto come combinazione lineare degli autostati dell'operatore spin \(\hat{S}_z\):
+
+\[
+\hat{H} \left| \psi \right\rangle = C_{+} \hat{H} \left| + \right\rangle + C_{-} \hat{H} \left| - \right\rangle
+\]
+
+Si calcola l'energia del sistema applicando l'operatore hamiltoniano:
+
+\[
+\hat{H}\left| \psi \right\rangle = \hat{H}\left( C_{+}\left| + \right\rangle + C_{-}\left| - \right\rangle \right) = C_{+}\hat{H}\left| + \right\rangle + C_{-}\hat{H}\left| - \right\rangle
+\]
+
+Si valuta il valor medio dell'energia del nucleo, mediante la definizione \(\left\langle \psi \right|\hat{H}\left| \psi \right\rangle\). Sostituendo l'equazione ottenuta per \(\hat{H}\left| \psi \right\rangle\), si ha:
+
+\[
+\left\langle \psi \right|\hat{H}\left| \psi \right\rangle = \left\langle \psi \right|\left( C_{+}\hat{H}\left| + \right\rangle + C_{-}\hat{H}\left| - \right\rangle \right) = C_{+}\left\langle \psi \right|\hat{H}\left| + \right\rangle + C_{-}\left\langle \psi \right|\hat{H}\left| - \right\rangle
+\]
+
+L'autostato bra \(\left\langle \psi \right|\) può essere espresso come combinazione lineare degli autostati dell'operatore \({\hat{S}}_{z}\), mediante coefficienti complessi e coniugati:
+
+\[
+\left\langle \psi \right| = C_{+}^{*}\left\langle + \right| + C_{-}^{*}\left\langle - \right|
+\]
+
+Sostituendo nella relazione per \(\left\langle \psi \right|\hat{H}\left| \psi \right\rangle\), si ha:
+
+\[
+\left\langle \psi \right|\hat{H}\left| \psi \right\rangle = C_{+}\left( C_{+}^{*}\left\langle + \right| + C_{-}^{*}\left\langle - \right| \right)\hat{H}\left| + \right\rangle + C_{-}\left( C_{+}^{*}\left\langle + \right| + C_{-}^{*}\left\langle - \right| \right)\hat{H}\left| - \right\rangle
+\]
+
+Svolgendo i prodotti, si ottiene:
+
+\[
+\left\langle \psi \right|\hat{H}\left| \psi \right\rangle = C_{+}C_{+}^{*}\left\langle + \right|\hat{H}\left| + \right\rangle + C_{+}C_{-}^{*}\left\langle - \right|\hat{H}\left| + \right\rangle + C_{-}C_{+}^{*}\left\langle + \right|\hat{H}\left| - \right\rangle + C_{-}C_{-}^{*}\left\langle - \right|\hat{H}\left| - \right\rangle
+\]
+
+Dove \(C_{+}C_{+}^{*} = \left| C_{+} \right|^{2}\) e \(C_{-}C_{-}^{*} = \left| C_{-} \right|^{2}\), dunque, è possibile scrive:
+
+\[
+\left\langle \psi \right|\hat{H}\left| \psi \right\rangle = \left| C_{+} \right|^{2}\left\langle + \right|\hat{H}\left| + \right\rangle + C_{+}C_{-}^{*}\left\langle - \right|\hat{H}\left| + \right\rangle + C_{-}C_{+}^{*}\left\langle + \right|\hat{H}\left| - \right\rangle + \left| C_{-} \right|^{2}\left\langle - \right|\hat{H}\left| - \right\rangle
+\]
+
+Per un nucleo immesso in un campo magnetico di ampiezza \(B_{0}\) diretto lungo \(z\), l'operatore hamiltoniano, trascurano la velocità del nucleo e il campo coulombiano, può essere espresso come:
+
+\[
+\hat{H} = - \gamma B_0 \hat{S}_z
+\]
+
+Il valor medio dell'energia del nucleo, può essere espressa come:
+
+\[
+\left\langle \psi \right|\hat{H}\left| \psi \right\rangle = - \gamma B_{0}\left( \left| C_{+} \right|^{2}\left\langle + \right|{\hat{S}}_{z}\left| + \right\rangle + C_{+}C_{-}^{*}\left\langle - \right|{\hat{S}}_{z}\left| + \right\rangle + C_{-}C_{+}^{*}\left\langle + \right|{\hat{S}}_{z}\left| - \right\rangle + \left| C_{-} \right|^{2}\left\langle - \right|{\hat{S}}_{z}\left| - \right\rangle \right)
+\]
+
+Dalla definizione di matrice di Pauli, risulta:
+
+\[{\hat{S}}_{z}\left| + \right\rangle = \frac{\hslash}{2}{\boldsymbol{\sigma}}_{z}\left| + \right\rangle = \frac{\hslash}{2}\begin{pmatrix}
+1 & 0 \\
+0 & - 1
+\end{pmatrix}\left( \begin{array}{r}
+1 \\
+0
+\end{array} \right) = \frac{\hslash}{2}\left( \begin{array}{r}
+1 \\
+0
+\end{array} \right) = \frac{\hslash}{2}\left| + \right\rangle\]
+
+\[{\hat{S}}_{z}\left| - \right\rangle = \frac{\hslash}{2}{\boldsymbol{\sigma}}_{z}\left| - \right\rangle = \frac{\hslash}{2}\begin{pmatrix}
+1 & 0 \\
+0 & - 1
+\end{pmatrix}\left( \begin{array}{r}
+0 \\
+1
+\end{array} \right) = \frac{\hslash}{2}\left( \begin{array}{r}
+0 \\
+ - 1
+\end{array} \right) = - \frac{\hslash}{2}\left| - \right\rangle\]
+
+Inoltre, i vettori \(\left| + \right\rangle\) e \(\left| - \right\rangle\) sono ortonormali, dunque, risulta che:
+
+\[\left\langle + \right|{\hat{S}}_{z}\left| + \right\rangle = \left\langle + \right|\frac{\hslash}{2}\left| + \right\rangle = \frac{\hslash}{2}\left\langle + \middle| + \right\rangle = \frac{\hslash}{2}\]
+
+\[\left\langle - \right|{\hat{S}}_{z}\left| - \right\rangle = - \left\langle - \right|\frac{\hslash}{2}\left| - \right\rangle = - \frac{\hslash}{2}\left\langle - \middle| - \right\rangle = - \frac{\hslash}{2}\]
+
+\[\left\langle - \right|{\hat{S}}_{z}\left| + \right\rangle = \left\langle - \right|\frac{\hslash}{2}\left| + \right\rangle = \frac{\hslash}{2}\left\langle - \middle| + \right\rangle = 0\]
+
+\[\left\langle + \right|{\hat{S}}_{z}\left| - \right\rangle = - \left\langle + \right|\frac{\hslash}{2}\left| - \right\rangle = - \frac{\hslash}{2}\left\langle + \middle| - \right\rangle = 0\]
+
+Si ottiene:
+
+\[\left\langle \psi \right|\hat{H}\left| \psi \right\rangle = - \gamma B_{0}\left( \frac{\hslash}{2}\left| C_{+} \right|^{2} - \frac{\hslash}{2}\left| C_{-} \right|^{2} \right) = - \gamma B_{0}\frac{\hslash}{2}\left( \left| C_{+} \right|^{2} - \left| C_{-} \right|^{2} \right)\]
+
+Il parametro \(\left| C_{+} \right|^{2}\) rappresenta la probabilità che il nucleo sia nello stato \(\left| + \right\rangle\) alla fine del processo di misura. Analogamente, \(\left| C_{-} \right|^{2}\) rappresenta la probabilità che il nucleo sia nello stato \(\left| - \right\rangle\).
+
+In un insieme di \(N\) nuclei (come in un campione NMR), se si assume che la probabilità di trovare un singolo nucleo negli autostati \(|+\rangle\) o \(|-\rangle\) sia data dalle popolazioni termiche di equilibrio, il numero atteso di nuclei in ciascuno stato è, per lo stato \(|+\rangle\):
+
+\[
+N_{+} = N P_{+} = N\left| C_{+} \right|^{2}
+\]
+
+per lo stato \(|-\rangle\), invece:
+
+\[
+N_{-} = N P_{-} = N\left| C_{-} \right|^{2}
+\]
+
+Sia \(\Delta N = N_{+} - N_{-}\) la differenza di popolazione tra gli spin nello stato \(\left| + \right\rangle\) e quelli nello stato \(\left| - \right\rangle\):
+
+\[
+\Delta N = N_{+} - N_{-} = N\left| C_{+} \right|^{2} - N\left| C_{-} \right|^{2} = N \left( \left| C_{+} \right|^{2} - \left| C_{-} \right|^{2} \right)
+\]
+
+Dividendo per \(N\), si ottiene l'eccesso di popolazione normalizzato:
+
+\[
+\frac{\Delta N}{N} = \left| C_{+} \right|^{2} - \left| C_{-} \right|^{2}
+\]
+
+Sostituendo questa relazione nell'espressione del valor medio dell'energia \(\left\langle \psi \right|\hat{H}\left| \psi \right\rangle\), si ottiene:
+
+\[
+\left\langle \psi \right|\hat{H}\left| \psi \right\rangle = - \gamma B_{0}\frac{\hslash}{2}\frac{\Delta N}{N}
+\]
+
+L'energia media dei nuclei è data dalla differenza di nuclei nello stato \(\left| + \right\rangle\) rispetto a quelli nello stato \(\left| - \right\rangle\), rapportato al numero totale dei nuclei.
+
+\subsection{Evoluzione temporale dello stato spin up}\label{evoluzione-temporale-dello-stato-left-mathbf-rightrangle}
+
+A seguito della misura, il sistema evolve secondo una legge deterministica. Lo stato quantico ha un'evoluzione temporale descritta da:
+
+\[
+\left| \varphi_{n}(t) \right\rangle = \left| \varphi_{n}\left( t_{0} \right) \right\rangle\exp\left( -j\frac{E_{n}}{\hslash}\left( t - t_{0} \right) \right)
+\]
+
+Se il sistema si trova nello stato \(\left| \mathbf{+} \right\rangle\), l'energia associata è:
+
+\[
+E^{+} = - \frac{\hslash}{2}\gamma B_{0}
+\]
+
+Per cui, l'evoluzione temporale dello stato è:
+
+\[
+\left| + (t) \right\rangle = \left| + \left( t_{0} \right) \right\rangle\exp\left( - j \frac{1}{\hslash} \left( - \frac{\hslash}{2}\gamma B_{0} \right) \left( t - t_{0} \right) \right) = \left| + \left( t_{0} \right) \right\rangle\exp\left( + j\frac{\gamma B_{0}}{2}\left( t - t_{0} \right) \right)
+\]
+
+Analogamente, nello stato \(\left| \mathbf{-} \right\rangle\) il sistema possiede un energia data da:
+
+\[E^{-} = \frac{\hslash}{2}\gamma B_{0}\]
+
+Per cui, l'andamento dello stato è:
+
+\[
+\left| - (t) \right\rangle = \left| - \left( t_{0} \right) \right\rangle\exp\left( - j \frac{1}{\hslash} \left( + \frac{\hslash}{2}\gamma B_{0} \right) \left( t - t_{0} \right) \right) = \left| - \left( t_{0} \right) \right\rangle\exp\left( - j\frac{\gamma B_{0}}{2}\left( t - t_{0} \right) \right)
+\]
+
+Un qualsiasi stato \(\left| \psi \right\rangle\) del sistema può essere espresso come combinazione lineare degli autostati dell'operatore \({\hat{S}}_{z}\):
+
+\[
+\left| \psi(t) \right\rangle = C_{+}\left| + \left( t_{0} \right) \right\rangle\exp\left( + j\frac{\gamma B_{0}}{2}\left( t - t_{0} \right) \right) + C_{-}\left| - \left( t_{0} \right) \right\rangle\exp\left( - j\frac{\gamma B_{0}}{2}\left( t - t_{0} \right) \right)
+\]
+
+\subsection{Valore medio del momento magnetico sull'asse longitudinale}\label{valore-medio-del-momento-magnetico-su-mathbfz}
+
+L'operatore momento angolare su \(z\), \({\hat{\mu}}_{z}\), è legato all'operatore di spin \({\hat{S}}_{z}\), dalla relazione:
+
+\[{\hat{\mu}}_{z} = \gamma{\hat{S}}_{z}\]
+
+È possibile calcolare il valor medio di tale operatore mediante la definizione:
+
+\[\left\langle \psi \right|{\hat{\mu}}_{z}\left| \psi \right\rangle = \left\langle \psi \right|\gamma{\hat{S}}_{z}\left| \psi \right\rangle = \gamma\left\langle \psi \right|{\hat{S}}_{z}\left| \psi \right\rangle\]
+
+È possibile esprimere gli stati come sovrapposizione degli autostati dell'operatore spin:
+
+\[\left\langle \psi \right| = C_{+}^{*}\left\langle + \right| + C_{-}^{*}\left\langle - \right|\]
+
+\[\left| \psi \right\rangle = C_{+}\left| + \right\rangle + C_{-}\left| - \right\rangle\]
+
+Sostituendo queste due relazioni nel valor medio, si ottiene:
+
+\[\left\langle \psi \right|{\hat{\mu}}_{z}\left| \psi \right\rangle = \left( C_{+}^{*}\left\langle + \right| + C_{-}^{*}\left\langle - \right| \right){\hat{S}}_{z}\left( C_{+}\left| + \right\rangle + C_{-}\left| - \right\rangle \right)\]
+
+Si svolgono i prodotti:
+
+\[\left\langle \psi \right|{\hat{\mu}}_{z}\left| \psi \right\rangle = \gamma\left( {C_{+}C}_{+}^{*}\left\langle + \right|{\hat{S}}_{z}\left| + \right\rangle + C_{+}C_{-}^{*}\left\langle - \right|{\hat{S}}_{z}\left| + \right\rangle + C_{-}C_{+}^{*}\left\langle + \right|{\hat{S}}_{z}\left| - \right\rangle + C_{-}C_{-}^{*}\left\langle - \right|{\hat{S}}_{z}\left| - \right\rangle \right)\]
+
+Dove:
+\[
+\begin{cases}
+    \left\langle + \right|{\hat{S}}_{z}\left| + \right\rangle = \frac{\hslash}{2}\left\langle + \middle| + \right\rangle = \frac{\hslash}{2} \\
+    \left\langle - \right|{\hat{S}}_{z}\left| - \right\rangle = - \frac{\hslash}{2}\left\langle - \middle| - \right\rangle = - \frac{\hslash}{2} \\
+     \left\langle + \right|{\hat{S}}_{z}\left| - \right\rangle = - \frac{\hslash}{2}\left\langle + \middle| - \right\rangle = 0 \\
+     \left\langle - \right|{\hat{S}}_{z}\left| + \right\rangle = \frac{\hslash}{2}\left\langle - \middle| + \right\rangle = 0    
+\end{cases}
+\]
+
+Per cui si ha:
+
+\[\left\langle \psi \right|{\hat{\mu}}_{z}\left| \psi \right\rangle = \gamma\frac{\hslash}{2}\left( \left| C_{+} \right|^{2} - \left| C_{-} \right|^{2} \right)\]
+
+\subsection{Andamento temporale dello stato momento magnetico lungo l'asse trasversale}\label{andamento-temporale-dello-stato-momento-magnetico-lungo-mathbfx}
+
+Si vuole calcolare l'energia media nel tempo dell'operatore momento magnetico lungo \(x\), \({\hat{\mu}}_{x}\). Siccome il momento magnetico possiede solo due autostati, può assumere solamente due valori. Lo stato energetico dei due autostati \(\left| + (t) \right\rangle\) e \(\left| - (t) \right\rangle\) sono rispettivamente:
+
+\[E^{-} = \frac{\hslash}{2}\gamma B_{0},\ \ E^{+} = - \frac{\hslash}{2}\gamma B_{0}\]
+
+L'evoluzione temporale dei due autostati stazionari è:
+
+\[\left| + (t) \right\rangle = \left| + \left( t_{0} \right) \right\rangle\exp\left\lbrack - j\frac{E^{+}}{\hslash}\left( t - t_{0} \right) \right\rbrack\]
+
+\[\left| - (t) \right\rangle = \left| - \left( t_{0} \right) \right\rangle\exp\left\lbrack - j\frac{E^{-}}{\hslash}\left( t - t_{0} \right) \right\rbrack\]
+
+Sia \(\left| \psi(t) \right\rangle\) un qualsiasi stato, esso può essere ottenuto come combinazione lineare dei due autostati stazionari:
+
+\[\left| \psi\left( t_{0} \right) \right\rangle = C_{+}\left| + \left( t_{0} \right) \right\rangle + C_{-}\left| - \left( t_{0} \right) \right\rangle\]
+
+Dunque, l'evoluzione temporale è:
+
+\[\left| \psi(t) \right\rangle = C_{+}\left| + \left( t_{0} \right) \right\rangle\exp\left\lbrack - j\frac{E^{+}}{\hslash}\left( t - t_{0} \right) \right\rbrack + C_{-}\left| - \left( t_{0} \right) \right\rangle\exp\left\lbrack - j\frac{E^{-}}{\hslash}\left( t - t_{0} \right) \right\rbrack\]
+
+Si valuta l'energia media dell'operatore \({\hat{\mu}}_{x}\), sostituendo la combinazione per \(\left| \psi(t) \right\rangle\), si ha:
+
+\[\left\langle \psi(t) \right|{\hat{\mu}}_{x}\left| \psi(t) \right\rangle = \left\langle \psi(t) \right|{\hat{\mu}}_{x}C_{+}\left| + \left( t_{0} \right) \right\rangle\exp\left\lbrack - j\frac{E^{+}}{\hslash}\left( t - t_{0} \right) \right\rbrack + \left\langle \psi(t) \right|{\hat{\mu}}_{x}C_{-}\left| - \left( t_{0} \right) \right\rangle\exp\left\lbrack - j\frac{E^{-}}{\hslash}\left( t - t_{0} \right) \right\rbrack\]
+
+L'operatore momento magnetico lungo \(x\) può essere espresso in termini dell'operatore momento angolare intrinseco lungo lo stesso asse, \({\hat{S}}_{x}\):
+
+\[{\hat{\mu}}_{x} = \gamma{\hat{S}}_{x}\]
+
+Mediante la matrice di Pauli è possibile valutare il risultato dell'applicazione di \({\hat{S}}_{x}\) agli autostati \(\left| + \right\rangle\) e \(\left| - \right\rangle\):
+
+\[{\hat{\mu}}_{x}\left| + \right\rangle = \gamma{\hat{S}}_{x}\left| + \right\rangle = \gamma\frac{\hslash}{2}\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}\left( \begin{array}{r}
+1 \\
+0
+\end{array} \right) = \gamma\frac{\hslash}{2}\left( \begin{array}{r}
+0 \\
+1
+\end{array} \right) = \gamma\frac{\hslash}{2}\left| - \right\rangle\]
+
+\[{\hat{\mu}}_{x}\left| - \right\rangle = \gamma{\hat{S}}_{x}\left| - \right\rangle = \gamma\frac{\hslash}{2}\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}\left( \begin{array}{r}
+0 \\
+1
+\end{array} \right) = \gamma\frac{\hslash}{2}\left( \begin{array}{r}
+1 \\
+0
+\end{array} \right) = \gamma\frac{\hslash}{2}\left| + \right\rangle\]
+
+Per cui, l'energia media può essere scritta come:
+
+\[\left\langle \psi(t) \right|{\hat{\mu}}_{x}\left| \psi(t) \right\rangle = \gamma\frac{\hslash}{2}\left\{ C_{+}\left\langle \psi(t) \middle| - \left( t_{0} \right) \right\rangle\exp\left\lbrack - j\frac{E^{+}}{\hslash}\left( t - t_{0} \right) \right\rbrack + C_{-}\left\langle \psi(t) \middle| + \left( t_{0} \right) \right\rangle\exp\left\lbrack - j\frac{E^{-}}{\hslash}\left( t - t_{0} \right) \right\rbrack \right\}\]
+
+Il vettore bra può essere espresso come combinazione lineare degli autostati di \({\hat{S}}_{z}\):
+
+\[\left\langle \psi(t) \right| = C_{+}^{*}\left\langle + (t) \right| + C_{-}^{*}\left\langle - (t) \right| = C_{+}^{*}\left\langle + \left( t_{0} \right) \right|\exp\left\lbrack j\frac{E^{+}}{\hslash}\left( t - t_{0} \right) \right\rbrack + C_{-}^{*}\left\langle - \left( t_{0} \right) \right|\exp\left\lbrack j\frac{E^{-}}{\hslash}\left( t - t_{0} \right) \right\rbrack\]
+
+Sostituendo questa relazione nel calcolo dell'energia media, si ottengono i risultati:
+
+\[C_{+}C_{+}^{*}\left\langle + \left( t_{0} \right) \middle| - \left( t_{0} \right) \right\rangle\exp\left\lbrack - j\frac{E^{+}}{\hslash}\left( t - t_{0} \right) \right\rbrack\exp\left\lbrack j\frac{E^{+}}{\hslash}\left( t - t_{0} \right) \right\rbrack = 0\]
+
+\[C_{+}C_{-}^{*}\left\langle - \left( t_{0} \right) \middle| - \left( t_{0} \right) \right\rangle\exp\left\lbrack - j\frac{E^{+}}{\hslash}\left( t - t_{0} \right) \right\rbrack\exp\left\lbrack j\frac{E^{-}}{\hslash}\left( t - t_{0} \right) \right\rbrack = C_{+}C_{-}^{*}\exp\left\lbrack - j\frac{E^{+} - E^{-}}{\hslash}\left( t - t_{0} \right) \right\rbrack\]
+
+\[C_{-}C_{+}^{*}\left\langle - \left( t_{0} \right) \middle| - \left( t_{0} \right) \right\rangle\exp\left\lbrack - j\frac{E^{-}}{\hslash}\left( t - t_{0} \right) \right\rbrack\exp\left\lbrack j\frac{E^{+}}{\hslash}\left( t - t_{0} \right) \right\rbrack = C_{-}C_{+}^{*}\exp\left\lbrack j\frac{E^{+} - E^{-}}{\hslash}\left( t - t_{0} \right) \right\rbrack\]
+
+\[C_{-}^{*}C_{+}^{*}\left\langle - \left( t_{0} \right) \middle| + \left( t_{0} \right) \right\rangle\exp\left\lbrack - j\frac{E^{-}}{\hslash}\left( t - t_{0} \right) \right\rbrack\exp\left\lbrack j\frac{E^{-}}{\hslash}\left( t - t_{0} \right) \right\rbrack = 0\]
+
+L'energia media del momento magnetico lungo \(x\) è, dunque:
+
+\[\left\langle \psi(t) \right|{\hat{\mu}}_{x}\left| \psi(t) \right\rangle = \gamma\frac{\hslash}{2}\left\{ C_{+}C_{-}^{*}\exp\left\lbrack - j\frac{E^{+} - E^{-}}{\hslash}\left( t - t_{0} \right) \right\rbrack + C_{-}C_{+}^{*}\exp\left\lbrack j\frac{E^{+} - E^{-}}{\hslash}\left( t - t_{0} \right) \right\rbrack \right\}\]
+
+Si pone \(C_{+}C_{-}^{*} = A\exp{j\beta}\), dove compaiono esplicitamente modulo, \(A = \left| C_{+}C_{-}^{*} \right|\), e fase, \(\angle C_{+}C_{-}^{*}\), del prodotto \(C_{+}C_{-}^{*}\). La relazione per il valor medio del momento magnetico lungo \(x\) può essere scritta tenendo conto delle proprietà dei numeri complessi: la somma di un numero complesso e del suo coniugato restituisce il doppio della parte reale del numero stesso. Questa relazione può essere scritta anche come:
+
+\[\left\langle \psi(t) \right|{\hat{\mu}}_{x}\left| \psi(t) \right\rangle = \gamma\hslash Re\left\{ C_{-}C_{+}^{*}\exp\left\lbrack j\frac{E^{+} - E^{-}}{\hslash}\left( t - t_{0} \right) \right\rbrack \right\}\]
+
+Si pone:
+
+\[
+\omega_0 = \frac{E^{-} - E^{+}}{\hslash} 
+\]
+
+Sostituendo le espressioni per le due energie, \(E^{-} = \hslash/2\gamma B_{0}\) e \(E^{+} = - \hslash/2\gamma B_{0}\), si ottiene:
+
+\[
+\omega_0 = \frac{E^{-} - E^{+}}{\hslash} = \frac{1}{\hslash}\left( \frac{\hslash}{2}\gamma B_{0} - \left( - \frac{\hslash}{2}\gamma B_{0} \right) \right) = \gamma B_0
+\]
+
+\(\omega_{0}\) è detta pulsazione di Larmor, quantità positiva se \(\gamma>0\).
+
+In definitiva, il valor medio del momento magnetico lungo \(x\) è:
+
+\[\left\langle \psi(t) \right|{\hat{\mu}}_{x}\left| \psi(t) \right\rangle = \gamma\hslash A\cos\left( \beta - \omega\left( t - t_{0} \right) \right)\]
+
+\subsection{Transizioni di stato}\label{transizioni-di-stato}
+
+Gli autostati dell'operatore di misura \(\hat{A}\) presentano energie costanti, rappresentante dagli autovalori dell'operatore di misura applicato.
+
+Finché il sistema si trova in un autostato stazionario, ovvero il sistema non è perturbato, l'evoluzione temporale avviene in maniera determinista, secondo l'equazione:
+
+\[\left| \psi(t) \right\rangle = \left| \psi\left( t_{0} \right) \right\rangle\exp\left( - j\frac{E_{n}}{\hslash}\left( t - t_{0} \right) \right)\]
+
+In seguito a una misura, mediante l'applicazione dell'operatore $\hat{A}$), lo stato del sistema collassa in un autostato di $\hat{A}$, e la probabilità che lo stato $\left| \psi \right\rangle$ sia trovato nell'autostato $\left| \varphi \right\rangle$ è data da $|\langle \varphi | \psi \rangle|^2$.
+
+Il passaggio da uno stato energetico all'altro, ovvero la transizione di stato, può avvenire in modo guidato a seguito di una sollecitazione elettromagnetica di un'opportuna frequenza. L'efficacia di tale transizione è determinata dall'elemento di matrice di transizione, come ad esempio $\langle \varphi | \hat{\mu}_x | \psi \rangle$ per l'interazione magnetica trasversale.
+
+Se il sistema quantico si trova in un campo elettromagnetico oscillante, è possibile sviluppare una soluzione dell'equazione di Schrödinger tempo dipendente:
+
+\[j\hslash\frac{\partial\psi}{\partial t} = \hat{H}\psi\]
+
+I metodi approssimata per poter risolvere questa equazione sono abbastanza complessi. Questi metodi sono basati sull'assunzione che la soluzione approssimata al primo ordine, ottenuta considerando un operatore hamiltoniano senza perturbazione \({\hat{H}}_{0}\) a cui si aggiunge un termine del primo ordine dello sviluppo della perturbazione, \({\hat{H}}_{1}(t)\). Questo termine aggiuntivo rappresenta la probabilità di transizione dallo stato a energia \(l\) verso quello a energia \(k\). In simboli è possibile scrivere:
+
+\[H_{kl} = \left\langle k \right|{\hat{H}}_{1}\left| l \right\rangle\]
+
+I termini che esprimono le probabilità di transizione per unità di tempo, al tempo \(t\), da un livello energetico all'altro sono esprimibili secondo la \textbf{meccanica quantistica perturbativa nel tempo} (\textit{time-dependent perturbation theory}):
+
+\[
+W_{a \rightarrow b} =\frac{1}{\hbar^{2}}\left|\int_{-\infty}^{+\infty}H_{ab}\left(\tau\right)\,\exp\left(
+j\frac{E_{b} - E_{a}}{\hbar}\,\tau\right)d\tau\right|^{2}
+\]
+
+dove:
+\begin{itemize}
+    \item \( W_{a \rightarrow b} \): probabilità di transizione (proporzionale alla probabilità che il sistema passi dallo stato \( a \) allo stato \( b \));
+    \item \( H_{ab}(\tau) = \langle b | H'(\tau) | a \rangle \): elemento di matrice del termine perturbativo tra gli stati \( |a\rangle \) e \( |b\rangle \).
+    \item \( E_a, E_b \): energie degli stati iniziale e finale del sistema non perturbato;
+    \item \( \hbar \): costante di Planck ridotta, che lega energia e frequenza quantistica (\( E = \hbar \omega \)).
+    \item l'esponenziale: fattore di fase oscillante dovuto alla differenza di energia tra i due stati.
+\end{itemize}
+
+La probabilità di transizione tra lo stato \(a\) a quello \(b\) dipende dalla trasformata di Fourier dell'hamiltoniana associata alla radiazione oscillante. \({\Delta}E = E_{b} - E_{a}\) è la differenza di energia tra i due stati. Se la perturbazione \({\hat{H}}_{1}\) è costituita da un campo di frequenze, con spettro concentrato intorno alla frequenza:
+
+\[\omega_{ab} = \frac{E_{b} - E_{a}}{\hslash}\]
+
+La probabilità \(W_{a \rightarrow b}\) risulta essere molto più alta rispetto al caso in cui lo spettro della perturbazione non è concentrato intorno a questa frequenza ma è disperso.
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\linewidth]{media/4_Quantiatica/image45.pdf}\caption{Spettro concentrato in alto e più disperso in basso}
+\end{figure}
+
+La probabilità i transizione inversa, \(W_{b \rightarrow a}\) assume lo stesso valore, a causa della presenza del modulo quadro:
+
+\[
+W_{b \rightarrow a} = \mathbf{\frac{1}{\hslash^2}}\left| \int_{- \infty}^{+ \infty}{H_{ba}(\tau)\exp\left( j\frac{E_{a} - E_{b}}{\hslash}\tau \right)d\tau} \right|^{2}
+\]
+
+L'elemento di matrice dovrebbe è $H_{ba} = \langle a | \hat{H}_1 | b \rangle$, ma poiché $|H_{ba}| = |H_{ab}|$, l'uso di $H_{ab}$ è accettabile se si intende $|H_{ab}|^2$. Tuttavia, per rigore, si usa l'elemento di matrice corretto per la transizione $b \to a$)
+
+Se \(E_{a} > E_{b}\), è possibile avere le transizioni in entrambi i versi, ovvero, un sistema può sia passare dal livello energetico inferiore \(E_{b}\) a quello superiore \(E_{a}\) che il viceversa. Al primo passaggio è associato l'assorbimento di un fotone, con frequenza data dalla legge di Plank-Einstein:
+
+\[h\nu = \left| E_{a} - E_{b} \right|\]
+
+Il passaggio inverso avviene mediante l'emissione, detta stimolata, di un fotone con frequenza uguale a quella del fotone assorbito.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=6.69306in,height=3.00486in,alt={P2265\#yIS1}]{media/4_Quantiatica/image46.pdf}\caption{Transizioni tra livelli energetici mediante assorbimento ed emissione di fotoni}
+\end{figure}

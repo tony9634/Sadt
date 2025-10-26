@@ -1,0 +1,138 @@
+%!TEX bibfile = bibliografia.bib
+
+%Questo è il preambolo, dove si inseriscono i pacchetti e le impostazioni che servono per compilare il documento. Quanto scritto dopo il simbolo '%' è solo un commento e serve a fini dimostrativi.
+\documentclass[a4paper, 13, oneside]{report}
+\linespread{1.5} %interlinea
+\pagestyle{plain}
+\usepackage{geometry} %margini
+\geometry{a4paper, top=2.5cm, bottom=2cm, left=2.5cm, right=2cm, bindingoffset=5mm}
+\usepackage{graphicx}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+  language=Matlab,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!60!black},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\tiny,
+  stepnumber=1,
+  numbersep=5pt,
+  backgroundcolor=\color{gray!10},
+  frame=single,
+  breaklines=true,
+  captionpos=b,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2
+}
+\usepackage{multicol} %più colonne
+\usepackage{ragged2e} %allineamento testo
+\usepackage{caption}
+\usepackage{pdfpages}
+\usepackage{csquotes}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{esint}
+\usepackage{pgfplotstable}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
+\captionsetup{textfont=sl}
+\maxdeadcycles=300
+
+\usepackage{morefloats}
+
+\usepackage[italian]{babel} %lingua principale
+
+\usepackage{minitoc} %mini sommario a inizio capitolo
+\nomtcrule 
+\addto{\captionsitalian}{% Making babel aware of special titles
+  \renewcommand{\mtctitle}{Sommario}
+}
+\setcounter{secnumdepth}{3}
+\usepackage[sorting=none,backend=biber,refsection=chapter]{biblatex} %bibliografia
+\defbibheading{bibbysubsect}{}
+\addbibresource{bibliografia.bib}
+
+
+\usepackage{comment}
+\usepackage{xpatch}
+\usepackage{blindtext}
+
+
+\makeatletter
+
+\xpatchcmd{\@makeschapterhead}{%
+  \Huge \bfseries  #1\par\nobreak%
+}{%
+  \Huge \bfseries\centering #1\par\nobreak%
+}{\typeout{Patched makeschapterhead}}{\typeout{patching of @makeschapterhead failed}}
+
+\xpatchcmd{\@makechapterhead}{%
+  \huge\bfseries \@chapapp\space \thechapter
+}{%
+  \huge\bfseries\centering \@chapapp\space \thechapter
+}{\typeout{Patched @makechapterhead}}{\typeout{Patching of @makechapterhead failed}}
+
+\makeatother
+\usepackage{csvsimple}
+\usepackage{fancyhdr}
+\usepackage[export]{adjustbox}
+
+\usepackage{hyperref} %hyperlink
+\hypersetup{
+    colorlinks=true,
+    citecolor=cyan,
+    linkcolor=black,
+    urlcolor=black,
+    pdftitle=Appunti del Corso Di Strumentazione Avanzata per La Diagnosi e Terapia,
+    pdfauthor=Antonio Ausilio,
+    }
+
+\usepackage{booktabs} %per le tabelle
+\usepackage{multirow}
+%\usepackage[table,xcdraw]{xcolor}
+\usepackage{graphicx}
+
+\usepackage{lscape}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{listings}
+
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+%\renewcommand{\arraystretch}{1.4} % <-- Aggiunge spazio tra le righe
+
+%Da qui in poi inizia il documento.
+\begin{document}
+\input{Copertina.tex}
+
+\dominitoc
+\tableofcontents
+
+\include{Capitoli/1_Meccanica}
+\include{Capitoli/2_Relatività}
+\include{Capitoli/3_Elettromagnetismo}
+\include{Capitoli/4_Quantistica}
+\include{Capitoli/5_MecStatistica}
+
+
+\medskip
+
+\newpage
+\printbibheading[
+heading=bibintoc,
+title={Bibliografia}
+]
+\bibbysection[heading=bibbysubsect]
+
+\end{document}
