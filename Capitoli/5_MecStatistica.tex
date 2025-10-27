@@ -13,7 +13,7 @@
 \section{Cenni di meccanica statistica}
 \label{cenni-di-meccanica-statistica}
 
-La Meccanica Statistica è il fondamentale ponte teorico che collega il comportamento delle singole particelle a livello microscopico con le proprietà misurabili e osservabili dei sistemi a livello macroscopico (termodinamico). Essa utilizza i principi della probabilità e della statistica per trattare sistemi composti da un numero enorme (\(N \approx 10^{23}\)) di costituenti (atomi, molecole o particelle quantistiche), superando l'impossibilità pratica di applicare le leggi della meccanica classica o quantistica a ogni singola entità.
+La Meccanica Statistica è il fondamentale ponte teorico che collega il comportamento delle singole particelle a livello microscopico con le proprietà misurabili e osservabili dei sistemi a livello macroscopico (termodinamico). Essa utilizza i principi della probabilità e della statistica per trattare sistemi composti da un numero enorme (\(N \approx 10^{23}\)) di costituenti (atomi, molecole o particelle quantistiche), superando l'impossibilità pratica di applicare le leggi della meccanica classica o quantistica a ogni singola entità \cite{LandauStatistica, ReifStatistica, KittelKroemer}.
 
 Il cuore della meccanica statistica risiede nell'idea di \textbf{ensemble statistico} e nel principio che il valore di equilibrio di una grandezza macroscopica \(M\) è dato dalla media sui microstati permessi (o dalla media temporale, secondo l'ipotesi ergodica). Formalmente:
 
@@ -34,15 +34,15 @@ La meccanica statistica consente di dedurre tutte le grandezze termodinamiche (m
 \hline
 \textbf{Grandezza} & \textbf{Simbolo} & \textbf{Relazione Statistica} & \textbf{Descrizione Microscopica} \\
 \hline \hline
-\textbf{Energia Interna} & \(U\) (o \(E\)) & \(\displaystyle U = \langle H \rangle = -\left(\frac{\partial \ln Z}{\partial \beta}\right)_{V, N}\) & Media dell'energia totale su tutti i microstati. \\
+\textbf{Energia Interna} & \(U\) (o \(E\)) & \(\displaystyle U = \langle H \rangle = -\left(\dfrac{\partial \ln Z}{\partial \beta}\right)_{V, N}\) & Media dell'energia totale su tutti i microstati. \\
 \hline
-\textbf{Pressione} & \(P\) & \(\displaystyle P = \frac{1}{\beta}\left(\frac{\partial \ln Z}{\partial V}\right)_{T, N}\) & Legata all'impulso trasferito dagli urti delle particelle contro le pareti. \\
+\textbf{Pressione} & \(P\) & \(\displaystyle P = \dfrac{1}{\beta}\left(\dfrac{\partial \ln Z}{\partial V}\right)_{T, N}\) & Legata all'impulso trasferito dagli urti delle particelle contro le pareti. \\
 \hline
-\textbf{Temperatura} & \(T\) & \(\displaystyle T = \frac{1}{k_B \beta}\) & Misura dell'agitazione termica media delle particelle. \\
+\textbf{Temperatura} & \(T\) & \(\displaystyle T = \dfrac{1}{k_B \beta}\) & Misura dell'agitazione termica media delle particelle. \\
 \hline
 \textbf{Entropia} & \(S\) & \(S = k_B \ln W\) & Logaritmo del numero \(W\) di microstati compatibili (disordine molecolare). \\
 \hline
-\textbf{Capacità Termica} & \(C_V\) & \(\displaystyle C_V = \left(\frac{\partial U}{\partial T}\right)_{V}\) & Misura della variazione dell'energia interna (media) con la temperatura. \\
+\textbf{Capacità Termica} & \(C_V\) & \(\displaystyle C_V = \left(\dfrac{\partial U}{\partial T}\right)_{V}\) & Misura della variazione dell'energia interna (media) con la temperatura. \\
 \hline
 \end{tabular}
 \end{table}
@@ -88,13 +88,13 @@ Di tutte le possibili configurazioni, una prevede che tutte le particelle si tro
 Tutte le configurazioni elencate sono possibili, tuttavia quelle intermedie hanno maggiore probabilità di verificarsi. Infatti, la probabilità che tutte siano a destra o tutte a sinistra è:
 
 \[
-\frac{1}{8} = 0.125 = 12.5\%
+\dfrac{1}{8} = 0.125 = 12.5\%
 \]
 
 La probabilità di avere due particelle a sinistra e una a destra, o viceversa, è:
 
 \[
-\frac{3}{8} = 0.375 = 37.5\%
+\dfrac{3}{8} = 0.375 = 37.5\%
 \]
 
 \begin{figure}[ht]
@@ -105,7 +105,7 @@ La probabilità di avere due particelle a sinistra e una a destra, o viceversa, 
 Si considera un sistema di \(N\) particelle. Per la sua descrizione sono presenti tre gradi di libertà per ciascuna particella, uno per ogni coordinata cartesiana. Se le particelle si muovono secondo le leggi della meccanica classica, la lagrangiana del sistema totale si scrive come:
 
 \[
-L = \frac{1}{2}\sum_{i = 1}^{N}{m_{i}v_{i}^{2}} - U\left( x_{1},y_{1},z_{1},\ldots,x_{N},y_{N},z_{N} \right)
+L = \dfrac{1}{2}\sum_{i = 1}^{N}{m_{i}v_{i}^{2}} - U\left( x_{1},y_{1},z_{1},\ldots,x_{N},y_{N},z_{N} \right)
 \]
 
 dove \(U\) rappresenta l'energia di interazione tra le particelle del sistema. Se si considera un grammo di una sostanza pura, esso contiene un numero di Avogadro di particelle:
@@ -125,26 +125,26 @@ Si suppone che ogni spin occupi una posizione fissa nello spazio. Lo stato compl
 Il sistema può assumere \(2^{N}\) configurazioni diverse. Si vuole determinare il numero massimo di combinazioni con \(k\) spin nello stato \(\left| + \right\rangle\). Il numero delle combinazioni con \(k\) spin nello stato \(\left| + \right\rangle\) coincide con il coefficiente binomiale:
 
 \[
-N_{k} = \binom{N}{k} = \frac{N!}{k!(N - k)!}
+N_{k} = \binom{N}{k} = \dfrac{N!}{k!(N - k)!}
 \]
 
 La probabilità di avere \(k\) spin nello stato \(\left| + \right\rangle\) è ottenuta dividendo questo risultato per il numero totale delle configurazioni ammissibili del sistema \(2^{N}\):
 
 \[
-P(k\text{ spin nello stato } \left| + \right\rangle) = \frac{1}{2^{N}} \binom{N}{k} = \frac{1}{2^{k}2^{N - k}}\binom{N}{k}
+P(k\text{ spin nello stato } \left| + \right\rangle) = \dfrac{1}{2^{N}} \binom{N}{k} = \dfrac{1}{2^{k}2^{N - k}}\binom{N}{k}
 \]
 
 
 Il numero degli spin nello stato \(\left| + \right\rangle\) equivale a una distribuzione binomiale con probabilità di \(1/2\). Per cui la media è:
 
 \[
-m = \frac{N}{2}
+m = \dfrac{N}{2}
 \]
 
 La varianza della distribuzione binomiale è:
 
 \[
-\sigma^{2} = Npq = N \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{N}{4}
+\sigma^{2} = Npq = N \cdot \dfrac{1}{2} \cdot \dfrac{1}{2} = \dfrac{N}{4}
 \]
 
 Dove \(p\) è la probabilità del caso voluto e \(q = 1 - p\) la probabilità del caso sfavorevole. 
@@ -154,13 +154,13 @@ All'aumentare del numero di particelle, il numero delle configurazioni intermedi
 Le fluttuazioni della relative a una determinata configurazione sono date da \(\sigma/m\), con \(m\) media. Sostituendo la relazione per media e varianza si ha:
 
 \[
-\frac{\sigma}{m} = \frac{\sqrt{N}/2}{N/2} = \frac{\sqrt{N}}{2}\frac{2}{N} = \frac{1}{\sqrt{N}}
+\dfrac{\sigma}{m} = \dfrac{\sqrt{N}/2}{N/2} = \dfrac{\sqrt{N}}{2}\dfrac{2}{N} = \dfrac{1}{\sqrt{N}}
 \]
 
 Se il numero delle particelle è dell'ordine del numero di Avogadro, la fluttuazione è:
 
 \[
-\frac{\sigma}{m} \simeq \frac{1}{\sqrt{10^{23}}} \simeq 10^{-11} \ll 1
+\dfrac{\sigma}{m} \simeq \dfrac{1}{\sqrt{10^{23}}} \simeq 10^{-11} \ll 1
 \]
 
 La distribuzione delle configurazioni ha una varianza molto ridotta, quindi la curva gaussiana è molto concentrata intorno al valore medio.
@@ -213,13 +213,13 @@ Maggiore è il numero delle particelle, più l'approssimazione di Stirling risul
 L'approssimazione di Stirling può essere utilizzata per stimare la probabilità che un sistema composto da \(N\) particelle assuma una determinata configurazione, quando \(N \gg 1\) e \(k\) è dell'ordine di \(N/2\). Il coefficiente binomiale è:
 
 \[
-P\left( k\ \text{spin su}\ N\ \text{nello stato}\ \left| + \right\rangle \right) = \frac{1}{2^{N}} \binom{N}{k} = \frac{1}{2^{N}} \frac{N!}{k!(N - k)!}
+P\left( k\ \text{spin su}\ N\ \text{nello stato}\ \left| + \right\rangle \right) = \dfrac{1}{2^{N}} \binom{N}{k} = \dfrac{1}{2^{N}} \dfrac{N!}{k!(N - k)!}
 \]
 
 Applicando il logaritmo e le sue proprietà:
 
 \[
-\ln P = \ln\left( \frac{1}{2^{N}}\frac{N!}{k!(N - k)!} \right) = \ln N! - \ln k! - \ln(N - k)! - N\ln 2
+\ln P = \ln\left( \dfrac{1}{2^{N}}\dfrac{N!}{k!(N - k)!} \right) = \ln N! - \ln k! - \ln(N - k)! - N\ln 2
 \]
 
 Si applica l'approssimazione di Stirling (\(\ln M! \simeq M\ln M - M\)):
@@ -243,62 +243,62 @@ I termini lineari in $N$ e $k$ si cancellano, quindi:
 Si applicano le proprietà dei logaritmi ai termini $N\ln N - N\ln 2$:
 
 \[
-\ln P \simeq N\ln\!\frac{N}{2} - \left(k\ln k + (N-k)\ln(N-k)\right]
+\ln P \simeq N\ln\!\dfrac{N}{2} - \left(k\ln k + (N-k)\ln(N-k)\right]
 \]
 
 Si definisce lo scarto $k$ dalla media $\mu = N/2$ di una quantità $\Delta s \ll N/2$:
 
 \[
-k = \frac{N}{2} + \Delta s \quad \text{e} \quad N - k = \frac{N}{2} - \Delta s
+k = \dfrac{N}{2} + \Delta s \quad \text{e} \quad N - k = \dfrac{N}{2} - \Delta s
 \]
 
 Si può scrivere \(N - k\) come:
 
 \[
-N - k = N - \frac{N}{2} - \Delta s = \frac{N}{2} - \Delta s = \frac{N}{2}\left( 1 - \frac{\Delta s}{\frac{N}{2}} \right)
+N - k = N - \dfrac{N}{2} - \Delta s = \dfrac{N}{2} - \Delta s = \dfrac{N}{2}\left( 1 - \dfrac{\Delta s}{\dfrac{N}{2}} \right)
 \]
 
 Si applica il logaritmo a entrambi i membri:
 
 \[
-\ln(N - k) = \ln\left( \frac{N}{2}\left( 1 - \frac{{\Delta}s}{\frac{N}{2}} \right) \right) = \ln\frac{N}{2} + \ln\left( 1 - \frac{{\Delta}s}{\frac{N}{2}} \right)
+\ln(N - k) = \ln\left( \dfrac{N}{2}\left( 1 - \dfrac{{\Delta}s}{\dfrac{N}{2}} \right) \right) = \ln\dfrac{N}{2} + \ln\left( 1 - \dfrac{{\Delta}s}{\dfrac{N}{2}} \right)
 \]
 
 Siccome  \(\Delta s \ll N/2\), è possibile sviluppare in serie di Taylor il secondo logaritmo al secondo membro:
 
 \[
-\ln\left( 1 - \frac{2\Delta s}{N} \right) \simeq - \frac{2\Delta s}{N} - \frac{1}{2}\left(\frac{2\Delta s}{N}\right)^2
+\ln\left( 1 - \dfrac{2\Delta s}{N} \right) \simeq - \dfrac{2\Delta s}{N} - \dfrac{1}{2}\left(\dfrac{2\Delta s}{N}\right)^2
 \]
 
 Per cui si ottiene:
 
 \[
-\ln(N - k) = \ln\left(\frac{N}{2} - \Delta s\right) = \ln\frac{N}{2} + \ln\left(1 - \frac{2\Delta s}{N}\right) \simeq \ln\frac{N}{2} - \frac{2\Delta s}{N} - \frac{1}{2}\left(\frac{2\Delta s}{N}\right)^2
+\ln(N - k) = \ln\left(\dfrac{N}{2} - \Delta s\right) = \ln\dfrac{N}{2} + \ln\left(1 - \dfrac{2\Delta s}{N}\right) \simeq \ln\dfrac{N}{2} - \dfrac{2\Delta s}{N} - \dfrac{1}{2}\left(\dfrac{2\Delta s}{N}\right)^2
 \]
 
 Riscrivendo l'equazione si ottiene:
 
 \[
-\ln (N - k) \simeq \ln\frac{N}{2} - \frac{2\Delta s}{N} - \frac{2\Delta s^{2}}{N^{2}}
+\ln (N - k) \simeq \ln\dfrac{N}{2} - \dfrac{2\Delta s}{N} - \dfrac{2\Delta s^{2}}{N^{2}}
 \]
 
 Analogamente, si considera \(\ln\left( k \right)\) e si applica la relazione \(k=N/2+\Delta s\). Per le proprietà dei logaritmi si ha:
 
 \[
-\ln k = \ln\left(\frac{N}{2} + \Delta s\right) = \ln\frac{N}{2} + \ln\left(1 + \frac{2\Delta s}{N}\right) \simeq \ln\frac{N}{2} + \frac{2\Delta s}{N} - \frac{1}{2}\left(\frac{2\Delta s}{N}\right)^2
+\ln k = \ln\left(\dfrac{N}{2} + \Delta s\right) = \ln\dfrac{N}{2} + \ln\left(1 + \dfrac{2\Delta s}{N}\right) \simeq \ln\dfrac{N}{2} + \dfrac{2\Delta s}{N} - \dfrac{1}{2}\left(\dfrac{2\Delta s}{N}\right)^2
 \]
 
 Scrivendo diversamente, si ottiene:
 
 \[
-\ln k \simeq \ln\frac{N}{2} + \frac{2\Delta s}{N} - \frac{2\Delta s^{2}}{N^{2}}
+\ln k \simeq \ln\dfrac{N}{2} + \dfrac{2\Delta s}{N} - \dfrac{2\Delta s^{2}}{N^{2}}
 \]
 
 Si considerano, uno alla volta, i gruppi presenti dell'equazione per \(\ln P\):
 
 
 \[
-\ln P \simeq - \left( k\ln k + (N-k)\ln(N-k) \right] + N\ln\frac{N}{2}
+\ln P \simeq - \left( k\ln k + (N-k)\ln(N-k) \right] + N\ln\dfrac{N}{2}
 \]
 
 Si parte dai termini contenenti il parametro \(k\), ovvero \(k\ln{k}\):
@@ -306,11 +306,11 @@ Si parte dai termini contenenti il parametro \(k\), ovvero \(k\ln{k}\):
 \[
 \begin{aligned}
 k\ln k 
-&= \left(\frac{N}{2}+\Delta s\right)
-   \left(\ln\!\frac{N}{2} + \frac{2\Delta s}{N} - \frac{1}{2}\!\left(\frac{2\Delta s}{N}\right)^2\right] \\
-&= \frac{N}{2}\ln\!\frac{N}{2} + \Delta s\ln\!\frac{N}{2}
-   + \frac{N}{2}\cdot\frac{2\Delta s}{N} + \Delta s\cdot\frac{2\Delta s}{N}
-   - \frac{N}{2}\cdot\frac{1}{2}\!\left(\frac{4\Delta s^2}{N^2}\right)
+&= \left(\dfrac{N}{2}+\Delta s\right)
+   \left(\ln\!\dfrac{N}{2} + \dfrac{2\Delta s}{N} - \dfrac{1}{2}\!\left(\dfrac{2\Delta s}{N}\right)^2\right] \\
+&= \dfrac{N}{2}\ln\!\dfrac{N}{2} + \Delta s\ln\!\dfrac{N}{2}
+   + \dfrac{N}{2}\cdot\dfrac{2\Delta s}{N} + \Delta s\cdot\dfrac{2\Delta s}{N}
+   - \dfrac{N}{2}\cdot\dfrac{1}{2}\!\left(\dfrac{4\Delta s^2}{N^2}\right)
 \end{aligned}
 \]
 
@@ -318,7 +318,7 @@ Eseguendo le somme e semplificando si ottiene si ottiene:
 
 \[
 k\ln k \simeq 
-\frac{N}{2}\ln\!\frac{N}{2} + \Delta s\ln\!\frac{N}{2} + \Delta s + \frac{\Delta s^2}{N}
+\dfrac{N}{2}\ln\!\dfrac{N}{2} + \Delta s\ln\!\dfrac{N}{2} + \Delta s + \dfrac{\Delta s^2}{N}
 \]
 
 Si considera ora la restante parte:
@@ -326,42 +326,42 @@ Si considera ora la restante parte:
 \[
 \begin{aligned}
 (N - k)\ln(N - k)
-&= \left(\frac{N}{2} - \Delta s\right)
+&= \left(\dfrac{N}{2} - \Delta s\right)
 \left(
-\ln\!\frac{N}{2}
-- \frac{2\Delta s}{N}
-- \frac{1}{2}\!\left(\frac{2\Delta s}{N}\right)^{2}
+\ln\!\dfrac{N}{2}
+- \dfrac{2\Delta s}{N}
+- \dfrac{1}{2}\!\left(\dfrac{2\Delta s}{N}\right)^{2}
 \right] \\
-& \simeq \frac{N}{2}\ln\!\frac{N}{2}
-- \Delta s\ln\!\frac{N}{2}
-- \frac{N}{2}\cdot\frac{2\Delta s}{N}
-+ \Delta s\cdot\frac{2\Delta s}{N}
-- \frac{N}{2}\cdot\frac{1}{2}\!\left(\frac{4\Delta s^{2}}{N^{2}}\right)
+& \simeq \dfrac{N}{2}\ln\!\dfrac{N}{2}
+- \Delta s\ln\!\dfrac{N}{2}
+- \dfrac{N}{2}\cdot\dfrac{2\Delta s}{N}
++ \Delta s\cdot\dfrac{2\Delta s}{N}
+- \dfrac{N}{2}\cdot\dfrac{1}{2}\!\left(\dfrac{4\Delta s^{2}}{N^{2}}\right)
 \end{aligned}
 \]
 
 Svolgendo i seguenti passaggi:
 \[
-\frac{N}{2}\cdot\frac{2\Delta s}{N} = \Delta s,
+\dfrac{N}{2}\cdot\dfrac{2\Delta s}{N} = \Delta s,
 \qquad
-\frac{N}{2}\cdot\frac{1}{2}\!\left(\frac{4\Delta s^{2}}{N^{2}}\right) = \frac{\Delta s^{2}}{N}.
+\dfrac{N}{2}\cdot\dfrac{1}{2}\!\left(\dfrac{4\Delta s^{2}}{N^{2}}\right) = \dfrac{\Delta s^{2}}{N}.
 \]
 
 si ottiene:
 
 \[
 \begin{aligned}
-(N - k)\ln(N - k)\simeq \frac{N}{2}\ln\!\frac{N}{2}
-- \Delta s\ln\!\frac{N}{2}
+(N - k)\ln(N - k)\simeq \dfrac{N}{2}\ln\!\dfrac{N}{2}
+- \Delta s\ln\!\dfrac{N}{2}
 - \Delta s
-+ \frac{\Delta s^{2}}{N}
++ \dfrac{\Delta s^{2}}{N}
 \end{aligned}
 \]
 
 Si sostituiscono questi risultati nell'espressione per \(\ln P\):
 
 \[
-\ln P \simeq N\ln\!\frac{N}{2} - \left(k\ln k + (N-k)\ln(N-k)\right]
+\ln P \simeq N\ln\!\dfrac{N}{2} - \left(k\ln k + (N-k)\ln(N-k)\right]
 \]
 
 Si sostituiscono le relative espressioni in \(k\ln k + (N-k)\ln(N-k)\):
@@ -369,62 +369,62 @@ Si sostituiscono le relative espressioni in \(k\ln k + (N-k)\ln(N-k)\):
 \[
 \begin{aligned}
 k\ln k + (N-k)\ln(N-k)
-&\simeq \frac{N}{2}\ln\!\frac{N}{2}
-- \Delta s\ln\!\frac{N}{2}
+&\simeq \dfrac{N}{2}\ln\!\dfrac{N}{2}
+- \Delta s\ln\!\dfrac{N}{2}
 - \Delta s
-+ \frac{\Delta s^{2}}{N} + \\
-& + N\ln\!\frac{N}{2} + \frac{2\Delta s^2}{N} + \frac{N}{2}\ln\!\frac{N}{2} + \Delta s\ln\!\frac{N}{2} + \Delta s + \frac{\Delta s^2}{N}
++ \dfrac{\Delta s^{2}}{N} + \\
+& + N\ln\!\dfrac{N}{2} + \dfrac{2\Delta s^2}{N} + \dfrac{N}{2}\ln\!\dfrac{N}{2} + \Delta s\ln\!\dfrac{N}{2} + \Delta s + \dfrac{\Delta s^2}{N}
 \end{aligned}
 \]
 
 Sommando i termini analoghi si ha:
 
 \[
-k\ln k + (N-k)\ln(N-k)\simeq N\ln\!\frac{N}{2} + \frac{2\Delta s^2}{N}.
+k\ln k + (N-k)\ln(N-k)\simeq N\ln\!\dfrac{N}{2} + \dfrac{2\Delta s^2}{N}.
 \]
 
 Si sostituisce tale risultato nell'espressione per la probabilità:
 
 \[
 \ln P \simeq 
-N\ln\!\frac{N}{2} - 
-\left(N\ln\!\frac{N}{2} + \frac{2\Delta s^2}{N}\right]
-= -\frac{2\Delta s^2}{N}
+N\ln\!\dfrac{N}{2} - 
+\left(N\ln\!\dfrac{N}{2} + \dfrac{2\Delta s^2}{N}\right]
+= -\dfrac{2\Delta s^2}{N}
 \]
 
 Dalla definizione di \({\Delta}s\) si ha che \(k = N/2 + {\Delta}s \Leftrightarrow {\Delta}s = k - N/2\). È possibile scrivere:
 
 \[
-\ln P \simeq - \frac{\left( k - \frac{N}{2} \right)^{2}}{\frac{N}{2}}
+\ln P \simeq - \dfrac{\left( k - \dfrac{N}{2} \right)^{2}}{\dfrac{N}{2}}
 \]
 
 Questa relazione può essere arrangiata in modo da evidenziare la varianza della distribuzione binomiale \(\sigma = N/4\), moltiplicando e dividendo per \(2\) il secondo membro:
 
 \[
-\ln P \simeq - \frac{1}{2}\frac{\left( k - \frac{N}{2} \right)^{2}}{\frac{N}{4}}
+\ln P \simeq - \dfrac{1}{2}\dfrac{\left( k - \dfrac{N}{2} \right)^{2}}{\dfrac{N}{4}}
 \]
 
 Si applica l'esponenziale, in modo da ricavare la probabilità \(P\):
 
 \[
-P\left( k\ \text{spin su}\ N\ \text{nello stato}\ \left| + \right\rangle \right) \simeq \exp\left( - \frac{1}{2} \frac{(k - \frac{N}{2})^2}{\sigma^2} \right)
+P\left( k\ \text{spin su}\ N\ \text{nello stato}\ \left| + \right\rangle \right) \simeq \exp\left( - \dfrac{1}{2} \dfrac{(k - \dfrac{N}{2})^2}{\sigma^2} \right)
 \]
 
 La distribuzione ottenuta è di tipo gaussiano, con media \(\mu = N/2\) e varianza  \(\sigma^{2} = N/4\). Affinché la relazione sia effettivamente una gaussiana, è necessario introdurre un termine di normalizzazione \(A\);
 
 \[
-P\left( k\ \text{spin su}\ N\ \text{nello stato}\ \left| + \right\rangle \right) \simeq \exp\left( - \frac{1}{2} \frac{(k - \frac{N}{2})^2}{\sigma^2} \right)
+P\left( k\ \text{spin su}\ N\ \text{nello stato}\ \left| + \right\rangle \right) \simeq \exp\left( - \dfrac{1}{2} \dfrac{(k - \dfrac{N}{2})^2}{\sigma^2} \right)
 \]
 
 Nei passaggi precedenti, la costante di normalizzazione non è comparsa a causa delle approssimazioni introdotte da Stirling e dallo sviluppo in serie di Taylor. La costante di normalizzazione è:
 \[
-A = \frac{1}{\sqrt{2\pi \sigma^2}} = \frac{1}{\sqrt{2\pi (N/4)}} = \frac{2}{\sqrt{2\pi N}}
+A = \dfrac{1}{\sqrt{2\pi \sigma^2}} = \dfrac{1}{\sqrt{2\pi (N/4)}} = \dfrac{2}{\sqrt{2\pi N}}
 \]
 
 Quindi la distribuzione che \(k\) spin siano nello stato up è:
 
 \[
-P\left( k\ \text{spin su}\ N\ \text{nello stato}\ \left| + \right\rangle \right) \simeq \frac{2}{\sqrt{2\pi N}} \exp\left( - \frac{1}{2} \frac{(k - \frac{N}{2})^2}{\sigma^2} \right)
+P\left( k\ \text{spin su}\ N\ \text{nello stato}\ \left| + \right\rangle \right) \simeq \dfrac{2}{\sqrt{2\pi N}} \exp\left( - \dfrac{1}{2} \dfrac{(k - \dfrac{N}{2})^2}{\sigma^2} \right)
 \]
 
 \section{Stati ammissibili}\label{stati-ammissibili}
@@ -479,7 +479,7 @@ Nel caso in esame l'energia può essere espressa come multiplo della differenza 
 Il numero delle possibili configurazioni che il sistema può assumere con \(k\) spin nello stato \(\left| + \right\rangle\) è dato da:
 
 \[
-\binom{N}{k} = \frac{N!}{k!(N - k)!}
+\binom{N}{k} = \dfrac{N!}{k!(N - k)!}
 \]
 
 Nell'ipotesi di spin non interagenti, il sistema è statico e permane nello stato iniziale. Tuttavia, nella realtà gli spin interagiscono tra loro, seppur per tempi brevi, scambiandosi energia. Così, uno spin con energia maggiore può trasferire energia a uno con energia inferiore, causando un cambio di stato per entrambi.
@@ -546,41 +546,41 @@ g(U,N) = g_{1}\left( U_{1}\left( s_{1} \right),N_{1} \right)g_{2}\left( U - U_{1
 dove \(N = N_{1} + N_{2}\). Per ogni stato ammissibile del primo del primo sistema, il secondo può trovarsi in uno qualunque dei suoi stati ammissibili, il cui numero dipende dall'energia del sistema \(\mathbb{S}_{1}\). In altre parole, al variare dell'enumerazione \(s_{1}\) del primo sistema, varia anche la numerosità degli stati ammissibili del sistema totale. Esiste, di conseguenza, un massimo della funzione \(g(U,N)\), ottenuto ponendo uguale a \(0\) la derivata di \(g\) rispetto all'energia:
 
 \[
-\frac{\partial g}{\partial U} = \frac{\partial g}{\partial U_{1}} = \frac{\partial}{\partial U_{1}}\left( g_{1}\left( U_{1}\left( s_{1} \right),N_{1} \right)g_{2}\left( U - U_{1}\left( s_{1} \right),N_{2} \right) \right)
+\dfrac{\partial g}{\partial U} = \dfrac{\partial g}{\partial U_{1}} = \dfrac{\partial}{\partial U_{1}}\left( g_{1}\left( U_{1}\left( s_{1} \right),N_{1} \right)g_{2}\left( U - U_{1}\left( s_{1} \right),N_{2} \right) \right)
 \]
 
 Per le proprietà delle derivate si ha:
 
 \[
-\frac{\partial g}{\partial U_{1}} = \frac{\partial g_{1}}{\partial U_{1}}g_{2} - g_{1}\frac{\partial g_{2}}{\partial U_{1}}
+\dfrac{\partial g}{\partial U_{1}} = \dfrac{\partial g_{1}}{\partial U_{1}}g_{2} - g_{1}\dfrac{\partial g_{2}}{\partial U_{1}}
 \]
 
 Il segno meno deriva dalla dipendenza di \(g_{2}\) da \(-U_{1}\). In condizione di massimo, è valida la relazione:
 
-\[\frac{\partial g}{\partial U} = 0\]
+\[\dfrac{\partial g}{\partial U} = 0\]
 
 Ovvero:
 
 \[\
-frac{\partial g_{1}}{\partial U_{1}}g_{2} - g_{1}\frac{\partial g_{2}}{\partial U_{1}} = 0 \Leftrightarrow \frac{\partial g_{1}}{\partial U_{1}}g_{2} = g_{1}\frac{\partial g_{2}}{\partial U_{1}}
+frac{\partial g_{1}}{\partial U_{1}}g_{2} - g_{1}\dfrac{\partial g_{2}}{\partial U_{1}} = 0 \Leftrightarrow \dfrac{\partial g_{1}}{\partial U_{1}}g_{2} = g_{1}\dfrac{\partial g_{2}}{\partial U_{1}}
 \]
 
 Dividendo per \(g_{1} g_{2}\):
 
 \[
-\frac{1}{g_{1}} \frac{\partial g_{1}}{\partial U_{1}} = \frac{1}{g_{2}} \frac{\partial g_{2}}{\partial U_{1}}
+\dfrac{1}{g_{1}} \dfrac{\partial g_{1}}{\partial U_{1}} = \dfrac{1}{g_{2}} \dfrac{\partial g_{2}}{\partial U_{1}}
 \]
 
 Poiché:
 
 \[
-\frac{\partial}{\partial U_{1}} \ln g_{1} = \frac{1}{g_{1}} \frac{\partial g_{1}}{\partial U_{1}}
+\dfrac{\partial}{\partial U_{1}} \ln g_{1} = \dfrac{1}{g_{1}} \dfrac{\partial g_{1}}{\partial U_{1}}
 \]
 
 Si ottiene:
 
 \[
-\frac{\partial}{\partial U_{1}} \ln g_{1} = \frac{\partial}{\partial U_{1}} \ln g_{2}
+\dfrac{\partial}{\partial U_{1}} \ln g_{1} = \dfrac{\partial}{\partial U_{1}} \ln g_{2}
 \]
 
 Si definisce \textbf{entropia adimensionale} o \textbf{logaritmo della molteplicità} di un sistema \(\sigma\) come il logaritmo della molteplicità degli stati aventi tutti la stessa energia:
@@ -598,7 +598,7 @@ S = k_B \ln g = k_B \sigma
 Tramite il concetto di entropia è possibile riscrivere la relazione precedente come:
 
 \[
-\left. \ \frac{\partial\sigma}{\partial U} \right|_{1} = \left. \ \frac{\partial\sigma}{\partial U} \right|_{2}
+\left. \ \dfrac{\partial\sigma}{\partial U} \right|_{1} = \left. \ \dfrac{\partial\sigma}{\partial U} \right|_{2}
 \]
 
 Questa relazione implica che, una volta raggiunto l’equilibrio termico, i due sistemi hanno la stessa temperatura. Le entropie possono essere diverse, poiché dipendono dal numero di particelle e dalle configurazioni possibili.
@@ -606,7 +606,7 @@ Questa relazione implica che, una volta raggiunto l’equilibrio termico, i due 
 La legge zero della termodinamica afferma che due sistemi posti in contatto termico raggiungono la stessa temperatura. Dal ragionamento precedente, si definisce la temperatura come:
 
 \[
-\frac{\partial\sigma}{\partial U} = \frac{1}{k_{B}T}
+\dfrac{\partial\sigma}{\partial U} = \dfrac{1}{k_{B}T}
 \]
 
 dove \(k_B = 1.38 \cdot 10^{-23} \, \text{J/K}\) è la costante di Boltzmann, necessaria per garantire la correttezza dimensionale.
@@ -649,7 +649,7 @@ Si considera un secondo valore di energia del sistema \(\mathbb{S}_{1}\), \(\var
 La numerosità è legata alla probabilità mediante un fattore di normalizzazione, dato dal numero totale delle configurazioni possibili del sistema, indipendente dall'energia. Calcolando il rapporto tra le due numerosità degli stati del sistema globale, si ottiene il rapporto tra la probabilità che il sistema \(\mathbb{S}_{2}\) sia nello stato \(g_{2}\left( U - \varepsilon_{1}^{\alpha} \right)\) e la probabilità che sia nello stato \(g_{2}\left( U - \varepsilon_{1}^{\beta} \right)\). In altre parole, il fattore di normalizzazione si elide:
 
 \[
-\frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \frac{g_{2}\left( U - \varepsilon_{1}^{\alpha},N_{2} \right)}{g_{2}\left( U - \varepsilon_{1}^{\beta},N_{2} \right)}
+\dfrac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \dfrac{g_{2}\left( U - \varepsilon_{1}^{\alpha},N_{2} \right)}{g_{2}\left( U - \varepsilon_{1}^{\beta},N_{2} \right)}
 \]
 
 L'entropia è legata alla numerosità degli stati mediante logaritmo:
@@ -665,238 +665,295 @@ Applicando l'esponenziale si ha:
 Sostituendo questo risultato nel rapporto tra le probabilità si ottiene:
 
 \[\
-frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \frac{g_{2}\left( U - \varepsilon_{1}^{\alpha},N_{2} \right)}{g_{2}\left( U - \varepsilon_{1}^{\beta},N_{2} \right)} = \frac{\exp\left( \sigma\left( U - \varepsilon_{1}^{\alpha},N_{2} \right) \right)}{\exp\left( \sigma\left( U - \varepsilon_{1}^{\beta},N_{2} \right) \right)}
+frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \dfrac{g_{2}\left( U - \varepsilon_{1}^{\alpha},N_{2} \right)}{g_{2}\left( U - \varepsilon_{1}^{\beta},N_{2} \right)} = \dfrac{\exp\left( \sigma\left( U - \varepsilon_{1}^{\alpha},N_{2} \right) \right)}{\exp\left( \sigma\left( U - \varepsilon_{1}^{\beta},N_{2} \right) \right)}
 \]
 
 Dato che \(\varepsilon_{1}^{\alpha}, \varepsilon_{1}^{\beta} \ll U\), si può sviluppare \(\sigma(U - \varepsilon)\) in serie di Taylor al primo ordine:
 
 \[
-\sigma\left( U - \varepsilon_{1}^{i},N_{2} \right) \simeq \sigma(U) - \varepsilon_{1}^{i}\frac{\partial\sigma}{\partial U},\ \ i = \alpha,\beta
+\sigma\left( U - \varepsilon_{1}^{i},N_{2} \right) \simeq \sigma(U) - \varepsilon_{1}^{i}\dfrac{\partial\sigma}{\partial U},\ \ i = \alpha,\beta
 \]
 
 Per definizione di temperatura:
 
 \[
-\frac{\partial\sigma}{\partial U} = \frac{1}{k_{B}T}
+\dfrac{\partial\sigma}{\partial U} = \dfrac{1}{k_{B}T}
 \]
 
 Lo sviluppo si scrive come:
 
 \[
-\sigma\left( U - \varepsilon_{1}^{i},N_{2} \right) \simeq \sigma(U) - \varepsilon_{1}^{i}\frac{1}{k_{B}T},\ \ i = \alpha,\beta
+\sigma\left( U - \varepsilon_{1}^{i},N_{2} \right) \simeq \sigma(U) - \varepsilon_{1}^{i}\dfrac{1}{k_{B}T},\ \ i = \alpha,\beta
 \]
 
 Si sostituisce questo risultato nel rapporto tra le due probabilità:
 
 \[
-\frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \frac{\exp\left( \sigma\left( U - \varepsilon_{1}^{\alpha},N_{2} \right) \right)}{\exp\left( \sigma\left( U - \varepsilon_{1}^{\beta},N_{2} \right) \right)} \simeq \frac{\exp\left( \sigma(U) \right)\exp\left( - \frac{\varepsilon_{1}^{\alpha}}{k_{B}T} \right)}{\exp\left( \sigma(U) \right)\exp\left( - \frac{\varepsilon_{1}^{\beta}}{k_{B}T} \right)}
+\dfrac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \dfrac{\exp\left( \sigma\left( U - \varepsilon_{1}^{\alpha},N_{2} \right) \right)}{\exp\left( \sigma\left( U - \varepsilon_{1}^{\beta},N_{2} \right) \right)} \simeq \dfrac{\exp\left( \sigma(U) \right)\exp\left( - \dfrac{\varepsilon_{1}^{\alpha}}{k_{B}T} \right)}{\exp\left( \sigma(U) \right)\exp\left( - \dfrac{\varepsilon_{1}^{\beta}}{k_{B}T} \right)}
 \]
 
 Dato che l'entropia è la stessa per entrambe le configurazione, si semplifica \(\exp\left( \sigma(U) \right)\):
 
 \[
-\frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} \simeq \frac{\exp\left( - \frac{\varepsilon_{1}^{\alpha}}{k_{B}T} \right)}{\exp\left( - \frac{\varepsilon_{1}^{\beta}}{k_{B}T} \right)}
+\dfrac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} \simeq \dfrac{\exp\left( - \dfrac{\varepsilon_{1}^{\alpha}}{k_{B}T} \right)}{\exp\left( - \dfrac{\varepsilon_{1}^{\beta}}{k_{B}T} \right)}
 \]
 
 Dato che il rapporto tra le due probabilità \(P\left( \varepsilon_{1}^{\alpha} \right)\) e \(P\left( \varepsilon_{1}^{\beta} \right)\), restituisce il rapporto tra due esponenziali, la probabilità generica \(P(\varepsilon)\) deve essere proporzionale all'esponenziale:
 
 \[
-P(\varepsilon) \propto \exp\left( - \frac{\varepsilon}{k_{B}T} \right)
+P(\varepsilon) \propto \exp\left( - \dfrac{\varepsilon}{k_{B}T} \right)
 \]
 
-Il termine esponenziale al secondo membro, \(\exp\left( - \frac{\varepsilon}{k_{B}T} \right)\), indica la probabilità relativa, non normalizzata, di un singolo stato, è chiamato fattore di Boltzmann.
+Il termine esponenziale al secondo membro, \(\exp\left( - \dfrac{\varepsilon}{k_{B}T} \right)\), indica la probabilità relativa, non normalizzata, di un singolo stato, è chiamato fattore di Boltzmann.
 
 Per ottenere la dipendenza esatta della probabilità dall'energia del piccolo sistema, \(\varepsilon\), si introduce un fattore di normalizzazione \(Z\), tale che:
 
 \[
-P(\varepsilon) = \frac{1}{Z}\exp\left( - \frac{\varepsilon}{k_{B}T} \right)
+P(\varepsilon) = \dfrac{1}{Z}\exp\left( - \dfrac{\varepsilon}{k_{B}T} \right)
 \]
 
 \(Z\) è scelto in modo tale che la somma di tutte le probabilità, al variare dell'energia del sistema \(\mathbb{S}_{1}\), sia unitaria, ovvero:
 
 \[
-Z:\sum_{n}^{}{P\left( \varepsilon_{n} \right)} = 1
+Z:\sum_{n}{P\left( \varepsilon_{n} \right)} = 1
 \]
 
 Sostituendo l'espressione per la probabilità, si ha:
 
 \[\
-frac{1}{Z}\sum_{n}^{}{\exp\left( - \frac{\varepsilon_{n}}{k_{B}T} \right)} = 1
+frac{1}{Z}\sum_{n}{\exp\left( - \dfrac{\varepsilon_{n}}{k_{B}T} \right)} = 1
 \]
 
 Da cui:
 
 \[
-Z = \sum_{n}^{}{\exp\left( - \frac{\varepsilon_{n}}{k_{B}T} \right)}
+Z = \sum_{n}{\exp\left( - \dfrac{\varepsilon_{n}}{k_{B}T} \right)}
 \]
 
 \(Z\) è noto come fattore di ripartizione e funge, come detto, da costante di normalizzazione. La probabilità di una configurazione del piccolo sistema con energia \(\varepsilon\) è:
 
 \[
-P(\varepsilon) = \frac{\exp\left( - \frac{\varepsilon}{k_{B}T} \right)}{\sum_{n}^{}{\exp\left( - \frac{\varepsilon_{n}}{k_{B}T} \right)}}
+P(\varepsilon) = \dfrac{\exp\left( - \dfrac{\varepsilon}{k_{B}T} \right)}{\sum_{n}{\exp\left( - \dfrac{\varepsilon_{n}}{k_{B}T} \right)}}
 \]
 
 \subsection{Magnetizzazione macroscopica}\label{magnetizzazione-macroscopica}
 
-Mediante la formula di Boltzmann è possibile determinare la magnetizzazione macroscopica di un volumetto di materiale, contenente un numero di Avogadro di particelle, immerso in un campo magnetico diretto lungo \(z\).
+Mediante la distribuzione di Boltzmann è possibile determinare la magnetizzazione macroscopica di un volumetto di materiale contenente un numero di Avogadro di particelle, immerso in un campo magnetico uniforme diretto lungo l'asse \(z\).
 
-Ogni spin presente nel volumetto possiede uno dei due livelli energetici:
+Ogni spin presente nel volumetto può assumere uno dei due livelli energetici:
 
-\[\varepsilon_{1,2} = \pm \gamma\frac{\hslash}{2}B_{0}\]
+\[
+\varepsilon_{1,2} = \pm \gamma \dfrac{\hslash}{2} B_{0}
+\]
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=2.71424in,height=2.52778in,alt={P2523\#yIS1}]{media/5_MecStatistica/image53.pdf}\caption{Volume elementare immerso in un campo magnetico}
 \end{figure}
 
-Usando il fattore il fattore di Boltzmann, la probabilità che le particelle si trovino nello stato \(\left| + \right\rangle\) o \(\left| - \right\rangle\) sono date da:
+Utilizzando la distribuzione di Boltzmann, la probabilità che una particella si trovi nello stato \(\left| + \right\rangle\) o \(\left| - \right\rangle\) è:
 
-\[P\left( \varepsilon_{1,2} \right) = \frac{1}{Z}\exp\left( - \frac{\varepsilon_{1,2}}{k_{B}T} \right)\]
+\[
+P(\varepsilon_{1,2}) = \dfrac{1}{Z} \exp\left( - \dfrac{\varepsilon_{1,2}}{k_B T} \right)
+\]
 
-Dove:
+dove il fattore di partizione \(Z\) è:
 
-\[Z = \sum_{n}^{}{\exp\left( - \frac{\varepsilon_{n}}{k_{B}T} \right)} = \exp\left( \frac{\gamma\hslash B_{0}}{2k_{B}T} \right) + \exp\left( - \frac{\gamma\hslash B_{0}}{2k_{B}T} \right)\]
+\[
+Z = \sum_{n}{\exp\left( - \dfrac{\varepsilon_{n}}{k_{B}T} \right)} = \exp\left( \dfrac{\gamma\hslash B_{0}}{2k_{B}T} \right) + \exp\left( - \dfrac{\gamma\hslash B_{0}}{2k_{B}T} \right)
+\]
 
-Il fattore di Boltzmann è dato dalla somma di due elementi poiché gli spin possono assumere solamente due livelli energetici.
+Poiché gli spin possono assumere solo due livelli energetici, il fattore di partizione è la somma di due termini.
 
 Sia \(N\) il numero degli spin nell'unità di volume. Il momento di magnetizzazione è dato da:
 
-\[M = N\gamma\frac{\hslash}{2}\left( P^{+} - P^{-} \right)\]
+\[M = N\gamma\dfrac{\hslash}{2}\left( P^{+} - P^{-} \right)\]
 
-Dove \(P^{+}\) è il totale degli spin nello stato \(\left| + \right\rangle\), mentre \(P^{-}\) nello stato \(\left| - \right\rangle\). In altre parole, il vettore di magnetizzazione \(M\) è dato dal netto degli spin nello stato parallelo rispetto a quelli nello stato antiparallelo, rispetto al campo applicato.
+dove \(P^{+}\) è il totale degli spin nello stato \(\left| + \right\rangle\), mentre \(P^{-}\) nello stato \(\left| - \right\rangle\). In altre parole, il vettore di magnetizzazione \(M\) è dato dal netto degli spin nello stato parallelo rispetto a quelli nello stato antiparallelo, rispetto al campo applicato. Per la distribuzione di Boltzmann, risulta che:
 
-Per la distribuzione di Boltzmann, risulta che:
-
-\[P^{+} = \frac{\exp\left( \frac{\gamma\hslash B_{0}}{2k_{B}T} \right)}{\exp\left( \frac{\gamma\hslash B_{0}}{2k_{B}T} \right) + \exp\left( - \frac{\gamma\hslash B_{0}}{2k_{B}T} \right)},\ \ P^{-} = \frac{\exp\left( - \frac{\gamma\hslash B_{0}}{2k_{B}T} \right)}{\exp\left( \frac{\gamma\hslash B_{0}}{2k_{B}T} \right) + \exp\left( - \frac{\gamma\hslash B_{0}}{2k_{B}T} \right)}\]
+\[
+P^{+} = \dfrac{\exp\left( \dfrac{\gamma\hslash B_{0}}{2k_{B}T} \right)}{\exp\left( \dfrac{\gamma\hslash B_{0}}{2k_{B}T} \right) + \exp\left( - \dfrac{\gamma\hslash B_{0}}{2k_{B}T} \right)},\ \ P^{-} = \dfrac{\exp\left( - \dfrac{\gamma\hslash B_{0}}{2k_{B}T} \right)}{\exp\left( \dfrac{\gamma\hslash B_{0}}{2k_{B}T} \right) + \exp\left( - \dfrac{\gamma\hslash B_{0}}{2k_{B}T} \right)}
+\]
 
 Il vettore di magnetizzazione, dunque, è dato da:
 
-\[M = N\gamma\frac{\hslash}{2}\left( \frac{\exp\left( \frac{\gamma\hslash B_{0}}{2k_{B}T} \right) - \exp\left( - \frac{\gamma\hslash B_{0}}{2k_{B}T} \right)}{\exp\left( \frac{\gamma\hslash B_{0}}{2k_{B}T} \right) + \exp\left( - \frac{\gamma\hslash B_{0}}{2k_{B}T} \right)} \right)\]
+\[
+M = N\gamma\dfrac{\hslash}{2}\left( \dfrac{\exp\left( \dfrac{\gamma\hslash B_{0}}{2k_{B}T} \right) - \exp\left( - \dfrac{\gamma\hslash B_{0}}{2k_{B}T} \right)}{\exp\left( \dfrac{\gamma\hslash B_{0}}{2k_{B}T} \right) + \exp\left( - \dfrac{\gamma\hslash B_{0}}{2k_{B}T} \right)} \right)
+\]
 
 Il secondo membro coincide con la tangente iperbolica, per cui:
 
-\[M = N\gamma\frac{\hslash}{2}\tanh\left( \frac{\gamma\hslash B_{0}}{2k_{B}T} \right)\]
+\[
+M = N\gamma\dfrac{\hslash}{2}\tanh\left( \dfrac{\gamma\hslash B_{0}}{2k_{B}T} \right)
+\]
 
-Con opportune temperature, risulta che:
+In regime di alta temperatura, ovvero quando:
 
-\[\frac{\gamma\hslash B_{0}}{2k_{B}T} \ll 1 \Leftrightarrow \frac{\gamma\hslash B_{0}}{2} \ll k_{B}T\]
+\[
+\dfrac{\gamma\hslash B_{0}}{2k_{B}T} \ll 1 \Leftrightarrow \dfrac{\gamma\hslash B_{0}}{2} \ll k_{B}T
+\]
 
-Il momento di magnetizzazione può essere scritto come:
+si può approssimare la tangente iperbolica con il suo argomento. Il momento di magnetizzazione può essere scritto come:
 
-\[M = N\gamma\frac{\hslash}{2}\tanh\left( \frac{\gamma\hslash B_{0}}{2k_{B}T} \right) \simeq \ N\gamma\frac{\hslash}{2}\frac{\gamma\hslash B_{0}}{2k_{B}T}\]
+\[
+M = N\gamma\dfrac{\hslash}{2}\tanh\left( \dfrac{\gamma\hslash B_{0}}{2k_{B}T} \right) \simeq \ N\gamma\dfrac{\hslash}{2}\dfrac{\gamma\hslash B_{0}}{2k_{B}T}
+\]
 
 Da cui si ricava la legge di Curie:
 
-\[M \simeq \ N\frac{\gamma^{2}\hslash^{2}}{4k_{B}T}B_{0}\]
+\[
+M \simeq N \dfrac{\gamma^2 \hslash^2}{4 k_B T} B_0
+\]
 
-Da questa relazione è possibile ricavare un'espressione per la suscettività magnetica \(\chi_{m}\):
+La magnetizzazione è proporzionale al campo magnetico applicato e inversamente proporzionale alla temperatura.
 
-\[\vec{M} = \chi_{m}\vec{H}\]
-
-La suscettività magnetica è definita mediante il campo magnetico \(\vec{H}\) dalla relazione \(\chi_{m}=M_0/H\). Ma, poiché si suppone che la densità di atomi magnetici sia piccola, risulta che \(\vec{B}_0= \mu_0\vec{H}\) con ottima approssimazione. La magnetizzazione si scrive come:
+Dall'ultima relazione è possibile ricavare un'espressione per la suscettività magnetica \(\chi_{m}\):
 
 \[
-M \simeq \ N\frac{\gamma^{2}\hslash^{2}}{4k_{B}T}\left(\mu_0 H\right)
+\vec{M} = \chi_{m}\vec{H}
+\]
+
+Poiché si assume che la densità di spin sia bassa, si può approssimare \(\vec{B}_0 \simeq \mu_0 \vec{H}\), da cui:
+\[
+M \simeq \ N\dfrac{\gamma^{2}\hslash^{2}}{4k_{B}T}\left(\mu_0 H\right)
 \]
 
 In particolare, la suscettività magnetica è data da:
 
 \[
-\chi_{m} \simeq \mathbf{\mu_{0}} N\frac{\gamma^{2}\hslash^{2}}{4k_{B}T}
+\chi_{m} \simeq \mathbf{\mu_{0}} N\dfrac{\gamma^{2}\hslash^{2}}{4k_{B}T}
 \]
 
-La magnetizzazione netta dipende dal campo applicato e dall'inverso della temperatura; gli altri parametri sono costanti, dunque, non è possibile agire su di essi. In risonanza magnetica, la temperatura non può essere resa piccola a piacere per non raffreddare eccessivamente il paziente. Si utilizzano, per tale motivo, campi magnetici molto elevati, dell'ordine di \(1.5\ T\) in diagnosti, \(3\ T\) in terapia e \(7\ T\) in ricerca.
+La magnetizzazione netta dipende dal campo applicato e dall'inverso della temperatura. Gli altri parametri sono costanti, dunque, non è possibile agire su di essi. In risonanza magnetica, la temperatura non può essere resa piccola a piacere per non raffreddare eccessivamente il paziente. Si utilizzano, per tale motivo, campi magnetici molto elevati, dell'ordine di \(1.5\ T\) in diagnosti, \(3\ T\) in terapia e \(7\ T\) in ricerca.
 
 \subsection{Legge di Planck}\label{legge-di-planck}
 
-Si considera una cavità metallica rettangolare, con un piccolo foro sul centro di un lato. Questo oggetto approssima il comportamento del corpo nero. Dal foro fuoriesce una radiazione elettromagnetica, la cui distribuzione energetica è dipendente dalla temperatura della cavità.
+Si considera una cavità metallica rettangolare con un piccolo foro al centro di una delle sue pareti.  Questo sistema approssima il comportamento di un corpo nero.  Dal foro fuoriesce una radiazione elettromagnetica la cui distribuzione energetica dipende dalla temperatura della cavità.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1.525in,height=2.12413in,alt={P2550\#yIS1}]{media/5_MecStatistica/image54.pdf}\caption{Approssimazione del corpo nero}
 \end{figure}
 
-Mediatane la meccanica classica non è possibile spiegare il comportamento dello spettro di emissione del corpo nero. Plank ipotizzò che la radiazione elettromagnetica avesse una natura quantizzata su livello energetico, data da:
+Mediante la meccanica classica non è possibile spiegare il comportamento dello spettro di emissione del corpo nero.  Planck ipotizzò che la radiazione elettromagnetica avesse una natura quantizzata, cioè che l’energia potesse assumere solo valori discreti dati da:
 
-\[E = nh\nu,\ \ n\mathbb{\in N}\]
+\[
+E = nh\nu,\ \ n\mathbb{\in N}
+\]
 
-Il comportamento del corpo nero può essere spiegato e descritto mediante l'uso della meccanica quantistica e statistica.
+Il comportamento del corpo nero può dunque essere spiegato e descritto mediante la meccanica quantistica e la statistica.
 
-Nella cavità esistono dei modi di oscillazione del campo magnetico. Sia \(\omega\) la pulsazione di uno di questi modi.
 
-L'ipotesi di Planck afferma che l'energia è quantizzata, dunque, può assumere valori multipli di una quantità fondamentale \(\hslash\omega\). I livelli energetici dei fotoni di questo modo sono dati da:
+Nella cavità esistono dei modi di oscillazione del campo elettromagnetico. Sia \(\omega\) la pulsazione di uno di questi modi. L'ipotesi di Planck afferma che l'energia è quantizzata, dunque, può assumere valori multipli di una quantità fondamentale \(\hslash\omega\). I livelli energetici dei fotoni associati a questo modo sono:
 
-\[E_{s} = s\hslash\omega,\ \ s\mathbb{\in N}\]
+\[
+E_{s} = s \hslash \omega, \quad s \in \mathbb{N}.
+\]
 
-Si considera un singolo fotone, visto come particella immessa in contatto con un sistema molto più grande costituito dai restanti fotoni. La probabilità che un fotone si trovi al livello energetico \(E_{s} = s\hslash\omega\), è data da:
+Si considera un singolo modo del campo elettromagnetico, che può contenere un numero variabile di fotoni, ciascuno con energia \(\hslash \omega\).  La probabilità che il modo contenga \(s\) fotoni (cioè si trovi al livello energetico \(E_s = s \hslash \omega\)) è data da:
 
-\[P\left( E_{s} \right) = \frac{1}{Z}\exp\left( - \frac{s\hslash\omega}{k_{B}T} \right)\]
+\[
+P(E_s) = \dfrac{1}{Z} \exp\!\left( - \dfrac{s \hslash \omega}{k_B T} \right),
+\]
 
-Dove il fattore di ripartizione \(Z\), nell'ipotesi che vi siano infiniti fotoni nella cavità, è dato da:
+dove il fattore di partizione \(Z\), nell’ipotesi che \(s\) possa assumere qualsiasi valore intero non negativo, è dato da:
 
-\[Z = \sum_{s = 0}^{\infty}{\exp\left( - \frac{s\hslash\omega}{k_{B}T} \right)}\]
+\[
+Z = \sum_{s = 0}^{\infty} \exp\!\left( - \dfrac{s \hslash \omega}{k_B T} \right).
+\]
 
 Il fattore di ripartizione \(Z\) è una serie geometrica con ragione minore dell'unità, dunque, convergente:
 
-\[Z = \sum_{s = 0}^{\infty}{\exp\left( - \frac{s\hslash\omega}{k_{B}T} \right)} = \frac{1}{1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right)}\]
+\[
+Z = \sum_{s = 0}^{\infty}{\exp\left( - \dfrac{s\hslash\omega}{k_{B}T} \right)} = \dfrac{1}{1 - \exp\left( - \dfrac{\hslash\omega}{k_{B}T} \right)}
+\]
 
-La probabilità che un fotone si trovi nel livello energetico \(s\) è:
+La probabilità che il modo contenga \(s\) fotoni è quindi:
 
-\[P\left( E_{s} \right) = \frac{1}{Z}\exp\left( - \frac{s\hslash\omega}{k_{B}T} \right) = \exp\left( - \frac{s\hslash\omega}{k_{B}T} \right)\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\]
+\[
+P\left( E_{s} \right) = \dfrac{1}{Z}\exp\left( - \dfrac{s\hslash\omega}{k_{B}T} \right) = \exp\left( - \dfrac{s\hslash\omega}{k_{B}T} \right)\left( 1 - \exp\left( - \dfrac{\hslash\omega}{k_{B}T} \right) \right)
+\]
 
-Si calcola il valor medio dell'energia del modo con pulsazione \(\omega\):
+Il valor medio dell’energia del modo con pulsazione \(\omega\) è:
 
-\[\left\langle E \right\rangle = \sum_{s = 0}^{\infty}{E_{s}P\left( E_{s} \right)}\]
+\[
+\left\langle E \right\rangle = \sum_{s = 0}^{\infty}{E_{s}P\left( E_{s} \right)}
+\]
 
-Dove \(E_{s} = s\hslash\omega\). Sostituendo le espressioni per\(E_{s}\) e \(P\left( E_{s} \right)\), si ricava:
+Sostituendo \(E_s = s \hslash \omega\) e la forma di \(P(E_s)\), si ottiene:
 
-\[\left\langle E \right\rangle = \sum_{s = 0}^{\infty}{E_{s}P\left( E_{s} \right)} = \sum_{s = 0}^{\infty}{s\hslash\omega\exp\left( - \frac{s\hslash\omega}{k_{B}T} \right)\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)} =\]
+\[
+\left\langle E \right\rangle = \sum_{s = 0}^{\infty}{E_{s}P\left( E_{s} \right)} = \sum_{s = 0}^{\infty}{s\hslash\omega\exp\left( - \dfrac{s\hslash\omega}{k_{B}T} \right)\left( 1 - \exp\left( - \dfrac{\hslash\omega}{k_{B}T} \right) \right)} =
+\]
 
 Per la linearità della sommatoria, si ha:
 
-\[\left\langle E \right\rangle = \ \hslash\omega\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\sum_{s = 0}^{\infty}{s\exp\left( - \frac{s\hslash\omega}{k_{B}T} \right)}\]
+\[
+\left\langle E \right\rangle = \ \hslash\omega\left( 1 - \exp\left( - \dfrac{\hslash\omega}{k_{B}T} \right) \right)\sum_{s = 0}^{\infty}{s\exp\left( - \dfrac{s\hslash\omega}{k_{B}T} \right)}
+\]
 
-Si considera la quantità:
+si definisce la variabile \(x\) come:
+\[
+x = \dfrac{\hslash \omega}{k_B T}
+\]
 
-\[\sum_{s = 0}^{\infty}{s\exp( - xs)},\ \ x = \frac{s\hslash\omega}{k_{B}T}\]
+si osserva che:
 
-È possibile scrivere che:
+\[
+\sum_{s = 0}^{\infty}{s\exp( - xs)},\ \ x = \dfrac{\hslash\omega}{k_{B}T}
+\]
 
-\[s\exp( - xs) = - \frac{d}{dx}\exp( - xs)\]
+Sostituendo, si ottiene:
+
+\[s\exp( - xs) = - \dfrac{d}{dx}\exp( - xs)\]
 
 Per cui è possibile scrivere:
 
-\[\left\langle E \right\rangle = \ \hslash\omega\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\sum_{s = 0}^{\infty}\left( - \frac{d}{dx}\exp\left( - \frac{s\hslash\omega}{k_{B}T} \right) \right)\]
+\[
+\left\langle E \right\rangle = \ \hslash\omega\left( 1 - \exp\left( - \dfrac{\hslash\omega}{k_{B}T} \right) \right)\sum_{s = 0}^{\infty}\left( - \dfrac{d}{dx}\exp\left( - \dfrac{s\hslash\omega}{k_{B}T} \right) \right)
+\]
 
 Per la linearità della sommatoria e della derivata si ha:
 
-\[\left\langle E \right\rangle = - \ \hslash\omega\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\frac{d}{dx}\sum_{s = 0}^{\infty}{\exp( - xs)}\]
+\[
+\left\langle E \right\rangle = - \ \hslash\omega\left( 1 - \exp\left( - \dfrac{\hslash\omega}{k_{B}T} \right) \right)\dfrac{d}{dx}\sum_{s = 0}^{\infty}{\exp( - xs)}
+\]
 
 La serie risulta essere convergente in quanto serie geometrica con ragione in modulo minore dell'unità. Il valor medio può essere scritto come:
 
-\[\left\langle E \right\rangle = - \ \hslash\omega\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\frac{d}{dx}\left( \frac{1}{1 - \exp( - x)} \right)\]
+\[
+\left\langle E \right\rangle = - \ \hslash\omega\left( 1 - \exp\left( - \dfrac{\hslash\omega}{k_{B}T} \right) \right)\dfrac{d}{dx}\left( \dfrac{1}{1 - \exp( - x)} \right)
+\]
 
 Svolgendo la derivata, si ottiene:
 
-\[\left\langle E \right\rangle = - \ \hslash\omega\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\frac{- \exp\left( - \frac{\hslash\omega}{k_{B}T} \right)}{\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)^{2}}\]
+\[
+\left\langle E \right\rangle = - \ \hslash\omega\left( 1 - \exp\left( - \dfrac{\hslash\omega}{k_{B}T} \right) \right)\dfrac{- \exp\left( - \dfrac{\hslash\omega}{k_{B}T} \right)}{\left( 1 - \exp\left( - \dfrac{\hslash\omega}{k_{B}T} \right) \right)^{2}}
+\]
 
 Semplificando:
 
-\[\left\langle E \right\rangle = \ \hslash\omega\frac{\exp\left( - \frac{\hslash\omega}{k_{B}T} \right)}{\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)}\]
+\[
+\left\langle E \right\rangle = \ \hslash\omega\dfrac{\exp\left( - \dfrac{\hslash\omega}{k_{B}T} \right)}{\left( 1 - \exp\left( - \dfrac{\hslash\omega}{k_{B}T} \right) \right)}
+\]
 
-È possibile raccogliere il termine esponenziale \(\exp\left( - \frac{\hslash\omega}{k_{B}T} \right)\):
+È possibile raccogliere il termine esponenziale \(\exp\left( - \dfrac{\hslash\omega}{k_{B}T} \right)\):
 
-\[\left\langle E \right\rangle = \ \frac{\hslash\omega}{\left( \exp\left( \frac{\hslash\omega}{k_{B}T} \right) - 1 \right)}\]
+\[
+\left\langle E \right\rangle = \ \dfrac{\hslash\omega}{\left( \exp\left( \dfrac{\hslash\omega}{k_{B}T} \right) - 1 \right)}
+\]
 
-Tale equazione è la legge di Planck e rappresenta una prima logge in cui si applica la quantizzazione della materia, unita alle teoria di Boltzmann.
+Questa è la \textbf{legge di Planck} per l’energia media di un modo del campo elettromagnetico.  Essa rappresenta una delle prime applicazioni della quantizzazione dell’energia e costituisce un risultato fondamentale della meccanica quantistica e della statistica di Boltzmann.
 
 \subsection{Rumore termico o di Johnson-Nyquist}\label{rumore-termico-o-di-johnson-nyquist}
 
-Il rumore termico o di Johnson-Nyquist è sempre presente nei componenti elettronici, come resistori o dispositivi a semiconduttore.
+Il rumore termico, noto anche come rumore di Johnson-Nyquist, è sempre presente nei componenti elettronici, come resistori o dispositivi a semiconduttore.
 
-Si considera una linea di trasmissione chiusa alle estremità da due resistori uguali alle impedenza caratteristica della linea. In altre parole, le resistenze sono adattate alla linea. Sulla linea di trasmissione, cioè, viaggiano solamente onde progressive o modi, a causa dell'adattamento (\(\Gamma = 0\)), generate dalle resistenze, la cui energia dipende dalla temperatura a cui si trovano, in accordo con la legge di Planck. Poiché il sistema è adattato, la potenza trasferita sul carico è data da:
+Si considera una linea di trasmissione chiusa alle estremità da due resistori uguali all'impedenza caratteristica della linea. In altre parole, le resistenze sono adattate alla linea. Sulla linea di trasmissione, cioè, viaggiano solamente onde progressive o modi, a causa dell'adattamento (\(\Gamma = 0\)), generate dalle resistenze, la cui energia dipende dalla temperatura a cui si trovano, in accordo con la legge di Planck. Poiché il sistema è adattato, la potenza trasferita sul carico è data da:
 
-\[P = \frac{\left\langle V^{2} \right\rangle}{4R} = \left\langle I^{2} \right\rangle R\]
+\[
+P = \dfrac{\left\langle V^{2} \right\rangle}{4R} = \left\langle I^{2} \right\rangle R
+\]
 
 \begin{figure}[ht]
 \centering
@@ -905,128 +962,175 @@ Si considera una linea di trasmissione chiusa alle estremità da due resistori u
 
 Per ogni pulsazione del modo, \(\omega\), esistono due onde viaggianti in direzione opposte. Sia \(L\) la lunghezza della linea e \(c\) la velocità di propagazione del segnale sulla linea. Il tempo impiegato dall'onda per percorrere l'intera linea di trasmissione è:
 
-\[{\Delta}t = \frac{L}{c}\]
+\[
+\Delta t = \dfrac{L}{c}
+\]
 
 I modi presenti sulla linea presentano delle frequenze multiple intere di una quantità \(\delta f\) data da:
 
-\[\delta f = \frac{1}{{\Delta}t} = \frac{c}{L}\]
+\[
+\delta f = \dfrac{1}{\Delta t} = \dfrac{c}{L}
+\]
 
-Le frequenze dei modi sono multiple di \(\delta f\)\emph{,} per cui in un certo intervallo di frequenze \({\Delta}f\) è presente un numero di modi dato da:
+In un intervallo di frequenze \(\Delta f\), il numero di modi è:
 
-\[n_{modi} = \frac{{\Delta}f}{\delta f} = \frac{L}{c}{\Delta}f\]
+\[
+n_{\text{modi}} = \dfrac{\Delta f}{\delta f} = \dfrac{L}{c} \Delta f
+\]
 
-Noto il numero di modi presenti nell'intervallo frequenziale \({\Delta}f\), è possibile valutare l'energia complessivamente presente sulla linea di trasmissione:
+Noto il numero di modi presenti nell'intervallo frequenziale \(\Delta f\), è possibile valutare l'energia complessivamente presente sulla linea di trasmissione:
 
-\[E = 2\frac{{\Delta}f}{\delta f}\left\langle E \right\rangle\]
+\[
+E = 2 \dfrac{\Delta f}{\delta f} \left\langle E \right\rangle
+\]
 
-Dove il \(2\) è dovuto alle due onde trasmesse dai due resistori.
+Il fattore \(2\) è dovuto alle due onde generate dai resistori.
 
 Ogni singolo modo può essere considerato come un fotone immerso in un sistema, composto dagli altri fotoni, per cui è possibile applicare la legge di Planck per il calcolo dell'energia media:
 
-\[\left\langle E \right\rangle = \ \frac{\hslash\omega}{\left( \exp\left( \frac{\hslash\omega}{k_{B}T} \right) - 1 \right)}\]
+\[
+\left\langle E \right\rangle = \dfrac{\hslash \omega}{\exp\left( \dfrac{\hslash \omega}{k_B T} \right) - 1}
+\]
 
-Da cui:
+Quindi:
 
-\[E = 2\frac{{\Delta}f}{\delta f}\frac{\hslash\omega}{\left( \exp\left( \frac{\hslash\omega}{k_{B}T} \right) - 1 \right)}\]
+\[
+E = 2 \cdot \dfrac{\Delta f}{\delta f} \cdot \dfrac{\hslash \omega}{\exp\left( \dfrac{\hslash \omega}{k_B T} \right) - 1}
+\]
+
 
 Per le normali frequenze utilizzate nella pratica elettrotecnica, risulta che:
 
-\[\hslash\omega \ll k_{B}T \Leftrightarrow \frac{\hslash\omega}{k_{B}T} \ll 1\]
+\[
+\hslash\omega \ll k_{B}T \Leftrightarrow \dfrac{\hslash\omega}{k_{B}T} \ll 1
+\]
 
 In questa ipotesi, è possibile approssimare l'esponenziale in serie di Taylor, arrestato al primo ordine:
 
-\[\exp\left( \frac{\hslash\omega}{k_{B}T} \right) \simeq 1 + \frac{\hslash\omega}{k_{B}T}\]
+\[
+\exp\left( \dfrac{\hslash\omega}{k_{B}T} \right) \simeq 1 + \dfrac{\hslash\omega}{k_{B}T}
+\]
 
 Con questa approssimazione, l'energia media è:
 
-\[\left\langle E \right\rangle = \ \frac{\hslash\omega}{\left( \exp\left( \frac{\hslash\omega}{k_{B}T} \right) - 1 \right)} \simeq \ \frac{\hslash\omega}{\left( 1 + \frac{\hslash\omega}{k_{B}T} - 1 \right)} = k_{B}T\]
+\[
+\left\langle E \right\rangle = \ \dfrac{\hslash\omega}{\left( \exp\left( \dfrac{\hslash\omega}{k_{B}T} \right) - 1 \right)} \simeq \ \dfrac{\hslash\omega}{\left( 1 + \dfrac{\hslash\omega}{k_{B}T} - 1 \right)} = k_{B}T
+\]
 
 L'energia complessiva, di conseguenza, è:
 
-\[E = 2\frac{{\Delta}f}{\delta f}k_{B}T\]
+\[
+E = 2\dfrac{{\Delta}f}{\delta f}k_{B}T
+\]
 
 A questa energia corrisponde una potenza data, per definizione, da:
 
-\[P = \frac{E}{{\Delta}t} = 2\frac{1}{{\Delta}t}\frac{{\Delta}f}{\delta f}k_{B}T\]
+\[
+P = \dfrac{E}{{\Delta}t} = 2\dfrac{1}{{\Delta}t}\dfrac{{\Delta}f}{\delta f}k_{B}T
+\]
 
 Ma \({\Delta}t\) è l'inverso di \(\delta f\), dunque, il prodotto dei due termini è unitario. La potenza è, quindi:
 
-\[P = \frac{E}{{\Delta}t} = 2{\Delta}fk_{B}T\]
+\[
+P = \dfrac{E}{{\Delta}t} = 2{\Delta}fk_{B}T
+\]
 
 Su un singolo resistore, si ritrova metà potenza, ovvero:
 
-\[P_{R} = \frac{P}{2} = {\Delta}fk_{B}T\]
+\[
+P_{R} = \dfrac{P}{2} = {\Delta}fk_{B}T
+\]
 
 Per l'adattamento in potenza, la potenza trasferita al carico è:
 
-\[P = \frac{\left\langle V^{2} \right\rangle}{4R}\]
+\[
+P = \dfrac{\left\langle V^{2} \right\rangle}{4R}
+\]
 
 Sostituendo l'espressione appena determinata per la potenza, è possibile ricavare \(\left\langle V^{2} \right\rangle\):
 
-\[{\Delta}fk_{B}T = \frac{\left\langle V^{2} \right\rangle}{4R} \Leftrightarrow \left\langle V^{2} \right\rangle = 4R{\Delta}fk_{B}T\]
+\[
+{\Delta}fk_{B}T = \dfrac{\left\langle V^{2} \right\rangle}{4R} \Leftrightarrow \left\langle V^{2} \right\rangle = 4R{\Delta}fk_{B}T
+\]
 
 \(\left\langle V^{2} \right\rangle\) corrisponde al valor quadratico medio della tensione su un resistore, dovuto all'agitazione termica dei suoi portatori di carica, nella banda \({\Delta}f\). Il rumore termico presenta la stessa ampiezza in tutto il range frequenziale \({\Delta}f\) per cui può essere modellato come un rumore bianco.
 
 Non approssimando l'esponenziale, il valor quadratico medio della tensione su un resistore è dato da:
 
-\[\left\langle V^{2} \right\rangle = 4R{\Delta}f\ \frac{\hslash\omega}{\left( \exp\left( \frac{\hslash\omega}{k_{B}T} \right) - 1 \right)}\]
+\[
+\left\langle V^{2} \right\rangle = 4R{\Delta}f\ \dfrac{\hslash\omega}{\left( \exp\left( \dfrac{\hslash\omega}{k_{B}T} \right) - 1 \right)}
+\]
 
-La frequenza di taglio è:
+La \textbf{frequenza di taglio} è:
 
-\[f_{0} = \frac{k_{B}T}{2\pi\hslash}\]
+\[
+f_{0} = \dfrac{k_{B}T}{2\pi\hslash}
+\]
 
 Questa frequenza, a temperatura ambiente, è data da:
 
-\[f_{0} = \frac{k_{B}T}{2\pi\hslash} = \frac{1.38 \cdot 10^{- 23}\frac{J}{K} \cdot 290\ K}{6.63 \cdot 10^{- 34}\ J \cdot s} = 6.05\ THz\]
+\[
+f_{0} = \dfrac{k_{B}T}{2\pi\hslash} = \dfrac{1.38 \cdot 10^{- 23}\dfrac{J}{K} \cdot 290\ K}{6.63 \cdot 10^{- 34}\ J \cdot s} = 6.05\ THz
+\]
 
-Questa frequenza, come detto precedentemente, è molto maggiore di quelle ottenibili con l'attuale strumentazione elettronica. Per questo motivo si ricorre alla relazione approssimata.
+Questa frequenza, come detto precedentemente, è molto maggiore di quelle gestibili con l'attuale strumentazione elettronica. Per questo motivo si ricorre alla relazione approssimata.
 
 \section{Distribuzione di Gibbs}\label{distribuzione-di-gibbs}
 
-Si considerano due sistemi contenenti, rispettivamente, \(N_{1}\) e \(N_{2}\) particelle. I due sistemi sono posti in contatto si termico che diffusivo, ovvero possono scambiare sia materia che energia.
+Si considerano due sistemi contenenti rispettivamente \(N_1\) e \(N_2\) particelle, posti in contatto sia termico che diffusivo, ovvero capaci di scambiare energia e materia.
 
-Il sistema totale ha energia data dalla somme delle singole energie iniziali dei due sistemi. \(U = U_{1} + U_{2}\). Si suppone, infine, che il sistema complessivo sia isolato dall'ambiente, così da conservare la propria energia.
+Il sistema totale ha energia data dalla somme delle singole energie iniziali dei due sistemi, \(U = U_{1} + U_{2}\). Si suppone, infine, che il sistema complessivo sia isolato dall'ambiente, così da conservare la propria energia.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=4.71575in,height=2.30556in,alt={P2637\#yIS1}]{media/5_MecStatistica/image56.pdf}\caption{Sistemi posti in contatto termico e diffusivo}
 \end{figure}
 
-Prima del contatto, i due sistemi possedevano un'entropia, rispettivamente, uguali a \(\sigma_{1}\) e \(\sigma_{2}\). Dopo il contatto, per ragioni probabilistiche, l'entropia dovrà essere massima.
+Prima del contatto, i due sistemi possedevano entropie \(\sigma_1\) e \(\sigma_2\). Dopo il contatto, per ragioni probabilistiche, l'entropia totale sarà massima.
 
-Si suppone che il sistema \(\mathbb{S}_{1}\) sia molto più piccolo del sistema \(\mathbb{S}_{2}\), approssimabile come un serbatoio termico. Si vuole valutare la probabilità che il sistema \(\mathbb{S}_{1}\) sia in uno stato caratterizzato da \(N_{a}\) particelle ed energia \(U_{a}\).
+Si suppone che il sistema \(\mathbb{S}_1\) sia molto più piccolo di \(\mathbb{S}_2\), che può essere considerato un serbatoio termico. Si vuole valutare la probabilità che \(\mathbb{S}_1\) si trovi in uno stato con \(N_a\) particelle ed energia \(U_a\).
 
 Fissata la configurazione del sistema \(\mathbb{S}_{1}\), la probabilità che si verifichi questa condizione dipende dalle configurazioni ammissibili del sistema \(\mathbb{S}_{2}\), ovvero:
 
-\[P\left( N_{a},U_{a} \right) = g_{2}\left( N_{2},U_{2} \right)\]
+\[
+P\left( N_{a},U_{a} \right) = g_{2}\left( N_{2},U_{2} \right)
+\]
 
 Siccome il numero delle particelle è costante, così come l'energia, è possibile scrivere:
 
-\[N = N_{a} + N_{2} \Leftrightarrow N_{2} = N - N_{a},\ \ U = U_{a} + U_{2} \Leftrightarrow U_{2} = U - U_{a}\]
+\[
+N = N_{a} + N_{2} \Leftrightarrow N_{2} = N - N_{a},\ \ U = U_{a} + U_{2} \Leftrightarrow U_{2} = U - U_{a}
+\]
 
 La numerosità degli stati ammissibili dal sistema \(\mathbb{S}_{2}\) può essere scritta come:
 
-\[P\left( N_{a},U_{a} \right) \propto g_{2}\left( N - N_{a},U - U_{a} \right)\]
+\[
+P\left( N_{a},U_{a} \right) \propto g_{2}\left( N - N_{a},U - U_{a} \right)
+\]
 
 La probabilità che il sistema \(\mathbb{S}_{1}\) assuma un'altra configurazione, caratterizzata da un numero \(N_{b}\) di particelle da un'energia uguale a \(U_{b}\), è data da:
 
-\[P\left( N_{b},U_{b} \right) \propto g_{2}\left( N - N_{b},U - U_{b} \right)\]
+\[
+P\left( N_{b},U_{b} \right) \propto g_{2}\left( N - N_{b},U - U_{b} \right)
+\]
 
 Il rapporto tra le due probabilità si scrive come:
 
-\[\frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} = \frac{g_{2}\left( N - N_{a},U - U_{a} \right)}{g_{2}\left( N - N_{b},U - U_{b} \right)}\]
+\[
+\dfrac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} = \dfrac{g_{2}\left( N - N_{a},U - U_{a} \right)}{g_{2}\left( N - N_{b},U - U_{b} \right)}
+\]
 
-Si considera il logaritmo di tale rapporto:
+Applicando il logaritmo:
 
-\[\log\left( \frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = \log\left( \frac{g_{2}\left( N - N_{a},U - U_{a} \right)}{g_{2}\left( N - N_{b},U - U_{b} \right)} \right) = \log{g_{2}\left( N - N_{a},U - U_{a} \right)} - \log{g_{2}\left( N - N_{b},U - U_{b} \right)}\]
+\[
+\log\left( \dfrac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = \log\left( \dfrac{g_{2}\left( N - N_{a},U - U_{a} \right)}{g_{2}\left( N - N_{b},U - U_{b} \right)} \right) = \log{g_{2}\left( N - N_{a},U - U_{a} \right)} - \log{g_{2}\left( N - N_{b},U - U_{b} \right)}
+\]
 
-Per definizione di entropia:
+Per la definizione di entropia \(\sigma(N, U) = \log g(N, U)\), il logaritmo del rapporto può essere espresso come:
 
-\[\sigma(N,U) = \log{g(N,U)}\]
-
-Il logaritmo del rapporto può essere espresso come:
-
-\[\log\left( \frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = \sigma\left( N - N_{a},U - U_{a} \right) - \sigma\left( N - N_{b},U - U_{b} \right)\]
+\[
+\log\left( \dfrac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = \sigma\left( N - N_{a},U - U_{a} \right) - \sigma\left( N - N_{b},U - U_{b} \right)
+\]
 
 Siccome il sistema \(\mathbb{S}_{2}\) è molto più grande del sistema \(\mathbb{S}_{1}\), è possibile concludere che:
 
@@ -1034,122 +1138,184 @@ Siccome il sistema \(\mathbb{S}_{2}\) è molto più grande del sistema \(\mathbb
 
 È possibile sviluppare in serie di Taylor l'entropia, arrestando lo sviluppo al primo ordine:
 
-\[\sigma\left( N - N_{i},U - U_{i} \right) = \ \sigma(N,U) - \left. \ \frac{\partial\sigma}{\partial N} \right|_{N}N_{i} - \left. \ \frac{\partial\sigma}{\partial U} \right|_{U}U_{i},\ \ i = a,b\]
+\[
+\sigma\left( N - N_{i},U - U_{i} \right) = \ \sigma(N,U) - \left. \ \dfrac{\partial\sigma}{\partial N} \right|_{N}N_{i} - \left. \ \dfrac{\partial\sigma}{\partial U} \right|_{U}U_{i},\ \ i = a,b
+\]
 
 Con questa approssimazione si ottiene:
 
-\[\log\left( \frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = \sigma(N,U) - \left. \ \frac{\partial\sigma}{\partial N} \right|_{N}N_{a} - \left. \ \frac{\partial\sigma}{\partial U} \right|_{U}U_{a} - \sigma(N,U) + \left. \ \frac{\partial\sigma}{\partial N} \right|_{N}N_{b} - \left. \ \frac{\partial\sigma}{\partial U} \right|_{U}U_{b}\]
+\[
+\log\left( \dfrac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = \sigma(N,U) - \left. \ \dfrac{\partial\sigma}{\partial N} \right|_{N}N_{a} - \left. \ \dfrac{\partial\sigma}{\partial U} \right|_{U}U_{a} - \sigma(N,U) + \left. \ \dfrac{\partial\sigma}{\partial N} \right|_{N}N_{b} - \left. \ \dfrac{\partial\sigma}{\partial U} \right|_{U}U_{b}
+\]
 
 Elidendo \(\sigma(N,U)\) e raccogliendo:
 
-\[\log\left( \frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = \left( N_{b} - N_{a} \right)\left. \ \frac{\partial\sigma}{\partial N} \right|_{N} + \left( U_{b} - U_{a} \right)\left. \ \frac{\partial\sigma}{\partial U} \right|_{U}\]
+\[
+\log\left( \dfrac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = \left( N_{b} - N_{a} \right)\left. \ \dfrac{\partial\sigma}{\partial N} \right|_{N} + \left( U_{b} - U_{a} \right)\left. \ \dfrac{\partial\sigma}{\partial U} \right|_{U}
+\]
 
 Si definisce la temperatura come:
 
-\[\left. \ \frac{\partial\sigma}{\partial U} \right|_{U} = \frac{1}{k_{B}T}\]
+\[
+\left. \ \dfrac{\partial\sigma}{\partial U} \right|_{U} = \dfrac{1}{k_{B}T}
+\]
 
 Si definisce potenziale chimico \(\mu\) come il fattore di proporzionalità tra la derivata dell'entropia rispetto al numero di particelle e la temperatura:
 
-\[\left. \ \frac{\partial\sigma}{\partial N} \right|_{N} = - \frac{\mu}{k_{B}T}\]
+\[
+\left. \ \dfrac{\partial\sigma}{\partial N} \right|_{N} = - \dfrac{\mu}{k_{B}T}
+\]
 
 Con queste definizioni, si ha:
 
-\[\log\left( \frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = - \left( N_{b} - N_{a} \right)\frac{\mu}{k_{B}T} + \left( U_{b} - U_{a} \right)\frac{1}{k_{B}T} = \left( N_{a} - N_{b} \right)\frac{\mu}{k_{B}T} - \left( U_{a} - U_{b} \right)\frac{1}{k_{B}T}\]
+\[
+\log\left( \dfrac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = - \left( N_{b} - N_{a} \right)\dfrac{\mu}{k_{B}T} + \left( U_{b} - U_{a} \right)\dfrac{1}{k_{B}T} = \left( N_{a} - N_{b} \right)\dfrac{\mu}{k_{B}T} - \left( U_{a} - U_{b} \right)\dfrac{1}{k_{B}T}
+\]
 
 Si applica l'esponenziale, si ha:
 
-\[\frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} = \exp\left( \left( N_{a} - N_{b} \right)\frac{\mu}{k_{B}T} \right)\exp\left( - \left( U_{a} - U_{b} \right)\frac{1}{k_{B}T} \right) = \frac{\exp\left( \left( N_{a} - N_{b} \right)\frac{\mu}{k_{B}T} \right)}{\exp\left( - \left( U_{a} - U_{b} \right)\frac{1}{k_{B}T} \right)}\]
+\[
+\dfrac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} = \exp\left( \dfrac{\mu N_{a} - U_{a}}{k_{B}T} \right) \exp\left( - \dfrac{\mu N_{b} - U_{b}}{k_{B}T} \right) = \dfrac{\exp\left( \dfrac{\mu N_{a} - U_{a}}{k_{B}T} \right)}{\exp\left( \dfrac{\mu N_{b} - U_{b}}{k_{B}T} \right)}
+\]
 
 Quindi, la probabilità che il sistema \(\mathbb{S}_{1}\) si trovi in uno stato con energia \(U_{a}\) e con un numero di particelle \(N_{a}\) è proporzionale a:
 
-\[P\left( N_{a},U_{a} \right) \propto \exp\left( \frac{\mu N_{a} - U_{a}}{k_{B}T} \right)\]
+\[
+P\left( N_{a},U_{a} \right) \propto \exp\left( \dfrac{\mu N_{a} - U_{a}}{k_{B}T} \right)
+\]
 
-L'esponenziale nella relazione individuata è detto fattore di Gibbs. La probabilità esatta si esprime introducendo un fattore di normalizzazione \(Z\), tale che:
+L'esponenziale nella relazione individuata è detto \textbf{fattore di Gibbs}. La probabilità esatta si esprime introducendo un \textbf{fattore di normalizzazione} \(Z\), tale che:
 
-\[\frac{1}{Z}\sum_{N}^{}{\sum_{U}^{}{P(N,U)}} = 1\]
+\[
+\dfrac{1}{Z}\sum_{N}{\sum_{U}{P(N,U)}} = 1
+\]
 
 Sostituendo la relazione per la probabilità, si ricava:
 
-\[\frac{1}{Z}\sum_{N}^{}{\sum_{U}^{}{\exp\left( \frac{\mu N - U}{k_{B}T} \right)}} = 1 \Leftrightarrow Z = \sum_{N}^{}{\sum_{U}^{}{\exp\left( \frac{\mu N - U}{k_{B}T} \right)}}\]
+\[
+\dfrac{1}{Z}\sum_{N}{\sum_{U}{\exp\left( \dfrac{\mu N - U}{k_{B}T} \right)}} = 1 \Leftrightarrow Z = \sum_{N}{\sum_{U}{\exp\left( \dfrac{\mu N - U}{k_{B}T} \right)}}
+\]
 
-Il fattore di partizione \(Z\) così ottenuto è detto somma di Gibbs.
+dove \(Z\) è la \textbf{somma di Gibbs}, o \textbf{fattore di partizione}.
 
 La probabilità che il piccolo sistema \(\mathbb{S}_{1}\) si trovi in uno stato \(\left( U_{a},N_{a} \right)\) è, dunque, data da:
 
-\[P\left( N_{a},U_{a} \right) = \frac{\exp\left( \frac{\mu N_{a} - U_{a}}{k_{B}T} \right)}{\sum_{N}^{}{\sum_{U}^{}{\exp\left( \frac{\mu N - U}{k_{B}T} \right)}}}\]
+\[
+P\left( N_{a},U_{a} \right) = \dfrac{\exp\left( \dfrac{\mu N_{a} - U_{a}}{k_{B}T} \right)}{\sum_{N}{\sum_{U}{\exp\left( \dfrac{\mu N - U}{k_{B}T} \right)}}}
+\]
 
 La quantità \(\mu\) rappresenta la capacità di scambio diffusivo tra sistemi messi in contatto diffusivo e termico.
 
-\section{Distribuzione di Fermi-Dirac}\label{distribuzione-di-fermi-dirac}
+\subsection{Distribuzione di Fermi-Dirac}\label{distribuzione-di-fermi-dirac}
 
-I fermioni sono particelle elementari con spin frazionario, ovvero uguale a \(\pm 1/2\). Due fermioni non possono occupare lo stesso livello energetico per il principio di esclusione di Pauli.
+I fermioni sono particelle elementari con spin semi-intero, ad esempio \(\pm \dfrac{1}{2}\). Secondo il \textbf{principio di esclusione di Pauli}, due fermioni non possono occupare simultaneamente lo stesso stato quantico.
 
-Si considera un piccolo sistema costituito da fermioni, come protoni o elettroni. Siano \(N = 0\) e \(N = 1\) gli stati ammissibili per un fermione, corrispondenti ai livelli energetici \(U = 0\) e \(U = \varepsilon\).
+Si consideri un piccolo sistema costituito da fermioni, come elettroni o protoni. Gli stati ammissibili per ciascun livello energetico sono \(N = 0\) (livello vuoto) e \(N = 1\) (livello occupato), corrispondenti rispettivamente alle energie \(U = 0\) e \(U = \varepsilon\). La somma di Gibbs è data da:
 
-Un fermione o non è presente nel livello energetico, nel caso \(U = 0\) e \(N = 0\), o c'è, nel caso \(U = \varepsilon\) e \(N = 1\). la somma di Gibbs è data da:
+\[Z = \sum_{N}{\sum_{U}{\exp\left( \dfrac{\mu N - U}{k_{B}T} \right)}} = \underbrace{\exp\left( \dfrac{\mu \cdot 0 - 0}{k_{B}T} \right)}_{\text{Stato N=0, U=0}} + \underbrace{\exp\left( \dfrac{\mu \cdot 1 - \varepsilon}{k_{B}T} \right)}_{\text{Stato N=1, U}=\varepsilon} = 1 + \exp\left( \dfrac{\mu - \varepsilon}{k_{B}T} \right)\]
 
-\[Z = \sum_{N}^{}{\sum_{U}^{}{\exp\left( \frac{\mu N - U}{k_{B}T} \right)}} = \exp\left( \frac{\mu 0 - 0}{k_{B}T} \right) + \exp\left( \frac{\mu \cdot 1 - \varepsilon}{k_{B}T} \right) = 1 + \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right)\]
+Si vuole determinare il \textbf{numero medio di particelle} del piccolo sistema \(\mathbb{S}_{1}\) con energia \(U = \varepsilon\). Per definizione di media, si ha:
 
-Si vuole determinare il numero medio di particelle del piccolo sistema \(\mathbb{S}_{1}\) con energia \(U = \varepsilon\). Per definizione di media, si ha:
+\[
+\left\langle N(\varepsilon) \right\rangle = \dfrac{1}{Z}\sum_{N}{\sum_{U}{ N(\varepsilon)P(N,U)}}
+\]
 
-\[\left\langle N(\varepsilon) \right\rangle = \frac{1}{Z}\sum_{N}^{}{\sum_{U}^{}{P(N,U)}} = \frac{\exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right)}{1 + \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right)}\]
+Poiché \(N = 0\) o \(1\), la somma si riduce al solo contributo del livello occupato:
 
-La somma si riduce a un solo elemento, in quanto solo un fermione può trovarsi in quel livello energetico. Raccogliendo il fattore di Gibbs, si ottiene:
+\[
+\left\langle N(\varepsilon) \right\rangle = \dfrac{1}{Z} \exp\left( \dfrac{\mu - \varepsilon}{k_B T} \right)
+= \dfrac{\exp\left( \dfrac{\mu - \varepsilon}{k_B T} \right)}{1 + \exp\left( \dfrac{\mu - \varepsilon}{k_B T} \right)}
+\]
 
-\[\left\langle N(\varepsilon) \right\rangle = \frac{1}{1 + \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right)}\]
+Raccogliendo il fattore di Gibbs, si ottiene:
 
-La distribuzione di Fermi-Dirac permette di conoscere il numero medio dei fermioni in un determinato livello energetico. La statistica è utilizzata nel campo dei semiconduttori o cristalli scintillatori al fine di valutare il numero di elettroni in un determinato livello energetico.
+
+\[
+\left\langle N(\varepsilon) \right\rangle = \dfrac{1}{1 + \exp\left( \dfrac{\varepsilon - \mu}{k_B T} \right)}
+\]
+
+Questa è la \textbf{distribuzione di Fermi-Dirac}, che descrive il numero medio di fermioni in un determinato livello energetico \(\varepsilon\), in funzione della temperatura \(T\) e del potenziale chimico \(\mu\).
+
+La statistica di Fermi-Dirac è fondamentale nello studio dei semiconduttori, dei metalli e dei cristalli scintillatori, dove è necessario conoscere la probabilità che un livello energetico sia occupato da un elettrone.
 
 \subsection{Distribuzione di Bose-Einstein}\label{distribuzione-di-bose-einstein}
 
-I bosoni sono particelle con spin nullo o intero. Un livello energetico può essere occupato da un numero qualsiasi di bosoni, dunque, queste particelle non rispettano il principio di esclusione di Pauli. Il fotone è uno dei bosoni più importante; esso presenta uno spin unitario.
+I bosoni sono particelle con spin intero o nullo. A differenza dei fermioni, i bosoni \textbf{non rispettano il principio di esclusione di Pauli}, quindi un livello energetico può essere occupato da un numero arbitrario di bosoni. Un esempio importante è il fotone, che possiede spin unitario.
 
-Si considera un piccolo sistema di bosoni. Questo sistema può contenere un numero qualsiasi \(N\) di particelle, ciascuna con energia \(\varepsilon\). La somma di Gibbs, nel caso di energia fissata a \(U = \varepsilon\), si esprime come:
+Si consideri un piccolo sistema di bosoni, ciascuno con energia \(\varepsilon\). Il sistema può contenere un numero qualsiasi \(N\) di particelle. La somma di Gibbs, nel caso in cui l’energia sia fissata a \(U = N\varepsilon\), è:
 
-\[Z = \sum_{N}^{}{\sum_{U}^{}{\exp\left( \frac{\mu N - U}{k_{B}T} \right)}} = \sum_{N}^{}{\exp\left( \frac{N\mu - N\varepsilon}{k_{B}T} \right)} = \sum_{N}^{}\left( \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right) \right)^{N}\]
+\[
+Z = \sum_{N}{\sum_{U}{\exp\left( \dfrac{\mu N - U}{k_{B}T} \right)}} = \sum_{N}{\exp\left( \dfrac{N\mu - N\varepsilon}{k_{B}T} \right)} = \sum_{N}\left( \exp\left( \dfrac{\mu - \varepsilon}{k_{B}T} \right) \right)^{N}
+\]
 
-La somma è convergente, in quanto serie geometrica con ragione, in modulo, minore dell'unità:
+La somma è convergente, in quanto serie geometrica con ragione, in modulo, minore dell'unità. La condizione di convergenza implica che $\mu < \varepsilon$, il che è sempre vero per i bosoni se $\varepsilon$ è l'energia dello stato fondamentale, e $\mu$ è in genere $0$ o negativo. Risulta, quindi:
 
-\[Z = \frac{1}{1 - \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right)}\]
+\[
+Z = \dfrac{1}{1 - \exp\left( \dfrac{\mu - \varepsilon}{k_{B}T} \right)}
+\]
 
-Il numero medio delle particelle del sistema che si trovano nel livello energetico \(\varepsilon\) è:
+Il numero medio di bosoni nel livello energetico \(\varepsilon\) è:
 
-\[\left\langle N(\varepsilon) \right\rangle = \frac{1}{Z}\sum_{N}^{}{\sum_{U}^{}{NP(N,U)}} = \left( 1 - \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right) \right)\sum_{N}^{}{\sum_{U}^{}{N\exp\left( \frac{\mu N - U}{k_{B}T} \right)}}\]
+
+\[
+\left\langle N(\varepsilon) \right\rangle = \dfrac{1}{Z}\sum_{N}{\sum_{U}{NP(N,U)}} = \left( 1 - \exp\left( \dfrac{\mu - \varepsilon}{k_{B}T} \right) \right)\sum_{N}{\sum_{U}{N\exp\left( \dfrac{\mu N - U}{k_{B}T} \right)}}
+\]
 
 Avendo fissata l'energia, risulta:
 
-\[\left\langle N(\varepsilon) \right\rangle = \left( 1 - \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right) \right)\sum_{N}^{}{N\exp\left( \frac{N\mu - N\varepsilon}{k_{B}T} \right)} = \left( 1 - \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right) \right)\sum_{N}^{}{N\left( \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right) \right)^{N}}\]
+\[
+\left\langle N(\varepsilon) \right\rangle = \left( 1 - \exp\left( \dfrac{\mu - \varepsilon}{k_{B}T} \right) \right)\sum_{N}{N\exp\left( \dfrac{N\mu - N\varepsilon}{k_{B}T} \right)} = \left( 1 - \exp\left( \dfrac{\mu - \varepsilon}{k_{B}T} \right) \right)\sum_{N}{N\left( \exp\left( \dfrac{\mu - \varepsilon}{k_{B}T} \right) \right)^{N}}
+\]
 
 Si pone:
 
-\[X = \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right)\]
+\[
+X = \exp\left( \dfrac{\mu - \varepsilon}{k_{B}T} \right)
+\]
 
 Il numero medio di bosoni nel livello energetico \(\varepsilon\) può essere scritto come.
 
-\[\left\langle N(\varepsilon) \right\rangle = (1 - X)\sum_{N}^{}{NX^{N}}\]
+\[
+\left\langle N(\varepsilon) \right\rangle = (1 - X)\sum_{N}{NX^{N}}
+\]
 
 Si considera la quantità:
 
-\[Z = \sum_{N}^{}X^{N}\]
+\[
+Z = \sum_{N}X^{N}
+\]
 
 Si deriva rispetto a \(X\):
 
-\[\frac{dZ}{dX} = \frac{d}{dX}\sum_{N}^{}X^{N} = \sum_{N}^{}{\frac{d}{dX}\left( X^{N} \right)} = \sum_{N}^{}{NX^{N - 1}} = \sum_{N}^{}{NX^{N}X^{- 1}} =\]
+\[
+\dfrac{dZ}{dX} = \dfrac{d}{dX}\sum_{N}X^{N} = \sum_{N}{\dfrac{d}{dX}\left( X^{N} \right)} = \sum_{N}{NX^{N - 1}} = \sum_{N}{NX^{N}X^{- 1}} 
+\]
 
 Per la linearità dell'operatore sommatoria, si scrive:
 
-\[\frac{dZ}{dX} = \frac{1}{X}\sum_{N}^{}{NX^{N}}\]
+\[
+\dfrac{dZ}{dX} = \dfrac{1}{X}\sum_{N}{NX^{N}}
+\]
 
 Da cui si ha:
 
-\[\sum_{N}^{}{NX^{N}} = X\frac{dZ}{dX} = X\frac{d}{dX}\left( \frac{1}{1 - X} \right) = \frac{X}{(1 - X)^{2}}\]
+\[
+\sum_{N}{NX^{N}} = X\dfrac{dZ}{dX} = X\dfrac{d}{dX}\left( \dfrac{1}{1 - X} \right) = \dfrac{X}{(1 - X)^{2}}
+\]
 
 Il numero medio dei bosoni può essere scritto come:
 
-\[\left\langle N(\varepsilon) \right\rangle = (1 - X)\sum_{N}^{}{NX^{N}} = (1 - X)\frac{X}{(1 - X)^{2}} = \frac{X}{1 - X} = \frac{1}{\frac{1}{X} - 1}\]
+\[
+\left\langle N(\varepsilon) \right\rangle = (1 - X)\sum_{N}{NX^{N}} = (1 - X)\dfrac{X}{(1 - X)^{2}} = \dfrac{X}{1 - X} = \dfrac{1}{\dfrac{1}{X} - 1}
+\]
 
-Sostituendo il valore di \(X\) si ottiene il numero medio dei bosoni nel livello energetico \(\varepsilon\):
+Sostituendo il valore di \(X\) si ottiene il numero medio dei bosoni nel livello energetico \(\varepsilon\), ovvero la \textbf{distribuzione di Bose-Einstein}:
 
-\[\left\langle N(\varepsilon) \right\rangle = \frac{1}{\exp\left( - \frac{\mu - \varepsilon}{k_{B}T} \right) - 1}\]
+\[
+\left\langle N(\varepsilon) \right\rangle = \dfrac{1}{\exp\left( \dfrac{\varepsilon - \mu}{k_{B}T} \right) - 1}
+\]
 
-Le distribuzioni di Bose-Einstein, Fermi-Dirac e Gibbs a temperatura ambiente convergono alla distribuzione di Boltzmann. Le statistiche sono sempre valide e descrivono il comportamento dei fermioni e bosoni.
+Questa distribuzione descrive il numero medio di bosoni in un dato livello energetico \(\varepsilon\), in funzione della temperatura \(T\) e del potenziale chimico \(\mu\).
+
+
+Le distribuzioni di \textbf{Bose-Einstein}, \textbf{Fermi-Dirac} e \textbf{Gibbs} convergono alla \textbf{distribuzione di Boltzmann} nel limite di alte temperature o basse densità. Tuttavia, le statistiche quantistiche rimangono valide in ogni regime e sono fondamentali per descrivere il comportamento dei sistemi di particelle indistinguibili.
