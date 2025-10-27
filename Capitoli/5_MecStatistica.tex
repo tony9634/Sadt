@@ -197,7 +197,7 @@ Integrando per parti, si ha;
 
 
 \[
-\int_{1}^{N}{\ln xdx} = \left[ x\ln x \right]_{1}^{N} - \int_{1}^{N}{dx} = N\ln N - N + 1
+\int_{1}^{N}{\ln xdx} = \left( x\ln x \right]_{1}^{N} - \int_{1}^{N}{dx} = N\ln N - N + 1
 \]
 
 Per \(N \gg 1\), il termine costante può essere trascurato:
@@ -243,7 +243,7 @@ I termini lineari in $N$ e $k$ si cancellano, quindi:
 Si applicano le proprietà dei logaritmi ai termini $N\ln N - N\ln 2$:
 
 \[
-\ln P \simeq N\ln\!\frac{N}{2} - \left[k\ln k + (N-k)\ln(N-k)\right]
+\ln P \simeq N\ln\!\frac{N}{2} - \left(k\ln k + (N-k)\ln(N-k)\right]
 \]
 
 Si definisce lo scarto $k$ dalla media $\mu = N/2$ di una quantità $\Delta s \ll N/2$:
@@ -298,7 +298,7 @@ Si considerano, uno alla volta, i gruppi presenti dell'equazione per \(\ln P\):
 
 
 \[
-\ln P \simeq - \left[ k\ln k + (N-k)\ln(N-k) \right] + N\ln\frac{N}{2}
+\ln P \simeq - \left( k\ln k + (N-k)\ln(N-k) \right] + N\ln\frac{N}{2}
 \]
 
 Si parte dai termini contenenti il parametro \(k\), ovvero \(k\ln{k}\):
@@ -307,7 +307,7 @@ Si parte dai termini contenenti il parametro \(k\), ovvero \(k\ln{k}\):
 \begin{aligned}
 k\ln k 
 &= \left(\frac{N}{2}+\Delta s\right)
-   \left[\ln\!\frac{N}{2} + \frac{2\Delta s}{N} - \frac{1}{2}\!\left(\frac{2\Delta s}{N}\right)^2\right] \\
+   \left(\ln\!\frac{N}{2} + \frac{2\Delta s}{N} - \frac{1}{2}\!\left(\frac{2\Delta s}{N}\right)^2\right] \\
 &= \frac{N}{2}\ln\!\frac{N}{2} + \Delta s\ln\!\frac{N}{2}
    + \frac{N}{2}\cdot\frac{2\Delta s}{N} + \Delta s\cdot\frac{2\Delta s}{N}
    - \frac{N}{2}\cdot\frac{1}{2}\!\left(\frac{4\Delta s^2}{N^2}\right)
@@ -327,7 +327,7 @@ Si considera ora la restante parte:
 \begin{aligned}
 (N - k)\ln(N - k)
 &= \left(\frac{N}{2} - \Delta s\right)
-\left[
+\left(
 \ln\!\frac{N}{2}
 - \frac{2\Delta s}{N}
 - \frac{1}{2}\!\left(\frac{2\Delta s}{N}\right)^{2}
@@ -361,7 +361,7 @@ si ottiene:
 Si sostituiscono questi risultati nell'espressione per \(\ln P\):
 
 \[
-\ln P \simeq N\ln\!\frac{N}{2} - \left[k\ln k + (N-k)\ln(N-k)\right]
+\ln P \simeq N\ln\!\frac{N}{2} - \left(k\ln k + (N-k)\ln(N-k)\right]
 \]
 
 Si sostituiscono le relative espressioni in \(k\ln k + (N-k)\ln(N-k)\):
@@ -388,7 +388,7 @@ Si sostituisce tale risultato nell'espressione per la probabilità:
 \[
 \ln P \simeq 
 N\ln\!\frac{N}{2} - 
-\left[N\ln\!\frac{N}{2} + \frac{2\Delta s^2}{N}\right]
+\left(N\ln\!\frac{N}{2} + \frac{2\Delta s^2}{N}\right]
 = -\frac{2\Delta s^2}{N}
 \]
 
@@ -459,7 +459,7 @@ L'operatore \(\hat{S}_{z}\) presenta due autovalori: \(\pm \hslash / 2\), che co
 Supponendo che gli spin siano non interagenti, l'energia totale del sistema è data dalla somma delle energie di ciascuna particella:
 
 \[
-U_{\text{tot}} = \sum_{n = 1}^{N} \left[ - \mu_{z} B_{0} s(n) \right] = \mathbf{- \mu_{z} B_{0} \sum_{n = 1}^{N} s(n)}
+U_{\text{tot}} = \sum_{n = 1}^{N} \left( - \mu_{z} B_{0} s(n) \right] = \mathbf{- \mu_{z} B_{0} \sum_{n = 1}^{N} s(n)}
 \]
 
 dove \(s(n) = 1\) se lo spin si trova nello stato \(\left| + \right\rangle\), invece, \(s(n) = - 1\) se lo spin si trova nello stato \(\left| - \right\rangle\).
@@ -473,7 +473,7 @@ Se il sistema è isolato, non può scambiare energia con l'ambiente, quindi la s
 Nel caso in esame l'energia può essere espressa come multiplo della differenza tra il numero di spin nello stato \(\left| + \right\rangle\) e quelli nello stato \(\left| - \right\rangle\):
 
 \[
-{U_{\text{tot}} = - \mu_{z} B_{0} \sum_{n = 1}^{N} s(n)} \Rightarrow U_{\text{tot} = - \left[ k - (N - k) \right] \mu_{z} B_{0} = - (2k - N) \mu_{z} B_{0}}
+{U_{\text{tot}} = - \mu_{z} B_{0} \sum_{n = 1}^{N} s(n)} \Rightarrow U_{\text{tot} = - \left( k - (N - k) \right] \mu_{z} B_{0} = - (2k - N) \mu_{z} B_{0}}
 \]
 
 Il numero delle possibili configurazioni che il sistema può assumere con \(k\) spin nello stato \(\left| + \right\rangle\) è dato da:
@@ -546,7 +546,7 @@ g(U,N) = g_{1}\left( U_{1}\left( s_{1} \right),N_{1} \right)g_{2}\left( U - U_{1
 dove \(N = N_{1} + N_{2}\). Per ogni stato ammissibile del primo del primo sistema, il secondo può trovarsi in uno qualunque dei suoi stati ammissibili, il cui numero dipende dall'energia del sistema \(\mathbb{S}_{1}\). In altre parole, al variare dell'enumerazione \(s_{1}\) del primo sistema, varia anche la numerosità degli stati ammissibili del sistema totale. Esiste, di conseguenza, un massimo della funzione \(g(U,N)\), ottenuto ponendo uguale a \(0\) la derivata di \(g\) rispetto all'energia:
 
 \[
-\frac{\partial g}{\partial U} = \frac{\partial g}{\partial U_{1}} = \frac{\partial}{\partial U_{1}}\left[ g_{1}\left( U_{1}\left( s_{1} \right),N_{1} \right)g_{2}\left( U - U_{1}\left( s_{1} \right),N_{2} \right) \right)
+\frac{\partial g}{\partial U} = \frac{\partial g}{\partial U_{1}} = \frac{\partial}{\partial U_{1}}\left( g_{1}\left( U_{1}\left( s_{1} \right),N_{1} \right)g_{2}\left( U - U_{1}\left( s_{1} \right),N_{2} \right) \right)
 \]
 
 Per le proprietà delle derivate si ha:
@@ -615,7 +615,7 @@ L’entropia è legata al disordine del sistema: maggiore è il numero di config
 
 \section{Distribuzione di Boltzmann}\label{distribuzione-di-boltzmann}
 
-Si suppone che un sistema \(\mathbb{S}_{1}\) sia molto più piccolo del sistema \(\mathbb{S}_{2}\). I due sistemi sono posti in contatto termico tra loro. Il sistema \(\mathbb{S}_{2}\) è detto serbatoio termico poiché, ponendolo in contatto col piccolo sistema, la sua energia \(U\) varia di una quantità trascurabile, idealmente nulla.
+Si supponga che un sistema \(\mathbb{S}_{1}\) sia molto più piccolo rispetto a un sistema \(\mathbb{S}_{2}\). I due sistemi sono posti in contatto termico, in modo che possano scambiarsi energia. Il sistema \(\mathbb{S}_{2}\) è detto serbatoio termico, poiché la sua energia totale \(U\) varia di una quantità trascurabile (idealmente nulla) quando interagisce con \(\mathbb{S}_{1}\).
 
 \begin{figure}[ht]
 \centering
@@ -624,17 +624,23 @@ Si suppone che un sistema \(\mathbb{S}_{1}\) sia molto più piccolo del sistema 
 
 Si vuole collegare le variazioni di entropia del piccolo sistema con quelle del grande sistema, raggiunto l'equilibrio termico.
 
-L'entropia è collegata alla probabilità di trovare il sistema \(\mathbb{S}_{1}\) in uno stato specifico \(s_{1}\), a cui corrisponde un'energia \(\varepsilon_{1}^{\alpha} \ll U\), mediante la numerosità degli stati. Per valutare questa probabilità si scrive la numerosità del sistema totale:
+L'entropia è legata alla probabilità di trovare il sistema \(\mathbb{S}_{1}\) in uno stato specifico \(s_{1}\), a cui corrisponde un'energia \(\varepsilon_{1}^{\alpha} \ll U\), mediante la numerosità degli stati. Per valutare questa probabilità si scrive la numerosità del sistema totale:
 
-\[g\left( \varepsilon_{1}^{\alpha},N \right) = g_{1}\left( \varepsilon_{1}^{\alpha},N_{1} \right)g_{2}\left( U - \varepsilon_{1}^{\alpha},N_{2} \right)\]
+\[
+g(\varepsilon_{1}^{\alpha}, N) = g_{1}(\varepsilon_{1}^{\alpha}, N_{1}) t g_{2}(U - \varepsilon_{1}^{\alpha}, N_{2})
+\]
 
 Fissata l'energia e la configurazione del piccolo sistema (come lo stato di uno spin immerso nell'ambiente) risulta che:
 
-\[g_{1}\left( \varepsilon_{1}^{\alpha},N_{1} \right) = 1\]
+\[
+g_{1}\left( \varepsilon_{1}^{\alpha},N_{1} \right) = 1
+\]
 
 Le possibili configurazioni ammissibili dipendono solamente dal sistema \(\mathbb{S}_{2}\), poiché, appunto, la configurazione di \(\mathbb{S}_{1}\) è fissata:
 
-\[g\left( \varepsilon_{1}^{\alpha},N \right) = g_{2}\left( U - \varepsilon_{1}^{\alpha},N_{2} \right)\]
+\[
+g\left( \varepsilon_{1}^{\alpha},N \right) = g_{2}\left( U - \varepsilon_{1}^{\alpha},N_{2} \right)
+\]
 
 Si considera un secondo valore di energia del sistema \(\mathbb{S}_{1}\), \(\varepsilon_{1}^{\beta}\). Fissato lo stato del sistema \(\mathbb{S}_{1}\), la numerosità degli stati ammissibili dal sistema complessivo è data da:
 
@@ -642,11 +648,15 @@ Si considera un secondo valore di energia del sistema \(\mathbb{S}_{1}\), \(\var
 
 La numerosità è legata alla probabilità mediante un fattore di normalizzazione, dato dal numero totale delle configurazioni possibili del sistema, indipendente dall'energia. Calcolando il rapporto tra le due numerosità degli stati del sistema globale, si ottiene il rapporto tra la probabilità che il sistema \(\mathbb{S}_{2}\) sia nello stato \(g_{2}\left( U - \varepsilon_{1}^{\alpha} \right)\) e la probabilità che sia nello stato \(g_{2}\left( U - \varepsilon_{1}^{\beta} \right)\). In altre parole, il fattore di normalizzazione si elide:
 
-\[\frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \frac{g_{2}\left( U - \varepsilon_{1}^{\alpha},N_{2} \right)}{g_{2}\left( U - \varepsilon_{1}^{\beta},N_{2} \right)}\]
+\[
+\frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \frac{g_{2}\left( U - \varepsilon_{1}^{\alpha},N_{2} \right)}{g_{2}\left( U - \varepsilon_{1}^{\beta},N_{2} \right)}
+\]
 
 L'entropia è legata alla numerosità degli stati mediante logaritmo:
 
-\[\sigma = \ln g = \ln g_{2}\]
+\[\
+sigma = \ln g = \ln g_{2}
+\]
 
 Applicando l'esponenziale si ha:
 
@@ -654,53 +664,77 @@ Applicando l'esponenziale si ha:
 
 Sostituendo questo risultato nel rapporto tra le probabilità si ottiene:
 
-\[\frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \frac{g_{2}\left( U - \varepsilon_{1}^{\alpha},N_{2} \right)}{g_{2}\left( U - \varepsilon_{1}^{\beta},N_{2} \right)} = \frac{\exp\left[ \sigma\left( U - \varepsilon_{1}^{\alpha},N_{2} \right) \right)}{\exp\left( \sigma\left( U - \varepsilon_{1}^{\beta},N_{2} \right) \right)}\]
+\[\
+frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \frac{g_{2}\left( U - \varepsilon_{1}^{\alpha},N_{2} \right)}{g_{2}\left( U - \varepsilon_{1}^{\beta},N_{2} \right)} = \frac{\exp\left( \sigma\left( U - \varepsilon_{1}^{\alpha},N_{2} \right) \right)}{\exp\left( \sigma\left( U - \varepsilon_{1}^{\beta},N_{2} \right) \right)}
+\]
 
-Siccome \(\varepsilon_{1}^{\alpha},\varepsilon_{1}^{\beta} \ll U\), è possibile sviluppare in serie di Taylor, arrestato al primo ordine, la funzione entropia:
+Dato che \(\varepsilon_{1}^{\alpha}, \varepsilon_{1}^{\beta} \ll U\), si può sviluppare \(\sigma(U - \varepsilon)\) in serie di Taylor al primo ordine:
 
-\[\sigma\left( U - \varepsilon_{1}^{i},N_{2} \right) \simeq \sigma(U) - \varepsilon_{1}^{i}\frac{\partial\sigma}{\partial U},\ \ i = \alpha,\beta\]
+\[
+\sigma\left( U - \varepsilon_{1}^{i},N_{2} \right) \simeq \sigma(U) - \varepsilon_{1}^{i}\frac{\partial\sigma}{\partial U},\ \ i = \alpha,\beta
+\]
 
 Per definizione di temperatura:
 
-\[\frac{\partial\sigma}{\partial U} = \frac{1}{k_{B}T}\]
+\[
+\frac{\partial\sigma}{\partial U} = \frac{1}{k_{B}T}
+\]
 
 Lo sviluppo si scrive come:
 
-\[\sigma\left( U - \varepsilon_{1}^{i},N_{2} \right) \simeq \sigma(U) - \varepsilon_{1}^{i}\frac{1}{k_{B}T},\ \ i = \alpha,\beta\]
+\[
+\sigma\left( U - \varepsilon_{1}^{i},N_{2} \right) \simeq \sigma(U) - \varepsilon_{1}^{i}\frac{1}{k_{B}T},\ \ i = \alpha,\beta
+\]
 
 Si sostituisce questo risultato nel rapporto tra le due probabilità:
 
-\[\frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \frac{\exp\left[ \sigma\left( U - \varepsilon_{1}^{\alpha},N_{2} \right) \right)}{\exp\left( \sigma\left( U - \varepsilon_{1}^{\beta},N_{2} \right) \right)} \simeq \frac{\exp\left( \sigma(U) \right)\exp\left( - \frac{\varepsilon_{1}^{\alpha}}{k_{B}T} \right)}{\exp\left[ \sigma(U) \right)\exp\left( - \frac{\varepsilon_{1}^{\beta}}{k_{B}T} \right)}\]
+\[
+\frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \frac{\exp\left( \sigma\left( U - \varepsilon_{1}^{\alpha},N_{2} \right) \right)}{\exp\left( \sigma\left( U - \varepsilon_{1}^{\beta},N_{2} \right) \right)} \simeq \frac{\exp\left( \sigma(U) \right)\exp\left( - \frac{\varepsilon_{1}^{\alpha}}{k_{B}T} \right)}{\exp\left( \sigma(U) \right)\exp\left( - \frac{\varepsilon_{1}^{\beta}}{k_{B}T} \right)}
+\]
 
-Dato che l'entropia è la stessa per entrambe le configurazione, si semplifica \(\exp\left[ \sigma(U) \right)\):
+Dato che l'entropia è la stessa per entrambe le configurazione, si semplifica \(\exp\left( \sigma(U) \right)\):
 
-\[\frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} \simeq \frac{\exp\left( - \frac{\varepsilon_{1}^{\alpha}}{k_{B}T} \right)}{\exp\left( - \frac{\varepsilon_{1}^{\beta}}{k_{B}T} \right)}\]
+\[
+\frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} \simeq \frac{\exp\left( - \frac{\varepsilon_{1}^{\alpha}}{k_{B}T} \right)}{\exp\left( - \frac{\varepsilon_{1}^{\beta}}{k_{B}T} \right)}
+\]
 
 Dato che il rapporto tra le due probabilità \(P\left( \varepsilon_{1}^{\alpha} \right)\) e \(P\left( \varepsilon_{1}^{\beta} \right)\), restituisce il rapporto tra due esponenziali, la probabilità generica \(P(\varepsilon)\) deve essere proporzionale all'esponenziale:
 
-\[P(\varepsilon) \propto \exp\left( - \frac{\varepsilon}{k_{B}T} \right)\]
+\[
+P(\varepsilon) \propto \exp\left( - \frac{\varepsilon}{k_{B}T} \right)
+\]
 
-Il termine esponenziale al secondo membro, \(\exp\left( - \frac{\varepsilon}{k_{B}T} \right)\), è detto fattore di Boltzmann.
+Il termine esponenziale al secondo membro, \(\exp\left( - \frac{\varepsilon}{k_{B}T} \right)\), indica la probabilità relativa, non normalizzata, di un singolo stato, è chiamato fattore di Boltzmann.
 
 Per ottenere la dipendenza esatta della probabilità dall'energia del piccolo sistema, \(\varepsilon\), si introduce un fattore di normalizzazione \(Z\), tale che:
 
-\[P(\varepsilon) = \frac{1}{Z}\exp\left( - \frac{\varepsilon}{k_{B}T} \right)\]
+\[
+P(\varepsilon) = \frac{1}{Z}\exp\left( - \frac{\varepsilon}{k_{B}T} \right)
+\]
 
-\(Z\) è scelto in modo tale che la somma di tutte le probabilità, al variare dell'energia del sistema \(\mathbb{S}_{1}\) sia unitaria, ovvero:
+\(Z\) è scelto in modo tale che la somma di tutte le probabilità, al variare dell'energia del sistema \(\mathbb{S}_{1}\), sia unitaria, ovvero:
 
-\[Z:\sum_{n}^{}{P\left( \varepsilon_{n} \right)} = 1\]
+\[
+Z:\sum_{n}^{}{P\left( \varepsilon_{n} \right)} = 1
+\]
 
 Sostituendo l'espressione per la probabilità, si ha:
 
-\[\frac{1}{Z}\sum_{n}^{}{\exp\left( - \frac{\varepsilon_{n}}{k_{B}T} \right)} = 1\]
+\[\
+frac{1}{Z}\sum_{n}^{}{\exp\left( - \frac{\varepsilon_{n}}{k_{B}T} \right)} = 1
+\]
 
 Da cui:
 
-\[Z = \sum_{n}^{}{\exp\left( - \frac{\varepsilon_{n}}{k_{B}T} \right)}\]
+\[
+Z = \sum_{n}^{}{\exp\left( - \frac{\varepsilon_{n}}{k_{B}T} \right)}
+\]
 
 \(Z\) è noto come fattore di ripartizione e funge, come detto, da costante di normalizzazione. La probabilità di una configurazione del piccolo sistema con energia \(\varepsilon\) è:
 
-\[P(\varepsilon) = \frac{\exp\left( - \frac{\varepsilon}{k_{B}T} \right)}{\sum_{n}^{}{\exp\left( - \frac{\varepsilon_{n}}{k_{B}T} \right)}}\]
+\[
+P(\varepsilon) = \frac{\exp\left( - \frac{\varepsilon}{k_{B}T} \right)}{\sum_{n}^{}{\exp\left( - \frac{\varepsilon_{n}}{k_{B}T} \right)}}
+\]
 
 \subsection{Magnetizzazione macroscopica}\label{magnetizzazione-macroscopica}
 
@@ -737,7 +771,7 @@ Per la distribuzione di Boltzmann, risulta che:
 
 Il vettore di magnetizzazione, dunque, è dato da:
 
-\[M = N\gamma\frac{\hslash}{2}\left[ \frac{\exp\left( \frac{\gamma\hslash B_{0}}{2k_{B}T} \right) - \exp\left( - \frac{\gamma\hslash B_{0}}{2k_{B}T} \right)}{\exp\left( \frac{\gamma\hslash B_{0}}{2k_{B}T} \right) + \exp\left( - \frac{\gamma\hslash B_{0}}{2k_{B}T} \right)} \right)\]
+\[M = N\gamma\frac{\hslash}{2}\left( \frac{\exp\left( \frac{\gamma\hslash B_{0}}{2k_{B}T} \right) - \exp\left( - \frac{\gamma\hslash B_{0}}{2k_{B}T} \right)}{\exp\left( \frac{\gamma\hslash B_{0}}{2k_{B}T} \right) + \exp\left( - \frac{\gamma\hslash B_{0}}{2k_{B}T} \right)} \right)\]
 
 Il secondo membro coincide con la tangente iperbolica, per cui:
 
@@ -758,6 +792,18 @@ Da cui si ricava la legge di Curie:
 Da questa relazione è possibile ricavare un'espressione per la suscettività magnetica \(\chi_{m}\):
 
 \[\vec{M} = \chi_{m}\vec{H}\]
+
+La suscettività magnetica è definita mediante il campo magnetico \(\vec{H}\) dalla relazione \(\chi_{m}=M_0/H\). Ma, poiché si suppone che la densità di atomi magnetici sia piccola, risulta che \(\vec{B}_0= \mu_0\vec{H}\) con ottima approssimazione. La magnetizzazione si scrive come:
+
+\[
+M \simeq \ N\frac{\gamma^{2}\hslash^{2}}{4k_{B}T}\left(\mu_0 H\right)
+\]
+
+In particolare, la suscettività magnetica è data da:
+
+\[
+\chi_{m} \simeq \mathbf{\mu_{0}} N\frac{\gamma^{2}\hslash^{2}}{4k_{B}T}
+\]
 
 La magnetizzazione netta dipende dal campo applicato e dall'inverso della temperatura; gli altri parametri sono costanti, dunque, non è possibile agire su di essi. In risonanza magnetica, la temperatura non può essere resa piccola a piacere per non raffreddare eccessivamente il paziente. Si utilizzano, per tale motivo, campi magnetici molto elevati, dell'ordine di \(1.5\ T\) in diagnosti, \(3\ T\) in terapia e \(7\ T\) in ricerca.
 
@@ -796,7 +842,7 @@ Il fattore di ripartizione \(Z\) è una serie geometrica con ragione minore dell
 
 La probabilità che un fotone si trovi nel livello energetico \(s\) è:
 
-\[P\left( E_{s} \right) = \frac{1}{Z}\exp\left( - \frac{s\hslash\omega}{k_{B}T} \right) = \exp\left( - \frac{s\hslash\omega}{k_{B}T} \right)\left[ 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\]
+\[P\left( E_{s} \right) = \frac{1}{Z}\exp\left( - \frac{s\hslash\omega}{k_{B}T} \right) = \exp\left( - \frac{s\hslash\omega}{k_{B}T} \right)\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\]
 
 Si calcola il valor medio dell'energia del modo con pulsazione \(\omega\):
 
@@ -804,11 +850,11 @@ Si calcola il valor medio dell'energia del modo con pulsazione \(\omega\):
 
 Dove \(E_{s} = s\hslash\omega\). Sostituendo le espressioni per\(E_{s}\) e \(P\left( E_{s} \right)\), si ricava:
 
-\[\left\langle E \right\rangle = \sum_{s = 0}^{\infty}{E_{s}P\left( E_{s} \right)} = \sum_{s = 0}^{\infty}{s\hslash\omega\exp\left( - \frac{s\hslash\omega}{k_{B}T} \right)\left[ 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)} =\]
+\[\left\langle E \right\rangle = \sum_{s = 0}^{\infty}{E_{s}P\left( E_{s} \right)} = \sum_{s = 0}^{\infty}{s\hslash\omega\exp\left( - \frac{s\hslash\omega}{k_{B}T} \right)\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)} =\]
 
 Per la linearità della sommatoria, si ha:
 
-\[\left\langle E \right\rangle = \ \hslash\omega\left[ 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\sum_{s = 0}^{\infty}{s\exp\left( - \frac{s\hslash\omega}{k_{B}T} \right)}\]
+\[\left\langle E \right\rangle = \ \hslash\omega\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\sum_{s = 0}^{\infty}{s\exp\left( - \frac{s\hslash\omega}{k_{B}T} \right)}\]
 
 Si considera la quantità:
 
@@ -820,27 +866,27 @@ Si considera la quantità:
 
 Per cui è possibile scrivere:
 
-\[\left\langle E \right\rangle = \ \hslash\omega\left[ 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\sum_{s = 0}^{\infty}\left[ - \frac{d}{dx}\exp\left( - \frac{s\hslash\omega}{k_{B}T} \right) \right)\]
+\[\left\langle E \right\rangle = \ \hslash\omega\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\sum_{s = 0}^{\infty}\left( - \frac{d}{dx}\exp\left( - \frac{s\hslash\omega}{k_{B}T} \right) \right)\]
 
 Per la linearità della sommatoria e della derivata si ha:
 
-\[\left\langle E \right\rangle = - \ \hslash\omega\left[ 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\frac{d}{dx}\sum_{s = 0}^{\infty}{\exp( - xs)}\]
+\[\left\langle E \right\rangle = - \ \hslash\omega\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\frac{d}{dx}\sum_{s = 0}^{\infty}{\exp( - xs)}\]
 
 La serie risulta essere convergente in quanto serie geometrica con ragione in modulo minore dell'unità. Il valor medio può essere scritto come:
 
-\[\left\langle E \right\rangle = - \ \hslash\omega\left[ 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\frac{d}{dx}\left[ \frac{1}{1 - \exp( - x)} \right)\]
+\[\left\langle E \right\rangle = - \ \hslash\omega\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\frac{d}{dx}\left( \frac{1}{1 - \exp( - x)} \right)\]
 
 Svolgendo la derivata, si ottiene:
 
-\[\left\langle E \right\rangle = - \ \hslash\omega\left[ 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\frac{- \exp\left( - \frac{\hslash\omega}{k_{B}T} \right)}{\left[ 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)^{2}}\]
+\[\left\langle E \right\rangle = - \ \hslash\omega\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)\frac{- \exp\left( - \frac{\hslash\omega}{k_{B}T} \right)}{\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)^{2}}\]
 
 Semplificando:
 
-\[\left\langle E \right\rangle = \ \hslash\omega\frac{\exp\left( - \frac{\hslash\omega}{k_{B}T} \right)}{\left[ 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)}\]
+\[\left\langle E \right\rangle = \ \hslash\omega\frac{\exp\left( - \frac{\hslash\omega}{k_{B}T} \right)}{\left( 1 - \exp\left( - \frac{\hslash\omega}{k_{B}T} \right) \right)}\]
 
 È possibile raccogliere il termine esponenziale \(\exp\left( - \frac{\hslash\omega}{k_{B}T} \right)\):
 
-\[\left\langle E \right\rangle = \ \frac{\hslash\omega}{\left[ \exp\left( \frac{\hslash\omega}{k_{B}T} \right) - 1 \right)}\]
+\[\left\langle E \right\rangle = \ \frac{\hslash\omega}{\left( \exp\left( \frac{\hslash\omega}{k_{B}T} \right) - 1 \right)}\]
 
 Tale equazione è la legge di Planck e rappresenta una prima logge in cui si applica la quantizzazione della materia, unita alle teoria di Boltzmann.
 
@@ -877,11 +923,11 @@ Dove il \(2\) è dovuto alle due onde trasmesse dai due resistori.
 
 Ogni singolo modo può essere considerato come un fotone immerso in un sistema, composto dagli altri fotoni, per cui è possibile applicare la legge di Planck per il calcolo dell'energia media:
 
-\[\left\langle E \right\rangle = \ \frac{\hslash\omega}{\left[ \exp\left( \frac{\hslash\omega}{k_{B}T} \right) - 1 \right)}\]
+\[\left\langle E \right\rangle = \ \frac{\hslash\omega}{\left( \exp\left( \frac{\hslash\omega}{k_{B}T} \right) - 1 \right)}\]
 
 Da cui:
 
-\[E = 2\frac{{\Delta}f}{\delta f}\frac{\hslash\omega}{\left[ \exp\left( \frac{\hslash\omega}{k_{B}T} \right) - 1 \right)}\]
+\[E = 2\frac{{\Delta}f}{\delta f}\frac{\hslash\omega}{\left( \exp\left( \frac{\hslash\omega}{k_{B}T} \right) - 1 \right)}\]
 
 Per le normali frequenze utilizzate nella pratica elettrotecnica, risulta che:
 
@@ -893,7 +939,7 @@ In questa ipotesi, è possibile approssimare l'esponenziale in serie di Taylor, 
 
 Con questa approssimazione, l'energia media è:
 
-\[\left\langle E \right\rangle = \ \frac{\hslash\omega}{\left[ \exp\left( \frac{\hslash\omega}{k_{B}T} \right) - 1 \right)} \simeq \ \frac{\hslash\omega}{\left[ 1 + \frac{\hslash\omega}{k_{B}T} - 1 \right)} = k_{B}T\]
+\[\left\langle E \right\rangle = \ \frac{\hslash\omega}{\left( \exp\left( \frac{\hslash\omega}{k_{B}T} \right) - 1 \right)} \simeq \ \frac{\hslash\omega}{\left( 1 + \frac{\hslash\omega}{k_{B}T} - 1 \right)} = k_{B}T\]
 
 L'energia complessiva, di conseguenza, è:
 
@@ -923,7 +969,7 @@ Sostituendo l'espressione appena determinata per la potenza, è possibile ricava
 
 Non approssimando l'esponenziale, il valor quadratico medio della tensione su un resistore è dato da:
 
-\[\left\langle V^{2} \right\rangle = 4R{\Delta}f\ \frac{\hslash\omega}{\left[ \exp\left( \frac{\hslash\omega}{k_{B}T} \right) - 1 \right)}\]
+\[\left\langle V^{2} \right\rangle = 4R{\Delta}f\ \frac{\hslash\omega}{\left( \exp\left( \frac{\hslash\omega}{k_{B}T} \right) - 1 \right)}\]
 
 La frequenza di taglio è:
 
@@ -972,7 +1018,7 @@ Il rapporto tra le due probabilità si scrive come:
 
 Si considera il logaritmo di tale rapporto:
 
-\[\log\left[ \frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = \log\left[ \frac{g_{2}\left( N - N_{a},U - U_{a} \right)}{g_{2}\left( N - N_{b},U - U_{b} \right)} \right) = \log{g_{2}\left( N - N_{a},U - U_{a} \right)} - \log{g_{2}\left( N - N_{b},U - U_{b} \right)}\]
+\[\log\left( \frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = \log\left( \frac{g_{2}\left( N - N_{a},U - U_{a} \right)}{g_{2}\left( N - N_{b},U - U_{b} \right)} \right) = \log{g_{2}\left( N - N_{a},U - U_{a} \right)} - \log{g_{2}\left( N - N_{b},U - U_{b} \right)}\]
 
 Per definizione di entropia:
 
@@ -980,7 +1026,7 @@ Per definizione di entropia:
 
 Il logaritmo del rapporto può essere espresso come:
 
-\[\log\left[ \frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = \sigma\left( N - N_{a},U - U_{a} \right) - \sigma\left( N - N_{b},U - U_{b} \right)\]
+\[\log\left( \frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = \sigma\left( N - N_{a},U - U_{a} \right) - \sigma\left( N - N_{b},U - U_{b} \right)\]
 
 Siccome il sistema \(\mathbb{S}_{2}\) è molto più grande del sistema \(\mathbb{S}_{1}\), è possibile concludere che:
 
@@ -992,11 +1038,11 @@ Siccome il sistema \(\mathbb{S}_{2}\) è molto più grande del sistema \(\mathbb
 
 Con questa approssimazione si ottiene:
 
-\[\log\left[ \frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = \sigma(N,U) - \left. \ \frac{\partial\sigma}{\partial N} \right|_{N}N_{a} - \left. \ \frac{\partial\sigma}{\partial U} \right|_{U}U_{a} - \sigma(N,U) + \left. \ \frac{\partial\sigma}{\partial N} \right|_{N}N_{b} - \left. \ \frac{\partial\sigma}{\partial U} \right|_{U}U_{b}\]
+\[\log\left( \frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = \sigma(N,U) - \left. \ \frac{\partial\sigma}{\partial N} \right|_{N}N_{a} - \left. \ \frac{\partial\sigma}{\partial U} \right|_{U}U_{a} - \sigma(N,U) + \left. \ \frac{\partial\sigma}{\partial N} \right|_{N}N_{b} - \left. \ \frac{\partial\sigma}{\partial U} \right|_{U}U_{b}\]
 
 Elidendo \(\sigma(N,U)\) e raccogliendo:
 
-\[\log\left[ \frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = \left( N_{b} - N_{a} \right)\left. \ \frac{\partial\sigma}{\partial N} \right|_{N} + \left( U_{b} - U_{a} \right)\left. \ \frac{\partial\sigma}{\partial U} \right|_{U}\]
+\[\log\left( \frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = \left( N_{b} - N_{a} \right)\left. \ \frac{\partial\sigma}{\partial N} \right|_{N} + \left( U_{b} - U_{a} \right)\left. \ \frac{\partial\sigma}{\partial U} \right|_{U}\]
 
 Si definisce la temperatura come:
 
@@ -1008,11 +1054,11 @@ Si definisce potenziale chimico \(\mu\) come il fattore di proporzionalità tra 
 
 Con queste definizioni, si ha:
 
-\[\log\left[ \frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = - \left( N_{b} - N_{a} \right)\frac{\mu}{k_{B}T} + \left( U_{b} - U_{a} \right)\frac{1}{k_{B}T} = \left( N_{a} - N_{b} \right)\frac{\mu}{k_{B}T} - \left( U_{a} - U_{b} \right)\frac{1}{k_{B}T}\]
+\[\log\left( \frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} \right) = - \left( N_{b} - N_{a} \right)\frac{\mu}{k_{B}T} + \left( U_{b} - U_{a} \right)\frac{1}{k_{B}T} = \left( N_{a} - N_{b} \right)\frac{\mu}{k_{B}T} - \left( U_{a} - U_{b} \right)\frac{1}{k_{B}T}\]
 
 Si applica l'esponenziale, si ha:
 
-\[\frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} = \exp\left[ \left( N_{a} - N_{b} \right)\frac{\mu}{k_{B}T} \right)\exp\left[ - \left( U_{a} - U_{b} \right)\frac{1}{k_{B}T} \right) = \frac{\exp\left[ \left( N_{a} - N_{b} \right)\frac{\mu}{k_{B}T} \right)}{\exp\left[ - \left( U_{a} - U_{b} \right)\frac{1}{k_{B}T} \right)}\]
+\[\frac{P\left( N_{a},U_{a} \right)}{P\left( N_{b},U_{b} \right)} = \exp\left( \left( N_{a} - N_{b} \right)\frac{\mu}{k_{B}T} \right)\exp\left( - \left( U_{a} - U_{b} \right)\frac{1}{k_{B}T} \right) = \frac{\exp\left( \left( N_{a} - N_{b} \right)\frac{\mu}{k_{B}T} \right)}{\exp\left( - \left( U_{a} - U_{b} \right)\frac{1}{k_{B}T} \right)}\]
 
 Quindi, la probabilità che il sistema \(\mathbb{S}_{1}\) si trovi in uno stato con energia \(U_{a}\) e con un numero di particelle \(N_{a}\) è proporzionale a:
 
@@ -1060,7 +1106,7 @@ I bosoni sono particelle con spin nullo o intero. Un livello energetico può ess
 
 Si considera un piccolo sistema di bosoni. Questo sistema può contenere un numero qualsiasi \(N\) di particelle, ciascuna con energia \(\varepsilon\). La somma di Gibbs, nel caso di energia fissata a \(U = \varepsilon\), si esprime come:
 
-\[Z = \sum_{N}^{}{\sum_{U}^{}{\exp\left( \frac{\mu N - U}{k_{B}T} \right)}} = \sum_{N}^{}{\exp\left( \frac{N\mu - N\varepsilon}{k_{B}T} \right)} = \sum_{N}^{}\left[ \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right) \right)^{N}\]
+\[Z = \sum_{N}^{}{\sum_{U}^{}{\exp\left( \frac{\mu N - U}{k_{B}T} \right)}} = \sum_{N}^{}{\exp\left( \frac{N\mu - N\varepsilon}{k_{B}T} \right)} = \sum_{N}^{}\left( \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right) \right)^{N}\]
 
 La somma è convergente, in quanto serie geometrica con ragione, in modulo, minore dell'unità:
 
@@ -1068,11 +1114,11 @@ La somma è convergente, in quanto serie geometrica con ragione, in modulo, mino
 
 Il numero medio delle particelle del sistema che si trovano nel livello energetico \(\varepsilon\) è:
 
-\[\left\langle N(\varepsilon) \right\rangle = \frac{1}{Z}\sum_{N}^{}{\sum_{U}^{}{NP(N,U)}} = \left[ 1 - \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right) \right)\sum_{N}^{}{\sum_{U}^{}{N\exp\left( \frac{\mu N - U}{k_{B}T} \right)}}\]
+\[\left\langle N(\varepsilon) \right\rangle = \frac{1}{Z}\sum_{N}^{}{\sum_{U}^{}{NP(N,U)}} = \left( 1 - \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right) \right)\sum_{N}^{}{\sum_{U}^{}{N\exp\left( \frac{\mu N - U}{k_{B}T} \right)}}\]
 
 Avendo fissata l'energia, risulta:
 
-\[\left\langle N(\varepsilon) \right\rangle = \left[ 1 - \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right) \right)\sum_{N}^{}{N\exp\left( \frac{N\mu - N\varepsilon}{k_{B}T} \right)} = \left[ 1 - \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right) \right)\sum_{N}^{}{N\left[ \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right) \right)^{N}}\]
+\[\left\langle N(\varepsilon) \right\rangle = \left( 1 - \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right) \right)\sum_{N}^{}{N\exp\left( \frac{N\mu - N\varepsilon}{k_{B}T} \right)} = \left( 1 - \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right) \right)\sum_{N}^{}{N\left( \exp\left( \frac{\mu - \varepsilon}{k_{B}T} \right) \right)^{N}}\]
 
 Si pone:
 
@@ -1096,7 +1142,7 @@ Per la linearità dell'operatore sommatoria, si scrive:
 
 Da cui si ha:
 
-\[\sum_{N}^{}{NX^{N}} = X\frac{dZ}{dX} = X\frac{d}{dX}\left[ \frac{1}{1 - X} \right) = \frac{X}{(1 - X)^{2}}\]
+\[\sum_{N}^{}{NX^{N}} = X\frac{dZ}{dX} = X\frac{d}{dX}\left( \frac{1}{1 - X} \right) = \frac{X}{(1 - X)^{2}}\]
 
 Il numero medio dei bosoni può essere scritto come:
 
