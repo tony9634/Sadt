@@ -460,7 +460,7 @@ L'operatore \(\hat{S}_{z}\) presenta due autovalori: \(\pm \hslash / 2\), che co
 Supponendo che gli spin siano non interagenti, l'energia totale del sistema è data dalla somma delle energie di ciascuna particella:
 
 \[
-U_{\text{tot}} = \sum_{n = 1}^{N} \left( - \mu_{z} B_{0} s(n) \right] = \mathbf{- \mu_{z} B_{0} \sum_{n = 1}^{N} s(n)}
+U_{\text{tot}} = \sum_{n = 1}^{N} \left( - \mu_{z} B_{0} s(n) \right) = - \mu_{z} B_{0} \sum_{n = 1}^{N} s(n)
 \]
 
 dove \(s(n) = 1\) se lo spin si trova nello stato \(\left| + \right\rangle\), invece, \(s(n) = - 1\) se lo spin si trova nello stato \(\left| - \right\rangle\).
@@ -474,7 +474,7 @@ Se il sistema è isolato, non può scambiare energia con l'ambiente, quindi la s
 Nel caso in esame l'energia può essere espressa come multiplo della differenza tra il numero di spin nello stato \(\left| + \right\rangle\) e quelli nello stato \(\left| - \right\rangle\):
 
 \[
-{U_{\text{tot}} = - \mu_{z} B_{0} \sum_{n = 1}^{N} s(n)} \Rightarrow U_{\text{tot}} = - \left( k - (N - k) \right] \mu_{z} B_{0} = - (2k - N) \mu_{z} B_{0}
+{U_{\text{tot}} = - \mu_{z} B_{0} \sum_{n = 1}^{N} s(n)} \Rightarrow U_{\text{tot}} = - \left( k - (N - k) \right) \mu_{z} B_{0} = - (2k - N) \mu_{z} B_{0}
 \]
 
 Il numero delle possibili configurazioni che il sistema può assumere con \(k\) spin nello stato \(\left| + \right\rangle\) è dato da:
@@ -562,8 +562,8 @@ Il segno meno deriva dalla dipendenza di \(g_{2}\) da \(-U_{1}\). In condizione 
 
 Ovvero:
 
-\[\
-frac{\partial g_{1}}{\partial U_{1}}g_{2} - g_{1}\frac{\partial g_{2}}{\partial U_{1}} = 0 \Leftrightarrow \frac{\partial g_{1}}{\partial U_{1}}g_{2} = g_{1}\frac{\partial g_{2}}{\partial U_{1}}
+\[
+\frac{\partial g_{1}}{\partial U_{1}}g_{2} - g_{1}\frac{\partial g_{2}}{\partial U_{1}} = 0 \Leftrightarrow \frac{\partial g_{1}}{\partial U_{1}}g_{2} = g_{1}\frac{\partial g_{2}}{\partial U_{1}}
 \]
 
 Dividendo per \(g_{1} g_{2}\):
@@ -665,8 +665,8 @@ Applicando l'esponenziale si ha:
 
 Sostituendo questo risultato nel rapporto tra le probabilità si ottiene:
 
-\[\
-frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \frac{g_{2}\left( U - \varepsilon_{1}^{\alpha},N_{2} \right)}{g_{2}\left( U - \varepsilon_{1}^{\beta},N_{2} \right)} = \frac{\exp\left( \sigma\left( U - \varepsilon_{1}^{\alpha},N_{2} \right) \right)}{\exp\left( \sigma\left( U - \varepsilon_{1}^{\beta},N_{2} \right) \right)}
+\[
+\frac{P\left( \varepsilon_{1}^{\alpha} \right)}{P\left( \varepsilon_{1}^{\beta} \right)} = \frac{g_{2}\left( U - \varepsilon_{1}^{\alpha},N_{2} \right)}{g_{2}\left( U - \varepsilon_{1}^{\beta},N_{2} \right)} = \frac{\exp\left( \sigma\left( U - \varepsilon_{1}^{\alpha},N_{2} \right) \right)}{\exp\left( \sigma\left( U - \varepsilon_{1}^{\beta},N_{2} \right) \right)}
 \]
 
 Dato che \(\varepsilon_{1}^{\alpha}, \varepsilon_{1}^{\beta} \ll U\), si può sviluppare \(\sigma(U - \varepsilon)\) in serie di Taylor al primo ordine:

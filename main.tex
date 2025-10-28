@@ -5,7 +5,7 @@
 \linespread{1.5} %interlinea
 \pagestyle{plain}
 \usepackage{geometry} %margini
-\geometry{a4paper, top=2.5cm, bottom=2cm, left=2.5cm, right=2cm, bindingoffset=5mm}
+\geometry{a4paper, top=2.5cm, bottom=2cm, left=2cm, right=2cm, bindingoffset=5mm}
 \usepackage{graphicx}
 
 \usepackage{listings}
@@ -46,6 +46,9 @@
 \captionsetup{textfont=sl}
 \maxdeadcycles=300
 
+\usepackage{parskip}
+
+
 \usepackage{morefloats}
 
 \usepackage[italian]{babel} %lingua principale
@@ -55,8 +58,8 @@
 \addto{\captionsitalian}{% Making babel aware of special titles
   \renewcommand{\mtctitle}{Sommario}
 }
-\setcounter{secnumdepth}{3}
-\usepackage[sorting=none,backend=biber,refsection=chapter]{biblatex} %bibliografia
+\setcounter{secnumdepth}{5}
+\usepackage[sorting=none,backend=biber]{biblatex}%bibliografia
 \defbibheading{bibbysubsect}{}
 \addbibresource{bibliografia.bib}
 
@@ -119,13 +122,15 @@
 \dominitoc
 \tableofcontents
 
+{
+\setlength{\parindent}{0pt}
 \include{Capitoli/1_Meccanica}
 \include{Capitoli/2_Relatività}
 \include{Capitoli/3_Elettromagnetismo}
 \include{Capitoli/4_Quantistica}
 \include{Capitoli/5_MecStatistica}
 \include{Capitoli/6_IntroMRI}
-
+}
 
 \medskip
 
