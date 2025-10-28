@@ -161,7 +161,7 @@ Per descrivere il moto di una particella o di un sistema di particelle, la lagra
 
 Poiché l'azione \(S\) deve essere stazionaria, una sua variazione \(\delta S\), dovuta a una perturbazione dello spostamento \(\delta\vec{q}\) e della velocità \(\delta\dot{\vec{q}}\), è tale che:
 
-\[S + \delta S = \int_{t_{0}}^{t_{1}}{L\left( \vec{q} + \delta\vec{q},\vec{\dot{q}} + \delta\vec{\dot{q}} \right)dt}\]
+\[S + \delta S = \int_{t_{0}}^{t_{1}}{L\left( \vec{q} + \delta\vec{q},\dot{\vec{q}} + \delta\dot{\vec{q}} \right)dt}\]
 
 Dove \(\vec{q}\) è una traiettoria che rende stazionaria l'azione \(S\). Il Principio di Hamilton (o di Minima Azione) stabilisce che la traiettoria rende l'azione stazionaria o un estremo (ovvero $\delta S=0$). Non è garantito che sia un minimo poiché può essere un massimo o un punto di sella.
 
@@ -173,35 +173,35 @@ Siccome le variazioni di spostamento e velocità sono molto minori delle rispett
 
 è possibile sviluppare la lagrangiana in serie di Taylor, arrestando lo sviluppo al primo ordine, nell'intorno del punto \(\left( \vec{q},\dot{\vec{q}} \right)\):
 
-\[L\left( \vec{q} + \delta\vec{q},\vec{\dot{q}} + \delta\vec{\dot{q}} \right) \simeq L\left( \vec{q},\dot{\vec{q}} \right) + \vec{\nabla}L \cdot \left( \delta\vec{q},\delta\vec{\dot{q}} \right) =\]
+\[L\left( \vec{q} + \delta\vec{q},\dot{\vec{q}} + \delta\dot{\vec{q}} \right) \simeq L\left( \vec{q},\dot{\vec{q}} \right) + \vec{\nabla}L \cdot \left( \delta\vec{q},\delta\dot{\vec{q}} \right) =\]
 
 Per definizione di gradiente si ha:
 
-\[= L\left( \vec{q},\vec{\dot{q}} \right) + \left( \dfrac{\partial L}{\partial\vec{q}},\dfrac{\partial L}{\partial\dot{\vec{q}}} \right) \cdot \left( \delta\vec{q},\ \delta\vec{\dot{q}} \right) =\]
+\[= L\left( \vec{q},\dot{\vec{q}} \right) + \left( \dfrac{\partial L}{\partial\vec{q}},\dfrac{\partial L}{\partial\dot{\vec{q}}} \right) \cdot \left( \delta\vec{q},\ \delta\dot{\vec{q}} \right) =\]
 
 Svolgendo l'operazione di prodotto scalare si ha:
 
-\[= L\left( \vec{q},\dot{\vec{q}} \right) + \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\vec{\dot{q}}}\ \delta\dot{\vec{q}\ }\]
+\[= L\left( \vec{q},\dot{\vec{q}} \right) + \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\ \delta\dot{\vec{q}}\]
 
 Dove il gradiente è un vettore colonna mentre le coordinate generalizzate dei vettori riga. Sostituendo nell'espressione della variazione dell'azione, si ottiene:
 
-\[S + \delta S = \int_{t_{0}}^{t_{1}}{\left\lbrack L\left( \vec{q},\vec{\dot{q}} \right) + \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\vec{\dot{q}}}\ \delta\vec{\dot{q}\ } \right\rbrack dt}\]
+\[S + \delta S = \int_{t_{0}}^{t_{1}}{\left\lbrack L\left( \vec{q},\dot{\vec{q}} \right) + \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\ \delta\dot{\vec{q}\ } \right\rbrack dt}\]
 
 Per la linearità dell'integrale si scrive:
 
-\[S + \delta S = \int_{t_{0}}^{t_{1}}{L\left( \vec{q},\vec{\dot{q}} \right)dt} + \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\vec{\dot{q}}}\ \delta\vec{\dot{q}} \right)dt}\]
+\[S + \delta S = \int_{t_{0}}^{t_{1}}{L\left( \vec{q},\dot{\vec{q}} \right)dt} + \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\ \delta\dot{\vec{q}} \right)dt}\]
 
 Dove:
 
-\[S = \int_{t_{0}}^{t_{1}}{L\left( \vec{q},\vec{\dot{q}} \right)dt}\]
+\[S = \int_{t_{0}}^{t_{1}}{L\left( \vec{q},\dot{\vec{q}} \right)dt}\]
 
 Da cui si ottiene:
 
-\[S + \delta S = S + \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\vec{\dot{q}}}\ \delta\vec{\dot{q}} \right)dt}\]
+\[S + \delta S = S + \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\ \delta\dot{\vec{q}} \right)dt}\]
 
 Semplificando \(S\), si ottiene un'espressione per la variazione dell'azione \(\delta S\):
 
-\[\delta S = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\vec{\dot{q}}}\ \delta\vec{\dot{q}} \right)dt}\]
+\[\delta S = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\ \delta\dot{\vec{q}} \right)dt}\]
 
 La traiettoria perturbata \(\delta\vec{q}\) ha in comune con la traiettoria \(\vec{q}\) il punto iniziale \(\vec{A}\) all'istante \(t_{0}\) e il punto di fine \(\vec{B}\) all'istante \(t_{1}\), ne discende che:
 
@@ -221,15 +221,15 @@ Non variando il punto iniziale, risulta che nei punti iniziali non vi sono pertu
 
 Se risulta che:
 
-\[\vec{\dot{q}} = \dfrac{d\vec{q}}{dt}\]
+\[\dot{\vec{q}} = \dfrac{d\vec{q}}{dt}\]
 
 Allora, deve accadere che:
 
-\[\delta\vec{\dot{q}} = \dfrac{d}{dt}\left( \delta\vec{q} \right)\]
+\[\delta\dot{\vec{q}} = \dfrac{d}{dt}\left( \delta\vec{q} \right)\]
 
 Dunque, la variazione di azione può essere espressa come:
 
-\[\delta S = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\vec{\dot{q}}}\ \delta\vec{\dot{q}} \right)dt} = \int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\vec{q}}\delta\vec{q}dt} + \int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\vec{\dot{q}}}\ \dfrac{d}{dt}\left( \delta\vec{q} \right)dt}\]
+\[\delta S = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\ \delta\dot{\vec{q}} \right)dt} = \int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\vec{q}}\delta\vec{q}dt} + \int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\dot{\vec{q}}}\ \dfrac{d}{dt}\left( \delta\vec{q} \right)dt}\]
 
 Si considera la quantità:
 
@@ -237,11 +237,11 @@ Si considera la quantità:
 
 Questa può essere riscritta ricorrendo alle proprietà del prodotto:
 
-\[\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\delta\vec{q} \right) = \left( \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q} + \dfrac{\partial L}{\partial\vec{\dot{q}}}\dfrac{d}{dt}\left( \delta\vec{q} \right)\]
+\[\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\delta\vec{q} \right) = \left( \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\dfrac{d}{dt}\left( \delta\vec{q} \right)\]
 
 Da cui è possibile ricavare:
 
-\[\dfrac{\partial L}{\partial\vec{\dot{q}}}\dfrac{d}{dt}\left( \delta\vec{q} \right) = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\delta\vec{q} \right) - \left( \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q}\]
+\[\dfrac{\partial L}{\partial\dot{\vec{q}}}\dfrac{d}{dt}\left( \delta\vec{q} \right) = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\delta\vec{q} \right) - \left( \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q}\]
 
 Sostituendo nel secondo integrale della variazione dell'azione si ottiene:
 
@@ -249,19 +249,19 @@ Sostituendo nel secondo integrale della variazione dell'azione si ottiene:
 
 Raccogliendo \(\delta\vec{q}\) tra il primo e l'ultimo termine, si ha:
 
-\[\delta S = \int_{t_{0}}^{t_{1}}{\left\lbrack \left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\vec{\dot{q}}} \right)\delta\vec{q} + \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}}\delta\vec{q} \right) \right\rbrack dt} = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\vec{\dot{q}}} \right)\delta\vec{q}dt} + \int_{t_{0}}^{t_{1}}{\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}}\delta\vec{q} \right)dt}\]
+\[\delta S = \int_{t_{0}}^{t_{1}}{\left\lbrack \left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q} + \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\delta\vec{q} \right) \right\rbrack dt} = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q}dt} + \int_{t_{0}}^{t_{1}}{\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\delta\vec{q} \right)dt}\]
 
 Si considera l'ultimo integrale. Risulta che:
 
-\[\int_{t_{0}}^{t_{1}}{\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}}\delta\vec{q} \right)dt} = \left. \ \ \dfrac{\partial L}{\partial\vec{\dot{q}}}\delta\vec{q} \right|_{t_{0}}^{t_{1}}\ \]
+\[\int_{t_{0}}^{t_{1}}{\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\delta\vec{q} \right)dt} = \left. \ \ \dfrac{\partial L}{\partial\dot{\vec{q}}}\delta\vec{q} \right|_{t_{0}}^{t_{1}}\ \]
 
 Ma, poiché \(\delta\vec{q}\left( t_{0} \right) = \delta\vec{q}\left( t_{1} \right) = \vec{0}\), l'integrale è nullo. In definitiva, si ottiene:
 
-\[\delta S = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\vec{\dot{q}}} \right)\delta\vec{q}dt}\]
+\[\delta S = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q}dt}\]
 
 Dato che l'azione deve essere stazionaria, la sua variazione deve essere nulla \(\delta S = 0\). Per cui si ha:
 
-\[\int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\vec{\dot{q}}} \right)\delta\vec{q}dt} = 0\]
+\[\int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q}dt} = 0\]
 
 Se l'integrale è nullo, allora la funzione integranda deve essere nulla:
 
@@ -365,7 +365,7 @@ Dove \(TQ\) indica il \textbf{fibrato tangente} dello spazio delle configurazion
 
 \begin{itemize}
 \item Un elemento di \(Q\) è semplicemente una configurazione \(\vec{q}\);
-\item Un elemento di \(TQ\) è una coppia \(\left( \vec{q},\vec{\dot{q}} \right)\), ovvero traiettoria e velocità della particella.
+\item Un elemento di \(TQ\) è una coppia \(\left( \vec{q},\dot{\vec{q}} \right)\), ovvero traiettoria e velocità della particella.
 \end{itemize}
 
 Si considera l'azione \(S\), data per definizione da:
@@ -491,47 +491,47 @@ In particolare, queste leggi di conservazione sono connesse all'invarianza delle
 
 L'energia totale \(E = T + U\) si conserva grazie alla proprietà di omogeneità temporale. Infatti, se il tempo è omogeneo e il sistema isolato, per definizione la lagrangiana non dipende esplicitamente dal tempo; invece, tale dipendenza è presente nelle coordinate generalizzate \cite{landau1994meccanica}:
 
-\[L = L\left( \vec{q},\vec{\dot{q}} \right),\ \ \vec{q} = \vec{q}(t),\vec{\dot{q}} = \vec{\dot{q}}(t)\]
+\[L = L\left( \vec{q},\dot{\vec{q}} \right),\ \ \vec{q} = \vec{q}(t),\dot{\vec{q}} = \dot{\vec{q}}(t)\]
 
 La derivata rispetto al tempo della lagrangiana, per la derivata delle funzioni composte, può essere espressa come:
 
-\[\dfrac{d}{dt}L\left( \vec{q},\vec{\dot{q}} \right) = \dfrac{\partial L}{\partial\vec{q}}\dfrac{d\vec{q}}{dt} + \dfrac{\partial L}{\partial\vec{\dot{q}}}\dfrac{d\vec{\dot{q}}}{dt}\]
+\[\dfrac{d}{dt}L\left( \vec{q},\dot{\vec{q}} \right) = \dfrac{\partial L}{\partial\vec{q}}\dfrac{d\vec{q}}{dt} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\dfrac{d\dot{\vec{q}}}{dt}\]
 
 Dove i prodotti tra vettori sono da intenders come prodotti scalari. Dunque, ricorrendo alla simbologia sulle derivate temporali, si può scrivere:
 
-\[\dfrac{d}{dt}L\left( \vec{q},\vec{\dot{q}} \right) = \dfrac{\partial L}{\partial\vec{q}}\vec{\dot{q}} + \dfrac{\partial L}{\partial\vec{\dot{q}}}\vec{\ddot{q}}\]
+\[\dfrac{d}{dt}L\left( \vec{q},\dot{\vec{q}} \right) = \dfrac{\partial L}{\partial\vec{q}}\dot{\vec{q}} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\vec{\ddot{q}}\]
 
 Si considera la quantità:
 
-\[\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}}\vec{\dot{q}} \right)\]
+\[\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right)\]
 
 Svolgendo la derivata si ottiene:
 
-\[\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}}\vec{\dot{q}} \right) = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}} \right)\vec{\dot{q}} + \dfrac{\partial L}{\partial\vec{\dot{q}}}\dfrac{d\vec{\dot{q}}}{dt} = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}} \right)\vec{\dot{q}} + \dfrac{\partial L}{\partial\vec{\dot{q}}}\vec{\ddot{q}}\]
+\[\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right) = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\dot{\vec{q}} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\dfrac{d\dot{\vec{q}}}{dt} = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\dot{\vec{q}} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\vec{\ddot{q}}\]
 
 Si isola il termine contenente \(\vec{\ddot{q}}\):
 
-\[\dfrac{\partial L}{\partial\vec{\dot{q}}}\vec{\ddot{q}} = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}}\vec{\dot{q}} \right) - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}} \right)\vec{\dot{q}}\]
+\[\dfrac{\partial L}{\partial\dot{\vec{q}}}\vec{\ddot{q}} = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right) - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\dot{\vec{q}}\]
 
 Si sostituisce questo risultato nella derivata temporale della lagrangiana:
 
-\[\dfrac{dL}{dt} = \dfrac{\partial L}{\partial\vec{q}}\vec{\dot{q}} + \dfrac{\partial L}{\partial\vec{\dot{q}}}\vec{\ddot{q}} = \dfrac{\partial L}{\partial\vec{q}}\vec{\dot{q}} + \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}}\vec{\dot{q}} \right) - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}} \right)\vec{\dot{q}}\]
+\[\dfrac{dL}{dt} = \dfrac{\partial L}{\partial\vec{q}}\dot{\vec{q}} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\vec{\ddot{q}} = \dfrac{\partial L}{\partial\vec{q}}\dot{\vec{q}} + \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right) - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\dot{\vec{q}}\]
 
-Si porta il termine \(\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}}\vec{\dot{q}} \right)\) al primo membro:
+Si porta il termine \(\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right)\) al primo membro:
 
-\[\dfrac{dL}{dt} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}}\vec{\dot{q}} \right) = \dfrac{\partial L}{\partial\vec{q}}\vec{\dot{q}} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}} \right)\vec{\dot{q}} \Leftrightarrow \dfrac{d}{dt}\left( L - \dfrac{\partial L}{\partial\vec{\dot{q}}}\vec{\dot{q}} \right) = \left\lbrack \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}} \right) \right\rbrack\vec{\dot{q}}\]
+\[\dfrac{dL}{dt} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right) = \dfrac{\partial L}{\partial\vec{q}}\dot{\vec{q}} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\dot{\vec{q}} \Leftrightarrow \dfrac{d}{dt}\left( L - \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right) = \left\lbrack \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}} \right) \right\rbrack\dot{\vec{q}}\]
 
 Per l'equazione di Eulero-Lagrange, il secondo membro è nullo:
 
-\[\dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}} \right) = \vec{0}\]
+\[\dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}} \right) = \vec{0}\]
 
 Dunque:
 
-\[\dfrac{d}{dt}\left( L - \dfrac{\partial L}{\partial\vec{\dot{q}}}\vec{\dot{q}} \right) = 0\]
+\[\dfrac{d}{dt}\left( L - \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right) = 0\]
 
 Integrando rispetto al tempo si ottiene:
 
-\[L - \dfrac{\partial L}{\partial\vec{\dot{q}}}\vec{\dot{q}} = cost\]
+\[L - \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} = cost\]
 
 Per definizione di lagrangiana, risulta che:
 
@@ -539,15 +539,15 @@ Per definizione di lagrangiana, risulta che:
 
 Inoltre, l'energia potenziale non dipende dalla velocità, dunque:
 
-\[\dfrac{\partial L}{\partial\vec{\dot{q}}} = \dfrac{\partial}{\partial\vec{\dot{q}}}(T - U) = \dfrac{\partial L}{\partial\vec{\dot{q}}}\]
+\[\dfrac{\partial L}{\partial\dot{\vec{q}}} = \dfrac{\partial}{\partial\dot{\vec{q}}}(T - U) = \dfrac{\partial L}{\partial\dot{\vec{q}}}\]
 
 Dalle relazioni tra meccanica lagrangiana e newtoniana è possibile scrivere:
 
-\[\dfrac{\partial L}{\partial\vec{\dot{q}}} = {\vec{p}}^{T} = m{\vec{\dot{q}}}^{T}\]
+\[\dfrac{\partial L}{\partial\dot{\vec{q}}} = {\vec{p}}^{T} = m{\dot{\vec{q}}}^{T}\]
 
-Moltiplicando ambo i membri per \(\vec{\dot{q}}\), si ha:
+Moltiplicando ambo i membri per \(\dot{\vec{q}}\), si ha:
 
-\[\dfrac{\partial L}{\partial\vec{\dot{q}}}\vec{\dot{q}} = m{\vec{\dot{q}}}^{T}\vec{\dot{q}} = m{\dot{q}}^{2}\]
+\[\dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} = m{\dot{\vec{q}}}^{T}\dot{\vec{q}} = m{\dot{q}}^{2}\]
 
 Per sistemi dove l'energia cinetica è una funzione omogenea di secondo grado rispetto alle velocità, è possibile affermare che:
 
@@ -555,7 +555,7 @@ Per sistemi dove l'energia cinetica è una funzione omogenea di secondo grado ri
 
 Per cui:
 
-\[L - \dfrac{\partial L}{\partial\vec{\dot{q}}}\vec{\dot{q}} = cost \Leftrightarrow T - U - 2T = cost\]
+\[L - \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} = cost \Leftrightarrow T - U - 2T = cost\]
 
 A meno di un segno, risulta:
 
@@ -581,9 +581,9 @@ La variazione della lagrangiana può essere espressa come:
 
 Si considera l'equazione di Eulero-Lagrange \cite{landau1994meccanica}:
 
-\[\dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{\dot{q}}} \right) = \vec{0}\]
+\[\dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}} \right) = \vec{0}\]
 
-Passando a coordinate cartesiane, \(\vec{q}\) coincide con la posizione \(\vec{r}\), mentre \(\vec{\dot{q}}\) con la velocità \(\vec{v}\). L'equazione di Eulero-Lagrange può essere scritta come:
+Passando a coordinate cartesiane, \(\vec{q}\) coincide con la posizione \(\vec{r}\), mentre \(\dot{\vec{q}}\) con la velocità \(\vec{v}\). L'equazione di Eulero-Lagrange può essere scritta come:
 
 \[\dfrac{\partial L}{\partial\vec{r}} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{v}} \right) = \vec{0} \Leftrightarrow \dfrac{\partial L}{\partial\vec{r}} = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{v}} \right)\]
 
@@ -862,7 +862,7 @@ L\left( \vartheta_{1},\vartheta_{2},{\dot{\vartheta}}_{1},{\dot{\vartheta}}_{2} 
 
 La funzione lagrangiana deve soddisfare l'equazione di Eulero-Lagrange:
 
-\[\dfrac{d}{dt}\dfrac{\partial L}{\partial\vec{\dot{\vartheta}}} - \dfrac{\partial L}{\partial\vec{\vartheta}} = \vec{0}\]
+\[\dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{\vartheta}}} - \dfrac{\partial L}{\partial\vec{\vartheta}} = \vec{0}\]
 
 L'equazione si traduce in due equazioni, relative a \(\vartheta_{1}\) e \(\vartheta_{2}\):
 
@@ -928,7 +928,7 @@ Si considera il differenziale della funzione hamiltoniana:
 
 Si differenzia anche la lagrangiana:
 
-\[dL\left( \vec{q},\vec{\dot{q}} \right) = \sum_{i = 1}^{N}\left( \dfrac{\partial L}{\partial q_{i}}dq_{i} + \dfrac{\partial L}{\partial{\dot{q}}_{i}}d{\dot{q}}_{i} \right)\]
+\[dL\left( \vec{q},\dot{\vec{q}} \right) = \sum_{i = 1}^{N}\left( \dfrac{\partial L}{\partial q_{i}}dq_{i} + \dfrac{\partial L}{\partial{\dot{q}}_{i}}d{\dot{q}}_{i} \right)\]
 
 Combinando l'equazione del momento coniugato generalizzato con quella di Eulero-Lagrange, si ottiene:
 
@@ -941,7 +941,7 @@ Combinando l'equazione del momento coniugato generalizzato con quella di Eulero-
 
 Sostituendo le relazioni precedenti, il differenziale della lagrangiana può essere scritto come:
 
-\[dL\left( \vec{q},\vec{\dot{q}} \right) = \sum_{i = 1}^{N}\left( {\dot{p}}_{i}dq_{i} + p_{i}d{\dot{q}}_{i} \right)\]
+\[dL\left( \vec{q},\dot{\vec{q}} \right) = \sum_{i = 1}^{N}\left( {\dot{p}}_{i}dq_{i} + p_{i}d{\dot{q}}_{i} \right)\]
 
 Si considera la quantità:
 
@@ -953,7 +953,7 @@ Da cui si ottiene:
 
 Si sostituisce questo risultato nel differenziale della lagrangiana:
 
-\[dL\left( \vec{q},\vec{\dot{q}} \right) = \sum_{i = 1}^{N}\left( {\dot{p}}_{i}dq_{i} + p_{i}d{\dot{q}}_{i} \right) = \sum_{i = 1}^{N}\left\lbrack {\dot{p}}_{i}dq_{i} + d\left( p_{i}{\dot{q}}_{i} \right) - {\dot{q}}_{i}dp_{i} \right\rbrack = \sum_{i = 1}^{N}\left( {\dot{p}}_{i}dq_{i} - {\dot{q}}_{i}dp_{i} \right) + \sum_{i = 1}^{N}{d\left( p_{i}{\dot{q}}_{i} \right)}\]
+\[dL\left( \vec{q},\dot{\vec{q}} \right) = \sum_{i = 1}^{N}\left( {\dot{p}}_{i}dq_{i} + p_{i}d{\dot{q}}_{i} \right) = \sum_{i = 1}^{N}\left\lbrack {\dot{p}}_{i}dq_{i} + d\left( p_{i}{\dot{q}}_{i} \right) - {\dot{q}}_{i}dp_{i} \right\rbrack = \sum_{i = 1}^{N}\left( {\dot{p}}_{i}dq_{i} - {\dot{q}}_{i}dp_{i} \right) + \sum_{i = 1}^{N}{d\left( p_{i}{\dot{q}}_{i} \right)}\]
 
 Riordinando i termini, si scrive:
 
@@ -1227,7 +1227,7 @@ z_{2}
 Il sistema può essere scritto come:
 
 \[
-\vec{\dot{y}} = \textbf{C}\vec{y}
+\dot{\vec{y}} = \textbf{C}\vec{y}
 \]
 
 La soluzione di questa equazione è del tipo:
