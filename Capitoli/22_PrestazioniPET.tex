@@ -1,0 +1,353 @@
+\begin{center}
+\vfill
+    \chapter{Prestazioni di uno scanner PET}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+\section{Prestazioni di uno scanner PET}\label{prestazioni-di-uno-scanner-pet}
+
+La valutazione delle prestazioni di uno scanner PET può essere molto utile in fase di acquisizione, di collaudo e di manutenzione.
+
+\subsection{Risoluzione spaziale}\label{risoluzione-spaziale}
+
+Tra le caratteristiche principali di uno scanner PET vi è la risoluzione spaziale, influenzata da vari fattori quali:
+
+\begin{itemize}
+\item
+  Dimensione del detettore che, generalmente, presentano una dimensione caratteristica dell'ordine di 20cm circa. La dimensione genera un'indeterminazione nell'individuazione della LOR per la costruzione del sinogramma. Infatti, la posizione della LOR non può essere individuata con una precisione dell'ordine del mm, ma dell'ordine del cm;
+\item
+  Il \emph{Positron Range} è il cammino percorso dal positrone prima di annichilarsi con l'elettrone e, quindi, prima dell'emissione dei fotoni;
+\item
+  Non collinearità dei fotoni;
+\item
+  Metodo di ricostruzione come \emph{Filtered Back Projection} o iterativo;
+\item
+  Localizzazione dei detettori.
+\end{itemize}
+
+\subsubsection{Detector Size}\label{detector-size}
+
+Detta \(d\) la dimensione del detettore, generalmente la risoluzione è variabile tre \(\frac{d}{2}\) al centro del \emph{Gantry} oppure \(d\) all'avvicinarsi del detettore. La risoluzione non è la stessa in tutto il \emph{Gantry}, ma dipende anche da fattori geometrici che riguardano la relazione geometrica tra detettori posti in coincidenza per determinate LOR.
+
+Per risoluzione si intende la differenza minima tra due oggetti rilevabili, ovvero due sorgenti puntiformi di radioattività. Tali sorgenti possono essere rilevate con maggiore risoluzione in prossimità del centro piuttosto che alla periferia, verso i detettori per motivi geometrici.
+
+\subsubsection{Positron Range}\label{positron-range}
+
+Dall'istante in cui il positrone è emesso dalla sorgente di radioattività fino a quello in cui quest'ultimo si annichila con l'elettrone atomico e si assiste all'emersione dei due fotoni, intercorre un certo tempo in cui il positrone percorre un certo spazio all'interno del paziente. Il positrone compie una serie di urti fino a perdere l'energia cinetica, così da rendere possibile l'annichilazione dopo aver percorso un certo cammino detto \emph{Positrion Range}. Tale range spaziale varia all'interno dei materiali e dipende dalle sostanze radioattive. Tipicamente, nell'acqua, il F-18 emette un positrone con un \emph{Positron Range} che in media si aggira al di sotto del mm. Altre sostanze, sempre in acqua, possono avere \emph{Positron Range} dell'ordine di diversi mm. Ciò influenza la risoluzione nel senso che non è possibile misurare con esattezza il punto in cui è avvenuto il decadimento, ma piuttosto i punti in cui sono avvenute le annichilazioni, i quali sono spostati rispetto al punto in cui si ha il decadimento. Usando materiali con range positronico basso (come ad es. il F-18) tale effetto impatto meno sulla degradazione della risoluzione.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.3381in,height=1.89583in,alt={P5203\#yIS1}]{media/22_PrestazioniPET/image552.pdf}
+\caption{Figura .: Positrion Range}
+\end{figure}
+
+\subsubsection{Non Colinearity}\label{non-colinearity}
+
+I fotoni che sono emessi dall'evento di annichilazione non sono esattamente collineari. Questi non emergono con uno sfasamento di 180° ma vi è una piccola deviazione dovuta al principio di conservazione della quantità di moto. Il positrone, quando arriva in corrispondenza dell'elettrone, non possiede una quantità di moto esattamente nulla, dunque, l'energia complessivamente presente nell'evento di annichilamento non è esattamente pari a quella dei due fotoni, e, dovendosi conservare la quantità di moto, i due fotoni emergono con direzioni non collineari poiché, appunto la somma delle quantità di moto non è esattamente nulla. Da ciò deriva che l'angolo formato dalle due traiettorie non è esattamente pari a 180°. Si stima, con l'ausilio di studi statistici, che la massima deviazione è di circa 0.25°. Tale deviazione può divenire un problema nel momento in cui la distanza tra i due detettori è elevata e, dunque, è importante in scanner PET con grandi \emph{Gantry}. L'errore è stimato grossolanamente come \(0.0022D\) dove \(D\) è diametro del \emph{Gantry}.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.02324in,height=2.64167in,alt={P5207\#yIS1}]{media/22_PrestazioniPET/image553.pdf}\caption{Figura .: Non collinearità}
+\end{figure}
+
+\subsubsection{Metodo di ricostruzione}\label{metodo-di-ricostruzione}
+
+La risoluzione dell'immagine legata al metodo di ricostruzione non è facilmente quantificabile. Per tale motivo sono proposti dei fattori moltiplicativi dell'ordine di 1.2-1.5. Per tener conto del metodo di ricostruzione si assegna un fattore che entra nella formula complessiva per il calcolo della risoluzione per ogni algoritmo di ricostruzione. In particolare, nel caso della \emph{Filtered Back Projection}, la ricostruzione è influenzata dal tipo di filtri e dalle frequenze di \emph{Cut-Off} utilizzate prima dell'antitrasformata di Radon.
+
+\subsubsection{Localizzazione dei detettori}\label{localizzazione-dei-detettori}
+
+Un ulteriore problema si riscontra nella localizzazione dei detettori, soprattutto nel caso in cui sono utilizzati detettori a blocchi, ovvero anelli di detettori. Si possono, infatti, generare errori di circa 2.2mm per BGO, mentre per altri materiali con una \emph{Light Output} o efficienza di scintillazione elevata tale errore può essere minore.
+
+\subsubsection{Risoluzione spaziale totale}\label{risoluzione-spaziale-totale}
+
+La risoluzione spaziale complessiva, indicata con \(R_{t}\), può essere valutata con la formula:
+
+\[R_{t} = K\sqrt{R_{i}^{2} + \ R_{p}^{2} + R_{a}^{2} + \ R_{L}^{2}}\]
+
+Dove \(R_{i}\) è la risoluzione associata al \emph{Detector Size}, \(R_{p}\) al \emph{Positron Range}, \(R_{a}\) alla \emph{Non Colinearity}, \(R_{L}\) alla localizzazione o \emph{Localisation} dei detettori, e \(K\) è una costante dipendente dal metodo di ricostruzione utilizzato.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.3002in,height=3.48333in,alt={P5217\#yIS1}]{media/22_PrestazioniPET/image554.pdf}
+\caption{Figura .: Vari errori nella ricostruzione dell'immagine}
+\end{figure}
+
+Gli errori si sommano tra di loro e danno origine a una risoluzione totale di circa 5-6mm che peggiora all'allontanarsi dal centro del \emph{Gantry}.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.6875in,height=3.53125in,alt={P5220\#yIS1}]{media/22_PrestazioniPET/image555.pdf}\caption{Figura .: Parametri di alcuni costruttori}
+\end{figure}
+
+La FWHM (\emph{Full Width At Half Maximum}) è riportata lungo le direzioni transassiale, ovvero nel piano della \emph{Slice}, ortogonale al paziente, e assiale, lungo il piano del paziente.
+
+\subsection{Sensitivity}\label{sensitivity}
+
+La \emph{Sensitivity} è un parametro molto importante per identificare le \emph{performance} della PET, definita come il numero di eventi rilevati come coincidenza nell'unità di tempo per unità di attività nella sorgente. Essa è misurata in \(\frac{Cps}{MBq}\), ovvero conteggi per secondo rispetto ai Megabecquerel emessi dalla sorgente. Questo parametro dipende da:
+
+\begin{itemize}
+\item
+  Efficienza geometrica tra sorgente e detettore;
+\item
+  Efficienza del detettore, quindi, dalle sue caratteristiche peculiari;
+\item
+  \emph{PHA Window}, ovvero la \emph{Pulse High Analizer} per discriminare gli eventi di annichilamento dagli eventi di \emph{Scatter} su base energetica;
+\item
+  \emph{Dead time}.
+\end{itemize}
+
+\subsection{Noise}\label{noise}
+
+Gli eventi tipici della PET seguono la statistica di Poisson e, quindi, la deviazione standard è legata al numero di aventi rilevati \(N\) della relazione:
+
+\[\sigma = \frac{1}{\sqrt{N}}\]
+
+Si potrebbe pensare che il rumore possa essere ridotto aumentando il numero di eventi \(N\) rilevati. Ciò non è possibile poiché bisognerebbe aumentare la dose somministrata al paziente, aumento, così, l'attività e, di conseguenza, il numero di eventi. Ciò, tuttavia, porta a:
+
+\begin{itemize}
+\item
+  Un aumento delle coincidenze casuali, dette eventi \emph{Random};
+\item
+  Il \emph{Dead Time} influisce sulla ricezione degli eventi. Se aumenta la dose il tempo morto influisce sulla rilevazione degli eventi portando a una riduzione dei conteggi;
+\item
+  Un problema clinico relativo all'aumento della radioattività sul paziente che vede così aumentare la probabilità di sviluppare neoplasie nel futuro.
+\end{itemize}
+
+Anche l'aumento dei tempi di esposizione, a parità di dose, risulta svantaggioso soprattutto per una problematica relativa agli artefatti da movimento.
+
+Si introduce l'NECR (\emph{Noise Equivalent Count Rate}) come indice per quantificare il rumore e valutare le prestazioni dello scanner in termini di rumorosità dell'immagine.
+
+\[NECR\  = \ \frac{T^{2}}{T + R + S}\]
+
+Dove \(T\) sono le coincidenze vere, \(R\) quelle di \emph{Random} e \(S\) quelle di \emph{Scatter}.
+
+Tale parametro può essere quantificato e riportato su diagrammi, dove sulle ascisse è posto l'attività della sorgente in kBq e sulle ordinate i conteggi per secondo.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.64252in,height=3.05208in,alt={P5241\#yIS1}]{media/22_PrestazioniPET/image556.pdf}\caption{Figura .: Andamento dell'NECR}
+\end{figure}
+
+Gli eventi veri sono rappresentati dalla curva indicata con \emph{Trues}. All'aumento dell'attività corrisponde un aumento degli eventi veri, fino ad un valore massimo. A causa dell'aumento del numero di eventi \emph{Random}, l'NECR presenta un aumento fino ad una certa dose, per poi esibire una diminuzione. Quindi, avere dosi eccessivamente alte non porta un beneficio in termini di rumore.
+
+La misura dell'NECR può essere effettuata con fantocci come cilindri con materiale radioattivo di dimensione e radioattività determinata e normate.
+
+Generalmente, si usano fantocci di 20cm di diametro e dal sinogramma sono conteggiati gli eventi \emph{Prompt}, ovvero tutti gli eventi, senza distinzione tra le tipologie di evento.
+
+Per misurare l'NECR devono essere misurati gli eventi \emph{Scatter} e gli eventi \emph{Random} in modo che dalla sottrazione dal totale si possano stimare i soli eventi \emph{True}.
+
+La \emph{Scatter Fraction}, frazione di eventi \emph{Scatter} rispetto al totale, può essere misurata come numero di eventi \emph{Scatter} su numero di eventi \emph{Promp:}
+
+\[SF = \ \frac{C_{s}}{C_{p}}\]
+
+È necessario, quindi, stimare il numero di eventi \emph{Scatter} con varie metodiche.
+
+\subsection{Contrasto}\label{contrasto}
+
+Il contrasto in PET è definito come il numero di eventi registrato in un tessuto A rispetto a quello registrato in un tessuto B, normalizzati rispetto ad uno dei due tessuti.
+
+\[C = \ \frac{A - B}{B}\]
+
+Tale rapporto dipenderà dall'attività emessa, dagli eventi \emph{Scatter}, dalla dimensione della lesione da osservare e dagli artefatti da movimento.
+
+\subsection{Controlli di qualità}\label{controlli-di-qualituxe0}
+
+Generalmente su uno scanner PET si eseguono una serie di controllo per attestarne la qualità della misura e, di conseguenza, dell'immagine ricostruita. I controlli di qualità possono essere eseguiti con una cadenza temporale diversa. In particolare, si distinguono in controlli quotidiani e settimanali. I primi, sono eseguiti una volta al giorno e consentono di valutare l'uniformità del sinogramma.
+
+Dal punto di vista operativo, si analizza il sinogramma di due giorni consecutivi ricavato con la stessa sorgente, per lo stesso numero di ore. Il sinogramma deve essere uniforme nei due giorni consecutivi e per valutarne il grado di uniformità, si misura lo scarto quadratico medio tra i due sinogrammi punto per punto. Ovviamente, tra i due sinogrammi può esserci una certa percentuale di tolleranza, riportata nelle norme.
+
+Per eseguire la procedura si espongono i detettori a una sorgente di radioattività isotropica come Ge-68 o Cs-137 contenute in un fantoccio cilindrico con un diametro di circa 20cm. Il sinogramma acquisito è uniforme, poiché, ragionevolmente, ogni detettore conta lo stesso numero di fotoni, essendo la sorgente isotropica, ed è poi confrontato con quello registrato nelle sedute precedenti. La differenza tra i due sinogrammi la si esprime come variazione media degli scarti quadratici delle efficienze dei detettori.
+
+Se il valore ottenuto è maggiore di 2.5, è necessario ricalibrare lo scanner. Per valori troppo elevati è necessario un intervento del costruttore dello scanner. Questa metodica permette di verificare il corretto funzionamento dei detettori, poiché, in caso di malfunzionamento di uno di essi, nel sinogramma compare una linea scura in corrispondenza del detettore malfunzionante.
+
+I controlli settimanali prevedono una serie valutazioni volte a identificare lo stato dell'apparecchiatura e i suoi parametri di calibrazione.
+
+\begin{itemize}
+\item
+  Il \emph{System Calibration} consiste nel posizionare un \emph{Phantom} al centro del FOV e irradiare i detettori in modo uniforme. Le immagini ottenute sono poi controllate col fine di cercare delle disuniformità dovute a una scorretta calibrazione dei fotomoltiplicatori e dei circuiti di rilevazione delle energie. Le immagini dovrebbero essere, infatti, delle circonferenze con uguale attività per ogni \emph{Slice} del fantoccio. Se ciò non accade si procede con la calibrazione;
+\item
+  Il \emph{Plane Efficiency} permette di ottenere una stima delle variazioni di efficienza tra i vari piani dello scanner.
+\end{itemize}
+
+Tra un piano e l'altro, infatti, potrebbero esserci delle variazioni di efficienza a causa, ad esempio, delle diversità dell'elettronica di controllo. Esaminando le varie immagini ottenute per le fette del \emph{Phantom} cilindrico, è possibile osservare se tra di esse esiste qualche variazione nella direzione transassiale. In caso affermativo, si procede con il calcolo del fattore di correzione per ottenere immagini uniformi per ogni piano in cui è sezionabile il paziente;
+
+\begin{itemize}
+\item
+  La normalizzazione permette di ricavare le disomogeneità tra i vari detettori dovuti ai fotomoltiplicatori, localizzazioni dei detettori e variazioni fisiche degli stessi o dell'elettronica di controllo legate, ad esempio, alla loro degradazione nel tempo. Questo processo è realizzato mediante una provetta di Ge-68 posizionato parallelamente all'asse longitudinale oppure un \emph{Phantom Standard}.
+\end{itemize}
+
+La sorgente utilizzata presenta una bassa attività per evitare delle perdite di conteggio dovute al \emph{Dead Time} del cristallo scintillatore, essendo gli eventi di annichilazioni più lontani nel tempo. Per avere un'ottima esposizione e, di conseguenza, un conteggio di eventi statisticamente significativo, l'acquisizione dei fotoni dura delle ore e per tale motivo è sempre eseguito di notte. Il controllo della normalizzazione può essere effettuato anche con cadenza mensile.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.44167in,height=3.40489in,alt={P5265\#yIS1}]{media/22_PrestazioniPET/image557.pdf}\caption{Figura .: Fantocci per la calibrazione}
+\end{figure}
+
+Nell'immagine precendente è possibile osservare i risultati delle procedure di normalizzazione: a sinistra vi è l'immagine ottenuta con detettori non normalizzati, dove si nota la presenza di \emph{Pattern} dovuta alla differenza in termini di sensibilità tra i vari detettori; mentre l'immagine a destra, ottenuta con detettori normalizzati, non presenta i \emph{Pattern} dovuti ai detettori, ma solo il rumore.
+
+\subsection{Test ACR (American College of Radiology)}\label{test-acr-american-college-of-radiology}
+
+\includegraphics[width=4.21875in,height=1.60069in,alt={P5269\#y1}]{media/22_PrestazioniPET/image558.pdf}
+Le normative utilizzano una serie di fantocci, composti da un insieme di cilindri riempiti con materiale radioattivo in modo da simulare i diversi tipi di tessuto. Si effettuano così le varie prove per valutare contrasto, uniformità e risoluzione spaziale dello scanner PET in base alle possibili attività presenti all'interno del paziente.
+
+Figura .: Test ACR
+
+\subsubsection{Test di accettazione}\label{test-di-accettazione}
+
+Con i fantocci della ACR è effettuata una prima operazione di verifica dello scanner PET in occasione del collaudo del dispositivo, per verificare:
+
+\begin{itemize}
+\item
+  Il rispetto dei parametri dichiarati dal costruttore;
+\item
+  Risoluzione assiale e trasversale;
+\item
+  \emph{Sensitivity};
+\item
+  \emph{Scatter Fraction};
+\item
+  NECR.
+\end{itemize}
+
+Le normative internazionali alle quale ci si attiene per la PET sono:
+
+\begin{itemize}
+\item
+  1991, SNM (\emph{Society of Nuclear Medicine});
+\item
+  1994, NEMA (\emph{National Electrical Manufacturers Association});
+\item
+  2001, NEMA NU 2-2001 che stabilisce delle linee guida recepite anche dalla UE.
+\end{itemize}
+
+\begin{quote}
+\includegraphics[width=4.7in,height=1.88596in,alt={P5282\#yIS1}]{media/22_PrestazioniPET/image561.pdf}\end{quote}
+
+\begin{figure}
+\centering
+\includegraphics[width=4.8in,height=0.72208in,alt={P5283\#yIS1}]{media/22_PrestazioniPET/image561.pdf}\caption{Figura .: Fantocci delle normative}
+\end{figure}
+
+A sinistra dell'immagine sono mostrati i fantocci previsti dallo standard NEMA 1994; a destra quelli del 2001.
+
+In quest'ultimo standard sono proposti due tipi di \emph{Phantom}: uno cilindrico all'interno del quale deve essere posto il materiale radioattivo ed uno molto più piccolo realizzato in sei strati di alluminio concentrici che servono a misurare la \emph{Sensitivity} che deve essere, appunto, misurata per diversi diametri di alluminio.
+
+Attraverso le procedure normate è possibile valutare la \emph{Full Width At Half Maximum} della PSF, mediante l'utilizzo di una sorgente puntiforme. La sei sorgenti di F-18 sono poste in capillari di vetro di 1cc e collocati in diverse posizioni all'interno del \emph{Gantry}.
+
+I fantocci sono posizionati ad 1cm e 10cm sull'asse verticale e a 10cm sull'asse orizzontale.
+
+In questo modo è possibile valutare la risposta impulsiva in vari punti, nelle diverse direzioni della \emph{Slice}, poiché le sorgenti possono essere approssimate come impulsi di Dirac diretti lungo i due assi del piano.
+
+Ad una distanza di ¼ del FOV assiale si pone la stessa terna di sorgenti in modo da valutare, allo stesso modo, la PSF.
+
+Figura .: Schema di posizionamento dei Phantom per misurare la FWHM
+
+Ogni sorgente puntiforme fornisce una FWHM e, da tutte queste misure, si effettua la media in modo da ottenere un FWHM complessiva.
+
+In genere la risoluzione è migliore al centro e peggiora verso la periferia del FOV.
+
+Figura .: PSF a diverse distanze
+
+\subsubsection{Scatter Fraction}\label{scatter-fraction}
+
+Per la valutazione della \emph{Scatter Fraction}, così come suggerito dalla NEMA, si procede con step ben determinati:
+
+\begin{itemize}
+\item
+  Si acquisiscono i fotoni, proveniente da un fantoccio di 20cm di diametro, fino a che i \emph{Random Events} e \emph{Dead Time Loss} sono trascurabili. Ciò si traduce in una proceduta con durata di diverse ore;
+\item
+  Successivamente, si usano dei sinogrammi che corrispondono alle LOR situate nel FOV. Dato che ogni scanner presenta un FOV diverso in base al costruttore la NEMA stabilisce che le LOR devono trovarsi in un diametro di 24cm, così da confrontare le misure tra i diversi costruttori;
+\item
+  Il fantoccio, posizionato in modo da essere coassiale con l'asse del \emph{Gantry}, ha un diametro di 20cm, mentre le LOR considerate competono a un raggio 24cm. Esistono 4cm in cui non vi è la sorgente di radiazione e, quindi, è lecito non aspettarsi eventi. Tutti le occorrenze esterne al fantoccio, appartenenti ai 4cm compresi tra \emph{Phantom} e FOV, sono considerate eventi di \emph{Scatter}. Gli eventi \emph{Random}, per l'elevato tempo trascorso, sono ritenuti trascurabili;
+\item
+  Si indica con \(C_{t}\) il numero eventi totale e \(C_{s}\) il numero eventi \emph{Scatter};
+\item
+  La \emph{Scatter Fraction} è valutata come:
+\end{itemize}
+
+\[SF\  = \frac{C_{s}}{C_{t}}\]
+
+\begin{itemize}
+\item
+  Mentre gli eventi di coincidenza veri, avendo trascurato gli eventi \emph{Random}, come:
+\end{itemize}
+
+\[R_{true} = \frac{C_{t} - C_{s}}{tempo\ di\ esposizione}\]
+
+\subsubsection{Sensitivity}\label{sensitivity-1}
+
+La \emph{Sensitivity}, dal punto di vista analitico è definita come il conteggio al secondo rispetto all'attività della sorgente:
+
+\[S\  = \frac{Cps}{MBq}\]
+
+Essa è valutata mediante un \emph{Phantom} capillare NEMA di 70cm rivestito con lamine di metallo con differente spessore ed emettente un livello di attività bassa per ridurre \emph{Random Events} e \emph{Dead-Time Loss}. La sorgente di radioattività è poi racchiusa in lamelle di metallo, generalmente in cinque lamelle con differente spessore. Teoricamente il conteggio dovrebbe essere realizzato senza rivestimento metallico, tuttavia, sperimentalmente, è stato osservato che, con l'uso del rivestimento metallico e una procedura più laboriosa, si riesce ad ottenere una stima migliore della \emph{Sensitivity}.
+
+Si eseguono 5/6 scansioni con diversi spessori della lamina di metallo e da queste si riesce a ottenere un \emph{Count-Rate} in funzione dello spessore della lamina attraverso i sinogrammi effettivamente misurati. Successivamente si esegue una regressione lineare per ottenere il \emph{Count-Rate} senza metallo, indicata con \(R_{0}\). Questo processo può essere, ad esempio, eseguito mediante un algoritmo OLS, nell'ipotesi che i logaritmi dei \emph{Count-Rate} giacciano su una retta.
+
+Con questi procedimenti, la \emph{Sensitivity} può essere valutata come rapporto tra il \emph{Count-Rate} in senza metallo di rivestimento e l'attività della sorgente:
+
+\[S = \frac{R_{0}}{A}\]
+
+\subsubsection{Count Rate Losses}\label{count-rate-losses}
+
+La perdita del tasso di conteggio è valutata mediante un fantoccio di F-18 che emette un'elevata attività, rilevata da detettori con una finestra PHA di 410-665keV. Il processo di acquisizione dei fotoni procede finché l'attività della sorgente non è così bassa, da poter trascurare il \emph{Dead Time Loss} e i \emph{Random Events}.
+
+Il \emph{Count-Rate} è stimato, poi, come il numero totale di eventi sul tempo di esposizione dei detettori alla sorgente:
+
+\[R_{t} = \frac{numero\ totale\ dieventi}{tempo\ di\ esposizione}\]
+
+Dopo aver stimato lo \emph{Scatter Fraction} con uno dei metodi precedenti, raccomandanti dalle normative, si valuta il numero di conteggi veri come differenza tra il \emph{Count-Rate} e lo \emph{Scatter Fraction}:
+
+\[R_{true} = \ R_{t} - R_{scatter}\]
+
+Infine, il \emph{Noise Equivalent Count Rate} è valutato come rapporto tra il quadrato degli eventi \emph{True}, rapportato al \emph{Count-Rate}:
+
+\[NECR\  = \frac{\left( R_{true} \right)^{2}}{R_{t}}\]
+
+\subsection{PET/MRI}\label{petmri}
+
+Realizzata una PET/CT è stato pensato di affiancare gli scanner PET agli MRI per ottenere gli scanner PET/MRI. La presenza delle due metodice in un unico \emph{Gantry} determina la nascita di problemi riguardanti la coesistenza delle due differenti tecnologie. Si può pensare ad una struttura in cui i due scanner sono coassiali e posti in maniera lineare l'uno dopo all'altro. Un'altra soluzione potrebbe essere quella di inserire uno scanner PET all'interno di uno MRI. In ogni caso vi è però un problema dovuto alla sensibilità del fotomoltiplicatore all'intenso campo magnetico prodotto dalla risonanza magnetica: un campo magnetico esercita una forza sulle cariche. Si può dimostrare, infatti, che una carica immessa all'interno di un campo magnetico percorre un'elica attorno all'asse magnetico. Per tale motivo gli scanner PET/MRI non sono costruiti con fotomoltiplicatori, ma con altri tipi di rilevatori basati su semiconduttori, i quali non risentono di tale problematica.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.43385in,height=3.31482in,alt={P5324\#yIS1}]{media/22_PrestazioniPET/image564.pdf}\caption{Figura .: Esempio di scanner PET/MRi}
+\end{figure}
+
+I costruttori hanno risolto le problematiche tecnologiche legate all'affiancamento delle due metodiche. Tuttavia, non esiste ancora un'applicazione clinica/scientifica principe della PET/MRI. I
+
+nizialmente si era pensato ad uno studio che riguardasse l'analisi da un punto di vista cerebrale, affiancando all'analisi PET un'analisi fMRI, usando marcatori per analizzare il metabolismo cerebrale e l'effetto BOLD (\emph{Blood Oxygenation Level Dependent}) per studiare l'attivazione cerebrale.
+
+Gli studi effettuati in questo senso sono stati condotti da un punto di vista scientifico/divulgativo accademico. Potrebbe non essere giustificata però come tecnologia da un punto di vista clinico/diagnostico.
+
+Si stanno studiando traccianti molecolari particolari utili per lo studio tumorale. Si pensa a molecole in grado di marcare il tumore in MRI e allo stesso tempo radioattive in modo tale da essere rilevabili in PET. Ciò aumenterebbe l'utilità cliniche dello scanner PET/MRI
+
+\subsection{PET Time Of Flight}\label{pet-time-of-flight}
+
+\includegraphics[width=4.13194in,height=2.15625in,alt={P5331\#y1}]{media/22_PrestazioniPET/image565.pdf}
+\begin{figure}
+\centering
+\includegraphics[width=6.51103in,height=3.93518in,alt={P5332\#yIS1}]{media/22_PrestazioniPET/image566.pdf}\caption{Figura .: PET Time Of Light}
+\end{figure}
+
+Figura .: Immagini corrette con informazioni sul tempo di volo
+
+Le PET future saranno probabilmente dotate di questa tecnologia così da migliorare la qualità dell'immagine e, allo stesso tempo, migliorare la diagnosi.
+
+Questa metodica non è presente su tutti gli scanner poiché necessita di materiali con caratteristiche molto spinte, che aumentano il costo complessivo dell'intera strumentazione.
+
+\subsection{Assorbimento di fluorodesossiglucosio}\label{assorbimento-di-fluorodesossiglucosio}
+
+Ogni pixel dell'immagine presenta un valore numerico associato all'attività del tracciante in quel determinato punto. Ciò ovviamente non è sufficiente per poter confrontare misure tra diversi pazienti. È necessario avere uno strumento che consenta di ottenere informazione sull'aggressività delle diverse lesioni e che consenta, inoltre, nel tempo, di comprendere la risposta di una lesione ad un determinato trattamento, ad esempio, tramite una riduzione dei livelli di aggressività.
+
+A tale scopo è stato sviluppato lo \emph{Standard Uptake Value} o SUV come il rapporto tra l'attività in un certo voxel rispetto all'attività totale somministrata al paziente, normalizzato il suo peso. Analiticamente, questa quantità si esprime come:
+
+\[SUV = \frac{Act_{voi}}{\frac{Act_{administered}}{BW}}\lbrack = \rbrack\frac{\frac{kBq}{mL}}{\frac{MBq}{kg}}\ \]
+
+Questo fattore consente di normalizzare le diverse misure tra i vari pazienti. Il fattore peso del paziente è essenziale nel normalizzare e standardizzare la misura, in vista di esami effettuati a lunga distanza di tempo, considerando eventuali perdite di peso a causa della terapia somministra.
+
+In oncologia il SUV è lo standard nell'effettuazione delle misurazioni. Un valore maggiore o uguale a 2 indica una lesione aggressiva poiché assorbe in modo significativo il fluorodesossiglucosio.

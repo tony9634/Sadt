@@ -1,0 +1,1068 @@
+\begin{center}
+\vfill
+    \chapter{Hardware della risonanza magnetica}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+
+\subsection{Struttura complessiva della risonanza magnetica}\label{struttura-complessiva-della-risonanza-magnetica}
+
+Tutte le molteplici funzionalità sono realizzare mediante l'hardware estremamente complicato della risonanza magnetica, necessario per la generazione dei campi magnetici di grande intensità o frequenze opportune.
+
+Il magnete che genera il campo statico principale rappresenta la maggior parte del gantry, tuttavia, oltra a quest'ultimo sono presenti altri magneti per la gestione dei gradienti (5), la correzione delle disomogeneità di campo e la cancellazione del campo magnetico principale all'interno del ganty (2). Le prime antenne sono dette di shimming e le seconde di shielding.
+
+Lo schema complessivo dell'apparecchiatura di risonanza magnetica prevede che il paziente sia posizionato sul lettino con proprietà amagnetiche e situato nel gantry (7). Ci sono poi degli avvolgimenti in spire o bobine per l'applicazione dei gradienti o di impulsi a radiofrequenza (6). Al fine di applicare questi campi, gli avvolgimenti sono opportunamente arrangiati nello spazio. Gli avvolgimenti primari del campo magnetico principale, invece, hanno generalmente una forma cilindrica (4).
+
+Oltre questi elementi vi sono delle antenne poste sul paziente per la ricezione del segnale proveniente da zone più piccole del paziente. Queste antenne presentano la caratteristica di possedere un rapporto segnale/rumore più alto rispetto a quello ottenibile usando le stesse antenne di eccitazione per la ricezione. Ciò è legato al fatto che il segnale di rumore è tanto maggiore quanto maggiore è l'area della spira ricevente. Per tale motivo le antenne di ricezione possiedono un'area molto minore di quelle a radiofrequenza.
+
+In una normale sequenza di eccitazione l'impulso a radiofrequenza è trasmesso dagli avvolgimenti di eccitazione presenti nel gantry e il segnale è registrato dalle antenne poste sul corpo del paziente.
+
+Il maggiore rapporto segnale/rumore è legato anche alla stretta vicinanza con i distretti anatomici di cui si vuole eseguire l'imaging. Il segnale ricevuto da un'antenna superficiale è dovuta principalmente alle regioni del corpo sottostanti l'antenna e, in minima parte dalle zone circostanti.
+
+Gli avvolgimenti sono leggermente sovrapposto tra loro in una modalità detta phased array, ovvero un insieme di antenne con una certa relazione di fase tra loro grazie a un'opportuna distanza e disposizione geometrica.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.91667in,height=2.41667in,alt={Signal-to-noise ratio comparison of phased-array vs. implantable coil for rat spinal cord MRI - ScienceDirect}]{media/15_HWRMI/image361.pdf}\caption{Figura .: Phased array}
+\end{figure}
+
+Il segnale complessivamente ricevuto deve essere ottimale nel senso che è necessario evitare le interferenze tra i vari ricevitori a interferenza distruttiva tra la magnetizzazione in una zona ricevuta da bobine affiancate. Il segnale ricevuto in quest'ultimo caso è inferiore. La necessità del phased array si comprende poiché è necessario evitare i fenomeni di interferenze.
+
+Esistono altri oggetti nella risonanza magnetica come il contenitore che racchiude il gantry. Per le applicazioni con campi principali da \(1.5\ T\) in su questo involucro contiene una crio-camera contenente elio liquido (1) utilizzato per mantenere la temperatura del magnete principale al di sotto di una certa temperatura, prossima allo zero assoluto. Il criostato è previsto nelle apparecchiature di risonanza con un campo magnetico, generato da uno superconduttore.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=6.70278in,alt={Immagine che contiene schizzo, diagramma, disegno, Disegno tecnico Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image362.pdf}\caption{Figura .: Schema a blocchi della risonanza magnetica}
+\end{figure}
+
+Gli avvolgimenti di shimming permettono di ridurre la disomogeneità di campo, anche in base al paziente. Un buono shimming è fondamentale per ridurre le disomogeneità di campo, rendendo l'imaging più preciso. Invece, gli avvolgimenti di shielding o schermatura permettono di ridurre gli effetti del campo magnetico all'esterno del gantry. Questi due avvolgimenti si rendono necessari perché è fisicamente impossibile generare campi magnetici estremamente omogenei nell'area del paziente, il quale presenta dimensioni anche importanti, dell'ordine di \(90 \div 100\ cm \times 50 \div 60\ cm\). Aggiungendo campi magnetici al campo principale si riesce a garantire una disomogeneità di campo \(\Delta B\) dell'ordine di \(1\ ppm\).
+
+Tutti gli elementi all'interno del gantry sono connessi mediante cavi che passano attraverso una camera schermata. Quest'ultimo componente, molte simile a una gabbia di Faraday, permette di ridurre le interferenze dei campi magnetici esterni. Se la struttura schermante non è completamente chiusa, ad esempio, lasciando aperta la porta, le immagini ottenute con sequenze sono molto sensibili alle disomogeneità presentano un livello di rumore molto intenso che riduce il contrasto.
+
+L'ambiente circostante è, infatti, immerso in disturbi a radiofrequenza con frequenza di \(88 \div 108\ MHz\), vicine alle frequenze degli impulsi e dei segnali in risonanza. Ad esempio, con campi di \(1.5\ T\), la frequenza di precessione è di \(64\ MHz\), stesso ordine di grandezza dei campi esterni, che potrebbero influenzare i canali di ricezione, diventando un rumore sull'immagine.
+
+Il personale che provvede alla preparazione del paziente e che acquisisce le immagini deve essere addestrato per chiudere correttamente la gabbia di Faraday.
+
+La gabbia di schermatura è aperta in piccoli snodi in cui passano i cavi che trasportano il segnale registrato alla centrale di elaborazione. Il flusso di dati, ovviamente, non è unidirezionale in quanto è necessario trasmettere le configurazioni che la risonanza magnetica deve eseguire.
+
+Le bobine di ricezione trasmettono il segnale, tramite appositi cavi, nella circuiteria di elaborazione, composta da un amplificatore a radiofrequenza, un demodulatore coerente, che porta il segnale in banda base e, infine, un convertitore analogico/digitale (ADC) che digitalizza il segnale per poi applicare gli algoritmi di ricostruzione delle immagini.
+
+Per trasmettere la configurazione all'unità di controllo alle bobine è necessario un flusso di dati che dall'esterno della camera di Faraday giunga all'interno. In particolare, è necessario trasmettere segnali a radiofrequenza, legati agli impulsi di eccitazione verso le bobine che producono tali sollecitazioni.
+
+L'impianto di trasmissione alle bobine si compone di un oscillatore alla frequenza di Larmor e un sintetizzatore digitale che modella la forma d'onda dell'impulso, ovvero esegue il suo shaping. Al fine di selezionare una singola fetta o il flip angle desiderato, la circuiteria deve essere tale da selezionare la durata opportuna dell'impulso. Inoltre, i segnali in uscita dal sintetizzatore devono essere sufficientemente intensi da poter eccitare il corpo del paziente. A tale scopo si utilizzano degli amplificatori opportuni.
+
+Anche i gradienti sono modellati digitalmente per quanto riguarda la forma e le tempistiche. In seguito, sono amplificati e trasmessi alle bobine di gradiente, così da applicare la sequenza desiderata.
+
+La ricostruzione dell'immagine avviene mediante elaboratori digitali i quali permettono anche la visualizzazione a video delle immagini tomografiche ottenute. La risonanza magnetica presenta sia un hardware che un software abbastanza complessi che, se congiunti, permettono di eseguire tutte le innumerevoli funzioni della metodica di imaging considerata.
+
+È possibile considerare che, per ottenere una buona ricostruzione, almeno il \(50\%\) del lavoro è svolto dall'hardware mentre la restante parte dal software. L'hardware comprendere la generazione sia digitale sia analogica dei gradienti, dei campi a radiofrequenza e del campo principale.
+
+Le risonanze di ultima generazione tendono a ridurre al minimo l'elaborazione analogica, spostando tutto il carico su quella digitale.
+
+\subsection{Avvolgimento primario}\label{avvolgimento-primario}
+
+Il magnete che genera il campo magnetico principale è la componente fondamentale della risonanza magnetica, poiché dalla sua intensità e omogeneità dipende l'imaging finale. Il magnete può essere realizzato con diverse tecnologie:
+
+\begin{itemize}
+\item
+  Permanente;
+\item
+  Resistive;
+\item
+  Superconduttore.
+\end{itemize}
+
+La scelta della tecnologia dipende dai requisiti sul campo magnetico in termini di intensità, omogeneità spaziale, stabilità temporale, accessibilità da parte del paziente e costi di acquisto e gestione. Le apparecchiature moderne offrono campi principali che partano da qualche frazione di \(T\) fino a \(7 \div 11\ T\) nell'ambito della ricerca. In Italia sono largamente adoperati gli scanner a \(1.5\ T\) per la diagnosi clinica.
+
+Il segnale di risonanza magnetica dipende dal quadrato del campo principale, \(B_{0}\), mentre il rapporto segnale/rumore è proporzionale a tale quantità; dunque, campi magnetici con intensità maggiore sono fondamentali al fine di avere immagini di buona qualità, caratterizzate da un basso rapporto segnale/rumore.
+
+Tuttavia, in generale, nei tessuti biologici, per campi magnetici maggiori di \(0.5\ T\) il tempo di rilassamento cresce con l'intensità del campo; dunque, le sequenze progettate con un campo a bassa intensità non possono essere adoperate con campi più intensi, in quanto il contrasto in \(T_{1}\) sarebbe meno pronunciato. Al fine di mantenere lo stesso contrasto, al crescere del campo magnetico principale, il tempo di ripetizione \(T_{R}\) deve essere aumentato conseguentemente, aumentando i tempi di imaging. Come detto prima, l'aumento del campo principale ha il vantaggio di aumentare il rapporto segnale/rumore.
+
+Cambiando il campo principale è necessario riprogettare anche la circuiteria logia di elaborazione, in quanto la frequenza di Larmor varia. Infatti, per un campo di \(3\ T\), la frequenza di precessione è:
+
+\[\omega_{0} = \gamma B_{0} = 42.67\frac{MHz}{T}3\ T = 128MHz\]
+
+In altre parole, raddoppiando il campo magnetico principale, anche la frequenza di risonanza di Larmor raddoppia. Da ciò discende che è necessario modificare gli oscillatori del mixer, gli amplificatori e la digitalizzazione del segnale stesso.
+
+Ultimamente per la pratica clinica stanno avendo successo le macchine di risonanza magnetica a \(3\ T\), poiché permette di ottenere un SNR molto maggiore di quello che si avrebbe con un campo principale di \(1.5\ T\).
+
+I campi con intensità di circa \(0.5\ T\) sono realizzati mediante magneti permanenti o resistivi, mentre i campi di intensità maggiore di \(1\ T\) adottano soluzioni a superconduttore, per cui sono molto pesanti e costose. Un tipico scannar da \(1.5\ T\) pesa generalmente \(6\) tonnellate, mentre quello da \(12\ T\), pesa \(12\ T\).
+
+I magneti permanenti sono i meno costosi ma molto più pesanti, per cui è necessario adottare delle soluzioni per rafforzare il suolo al fine di sostenere il peso della strumentazione. Solitamente le apparecchiature sono poste al piano terra o interrato. Difficilmente la risonanza magnetica si trova ai piani superiori a meno che il suolo non sia stato adeguatamente rinforzato.
+
+Si prova che la potenza depositata nei tessuti cresce con il quadrato del campo esterno applicato. Inoltre, la differenza tra le varie specie chimiche, in termini di shift della frequenza di risonanza, aumenta con l'intensità del campo. Di conseguenza, avere campi magnetici più intensi permette di ottenere ottime immagini spettroscopiche ma, allo stesso tempo, aumenta gli artefatti dovuti al chemical shift.
+
+In genere, in campo clinico su utilizzano campo da \(0.2\ T\) fino a \(3\ T\). I magneti a basso campo, minore di \(1\ T\), sono generalmente aperti, per cui sono raccomandati laddove l'accesso del paziente è impossibilitato come in ortopedia.
+
+Magneti fino a \(9\ T\) sono stati realizzati per ricerche neurologiche; tuttavia, per campi troppo intensi, la frequenza di Larmor, \(f_{0} = \overline{\gamma}B_{0}\), può assumere valori per cui la lunghezza d'onda del segnale a radiofrequenza sia confrontabile o minore dell'oggetto da discriminare. In tal caso, si possono generare delle onde stazionarie all'interno del corpo del paziente, visibili come aree di iperintensità o hot-spots. Queste onde indesiderate sono difficili da controllare perché legate alla geometria e alle proprietà elettriche del corpo.
+
+\subsubsection{Magneti permanenti}\label{magneti-permanenti}
+
+I magneti permanenti più potenti sono tipicamente costruiti con il materiale magnetico neodimio-ferro-boro (\(Nd_{2}Fe_{14}B\)). Il neodimio è una terra rara molto costosa per tale ragione non è utilizzata da solo ma in leghe con ferro e boro.
+
+Con queste leghe è possibile ottenere campi magnetici con intensità non superiori a \(0.4\ T\). Campi più intensi renderebbero la struttura molto costosa e pesante. In ogni caso, questi magneti sono meno costosi degli scanner a \(1.5\ T\).
+
+La risonanza magnetica a magnete permanente presenta una struttura a C, molto simili alle calamiti a ferro di cavallo. Vi sono due poli, tra i quali si genera il campo magnetico. Questi poli, appunto, sono realizzati con leghe di Neodimio.
+
+La struttura a C è legata alla natura intrinseca del campo magnetico, le cui linee di flusso sono chiuse. Per facilitare la chiusura delle linee si usa una struttura a ferro di cavallo dove il paziente è posizionato al centro dei poi, così da essere nella regione col campo più omogeneo possibile.
+
+Per guidare le linee di campo magnetico si utilizza un gioco di acciaio così da chiudere le linee di campo dal polo nord al sud. Questa struttura implica un peso di \(8 \div 10\) tonnellate.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.33422in,height=2.47951in,alt={Immagine che contiene Attrezzature mediche, macchina, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image363.pdf}\caption{Figura .: Schema della risonanza magnetica a magnete permanente ed esempio di tale scanner}
+\end{figure}
+
+Lo scanner a risonanza magnetica con magnete permanente è aperto, quindi, il paziente può comodamente occupare la posizione a lui riservata senza essere affetto da un senso di claustrofobia.
+
+Grazie alla facilità di posizionamento, questo scanner è molto utilizzato in ortopedia, soprattutto nell'acquisizione di immagini del ginocchio o della caviglia.
+
+Avendo un campo magnetico di intensità molto bassa, il rapporto segnale/rumore, proporzionale a \(B_{0}\), risulta essere molto limitato, dunque, le immagini acquisite sono caratterizzate da una rumorosità molto intensa. Di conseguenza, indagini che richiedono la visione di oggi con dimensioni molto ridotte, come per la mammografia, non possono essere eseguite con questo scanner. Anche le tecniche di imaging funzionale presentano una scarsa visione delle caratteristiche dei tessuti.
+
+Le proprietà magnetiche delle leghe con cui sono realizzati i poli variano con la temperatura, la quale, di conseguenza, deve essere molto stabile. Generalmente il magnete è portato a una temperatura di \(32\ {^\circ}C\), più alta di quella ambientale. Le camere che contengono lo scanner sono mantenute alla temperatura desiderata da impianti di condizionamento, che garantiscono un'escursione massima di \(1\ {^\circ}C\).
+
+Il calore al magnete viene fornito da una piccola resistenza di bassa potenza, tipicamente di \(200\ W\), così da bilanciare lo scambio termico tra magnete e ambiente.
+
+La procedura di installazione prevede una fase di stabilizzazione in cui la temperatura è mantenuta costante per \(6 \div 7\) giorni, al fine di garantire un campo con intensità il più costante possibile. Per rendere più omogeneo il campo, inoltre, si inseriscono materiali magnetici o metallici che introducono dei campi tali da compensare le disomogeneità di campo.
+
+Siccome il magnete permanente non consuma energia, il solo costo associato al suo funzionamento è offerto dall'impianto di condizionamento e di riscaldamento dei poli.
+
+Ovviamente, se il magnete viene riscaldato eccessivamente perde le sue proprietà magnetiche. La temperatura a cui si verifica tale fenomeno è nota come temperatura di Curie e per il neodimio è di \(19\ K\), mentre per le leghe è di circa \(180\ {^\circ}C\).
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5116}}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4884}}@{}}
+\caption{Tabella 16.1: Vantaggi e svantaggi dello scanner magnete permanente}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Vantaggi
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Svantaggi
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Vantaggi
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Svantaggi
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+non consuma energia & sensibile agli sbalzi termici \\
+aperto & \(B_{0} < 0.4\ T\) \\
+economico (per basso campo) & disomogeneo \\
+\end{longtable}
+
+\subsubsection{Magneti resistivi}\label{magneti-resistivi}
+
+Un magnete resistivo è realizzato mediante degli avvolgimenti di un conduttore convenzionale percorso da corrente- Ovviamente, la maggior parte dell'energia fornita è convertita in energia termina, la restante piccola quota in energia magnetica. Si rende, dunque, necessario un sistema di dissipazione del calore ad acqua, che può raggiunge i \(50\ kW\), mentre per l'alimentazione del solenoide si utilizzano \(40\ kW\); per un totale di energia dissipata di \(90\ kW\) o maggiore.
+
+Il campo magnetico può essere attivato o disattivato in base alla corrente che è fatta circolare negli avvolgimenti. Ciò rappresenta un grande vantaggio di questi scanner, poiché il consumo di energia e, quindi, i costi sono presenti solamente quando è erogata una prestazione.
+
+La struttura dello scanner e a C, dove le estremità aperte rappresentano i poli, ovvero gli avvolgimenti resistivi. Per chiudere le linee di flusso si utilizza un giogo di acciaio che incanala il campo magnetico, riducendo la sua dispersione.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.18836in,height=2.65454in,alt={Immagine che contiene cartone animato, disegno Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image364.pdf}\caption{Figura .: Schema di uno scanner a magnete resistivo e un suo esempio}
+\end{figure}
+
+Il paziente è posizionato tra il gap di separazione tra le due elettrocalamite, quindi lo scanner è aperto. Per rendere la struttura più stabile nell'erogare il campo magnetico di solito si utilizzano due gioghi ferromagnetici.
+
+Il campo magnetico prodotto dal magnate resistivo è minore di \(0.25\ T\) e non presenta la stessa omogeneità del campo prodotto da un magnete superconduttore. Per raggiungere un'alta omogeneità all'interno del field of view (FOV), il diametro dei poli deve essere maggiore di \(2.5\) volte il diametro del volume di imaging \(D_{FOV}\) e la separazione deve essere maggiore di \(1.5D_{FOV}\). Ad esempio, se si vuole un \(FOV = 33\ cm\) è necessario una separazione tra i poli di \(1.5 \cdot 33\ cm = 49.5\ cm\) mentre il diametro dei poli deve essere \(2.5 \cdot 33\ cm = 82.5\ cm\).
+
+Il magnete resistivo è sensibile alla variazione di corrente, dell'ordine di \(180 \div 250\ A\); quindi, per minimizzare la disomogeneità di campo, è necessario misurare il campo magnetico concatenato ai conduttori e la differenza tra la misura e il valore desiderato è utilizzata in uno schema di feedback per la correzione della corrente che alimenta le bobine.
+
+In genere, l'omogeneità richiesta per il campo è dell'ordine di \(1\ ppm\), quindi, la variazione di corrente non può essere maggiore di \(200 \cdot 10^{- 6}\ A\). Ciò, tuttavia, è altamente complesso da realizzare poiché la conducibilità del cavo conduttore si riduce con l'aumentare del calore, variando il campo complessivo. Dato che le correnti sono dell'ordine di \(180 \div 250\ A\), il meccanismo di feedback è molto complesso.
+
+Per poter funzionare, i magneti resistivi dissipano molta energia sia per mantenere costante la corrente sia per mantenere la temperatura costante, dissipando il calore generato dall'enorme corrente.
+
+Avendo campi magnetici di intensità molto limitata, le immagini sono molto rumorose rispetto a quelle ottenute con uno scannar a superconduttore. In assenza di un sistema di raffreddamento, la conducibilità varia con la temperatura, per cui anche il campo prodotto varia. Ciò può essere modellato come un campo principale con un gradiente applicato. Se ha, quindi, uno spostamento delle frequenze di risonanza degli isocromati, producendo un artefatto nelle immagini ricostruite.
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5112}}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4888}}@{}}
+\caption{Figura .: Vantaggi e svantaggi dello scanner a magnete resistivo}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Vantaggi
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Svantaggi
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Vantaggi
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Svantaggi
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+consuma energia solo quando acceso & consuma molta energia \\
+aperto & \(B_{0} < 0.25\ T\) \\
+impianto di dissipazione calore & sensibili alle variazioni di corrente \\
+\end{longtable}
+
+\subsubsection{Magnete superconduttore}\label{magnete-superconduttore}
+
+Gli scanner con magneti a superconduttore presentano le migliori caratteristiche in termini di stabilità e intensità del campo magnetico generato. Con questi magneti è possibile realizzare campi maggiori di \(0.3\ T\) con aperture di \(60\ cm\) del gentry.
+
+Nel settore sanitario sono tipicamente utilizzati i campi da \(1.5\ T\), anche se di recente sono stati resi disponibili all'acquisto campi da \(3\ T\) in Italia. Per scopi di ricerca è possibile adoperare anche campi di \(7\ T\) per un massimo di \(9 \div 11\ T\) per indagini su animali. Per effetti biologici, in clinica si sceglie di non superare i \(3\ T\).
+
+Gli scanner utilizzano materiali superconduttori nei quali scorre una corrente di un centinaio di ampere, senza che questa sia attenuata.
+
+Il tipico scanner a magnete superconduttore presenta una geometria cilindrica con una apertura tipicamente di \(60\ cm\) di diametro. L'apertura può raggiungere anche i \(70\ cm\) o oltre per consentire l'accesso di pazienti obesi o claustrofobici.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.04209in,height=3.04209in]{media/15_HWRMI/image365.pdf}\caption{Figura .: Scanner con magnete a superconduttore}
+\end{figure}
+
+Il campo magnetico prodotto all'interno del gantry, indipendentemente dalle dimensioni, è molto omogeneo con delle variazioni di alcune parti per milione. L'asse maggiore del cilindro è orizzontale, a differenza delle altre due configurazioni a magnete resistivo o permanente.
+
+All'esterno dell'avvolgimento l'intensità del campo decresce come \(r^{- 3}\). Infatti, per normative tecniche di sicurezza elettromagnetica, i campi nelle aree circostanti, a una certa distanza dal gantry, non devono essere superiori a \(0.5\ mT\). Per scanner a \(1.5\ T\), il limite va raggiunto entro \(3 \div 5\ m\), mentre per quelli a \(3\ T\) verso i \(7\ m\).Campi più intensi del limite imposto potrebbero influenzare i pacemaker, settandolo alla configurazione asincrona o a interferire altri con altri dispositivi elettronici.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=4.26944in,alt={Immagine che contiene testo, linea, Diagramma, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image366.pdf}\caption{Figura .: Campo magnetico interno ed esterno allo scanner}
+\end{figure}
+
+\paragraph{Materiali superconduttori}\label{materiali-superconduttori}
+
+La proprietà di superconduttività non è semplice da spiegare poiché dovuta a fenomeni quantistici molto complessi. I materiali conduttori presentano una resistività \(\rho\) che dipende dalla temperatura secondo la fisica classica, da una legge lineare:
+
+\[\rho = \rho_{0}\left( 1 + \alpha\left( T - T_{0} \right) \right)\]
+
+Riducendo la temperatura, al limite per \(T \rightarrow 0\ K\), la resistività tende al valore\(\rho = \rho_{0}\left( 1 + \alpha T_{0} \right)\).
+
+Esistono materiali per cui la resistività si abbatte molto più velocemente, fino ad annullarsi per temperature prossime allo zero assoluto, ma leggermente maggiori, dell'ordine della decina di Kelvin per i superconduttori definiti caldi.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=3.75833in,alt={Immagine che contiene testo, linea, diagramma, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image367.pdf}\caption{Figura .: Andamento della resistività al variare della temperatura per conduttore e superconduttore}
+\end{figure}
+
+Raffreddando il materiale superconduttore al di sotto della temperatura critica, \(T_{c}\), la sua resistività si annulla, così da permettere la circolazione di corrente elettrica, di intensità anche elevata, senza dissipazioni di energia.
+
+Studi in letteratura hanno provato che la corrente circolante in un magnete superconduttore, a vent'anni dall'iniezione, restano praticamente inalterate, a meno della sensibilità dello strumento di misura utilizzato.
+
+Il campo magnetico principale per questi scanner è generato da una corrente stabile nel tempo, dunque, si ha la sicurezza che non vi siano variazioni della sua intensità, rendendo l'imaging molto affidabile.
+
+Ovviamente, per ottenere questi risultati il magnete deve essere mantenuto a basse temperature, inferiori al punto critico al quale la resistività si abbatte.
+
+Il materiale superconduttore più utilizzato nella pratica di risonanza magnetica è il niobio-titanio (\(NbTi\)), la quale perde completamente le proprietà resistive a temperature prossime allo zero assoluto, ovvero \(7.2\ K\). Questa temperatura dipende dalla corrente che scorre nel materiale superconduttore; dunque, per campi intensi è necessario raffreddare il magnete a temperature inferiori.
+
+Esistono altre leghe con proprietà simili, tuttavia, il niobio-titanio è preferibile proprio perché la temperatura di transizione assume valori maggiori rispetto a quella raggiunta dall'elio liquido e, inoltre, mantiene lo stato di superconduttore anche in presenza di un campo magnetico importante. La temperatura di fusione dell'elio è di circa \(4.2\ K\).
+
+Esistono dei materiali ceramici che a \(77\ K\) sono superconduttori e, dunque, potrebbero essere immersi nell'azoto liquido, con un costo di circa \(0.20\, \text{\texteuro}\) al litro; piuttosto che in elio liquido, molto più costoso come \(10\, \text{\texteuro}\) al litro. Purtroppo, questi materiali perdono la proprietà di superconduttività quando sono immersi in un campo magnetico, dunque, non sono adatti per la risonanza magnetica.
+
+Per creare un avvolgimento di niobio-titanio si inseriscono filamenti di questa lega in un supporto metallico in alluminio o rame, i quali non subiscono l'effetto del campo magnetico poiché materiali diamagnetici. Il supporto nel quale è immerso il filamento è detto coil former o formatore di bobina o supporto di avvolgimento.
+
+Gli avvolgimenti primari sono composti tipicamente da \(6 \div 7\) filamenti di niobio-titanio, con diametro di \(20\ \mu m\) immersi in una matrice di rame o acciaio, in modo che lo spessore complessivo sia di \(2\ mm\). La matrice di rame è nota come copper matrix e permette di conferire le giuste proprietà meccaniche alla lega di niobio-titanio, che da sola risulterebbe estremamente delicata e fragile alla lettura.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.25045in,height=3.13585in,alt={Immagine che contiene cerchio, modello Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image368.pdf}\caption{Figura .: Matrice di niobio-titanio immersa nel supporto}
+\end{figure}
+
+Il rame non è un materiale superconduttore, quindi, presenta una resistenza elettrica molto maggiore del niobio-titanio, la quale è nulla:
+
+\[R_{Cu} \gg 0\ \Omega\]
+
+Il parallelo tra rame e lega di niobio-titanio è tale che la corrente resta confinata solamente nel materiale superconduttore, che rappresenta un corto circuito, mentre nel rame non circola corrente, in quanto schematizzabile come un circuito aperto.
+
+Nel complesso, generalmente, l'avvolgimento è lungo \(4\ km\) circa, così che le correnti circolanti siano avvolte più volte intorno al coil formet, ottenendo il campo magnetico desiderato.
+
+Ovviamente, ogni cavo immerso nel rame possiede una certa corrente; quindi, la corrente totale che circola nel sistema è data dalla somma delle correnti di ogni singolo filamento di niobio-titanio. Si può dimostrare che per campi dell'ordine del tesla, le correnti devono essere dell'ordine delle centinaia di ampere.
+
+La geometria del magnete è tale che i campi prodotti dalle correnti circolanti in ogni singolo filamento di niobio-titanio si sommino, così da produrre un campo con grande omogeneità spaziale e stabilità temporale. Inoltre, siccome le correnti circolano indefinitivamente il campo magnetico è sempre acceso.
+
+\begin{figure}
+\centering
+\includegraphics[width=2.18181in,height=2.36667in,alt={Immagine che contiene testo, schermata, calcolatore, illustrazione Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image369.pdf}\caption{Figura .: Struttura geometrica del magnete in cui il campo risultate è la somma dei campi prodotti dai filamenti di niobio-titanio}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=5.48958in,height=4.89583in,alt={Immagine che contiene macchina, acciaio, Ricambio auto, metallo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image370.pdf}\caption{Figura .: Struttura del magnete superconduttivo}
+\end{figure}
+
+Ancora, il consumo di energia da parte del criostato, utilizzato per mantenere la temperatura al di sotto della soglia \(7.2\ K\) e il consumo di elio liquido rendono l'apparecchiatura costosa anche in caso di non utilizzato. Dall'altro lato, l'elevata intensità, stabilità e omogeneità del campo permettono di ottenere immagini con un elevato rapporto segnale/rumore, così da rendere la ricostruzione più semplice e meno affetta da errori legati al rumore.
+
+Per mantenere lo scanner attivo è necessario che il campo magnetico sia attivo, dunque, il sistema di raffreddamento a elio deve essere sempre in funzione. Ciò induce un dispendio energetico.
+
+Tipicamente, gli scanner sono lunghi \(2.3\ m\) r alti \(2.5\ m\), mentre l'apertura del gantry è di \(0.9\ m\), al fine di ridurre il senso di claustrofobia dei pazienti. Anche in presenza di questi accorgimenti, il senso di chiusura potrebbe essere presente.
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5166}}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4834}}@{}}
+\caption{Tabella 16.2: Vantaggi dello scanner a magnete superconduttore}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Vantaggi
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Svantaggi
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Vantaggi
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Svantaggi
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Campo magnetico stabile e omogeneo & Consumo di elio (per la criogenia) \\
+Non richiede alimentazione una volta acceso (modalità persistente) & Costosi (produzione e installazione) \\
+Intensità di campo (\(\mathbf{B}_{\mathbf{0}}\)) da \(\mathbf{0.3\ T}\) fino a \(\mathbf{11\ T}\) (o più) & Sempre accesi (maggiormente difficile spegnere il campo) \\
+Migliore rapporto segnale/rumore & Consumo di energia per il criostato (sistema di raffreddamento) \\
+\end{longtable}
+
+\subsubsection{Sistema di raffreddamento}\label{sistema-di-raffreddamento}
+
+Gli avvolgimenti superconduttori sono inseriti all'interno di una struttura isolata dal punto di vista termico detta criostato. Questo elemento è realizzato tipicamente in acciaio non magnetico, contenenti schermi radiativi per impedire il trasporto di calore per diffusione, convenzione e conduzione.
+
+Al fine di mantenere il niobi-titanio a una temperatura inferiore a quella critica, i filamenti di superconduttore sono immersi in elio liquido, contenuti in un helium vessel o vasca d'elio.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.74038in,height=5.60495in,alt={Immagine che contiene testo, schermata, diagramma, Parallelo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image371.pdf}\caption{Figura .: Struttura dello scanner con in evidenza i coil former, il sistema di rareddamento (cry-cooler o cold-head)}
+\end{figure}
+
+A causa degli scambi termici con l'ambiente, l'elio tende a passare allo stato gassoso. Di conseguenza, la parte superiore della vasca tende a riempirsi con gas d'elio. Si rende, quindi, necessario un meccanismo che raffreddi il contenitore di elio affinché quest'ultimo sia alla temperatura di \(4.2\ K\).
+
+Per ridurre la dissipazione di calore, il contenitore di elio è racchiuso in altre parati:
+
+\begin{itemize}
+\item
+  Lo scudo termico (o thermal shield) è mantenuto a basse temperature dalla pompa criogenica (crycooler w/recondenser), ovvero una macchina frigorifera che lavora a temperature di circa \(20\ K\);
+\item
+  Successivamente si trovano delle camere a vuoto o vacuum vessel, molto simi a quelle presenti nei termos, che garantiscono un ulteriore isolamento verso l'ambiente in quanto il vuoto è il peggior conduttore di calore. Lo strato di vuoto tra il thermal shield e il vacuum vessel permette di ridurre la propagazione del calore verso l'interno della camera contenente l'elio liquido;
+\end{itemize}
+
+Il funzionamento della cold-head è basato sul ciclo di Gifford-McMahon che lavora tra gli \(80\ K\) e i \(20\ K\). Il ciclo sfrutta la proprietà di compressione e rarefazione del gas. Nel primo processo, la temperatura del gas aumenta, mentre nel secondo si riscalda. In particolare, la testa fredda contiene un compressore, un rigeneratore (composto da una struttura porosa) e un displacer.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.24291in,height=2.85833in,alt={rei\_01}]{media/15_HWRMI/image372.pdf}\caption{Figura .: Schema del ciclo di Gifford-McMahon}
+\end{figure}
+
+La valvola consente al gas di transitare tra il compressore verso la testa fredda e viceversa. Ai capi del compressore si trovano due lati: uno ad alta pressione e l'altro a bassa pressione; dunque, uno è ad alta temperatura e l'altro a bassa.
+
+Il ciclo si compone essenzialmente di quattro fasi. Nella prima il gas ad alta pressione, tra i \(10 \div 20\ bar\) del compressore entra nella struttura attraverso il rigeneratore. Il gas, poi, finisce nella camera contenente il displacer il quale, contemporaneamente, si sopra verso sinistra. Il gas si espande passando dalla temperatura \(T_{L}\), minore di quella iniziale \(T_{H}\). Questo raffreddamento avviene poiché il gas cede calore al rigeneratore. Durante questo processo, la valvola ad alta pressione è chiusa, per cui il gas fluisce nella struttura porosa del dispacer, cendole calore.
+
+Successivamente si chiude la valvola ad alta pressione e si apre quella a bassa pressione. Il gas si espande ulteriormente per fluire in verso opposto, riducendo ulteriormente la sua temperatura. Il dispacer è mantenuto in posizione fissa durate il processo mentre il gas assorbe calore dal lato a bassa temperatura.
+
+Il dispacer viene, poi, spostato verso destra e il gas fluisce ancora verso il lato a bassa pressione, attraversando il rigeneratore e assorbendo calore da esso.
+
+In fine, la cold-head viene riconnessa al lato ad alta pressione, il dispacer si sposta verso destra e il ciclo ricomincia.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.19452in,height=5.28356in]{media/15_HWRMI/image373.pdf}\caption{Figura .: Fasi del ciclo Gifford-McMahon}
+\end{figure}
+
+Ci sono, in definiva, due regioni dette heat-station di primo e secondo livello, che si trovano a temperatura, rispettivamente di \(80\ K\) e \(20\ K\). La loro funzione è quella di mantenere a basse temperature gli schermi cariostatici contenenti l'elio, così da minimizzare la quantità di liquido che passa allo stato gassoso.
+
+L'efficienza del sistema è molto bassa, infatti, fornendo una potenza di \(6\ kW\) si ottiene una potenza di raffreddamento di \(100\ W\), la potenza consumata rende il sistema molto rumoroso.
+
+Nella sala contenente lo scanner è possibile ascoltare un costante ticchettio ogni secondo, corrispondente al funzionamento del sistema di raffreddamento. Il dispacer è spostato ogni secondo per consentire il raffreddamento del magnete. Il punto a \(20\ K\) è collegato alla vasca contenente l'elio liquido e a quella termica, al fine di ridurre le dissipazioni di calore. La camera dell'elio è, quindi, mantenuta a \(20\ K\) per cui esiste una porzione di questa sostanza allo stato gassoso.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=3.19722in,alt={Immagine che contiene interno, Macchina utensile, ingegneria, Ricambio auto Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image374.pdf}\caption{Figura .: Posizionamento del sistema di raffreddamento nello scanner e cold-head}
+\end{figure}
+
+È importante mantenere la temperatura della camera e la quantità di elio gassoso costanti sia per conservare lo stato del niobio-titanio, sia per evitare l'esplosione della helium vacuum. Se, infatti, tutti l'elio dovesse passare allo stato gassoso, la pressione all'interno della camera sarebbe estremamente elevata da romperla.
+
+Negli ultimi anni diversi scanner a magnete superconduttore sono stati equipaggiati con sistemi per la liquefazione dell'elio, che riutilizzano tale gas senza necessità di introdurlo nuovamente. Tali scanner sono noti come zero boil-off.
+
+Per gli scanner che non dispongono di un sistema per il recupero dell'elio è necessario eseguire un'operazione di re-filling di gas ogni sei mesi o ogni anno circa, a seconda della qualità del criostato.
+
+\subsubsection{Quench}\label{quench}
+
+All'interno della camera contenente l'elio vi sono all'incirca \(2000\ L\) di elio liquido, dove, approssimativamente, \(1\ L\) di elio liquido corrisponde a \(600\ L\) di elio gassoso alla pressione atmosferica. Se tutto l'elio liquido contenuto nell'helium vessel, per effetto del calore ambientare, passasse allo stato gassoso, si avrebbe un volume di gas circa uguale a:
+
+\[2000 \cdot 600\ L = 12 \cdot 10^{5} = 1.2\ ML\]
+
+Questo volume di gas deve evacuare immeditatamente dalla camera dello scanner altrimenti, se il fenomeno di evaporazione non è controllato, possono verificarsi effetti esplosivim soprattutto in caso di conversione improvvisa. Ciò provoca un'elevata pressione che rompe il criostato.
+
+Se, invece, vi è una fessura nel criostato, il gas fuoriesce nella camera dello scanner. L'elio di per sé è un gas inerte, dunque, non reagisce con i tessuti biologici; tuttavia, data il suo volume, può sostituirsi all'ossigeno, il quale fuoriesce dalla camera dello scanner. Un eventuale paziente che si trova nella camera dello scanner non avrebbe più ossigeno e potrebbe morire per asfissia. Per evitare ciò e aumentare la sicurezza del sistema si inserisce il quench.
+
+Se l'isolamento termico non funzionasse correttamente, il filo superconduttore di niobio-titanio perderebbe localmente le sue proprietà superconduttive. Il filo mostrerebbe una resistenza elettrica sulla quale la corrente dissipa energia. Per effetto Joule il cavo di niobio-titanio si riscala e il calore generato si propaga nella struttura. Altri tratti del cavo conduttore perderebbero la proprietà di superconduttività, innescando un evento a valanga che porta la corrente di circa \(200\ A\) a circolare anche nel rame, poiché la sua resistenza diventerebbe paragonabile a quella del niobio-titanio. Ciò genererebbe ulteriori dissipazioni di energia che portano l'elio liquido a passare allo stato gassoso. In questa evenienza, la pressione all'interno del criostato aumenta e potrebbe essere tale da causarne la rottura. In gergo, questo fenomeno è detto quench e deve essere evitato al fine di evitare danni.
+
+Al fine di aumentare la sicurezza, si inserisce il tubo di quench, ovvero un condotto di acciaio o rame che conduce il gas elio all'esterno della sala dello scanner, Ovviamente il tubo deve possedere una valvola che permette solamente il flusso di gas dall'interno verso l'esterno della camera, così da evitare la formazione di ghiaccio di ossigeno o di azoto nel tubo, che potrebbero ostruirlo.
+
+In alcuni scenari, il fenomeno del quench potrebbe essere attivato volontariamente. Ad esempio, in caso di urgenza si può rendere necessario disattivare il campo magnetico principale in breve tempo. Per legge, nelle camere adiacenti la sala del magnete deve essere presente un interruttore detto quench-box che, se premuto, permette di spegnere il campo magnetico mediante l'evaporazione simultanea di tutto l'elio liquido.
+
+Il quench-box arriva delle resistenze, dette di quench-heater, che riscaldano il superconduttore, innescando i meccanismi a valanga che portano alla fuoriuscita dell'elio liquido, attraverso il tubo di quench.
+
+Ovviamente, lo spegnimento del campo prevede l'efflusso di elio verso l'ambiente esterno, comportando costi molti elevati poiché, in seguito, è necessario immettere nuovamente l'elio liquido nel helium vassel. Il costo dell'elio liquido è di circa \(10\, \text{\texteuro}\) al litro; per cui \(2000\ L\) di elio hanno un costo di circa \(20000\, \text{\texteuro}\).
+
+Lo spegnimento del campo può essere indotto quando viene inserito un oggetto metallico nella sala del magnete. A causa dell'elevato campo magnetico, la sua forza di attrazione è così elevata da spingere l'oggetto metallico con velocità molto importanti verso lo scanner metallico. L'oggetto resta poi legato allo scanner mediante una forza estremamente intensa. Di conseguenza, per rimuovere il corpo metallico esterno è necessario spegnere il campo magnetico.
+
+Se l'oggetto fosse sufficientemente grande potrebbe ostruire l'uscita del paziente dal grantry; per sicurezza, si rende necessario l'innesco del quench. Tale fenomeno è comunque molto raro nella pratica clinica.
+
+\subsubsection{Fasi di ramp-up e ramp-down}\label{fasi-di-ramp-up-e-ramp-down}
+
+La fase di ramp-up e ramp-down consistono, rispettivamente, nell'accensione e nello spegnimento controllato del campo magnetico principale.
+
+Al dine di permettere la circolazione della corrente indefinitivamente nel tempo, il circuito superconduttore deve essere chiuso su sé stesso. L'iniezione di corrente non può avvenire mediante un interruttore poiché nessun conduttore riesce ad avere una resistenza paragonabile al superconduttore. Al fine di alimentare il cavo superconduttore si utilizza un elemento riscaldante detto switch-heater in grado di cedere calore a una porzione relativamente piccola del tratto di superconduttore posto sula sommità del magnete localmente accessibile dall'esterno. In questo tratto, il cavo di niobio-titation perde le proprietà superconduttive, assumendo una resistenza finita. Localmente, il materiale superconduttore, modellato come un induttore, risulta aperto rendendo possibile l'iniezione di corrente fino a raggiungere il valore desiderato.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.21934in,height=4.13021in,alt={Immagine che contiene testo, diagramma, linea, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image375.pdf}\caption{Figura .: Circuito di ramp-up e ramp-down}
+\end{figure}
+
+La corrente immessa nel superconduttore assume dei valori molto importanti, dai \(200\ A\) ai \(600\ A\) in base al magnete e l'intensità di campo desiderate. Nel processo bisogna tener conto anche dell'elevatissima induttanza del cavo di niobio-titanio che mantiene le sue proprietà superconduttive. L'iniezione rapida di corrente produrrebbe forti reazioni opposte da parte dell'induttore, per la legge di Faraday-Neumann-Lenz, che potrebbero generare effetti indesiderati.
+
+Solitamente la corrente nel cavo superconduttore è variante con legge lineare con pendenza molto bassa, tale da far durare la fase di ramp-up diverse ore.
+
+Durante la fase di ramp-up la tensione applicata di \(10\ V\) resta costante; tuttavia, per le elevate correnti raggiunte nel circuito, è necessario che il generatore sia munito di un sistema di raffreddamento ad acqua al fine di dissipare il calore prodotto.
+
+Una volta raggiunto il valore di corrente desiderato nel superconduttore, lo switch-header è spento e il tratto riscaldato del superconduttore torna alla temperatura di lavoro. In questo modo il superconduttore si chiude nuovamente su sé stesso.
+
+Per disattivare il campo in maniera controllata si procede con un meccanismo opposto al ramp-up, il ramp-down. Si collega il voltage supply e si riscalda localmente il superconduttore mediante gli switch-heater. La corrente scorre tra il superconduttore e il generatore esterno, dato che il tratto riscaldato si comporta come un circuito aperto.
+
+La corrente nel circuito viene fatta decrescere lentamente, così da ridurre l'energia accumulata nell'induttore \(U_{m}\) molto lentamente:
+
+\[U_{m} = \frac{1}{2}Li^{2}\]
+
+La procedura di ramp-up è effettuata all'atto dell'installazione della macchina e può essere ripetuta varie volte durante il collaudo, fase nella quale si misura l'omogeneità del campo magnetico e si pone rimedio in caso di forti disomogeneità.
+
+\subsubsection{Monitoraggio del consumo di elio}\label{monitoraggio-del-consumo-di-elio}
+
+Il termine boil-off si riferisce alla quantità di elio che tende a passare dallo stato liquido allo stato di gas nell'unità di tempo, spesso assunta dell'ordine delle ore. Anche in presenza di isolamento termico, non è possibile eliminare l'effetto del passaggio di stato ma solo limitarlo nel tempo. Il boil-off è tipicamente di \(0.1\,\frac{L}{h}\).
+
+Si rende necessario introdurre un meccanismo di monitoraggio del livello di elio nella forma liquida e in quella gassosa all'interno dell'helium vassel. Il monitoraggio è necessario in quanto, se una porzione eccessiva di elio passa allo stato gassoso, vi è il rischio che avvenga il fenomeno del quench. Inoltre, il gas potrebbe fuoriuscire da fessure, come il tubo di quench. In questo caso si perde la sicurezza che il niobio-titanio si comporti come un superconduttore, riducendo l'efficienza dello scanner.
+
+Per monitorare i livelli di elio liquido si immerge un superconduttore all'interno dell'helium vassel per tutta la sua lunghezza. Il filamento è connesso a un circuito in contenente un generatore di impulsi di correnti e un dispositivo per la misura della tensione indotta dall'impulso.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.59453in,height=4.89652in,alt={Immagine che contiene diagramma, testo, cerchio, schizzo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image376.pdf}\caption{Figura .: Principio di funzionamento di un monitor del livello di elio}
+\end{figure}
+
+La tensione misurata dipende dal livello di elio liquido presente nella vasa, poiché il filamento di niobio-titanio, essendo immerso solo parzialmente nell'elio liquido, presenta una porzione superconduttiva e la restante con comportamento resistivo, caratterizzato da una resistenza \(R\ \) non nulla. Dal punto di vista elettronico, è possibile modellare il filamento di niobio-titanio come una resistenza in serie a un corto circuito. In base alla porzione di cavo immerso nel liquido, quindi al livello di elio liquido presente nel serbatoio, la resistenza assume un determinato valore, proporzionale proprio alla porzione alla lunghezza di cavo a contatto con l'elio gassoso.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.18519in,height=4.31481in]{media/15_HWRMI/image377.pdf}\caption{Figura .: Schema circuitale del filamento di niobio-titanio parzialmente immerso nell\textquotesingle elio liquido}
+\end{figure}
+
+Ad esempio, se il filo è inserito al \(100\%\ \) nel liquido d'elio, la tensione è nulla; al contrario se la porzione di filo di niobio-titanio è inserito al \(70\%\) nell'elio liquido, la tensione misurata sarà uguale al \(30\%\) della tensione massima possibile \(V_{ma}\), ottenuta quando il cavo non ha proprietà superconduttive.
+
+La corrente iniettata nel cavo è dell'ordine del centinaio di \(mV\ \), mentre la tensione letta è dell'ordine di qualche \(mV\ \), dunque, è necessario adoperare una catena, composta da un amplificatore analogico e un convertitore A/D, che fornisca direttamente l'indicazione sul livello di elio tramite un opportuno fattore di scala.
+
+Siccome parte dell'elio passa allo stato gassoso e fuoriesce da varie aperture, è necessario un refilling, ovvero l'aggiunta periodica di nuovo elio liquido, generalmente da ogni \(6\ \)mesi a ogni anno.
+
+Nella camera di controllo dello scanner, accanto al pulsante del quench vi è un monitor per controllare il livello di elio liquido. Se il valore di elio liquido si riduce al di sotto di una certa soglia, è suonato un allarme.
+
+\subsubsection{Omogeneità del campo}\label{omogeneituxe0-del-campo}
+
+La corretta formazione delle immagini in risonanza magnetica richiede un'elevata omogeneità del campo magnetico principale. L\textquotesingle imaging si basa, infatti, sulla selezione della slice e sulla codifica in frequenza, che non funzionerebbero correttamente in presenza di forti disomogeneità del campo, in quanto i vari isocromati risuonerebbero a frequenza diverse da quella attesa, ovvero quella di Larmor \(\omega_{0\,} = \gamma B_{0}\). Ancora, l'imaging di spettroscopia richiede un'alta omogeneità del campo date le piccole differenze di frequenza di precessione tra protoni del tessuto adiposo e gruppi \(CH_{3}\) presenti nei vari metaboliti.
+
+È, dunque, necessario controllare l'omogeneità del campo principale in mod da ottenere una riduzione degli artefatti introdotti dalle variazioni non volute del campo stesso.
+
+Quando i magneti sono installati, il campo magnetico presenta una disomogeneità di campo di circa \(100\ ppm\). Infatti, la presenza di materiali metallici e di altre eventuali apparecchiature in prossimità dello scanner può influenzare il campo magnetico principale.
+
+Sebbene le case costruttrici garantiscano una disomogeneità di \(1\ ppm\), la presenza dell'ambiente all'interno e all'esterno della camera, nella struttura clinica adibita allo scanner, può modificare il campo magnetico principale. È, quindi, necessario adoperare delle compensazioni per ridurre l'effetto dell'ambiente.
+
+L'omogeneità del campo è misurata all'interno di una sfera con diametro di circa \(20 \div 40\ cm\) detta \emph{Diameter Sphierical Volume} (DSV) al centro del magnete. La misura del campo all'interno della DSV è ottenuta mediante l'acquisizione di una serie di dati, distribuiti secondo una geometria prefissata, di solito situato sulla superficie sferica.
+
+Misurando il campo su una superficie sferica, infatti, per il teorema di Gauss è possibile ricavare il campo all'interno del volume racchiuso dalla sfera stessa. Da questa misura, quindi, si ottiene una valutazione -della disomogeneità del campo all'interno della DSV.
+
+Una disomogeneità di \(1\ ppm\) comporta un errore dell'ordine della decina di \(Hz\), con una frequenza di risonanza dei \(MHz\). Ad esempio, per un magnete a \(1.5\ T\), la disomogeneità è:
+
+\[\Delta B = 42.6\frac{MHz}{T}1.5\ T\ 1ppm = 64\ Hz\]
+
+Questa differenza di frequenza è dello stesso ordine di grandezza dello shift tra acqua e grasso, dove la differenza di campo è proprio di \(3.5\ ppm\). Ciò comporta una differenza di frequenza di precessione di circa \(220\ Hz\).
+
+Per poter garantire un'omogeneità di campo dell'ordine di \(0.1\ ppm\) è necessario ricorrere alle operazioni di shimming passavo e attivo che riescono a compensare parzialmente le disomogeneità di campo.
+
+L'omogeneità del campo viene misurata mediante sensori ad affetto Hall. Un sensore Hall è costituito da una sottile lastra di materiale \textbf{semiconduttore} (spesso silicio), attraverso la quale viene fatta scorrere una \textbf{corrente elettrica} (\(I\)) costante in senso longitudinale.
+
+Quando il sensore è immerso in un \textbf{campo magnetico statico} (\(B_{0}\)) perpendicolare al flusso della corrente, la \textbf{Forza di Lorentz} agisce sulle cariche in movimento (elettroni):
+
+\[F_{L} = q\left( \overset{\underline{}}{v} \times \overset{\underline{}}{B} \right)\]
+
+Questa forza devia gli elettroni verso uno dei lati del semiconduttore.
+
+L'accumulo di cariche su un lato e la corrispondente carenza sull\textquotesingle altro creano una \textbf{differenza di potenziale} misurabile attraverso i bordi del semiconduttore, perpendicolare sia alla corrente che al campo magnetico. Questa è chiamata \textbf{Tensione di Hall} (\(V_{H}\)). Quest'ultima è \textbf{direttamente proporzionale} all\textquotesingle intensità del campo magnetico:
+
+\[V_{h} \propto IB_{0}\]
+
+Mantenendo la corrente costante, il sensore misura l\textquotesingle intensità del campo magnetico statico semplicemente misurando la tensione generata. I sensori moderni integrano circuiti aggiuntivi per amplificare e linearizzare questo segnale.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.13542in,height=2.5625in]{media/15_HWRMI/image378.pdf}\caption{Figura .: Sensori a effetto Hall per misura del campo statico}
+\end{figure}
+
+\subsubsection{Shimming attivo}\label{shimming-attivo}
+
+Lo shimming attivo consiste nell'iniezione di corrente in un avvolgimento, detto di shimming, per compensare le piccole disomogeneità di campo introdotte dal paziente. Quest'ultimo può introdurre delle disomogeneità di campo per la presenza sia del suo corpo, caratterizzato da un comportamento conduttivo, sia per la presenza di oggetti metallici che può contenere come delle otturazioni dentarie o protesi metalliche.
+
+Le correnti negli avvolgimenti di shimming introducono un campo magnetico che si sovrappone al campo principale così da renderlo maggiormente omogeneo. Gli avvolgimenti di shimming attivo sono realizzati in materiale superconduttore controllato attivamente dall'operatore.
+
+L'intensità del campo di shimming attivo è controllata mediante la valutazione dell'intensità di corrente e la posizione degli avvolgimenti nella struttura dello scanner, richiesti da parte del software dello scanner tramite lo sviluppo in armoniche sferiche.
+
+Per particolari esami, come la spettroscopia, lo shimming attivo è effettuato sulla base di un'analisi preliminare delle distorsioni introdotte, valutate, ad esempio, con una sequenza spin-echo o FID.
+
+Nell'imaging alle mammelle è necessario avere un'elevata omogeneità del campo poiché questi distretti anatomici sono posti all'estremità del FOV. è, dunque, importante avere uno shimming attivo per correggere le non idealità del campo per ogni paziente che si sottopone all'esame diagnostico.
+
+\subsubsection{Campo disperso dallo scanner}\label{campo-disperso-dallo-scanner}
+
+Il campo magnetico disperso è il campo presente all'esterno dello scanner. Allentandosi dal magnete, il campo decade come \(r^{- 3}\). In assenza di particolari accorgimenti, delle frange di campo disperso o \emph{fringe field} si estendono anche al di fuori della stanza in cui è contenuta l'apparecchiatura di risonanza magnetica.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.47993in,height=3.24003in,alt={Immagine che contiene diagramma, linea, cerchio, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image379.pdf}\caption{Figura .: Linee isolivello che mostrano l'intensità del fringe field a varie distanze}
+\end{figure}
+
+L'intensità di campo magnetico nelle aree attigue allo scanner, per motivi di sicurezza, non deve superare i \(0.5\ mT\). Campi di ampiezza maggiore potrebbero influenzare pacemaker e altri dispositivi elettronici. Ovviamente, esistono una serie di normative che regolano la distanza alle quali il campo deve subire una certa attenuazione.
+
+Al fine di ridurre il campo esterno si utilizzano due tecniche:
+
+\begin{itemize}
+\item
+  Il \emph{passive shielding} consiste nel montare blocchi di materiale ferromagnetico, come l'acciaio, in prossimità del magnete. In questo modo, le linee di campo sono confinate all'interno del materiale esterno, riducendo a dispersione del campo al di fuori del magnete. Purtroppo, la quantità di materiale ferromagnetico necessaria alla schermatura aumenta con l'intensità del campo magnetico principale. Ad esempio, per un campo di \(7\ T\) sono richieste \(600\) tonnellate di acciaio;
+\item
+  L'\emph{active shielding} consiste nell'aggiunta, nel criostato, di ulteriori avvolgimenti che creino un campo opposto al principale all'esterno dello scanner. Con questa soluzione il campo esterno al gantry decresce molto più rapidamente.
+\end{itemize}
+
+Gli avvolgimenti di shielding hanno un diametro maggiore dei primary coil del campo principale, così che il campo magnetico principale possa essere mantenuto con le caratteristiche desiderate, aumentando la corrente in entrambi gli avvolgimenti. L'avvolgimento primario e quello di shielding si respingono a vicenda, dunque, si rende necessaria una struttura di sostegno molto robusta, che bilanci le forze di repulsione.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.08306in,height=3.44167in,alt={Immagine che contiene testo, schermata, cerchio, arte Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image380.pdf}\caption{Figura .: Avvolgimenti di shielding e primario}
+\end{figure}
+
+Le forze attrattive sui materiali paramagnetici e ferromagnetici nei pressi di un magnete con shielding attivo risultano essere maggiori rispetto a un mangete non schermato poiché il gradiente di campo aumenta.
+
+\subsubsection{Interferenze esterne}\label{interferenze-esterne}
+
+I campi magnetici ed elettrici esterni al magnete possono alterare l'omogeneità del campo primario ed è, quindi, necessario utilizzare degli accorgimenti per ridurre le interferenze esterne.
+
+Per risolvere il problema si pone un ulteriore avvolgimento superconduttore all'esterno del magnete principale, chiuso su sé stesso e non percorso da corrente. L'avvolgimento capta le interferenze intrappolandole al suo interno. Si induce, quindi, una corrente dell'ordine dei \(mA\) che deve essere rimossa mediante il fenomeno del quench ogni \(24\) ore.
+
+Nei magneti a basso campo, come quelli permanente o resistivi, si utilizza un sistema noto come \emph{external fiel interference compensation} o EFI. Il sistema si compone di una sonda, che capta le interference, e da un sistema elettronico che inverte e amplifica il segnale da iniettare nelle bobine di gradiente. Si crea così un contro campo che annulla le interferenze.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.46667in,height=3.80017in,alt={Immagine che contiene testo, schermata, cerchio, Dispositivo di archiviazione dati Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image381.pdf}\caption{Figura .: Schema di feedback per l\textquotesingle attenuazione delle interferenze per magnetici permeanti o resistivi}
+\end{figure}
+
+\subsubsection{Avvolgimenti del campo magnetico principale}\label{avvolgimenti-del-campo-magnetico-principale}
+
+Per misurare il campo magnetico si utilizzano dei sensori a effetto Hall, in cui, per effetto dei campi elettrici e magnetici, si genera una distribuzione di carica tale da generare una differenza di potenziale tra le due facce del sensore. Nota questa d.d.p. si risale al campo magnetico applicato.
+
+Per generare il campo magnetico principale si utilizzano degli avvolgimenti coassiali dette bobine di Helmholtz. Gli avvolgimenti sono ortogonali all'asse \(z\), che passa per i loro centri.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.175in,height=3.54167in,alt={15-Bobine di Helmholtz. \textbar{} Download Scientific Diagram}]{media/15_HWRMI/image382.pdf}\caption{Figura .: Bobine di Helmholtz}
+\end{figure}
+
+Sia \(z_{k}\) la coordinata del centro della \(k\)-esima spira e \(a_{k}\) la posizione lungo la circonferenza. Questi due termini possono essere espressi in coordinate polari come:
+
+\[\left\{ \begin{matrix}
+a_{k} = R_{k}\sin\vartheta_{k} \\
+z_{k} = R_{k}\cos\vartheta_{k}
+\end{matrix} \right.\ \]
+
+Per ogni avvolgimento è possibile scrivere un'espansione in armoniche sferiche per il campo magnetico:
+
+\[\left\{ \begin{matrix}
+B_{r}(R,\vartheta) = \frac{\mu}{2}\sum_{n = 1}^{\infty}{\frac{c_{n}}{n + 1}R^{n}P_{n}^{1}\left( \cos\vartheta \right)} \\
+B_{z}(R,\vartheta) = \frac{\mu}{2}\sum_{n = 0}^{\infty}{c_{n}R^{n}P_{n}\left( \cos\vartheta \right)}
+\end{matrix} \right.\ \]
+
+Dove \(P_{n}\left( \cos\vartheta \right)\) è la funzione di Legendre e \(P_{n}^{1}\left( \cos\vartheta \right)\) la funzione di Legendre associate di primo tipo, grado \(n\) e ordine \(1\). Inoltre, le coordinate sferiche \((R,\vartheta)\) individuano la posizione del campo magnetico.
+
+I coefficienti dello sviluppo \(c_{n}\) dipendono dal numero \(K\) degli avvolgimenti secondo la relazione:
+
+\[c_{n} = - \sum_{k = 1}^{K}{I_{k}R_{k}^{- (n + 1)}\sin\vartheta_{k}P_{n + 1}^{1}\left( \cos\vartheta \right)}\]
+
+\subsubsection{Sistema di generazione dei gradienti9}\label{sistema-di-generazione-dei-gradienti9}
+
+I gradienti, al pari del campo principale, sono fondamentali per l'imaging in risonanza magnetica. In assenza di tali campi non è possibile selezionare la slice o eseguire l'operazione di codifica di frequenza.
+
+Le bobine di gradiente sono collocate all'interno del gantry con specifici accorgimenti per ogni direzione con cui bisogna modificare il campo principale diretto lungo \({\widehat{i}}_{z}\). Di solito gli avvolgimenti di gradiente sono mantenuti su un supporto di resina ipossica che conferisce rigidità alla struttura; tuttavia, quest'ultima lo spazio per il paziente poiché il diametro del gantry passa da \(90\ cm\), in assenza delle bobine di gradiente, a \(60\ cm\).
+
+I gradienti lungo \({\widehat{i}}_{z}\) sono generati da una coppia di avvolgimenti coassiali di raggio \(a\) e distanza \(d = \sqrt{3}a\) così da avere un gradiente lineare nello spazio degli avvolgimenti. Questo tipo di configurazione è nota come coppia di Maxwell.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.70885in,height=3.19836in,alt={Immagine che contiene schizzo, diagramma, disegno, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image383.pdf}\caption{Figura .: Coppia di Maxwell per la generazione del gradiente lungo \(z\)}
+\end{figure}
+
+Le due bobine sono concentriche col magnete principale, ovvero possiedono un asse diretto lungo \({\widehat{i}}_{z}\), così che la variazione lineare prodotta dall'arrangiamento sia lungo quell'asse.
+
+Progettando opportunamente, la coppia di Maxwell è possibile variare il campo linearmente nella regione tra le due bobine, in maniera omogenea. La linearità è assicurata nel DSV con diametro dell'ordine di \(50\ cm\).
+
+I gradienti lungo le altre dimensioni presentano forme più complesse, generalmente formate da un rettangolo con il lato minore curvo. La corrente circola nella bobina, detta a sella o \emph{golay transvers gradient coil} producendo un campo lineare tra le due.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.11503in,height=4.64583in]{media/15_HWRMI/image384.pdf}\caption{Figura .: Golay transvers gradient coil}
+\end{figure}
+
+La bobina, diretta lungo un asse, genera un gradiente di campo lineare nella direzione ortogonale alle linee verticali dell'antenna. Si può, infatti, dimostrare che il campo prodotto da strisce parallele percorse da corrente uguale ma di segno opposto e dirette lungo \({\widehat{i}}_{z}\), generino un gradiente lineare lungo la direzione \({\widehat{i}}_{y}\). Ovviamente, ruotando l'arrangiamento in modo che sia disposto sulla direzione \({\widehat{i}}_{y}\), il campo prodotto varia linearmente con la coordinata \(x\).
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=2.61736in]{media/15_HWRMI/image385.pdf}\caption{Figura .: Golay transvers gradient coil e campo prodotto}
+\end{figure}
+
+Il progetto delle bobine di gradiente è ottimizzato mediante una tecnica nota come target field che porta la bobina ad avere una forma a impronta digitale o fingerprint. La progettazione di queste strutture richiede l'utilizzo di software numerici che permettono di modellare le bobine immerse nella resina in base al campo voluto.
+
+La costruzione delle bobine parte da una lastra di rame con spessore di circa \(30\ mm\), incise successivamente elettroliticamente. All'interno del rame, poi, viene fatta scorrere una corrente di circa \(500\ A\) per generare i gradienti voluti.
+
+I moderni scanner presentano gradienti con intensità massima di \(40\ mT/m\) con un diametro delle bobine di \(60\ cm\); tuttavia, in particolari situazioni come l'imaging cerebrale, si possono utilizzare gradienti con intensità di \(80\ mT/m\) con diametro minore.
+
+Il massimo valore del gradiente è limitato dalla tensione di alimentazione di circa \(2\ kW\) che fornisce una corrente di circa \(500\ A\). Questa corrente è dissipata in calore negli avvolgimenti di rame ed è, quindi, necessario adoperare un sistema di raffreddamento ad acqua per evitare la fusione delle bobine di gradiente.
+
+Siccome i gradienti devono avere una durata di qualche millisecondo le correnti devono aumentare rapidamente il loro valore, passando dallo stato di riposo al regime in un tempo relativamente breve.
+
+Si definisce slew rate, \(S_{\max}\), come il rapporto tra il massimo gradiente desiderato e il tempo di salita necessario per raggiungerlo:
+
+\[S_{\max} = \frac{G_{\max}}{t_{rise}}\]
+
+\begin{figure}
+\centering
+\includegraphics[width=5.29792in,height=2.80513in]{media/15_HWRMI/image386.pdf}\caption{Figura .: Slow rate del gradiente}
+\end{figure}
+
+È importante inoltre controllare e modellare l'omogeneità del campo nel tempo e nello spazio, il duty cycle nel tempo, il tipo di schermatura, la stabilita e la precisione con cui si producono i gradienti.
+
+Quando la corrente nella bobina gradiente aumenta durante l'attivazione, per la legge di Lorentz, si induce una corrente nella stessa bobina che si oppone all'iniezione di corrente. Per tale motivo, il tempo di salita della corrente non può essere infintamente piccolo. Tipici valori vanno dai \(10\frac{mT}{m\ ms}\) fino a \(200\frac{mT}{m\ ms}\)
+
+Collegando la bobina gradiente a una capacità si può ottenere un tempo di salita più breve grazie alle caratteristiche del circuito risonante che si viene a creare; tuttavia, lo svantaggio risiede nella dipendenza dei tempi di salita dalla frequenza di risonanza del circuito.
+
+Un elevato valore di slew rate permette di ottenere tempi di salita più brevi, abilitando anche un imaging più veloce; infatti, se lo slew rate fosse troppo basso non sarebbe possibile acquisire immagini con sequenze echo-planar poiché quest'ultima richiede un sistema di gradienti molto rapido al fine di acquisire in un intervallo \(T_{R}\) potenzialmente linterno volume anatomico.
+
+All'estremità del FOV la variazione dei gradienti è massima del campo magnetico prodotto. Si induce una fem legata alla variazione del campo magnetico nel tempo, la quale, durante la fase di salita, coincide proprio con lo slew rate:
+
+\[fem \propto - \frac{dB}{dt} = S_{\max}\frac{Fov}{2}\]
+
+Il campo magnetico variabile induce delle correnti nelle correnti conduttrici circostanti, quali il criostato, i supporti metallici degli avvolgimenti e nel paziente stesso, il quale presenta dei portatori di cariche ioniche nei fluidi biologici. Le correnti parassite indotte o \emph{eddy current} generano dei campi che si oppongono alla variazione del gradiente. Ciò modifica la forma del gradiente, la quale perde l'andamento desiderato:
+
+\begin{itemize}
+\item
+  A causa dello slew rate non si hanno transizioni nette ma un tempo di salita finito;
+\item
+  Per le eddy current si ha un effetto risultante di tipo passa-basso dato dal campo indotto che si oppone al gradiente.
+\end{itemize}
+
+La forma del gradiente è data dalla combinazione dei due effetti, che determinano un andamento con tempi di salita finiti e un andamento smussato nel tempo.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.49583in,height=1.30833in]{media/15_HWRMI/image387.pdf}\caption{Figura .: Effetto delle eddy current sul gradiente}
+\end{figure}
+
+L'effetto delle eddy current può essere compensato mediante un active shielding che consiste nel posizionare un secondo sistema gradiente in grado di erogare un campo tale da compensare gli effetti delle variazioni all'esterno del FOV.
+
+Inoltre, la forma della corrente erogata è struttura in modo da compensare gli effetti dello slew rete e delle eddy current. Invece di generare un gradiente con forma trapezoidale, si eroga una corrente in modo che il suo campo prodotto abbia un valore di picco più alto del valore costante. Il picco permette di compensare gli effetti passa-basso dei fenomeni parassiti. Analogamente, per avere una tradizione con una certa pendenza, si utilizza un picco negativo. L'effetto risultante è un gradiente di forma trapezoidale con un certo fronte di salita.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.33422in,height=1.75024in,alt={Immagine che contiene diagramma, schermata, Carattere, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image388.pdf}\caption{Figura .: Impulso di correne per evitare gli effetti dello slew rate ed eddy current}
+\end{figure}
+
+Nota la distribuzione geometrica dei supporti conduttori e altri parametri all'interno dello scanner, con algoritmi numerici è possibile valutare la forma d'onda da erogare alle bobine di gradiente affinché il gradiente di campo magnetico abbia la forma voluta.
+
+Non tenendo conto delle eddy current, si avrebbe un'errata ricostruzione delle immagini poiché, per la variabilità del gradiente nel tempo, non vi è più una corrispondenza biunivoca tra frequenza di precessione e posizione spaziale degli isocromati.
+
+Le eddy current indotte nel corpo del paziente possono causare delle stimolazioni nervose o muscolari se la loro intensità supera i \(10\ \mu A\). Per tale motivo bisogna fare in modo che non si sviluppino correnti molto elevate sul paziente.
+
+Un artefatto sull'immagine legato al sistema di generazione dei gradienti è l'overfolding artifact o artefatto da ripiegamento. Dato che il gradiente non si annulla sul bordo del FOV, esistono delle zone del corpo del paziente in cui insiste lo stesso valore del campo, ovvero due isocromati diversi, posizionati ad ascisse diverse risuonano alla stessa frequenza.
+
+\begin{figure}
+\centering
+\includegraphics[width=2.8in,height=2.5982in]{media/15_HWRMI/image389.pdf}\caption{Figura .: Andamento dell\textquotesingle ampiezza del campo nel FOV}
+\end{figure}
+
+Le bobine di gradiente si trovano nel gantry e sono contenute all'interno del magnete principale. Queste bobine sono disposte nello spazio in modo da produrre gradienti lineari lungo le tre direzioni dello spazio.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.73333in,height=3.6538in]{media/15_HWRMI/image390.pdf}\caption{Figura .: Avvolgimenti per la generazione dei gradienti}
+\end{figure}
+
+Siccome gli avvolgimenti per la generazione dei gradienti sono all'interno del campo principale, quando la corrente scorre, queste bobine subiscono un momento torcente legati alla forza di Lorentz. Date le elevate correnti, infatti, le bobine di gradiente sono soggette a momenti torcenti, quindi forze, molto elevate che cercano di spostare il blocco di resina contenente gli avvolgimenti dalla sua posizione originaria.
+
+Gli spostami sono molto rapidi e intensi. Ciò si traduce in urti contro i supporti metallici diamagnetici dove sono alloggiati. L'effetto risultante è molto importante in risonanza magnetica poiché produce un rumore fastidioso per il paziente, caratteristico della sequenza di acquisizione applicata e con frequenza legata al tempo d'echo, di ripetizione e di inversione. In altre parole, il rumore ascoltato dal paziente ha una certa periodicità dipendente da come sono applicati i gradienti e dal tempo che intercorre tra una sequenza e la successiva.
+
+Per ridurre il rumore si fornisce al paziente delle cuffie isolati che, tuttavia, riescono solo ad attenuare i suoni prodotti dalle sequenze.
+
+Se, ad esempio, in un avvolgimento di gradiente circola una corrente di \(100\ A\) e il campo esterno è di \(1.5\ T\) si instaurano forze di attrazione molto intense, invertire rapidamente con un periodo di circa \(1\ ms\). Gli avvolgimenti di gradiente sono spinti verso l'impalcatura dello scanner producendo un rumore acustico che può superare i \(100\ dB\) nei moderni scanner. Questi livelli di rumore possono provocare la perdita momentanea di udito, dunque, i dispositivi di protezione uditivi sono obbligatori durante l'esame di imaging con risonanza magnetica.
+
+Sono state proposte in letteratura delle sequenze di gradiente in modo da produrre sinfonie classiche come quelle di Bach.
+
+La rumorosità delle sequenze può interferire con l'imaging di risonanza funzionale o fMRI, poiché il paziente potrebbe essere distratto dal frastuono e non prestare particolare attenzione agli stimoli psicosomatici somministrati. La risposta neurale risulta così leggermente o fortemente distorta dal rumore.
+
+\subsubsection{Sicurezza della risonanza magnetica}\label{sicurezza-della-risonanza-magnetica}
+
+Il campo magnetico nella stanza del magnete, anche in presenza di opportuni accorgimenti come lo shielding, risulta essere abbastanza intenso. Gli oggetti metallici risentono, quindi, della forza esercitata dal campo, soprattutto in prossimità dello scanner.
+
+Un oggetto metallico con piccola massa, in prossimità del campo magnetico generato dallo scanner può subire una forza anche di circa \(2000\ N\). Anche l'introduzione di una sedia nella camera dello scanner può portare a seri rischi per il paziente, poiché le parti conduttive dell'oggetto estraneo sono attratte dal magnete con forza molto intensa.
+
+Se la sedia, come ogni altro oggetto, ostruisce l'apertura dello scanner, il paziente non può entrare né uscire dal gantry. Si rende necessario lo spegnimento del campo mediante il fenomeno del quench, a maggior ragione nel caso in cui il paziente resti bloccato nel gantry.
+
+A causa dell'elevata intensità del campo magnetico, anche oggetti molto piccoli possono comportarsi come proiettili accelerati fino a raggiungere velocità di molti \(m/s\).
+
+Più in generale è possibile classificare i materiali sulla base dei valori assunti dalla suscettività magnetica \(\chi_{m}\), legata al campo magnetico e al vettore di magnetizzazione dalla relazione:
+
+\[\overset{\underline{}}{M} = \chi_{m}B_{0}\]
+
+I materiali ferromagnetici possiedono una suscettività magnetica molto elevata, al limite tendente all'infinito. Questi materiali, come ferro, nichel e cobalto, in prossimità dello scanner possono diventare proiettili diretti verso il magnete principale.
+
+I materiali diamagnetici possiedono una suscettività magnetica lievemente minore dello zero, al limite \(\chi_{m} \rightarrow 0^{-}\). A causa di ciò questi materiali sono debolmente respinti dal magnete principale.
+
+I materiali paramagnetici possiedono una suscettività magnetica \(\chi_{m}\) lievemente maggiore dello zero e sono, dunque, lievemente attratti dal magnete principale. Rame e acciaio possiedono caratteristiche amagnetiche a patto che siano sufficientemente puri. Sotto questa ipotesi questi materiali non forniscono particolari problemi di sicurezza.
+
+La forza con cui il campo magnetico attrae gli oggetti ferromagnetici dipende dal suo gradiente spaziale \(\overset{\underline{}}{\nabla}{\overset{\underline{}}{B}}_{0}\) e il dipolo magnetico degli atomi del materiale, \(\overset{\underline{}}{\mu}\), secondo la relazione:
+
+\[{\overset{\underline{}}{F}}_{m} = \overset{\underline{}}{\mu} \cdot \overset{\underline{}}{\nabla}{\overset{\underline{}}{B}}_{0}\]
+
+Al centro del magnete il gradiente è nullo, quindi non vi sono forze attrattive.
+
+Per un materiale ferromagnetico, il rapporto tra la forza magnetica e la forza peso si esprime come:
+
+\[\frac{F_{m}}{F_{g}} = \frac{\chi_{m}B_{0}\left| \overset{\underline{}}{\nabla}{\overset{\underline{}}{B}}_{0} \right|}{\mu_{0}\rho g}\]
+
+Per gli scanner moderni il modulo del gradiente spaziale può essere dell'ordine della decina di \(T/m\), quindi la forza che attrae un oggetto ferromagnetico può essere anche maggiore di \(250\) volte il suo peso, il che può portare l'oggetto a muoversi con una velocità di \(200\ km/h\) in \(25\ ms\).
+
+I moderni scanner sono muniti di sistemi, noti come \emph{active shielding}, che limitano il campo all'esterno dello scanner. Ciò implica che il gradiente spaziale di campo diventa molto intenso e, di conseguenza, la forza attrattiva cresce. Per uno scanner a \(3\ T\) non bisogna introdurre oggetti metallici entro un raggio di circa \(4\ m\), dove il gradiente si riduce a \(5\ mT/m\).
+
+Il momento torcente che gli oggetti subiscono non dipende dal gradiente spaziale ma solo dall'intensità del campo, secondo la relazione:
+
+\[\overset{\underline{}}{N} = \overset{\underline{}}{\mu} \times {\overset{\underline{}}{B}}_{0}\]
+
+Il momento torcente è massimo al centro dello scanner, quindi, può dare seri problemi ai piccoli oggetti ferromagnetici impiantati nel paziente, come capsule dentarie.
+
+Una valutazione approssimata dell'intensità del momento torcente su un oggetto di lunghezza \(L\) è dato da:
+
+\[\frac{F_{torc}L}{F_{m}} \simeq \frac{B_{0}}{\left| \overset{\underline{}}{\nabla}{\overset{\underline{}}{B}}_{0} \right|}\]
+
+Per un campo a \(3\ T\), con un gradiente spaziale di \(10\ T/m\) e un oggetto di \(1\ cm\), la forza torcente è circa \(300\) volte la forza magnetica:
+
+\[F_{torc} = \frac{B_{0}}{\left| \overset{\underline{}}{\nabla}{\overset{\underline{}}{B}}_{0} \right|}\frac{1}{L}F_{m} = \frac{30\ T}{10\frac{T}{m}1 \cdot 10^{- 2}m}F_{m} = 300F_{m}\]
+
+Le forze e i momenti torcenti sugli elementi diamagnetici e paramagnetici, come i tessuti umani, sono di piccola intensità, dunque, sono tali da non causare pericoli. Ad esempio, i globuli rossi contengono ferro nell'emoglobina. Questa componente paramagnetica porta i globuli rossi a separarsi dal plasma a causa della diversa suscettività magnetica.
+
+Per un campo principale che presenta un prodotto \(B_{0}\left| \overset{\underline{}}{\nabla}{\overset{\underline{}}{B}}_{0} \right| = 25\ T^{2}/m\), la forza di separazione è circa dell'\(8\%\) della differenza tra le forze gravitazioni dei due elementi.
+
+Un potenziale effetto del campo magnetico può indotto nei tessuti in cui circola una corrente ioniche, come nervi e muscoli. Sulle correnti ioniche agisce la forza di Lorentz:
+
+\[{\overset{\underline{}}{F}}_{L} = q\overset{\underline{}}{v} \times \overset{\underline{}}{B}\]
+
+Questi effetti sono molto limitati per poter essere di importanza biologica, tuttavia sono presenti. Ad esempio, gli ioni in movimento, disciolti nei fluidi biologici, costituiscono delle correnti su cui agisce la forza di Lorentz. Le interazioni tra le correnti ioniche e il campo magnetico sono dette magnetoidrodinamiche.
+
+Quando il sangue, contenente particelle ioniche, scorre in una direzione perpendicolare a un campo magnetico, le particelle cariche subiscono la forza di Lorentz. Questo può generare una resistenza al flusso, ma l\textquotesingle effetto sul moto del sangue è trascurabile e comporta solo un incremento minimo della pressione.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.12814in,height=2.85975in,alt={Immagine che contiene testo, schermata, Carattere, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image391.pdf}\caption{Figura .: Effetto della diversa suscettività magnetica}
+\end{figure}
+
+Un effetto più significativo è legato alla separazione ionica, causata dalla forza di Lorentz, la cui direzione dipende dal segno della carica \(q\) immersa nel campo magnetico. Durante l'esame di risonanza magnetica, possono essere indotti, a livello di vasi sanguigni, dei campi elettrici che interferiscono con il segnale elettrocardiografico, complicando il monitoraggio del paziente. Questo rende più complessa l'applicazione pratica del \emph{cardiac gating}, ovvero la sincronizzazione dell'acquisizione delle immagini cardiache con l'elettrocardiogramma.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.3in,height=3.4in,alt={Immagine che contiene testo, schermata, diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image392.pdf}\caption{Figura .: Separazione degli ioni presenti nel sangue a opera del campo magnetico}
+\end{figure}
+
+Sono stati riportati in letteratura effetti importati come vertigini e nausea legati al moto delle cariche nel campo magnetico della risonanza magnetica. Questi effetti potrebbero essere dovuti all'anisotropia della suscettività magnetica o all'effetto magnetoidrodinamiche.
+
+Accanto alla legge di Lorentz bisogna considerare anche la legge di Faraday-Neumman-Lenz:
+
+\[\overset{\underline{}}{\nabla} \times \overset{\underline{}}{E} = - \frac{\partial\overset{\underline{}}{B}}{\partial t}\]
+
+Possono indursi delle correnti nei tessuti biologici in movimento nella regione di spazio in cui insiste un gradiente spaziale di campo magnetico. Ad esempio, nei pressi dello scanner, dove il gradiente è più elevato, possono indursi delle correnti con intensità di \(0.1\ A/m^{2}\), legate al normale movimento dell'operatore. Ciò rappresenta un fattore di rischio in quanto i limiti fissati dall'\emph{International Commission on Non-Ionizing Radiation Protection} o ICNIRP sono di \(0.04\ A/m^{2}\).
+
+Queste correnti possono essere molto importati sui dispositivi metallici impiantati nel paziente come peacemaker e protesi.
+
+Nei moderni sistemi attualmente in commercio si possono raggiungere gradienti di codifica spaziale dell'ordine dei \(40\ mT/m\) fino agli \(80\ mT/m\) i quali, in un FOV di \(50\ cm\), producono una variazione del campo dai \(20\ mT\) ai \(40\ mT\), agli esterni del FOV stesso. Con uno slew rate di \(200\frac{mT}{m/s}\) l'orientamento dei campi può essere invertito ogni \(1\ ms\).
+
+Si inducono così delle correnti nel corpo umano dovute alla legge di Faraday, che fa circolare gli ioni contenuti nei fluidi biologici. Si genera una corrente che può stimolare i tessuti cardiaci o nervosi. La curva intensità-durata mostra che con le attuali macchine è possibile stimolare i tessuti nervosi periferici ma non i tessuti cardiaci che presentano soglie di attivazione più alte. Per stimolare il miocardio tramite le eddy current è necessario adoperare gradienti spaziali maggiori di quelli in commercio.
+
+Le correnti indotte dallo switching dei gradienti possono inoltre causare un riscaldamento di dispositivi impintati nel paziente.
+
+Esiste una serie di normative e studi che limitano l'ampiezza e la velocità dei gradienti normalmente applicati in risonanza al fine di evitare la \emph{Peripheral Nerve Stimulation} o PNS. Per tale motivo non sono approvati per applicazione diagnostiche umane campi con intensità maggiore di \(3\ T\), i cui gradienti devono avere ampiezza maggiore e durata inferiore. Le correnti indotte sono molto più elevate e possono causare la stimolazione con maggiore probabilità.
+
+\subsection{Sistemi di trasmissione a radiofrequenza}\label{sistemi-di-trasmissione-a-radiofrequenza}
+
+Il sistema di trasmissione a radiofrequenza prevede un host computer nel quale sono memorizzate le sequenze di impulsi fa far eseguire alle antenne. Le sequenze sono convertire in un segnale analogico dal DAC, la cui uscita è successivamente modulata con la tecnica della \emph{Single Side Band} o SSB. In questa fase oltra alla modulazione si esegue la reiezione della portante e delle bande laterali.
+
+Il segnale così ottenuto attraversa un blocco di amplificazione di potenza detto \emph{Radio Frequency Power Amplifier} o RFPA e, infine, trasmesso alle antenne per poter irradiare il corpo.
+
+Il segnale generato dal blocco SSB (Single Side Band) è una modulazione a banda stretta, fondamentale per conferire selettività in frequenza all'impulso a radiofrequenza (RF). Questo consente di indirizzare l'energia RF in modo mirato, migliorando la precisione dell'eccitazione dei nuclei durante l'esame di risonanza magnetica.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.15in,height=0.84167in]{media/15_HWRMI/image393.pdf}\caption{Figura .: Schema di trasmissione a radiofrequenza}
+\end{figure}
+
+\subsection{Effetti del campo a radiofrequenza}\label{effetti-del-campo-a-radiofrequenza}
+
+Anche se l'intensità del campo a radiofrequenza è dell'ordine del \(\mu T\), ovvero un ordine di grandezza inferiore rispetto al campo terreste, la sua frequenza di \(64\ MHz\) a \(1.5\ T\) o \(128\ MHz\) a \(3\ T\) può causare problemi al corpo, soprattutto legati allo sviluppo di calore.
+
+La legge dell'induzione di Faraday impone che campi magnetici variabili inducono campi elettrici variabili, quindi una circolazione di corrente:
+
+\[\overset{\underline{}}{\nabla} \times \overset{\underline{}}{E} = - \frac{\partial\overset{\underline{}}{B}}{\partial t}\]
+
+La corrente indotta dalla forza elettromotrice produce delle dissipazioni di energia in calore nei materiali conduttori come il corpo umano.
+
+Per quantificare questo effetto si introduce il tasso specifico di assorbimento o \emph{Specific Absorption Rate} (SAR), definito come:
+
+\[SAR = \sigma\frac{E_{p}^{2}}{2\rho}\]
+
+Dove il termine \(\sigma\) rappresenta la conducibilità del tessuto, \(E_{p}\) l'ampiezza di picco del campo elettrico variabile secondo legge sinusoidale e \(\rho\) la densità del tessuto biolofico. L'unità di misura del SAR è:
+
+\[\lbrack SAR\rbrack = \left\lbrack \frac{W}{kg} \right\rbrack\]
+
+Il SAR fornisce indicazioni sull'energia dissipata in calore all'interno di \(1\ kg\) di materia. Esistono delle tabelle normale indicanti il valore di SAR idoneo per la specifica applicazione.
+
+La capacità termica \(c\) dei tessuti biologici è di circa \(4200\ J/(kg{^\circ}C)\). Dividendo questa quantità per il SAR si ottiene il tasso di riscaldamento che subisce quel tessuto:
+
+\[TR = \frac{SAR}{c}\]
+
+La cui unità di misura è:
+
+\[\lbrack TR\rbrack = \left\lbrack \frac{{^\circ}C}{s} \right\rbrack\]
+
+Tipicamente il SAR in risonanza magnetica è di \(4.2\ W/kg\), quindi, per un tessuto biologico si ha un tasso di riscaldamento di:
+
+\[TR = \frac{SAR}{c} = \frac{4.2\frac{Js}{kg}}{4200\frac{J}{kg{^\circ}C}} = 1 \cdot 10^{- 3}\frac{{^\circ}C}{s}\]
+
+Per incrementare la temperatura di \(1\ {^\circ}C\) è necessario fornire al tessuto energia a radiofrequenza per \(100\ s\), ovvero circa \(17\ min\), consecutivi.
+
+Quando si progetta la sequenza di acquisizione è necessario tener conto della frequenza e dell'intensità del campo a radiofrequenza usato per eccitare gli spin di idrogeno. Questo campo deve essere tale da non fornire una quantità di energia più elevata dei valori normati.
+
+Le frequenze non possono eccedere determinate soglie normate poiché, all'aumentare della frequenza, ci si avvicina allo spettro delle onde ionizzanti, che possono produrre effetti biologici. Per tali motivi non si utilizzano frequenze troppo elevate per la diagnosta; dunque, si limita il campo a \(3\ T\).
+
+\subsection{Sistema di ricezione analogico}\label{sistema-di-ricezione-analogico}
+
+Il sistema di ricezione ha subito un'evoluzione dai primi sistemi analogici degli anni '80 ai sistemi di elaborazione quasi completamente digitali.
+
+L'architettura di base di un sistema di ricezione a radiofrequenza analogico possiede due canali per la ricezione dei segnali provenienti dalle antenne in quadratura, così da minimizzare il rumore sovrapposto al segnale utile. Il segnale ha una portante dell'ordine del \(MHz\) con una banda dell'ordine dei \(kHz\).
+
+Ogni canale prevede un preamplificatore, in grado di operare un primo filtraggio passa banda ad alta frequenza (HightFrequency o HF). Mediante un collegamento con cavo coassiale, necessario per trasmettere i segnali date le frequenze in gioco, il segnale viene portato all'ingresso di un amplificatore passa-banda. Successivamente, il cavo è portato all'esterno della camera schermata mediante appositi accessi che consentono solamente il passaggio della guida d'onda.
+
+Il segnale è attenuato e ulteriormente filtrato mediante un passa-banda prima di essere trasmesso a un demodulatore sincrono o coerente. Quest'ultimo si dispartisce in due canali:
+
+\begin{itemize}
+\item
+  Nel primo si esegue la moltiplicazione per una sinusoide con stessa frequenza della portante e in fase col segnale stesso. Tale canale è detto reale;
+\item
+  Nel secondo canale si esegue la moltiplicazione con una sinusoide in quadratura, ovvero sfasata di \(\pi/2\). Questo canale è detto immaginario.
+\end{itemize}
+
+La produzione della sinusoide o di qualsiasi altra forma d'onda usata per la demodulazione è realizzata da un digital synthesizer o sintetizzatore digitale.
+
+Dopo il moltiplicatore analogico, il segnale è filtrato passa-basso così da estrarre le sole componenti utili del segnale.
+
+Infine, dopo un ulteriore amplificazione e filtraggio passa-basso, il segnale viene campionato e quantizzato da un ADC e trasmesso a un computer per la ricostruzione dell'immagine.
+
+Il campionatore non richiede caratteristiche estremamente spinte poiché dopo la demodulazione il segnale presenta una banda dell'ordine del \(kHz\).
+
+L'interno apparato di filtraggio, demodulazione, amplificazione e campionamento deve essere ripetuto per ciascuno canale, con conseguenti costi e difficoltà costruttive. La presenza di più canali, tuttavia, è necessaria per minimizzare i tempi di acquisizione delle immagini.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=2.50764in,alt={Immagine che contiene testo, Carattere, diagramma, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image394.pdf}\caption{Figura .: Sistema di ricezione a radiofrequenza}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=5.43097in,height=3.54326in,alt={Immagine che contiene testo, diagramma, Piano, Disegno tecnico Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image395.pdf}\caption{Figura .: Sistema completo di trasmissione e ricezione a radiofrequenza}
+\end{figure}
+
+\subsubsection{Evoluzione dell'architettura analogica per gestire più canali}\label{evoluzione-dellarchitettura-analogica-per-gestire-piuxf9-canali}
+
+Nel tempo si è cercato di acquisire più canali anche simultaneamente da antenne posizionate intorno al paziente. Mediante dei selettori è possibile selezionare da quale distretto anatomico prelevare il segnale. In questo modo è possibile ridurre la complessità dello stesso apparato di prelievo. Infatti, invece di ripetere la circuiteria un numero di volte uguale al quantitativo di canali, più segnali sono convogliati nello stesso canale di acquisizione mediante il selettore.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=3.00347in,alt={Immagine che contiene diagramma, Piano, Carattere, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image396.pdf}\caption{Figura .: Schema con selettore per l\textquotesingle acquisizione contemporanea da più antenne}
+\end{figure}
+
+Di solito con \(6\) antenne era necessario precedere un sistema con \(2\) canali, uno per ogni tre antenne. È possibile, ovviamente, utilizzare un'architettura con \(n\) antenne ed \(m\) canali.
+
+Dal punto di vista della circuiteria analogica di elaborazione, il segnale è filtrato, amplificato e demodulato allo stesso modo della soluzione con \(n\) canali per \(n\) antenne di ricezione.
+
+Le antenne sono disposte come \emph{phased array} in cui ognuna riceve un segnale da una parte del corpo leggermente diversa ma con un rapporto segnale/rumore risultante maggiore.
+
+Il selettore permette di registrare il segnale proveniente da un'antenna piuttosto che un'altra in modo da ottenere un \(k\)-spazio abbastanza denso combinando i dati registrati opportunamente.
+
+\subsubsection{Architettura digitale per la ricezione}\label{architettura-digitale-per-la-ricezione}
+
+Le moderne apparecchiature di risonanza magnetica non presentano un approccio basato su uno stadio di elaborazione iniziale analogico, ma tendono a spostare tutte le operazioni sul segnale nel mondo digitale.
+
+In particolare, nelle moderne architetture, una volta acquisito il segnale, si esegue una preamplificazione, un filtraggio passa-banda e, infine, si campiona il segnale mediante un ADC. Le operazioni di demodulazione, ulteriore filtraggio e ricostruzione delle immagini sono eseguite da un elaboratore digitale.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=1.82361in,alt={Immagine che contiene testo, linea, diagramma, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image397.pdf}\caption{Figura .: Architettura di ricezione completamente digitale}
+\end{figure}
+
+Questa soluzione richiede la presenza di un ADC con frequenza di campionamento molto alta, caratteristica possibile grazie alla moderna tecnologia digitale, che offre prestazioni e affidabilità migliori rispetto gli ADC adoperati nelle soluzioni analogiche.
+
+La soluzione \emph{dstream} permette di semplificare l'architettura di acquisizione, garantendo un basso consumo di energia, un elevato rapporto segnale/rumore e un ampio range dinamico con cui si può superare la codifica su \(16\) bit. Inoltre, viene migliorata anche la stabilità del segnale, limitando le sue distorsioni a opera di dispositivi analogici.
+
+La quantizzazione avviene generalmente con un numero di bit uguale a \(22 \div 26\), in base alla banda del segnale.
+
+Tra la soluzione digitale e quella analogica cambia anche il modo in cui è concepita l'operazione della demodulazione, dal punto di vista teorico. Il teorema di Nyquist afferma che ogni segnale può essere ricostruito se campionato a una frequenza almeno doppia alla massima banda \(B\) del segnale:
+
+\[f_{S} \geq 2B\]
+
+Il teorema parta di lunghezza di banda e non massima frequenza, dunque, questo concetto può essere sfruttato per eseguire la demodulazione.
+
+Per comprendere tale approccio si divide l'asse delle frequenze in intervalli di multipli interi della frequenza di campionamento \(f_{S}\), con banda \(f_{S}/2\). Ogni intervallo di ampiezza \(f_{S}/2\), del tipo \(\left\lbrack (n - 1)f_{S}/2;nf_{S}/2 \right\rbrack\) è detto Nyquist zone e rappresenta lo spettro del segnale che può essere ricostruito con la frequenza di campionamento \(f_{S}\).
+
+\begin{figure}
+\centering
+\includegraphics[width=5.53202in,height=2.06696in,alt={Immagine che contiene testo, diagramma, linea, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image398.pdf}\caption{Figura .: Divisione in Nyquist zone}
+\end{figure}
+
+In generale, il campionamento di tutto lo spettro del segnale con una frequenza \(f_{S}\) comporta che tutte le armoniche dello spettro, contenute negli intervalli di ampiezza \(f_{S}\), sono riportate in banda base causando l'errore di aliasing.
+
+Si suppone di voler ricostruire la porzione di spettro contenuta nell'intervallo \(\left\lbrack 0;f_{S}/2 \right\rbrack\). A tale scopo è necessario filtrare il segnale nella banda desiderata e campionare con una frequenza doppia della banda, ovvero proprio \(f_{S}\). Ricostruendo il segnale mediante tecniche di interpolazione si ricava il segnale associato alla banda spettrale considerata.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.44868in,height=2.16697in,alt={Immagine che contiene diagramma, linea, Diagramma, pendio Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image399.pdf}\caption{Figura .: Ricostruzione del segnale solamente nella banda \(\left\lbrack 0;f_{S}/2 \right\rbrack\)}
+\end{figure}
+
+Si vuole, ora, ricostruire il segnale nella banda \(\left\lbrack 3f_{S}/2;2f_{S} \right\rbrack.\ \)È necessario applicare un filtro passa-banda, che estragga le sole componenti di interesse del segnale acquisito. La banda del segnale così ottenuto è sempre \(f_{S}/2\), quini, campionando a frequenza \(f_{S}\) è possibile ricostruire il segnale senza perdita di informazione.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.79234in,height=1.96902in,alt={Immagine che contiene diagramma, linea, Diagramma, pendio Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image400.pdf}\caption{Figura .: Spettro del segnale acquisito a valle del filtraggio passabanda}
+\end{figure}
+
+La replicazione dello spettro sui multipli interi della frequenza di campionamento garantisce la presenza di una replica dello spettro del segnale utile anche in banda base \(\left\lbrack 0;f_{S}/2 \right\rbrack\). In altre parole, è stato effettuata un'operazione di demodulazione sul segnale con un semplice filtraggio passa-banda e un campionamento, che portano lo spettro del segnale utile in banda base.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.50571in,height=3.27675in,alt={Immagine che contiene linea, diagramma, Diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image401.pdf}\caption{Figura .: Ricostruzione del segnale in banda base per il fenomeno delle repliche}
+\end{figure}
+
+Questo principio può essere sfruttato in risonanza magnetica, nella soluzione \emph{dstream} per digitalizzare e demodulare il segnale proveniente dalle antenne con lo stesso processo di campionamento, congiunto a un filtraggio passa-banda.
+
+Il segnale registrato dalle antenne è filtrato mediante un filtro a radiofrequenza di tipo passa-banda con frequenza centrale \(f_{0} = 2\pi\omega_{0}\) di \(60 \div 80\ MHz\) e un'estensione della banda di qualche centinaio di \(kHz\). In seguito, si campiona il segnale con un ADC che riesce a raggiungere una frequenza delle decine di \(MSa/s\), sottocampionando il segnale.
+
+L'operazione di campionamento nel dominio del tempo produce una replicazione nel dominio della frequenza. Ciò determina anche in banda base vi è una replicazione dello spettro del segnale proveniente dalle antenne. Si ottiene così il segnale campionato e demodulato, pronto per essere digitalizzato ed elaborato mediante algoritmi digitali, i quali operano un ulteriore filtraggio e la ricostruzione dell'immagine.
+
+Volendo procedere in assenza di filtraggio passa-banda, sarebbe necessario campionare il segnale con almeno una frequenza di \(128\ MSa/s\) per un campo a \(1.5\ T\). Questi campionatori ancora oggi sono complessi e costosi da realizzare.
+
+Grazie all'interpretazione del teorema di Nyquist introdotta è possibile utilizzare dei campionatori a \(30 \div 40\ MSa/s\), molto più semplici da realizzare, con risoluzione di \(22 \div 26\) bit.
+
+Il filtro a radiofrequenza, dal punto di vista realizzativo, è più semplice del campionatore a \(128\ MSa/s\). La soluzione adottata nel \emph{dstream} permette di semplificare il circuito di digitalizzazione.
+
+Si osservi che, a causa della replicazione, gli spettri degli intervalli pari sono ribaltati rispetto gli spettri originali, quindi, prima di adoperare gli algoritmi di ricostruzione è necessario invertire gli spettri ottenuti con questo metodo, nota la Nyquist zone di provenienza.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69167in,height=3.31667in]{media/15_HWRMI/image402.pdf}\caption{Figura .: replicazione e ribaltamento della replica pari}
+\end{figure}
+
+La soluzione digitale permette di eliminare il rumore introdotto dall'elaborazione analogica, soprattutto legato ai moltiplicatori a radiofrequenza, non facilmente realizzabili nella pratica. Questa riduzione del rumore è compensata da campionatori costati a causa dell'elevato numero di bit e le alte frequenze di campionamento.
+
+\subsection{Convertitori analogico/digitale}\label{convertitori-analogicodigitale}
+
+Un segnale analogico proveniente dal mondo reale, come quello registrato dalle antenne in risonanza magnetica, per poter essere elaborato da sistemi digitali, deve essere quantizzato su un numero finito di bit. Per eseguire il passaggio da analogico a digitale si utilizzano particolari circuiti detti convertitori analogico/digitalo o ADC (\emph{Analog to Digital Converter}).
+
+\begin{figure}
+\centering
+\includegraphics[width=3.49167in,height=2.83333in,alt={Teorema del campionamento}]{media/15_HWRMI/image403.pdf}\caption{Figura .: Campionamento del segnale reale}
+\end{figure}
+
+Il segnale delle antenne è di natura elettrica, con variazioni continue in ampiezza e nel tempo. Per essere elaborato dalla circuiteria digitale è necessario ottenere un segnale discreto, definito su istanti di tempo predefiniti. Questa operazione è detta campionamento o sampling ed è generalmente svolta a circuiti campionatori o \emph{sample and hold}, in cui si include anche la circuiteria che si occupa di mantenere costante il valore del segnale fino all'arrivo del campione successivo.
+
+La fase di hold è necessaria poiché la maggior parte dei circuiti che operano la conversione del campione in una parola di \(n\) bit non sono istantanei, ma necessitano di un certo tempi per effettuare le operazioni necessarie.
+
+\subsubsection{Flash converter}\label{flash-converter}
+
+Nelle applicazioni di risonanza magnetica si utilizzano i flash converter poiché possiedono un'elevata frequenza di campionamento, dipendente essenzialmente dalla somma del tempo di propagazione del campione e della rete di codifica. Inoltre, non è richiesto un circuito di sample and hold a valle.
+
+L'architettura del convertitore flash prevede \(2^{n}\) resistenze, \(2^{n - 1}\) comparatori e un codificatore che trasforma l'ingresso in una codifica binaria, rappresentativa del valore in ingresso. Il codificatore, nello specifico, riceve una parola di \(2^{n}\) valori e restituisce una sua codifica su \(n\) bit.
+
+Il segnale da campionare e digitalizzare è posto in ingresso ai morsetti non invertenti dei comparatori, mentre l'ingresso invertente è connesso a una rete che ripartisce la tensione di riferimento in \(2^{n}\) fasce, così da fissare i livelli di riferimento per ogni comparatore.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.30561in,height=6.28333in,alt={Flash ADC: Working and Circuit - Nerds Do Stuff}]{media/15_HWRMI/image404.pdf}\caption{Figura .: Architettura di un flash converter a \(3\) bit}
+\end{figure}
+
+Ogni comparatore commuta la propria uscita a \(1\) se la tensione del segnale è maggiore del rispettivo livello di riferimento, altrimenti è nulla. L'\(i\)-esimo livello di riferimento è dato dal partitore resistivo:
+
+\[V_{i} = \frac{i}{2^{N}}V_{ref}\]
+
+Affinché la \(i\)-esima uscita sia alta deve accadere che:
+
+\[V_{in} > V_{i} = \frac{i}{2^{N}}V_{ref}\]
+
+L'uscita di un comparatore è alta finché la tensione in ingresso non è minore della tensione di riferimento. Da quel punto in poi tutte le uscite saranno nulle poiché la tensione di riferimento tende ad aumentare con \(i\).
+
+Se risulta che:
+
+\[V_{in} > \frac{2^{i} - 1}{2^{N}}\]
+
+L'uscita del compratore è sempre alta. Se, invece, risulta che:
+
+\[V_{in} < \frac{i}{2^{N}}V_{ref}\]
+
+Le prime \(i\) uscite sono alte, mentre le restanti \(2^{N} - i - 1\) sono basse.
+
+In uscita ai comparatori, pilotati da un segnale di clock, non vi sono tutte le \(2^{N}\) combinazioni possibili, ma solo \(n\). È, quindi, possibile eseguire la codifica biunivoca che fa corrispondere alle \(n\) uscite dei comparatori le corrispettive codifiche su \(n\) bit.
+
+Per avere una codifica su un numero elevato di bit è necessario aumentare esponenzialmente i componenti elettronici della rete. Ciò pone dei problemi di occupazione di area e di accuratezza legata alle tolleranze intrinseche dei resistori. Inoltre, i comparatori e le resistenze devono essere perfettamente uguali tra loro, quindi, i costi crescono poiché i componenti elettronici devono essere estremamente affidabili.
+
+I comparatori sono pilotati da un segnale di temporizzazione e, per tale motivo, sono detti cocked; inoltre, mostrano un comportamento ibrido tra analogico e digitale. Le uscite sono aggiornate a ogni colpo di clock.
+
+Negli ultimi anni, per il calo dei prezzi di fabbricazione, è possibile realizzare convertitori ADC di questo tipo con frequenza di campionamento intorno ai \(40 \div 60\ MHz\), con un costo limitato.
+
+\subsubsection{Subranging ADC}\label{subranging-adc}
+
+L'architettura di un convertitore subranging prevede la presenza di un circuito di sample and hold, a valle del quale il valore letto si dipartisce:
+
+\begin{itemize}
+\item
+  Una parte entra nel convertitore A/D a \(3\) bit, dove viene digitalizzato in una stringa di bit.
+\item
+  La codifica del campione, per gli errori di quantizzazione non coincide con la tensione dell'ingresso. Per minimizzare l'errore di conversione il campione è confrontato con la conversione analogica della stringa di \(3\) bit precedentemente ottenuta al primo passo di conversione
+\end{itemize}
+
+La differenza dei due segnali analogici è amplificata nuovamente e convertita in un segnale digitale.
+
+I primi \(3\) bit ottenuti con la conversione diretta del campione sono i più significativi (Most Significan Bit o MSB); mentre gli ultimi tre, ottenuto con la conversione della differenza tra l'ingresso e la sua versione quantizzata, costituiscono i bit meno significativi (Least Significan Bit o LSB).
+
+\begin{figure}
+\centering
+\includegraphics[width=6.4384in,height=2.95875in,alt={Immagine che contiene testo, diagramma, Carattere, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/15_HWRMI/image405.pdf}\caption{Figura .: ADC di tipo subranging a due stati a 6 bit}
+\end{figure}
+
+Con questa architettura si ottiene una parola di \(6\) bit con una notevole riduzione dei costi rispetto al flash converter, poiché, per ottenere il numero di bit desiderato, sono stati utilizzati due convertitori analogico/digitale a \(3\) bit e un convertitore digitale/analogico a \(3\) bit. Con la soluzione flash converter sono necessari \(2^{6} = 64\) resistori e \(2^{6} - 1 = 63\) comparatori. Con \(3\) bit sono necessari \(8\) comparatori per un totale di \(16\).
+
+Il campionamento sul segnale avviene prima in maniera grossolana e poi si raffina il risultato confrontando la conversione col segnale effettivo, al fine di minimizzare l'errore di conversione. Questo processo porta a una perdita di efficienza poiché è richiesto un tempo di conversione A/D, una conversione D/A e un'ulteriore conversione A/D.
+
+Rispetto all'architettura flash converter, questa soluzione permette di ottenere velocità di campionamento inferiori, tuttavia, offre un range dinamico più ampio, ovvero un maggiore numero di bit, a un costo minore.
+
+Il convertitore subranging è utilizzato in PET, poiché le frequenze in gioco non raggiungono quelle della risonanza magnetica, dunque, è possibile rilassare la frequenza di campionamento.

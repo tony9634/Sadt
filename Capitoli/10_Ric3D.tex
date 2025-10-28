@@ -1,0 +1,2391 @@
+\begin{center}
+\vfill
+    \chapter{Ricostruzione tridimensionale in MRI}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+\section{Ricostruzione dell'immagine bidimensionale}\label{ricostruzione-dellimmagine-bidimensionale}
+
+Il segnale \(s(k)\), acquisito nel \(k\)-spazio è legato alla densità protonica efficace \(\widehat{\rho}\left( \overset{\underline{}}{r} \right)\) nello spazio-immagine tramite la trasformata di Fourier:
+
+\[s\left( \overset{\underline{}}{k} \right) = \int_{\mathbb{R}^{3}}^{}{\widehat{\rho}\left( \overset{\underline{}}{r} \right)\exp\left( - j2\pi\overset{\underline{}}{k} \cdot \overset{\underline{}}{r} \right)d^{(3)}\overset{\underline{}}{r}}\]
+
+\(s\left( \overset{\underline{}}{k} \right)\) è la trasformata di Fourier della densità protonica efficace:
+
+\[\widehat{\rho}\left( \overset{\underline{}}{r} \right) = \int_{\mathbb{R}^{3}}^{}{s\left( \overset{\underline{}}{k} \right)\exp\left( j2\pi\overset{\underline{}}{k} \cdot \overset{\underline{}}{r} \right)d^{(3)}\overset{\underline{}}{k}}\]
+
+Per semplicità si considera il caso monodimensionale. Per ottenere l'immagine della densità protonica nello spazio-immagine, dal punto di vista analitico, è necessario invertire semplicemente la trasformata di Fourier, al fine di ottenere la densità protonica; tuttavia, nella pratica, tale processo non è così semplice da svolgere sia per la finitezza delle memorie degli elaboratori digitali, sia per le altre problematiche associate alla strumentazione stessa. Possono esserci dei casi in cui la densità protonica ricostruita \(\widehat{\rho}(x)\) sia complessa, ovvero abbia sia una parte reale che immaginaria.
+
+Una delle prime problematiche riguardanti la ricostruzione del segnale è dovuto all'acquisizione non illimitata del \(k\)-spazio; infatti, il segnale registrato è campionato nel dominio delle \(k\) in un'apposita finestra di acquisizione dalla durata limitata. Ad esempio, in una sequenza gradient-echo bidimensionale, in cui si applicano il gradiente di selezione della fetta \(G_{ss}\), il gradiente di codifica di fase (o \emph{phase econding}) \(G_{PE}\), e il gradiente di lettura \(G_{R}\), modellato, appunto, come una sequenza gradient-echo.
+
+Il segnale è acquisito in un intorno del tempo di echo \(T_{E}\), in una finestra temporale con durata molto minore dei tempi di rilassamento.
+
+Successivamente, il segnale acquisito sarà demodulato mediante un demodulatore in quadratura o complesso, in cui il segnale è inviato a due moltiplicatori in quadratura, ovvero, un ramo effettua la moltiplicazione per un segnale sinusoidale, mentre il ramo parallelo per un segnale sfatato di \(\pi/2\), quindi in quadratura.
+
+Il ramo che effettua la moltiplicazione per il segnale sinusoidale è detto canale reale poiché restituisce un segnale in fase con quelo in ingresso; mentre il secondo restituisce un segnale in quadratura e, per tale motivo, è noto come canale immaginario.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=3.28333in,alt={Immagine che contiene testo, schermata, diagramma, Carattere Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image264.pdf}\caption{Figura .: Demodulatore complesso}
+\end{figure}
+
+Il segnale in uscita dal demodulatore può, quindi, essere scritto come:
+
+\[s(k) = s_{R}(k) + js_{I}(k)\]
+
+Il campionamento e la durata finita della finestra di acquisizione possono indurre degli errori nella ricostruzione e, allo stesso tempo, il ricevitore può introdurre del rumore durante la ricezione del segnale, a causa della non perfetta coincidenza della frequenza dell'oscillatore armonico all'interno del demodulatore e la frequenza del segnale registrato \(s(k)\). In questo scenario, le oscillazioni con cui si moltiplica il segnale \(s(k)\) possono essere scritte come:
+
+\[\cos\left\lbrack (\omega + \Delta\omega)t + \phi \right\rbrack,\ \sin\left\lbrack (\omega + \Delta\omega)t + \phi \right\rbrack\]
+
+In questa condizione, la densità protonica efficace \(\widehat{\rho}(x)\) non è puramente reale, come condizione teorica, ma è complessa:
+
+\[\widehat{\rho}(x) = \left| \widehat{\rho}(x) \right|\exp\left( j\angle\widehat{\rho}(x) \right)\]
+
+Intrinsecamente \(\widehat{\rho}(x)\) indica il numero di spin contenuti in un volumetto reale, quindi, corrisponde a un numero reale; tuttavia, nel caso in cui il demodulatore presenta uno sfasamento o una differenza di frequenza rispetto l'oscillatore armonico, il segnale ricostruito potrebbe essere complesso.
+
+Si suppone che tra l'oscillatore del demodulatore e il segnale \(s(k)\), registrato dalle antenne, vi sia uno sfasamento \(\phi\). Ciò porta i due canali a non produrre parte reale e parte immaginaria del segnale in ingresso, ma dei valori misti tra loro. Nello specifico, si suppone che il segnale registrato \(s(k)\) abbia un andamento del tipo:
+
+\[s(k) \propto \sin\left( \omega_{0}t + \xi \right)\]
+
+In ipotesi di frequenza perfettamente uguale tra segnale e oscillatore, la differenza di frequenza è nulla \(\Delta\omega = 0\). Il segnale \(s(k)\) è moltiplicato, nel canale reale da \(\sin\left( \omega_{0}t + \phi \right)\) e nel canale immaginario da \(\cos\left( \omega_{0}t + \phi \right)\).
+
+Per il canale reale, risulta:
+
+\[\sin\left( \omega_{0}t + \xi \right)\sin\left( \omega_{0}t + \phi \right) =\]
+
+Applicando le formule di Werner, si ha:
+
+\[= \frac{1}{2}\cos(\xi - \phi) - \frac{1}{2}\cos\left( 2\omega_{0}t + \phi + \xi \right)\]
+
+Analogamente per il canale immaginario si ha:
+
+\[\sin\left( \omega_{0}t + \xi \right)\cos\left( \omega_{0}t + \phi \right) =\]
+
+Per Wagner si ha:
+
+\[= \frac{1}{2}\sin(\xi - \phi) + \frac{1}{2}\sin\left( 2\omega_{0}t + \phi + \xi \right)\]
+
+Mediante filtraggi passa-basso è possibile rimuovere le componenti a elevata frequenza, centrate su \(2\omega_{0}\). In uscita al filtro, il segnale è dato da:
+
+\[s(k) \propto \frac{1}{2}\cos(\xi - \phi) + j\frac{1}{2}\sin(\xi - \phi) =\]
+
+Applicando le relazioni trigonometriche si ottiene:
+
+\[= \frac{1}{2}\left\lbrack \left( \cos\xi\cos\phi + \sin\xi\sin\phi \right) + j\left( \sin\xi\cos\phi - \cos\xi\sin\phi \right) \right\rbrack =\]
+
+Raccogliendo \(\cos\xi\) e \(\sin\xi\), si ottiene:
+
+\[= \frac{1}{2}\left\lbrack \cos\xi\left( \cos\phi - j\sin\phi \right) + \sin\xi\left( \sin\phi + j\cos\phi \right) \right\rbrack =\]
+
+Nel termine \(\sin\phi + j\cos\phi\) si mette in evidenza \(j\):
+
+\[= \frac{1}{2}\left\lbrack \cos\xi\left( \cos\phi - j\sin\phi \right) + j\sin\xi\left( \cos\phi - j\sin\phi \right) \right\rbrack =\]
+
+Per le formule di Eulero, si ottiene:
+
+\[= \frac{1}{2}\left\lbrack \cos\xi\exp( - j\phi) + j\sin\xi\exp( - j\phi) \right\rbrack =\]
+
+Raccogliendo \(\exp( - j\phi)\) e applicando le formule di Eulero, si ottiene:
+
+\[= \frac{1}{2}\exp( - j\phi)\exp(j\xi)\]
+
+In questa espressione \(\exp(j\xi)\) rappresenta il segnale registrato dalle antenne, demodulato, mentre \(\exp( - j\phi)\) un termine di fase dovuto allo sfasamento tra segnale e oscillatore. Di conseguenza, il segnale complessivo può essere espresso come:
+
+\[s(k) = s(k)\exp( - j\phi)\]
+
+dove \(s(k)\) è il segnale ideale demodulato, privo di sfasamenti.
+
+In conclusione, quando la frequenza del segnale è perfettamente allineata a quella dell'oscillatore locale, il segnale demodulato differisce da quello ideale solo per un termine di fase \(\phi\), legato allo sfasamento tra le due portanti.
+
+La densità protonica \(\widehat{\rho}(x)\) è ottenuta mediante antitrasformata di Fourier del segnale \(s(k)\) nel \(k\)-spazio. In ipotesi di acquisizione continua risulta:
+
+\[\widehat{p}(x) = \int_{}^{}{s(k)\exp( - j\phi)\exp(j2\pi kx)dk} = \exp( - j\phi)\int_{}^{}{s(k)\exp(j2\pi kx)dk} = \widehat{p}(x)\exp( - j\phi)\]
+
+La densità protonica ottenuta è uguale a quella teorica, moltiplicato un fattore di sfasamento \(\exp( - j\phi)\). Il semplice errore di demodulazione legato allo sfasamento tra l'oscillatore di ricezione e il segnale registrato conduce a una densità protonica ricostruita complessa.
+
+Siccome non è possibile rappresentare nel piano o nello spazio una funzione complessa, per ottenere la raffigurazione della slice o del volume anatomico di interesse, si effettua un'operazione di modulo:
+
+\[\left| \widehat{\rho}(x) \right| = \left| \widehat{p}(x)\exp( - j\phi) \right| = \left| \widehat{p}(x) \right|\]
+
+In queto modo, dal punto di vista analitico, l'immagine ricostruita coincide con l'immagine originale senza tener conto dello sfasamento.
+
+Si suppone, ora, che i canali reale e immaginario siano invertiti. Tale effetto si verifica nel momento in cui le antenne di ricezione in quadratura sono invertite. In questa evenienza, il segnale ottenuto a fine demodulazione risulta avere parte reale e parte immaginaria invertite:
+
+\[s(k) = s_{I}(k) + js_{R}(k)\]
+
+La densità protonica ricostruita è ottenuta mediante trasformata di Fourier inversa di \(s(k)\), per cui risulta:
+
+\[\widehat{p}(x) = \int_{}^{}{s(k)\exp(j2\pi kx)dk}\]
+
+Siccome \(\rho(x)\) è una funzione reale, il segnale \(s(k)\), nel \(k\)-spazio, è hermitiana:
+
+\[s^{*}\left( \overset{\underline{}}{k} \right) = s\left( - \overset{\underline{}}{k} \right)\]
+
+\(\overset{\underline{}}{k}\) è una variabile reale, per cui \({\overset{\underline{}}{k}}^{*} = \overset{\underline{}}{k}\). Moltiplicando per \(j\):
+
+\[js^{*}\left( \overset{\underline{}}{k} \right) = j\left( s_{R} + js_{I} \right)^{*} = j\left( s_{R} - js_{I} \right) = s_{I} + js_{R}\]
+
+In questo modo si ottiene il segnale fisicamente registrato dalle antenne sui canali reale e immaginario rispettivamente. La densità protonica si può scrivere come:
+
+\[\widehat{p}(x) = \int_{}^{}{js^{*}\left( \overset{\underline{}}{k} \right)\exp(j2\pi kx)dk} =\]
+
+Si scrive \(j\) in notazione esponenziale, ovvero \(j = \exp(j\pi/2)\):
+
+\[= \int_{}^{}{s^{*}\left( \overset{\underline{}}{k} \right)\exp\left( j\frac{\pi}{2} \right)\exp(j2\pi kx)dk} =\]
+
+Per le proprietà del complesso coniugato è possibile scrivere:
+
+\[= \left\lbrack \int_{}^{}{s\left( \overset{\underline{}}{k} \right)\exp\left( - j\frac{\pi}{2} \right)\exp( - j2\pi kx)dk} \right\rbrack^{*}\]
+
+Per definizione di antitrasformata di Fourier, si ha:
+
+\[\widehat{\rho}(x) = \widehat{\rho}( - x)\exp\left( - j\frac{\pi}{2} \right)\]
+
+L'immagine finale ricostruita è ottenuta moltiplicando l'immagine originale, ribaltate rispetto all'asse di lettura, moltiplicando per un fattore di fase noto \(\exp( - j\pi/2)\). Considerando il modulo dell'immagine ricostruite, il termine di fase può essere ignorato poiché con modulo unitario:
+
+\[\left| \widehat{\rho}(x) \right| = \left| \widehat{\rho}( - x)\exp\left( - j\frac{\pi}{2} \right) \right| = \left| \widehat{\rho}( - x) \right|\]
+
+L'immagine ottenuta e mostrata a video è semplicemente ribaltata rispetto all'origine, quindi, è sempre possibile eseguire la diagnosi.
+
+È possibile avere un errore di ricostruzione dovuto a una diversa frequenza tra l'oscillazione del segnale registrato dalle antenne e dall'oscillatore del demodulatore. Esiste, quindi, una differenza tra la frequenza di precessione \(\omega_{0}\) e la frequenza \(\omega\) del sistema rotante. In questo caso, le oscillazioni con cui si demodula il segnale possono essere scritte come:
+
+\[\cos(\omega t),\ \ \sin(\omega t)\]
+
+Dove \(\omega = \omega_{0} - \Delta\omega\). Il segnale demodulato è del tipo \(s(k) = s_{R}(k) + js_{I}(k)\) con:
+
+\[s_{R} \propto \sin\left( \omega_{0}t + \xi \right)\cos(\omega t),\ \ s_{I} \propto \sin\left( \omega_{0}t + \xi \right)\sin(\omega t)\]
+
+Per il canale reale, si ottiene:
+
+\[s_{R} \propto \sin\left( \omega_{0}t + \xi \right)\cos(\omega t) = \frac{1}{2}\sin\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack + \frac{1}{2}\sin\left\lbrack \left( \omega_{0} + \omega \right)t + \xi \right\rbrack\]
+
+Per il canale immaginario, invece, risulta:
+
+\[s_{I} \propto \sin\left( \omega_{0}t + \xi \right)\sin(\omega t) = \frac{1}{2}\cos\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack - \frac{1}{2}\cos\left\lbrack \left( \omega_{0} + \omega \right)t + \xi \right\rbrack\]
+
+Il segnale \(s(k)\) nel \(k\)-spazio, dopo la moltiplicazione con le oscillazioni, può essere scritto come:
+
+\[s(k) \propto \frac{1}{2}\sin\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack + \frac{1}{2}\sin\left\lbrack \left( \omega_{0} + \omega \right)t + \xi \right\rbrack + j\frac{1}{2}\cos\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack - j\frac{1}{2}\cos\left\lbrack \left( \omega_{0} + \omega \right)t + \xi \right\rbrack\]
+
+A valle del filtro passa-basso, le frequenze a \(\omega_{0} + \omega\) sono rimosse, per cui si ottiene:
+
+\[s(k) \propto \frac{1}{2}\sin\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack + j\frac{1}{2}\cos\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack\]
+
+Dove \(\omega_{0} - \omega = \Delta\omega\):
+
+\[s(k) \propto \frac{1}{2}\sin(\Delta\omega t + \xi) + j\frac{1}{2}\cos(\Delta\omega t + \xi)\]
+
+Si raccoglie \(j\) per applicare le formule di Eulero:
+
+\[\frac{1}{2}\sin(\Delta\omega t + \xi) + j\frac{1}{2}\cos(\Delta\omega t + \xi) = j\frac{1}{2}\left\lbrack \cos(\Delta\omega t + \xi) - j\sin(\Delta\omega t + \xi) \right\rbrack\]
+
+Per le formule di Eulero, si può scrivere:
+
+\[s(k) \propto \frac{1}{2}\exp( - j\Delta\omega t)\exp\left( - j\frac{\pi}{2} - j\xi \right)\]
+
+È possibile scrivere:
+
+\[s(k) = s(k)\exp( - j\Delta\omega t)\]
+
+Il risultato finale mostra che il segnale nel \(k\)-spazio è moltiplicato per un termine rotante. La fase del segnale demodulato varia nel tempo con frequenza \(2\pi\Delta\omega\). In termini del \(k\)-spazio, lo sfasamento introdotto dalla quantità \(\Delta\omega t = \gamma\Delta Bt\), dove \(\Delta B\) è la differenza di campo magnetico che determina le due diverse frequenze; infatti, a causa delle disomogeneità di campo, gli isocromati non risuonano alla stessa frequenza di eccitazione.
+
+Il campo \(\Delta B\) può essere valutato come un gradiente \(G\) lungo la direzione di lettura, ovvvero \(\Delta B = Gx_{0}\), dove \(x_{0}\) è tale che:
+
+\[\Delta\omega t = \gamma\Delta Bt = \gamma Gx_{0}t\]
+
+È possibile scrivere \(\gamma = 2\pi\overline{\gamma}\), ottenendo:
+
+\[\Delta\omega t = \gamma\Delta Bt = \gamma Gx_{0}t = 2\pi\overline{\gamma}Gx_{0}t\]
+
+Per definizione, \(k = \overline{\gamma}Gt\), da cui si ottiene:
+
+\[\Delta\omega t = 2\pi kx_{0}\]
+
+Risolvendo rispetto a \(x_{0}\), si ottiene:
+
+\[x_{0} = \frac{\Delta\omega t}{2\pi k}\]
+
+Il segnale a valle della demodulazione può essere scritto come:
+
+\[s(k) = s(k)\exp( - j\Delta\omega t) = \ s(k)\exp\left( 2\pi kx_{0} \right)\]
+
+Lo sfasamento dovuti a una differenza di frequenza tra l'oscillatore armonico e il segnale ricevuto si traduce in uno spostamento lungo l'asse \(x\) di una quantità \(x_{0}\). Se ssicalcola la trasformata inversa di Fourier per il segnale demodulato \(s(k)\), si ottiene il segnale densità protonica ricostruita:
+
+\[\widehat{p}(x) = \int_{}^{}{s(k)\exp(j2\pi kx)dk} = \int_{}^{}{s(k)\exp\left( 2\pi kx_{0} \right)\exp(j2\pi kx)dk}\]
+
+Ovvero:
+
+\[\widehat{p}(x) = \int_{}^{}{s(k)\exp\left\lbrack j2\pi k\left( x - x_{0} \right) \right\rbrack dk}\]
+
+La soluzione è, quindi uno shift sull'asse di lettura:
+
+\[\widehat{p}(x) = \int_{}^{}{s(k)\exp\left\lbrack j2\pi k\left( x - x_{0} \right) \right\rbrack dk} = \widehat{p}\left( x - x_{0} \right) = \widehat{p}\left( x - \frac{\Delta\omega t}{2\pi k} \right)\]
+
+Dalla differenza di frequenza \(\Delta\omega\) discende che l'immagine ricostruita è una versione traslata dell'immagine originale di una quantità \(x_{0}\), dipendente dal tempo della finestra di acquisizione e dalla differenza di fase. Nonostante non sia strettamente necessario è comodo valutare il modulo dell'immagine ricostruita:
+
+\[\left| \widehat{p}(x) \right| = \left| \widehat{p}\left( x - x_{0} \right) \right|\]
+
+\subsection{Problema di ricostruzione legato alle disomogeneità di campo}\label{problema-di-ricostruzione-legato-alle-disomogeneituxe0-di-campo}
+
+Si vuole determinare l'effetto delle disomogeneità di campo sull'immagine finale ricostruita. A tale scopo si considera una sequenza gradient-echo. Quest'ultima è progettata in modo che, sul gradiente di lettura, l'area dell'impulso di rifocalizzazione uguagli l'area del gradiente di focalizzazione al tempo di echo, \(T_{E}\). Nell'intorno di questo istante temporale si attiva la finestra di acquisizione per prelevare il segnale emesso dal tessuto.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.74167in,height=3.05569in,alt={Pulse diagram of a gradient echo sequence. \textbar{} Download Scientific Diagram}]{media/10_Ric3D/image265.pdf}\caption{Figura .: Sequenza gradient-echo con segnale}
+\end{figure}
+
+Per effetto delle disomogeneità di campo si introduce un gradiente aggiuntivo a quello applicato. A causa di ciò l'uguaglianza tra le aree citate non si verifica al tempo di echo \(T_{E}\) previsto ma a un tempo \(T_{E}'\) che può essere maggiore o minore del tempo di echo previso:
+
+\begin{itemize}
+\item
+  \(T_{E}' < T_{E}\), se la disomogeneità di campo si somma a \(G_{R}\);
+\item
+  \(T_{E}' > T_{E}\), se la disomogeneità di campo si sottrae a \(G_{R}\).
+\end{itemize}
+
+Siccome la finestra di acquisizione è centrata intorno al tempo di echo previsto, il gradiente aggiuntivo determina la registrazione di un segnale \(s(k)\) traslato rispetto al tempo \(T_{E}\) di una quantità \(k_{0}\) data da:
+
+\[k_{0} = \frac{\Delta\phi}{2\pi x}\]
+
+Dove \(\Delta\phi\) è lo sfasamento indotto da \(\Delta B\).
+
+\begin{figure}
+\centering
+\includegraphics[width=6.4in,height=3.28333in,alt={Immagine che contiene linea, Diagramma, diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image266.pdf}\caption{Figura .: Segnale ricevuto teorico e sfasato a causa delle disomogeneità di campo}
+\end{figure}
+
+Si suppone che la finestra riesca comunque ad acquisire l'intero segnale con un tempo di campionamento infinitesimo; allora l'immagine ricostruita è data da:
+
+\[\widehat{\rho}(x) = \int_{}^{}{s\left( k - k_{0} \right)\exp(j2\pi kx)dk}\]
+
+Si aggiunge e sottrae \(j2\pi k_{0}x\) all'esponente:
+
+\[\widehat{\rho}(x) = \int_{}^{}{s\left( k - k_{0} \right)\exp( - j2\pi kx)dk} = \int_{}^{}{s\left( k - k_{0} \right)\exp\left( j2\pi kx + \ j2\pi k_{0}x - \ j2\pi k_{0}x \right)dk}\]
+
+Per le proprietà degli esponenziali:
+
+\[= \int_{}^{}{s\left( k - k_{0} \right)\exp\left( j2\pi kx + \ j2\pi k_{0}x - \ j2\pi k_{0}x \right)dk} = \int_{}^{}{s\left( k - k_{0} \right)\exp\left\lbrack j2\pi\left( k - k_{0} \right)x \right\rbrack\exp\left( \ j2\pi k_{0}x \right)dk}\]
+
+Il termine \(\exp\left( \ j2\pi k_{0}x \right)\) non dipende da \(k\), per cui può essere portato all'esterno del simbolo di integrale:
+
+\[\widehat{\rho}(x) = \exp\left( \ j2\pi k_{0}x \right)\int_{}^{}{s\left( k - k_{0} \right)\exp\left\lbrack j2\pi\left( k - k_{0} \right)x \right\rbrack dk}\]
+
+Siccome \(k_{0}\) è costante, l'integrale si risolve nell'immagine \(\widehat{\rho}(x)\):
+
+\[\widehat{\rho}(x) = \widehat{\rho}(x)\exp\left( \ j2\pi k_{0}x \right)\]
+
+A causa delle disomogeneità di campo, la densità protonica ricostruita è data dalla distribuzione degli spin nel volume, pesata per dei parametri del sistema \(\widehat{\rho}(x)\), a cui va moltiplicato un termine di fase dipendente dalla variabile \(x\), direzione di lettura. La differenza di fase, in particolare, è data da:
+
+\[\phi(x) = \arctan\left( \frac{Im\left\{ \widehat{\rho}(x) \right\}}{Re\{\widehat{\rho}(x)\}} \right)\]
+
+Siccome la funzione tangente è invertibile solamente nell'intervallo \(( - \pi;\pi)\) la fase \(\phi(x)\) può variare solamente in questo intervallo spaziale. Visualizzando nel piano-immagine, l'andamento della fase l'andamento nella fase \(\phi(x)\) si osserva che i punti distanziati da un valore di \(x\), tale che \(\phi = 2\pi\), hanno la stessa intensità.
+
+Se l'omogeneità di campo interessa solamente una direzione, si verifica un effetto noto come a strisce di zebra per l'alternanza di righe chiare con righe scure, molto simile a un'immagine affetta da aliasing.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.275in,height=3.275in,alt={Generazione immagine completata}]{media/10_Ric3D/image267.pdf}\caption{Figura .: Effetto a strisce di zembra su un'immagine di risonanza magnetica}
+\end{figure}
+
+La disomogeneità di campo può essere presente sia verso il gradiente di lettura sia di codifica di fase. Le disomogeneità locali del campo producono una fase nella densità protonica ricostruita \(\widehat{\rho}\) dipendente sia dall'asse di lettura che dalla codifica di fase.
+
+Sebbene l'operazione di modulo permetta di ottenere la densità protonica reale, in questo caso l'immagine di fase contiene informazioni molto importante sulla disomogeneità di campo. Osservano l'immagine di fase è possibile determinare \(k_{0}\) come pendenza della gradazione di grigio da bianco a nero. Nota la quantità \(k_{0}\) si determina l'intensità della disomogeneità di campo risalendo anche al tempo di echo.
+
+L'immagine di fase può essere sfruttata per compensare il gradiente indesiderato; infatti, nota la sua intensità e il suo verso, si applica un gradiente di campo opposto, tale da minimizzare gli effetti sul tempo di echo.
+
+Nella pratica clinica si utilizza la sola immagine di modulo, mentre per compensare gli effetti delle limitazioni tecnologiche, si utilizzano le immagini di fase, col fine di migliorare le ricostruzioni delle successive immagini.
+
+\subsection{Guadagno diverso dei due ricevitori}\label{guadagno-diverso-dei-due-ricevitori}
+
+Durante la demodulazione è possibile che i due filtri passa-basso, a valle del moltiplicatore per le sinusoidi, abbiano un guadagno anche leggermente diverso.
+
+Se i filtri del ricevitore non presentano lo stesso guadagno, uno dei due segnali è posto in uscita così come previsto mentre l'altro risulta essere amplificato di una quantità \(\delta\), come il \(90\%\) del valore atteso. Ciò determina una diversa ampiezza tra il canale reale e quello immaginario.
+
+\begin{figure}
+\centering
+\includegraphics[width=7.075in,height=3.96666in,alt={Immagine che contiene testo, diagramma, Carattere, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image268.pdf}\caption{Figura .: Demodulatore che presenta un guadagno inferiore sul canale immaginario}
+\end{figure}
+
+Si suppone che il canale immaginario abbia problemi di guadagno. Il segnale in uscita è dato da:
+
+\[s(k) = s_{R} + j\delta s_{I}\]
+
+Si aggiunge e sottrae \(js_{I}\), segnale che sarebbe stato posto in uscita dal canale immaginario se non ci fosse il difetto di guadagno:
+
+\[s(k) = s_{R} + j\delta s_{I} + js_{I} - js_{I}\]
+
+Raccogliendo è possibile scrivere:
+
+\[s(k) = s_{R} + js_{I} + j(\delta - 1)s_{I}\]
+
+La densità protonica è ottenuta dalla trasformata inversa di Fourier di \(s(k)\):
+
+\[\widehat{\rho}(x) = \int_{}^{}{s(k)\exp(j2\pi kx)dk} = \int_{}^{}{\left\lbrack s_{R} + js_{I} + j(\delta - 1)s_{I} \right\rbrack\exp(j2\pi kx)dk}\]
+
+Se il segnale densità protonica efficace è reale, allora il segnale nel \(k\)-spazio è harmitiono. In particolare, risulta:
+
+\[s(k) + s( - k) = s(k) + s^{*}(k) = 2Re\left\{ s(k) \right\} = 2s_{R} \Leftrightarrow s_{R} = \frac{s(k) + s( - k)}{2}\]
+
+\[s(k) - s( - k) = s(k) - s^{*}(k) = 2jIm\left\{ s(k) \right\} = 2s_{I} \Leftrightarrow s_{I} = \frac{s(k) - s( - k)}{2j}\]
+
+Applicando la relazione per \(s_{I}\) nella relazione per \(\widehat{\rho}(x)\) e ricordando che \(s_{R} + js_{I} = s(k)\), è possibile scrivere:
+
+\[\widehat{\rho}(x) = \int_{}^{}{\left\lbrack s_{R} + js_{I} + j(\delta - 1)s_{I} \right\rbrack\exp(j2\pi kx)dk} = \int_{}^{}{\left\lbrack s(k) + j(\delta - 1)\frac{s(k) - s( - k)}{2j} \right\rbrack\exp(j2\pi kx)dk} = \int_{}^{}{\left\lbrack s(k) + (\delta - 1)\frac{s(k) - s( - k)}{2} \right\rbrack\exp(j2\pi kx)dk}\]
+
+Svolgendo i prodotti si ottiene:
+
+\[= \int_{}^{}{\left\lbrack s(k) + \frac{1}{2}(\delta - 1)s(k) - \frac{1}{2}(\delta - 1)s( - k) \right\rbrack\exp(j2\pi kx)dk}\]
+
+Da cui:
+
+\[\widehat{\rho}(x) = \int_{}^{}{\left\lbrack \left( 1 + \frac{\delta - 1}{2} \right)s(k) - \frac{1}{2}(\delta - 1)s( - k) \right\rbrack\exp(j2\pi kx)dk} = \widehat{\rho}(x) =\]
+
+Da cui:
+
+\[\widehat{\rho}(x) = \int_{}^{}{\left\lbrack \frac{1}{2}(\delta + 1)s(k) - \frac{1}{2}(\delta - 1)s( - k) \right\rbrack\exp(j2\pi kx)dk}\]
+
+Il segnale ricostruito, per la linearità dell'operatore integrale e della trasformata inversa di Fourier, può essere scritto come:
+
+\[\widehat{\rho}(x) = \frac{1}{2}(1 + \delta)\widehat{\rho}(x) - \frac{1}{2}(1 - \delta)\widehat{\rho}( - x)\]
+
+Nel caso opposto, in cui il canale reale presenta un guadagno \(\delta\), si ottiene una relazione uguale; infatti, il segnale può essere scritto come \(s(k) = \delta s_{R} + js_{I}\), per cui la densità protonica è:
+
+\[\widehat{\rho}(x) = \int_{}^{}{\left( \delta s_{R} + js_{I} \right)\exp(j2\pi kx)dk}\]
+
+Per la proprietà di hermitianità si ha:
+
+\[\widehat{\rho}(x) = \int_{}^{}{\left\lbrack \delta\left( \frac{s(k) + s( - k)}{2} \right) + j\frac{s(k) - s( - k)}{2j} \right\rbrack\exp(j2\pi kx)dk} = \int_{}^{}{\left\lbrack \delta\left( \frac{s(k) + s( - k)}{2} \right) + \frac{s(k) - s( - k)}{2} \right\rbrack\exp(j2\pi kx)dk} = \int_{}^{}{\left\lbrack \frac{\delta}{2}s(k) + \frac{\delta}{2}s( - k) + \frac{1}{2}s(k) - \frac{1}{2}s( - k) \right\rbrack\exp(j2\pi kx)dk} = \frac{\delta}{2}\widehat{\rho}(x) + \frac{\delta}{2}\widehat{\rho}( - x) + \frac{1}{2}\widehat{\rho}(x) - \frac{1}{2}\widehat{\rho}( - x) = \frac{1}{2}(1 + \delta)\widehat{\rho}(x) + \frac{1}{2}(\delta - 1)\widehat{\rho}( - x)\]
+
+L'immagine ricostruita contiene una componente \((1 + \delta)\widehat{\rho}(x)\), ovvero l'immagine attesa, pesata per una quantità dipendente dal canale con valore diverso di un \(\delta\) e una componente \(\widehat{\rho}( - x)\), ottenuta dal ribaltamento della densità protonica reale e scalata di un fattore \(\delta - 1\). L'effetto finale è la presenza di una ripetizione dell'immagine, ribaltata rispetto l'asse di lettura, di minore ampiezza, sovrapposta all'immagine attesa. Questo fenomeno è noto come effetto ghost e consiste nell'apparizione di porzioni dell'immagini ribaltata e posizionate in luoghi non attesi.
+
+\begin{figure}
+\centering
+\includegraphics[width=2.66667in,height=2.66667in]{media/10_Ric3D/image269.pdf}\caption{Figura .:Ghosting in un'immagine}
+\end{figure}
+
+Questi artefatti sono presenti nell'immagine anche nel caso in cui il paziente si muova durante l'esame. Gli artefatti da movimento si mostrano come ghost sull'immagine.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.15364in,height=2.13333in]{media/10_Ric3D/image270.pdf}\caption{Figura .: Immagine attesa, artefatto da sbilanciamento dei guadagni e artefatto da movimento}
+\end{figure}
+
+La presenza dei ghost non può essere rimossa una volta ricostruita l'immagine, tuttavia, osservando l'artefatto, è possibile discriminare tra un movimento del paziente e lo sbilanciamento del guadagno nei due canali. In quest'ultimo caso è possibile rimuovere la causa scatenante l'artefatto regolando i guadagni dei due canali, ovvero eseguendo interventi di manutenzione o riparazione.
+
+Anche con questo artefatto si preferisce visualizzare l'immagine del modulo. Nella maggior parte dei casi clinici l'immagine di fase non è riportata.
+
+Esistono dei casi, come la spettroscopia o imaging di fase, in cui l'immagine dell'andamento spaziale della fase risulta essere importante. L'immagine di fase permette di verificare la presenza di disomogeneità di campo o problematiche relative alla strumentazione.
+
+\subsection{Esaltazione dei bordi e dei contenuti omogenei}\label{esaltazione-dei-bordi-e-dei-contenuti-omogenei}
+
+Dall'analisi spettrale, è noto che la derivata nel dominio dello spazio-immagine si traduce nel dominio del \(k\)-spazio in una moltiplicazione per \(j2\pi k\), dato che i due domini sono legati tra loro dalla trasformata di Fourier:
+
+\[\frac{d}{dx}\rho(x) \rightarrow j2\pi k\ s(k)\]
+
+Questa operazione corrisponde a una riduzione delle basse frequenze e un'esaltazione delle alte. In particolare, alle alte frequenze corrispondono aree di transizione tra i vari distretti anatomici, ovvero, i bordi; mentre le basse frequenze si riferiscono ad aree omogenee dell'immagine, ovvero il parenchima di un organo o tessuto.
+
+L'operazione di derivata, in altre parole, corrisponde a un filtraggio di tipo passa-alto. L'operazione di derivata può essere applicata sia lungo l'asse di lettura sia di codifica di fase in base a ciò che si vuole osservare.
+
+\begin{figure}
+\centering
+\includegraphics[width=2.81667in,height=2.81667in]{media/10_Ric3D/image271.pdf}\caption{Figura .: Esaltazione dei bordi mediante l'operazione di derivata}
+\end{figure}
+
+Per esaltare le componenti continue, ovvero il parenchima di un organo, è necessario esaltare le basse frequenze e sopprimere le componenti ad alte frequenze. Questa operazione può essere realizzata mediante un filtraggio di tipo smoothing a valor medio:
+
+\[\int_{}^{}{\rho(x)dx} \rightarrow \frac{1}{j2\pi k}s(k)\]
+
+\begin{figure}
+\centering
+\includegraphics[width=3.68472in,height=3.68472in,alt={Generazione immagine completata}]{media/10_Ric3D/image272.pdf}\caption{Figura .: Esaltazione delle componenti continue mediante un filtraggio di tipo smoothing a valor medio}
+\end{figure}
+
+\subsection{Effetto del campionamento e troncamento}\label{effetto-del-campionamento-e-troncamento}
+
+Le antenne restituiscono un segnale \(s(k)\) continuo, acquisito in una finestra di registrazione con durata finita che, per effetti dei gradienti, deve essere molto minore dei tempi di rilassamento \(T_{1}\), \(T_{2}\) e \(T_{2}^{*}\). Il segnale acquisito, dunque, non coincide con tutto il segnale emesso dal volume-campione ma una sua versione troncata.
+
+Per essere elaborato mediante elaboratori digitali, inoltre, il segnale \(s(k)\) deve essere campionato con un periodo di campionamento \(\Delta t\); ciò equivale a ottenere una serie di punti nel \(k\)-spazio.
+
+I due processi sono estremamente importanti per ottenere una ricostruzione soddisfacente dell'immagine della densità protonica contenuta all'interno del tessuto sotto esame.
+
+Per la sovrapposizione degli effetti è possibile considerare applicato un singolo effetto alla volta; ovvero si analizza il caso in cui il segnale viene campionato ma non troncato e il caso in cui il segnale viene troncato ma non campionato. L'effetto risultante è una combinazione di campionamento e troncamento.
+
+\subsubsection{Effetto del campionamento}\label{effetto-del-campionamento}
+
+Si suppone, dapprima, di campionare il segnale \(s(k)\) in tutto lo spazio \(k\), ovvero che il campionamento nel tempo avvenga da \(( - \infty; + \infty)\). Anche se questo processo non è fisicamente realizzabile, può essere assunto possibile per comodità dimostrativa.
+
+Il segnale, in risonanza magnetica, è spesso acquisito mediante un passo di campionamento uniforme \(\Delta t\), a cui corrisponde un passo di campionamento costante \(\Delta k\), nel \(k\)-spazio. Infatti, fissato un valore del gradiente di lettura \(G_{R}\), il campionamento nella direzione \(k_{R}\) avviene con passo:
+
+\[\Delta k_{R} = \Delta k = \gamma G_{R}\Delta t\]
+
+Il segnale \(s(k)\) nel \(k\)-spazio, campionato con passo \(\Delta k_{R}\), può essere espresso come il segnale stesso, moltiplicato per una funzione di campionamento o pettina di Dirac, data da un treno di impulsi applicati a istanti \(p\), multipli di \(\Delta k_{R}\):
+
+\[u(k) = \Delta k_{R}\sum_{p = - \infty}^{+ \infty}{\delta\left( k - p\Delta k_{R} \right)}\]
+
+Con \(\Delta k_{R}\) costante di spaziamento. Il segnale campionato e con supporto infinito \(s_{\infty}(k)\), può essere scritto come:
+
+\[s_{\infty}(k) = s(k)u(k) = s(k)\ \Delta k_{R}\sum_{p = - \infty}^{+ \infty}{\delta\left( k - p\Delta k_{R} \right)}\]
+
+Per la proprietà di linearità della sommatoria e di campionamento della delta, è possibile scrivere il segnale campionato come:
+
+\[s_{\infty}(k) = \Delta k_{R}\sum_{p = - \infty}^{+ \infty}{s(k)\delta\left( k - p\Delta k_{R} \right)} = \Delta k_{R}\sum_{p = - \infty}^{+ \infty}{s\left( p\Delta k_{R} \right)\delta\left( k - p\Delta k_{R} \right)}\]
+
+Il segnale campionato \(s_{\infty}(k)\) è dato da un treno di impulsi applicati nei multipli interi di \(\Delta k_{R}\) e di area \(\Delta k_{R}s\left( p\Delta k_{R} \right)\).
+
+La trasformata inversa di Fourier del segnale \(s_{\infty}(k)\) permette di ottenere la densità protonica ricostruita \({\widehat{\rho}}_{\infty}(x)\). Per le proprietà della \(\mathfrak{F}\)-trasformata, alla moltiplicazione delle trasformate nel \(k\)-spazio, corrisponde la convoluzione delle due antitrasformate nello spazio-immagine. Si applica la definizione di antitasformata di Fourier:
+
+\[{\widehat{\rho}}_{\infty}(x) = \int_{- \infty}^{+ \infty}{s_{\infty}(k)\exp(j2\pi kx)dk} = \int_{- \infty}^{+ \infty}{\left\lbrack \Delta k_{R}\sum_{p = - \infty}^{+ \infty}{s\left( p\Delta k_{R} \right)\delta\left( k - p\Delta k_{R} \right)} \right\rbrack\exp(j2\pi kx)dk}\]
+
+Per linearità è possibile invertire il simbolo di sommatoria con quello di integrale, si ottiene così:
+
+\[{\widehat{\rho}}_{\infty}(x) = \Delta k_{R}\sum_{p = - \infty}^{+ \infty}\left\{ \int_{- \infty}^{+ \infty}{\left\lbrack s\left( p\Delta k_{R} \right)\delta\left( k - p\Delta k_{R} \right) \right\rbrack\exp(j2\pi kx)dk} \right\} = \Delta k_{R}\sum_{p = - \infty}^{+ \infty}{s\left( p\Delta k_{R} \right)\left\{ \int_{- \infty}^{+ \infty}{\delta\left( k - p\Delta k_{R} \right)\exp(j2\pi kx)dk} \right\}}\]
+
+Per le proprietà della delta, l'integrale si riduce all'esponenziale valutato in \(k = p\Delta k_{R}\):
+
+\[{\widehat{\rho}}_{\infty}(x) = \Delta k_{R}\sum_{p = - \infty}^{+ \infty}{s\left( p\Delta k_{R} \right)\exp\left( j2\pi p\Delta k_{R}x \right)}\]
+
+Questa espressione coincide con una serie infinita di Fourier che rappresenta una prima approssimazione della trasformata inversa di Fourier continua.
+
+Nel caso in cui la densità protonica abbia un supporto finito, la serie produce una serie di infinite repliche della densità protonica, a patto che il periodo di campionamento \(\Delta k_{R}\) sia maggiore della dimensione frequenziale delle repliche. Un periodo di campionamento troppo grande determina la sovrapposizione delle repliche, producendo un fenomeno noto come aliasing.
+
+La densità protonica ricostruita campionando il segnale \(s(k)\) su tutto l'asse \(k_{R}\) può essere espressa anche come convoluzione tra le antitrasformate di \(s_{\infty}(k)\) e \(u(k)\):
+
+\[{\widehat{\rho}}_{\infty}(x) = \mathfrak{F}^{- 1}\left\lbrack s_{\infty}(k) \right\rbrack*\mathfrak{F}^{- 1}\left\lbrack u(k) \right\rbrack\]
+
+Dove \(\mathfrak{F}^{- 1}\left\lbrack s_{\infty}(k) \right\rbrack = \rho(x)\) è la densità protonica effettiva. Per la seconda formula di somma di Poisson, risulta:
+
+\[U(x) = \mathfrak{F}^{- 1}\left\lbrack u(k) \right\rbrack = \sum_{q = - \infty}^{+ \infty}{\delta\left( x - \frac{q}{\Delta k_{R}} \right)}\]
+
+La densità protonica ricostruita si può scrivere come:
+
+\[{\widehat{\rho}}_{\infty}(x) = \mathfrak{F}^{- 1}\left\lbrack s_{\infty}(k) \right\rbrack*\mathfrak{F}^{- 1}\left\lbrack u(k) \right\rbrack = \rho(x)*U(x) = \ \rho(x)*\sum_{q = - \infty}^{+ \infty}{\delta\left( x - \frac{q}{\Delta k_{R}} \right)}\]
+
+Per l proprietà di campionamento della \(\delta\), è possibile scrivere:
+
+\[{\widehat{\rho}}_{\infty}(x) = \sum_{q = - \infty}^{+ \infty}{\rho(x)*\delta\left( x - \frac{q}{\Delta k_{R}} \right)} = \sum_{q = - \infty}^{+ \infty}{\rho\left( \frac{q}{\Delta k_{R}} \right)\delta\left( x - \frac{q}{\Delta k_{R}} \right)}\]
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=2.04028in,alt={Immagine che contiene diagramma, linea, testo, bianco Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image273.pdf}\caption{Figura .: Somma di Poisson}
+\end{figure}
+
+Il campionamento spaziale della densità protonica \(\rho(x)\) avviene con passo \(\Delta k_{R}^{- 1}\). Si definisce:
+
+\[L_{R} = \frac{1}{\Delta k_{R}}\]
+
+Il \emph{field of view} o FOV e rappresenta l'intervallo spaziale oltre al quale si presentano le repliche dell'immagine. Il pedice \(R\) indica che il FOV è relativo all'asse di lettura, che nel caso in esame coincide con l'asse \(x\).
+
+Per ricostruire l'immagine si utilizza un apposito filtro interpolatore che estrae la sola replica in banda base. Ovviamente, per poter ricostruire il segnale è necessario che le repliche non si sovrappongono tra loro, dando origine al fenomeno dell'aliasing.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.10833in,height=4.10833in]{media/10_Ric3D/image274.pdf}\caption{Figura .: Filtro interpolatore per l'estrazione della banda base}
+\end{figure}
+
+Sia \(A\) la dimensione dell'oggetto contenuto nell'immagine. Se il FOV è minore delle dimensioni dell'oggetto \(L_{R} = FOV_{R} < A_{R}\), allora parte delle repliche frequenziali si sovrappongono, producendo l'errore di aliasing, rendendo la ricostruzione dell'immagine affetta da errori, soprattutto alle alte frequenze. I contorni sono sfumati a causa della sovrapposizione.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.49375in,height=3.2284in]{media/10_Ric3D/image275.pdf}\caption{Figura .: Effetto dell'aliasing sull'immagine e sullo spettro}
+\end{figure}
+
+Per evitare gli errori da aliasing, è necessario che il FOV sia maggiore della dimensione \(A_{R}\) dell'oggetto, in un discorso monodimensionale, deve risultati, quindi, che:
+
+\[FOV_{R} \geq \frac{1}{\Delta k_{R}} \geq A_{R} \Leftrightarrow \Delta k_{R} \leq \frac{1}{A_{R}}\]
+
+Questa condizione è nota come criterio di Nyquist per l'asse di lettura. In altre parole, l'intervallo di campionamento nel \(k\)-spazio deve essere minore del reciproco della dimensione dell'immagine.
+
+È noto che il campionamento lungo l'asse di lettura avviene con passo \(\Delta k_{R} = \overline{\gamma}G_{R}\Delta t\), per cui la condizione di Nyquist è:
+
+\[FOV_{R} \geq \frac{1}{\Delta k_{R}} \geq A_{R} \Leftrightarrow \Delta k_{R} \leq \frac{1}{A_{R}} \Leftrightarrow \overline{\gamma}G_{R}\Delta t \leq \frac{1}{A_{R}}\]
+
+Passando ai reciproci:
+
+\[\frac{1}{\overline{\gamma}G_{R}\Delta t} \geq A_{R}\]
+
+Si isola \(1/\Delta t\):
+
+\[\frac{1}{\Delta t} \geq \overline{\gamma}G_{R}A_{R}\]
+
+Si definisce frequenza di campionamento lungo l'asse di lettura come:
+
+\[f_{R} = \frac{1}{\Delta t}\]
+
+Da questa relazione si evince un vincolo sulla frequenza di campionamento:
+
+\[f_{R} \geq \overline{\gamma}G_{R}A_{R}\]
+
+Ovviamente la massima frequenza di campionamento corrisponde alla massima banda che può contenere il segnale di ingresso per non causare aliasing. Si definisce banda di ricezione lungo l'asse di lettura \(BW_{R}\):
+
+\[{BW}_{R} \equiv f_{R} = \overline{\gamma}G_{R}A_{R}\]
+
+La banda di ricezione è nota, poiché dipendente dai parametri della strumentazione di risonanza imposti dall'esterno:
+
+\[\Delta k_{R} = \overline{\gamma}G_{R}\Delta t\]
+
+Per definizione di FOV e frequenza di campionamento\_
+
+\[\frac{1}{L_{R}} = \overline{\gamma}G_{R}\frac{1}{{BW}_{R}}\ \]
+
+Isolando \({BW}_{R}\), si ottiene:
+
+\[{BW}_{R} = \overline{\gamma}G_{R}L_{R}\]
+
+Dalla relazione \(FOV_{R} \geq A_{R}\), risulta:
+
+\[{BW}_{R} = \overline{\gamma}G_{R}L_{R} \geq \overline{\gamma}G_{R}A_{R}\]
+
+Banda di recezione, FOV e dimensione dell'oggetto sono legate tra loro mediante uguaglianze e disuguaglianze. Se il FOV è minore dell'oggetto-immagine compaiono delle repliche dell'oggetto in posizioni diverse da quelle attese, ovvero dei ghost legati all'aliasing.
+
+Applicando una sequenza di acquisizione per ricostruire un'immagine, non è sufficiente campionare solamente lungo il gradiente di lettura, ma anche verso i gradienti di codifica di fase, \(G_{PE}\), selezione della slice, \(G_{SS}\). Il tempo di questi gradienti è fissato, quindi, il campionamento lungo queste dipende solamente dall'incremento dei gradienti. Per la codifica di fase, l'incremento tra l'applicazione di una sequenza e la successiva è indicato con \(\Delta G_{PE}\). In questo caso, il passo di campionamento nel \(k\)-spazio nella direzione \(PE\) si scrive come:
+
+\[\Delta k_{PE} = \overline{\gamma}\Delta G_{PE}\tau_{PE}\]
+
+Siccome \(G_{PE}\) è fissato dalla strumentazione, è possibile agire su \(\tau_{PE}\).
+
+In questo caso di definisce FOV lungo la direzione di codifica di fase come:
+
+\[{FOV}_{PE} = L_{PE} = \frac{1}{\Delta k_{PE}}\]
+
+Anche in questo caso è valida la relazione di Nyquist, quindi il \({FOV}_{PE}\) deve essere maggiore della dimensione dell'oggetto-immagine da visualizzare. Sia \(A_{PE}\)0 la dimensione lineare dell'oggetto, il criterio di Nyquist nella direzione di phase enoding si esprime come:
+
+\[{FOV}_{PE} \geq A_{PE}\]
+
+Il \({FOV}_{PE}\) nella direzione di codifica di fase è legato al tempo di applicazione del gradiente \(\tau_{PE}\), fissato, e all'incremento dell'ampiezza del gradiente \(\Delta G_{PE}\) dalla relazione:
+
+\[{FOV}_{PE} = \frac{1}{\overline{\gamma}\Delta G_{PE}\tau_{PE}} \geq A_{PE}\]
+
+Il tempo \(\tau_{PE}\) non può essere troppo lungo per non aumentare il tempo di esecuzione; inoltre, l'ampiezza della variazione del gradiente dovrebbe diminuire conseguentemente.
+
+La frequenza di campionamento, dunque, la massima banda dell'oggetto, in ricezione è:
+
+\[{BW}_{PE} = \frac{1}{\Delta G_{PE}} \geq A_{PE}\]
+
+Tipicamente il tecnico radiologo agisce sulla dimensione dei \(FOV\), tramite un apposito software, per risolvere gli oggetti necessari all'indagine clinica, contenuti nell'immagine.
+
+\subsubsection{Effetto del troncamento}\label{effetto-del-troncamento}
+
+La trattazione della ricostruzione dell'immagine in risonanza magnetica si complica introducendo la finestra di acquisizione. Il segnale acquisito non è campionato in un intervallo di tempo illimitato ma finito, generalmente dell'ordine dei \(ms\).
+
+Il troncamento o \emph{windowing} del segnale è modellato matematicamente moltiplicando la funzione campionata in un intervallo di tempo illimitato per una finestra rettangolare di ampiezza \(W\) e centrata in \(\Delta k/2\):
+
+\[s_{m}(k) = s_{\infty}(k)rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right)\]
+
+\(s_{\infty}(k)\) è dato dalla moltiplicazione del segnale originale per il treno di impulsi di Dirac:
+
+\[s_{m}(k) = s(k)u(k)rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right)\]
+
+Sia \(N\) il numero degli impulsi contenuti nella finestra di acquisizione, ovvero il numero dei campioni che ricadono nell'intervallo di ampiezza \(W\). Il parametro \(N\) è scelto in modo da essere un numero pari, generalmente multiplo di \(2\), così da rendere pi semplice l'applicazione di algoritmi di ricostruzione mediante trasformata discreta di Fourier (DFT) e fast-fourier transform (FFT), quest'ultimo opera proprio su un numero pari di campioni ed è ancora più efficiente se il numero \(N\) è una potenza di \(2\).
+
+L'ampiezza della finestra rettangolare, fissato il numero di punti, è univocamente determinata dalla spaziatura nel \(k\)-spazio lungo l'asse di lettura, \(\Delta k_{R}\):
+
+\[W = N\Delta k_{R}\]
+
+Se il numero dei punti deve essere pari, allora:
+
+\[W = 2n\Delta k_{R}\]
+
+Siccome i punti sono pari, la finestra di acquisizione non è simmetrica rispetto l'origine, ma lievemente asimmetrica con \(n\) punto prima dell'origine e \(n - 1\) punti dopo.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.4277in,height=2.08362in,alt={Immagine che contiene linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image276.pdf}\caption{Figura .: Finestra rettangolare discreta}
+\end{figure}
+
+Per il troncamento, il segnale misurato, \(s_{m}(k)\), è dato da:
+
+\[s_{m}(k) = \Delta k_{R}\left\lbrack \sum_{p = - \infty}^{+ \infty}{s\left( p\Delta k_{R} \right)\delta\left( k - p\Delta k_{R} \right)} \right\rbrack rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right) = \Delta k_{R}\sum_{p = - n}^{n - 1}{s\left( p\Delta k_{R} \right)\delta\left( k - p\Delta k_{R} \right)}\]
+
+Il segnale misurato è dato da una somma discreta e finita di impulsi \(\delta\) applicati sui multipli interi di \(\Delta k_{R}\) e di area \(s\left( p\Delta k_{R} \right)\ \Delta k_{R}\).
+
+Se la finestra fosse stata simmetrica, allora sarebbero stati acquisiti \(2n + 1\) campioni, rendendo difficile l'applicazione di algoritmi FFT. Oltre a ciò, la definizione della finestra simmetrica porta a uno spostamento dei campioni acquisiti rispetto alla situazione originale in cui è campionato lo zero; ciò porta a non acquisire il valore di picco del segnale trasmesso a \(k = 0\), perdendo così informazioni importanti.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=2.17222in]{media/10_Ric3D/image277.pdf}\caption{Figura .: Campioni del segnale acquisito con finestra simmetrica e asimmetrica}
+\end{figure}
+
+La ricostruzione della densità protonica per un campionamento in una finestra limitata è ottenuta mediante trasformata inversa di Fourier:
+
+\[\widehat{\rho}(x) = \int_{- \infty}^{+ \infty}{s_{m}(k)\exp(j2\pi kx)dk} = \int_{- \infty}^{+ \infty}{\left\lbrack \Delta k_{R}\sum_{p = - n}^{n - 1}{s\left( p\Delta k_{R} \right)\delta\left( k - p\Delta k_{R} \right)} \right\rbrack\exp(j2\pi kx)dk} =\]
+
+Per linearità è possibile invertire il simbolo di integrale con quello di sommatoria:
+
+\[= \ \Delta k_{R}\sum_{p = - n}^{n - 1}\left\lbrack s\left( p\Delta k_{R} \right)\int_{- \infty}^{+ \infty}{\delta\left( k - p\Delta k_{R} \right)\exp(j2\pi kx)dk} \right\rbrack\]
+
+Per la proprietà di campionamento della delta di Dirac, si ha:
+
+\[\widehat{\rho}(x) = \Delta k_{R}\sum_{p = - n}^{n - 1}\left\lbrack s\left( p\Delta k_{R} \right)\exp\left( j2\pi p\Delta k_{R}x \right) \right\rbrack\]
+
+La densità protonica ricostruita \(\widehat{\rho}(x)\) è periodica di periodo \(x = \Delta k_{R}^{- 1}\). Se il FOV è scelto opportunamente, il criterio di Nyquist è rispettato per cui le repliche non si sovrappongono.
+
+Il campionamento finito porta a una stima della densità protonica, ricostruita mediante una serie finita di Fourier. L'effetto del campionamento e del troncamento si manifesta con una riduzione delle alte frequenze, dunque, uno sfocamento dei bordi.
+
+Il campionamento finito nel \(k\)-spazio si traduce nel prodotto di convoluzione tra le antitrasformate del segnale registrato dalle antenne, \(s_{\infty}(k)\), la funzione di campionamento data dai treni di impulsi \(u(k)\) e la finestra rettangolare di troncamento:
+
+\[\widehat{\rho}(x) = \mathfrak{F}^{- 1}\left\lbrack s_{\infty}(k) \right\rbrack*\mathfrak{F}^{- 1}\left\lbrack u(k) \right\rbrack*\mathfrak{F}^{- 1}\left\lbrack rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right) \right\rbrack\]
+
+Dove l'antitrasformata dalla finestra di troncamento corrisponde a una \(sinc\):
+
+\[\mathfrak{F}^{- 1}\left\lbrack rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right) \right\rbrack = Wsinc(\pi Wx)\exp{\left( - j2\pi\frac{\Delta k}{2}x\  \right)\ }\]
+
+La \(sinc\) presenta il primo zero in \(x = \pm W^{- 1}\).
+
+Nel dominio dello spazio-immagine, la densità protonica ricostruita è data da:
+
+\[\widehat{\rho}(x) = \rho(x)*\sum_{q = - \infty}^{+ \infty}{\delta\left( x - \frac{q}{\Delta k_{R}} \right)}*Wsinc(\pi Wx)\exp{\left( - j2\pi\frac{\Delta k}{2}x\  \right)\ }\]
+
+La convoluzione della densità protonica reale \(\rho(x)\) col treno di impulsi restituisce la densità protonica ricostruita nel caso in cui il campionamento non sia troncato \({\widehat{\rho}}_{\infty}(x)\):
+
+\[\widehat{\rho}(x) = {\widehat{\rho}}_{\infty}(x)*Wsinc(\pi Wx)\exp{\left( - j2\pi\frac{\Delta k}{2}x\  \right)\ }\]
+
+La convoluzione del segnale campionato in una finestra illimitata per la funzione \(sinc\) sfoca i contorni dell'immagine. Infatti, poiché la \(sinc\) non è limitata, le varie repliche interagiscono tra loro, portando a delle distorsioni nei confini dell'oggetto.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.9908in,height=7.20351in]{media/10_Ric3D/image278.pdf}\caption{Figura .: Sfocamento dovuto al campionamento e al troncamento}
+\end{figure}
+
+Tutte le immagini ricostruite presentano questa limitazione dovuta al campionamento finito, tuttavia, lo sfocamento tende a essere trascurabile per un troncamento opportuno; ovvero per una finestra rettangolare di ampiezza \(W\) opportuna. Infatti, a una finestra rettangolare sufficientemente ampia, corrisponde, nel dominio-immagine, a una \(sinc\) caratterizzata da un lobo principale di durata molto limitata, che ben approssima il comportamento di un impulso. Al limite per \(W \rightarrow \infty\), il primo zero della \(sinc\) si sposta verso \(1/W \rightarrow 0\).
+
+\subsection{Valutazione della banda di ricezione}\label{valutazione-della-banda-di-ricezione}
+
+Si suppone che la dimensione dell'oggetto lungo l'asse di lettura sia di \(0.5\ m\), gradiente di lettura \(G_{R} = 10\ mT/m\), con un massimo, nella pratica di \(50\ mT/m\). Si vuole determinare la banda di ricezione minima del segnale registrato \(s(k)\).
+
+È noto che la banda minima in ricezione è data da:
+
+\[BW_{R} = f_{R} = \overline{\gamma}G_{R}L_{R}\]
+
+Dove \(L_{R} \geq A_{R}\) dimensione dell'oggetto di cui si vuole ricostruire l'immagine. Risulta:
+
+\[f_{R} \geq \overline{\gamma}G_{R}A_{R}\]
+
+Dove \(\overline{\gamma} = 42.6\ MHz/T\). Facendo valere il simbolo di uguaglianza, risulta:
+
+\[f_{R} = \overline{\gamma}G_{R}A_{R} = 42.6\frac{MHz}{T}10\frac{mT}{m}0.5\ m = 42.6 \cdot 10^{6}\frac{Hz}{T}10 \cdot 10^{- 3}\frac{T}{m}0.5\ m = 213\ kHz\]
+
+Se il gradiente di lettura raddoppia, anche la banda minima del senale raddoppia:
+
+\[f_{R} = \overline{\gamma}2G_{R}A_{R} = 42.6 \cdot 10^{6}\frac{Hz}{T}2 \cdot 10 \cdot 10^{- 3}\frac{T}{m}0.5\ m = 426\ kHz\]
+
+Nella pratica le frequenze utilizzate per la banda di ricezione hanno ordine di grandezza del centinaio di \(kHz\), contro la frequenza di una decina di \(MHz\) del segnale trasmesso.
+
+La massima banda di ricezione dipende essenzialmente dal gradiente di lettura, poiché il rapporto giromagnetico \(\overline{\gamma}\) è costante, mentre la dimensione dell'oggetto da visualizzare, \(A_{R}\), è una quantità fissata dal tecnico radiologo in base all'esame da effettuare, dunque, in base al distretto anatomico da visualizzare.
+
+\subsection{Descrete Fourier Transform}\label{descrete-fourier-transform}
+
+Date le due sequenze segnale acquisito \(s(p\Delta k)\) e densità protonica ricostruita \(\widehat{\rho}(q\Delta x)\), esse sono collegate da una coppia di antitrasformate di Fourier inverse o indirette, se il numero di punti con cui sono campionate è lo stesso. Inoltre, detta \(\widetilde{U}(x)\) la funzione campionatrice nel dominio dello spazio-immagine:
+
+\[\widetilde{U}(x) = \Delta x\sum_{q = - \infty}^{+ \infty}{\delta(x - q\Delta x)}\]
+
+Questa è limitata dalla finestra rettangolare di durata \(L\), centrata in \(\Delta x/2\):
+
+\[rect\left( \frac{x + \frac{1}{2}\Delta x}{L} \right)\]
+
+La \(rect\) è la funzione finestratura nella quale si campiona la densità protonica spazio-immagine, la quale può essere scritta come prodotto tra la funzione finestra e la funzione campionatrice:
+
+\[{\widehat{\rho}}_{m}(x) = \widehat{\rho}(x)\widetilde{U}(x)\ rect\left( \frac{x + \frac{1}{2}\Delta x}{L} \right)\]
+
+Si esplicita il termine di campionamento:
+
+\[{\widehat{\rho}}_{m}(x) = \widehat{\rho}(x)\Delta x\sum_{q = - \infty}^{+ \infty}{\delta(x - q\Delta x)}rect\left( \frac{x + \frac{1}{2}\Delta x}{L} \right)\]
+
+Si suppone che nella finestra di acquisizione, entrino \(N = 2n\) campioni del segnale densità protonica. Il segnale misurato si può scrivere come:
+
+\[{\widehat{\rho}}_{m}(x) = \widehat{\rho}(x)\Delta x\sum_{q = - n}^{n + 1}{\delta(x - q\Delta x)}\]
+
+Per la linearità dell'operatore sommatoria, è possibile scrivere:
+
+\[{\widehat{\rho}}_{m}(x) = \Delta x\sum_{q = - n}^{n + 1}{\widehat{\rho}(x)\delta(x - q\Delta x)}\]
+
+Per la proprietà di campionamento della delta di Dirac, è possibile scrivere:
+
+\[{\widehat{\rho}}_{m}(x) = \Delta x\sum_{q = - n}^{n + 1}{\widehat{\rho}(q\Delta x)\delta(x - q\Delta x)}\]
+
+La densità protonica \({\widehat{\rho}}_{m}(x)\) è l'antitrasformata del segnale \(\widehat{s}(k)\) registrato nel \(k\)-spazio, ricostruito nota, appunto, la serie \({\widehat{\rho}}_{m}(x)\):
+
+\[\widehat{s}(k) = \int_{}^{}{{\widehat{\rho}}_{m}(x)\exp( - j2\pi kx)dx}\]
+
+Si sostituisce l'espressione per \({\widehat{\rho}}_{m}(x)\):
+
+\[\widehat{s}(k) = \int_{}^{}{\left\lbrack \Delta x\sum_{q = - n}^{n + 1}{\widehat{\rho}(q\Delta x)\delta(x - q\Delta x)} \right\rbrack\exp( - j2\pi kx)dx}\]
+
+Per la linearità degli operatori sommatoria e integrale è possibile scrivere:
+
+\[\widehat{s}(k) = \Delta x\sum_{q = - n}^{n + 1}{\widehat{\rho}(q\Delta x)\int_{}^{}{\delta(x - q\Delta x)\exp( - j2\pi kx)dx}}\]
+
+Per la proprietà di campionamento dell'impulso di Dirac, si ha:
+
+\[\widehat{s}(k) = \Delta x\sum_{q = - n}^{n + 1}{\widehat{\rho}(q\Delta x)\exp( - j2\pi kq\Delta x)}\]
+
+Il segnale nel \(k\)-spazio è campionato con passo \(\Delta k\), per cui \(\widehat{s}(k)\) è noto solamente sui multipli interi di \(k = r\Delta k\):
+
+\[\widehat{s}(r\Delta k) = \Delta x\sum_{q = - n}^{n + 1}{\widehat{\rho}(q\Delta x)\exp( - j2\pi r\Delta kq\Delta x)}\]
+
+La densità protonica ricostruita \(\widehat{\rho}(q\Delta x)\) è legata al segnale effettivamente registrato \(s(k)\) dall'antitrasformata di Fourier:
+
+\[\widehat{\rho}(q\Delta x) = \Delta k\sum_{p = - n}^{n - 1}\left\lbrack s(p\Delta k)\exp(j2\pi p\Delta kq\Delta x) \right\rbrack\]
+
+Da cui si ottiene:
+
+\[\widehat{s}(r\Delta k) = \Delta x\sum_{q = - n}^{n + 1}{\left\{ \Delta k\sum_{p = - n}^{n - 1}\left\lbrack s(p\Delta k)\exp(j2\pi p\Delta kq\Delta x) \right\rbrack \right\}\exp( - j2\pi r\Delta kq\Delta x)}\]
+
+Per la linearità della sommatoria si ha:
+
+\[\widehat{s}(r\Delta k) = \Delta x\Delta k\sum_{q = - n}^{n + 1}\left\{ \sum_{p = - n}^{n - 1}\left\lbrack s(p\Delta k)\exp(j2\pi p\Delta kq\Delta x)\exp( - j2\pi r\Delta kq\Delta x) \right\rbrack \right\}\]
+
+Da cui:
+
+\[\widehat{s}(r\Delta k) = \Delta x\Delta k\sum_{q = - n}^{n + 1}\left\{ \sum_{p = - n}^{n - 1}\left\lbrack s(p\Delta k)\exp\left( j2\pi q(p - r)\Delta k\Delta x \right) \right\rbrack \right\}\]
+
+Per definizione il FOV è:
+
+\[FOV \equiv L = \frac{1}{\Delta k}\]
+
+Da cui:
+
+\[\Delta k = \frac{1}{L}\]
+
+Il FOV coincide con l'estensione della finestra lungo la direzione di lettura:
+
+\[L = 2n\Delta x \Leftrightarrow \Delta x = \frac{L}{2n}\]
+
+Il prodotto \(\Delta k\Delta x\) può, quindi, essere scritto come:
+
+\[\Delta k\Delta x = \frac{1}{L}\frac{L}{2n} = \frac{1}{2n}\]
+
+Questa relazione, in una sorta di analogia col principio di indeterminazione di Heisenberg, determina una relazione di inversa proporzionalità tra il campionamento nel \(k\)-spazio e nel dominio dello spazio-immagine. Nel dettaglio, maggiore è il FOV e minore risoluzione, e viceversa.
+
+Il segnale ricostruito, sostituendo \(\Delta x = L^{- 1}\) e \(\Delta k\Delta x = (2n)^{- 1}\) è:
+
+\[\widehat{s}\left( \frac{r}{L} \right) = \frac{1}{2n}\sum_{q = - n}^{n + 1}\left\{ \sum_{p = - n}^{n - 1}\left\lbrack s\left( \frac{p}{L} \right)\exp\left( j2\pi q\frac{p - r}{2n} \right) \right\rbrack \right\}\]
+
+Per la linearità, si ha:
+
+\[\widehat{s}\left( \frac{r}{L} \right) = \frac{1}{2n}\sum_{q = - n}^{n + 1}\left\{ s\left( \frac{p}{L} \right)\sum_{p = - n}^{n - 1}\left\lbrack \exp\left( j2\pi q\frac{p - r}{2n} \right) \right\rbrack \right\}\]
+
+È noto che
+
+\[\sum_{p = - n}^{n - 1}\left\lbrack \exp\left( j2\pi q\frac{p - r}{2n} \right) \right\rbrack = 2n\delta_{pr}\]
+
+Dove \(\delta_{pr}\) è la delta di Kronecker, definita come:
+
+\[\delta_{pr} = \left\{ \begin{aligned}
+1,\ \  & p = r \\
+0,\ \  & p \neq r
+\end{aligned} \right.\ \]
+
+Il segnale ricostruito nel \(k\)-spazio è:
+
+\[\widehat{s}\left( \frac{r}{L} \right) = \frac{1}{2n}2n\sum_{q = - n}^{n + 1}\left\lbrack s\left( \frac{p}{L} \right)\delta_{pr} \right\rbrack = \sum_{q = - n}^{n + 1}\left\lbrack s\left( \frac{p}{L} \right)\delta_{pr} \right\rbrack\]
+
+Il segnale ricostruito a partire dai campioni dello spazio-immagine è uguale, punto per punto, al segnale originale campionato nel \(k\)-spazio. Dalla relazione appena individuata si evince che il segnale registrato \(s(pk)\) e densità protonica ricostruita \(\widehat{\rho}(qL/2n)\) sono legate da una coppia di trasformate di Fourier discrete:
+
+\[\left\{ \begin{matrix}
+s\left( \frac{p}{L} \right) = \Delta x\sum_{q = - n}^{n - 1}{\widehat{\rho}\left( q\frac{L}{2n} \right)\exp\left( - j2\pi\frac{pq}{2n} \right)} \\
+s\left( q\frac{L}{2n} \right) = \Delta k\sum_{q = - n}^{n - 1}{s\left( \frac{p}{L} \right)\exp\left( j2\pi\frac{pq}{2n} \right)}
+\end{matrix} \right.\ \]
+
+La trasformata discreta di Fourier del segnale registrato \(s(p/L)\) è proporzionale alla densità protonica fisicamente presente in un voxel dell'immagine.
+
+Dalla relazione \(\Delta x\Delta k = (2n)^{- 1}\) discende che le due quantità non possono essere piccole a piacere. In particolare, \(\Delta k\) regola il FOV, ovvero la dimensione dell'immagine, mentre \(\Delta x\) l'ampiezza del campionamento nel dominio dell'immagine.
+
+Il passo di campionamento nello spazio-immagine \(\Delta x\) è detto Fourier Pixel Size e rappresenta la migliore risoluzione possibile senza utilizzare particolari algoritmi o filtri.
+
+Il campionamento e il troncamento, in definitiva, introducono degli artefatti che riducono la risoluzione. La relazione:
+
+\[\Delta x = \frac{1}{2n\Delta k}\]
+
+Rappresenta, dunque, la risoluzione nel caso migliore possibile ed è legata al campionamento nel \(k\)-spazio e al numero di punti acquisiti nella finestra rettangolare.
+
+\subsection{Valutazione dei parametri frequenziali tecnici}\label{valutazione-dei-parametri-frequenziali-tecnici}
+
+Si suppone che l'imaging bidimensionale sia caratterizzato dai parametri \(L_{R} = L_{PE} = 256\ mm\), \(N_{R} = N_{PE} = 256\), \(TH = 5\ mm\) e \(T_{R} = 600\ ms\). Si assume che \(\widehat{x}\), \(\widehat{y}\) e \(\widehat{z}\) sono, rispettivamente, l'asse di lettura, di codifica di fase e di \emph{slice selction}; la finestra di acquisizione abbia durata \(T_{S} = 5.12\ ms\) e \(\tau_{PE} = 2.56\ ms\) e una banda di eccitazione a radiofrequenza di \(2\ kHz\).
+
+Si vuole determinare:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  La banda di ricezione \(BW_{R}\), l'intervallo di campionamento \(\Delta t_{R}\) di Nyquist nella direzione di lettura, l'intervallo di campionamento di Nyquist nella direzione \(k_{R}\) e il valore del gradiente di lettura;
+\item
+  L'intervallo di campionamento di Nyquist nella direzione di codifica di fase \(\Delta k_{PE}\), le variazioni del gradiente in step successivi, \(\Delta G_{PE}\) e il suo valore massimo nella direzione di codifica di fase;
+\item
+  Il gradiente di \emph{slice selection} usato;
+\item
+  Cosa accade se il numero di punti lungo la direzione di lettura \(N_{R}\) e di codifica di fase \(N_{PE}\) raddoppiano mentre lo spessore della slice viene dimezzato, mantenendo costante gli altri parametri;
+\item
+  Come cambia il gradiente di lettura \(G_{R}\), quando \(L_{R}\) è dimezzato, mentre gli altri parametri sono mantenuti invariati. Se \(T_{S} = 2.56\ ms\). \(L_{R} = 256\ mm\) e \(N_{R} = 256\) cisa accade a \(G_{R}\).
+\end{enumerate}
+
+Supponendo che l'immagine sia acquisita con una metodologia tridimensionale con \(L_{SS} = 32\ mm\) e \(N_{ss} = 16\), si vuole determinare:
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi})}
+\item
+  \(G_{SS}\);
+\item
+  \(\Delta G_{z}\) e il valore massimo di tale gradiente;
+\item
+  Il tempo totale di acquisizione se \(T_{R} = 600\ ms\) e \(T_{R} = 60\ ms\)
+\item
+  Confrontare \(G_{SS}\) nei due casi.
+\end{enumerate}
+
+La banda di ricezione minima \(BW_{R}\)è data da:
+
+\[BW_{R} = \overline{\gamma}G_{R}L_{R}\]
+
+Inoltre, per definizione, la banda passante è legata al passo di campionamento lungo la direzione di lettura dalla relazione:
+
+\[BW_{R} = \frac{1}{\Delta t_{R}}\]
+
+Il tempo di campionamento può essere ottenuto semplicemente dividendo l'ampiezza della finestra di acquisizione per il numero di punti memorizzati in tale intervallo temporale, lungo l'asse di lettura:
+
+\[\Delta t_{R} = \frac{T_{S}}{N_{R}}\]
+
+La banda di ricezione minima è, dunque:
+
+\[BW_{R} = \frac{1}{\Delta t_{R}} = \frac{N_{R}}{T_{S}} = \frac{256}{5.12 \cdot 10^{- 3}\ s} = 50\ kHz\]
+
+L'intervallo di campionamento è, invece:
+
+\[\Delta t_{R} = \frac{T_{S}}{N_{R}} = \frac{10^{- 3}s}{256} = 0.02\ ms\]
+
+Il gradiente lungo la direzione di lettura necessario per ottenere la banda di ricezione minima individuata si ottiene dalla relazione:
+
+\[BW_{R} = \overline{\gamma}G_{R}L_{R} \Leftrightarrow G_{R} = \frac{BW_{R}}{\overline{\gamma}L_{R}}\]
+
+Numericamente, si scrive:
+
+\[G_{R} = \frac{BW_{R}}{\overline{\gamma}L_{R}} = \frac{50 \cdot 10^{3}Hz}{42.6 \cdot 10^{6}\frac{Hz}{T} \cdot 256 \cdot 10^{- 3}m} = 4.58\frac{mT}{m}\]
+
+L'intervallo di campionamento lungo l'asse di lettura è:
+
+\[\Delta k_{R} = \frac{1}{L_{R}} = \frac{1}{256\ mm} = 3.9\ m^{- 1}\]
+
+Analogamente, per l'asse di codifica di fase, il campionamento avviene con passo:
+
+\[\Delta k_{PE} = \frac{1}{L_{PE}} = \frac{1}{256\ mm} = 3.9\ m^{- 1}\]
+
+La variazione del gradiente lungo l'asse di codifica di fase, tra una sequenza e l'altra, è dato da:
+
+\[\Delta k_{PE} = \overline{\gamma}\Delta G_{PE}\tau_{PE} \Leftrightarrow \ \Delta G_{PE} = \frac{\Delta k_{PE}}{\overline{\gamma}\tau_{PE}}\]
+
+Numericamente:
+
+\[\Delta G_{PE} = \frac{\Delta k_{PE}}{\overline{\gamma}\tau_{PE}} = \frac{3.9\frac{1}{m}}{42.6 \cdot 10^{6}\frac{Hz}{T} \cdot 256 \cdot 10^{- 3}m} = 0.036\frac{mT}{m}\]
+
+Siccome la sequenza va ripetuta \(N_{PE}\) volte, il gradiente è applicato tra un valore \(- \Delta G_{\min}\) a \(\Delta G_{\max}\), passando per lo \(0\). Nell'ipotesi che \(G_{PE}\) assuma \(N/2\) valori prima dello zero e dopo, è possibile scrivere:
+
+\[\Delta G_{\max} = \Delta G_{PE}\frac{N_{PE}}{2}\]
+
+Numericamente, si scrive:
+
+\[\Delta G_{\max} = \Delta G_{PE}\frac{N_{PE}}{2} = 0.036 \cdot 10^{- 3}\frac{T}{m} \cdot \frac{256}{2} = 4.57\frac{mT}{m}\]
+
+Il gradiente di selezione della fetta è legato allo spessore della fetta, \(TH\), tramite la relazione:
+
+\[TH = \frac{BW_{rf}}{\overline{\gamma}G_{SS}} \Leftrightarrow G_{SS} = \frac{BW_{rf}}{\overline{\gamma}TH}\]
+
+Numericamente, si ha:
+
+\[G_{SS} = \frac{BW_{rf}}{\overline{\gamma}TH} = \frac{2\ kHz}{42.6 \cdot 10^{6}\frac{Hz}{T} \cdot 3 \cdot 10^{- 3}\ m} = 9.38\frac{mT}{m}\]
+
+Il tempo necessario per acquisire una singola fetta è dato dall'intervallo temporale in cui è attivata la finestra di ricezione \(T_{S}\) e il tempo tra due ripetizioni \(T_{R}\) da una sequenza e la successiva. Numericamente, \(T_{R} = 600\ ms\) mentre \(T_{S} = 5.12\ ms\). È chiaro che \(T_{R} \gg T_{S}\), quindi, l'intervallo in cui si preleva il segnale può essere trascurato. In altre parole, si soppone che l'asse di lettura sia acquisito istantaneamente rispetto all'asse di codifica di fase.
+
+Per acquisire \(N_{PE}\) punti sull'asse di codifica di fase è dato da:
+
+\[T_{acq} = N_{PE}T_{R} = 256 \cdot 600 \cdot 10^{- 3}\ s = 154.6\ s\]
+
+L'acquisizione di una singola avviene in un tempo di circa \(2.6\ min\).
+
+Se si raddoppiano \(N_{R}\) e \(N_{PE}\) e si dimezza \(TH\), a parità di tutti gli altri parametri, dalla relazione:
+
+\[G_{R} = \frac{BW_{R}}{\overline{\gamma}L_{R}}\]
+
+Per definizione di \(BW_{R} = N_{R}/T_{S}\), si ha:
+
+\[G_{R} = \frac{N_{R}}{\overline{\gamma}L_{R}T_{S}}\]
+
+Se il numero di punti campionato lungo la direzione di lettura, \(N_{R}\), raddoppia, anche il gradiente \(G_{R}\) raddoppia.
+
+Il massimo gradiente lungo l'asse di codifica di fase è dato da:
+
+\[G_{PE,max} = \Delta G_{PE}\frac{N_{PE}}{2}\]
+
+Se raddoppia il numero di punti \(N_{PE}\) anche il massimo gradiente applicato lungo la direzione di codifica di fase è raddoppia.
+
+Dimezzando \(TH\) invece, \(G_{SS}\) raddoppia poiché i due parametri sono legati da una legge di inversa proporzionalità:
+
+\[G_{SS} = \left. \ \frac{BW_{rf}}{\overline{\gamma}TH} \right|_{TH = \frac{TH}{2}} = 2\frac{BW_{rf}}{\overline{\gamma}TH}\]
+
+Se si dimezza la dimensione dell'oggetto \(L_{R}\), il gradiente di lettura raddoppia, infatti le due quantità sono inversamente proporzionate:
+
+\[G_{R} = \left. \ \frac{BW_{R}}{\overline{\gamma}L_{R}} \right|_{L_{R} = \frac{L_{R}}{2}} = 2\frac{BW_{R}}{\overline{\gamma}L_{R}}\]
+
+Il tempo di acquisizione della finestra \(T_{S}\) è legato agli altri parametri lungo la direzione di lettura dalla relazione:
+
+\[G_{R} = \frac{N_{R}}{\overline{\gamma}L_{R}T_{S}}\]
+
+Aumentando \(T_{S}\), il gradiente lungo \(G_{R}\) si riduce per inversa proporzionalità. Numericamente:
+
+\[G_{R} = \frac{N_{R}}{\overline{\gamma}L_{R}T_{S}} = \frac{256}{42.6 \cdot 10^{6}\frac{Hz}{T} \cdot 256 \cdot 10^{- 3}m \cdot 2.56 \cdot 10^{- 3}s} = 9.2\frac{mT}{m}\]
+
+Il valore del gradiente di selezione della fetta è dato da:
+
+\[G_{SS} = \frac{BW_{rf}}{\overline{\gamma}TH} = \frac{2\ kHz}{42.6 \cdot 10^{6}\frac{Hz}{T}36 \cdot 10^{- 3}m} = 1.3\frac{mT}{m}\]
+
+Il passo di campionamento lungo l'asse di \emph{slice selection} è dato da:
+
+\[\Delta k_{SS} = \overline{\gamma}\Delta G_{SS}\tau_{SS} \Leftrightarrow \ \Delta G_{SS} = \frac{\Delta k_{SS}}{\overline{\gamma}\tau_{SS}}\]
+
+Dove \(\Delta k_{SS} = 1/L_{SS}\), ovvero:
+
+\[\Delta k_{SS} = \frac{1}{L_{SS}} = \frac{1}{32 \cdot 10^{- 3}m} = 31.3\ m^{- 1}\]
+
+Noto questo parametro è possibile ricavare l'incremento del gradiente di selezione della fetta tra una sequenza e la successiva:
+
+\[\ \Delta G_{SS} = \frac{\Delta k_{SS}}{\overline{\gamma}\tau_{SS}} = \frac{31.3\ m^{- 1}}{42.6 \cdot 10^{6}\frac{Hz}{T}256 \cdot 10^{- 3}m} = 2.87\frac{\mu T}{m}\]
+
+Il gradiente massimo applicato lungo la direzione di selezione della fetta è dato da:
+
+\[G_{SS,max} = \Delta G_{SS}N_{SS} = 16 \cdot 2.87\frac{\mu T}{m} = 45.9\frac{\mu T}{m}\]
+
+Il tempo di acquisizione deve tener conto, oltre ai \(N_{PE}\) punti lungo l'asse di codifica di fase, anche gli \(N_{SS}\) punti lungo l'asse di selezione della fetta. Per un tempo di ripetizione di \(T_{R} = 600\ ms\), si ha un tempo:
+
+\[T_{acq} = T_{R}N_{SS}N_{PE} = 600\ ms \cdot 16 \cdot 256 \simeq 2458\ s \simeq 41\ min\]
+
+Il tempo di acquisizione in caso di imaging 3D è molto maggiore del tempo necessario per ottenere una singola fetta. In questo caso l'esame di risonanza magnetica, essendo molto più lungo, ha una maggiore predisposizione alla presenza di artefatti da movumento.
+
+Se il tempo di ripetizione fosse di \(60\ ms\) potrebbe non essere raggiunto l'equilibrio termodinamico con il campo magnetico principale. Di conseguenza non si ottiene il massimo segnale possibile, riducendo di molto il rapporto segnale/rumore. Il tempo di acquisizione, nel caso di \(T_{R} = 60\ ms\), è:
+
+\[T_{acq} = 60\ ms \cdot 256 \cdot 16 \simeq 246 \simeq 4\ min\]
+
+Grazie a questo esempio è possibile avere una maggiore confidenza con gli ordini di grandezza utilizzati in risonanza magnetica.
+
+\subsubsection{Corretto campionamento}\label{corretto-campionamento}
+
+Il campionamento del \(k\)-spazio pone dei limiti sulla collezione dei dati relativi alla direzione di lettura, codifica di fase e selezione della fetta. Ciò determina solo una parziale convergenza del \(k\)-spazio comportando errori nella valutazione e ricostruzione della densità protonica tramite la trasformata di Fourier. Tale problematica è detto limite dell'inversa di Fourier.
+
+Nel caso monodimensionale, l'immagine ricostruita è ottenuta come:
+
+\[{\widehat{\rho}}_{m}(x) = \Delta x\sum_{p = - n}^{n + 1}{s(p\Delta k)\exp(j2\pi kp\Delta kx)}\]
+
+La trasformata inversa di Fourier è ottenuta come somma di \(2n\) termini a causa del troncamento. Il passo di campionamento \(\Delta k\) è legato all'ampiezza della finestra \(W\) e al numero di punti \(N\) dalla relazione:
+
+\[W = N\Delta k\]
+
+Siccome, per il teorema di Nyquist applicato lungo l'asse di lettura, il FOV deve essere maggiore della dimensione degli oggetti dell'immagine:
+
+\[L \geq A,\Delta k = \frac{1}{L}\]
+
+Risulta:
+
+\[\Delta k \leq \frac{1}{A}\]
+
+Da cui discende che la finestra di acquisizione deve essere più piccola dell'inverso della dimensione dell'oggetto, moltiplicata per \(N\):
+
+\[W = N\Delta k \Leftrightarrow W \leq \frac{N}{A}\]
+
+\subsubsection{Banda di ricezione dell'imaging}\label{banda-di-ricezione-dellimaging}
+
+L'imaging della densità protonica può essere sia bidimensionale, mediante l'applicazione del gradiente di selezione della fetta, oppure tridimensionale, eccitando l'intero volume paziente. Nell'imaging bidimensionale, la banda di ricezione può influenzare lo spessore della fetta selezionata; il FOV, infatti, è legato alla banda minima sull'asse di lettura dalla relazione:
+
+\[BW_{R} = \overline{\gamma}G_{R}L_{R}\]
+
+È possibile controllare la porzione di oggetto da cui si vuole ricavare il segnale di risonanza magnetica, proveniente dal corpo del paziente. Dato un oggetto di dimensione \(L_{R}\) lungo la direzione di lettura e applicati dei gradienti, il campo magnetico varia linearmente lungo la direzione di applicazione del gradiente:
+
+\[B_{z}(z) = B_{0} + G_{R}x\]
+
+Si instaura una corrispondenza biunivoca tra la frequenza di precessione degli isocromati e la loro posizione. Nel sistema di riferimento rotante, infatti, si ha che la differenza di frequenza di precessione \(\Delta\omega\) è legata al gradiente applicato dalla relazione:
+
+\[\Delta\omega = \gamma\Delta B = \gamma G_{R}x\]
+
+Agendo sulla banda di frequenza ricevuta è possibile controllare la porzione di volume-paziente da cui ricevere il segnale. In particolare, dato che la banda minima di ricezione \(BW_{R}\) è legato al \(FOV = L_{R}\), regolando la banda di ricezione sul gradiente di lettura si determina automaticamente il \(FOV\). Scelta una certa banda, \(BW_{R}\), si riceve solamente il segnale da un determinato distretto anatomico, trascurando le altre regioni con frequenze maggiori o minori.
+
+La banda di ricezione è correlata con la banda di eccitazione dell'impulso a radiofrequenza; infatti, se la banda di eccitazione \(BW_{RF}\) è, ad esempio, tale da stimolare l'interno volume, anche le regioni esterne alla banda di ricezione trasmetteranno un certo segnale. Nella finestra di acquisizione oltre al segnale di interesse, relativo a posizioni specifica del corpo imano, riceve anche delle interferenze provenienti da frequenze positive, per isormati che si trovano nella direzione del gradiente di lettura positivi, e negative per isocromati posizionati nel verso opposto.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.38701in,height=3.21667in]{media/10_Ric3D/image279.pdf}\caption{Figura .: Segnale ricevuto comprendente la zona sovra-campionata e sotto-campionata}
+\end{figure}
+
+Se la banda di ricezione è leggermente slargata in frequenza, si selezionano porzioni più ampie del volume. Se il passo di campionamento \(\Delta t\) è fissato per quella determinata banda di ricezione, i segnali che provengono da regioni esterne saranno sottocampionati se provengono da regioni a frequenza maggiore di \(BW_{R}\) o sovracampionati se provengono da regioni a frequenza minore.
+
+I campioni prelevati appartengono sia ai segnali fuori banda sovra e sotto campionati, sia al segnale proveniente dalla sezione del volume desiderato. A causa del sottocampionamento, si verifica il fenomeno dell'aliasing.
+
+Non basta agire sulla frequenza di campionamento ma è necessario adoperare un opportuno filtraggio nel momento in cui si sceglie di eccitare l'interno volume-paziente. In questo modo si evita la comparsa del ghost dovuto all'aliasing.
+
+La soluzione più semplice a tale problematica è quella di eccitare con un impulso a radiofrequenza solamente le porzioni del volume-paziente dalla quale si preleva il segnale.
+
+Per evitare l'aliasing, l'eccitazione e la lettura devono essere coordinati dal punto di vista frequenziale. In particolare, la frequenza dell'impulso di eccitazione deve essere tale da avere la stessa banda del sistema di ricezione, così da non eccitare regioni esterne alla porzione di volume di cui si vuole eseguire l'imaging.
+
+Questa soluzione non è adottabile in tutte le circostanze, ad esempio, nelle metodiche spettroscopiche è necessario eccitare completamente l'interno volume-paziente. In questi casi, senza un opportuno filtraggio è possibile avere effetti di aliasing per interferenze tra fette vicine, che determinano la presenza di ghost.
+
+Dov'è possibile, nell'imaging bidimensionale si fa in modo di avere la banda di eccitazione quanto più vicina alla banda di ricezione alla banda di ricezione così da ridurre al minimo le interferenze dovute alle slice vicine.
+
+Nella maggior parte dei casi pratici la banda di eccitazione non è perfettamente rettangolare ma slargata in frequenza; quindi, sono possibili piccole interferenze tra slice vicine.
+
+\subsection{Smoothing in risonanza magnetica}\label{smoothing-in-risonanza-magnetica}
+
+Il troncamento e il campionamento, dal punto di vista analitico, possono essere espressi come la convoluzione tra la finestra rettangolare e il treno di impulso di campionamento:
+
+\[{\widehat{\rho}}_{m}(x) = {\widehat{\rho}}_{\infty}(x)*U(x)*Wsinc(\pi Wx)\exp{\left( - j2\pi\frac{\Delta k}{2}x\  \right)\ }\]
+
+Nel \(k\)-spazio la relazione può essere espressa come:
+
+\[s_{m}(k) = s_{\infty}(k)u(k)rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right)\]
+
+Dove \(W = 2n\Delta k = \Delta x^{- 1}\). Nel \(k\)-spazio questa operazione corrisponde a un filtraggio a opera della funzione di trasferimento \(H(k)\), definita come:
+
+\[H(k) = u(k)rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right)\]
+
+Nello spazio-immagine la funzione \(H(k)\) è identificata con la \emph{point spread function} o PSF. La funzione rettangolare corrisponde a un filtraggio detto con \emph{windowed} e indicato con \(H_{W}\):
+
+\[H_{W}(k) = rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right)\]
+
+Il treno di impulsi corrisponde a un filtraggio detto sampling e indicato con \(H_{S}\):
+
+\[H_{S}(k) = u(k) = \Delta k\sum_{p = - \infty}^{+ \infty}{\delta(k - p\Delta k)}\]
+
+I due contributi offrono insieme un comportamento del tipo \emph{windowed} e \emph{sampling}:
+
+\[H_{WS}(k) = \Delta k\sum_{p = - \infty}^{+ \infty}{\delta(k - p\Delta k)}rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right)\]
+
+Nel \(k\)-spazio il segnale misurato può essere espresso come:
+
+\[s_{m}(k) = s_{\infty}(k)H_{WS}(k)\]
+
+Antitasformando si ottiene la densità protonica nello spazio immagine:
+
+\[\widehat{\rho}(x) = \int_{- \infty}^{+ \infty}{s_{m}(k)\exp(j2\pi kx)dk}\]
+
+Il segnale nel \(k\)-spazio è dato da:
+
+\[\widehat{\rho}(x) = \int_{- \infty}^{+ \infty}{s_{\infty}(k)H_{WS}(k)\exp(j2\pi kx)dk}\]
+
+Sostituendo l'espressione del filtro \emph{windowed} e \emph{sampling}, si ottiene:
+
+\[\widehat{\rho}(x) = \int_{- \infty}^{+ \infty}{s_{\infty}(k)\left\lbrack \Delta k\sum_{p = - \infty}^{+ \infty}{\delta(k - p\Delta k)}rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right) \right\rbrack\exp(j2\pi kx)dk}\]
+
+Per effetto della finestra rettangolare, la sommatoria non si estende per tutti i numeri interi ma solamente sui \(2n\) punti che ricadono nella finestra stessa:
+
+\[\widehat{\rho}(x) = \int_{- \infty}^{+ \infty}{s_{\infty}(k)\left\lbrack \Delta k\sum_{p = - n}^{n - 1}{\delta(k - p\Delta k)} \right\rbrack\exp(j2\pi kx)dk}\]
+
+Invertendo il simbolo di sommatoria con quello di integrale si scrive:
+
+\[\widehat{\rho}(x) = \Delta k\sum_{p = - n}^{n - 1}{\int_{- \infty}^{+ \infty}{s_{\infty}(k)\delta(k - p\Delta k)\exp(j2\pi kx)dk}}\]
+
+Per la proprietà di campionamento della delta, si ha:
+
+\[\widehat{\rho}(x) = \Delta k\sum_{p = - n}^{n - 1}{s_{\infty}(p\Delta k)\exp(j2\pi p\Delta kx)}\]
+
+Questa relazione, se confrontata con l'antitrasformata di \({\widehat{s}}_{m}(k)\) tenendo conto della proprietà del prodotto di convoluzione, si ha:
+
+\[\widehat{\rho}(x) = \mathfrak{F}^{- 1}\left\lbrack s_{\infty}(k) \right\rbrack(x)*h_{WS}(x)\]
+
+Dal confronto è evidente che l'antitrasformata della funzione di filtraggio o PSF è data da:
+
+\[h_{WS}(x) = \ \Delta k\sum_{p = - n}^{n - 1}{\exp(j2\pi p\Delta kx)}\]
+
+La sommatoria che definisce \(h_{WS}(x)\) ha somma nota:
+
+\[h_{WS}(x) = \ \Delta k\sum_{p = - n}^{n - 1}{\exp(j2\pi p\Delta kx)} = \Delta k\exp( - j2\pi n\Delta kx)\frac{1 - \exp(j4\pi n\Delta kx)}{1 - \exp(j2\pi\Delta kx)}\]
+
+Si considera le formule di Eulero per \(\exp(j\vartheta)\) e \(\exp( - j\vartheta)\):
+
+\[\exp(j\vartheta) = \cos\vartheta + j\sin\vartheta\]
+
+\[\exp( - j\vartheta) = \cos\vartheta - j\sin\vartheta\]
+
+Si considera la quantità \(\exp(j\vartheta) - \exp( - j\vartheta)\):
+
+\[\exp(j\vartheta) - \exp( - j\vartheta) = \cos\vartheta + j\sin\vartheta - \cos\vartheta + j\sin\vartheta = 2j\sin\vartheta\]
+
+Si ottiene, in definitiva:
+
+\[\exp(j\vartheta) - \exp( - j\vartheta) = 2j\sin\vartheta\]
+
+Si mette in evidenza \(\exp( - j\vartheta)\), da cui:
+
+\[\left( \exp(j2\vartheta) - 1 \right)\exp( - j\vartheta) = 2j\sin\vartheta\]
+
+Dividendo ambo i membri per \(\exp( - j\vartheta)\), si ha:
+
+\[\exp(j2\vartheta) - 1 = 2j\sin\vartheta\exp(j\vartheta)\]
+
+Applicando questo risultato all'espressione per la PSF nello spazio-immagine, \(h_{WS}(x)\), si ottiene:
+
+\[1 - \exp(j4\pi n\Delta kx) = - 2j\sin(2\pi n\Delta kx)\exp(j2\pi n\Delta kx)\]
+
+\[1 - \exp(j2\pi\Delta kx) = - 2j\sin(\pi\Delta kx)\exp(j\pi n\Delta kx)\]
+
+Da cui:
+
+\[h_{WS}(x) = \Delta k\frac{1 - \exp(j4\pi n\Delta kx)}{1 - \exp(j2n\Delta kx)}\exp( - j2\pi n\Delta kx) = \Delta k\frac{- 2j\sin(2\pi n\Delta kx)\exp(j2\pi n\Delta kx)}{- 2j\sin(\pi\Delta kx)\exp(j\pi n\Delta kx)}\exp( - j2\pi n\Delta kx) =\]
+
+È noto che \(W = 2n\Delta k\), per cui:
+
+\[= \Delta k\frac{\sin(\pi Wx)}{\sin(\pi\Delta kx)}\exp(j\pi n\Delta kx)\exp( - j2\pi n\Delta kx) =\]
+
+Si moltiplica e divide il secondo membro per \(\pi Wx\):
+
+\[= \Delta k\frac{\frac{\sin(\pi Wx)}{\pi Wx}}{\frac{\sin(\pi\Delta kx)}{\pi Wx}}\exp( - j\pi n\Delta kx) =\]
+
+Per definizione:
+
+\[\frac{\sin(\pi Wx)}{\pi Wx} = sinc(\pi Wx)\]
+
+Inoltre, al denominatore si ricorda che \(W = 2n\Delta k\):
+
+\[\frac{\sin(\pi\Delta kx)}{2n\pi\Delta kx} = \frac{1}{2n}\frac{\sin(\pi\Delta kx)}{\pi\Delta kx}\frac{1}{2n}{sinc}(\pi\Delta kx)\]
+
+Sostituendo questo risultato appena ottenuto in \(h_{WS}(x)\), si ha:
+
+\[h_{WS}(x) = 2n\Delta k\frac{{sinc}(\pi Wx)}{{sinc}(\pi\Delta kx)}\exp( - j\pi n\Delta kx)\]
+
+Ovvero:
+
+\[h_{WS}(x) = W\frac{{sinc}(\pi Wx)}{{sinc}(\pi\Delta kx)}\exp( - j\pi n\Delta kx)\]
+
+Come nel caso continuo, la PSF, \(h_{WS}(x)\), determina degli sfocamenti nelle regioni ad alta frequenza dell'immagine, ovvero dei bordi dell'immagine. La \(sinc\) presenta delle oscillazioni che non portano a transizioni nette tra i vari organi ma a delle sfocature che determinano una cattiva visione dei confini tra i vari parenchima degli organi.
+
+Il troncamento netto nel dominio delle \(k\) fornisce delle oscillazioni nel dominio dello spazio-immagine. Questo fenomeno è dovuto all'effetto Gibbs, ovvero degli errori di ricostruzione dovuti alla banda finita della banda di ricostruzione, quando si hanno funzioni con brutte discontinuità.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.49167in,height=2.69955in,alt={Immagine che contiene schizzo, linea, diagramma, disegno Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image280.pdf}\caption{Figura .: Fenomeno di Gibbs}
+\end{figure}
+
+È possibile dimostrare che le oscillazioni introdotte per la convoluzione con la PSF, causate dal fenomeno di Gibbs, si estende fino al \(10\%\) della discontinuità sia per le sottoelongazioni che sovra-elongazioni.
+
+È possibile, inoltre, che le oscillazioni introdotte dal fenomeno di Gibbs sono correlata alle porzioni di \(k\)-spazio considerate: maggiore è la porzione del \(k\)-spazio, maggiore è la frequenza delle oscillazioni e maggiori sono le sotto-elongazioni e sovra-elongazioni.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.27715in,height=3.96206in,alt={Immagine che contiene Imaging medicale, radiologia, Radiografia medica, radiografia Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image281.pdf}
+\caption{Figura .: Fenomeno di GIbbs nella degradazione dell'immagine}
+\end{figure}
+
+Le oscillazioni di Gibbs possono degradare l'immagine in modo anche critico. Generalmente, aumentando il numero dei campioni per un campo di vista (o FOV) si riduce la degradazione poiché si riduce le regioni dello spazio-immagine interessate dalle oscillazioni. In altre parole, aumentare il numero di campioni migliora la ricostruzione. Per tale motivo, nella pratica si esegue una scansione con un numero di campioni doppio rispetto al minimo richiesto, così da ottenere un oggetto con confini meno oscillanti. Non sempre è possibile aumentare il numero di punti per questioni temporali.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.44379in,height=4.80389in,alt={Immagine che contiene cerchio, colino, stoviglie, bianco e nero Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image282.pdf}\caption{Figura .: Riduzione delle oscillazioni di Gibbs all'aumentare del numero di punti}
+\end{figure}
+
+Un rimedio alternativo consiste nell'utilizzare un ulteriore filtro di smoothing sul segnale registrato. Infatti, se il set di dati ottenuto è moltiplicato per una funzione che si annulla nel \(k\)-spazio intorno ai valori limite \(- k_{\min}\) e \(+ k_{\max}\) si ottiene un filtraggio che presenta una transizione più dolce dal valore massimo al valore minimo, riducendo così le oscillazioni che si hanno nel dominio dello spazio-immagine. Questo processo è noto in gergo come apodizzazione.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68958in,height=3.97708in]{media/10_Ric3D/image283.pdf}\caption{Figura .: Finestra di Hamming nel dominio del \(k\)-spazio e dello spazio-immagine}
+\end{figure}
+
+Un semplice funzione filtrante è offerta dalla finestra di Hamming o coseno rialzato, data dall'equazione nel \(k\)-spazio:
+
+\[H_{ham}(k) = \frac{1}{2} + \frac{1}{2}\cos\left( \frac{2\pi k}{W} \right) = \cos^{2}\left( \frac{\pi k}{W} \right)\]
+
+Dal punto di vista numerico \(H_{ham}(k)\) è un vettore detto convolution window.
+
+Si analizza il caso in cui \(k \rightarrow + k_{\max}\) e \(k \rightarrow - k_{\min}\). In questo contesto, l'ampiezza della finestra \(W\) è data dalla differenza tra \(- k_{\min}\) e \(k_{\max}\). Nell'ipotesi che \(\left| k_{\min} \right| = k_{\max}\), risulta:
+
+\[W = k_{\max} - \left( - k_{\min} \right) = 2k_{\max}\]
+
+Se \(k \rightarrow \pm k_{\max}\), si ha:
+
+\[\frac{2\pi k}{W} = \frac{2\pi k}{k_{\max} + k_{\min}} = \frac{2\pi k}{2k_{\max}} = \frac{\pi k}{k_{\max}} \rightarrow \pm \pi,k \rightarrow \pm k_{\max}\ \]
+
+In questa condizione:
+
+\[H_{ham}(k) = \cos^{2}\left( \frac{\pi k}{W} \right) \rightarrow 0,k \rightarrow \pm k_{\max}\ \]
+
+Nel dominio dello spazio-immagine la finestra di Hamming si esprime come somma di impulsi di opportuna area e punti di applicazione:
+
+\[h_{ham}(x) = \frac{1}{2}\delta(x) + \frac{1}{4}\left\lbrack \delta\left( x - \frac{1}{W} \right) + \delta\left( x + \frac{1}{W} \right) \right\rbrack\]
+
+Dove \(W\) è legato alla risoluzione spaziale \(\Delta x\) dalla relazione:
+
+\[W = \frac{1}{\Delta x} \Leftrightarrow \Delta x = \frac{1}{W}\]
+
+Per cui, è possibile la finestra nello spazio-immagine:
+
+\[h_{ham}(x) = \frac{1}{2}\delta(x) + \frac{1}{4}\left\lbrack \delta(x - \Delta x) + \delta(x + \Delta x) \right\rbrack\]
+
+Se agisce solamente la finestra di Hamming, la densità protonica ricostruita è data dalla convoluzione dall'antitrasformata della finestra di smoothing con la densità protonica fisicamente presente nel volume:
+
+\[\widehat{\rho}(x) = \rho(x)*h_{ham}(x)\]
+
+Sostituendo l'espressione della finestra di Hamming:
+
+\[\widehat{\rho}(x) = \rho(x)*\left\{ \frac{1}{2}\delta(x) + \frac{1}{4}\left\lbrack \delta(x - \Delta x) + \delta(x + \Delta x) \right\rbrack \right\}\]
+
+Per la proprietà di campionamento della delta, si ha:
+
+\[\widehat{\rho}(x) = \frac{1}{2}\rho(x) + \frac{1}{4}\rho(x - \Delta x) + \frac{1}{4}\rho(x + \Delta x)\]
+
+Il filtraggio con la finestra di Hamming nel dominio dell'immagne corrisponde a un'operazione di media di \(\rho(x)\) e una sua versione scalata e traslata di \(\pm \Delta x\). Con questa soluzione si riduce il contenuto oscillatorio dei bordi. La finestratura non rimuove comunque lo sfocamento dei bordi, rendendo difficile il riconoscimento dei vari organi. Si perde, quindi, in risoluzione a favore dell'abbattimento delle oscillazioni o ringing sia all'interno che all'esterno dell'immagine.
+
+Se si tronca il segnale con la finestra rettangolare e si campione, la densità protonica ricostruita è del tipo:
+
+\[\widehat{\rho}(x) = \ \rho(x)*h_{WS}(x)*h_{ham}(x)\]
+
+Sostituendo le espressioni per le funzioni di trasferimento, si ha:
+
+\[\widehat{\rho}(x) = \ \rho(x)*\left\lbrack W\frac{{sinc}(\pi Wx)}{{sinc}(\pi\Delta kx)}\exp( - j\pi n\Delta kx) \right\rbrack*\left\lbrack \frac{1}{2}\delta(x) + \frac{1}{4}\delta(x - \Delta x) + \frac{1}{4}\delta(x + \Delta x) \right\rbrack\]
+
+Applicando le proprietà della delta di Dirac tra le due funzioni di trasferimento, si ha:
+
+\[\widehat{\rho}(x) = \ \rho(x)*\left\lbrack \frac{1}{2}W\frac{{sinc}(\pi Wx)}{{sinc}(\pi\Delta kx)}\exp( - j\pi n\Delta kx) + \frac{1}{4}W\frac{{sinc}\left( \pi W(x - \Delta x) \right)}{{sinc}\left( \pi\Delta k(x - \Delta x) \right)}\exp\left( - j\pi n\Delta k(x - \Delta x) \right)\frac{1}{4}W\frac{{sinc}\left( \pi W(x + \Delta x) \right)}{{sinc}\left( \pi\Delta k(x + \Delta x) \right)}\exp\left( - j\pi n\Delta k(x + \Delta x) \right) \right\rbrack\]
+
+A questo segnale ricostruito corrisponde una media spaziale della funzione filtratane \(h_{WS}(x)\) che riduce l'ampiezza delle oscillazioni ma allo stesso tempo sfoca i contorni dell'immagine.
+
+\subsection{Risoluzione spaziale in risonanza magnetica}\label{risoluzione-spaziale-in-risonanza-magnetica}
+
+La risoluzione spaziale di un'immagine si riferisce alla più piccola distanza interposta tra due oggetti diversi o due differenti righe nell'immagine affinché siano identificabili come due oggetti distinti. La risoluzione dipende dalla scelta degli oggetti da distinguere, dai limiti della strumentazione di misura, dalle caratteristiche fisiologiche degli organi o altri tessuti e altro ancora.
+
+La \emph{point spread function} permette di quantificare e stimare la risoluzione o la sfocatura introdotta dal metodo di misura.
+
+Dal punto di vista teorico si vorrebbe una PSF quanto più stretta possibile, al limite impulsiva, nello spazio-immagine in modo che il prodotto di convoluzione restituisca il valore vero della densità protonica per ogni punto \(x\). Nel limite in cui \(h(x) = \delta(x)\) si ha infatti:
+
+\[\widehat{\rho}(x) = \ \rho(x)*h(x) = \rho(x)*\delta(x) = \rho(x)\]
+
+Nella pratica, la PSF presenta una certa estensione finita nello spazio-immagine. La convoluzione con la densità protonica provoca uno smussamento dei bordi dell'oggetto, causando una sfocatura complessiva tra i confini dei vari organi.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.11364in,height=3.93037in,alt={Immagine che contiene testo, schermata, diagramma, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image284.pdf}\caption{Figura .: Effetto della PSF sull'output}
+\end{figure}
+
+Una prima definizione di risoluzione spaziale è data dall'area sottesa in tutto il dominio dello spazzi-immagine dalla PSF, normalizzata al valore che essa assume nell'origine:
+
+\[\Delta x_{MRI} = \frac{1}{h(0)}\int_{- \infty}^{+ \infty}{h(x)dx}\]
+
+È possibile scrivere l'integrale al secondo membro in termini di trasformata di Fourier:
+
+\[\int_{- \infty}^{+ \infty}{h(x)dx} = \int_{- \infty}^{+ \infty}{h(x)\exp(j2\pi k0)dx} = H(0)\]
+
+L'area sottesa dalla PSF in tutto il dominio dello spazio-immagine coincide con il valore dell'origine della sua trasformata di Fourier, nota come \emph{Modulation Transfert Function} o MTF. Da questo risultato si evince che \(H(0)\) è una misura dell'energia della PSF.
+
+La definizione di \(\Delta x_{MRI}\) fornisce una stima della più piccola distanza tra due oggetti che può insistere tra i due affinché siano ancora distinguibili, mediante una ricostruzione standard dell'immagine in risonanza magnetica con filtri addizionali. In particolare, la definizione di \(\Delta x_{MRI}\) permette la costruzione di un rettangolo centrato sullo stesso punto della PSF con la stessa area.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.61994in,height=4.35556in,alt={Immagine che contiene testo, Diagramma, diagramma, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image285.pdf}\caption{Figura .: Rappresentazione grafica della risoluzione come energia della PSF normalizzata}
+\end{figure}
+
+Per comprendere a pieno il significato della definizione si suppone che la densità protonica sia di tipo impulsiva, centrata in due punti \(x_{1}\) e \(x_{2}\):
+
+\[\rho(x) = \delta\left( x - x_{1} \right) + \delta\left( x - x_{2} \right)\]
+
+La densità protonica ricostruita è ottenuta dalla convoluzione della densità protonica reale \(\rho\) e la PSF:
+
+\[\widehat{\rho}(x) = \rho(x)*h(x) = \left\lbrack \delta\left( x - x_{1} \right) + \delta\left( x - x_{2} \right) \right\rbrack*h(x)\]
+
+Per la proprietà della delta di Dirac, risulta:
+
+\[\widehat{\rho}(x) = h\left( x - x_{1} \right) + h\left( x - x_{2} \right)\]
+
+A causa della PSF, i due impulsi sono trasformati in due campane con durata finita, rappresentate proprio da due PSF centrate su \(x_{1}\) e \(x_{2}\).
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68958in,height=3.92424in]{media/10_Ric3D/image286.pdf}\caption{Figura .: Densità protonica ricostruita a partire dalla convoluzione tra due impulsi e la PSF}
+\end{figure}
+
+La risoluzione \(\Delta x_{MRI}\) rappresenta il grado con cui i due impulsi reali si sovrappongono. Se la distanza tra \(x_{1}\) e \(x_{2}\) è inferiore a \(\Delta x_{RMI}\) si osserva una forte sovrapposizione tre le due PSF traslate e, quindi, non è più possibile distinguere i due oggetti a causa della sfocatura introdotta dal filtraggio intrinseco del processo di acquisizione e ricostruzione.
+
+Si osservi che la risoluzione così definita non coincide necessariamente con Fourier pixel size \(\Delta x = W^{- 1} = (2n\Delta k)^{- 1}\). Nel caso migliore possibile, in presenza del solo troncamento e campionamento, la risoluzione appena definita \(\Delta x_{RMI}\) è data da:
+
+\[h_{ws}(x) = \sum_{p = - n}^{n - 1}{\exp(j2\pi p\Delta kx)}\]
+
+Valutando in \(0\) la PSF si ha:
+
+\[h_{ws}(x) = \sum_{p = - n}^{n - 1}{\exp(0)} = \sum_{p = - n}^{n - 1}1 = 2n\]
+
+Si valuta l'energia della PSF legato al solo troncamento e campionamento, \(h_{ws}(k)\):
+
+\[H_{WS}(0) = \int_{- \infty}^{+ \infty}{\left\lbrack \sum_{p = - n}^{n - 1}{\exp(j2\pi p\Delta kx)} \right\rbrack dx}\]
+
+Sia \(\left\lbrack - \frac{L}{2};\frac{L}{2} \right\rbrack\) l'intervallo in cui la PSF è non nulla, dove \(L\) è l'estensione della finestra di acquisizione, ovvero il FOV. L'integrale si riduce a:
+
+\[H_{WS}(0) = \int_{- \frac{L}{2}}^{+ \frac{L}{2}}{\left\lbrack \sum_{p = - n}^{n - 1}{\exp(j2\pi p\Delta kx)} \right\rbrack dx}\]
+
+Si inverte il simbolo di integrale con quello di sommatoria, ottenendo:
+
+\[H_{WS}(0) = \sum_{p = - n}^{n - 1}\left\lbrack \int_{- \frac{L}{2}}^{+ \frac{L}{2}}{\exp(j2\pi p\Delta kx)dx} \right\rbrack\]
+
+Si risolve l'integrale:
+
+\[\int_{- \frac{L}{2}}^{+ \frac{L}{2}}{\exp(j2\pi p\Delta kx)dx} = \frac{1}{j2\pi p\Delta k}\left\lbrack \exp(j2\pi p\Delta kx) \right\rbrack_{- \frac{L}{2}}^{+ \frac{L}{2}} = \ \frac{1}{j2\pi p\Delta k}\left\lbrack \exp\left( j2\pi p\Delta k\frac{L}{2} \right) - \exp\left( - j2\pi p\Delta k\frac{L}{2} \right) \right\rbrack\]
+
+Per le formule di Eulero, risulta:
+
+\[\exp\left( j2\pi p\Delta k\frac{L}{2} \right) - \exp\left( - j2\pi p\Delta k\frac{L}{2} \right) = 2j\sin\left( 2\pi p\Delta k\frac{L}{2} \right)\]
+
+Quindi la soluzione dell'integrale è:
+
+\[\int_{- \frac{L}{2}}^{+ \frac{L}{2}}{\exp(j2\pi p\Delta kx)dx} = \frac{1}{j2\pi p\Delta k}2j\sin\left( 2\pi p\Delta k\frac{L}{2} \right) = \frac{1}{\pi p\Delta k}\sin(\pi p\Delta kL) =\]
+
+Moltiplicando e dividendo per \(L\) il secondo membro è possibile esprimere l'integrale in termini di \(sinc\):
+
+\[= L\frac{\sin(\pi p\Delta kL)}{\pi p\Delta kL} = L{sinc}(\pi p\Delta kL) =\]
+
+Il campionamento nel \(k\)-spazio, \(\Delta k\), e il FOV sono legati dalla relazione \(\Delta k = L^{- 1}\), per cui:
+
+\[= L{sinc}\left( \pi p\frac{1}{L}L \right) = L{sinc}(\pi p)\]
+
+Al variare di \(p \in \mathbb{N}_{0}\), la \({sinc}(\pi p)\) è nulla, a eccezione del caso \(p = 0\), nella quale è unitaria. Formalmente, è possibile scrivere che:
+
+\[L{sinc}(\pi p) = L\delta_{p0}\]
+
+Con:
+
+\[\delta_{p0} = \left\{ \begin{aligned}
+1,\ \ p = 0 \\
+x,\ \  & p \neq 0
+\end{aligned} \right.\ \]
+
+Sostituendo questo risultato nell'espressione per \(H_{WS}(0)\), si ottiene:
+
+\[H_{WS}(0) = \sum_{p = - n}^{n - 1}\left\lbrack L\delta_{p0} \right\rbrack = L\sum_{p = - n}^{n - 1}\delta_{p0}\]
+
+Di tutta la sommatoria esiste un unico \(p = 0\), gli altri sono diversi da tale valore, per cui, tutta la sommatoria si riduce a \(1\):
+
+\[H_{WS}(0) = L\sum_{p = - n}^{n - 1}\delta_{p0} = L\]
+
+La risoluzione spaziale nel caso di solo campionamento e troncamento, \(\Delta x_{RMI}\), per definizione è data da:
+
+\[\Delta x_{MRI} = \frac{1}{h_{WS}(0)}\int_{- \infty}^{+ \infty}{h_{WS}(x)dx} = \frac{H_{WS}(0)}{h_{WS}(0)}\]
+
+Sostituendo i risultati ottenuti si ottiene:
+
+\[\Delta x_{MRI} = \frac{L}{2n} = \frac{1}{2n\Delta k} = \Delta x\]
+
+Nel caso migliore, la risoluzione \(\Delta x_{MRI}\) coincide con il Fourier pixel size \(\Delta x\).
+
+Quando è presente un ulteriore filtraggio, applicato al segnale, la PSF è ottenuta dalla convoluzione della finestra di troncamento e campionamento, \(h_{WS}\), e dalla PSF del filtro applicato, \(h_{filtro}\):
+
+\[h(x) = h_{WS}(x)*h_{filtro}(x) = \sum_{p = - n}^{n - 1}{H_{filro}(p\Delta k)\exp(j2\pi\Delta kk)}\]
+
+La PSF complessiva cambia e la risoluzione spaziale non coincide più on il Fourier pixel size, ma presenta un valore maggiore di questa quantità;
+
+\[\Delta x_{RMI} > \Delta x\]
+
+Si ha, quindi, un peggioramento della risoluzione spaziale.
+
+\subsubsection{Full width half maximum}\label{full-width-half-maximum}
+
+La risoluzione di risoluzione spaziale come integrale della PSF può non essere sempre calcolata e misurata. In questi casi si utilizza una definizione alternativa di risoluzione spaziale, basata sul profilo della PSF, simmetrica perché reale.
+
+La \emph{full width half maximum} (FWHM) è definita come il doppio della distanza del centro della PSF simmetrica e un punto in cui la sua ampiezza decade di un fattore \(k\) rispetto al valore massimo, ottenuto nell'origine:
+
+\[h\left( \frac{\Delta x_{RMI}}{2} \right) = kh(0)\]
+
+Solitamente, come riferimento si utilizza metà dell'ampiezza massima, ovvero \(k = 1/2\). In questo caso si ottiene:
+
+\[h\left( \frac{\Delta x_{RMI}}{2} \right) = \frac{1}{2}h(0)\]
+
+\begin{figure}
+\centering
+\includegraphics[width=5.53788in,height=3.20307in,alt={Immagine che contiene testo, linea, Diagramma, diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image287.pdf}\caption{Figura .:Esempio d i FWHM}
+\end{figure}
+
+La sovrapposizione tra due oggetti si verifica quando questi ultimi sono separati da una distanza minore di \(\Delta x_{RMI} \equiv FWHM\).
+
+Non è detto che la definizione secondo la \emph{full width half maximum} coincida con quella basata sull'energia normalizzata della PSF.
+
+La risoluzione spaziale, nel caso in cui siano applicate contemperamento due filtri con la stessa forma, si ottiene sommando la risoluzione spaziale delle due finestre:
+
+\[\Delta x_{tot} = \Delta x_{filtro1} + \Delta x_{filtro2}\]
+
+\subsection{Filtraggio introdotto dal rilassamento nella gradient echo}\label{filtraggio-introdotto-dal-rilassamento-nella-gradient-echo}
+
+L'effetto del campionamento e del filtraggio può essere modellato come un filtraggio passa-basso sull'immagine di risonanza magnetica; tuttavia, non sono gli unici filtraggi presenti in un normale esperimento di questa tecnologia. Anche i tempi di rilassamento \(T_{1}\), \(T_{2}\) e \(T_{2}^{*}\), che alterano l'ampiezza del segnale registrato nel \(k\)-spazio, possono essere modellati come filtri.
+
+Gli effetti del rilassamento non possono essere trascurati nel caso in cui la finestra di acquisizione \(T_{S}\) è paragonabile col tempo \(T_{2}^{*}\) con cui decade il segnale registrato. In questa condizione il segnale campionato presenta un'ampiezza dipendente da un decadimento esponenziale del tipo:
+
+\[s_{m}(k) = s(k)\exp\left( - \frac{t}{T_{2}^{*}} \right)\]
+
+Dove l'origine dei tempi \(t = 0\ s\) è scelto, generalmente, al centro dell'impulso a radiofrequenza. Si considera, ad esempio, una sequenza gradient-echo. Si adopera la sostituzione \(t' = t - T_{E}\) in modo da riportare l'origine dei tempi al tempo di echo \(T_{E}\); in altre parole, si sceglie \(T_{E}\) come riferimento temporale.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=5.34306in]{media/10_Ric3D/image288.pdf}\caption{Figura .: Gradient-echo con segnale registrato il cui inviluppo va come \(\exp\left( t/T_{2}^{*} \right)\)}
+\end{figure}
+
+Nel dominio del \(k\)-spazio, è possibile scrivere che:
+
+\[k = \overline{\gamma}Gt' \Leftrightarrow t' = \frac{k}{\overline{\gamma}G}\]
+
+Il tempo \(t\), legato a \(t'\), può essere espresso come:
+
+\[t' = t - T_{E} \Leftrightarrow t = t' + T_{E} = \frac{k}{\overline{\gamma}G} + T_{E}\]
+
+Con questa posizione, il decadimento esponenziale del segnale registrato nel \(k\)-spazio si scrive come:
+
+\[\exp\left( - \frac{t}{T_{2}^{*}} \right) = \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right)\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+Applicando anche il troncamento al segnale registrato nel \(k\)-spazio, si ottiene:
+
+\[s_{m}(k) = s(k)\exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right)\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)H_{w}(k)\]
+
+Una volta fissato il tempo di echo e le disomogeneità di campo, il termine \(\exp\left( - T_{E}/T_{2}^{*} \right)\) è costante.
+
+Si esplicita la finestra di troncamento, \(H_{w}(k)\):
+
+\[s_{m}(k) = s(k)\exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right){rect}\left( \frac{k + \frac{\Delta k}{2}}{W} \right)\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+Il segnale registrato non è simmetrico intorno all'origine, dunque, la sua antitrasformata restituisce una densità protonica ricostruita complessa.
+
+All'atto pratico, dominio dello spazio-immagine, oltre alla convoluzione con la finestra di campionamento e troncamento, bisogna aggiungere anche la convoluzione con la finestra \(h_{T_{2}^{*}}\), ottenuta antitrasformato i termini esponenziali che dipendono da \(T_{2}^{*}\):
+
+\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right)\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right) \right\rbrack(x) = \exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x)\]
+
+Si applica la definizione di trasformata inversa di Fourier:
+
+\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x) = \int_{- \infty}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right)\exp(j2\pi kx)dk} = \int_{- \infty}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} + j2\pi kx \right)dk} =\]
+
+Il termine esponenziale è un esponenziale decrescente, non simmetrico rispetto all'origine, definito su un intervallo finito di acquisizione \(\left\lbrack - k_{\max}:k_{\max} \right\rbrack\) a causa del troncamento. La trasformata inversa di Fourier si riduce a:
+
+\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x) = \int_{- k_{\max}}^{+ k_{\max}}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} + j2\pi kx \right)dk} = \int_{- k_{\max}}^{+ k_{\max}}{\exp\left( \left( j2\pi x - \frac{1}{\overline{\gamma}GT_{2}^{*}} \right)k \right)dk} =\]
+
+Si risolve l'integrale al secondo membro, moltiplicando e dividendo per l'argomento di \(k\):
+
+\[= \int_{- k_{\max}}^{+ k_{\max}}{\exp\left( \left( j2\pi x - \frac{1}{\overline{\gamma}GT_{2}^{*}} \right)k \right)dk} = \frac{1}{j2\pi x - \frac{1}{\overline{\gamma}GT_{2}^{*}}}\left\lbrack \exp\left( \left( j2\pi x - \frac{1}{\overline{\gamma}GT_{2}^{*}} \right)k \right) \right\rbrack_{- k_{\max}}^{k_{\max}} = \frac{\exp\left( \left( j2\pi x - \frac{1}{\overline{\gamma}GT_{2}^{*}} \right)k_{\max} \right) - \exp\left( - \left( j2\pi x - \frac{1}{\overline{\gamma}GT_{2}^{*}} \right)k_{\max} \right)}{j2\pi x - \frac{1}{\overline{\gamma}GT_{2}^{*}}} =\]
+
+Il gradiente \(G\) è legato alla finestra di lettura dalla relazione:
+
+\[T_{S} = \frac{W}{\overline{\gamma}G} \Leftrightarrow \ G = \frac{W}{\overline{\gamma}T_{S}}\]
+
+La finestra di acquisizione si estende da \(- k_{\max}\) a \(k_{\max}\), quindi, l'estensione della finestra di acquisizione è due volte \(k_{\max}\):
+
+\[W = 2k_{\max}\]
+
+Da cui:
+
+\[G = \frac{2k_{\max}}{\overline{\gamma}T_{S}}\]
+
+È possibile scrivere:
+
+\[= \frac{\exp\left( \left( j2\pi x - \frac{1}{\overline{\gamma}\frac{2k_{\max}}{\overline{\gamma}T_{S}}T_{2}^{*}} \right)k_{\max} \right) - \exp\left( - \left( j2\pi x - \frac{1}{\overline{\gamma}\frac{2k_{\max}}{\overline{\gamma}T_{S}}T_{2}^{*}} \right)k_{\max} \right)}{j2\pi x - \frac{1}{\overline{\gamma}\frac{2k_{\max}}{\overline{\gamma}T_{S}}T_{2}^{*}}} =\]
+
+Si svolgono i prodotti:
+
+\[= \frac{\exp\left( j2\pi xk_{\max} - \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - j2\pi xk_{\max} + \frac{T_{S}}{2T_{2}^{*}} \right)}{j2\pi x - \frac{T_{S}}{2k_{\max}T_{2}^{*}}} =\]
+
+La finestra di acquisizione si estende da \(- k_{\max}\) a \(k_{\max}\), quindi, l'estensione della finestra di acquisizione è due volte \(k_{\max}\), \(W = 2k_{\max}\). L'ampiezza della finestra \(W\) è legata all'inverso del campionamento \(\Delta x\):
+
+\[W = 2k_{\max} \Leftrightarrow 2k_{\max} = \frac{1}{\Delta x} \Leftrightarrow k_{\max} = \frac{1}{2\Delta x}\]
+
+Sostituendo tale risultato si ottiene:
+
+\[= \frac{\exp\left( j2\pi x\frac{1}{2\Delta x} - \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - j2\pi x\frac{1}{2\Delta x} + \frac{T_{S}}{2T_{2}^{*}} \right)}{j2\pi x - \frac{T_{S}}{\frac{2}{2\Delta x}T_{2}^{*}}}\]
+
+Semplificando, si ottiene:
+
+\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x) = \frac{\exp\left( j\pi\frac{x}{\Delta x} - \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - j\pi\frac{x}{\Delta x} + \frac{T_{S}}{2T_{2}^{*}} \right)}{j2\pi x - \Delta x\frac{T_{S}}{T_{2}^{*}}}\]
+
+Mettendo un segno negativo in evidenza al numerato e al denominatore, si ottiene:
+
+\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x) = \frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} - j\pi\frac{x}{\Delta x} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} + j\pi\frac{x}{\Delta x} \right)}{\Delta x\frac{T_{S}}{T_{2}^{*}} - j2\pi x}\]
+
+Considerando anche il termine esponenziale costante, la PSF introdotta dal tempo di rilassamento \(T_{2}^{*}\) è data da:
+
+\[h_{T_{2}^{*}}(x) = \exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x) = \frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} - j\pi\frac{x}{\Delta x} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} + j\pi\frac{x}{\Delta x} \right)}{\Delta x\frac{T_{S}}{T_{2}^{*}} - j2\pi x}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+La risoluzione \(\Delta x_{RMI}\) introdotta da questo filtraggio può essere ottenuta applicando la definizione:
+
+\[\Delta x_{MRI} = \frac{1}{h_{T_{2}^{*}}(0)}\int_{\infty}^{\infty}{h_{T_{2}^{*}}(x)dx} = \frac{H_{T_{2}^{*}}(0)}{h_{T_{2}^{*}}(0)}\]
+
+La trasformata di Fourier della PSF è nota ed è:
+
+\[H_{T_{2}^{*}}(k) = \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right)\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+La quale, valutata per \(k = 0\), si riduce a:
+
+\[H_{T_{2}^{*}}(0) = \exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+La PSF valutata in \(x = 0\) è data, invece, da:
+
+\[h_{T_{2}^{*}}(x) = \left. \ \frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} - j\pi\frac{x}{\Delta x} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} + j\pi\frac{x}{\Delta x} \right)}{\Delta x\frac{T_{S}}{T_{2}^{*}} - j2\pi x}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right) \right|_{x = 0} = \frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)}{\Delta x\frac{T_{S}}{T_{2}^{*}}}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+La risoluzione della PSF è, quindi:
+
+\[\Delta x_{MRI} = \frac{H_{T_{2}^{*}}(0)}{h_{T_{2}^{*}}(0)} = \frac{\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)}{\frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)}{\Delta x\frac{T_{S}}{T_{2}^{*}}}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)} = \Delta x\frac{T_{S}}{T_{2}^{*}}\frac{1}{\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)}\]
+
+Si definisce \(sinc\) iperbolico, \(sinch\), come:
+
+\[{sinch}(x) = \frac{\sinh(x)}{x} = \frac{e^{x} - e^{- x}}{2x}\]
+
+È possibile scrivere, dunque:
+
+\[{sinch}\left( \frac{T_{S}}{2T_{2}^{*}} \right) = \frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)}{2\frac{T_{S}}{2T_{2}^{*}}} = \frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)}{\frac{T_{S}}{T_{2}^{*}}}\]
+
+La risoluzione \(\Delta x_{MRI}\) relativo alla PSF dovuta al tempo di rilassamento \(T_{2}^{*}\) si può scrivere come:
+
+\[\Delta x_{MRI} = \frac{\Delta x}{{sinch}\left( \frac{T_{S}}{2T_{2}^{*}} \right)}\]
+
+Se risulta:
+
+\[\frac{T_{S}}{2T_{2}^{*}} \ll 1\]
+
+È possibile approssimare la funzione \(sinc\) iperbolico come:
+
+\[{sinch}\left( \frac{T_{S}}{2T_{2}^{*}} \right) \simeq 1 - \frac{x^{2}}{6}\]
+
+In questa condizione, si ha:
+
+\[\Delta x_{MRI} = \frac{\Delta x}{{sinch}\left( \frac{T_{S}}{2T_{2}^{*}} \right)} \simeq \frac{\Delta x}{\left( 1 - \frac{1}{6}\left( \frac{T_{S}}{2T_{2}^{*}} \right)^{2} \right)}\]
+
+Se risulta che \(T_{S} = T_{2}^{*}\), la risoluzione è:
+
+\[\left. \ \Delta x_{MRI} \right|_{T_{S} = T_{2}^{*}} = \left. \ \frac{\Delta x}{{sinch}\left( \frac{T_{S}}{2T_{2}^{*}} \right)} \right|_{T_{S} = T_{2}^{*}} = \left. \ \frac{\Delta x}{\frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)}{\frac{T_{S}}{T_{2}^{*}}}} \right|_{T_{S} = T_{2}^{*}} = \frac{\Delta x}{\exp\left( \frac{1}{2} \right) - \exp\left( - \frac{1}{2} \right)} \simeq 1.04\Delta x\]
+
+In questa condizione la risoluzione della PSF differisce dal Fourier pixel size, \(\Delta x\), del \(4\%\). Inoltre, la risoluzione introdotta dal decadimento esponenziale per i tempi di rilassamento.
+
+In caso, anche se il tempo di campionamento è dello stesso ordine di grandezza di \(T_{2}^{*}\), la risoluzione differisce dal caso ideale per qualche punto percentuale, provocando un allargamento di circa il \(5\%\). Questa degradazione della PSF non permette di visualizzare oggetti estremamente piccoli, ma, in molti casi pratici, può essere considerata trascurabile.
+
+Si valuta la risoluzione spaziale con la tecnica del \emph{full width half maximum}¸ al fine di ottenere una misura alternativa della sfocatura introdotta dal filtro legato alle disomogeneità di campo. Si suppone che:
+
+\[\exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right) \ll 1\]
+
+Ciò equivale a fissare la condizione:
+
+\[T_{S} \gg 2T_{2}^{*}\]
+
+La PSF introdotta dal decadimento \(T_{2}^{*}\) è data da:
+
+\[h_{T_{2}^{*}}(x) = \frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} - j\pi\frac{x}{\Delta x} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} + j\pi\frac{x}{\Delta x} \right)}{\Delta x\frac{T_{S}}{T_{2}^{*}} - j2\pi x}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+Si considera il solo numeratore:
+
+\[\exp\left( \frac{T_{S}}{2T_{2}^{*}} - j\pi\frac{x}{\Delta x} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} + j\pi\frac{x}{\Delta x} \right)\]
+
+Per le proprietà degli esponenziali, si ha:
+
+\[\exp\left( \frac{T_{S}}{2T_{2}^{*}} - j\pi\frac{x}{\Delta x} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} + j\pi\frac{x}{\Delta x} \right) = \exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)\exp\left( - j\pi\frac{x}{\Delta x} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)\exp\left( j\pi\frac{x}{\Delta x} \right)\]
+
+Raccogliendo, è possibile scrivere:
+
+\[\exp\left( - j\pi\frac{x}{\Delta x} \right)\left( \exp\left( \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)\exp\left( j2\pi\frac{x}{\Delta x} \right) \right)\]
+
+Nell'ipotesi che:
+
+\[\exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right) \ll 1\]
+
+Il secondo termine può essere trascurato rispetto al primo, infatti:
+
+\[\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right) \gg \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)\]
+
+Per cui si ottiene:
+
+\[\exp\left( \frac{T_{S}}{2T_{2}^{*}} - j\pi\frac{x}{\Delta x} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} + j\pi\frac{x}{\Delta x} \right) \simeq \exp\left( - j\pi\frac{x}{\Delta x} \right)\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)\]
+
+La PSF può essere scritta come:
+
+\[h_{T_{2}^{*}}(x) \simeq \frac{\exp\left( - j\pi\frac{x}{\Delta x} \right)\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)}{\Delta x\frac{T_{S}}{T_{2}^{*}} - j2\pi x}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+Per valutare l'ascissa in cui la finestra è uguale a metà dell'ampiezza massima si valuta il modulo di \(h_{T_{2}^{*}}(x)\):
+
+\[\left| h_{T_{2}^{*}}(x) \right| \simeq \frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( \frac{T_{S}\Delta x}{T_{2}^{*}} \right)^{2} + (2\pi x)^{2}}}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+Che può essere riscritta eseguendo il minimo comune multiplo al denominatore:
+
+\[\left| h_{T_{2}^{*}}(x) \right| \simeq \frac{T_{2}^{*}\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( T_{S}\Delta x \right)^{2} + \left( 2\pi xT_{2}^{*} \right)^{2}}}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+Si applica la definizione di FWHM alla finestra \(\left| h_{T_{2}^{*}}(x) \right|\):
+
+\[h_{T_{2}^{*}}\left( \frac{\Delta x_{RMI}}{2} \right) = \frac{1}{2}h_{T_{2}^{*}}(0)\]
+
+Da cui:
+
+\[\left. \ \frac{T_{2}^{*}\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( T_{S}\Delta x \right)^{2} + \left( 2\pi xT_{2}^{*} \right)^{2}}}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right) \right|_{x = \frac{\Delta x_{RMI}}{2}} = \frac{1}{2}\left. \ \frac{T_{2}^{*}\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( T_{S}\Delta x \right)^{2} + \left( 2\pi xT_{2}^{*} \right)^{2}}}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right) \right|_{x = 0}\]
+
+\[\frac{T_{2}^{*}\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( T_{S}\Delta x \right)^{2} + \left( 2\pi\frac{\Delta x_{RMI}}{2}T_{2}^{*} \right)^{2}}}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right) = \frac{1}{2}\frac{T_{2}^{*}\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( T_{S}\Delta x \right)^{2}}}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+Semplificando i termini comuni tra i due membri, si ottiene:
+
+\[\frac{1}{\sqrt{\left( T_{S}\Delta x \right)^{2} + \left( \pi\Delta x_{RMI}T_{2}^{*} \right)^{2}}} = \frac{1}{2}\frac{1}{\sqrt{\left( T_{S}\Delta x \right)^{2}}} = \frac{1}{2}\frac{1}{T_{S}\Delta x}\]
+
+Si eleva al quadrato entrambi i membri per poter ricavare \(\Delta x_{RMI}\):
+
+\[\frac{1}{\left( T_{S}\Delta x \right)^{2} + \left( \pi\Delta x_{RMI}T_{2}^{*} \right)^{2}} = \frac{1}{4}\frac{1}{\left( T_{S}\Delta x \right)^{2}}\]
+
+Passando ai reciproci, si ottiene:
+
+\[\left( T_{S}\Delta x \right)^{2} + \left( \pi\Delta x_{RMI}T_{2}^{*} \right)^{2} = 4\left( T_{S}\Delta x \right)^{2}\]
+
+Risolvendo rispetto a \(x_{RMI}\):
+
+\[\left( \pi\Delta x_{RMI}T_{2}^{*} \right)^{2} = 3\left( T_{S}\Delta x \right)^{2}\]
+
+Si applica la radice quadrata ambo i membri:
+
+\[\pi\Delta x_{RMI}T_{2}^{*} = \sqrt{3}T_{S}\Delta x\]
+
+\[\Delta x_{RMI} = \frac{\sqrt{3}}{\pi}\frac{T_{S}}{T_{2}^{*}}\Delta x\]
+
+Questa relazione rappresenta uno sfocamento addizionale maggiore dovuto all'usuale campionamento e troncamento.
+
+\subsection{Filtraggio introdotto dal rilassamento nella spin-echo}\label{filtraggio-introdotto-dal-rilassamento-nella-spin-echo}
+
+L'effetto del filtraggio causato dal rilassamento della componente trasversa nell'esperimento spin-echo può essere meglio compreso separando i due contributi: \(T_{2}\), legato ai meccanismi intrinseci di rilassamento spin-spin, e \(T_{2}'\), dovuto alle disomogeneità statiche del campo magnetico.
+
+Il decadimento associato a \(T_{2}'\) è simmetrico rispetto al tempo d'eco \(T_{E}\), poiché le disomogeneità di campo agiscono in modo reversibile e vengono compensate dall'impulso \(\pi\). Nel \(k\)-spazio, questo decadimento si esprime come:
+
+\[s(k) \propto \exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right)\]
+
+Il decadimento \(T_{2}\), invece, è asimmetrico rispetto a \(T_{E}\), poiché inizia subito dopo l'impulso \(\pi/2\) e non viene rifocalizzato. Nel \(k\)-spazio, il suo effetto può essere approssimato da:
+
+\[s(k) \propto \exp\left( - \frac{T_{E}}{T_{2}} \right)\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\]
+
+Il filtro equivalente, che descrive il decadimento con \(T_{2}\) e \(T_{2}'\), è ottenuto moltiplicando i due contributi:
+
+\[H_{SE}(k) = \exp\left( - \frac{T_{E}}{T_{2}} \right)\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right)\]
+
+La sequenza spin-echo è composta da due impulsi RF, uno a \(\pi/2\) e l'altro \(\pi\). Il decadimento \(T_{2}\) inizia subito dopo il primo impulso e non è simmetrico rispetto a \(T_{E}\). Al contrario, l'effetto di \(T_{2}'\) viene rifocalizzato e si manifesta solo nella finestra di acquisizione.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=4.16944in,alt={Immagine che contiene testo, schermata, linea, diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image289.pdf}\caption{Figura .: Sequenza spin-echo con modulazioni dovute a \(T_{2}\) e \(T_{2}'\)}
+\end{figure}
+
+Il filtro complessivo, nel dominio dello spazio immagine, o PSF è dato dall'antitrasformata di Fourier della finestra nel \(k\)-spazio:
+
+\[h_{SE}(x) = \mathfrak{F}^{-}\left\lbrack H_{SE}(k) \right\rbrack(x) = \mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right) \right\rbrack(x) =\]
+
+Il termine \(\exp\left( - T_{E}/T_{2} \right)\) non dipende da \(k\), per cui è un fattore costante:
+
+\[h_{SE}(x) = \exp\left( - \frac{T_{E}}{T_{2}} \right)\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right) \right\rbrack(x)\]
+
+Si risolve l'antitrasformata:
+
+\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right) \right\rbrack(x) = \int_{- \infty}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk}\]
+
+Al fine di risolvere l'integrale, per la presenza del modulo, è necessario distinguere il caso di \(k\) negative e positive. L'integrale, in altre parole, viene scisso nella somma di due integrali:
+
+\[\int_{- \infty}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} = \int_{- \infty}^{0}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( \frac{k}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} + \int_{0}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{k}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk}\]
+
+Il gradiente \(G\) è legato alla finestra di lettura dalla relazione:
+
+\[T_{S} = \frac{W}{\overline{\gamma}G} \Leftrightarrow \ G = \frac{W}{\overline{\gamma}T_{S}}\]
+
+La finestra di acquisizione si estende da \(- k_{\max}\) a \(k_{\max}\), quindi, l'estensione della finestra di acquisizione è due volte \(k_{\max}\):
+
+\[W = 2k_{\max}\]
+
+Da cui:
+
+\[G = \frac{2k_{\max}}{\overline{\gamma}T_{S}} \Leftrightarrow k_{\max} = \frac{1}{2}\overline{\gamma}T_{S}G\]
+
+Se \(k_{\max} \rightarrow \infty\) anche la finestra di acquisizione tende all'infinito. In altre parole, nella trattazione analitica per individuare la PSF dovuta ai fenomeni di rilassamento si ignora il troncamento.
+
+Per le proprietà dell'esponenziale è possibile scrivere:
+
+\[\int_{- \infty}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} = \int_{- \infty}^{0}{\exp{\left( \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi kx \right)dk}} + \int_{0}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi kx \right)dk}\]
+
+Si risolve il primo integrale:
+
+\[\int_{- \infty}^{0}{\exp\left( \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi kx \right)dk} = \frac{1}{\frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi x}\left\lbrack \exp\left( \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi kx \right) \right\rbrack_{- \infty}^{0}\]
+
+In tutte le applicazioni pratiche, \(T_{2} > T_{2}'\), per cui il fattore moltiplicativo \(k\) è positivo:
+
+\[\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) > 0\]
+
+Di conseguenza, l'esponenziale, nel limite per \(k \rightarrow - \infty\) tende a \(0\). Inoltre, \(\exp( - j2\pi kx)\) è un termine oscillante, il cui modulo è unitario. Per il teorema dei carabinieri è valida la relazione:
+
+\[\exp\left( \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi kx \right) = \exp\left( \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right)\exp(j2\pi kx) \rightarrow 0,k \rightarrow - \infty\]
+
+L'integrale ha quindi soluzione:
+
+\[\int_{- \infty}^{0}{\exp\left( \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi kx \right)dk} = \frac{1}{\frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi x}\]
+
+È possibile ripetere un discorso analogo per il secondo integrale:
+
+\[\int_{0}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi kx \right)dk} = \frac{1}{- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi x}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi kx \right) \right\rbrack_{0}^{+ \infty}\]
+
+Il fattore moltiplicativo la variabile \(k\) è positivo e il termine \(\exp( - j2\pi kx)\) è oscillante, per cui:
+
+\[\exp\left( - \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) \right)\exp(j2\pi kx) \rightarrow 0,k \rightarrow + \infty\]
+
+La soluzione del secondo integrale è, quindi:
+
+\[\int_{0}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi kx \right)dk} = - \frac{1}{- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi x}\]
+
+La PSF complessiva è data dalla somma dei due contributi appena valutati:
+
+\[h_{SE}(x) = \mathfrak{F}^{-}\left\lbrack H_{SE}(k) \right\rbrack(x) = \frac{1}{\frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi x} - \frac{1}{- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi x} =\]
+
+Si svolge il minimo comune multiplo:
+
+\[\frac{- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j2\pi x}{\left\lbrack \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi x \right\rbrack\left\lbrack - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi x \right\rbrack}\]
+
+Si considera solamente il numeratore. I termini \(j2\pi x\) si elidono mentre i restanti possono essere sommati:
+
+\[- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j2\pi x = - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) = - \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} + \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) = - \frac{2}{\overline{\gamma}GT_{2}'}\]
+
+Per il denominatore, invece, si eseguono i prodotti:
+
+\[\left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack = (j2\pi x)^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right)\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + \ j2\pi x\left\lbrack - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) + \ j2\pi x\left\lbrack - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) + \ j2\pi x\left\lbrack \frac{1}{\overline{\gamma}G}\left( - \frac{1}{T_{2}'} - \frac{1}{T_{2}} + \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) - \frac{4\pi x}{\overline{\gamma}GT_{2}}j\]
+
+La PSF è, in definitiva, data da:
+
+\[h_{SE}(x) = \frac{- \frac{2}{\overline{\gamma}GT_{2}'}}{- 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) - \frac{4\pi x}{\overline{\gamma}GT_{2}}j} = \frac{\frac{2}{\overline{\gamma}GT_{2}'}}{4\pi^{2}x^{2} + \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) + \frac{4\pi x}{\overline{\gamma}GT_{2}}j}\]
+
+In molti casi pratici, è valida l'approssimazione \(T_{2}' \ll T_{2}\); questa condizione significa che il decadimento della magnetizzazione trasversale è dominato dagli effetti \(T_{2}'\), ovvero dalle disomogeneità del campo magnetico e dagli effetti di suscettibilità, piuttosto che dalle interazioni spin-spin intrinseche (\(T_{2}\)). Di conseguenza è possibile approssimare:
+
+\[\frac{1}{T_{2}'} - \frac{1}{T_{2}} \simeq \frac{1}{T_{2}'}\]
+
+Inoltre, la parte immaginaria al denominatore dipende da \(T_{2}^{- 1}\) per cui può essere trascurata. In quest3 ipotesi la PSF, si scrive come:
+
+\[h_{SE}(x) \simeq \frac{\frac{2}{\overline{\gamma}GT_{2}'}}{4\pi^{2}x^{2} + \frac{1}{{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}}}\]
+
+Riarrangiando i termini si scrive:
+
+\[h_{SE}(x) \simeq \frac{2\overline{\gamma}GT_{2}'}{1 + 4\pi^{2}x^{2}{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}}\]
+
+La PSF così ottenuta è una distribuzione lorentziana centrata nell'origine.
+
+Si valuta la risoluzione secondo l'approccio FWHM, per cui \(\Delta x_{RMI}\) deve essere tale da:
+
+\[h_{SE}\left( \frac{\Delta x_{RMI}}{2} \right) = \frac{1}{2}h_{SE}(0)\]
+
+Sostituendo l'espressione della PSF, si ottiene:
+
+\[\frac{2\overline{\gamma}GT_{2}'}{1 + 4\pi^{2}\left( \frac{\Delta x_{RMI}}{2} \right)^{2}{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}} = \frac{1}{2}2\overline{\gamma}GT_{2}'\]
+
+I numeratori sono uguali, a meno del \(2\), quindi possono essere semplificati.
+
+\[\frac{2}{1 + 4\pi^{2}\left( \frac{\Delta x_{RMI}}{2} \right)^{2}{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}} = 1\]
+
+Si passa ai reciproci:
+
+\[1 + 4\pi^{2}\frac{\Delta x_{RMI}^{2}}{4}{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2} = 2\]
+
+Semplificando:
+
+\[\pi^{2}\Delta x_{RMI}^{2}{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2} = 1\]
+
+Si isola \(\Delta x_{RMI}^{2}\):
+
+\[\Delta x_{RMI}^{2} = \frac{1}{{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}\pi^{2}}\]
+
+Applicando la radice a entrambi i membri si ottiene la risoluzione secondo il metodo FWHM:
+
+\[\Delta x_{RMI} = \frac{1}{\overline{\gamma}GT_{2}'\pi}\]
+
+Il Fourier pixel size, per definizione è:
+
+\[\Delta x = \frac{1}{W}\]
+
+Dove \(\overline{\gamma}GT_{S} = W\), per cui:
+
+\[\Delta x = \frac{1}{W} = \frac{1}{\overline{\gamma}GT_{S}}\]
+
+La relazione individuata per \(\Delta x_{RMI}\) può essere riscritta in modo tale che la risoluzione spaziale per una sequenza gradient-echo, secondo l'approccio FWHM, sia funzione del Fourier pixel size \(\Delta x\). A tale scopo si divide e moltiplica per la durata della finestra di acquisizione \(T_{S}\) il secondo membro:
+
+\[\Delta x_{RMI} = \frac{1}{\overline{\gamma}GT_{2}'\pi}\frac{T_{S}}{T_{S}}\]
+
+Da cui:
+
+\[\Delta x_{RMI} = \frac{\Delta x}{\pi}\frac{T_{S}}{T_{2}'}\]
+
+La perdita di risoluzione, a cui consegue uno sfocamento aggiuntivo a quello introdotto dal campionamento e dal troncamento, in una sequenza spin-echo può essere approssimata sommando i contributi dovuti al tempo \(T_{2}\) e al tempo \(T_{2}'\):
+
+\[FWHM_{SE} = \frac{\sqrt{3}}{\pi}\frac{T_{S}}{T_{2}}\Delta x + \frac{\Delta x}{\pi}\frac{T_{S}}{T_{2}'}\]
+
+La perdita di risoluzione introdotta è di circa il \(5\%\) del valore ideale del Fourier pixel size, \(\Delta x\). Questo effetto, seppur di poco, limita la visione di oggetti estremamente piccoli. Al fine di limitare gli effetti dei tempi di rilassamento, si tende a strutturare l'acquisizione in una finestra dalla durata temporale limitata.
+
+La sequenza gradient-echo, sebbene sia più veloce, non permette il recupero della disomogeneità di campo così come non consente la stima del tempo \(T_{2}\). Nonostante ciò, la sequenza gradient-echo è più precisa poiché introduce una differenza tra la risoluzione nel caso migliore, \(\Delta x\), e quella legata ai fenomeni di rilassamento minore della spin-echo.
+
+La sequenza spin-echo, recuperando e compensando la disomogeneità di campo, permette di ottenere delle immagini meno rumorose, sebbene con risoluzione leggermente minore e con un tempo di acquisizione più lungo.
+
+\subsubsection{Spin-echo con troncamento}\label{spin-echo-con-troncamento}
+
+Si vuole stimare la PSF nel caso di sequenza spin-echo considerando anche gli effetti introdotti da una finestra di acquisizione limitata.
+
+A causa del fenomeno del troncamento, il segnale acquisito varia nell'intervallo \(\left\lbrack - k_{\max};k_{\max} \right\rbrack\), dunque, l'integrale si riduce a:
+
+\[= \int_{- k_{\max}}^{+ k_{\max}}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} =\]
+
+Al fine di risolvere l'integrale, per la presenza del modulo, è necessario distinguere il caso di \(k\) negative e positive. L'integrale, in altre parole, viene scisso nella somma di due integrali:
+
+\[= \int_{- k_{\max}}^{0}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( \frac{k}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} + \int_{0}^{+ k_{\max}}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{k}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} =\]
+
+Per le proprietà degli esponenziali è possibile scrivere:
+
+\[= \int_{- k_{\max}}^{0}{\exp\left( \left( \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right)dk} + \int_{0}^{+ k_{\max}}{\exp\left( \left( - \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right)dk} =\]
+
+Si risolve il primo integrale; a tal fine si moltiplica e divide per il fattore moltiplicativo \(k\) nell'argomento dell'esponenziale:
+
+\[\int_{- k_{\max}}^{0}{\exp\left( \left( \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right)dk} = \frac{1}{\frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x}\left\lbrack \exp\left( \left( \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right) \right\rbrack_{- k_{\max}}^{0} = \frac{1}{\frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x}\left\lbrack 1 - \exp\left( - \left( \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k_{\max} \right) \right\rbrack =\]
+
+Il gradiente \(G\) è legato alla finestra di lettura dalla relazione:
+
+\[T_{S} = \frac{W}{\overline{\gamma}G} \Leftrightarrow \ G = \frac{W}{\overline{\gamma}T_{S}}\]
+
+La finestra di acquisizione si estende da \(- k_{\max}\) a \(k_{\max}\), quindi, l'estensione della finestra di acquisizione è due volte \(k_{\max}\):
+
+\[W = 2k_{\max}\]
+
+Da cui:
+
+\[G = \frac{2k_{\max}}{\overline{\gamma}T_{S}} \Leftrightarrow k_{\max} = \frac{1}{2}\overline{\gamma}T_{S}G\]
+
+Sostituendo tale risultato si ha:
+
+\[= \frac{1}{\frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x}\left\lbrack 1 - \exp\left( - \left( \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)\frac{1}{2}\overline{\gamma}T_{S}G \right) \right\rbrack =\]
+
+Svolgendo i prodotti nel termine esponenziale e raccogliendo, si ha:
+
+\[= \frac{1}{\frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi x}\left\lbrack 1 - \exp\left( - \frac{1}{2}\left( \frac{T_{S}}{T_{2}'} - \frac{T_{S}}{T_{2}} + j2\pi\overline{\gamma}T_{S}Gx \right) \right) \right\rbrack = \frac{1}{\frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi x}\left\lbrack 1 - \exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) \right\rbrack\]
+
+Analogamente, per il secondo integrale:
+
+\[\int_{0}^{+ k_{\max}}{\exp\left( \left( - \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right)dk} = \frac{1}{- \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x}\left\lbrack \exp\left( \left( - \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right) \right\rbrack_{0}^{k_{\max}} = \frac{1}{- \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x}\left\lbrack \exp\left( \left( - \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k_{\max} \right) - 1 \right\rbrack =\]
+
+Dalla relazione tra \(G\) e \(k_{\max}\), si ha:
+
+\[= \frac{1}{- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j2\pi x}\left\lbrack \exp\left( \left( - \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)\frac{1}{2}\overline{\gamma}T_{S}G \right) - 1 \right\rbrack =\]
+
+\[= \frac{1}{- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j2\pi x}\left\lbrack \exp\left( \frac{1}{2}\left( - \frac{T_{S}}{T_{2}'} - \frac{T_{S}}{T_{2}} + j2\pi\overline{\gamma}T_{S}Gx \right) \right) - 1 \right\rbrack =\]
+
+Raccogliendo:
+
+\[= \frac{1}{- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j2\pi x}\left\lbrack \exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - 1 \right\rbrack\]
+
+Utilizzando i risultati ottenuti, l'antitrasformata si scrive:
+
+\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right) \right\rbrack(x) = \frac{1}{\frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi x}\left\lbrack 1 - \exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) \right\rbrack + \frac{1}{- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j2\pi x}\left\lbrack \exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - 1 \right\rbrack\]
+
+Si svolge il minimo comune multiplo:
+
+\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right) \right\rbrack(x) = \frac{\left\lbrack 1 - \exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) \right\rbrack\left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack}{\left\{ \left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack \right\}} + \frac{\left\lbrack \exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - 1 \right\rbrack\left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack}{\left\{ \left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack \right\}}\]
+
+Si considerano i due termini del numeratore:
+
+\[\left\lbrack 1 - \exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) \right\rbrack\left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack = \ j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) - \left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right)\]
+
+\[\left\lbrack \exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - 1 \right\rbrack\left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack = \left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - \ j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right)\]
+
+Sommando i risultati, si ha:
+
+\[j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) - \left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) + \left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - \ j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right)\]
+
+I termini \(j2\pi x\) si elidono, inoltre:
+
+\[- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) = \frac{1}{\overline{\gamma}G}\left( - \frac{1}{T_{2}'} - \frac{1}{T_{2}} - \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) = - \frac{2}{\overline{\gamma}GT_{2}'}\]
+
+Componendo il denominatore, si ottiene:
+
+\[- \frac{2}{\overline{\gamma}GT_{2}'} - \left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) + \left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right)\]
+
+Per il denominatore, invece, si ha:
+
+\[\left\{ \left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack \right\} = (j2\pi x)^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right)\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + \ j2\pi x\left\lbrack - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) + \ j2\pi x\left\lbrack - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) + \ j2\pi x\left\lbrack \frac{1}{\overline{\gamma}G}\left( - \frac{1}{T_{2}'} - \frac{1}{T_{2}} + \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) - \frac{4\pi x}{\overline{\gamma}GT_{2}}j\]
+
+La PSF nel dominio dello spazio-immagine è:
+
+\[h_{SE}(x) = \frac{- \frac{2}{\overline{\gamma}GT_{2}'} - \left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right)}{- 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) - \frac{4\pi x}{\overline{\gamma}GT_{2}}j} + \frac{\left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right)}{- 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) - \frac{4\pi x}{\overline{\gamma}GT_{2}}j}\]
+
+Al denominatore la parte immaginaria è pesata per \(T_{2}\), per cui può essere trascurata:
+
+\[- 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) - \frac{4\pi x}{\overline{\gamma}GT_{2}} \simeq - 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}}\]
+
+Per quanto riguarda il numeratore, si considera il termine:
+
+\[\left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) \simeq \left( j2\pi x - \frac{1}{\overline{\gamma}GT_{2}'} \right)\exp\left( - \frac{1}{2}\frac{T_{S}}{T_{2}'} - j\pi\overline{\gamma}T_{S}Gx \right)\]
+
+Per il secondo termine, si ottiene:
+
+\[\left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) \simeq \left( \ j2\pi x + \frac{1}{\overline{\gamma}GT_{2}'} \right)\exp\left( - \frac{T_{S}}{2T_{2}'} + j\pi\overline{\gamma}T_{S}Gx \right)\]
+
+La PSF, in questa ipotesi, è data da:
+
+\[h_{SE}(x) \simeq \frac{- \frac{2}{\overline{\gamma}GT_{2}'} + \left( j2\pi x - \frac{1}{\overline{\gamma}GT_{2}'} \right)\exp\left( - \frac{1}{2}\frac{T_{S}}{T_{2}'} - j\pi\overline{\gamma}T_{S}Gx \right) + \left( \ j2\pi x + \frac{1}{\overline{\gamma}GT_{2}'} \right)\exp\left( - \frac{T_{S}}{2T_{2}'} + j\pi\overline{\gamma}T_{S}Gx \right)}{- \frac{1}{{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}} - 4\pi^{2}x^{2}}\]
+
+Si suppone che la finestra di acquisizione \(T_{S}\) sia molto maggiore del tempo di rilassamento \(T_{2}'\); ciò equivale ad affermare che il segnale è stato acquisito per un tempo così lungo che può essere considerato decaduto. In questa condizione
+
+\[\exp\left( - \frac{1}{2}\frac{T_{S}}{T_{2}'} - j\pi\overline{\gamma}T_{S}Gx \right) = \exp\left( - \frac{1}{2}\frac{T_{S}}{T_{2}'} \right)\exp\left( - j\pi\overline{\gamma}T_{S}Gx \right)\]
+
+Per valutare cosa accade nel limite \(T_{S} \rightarrow \infty\) si ricorda che \(\exp\left( - j\pi\overline{\gamma}T_{S}Gx \right)\) è un termine oscillante, il cui modulo è unitario. Per il teorema dei carabinieri è valida la relazione:
+
+\[\exp\left( - \frac{1}{2}\frac{T_{S}}{T_{2}'} \right)\exp\left( - j\pi\overline{\gamma}T_{S}Gx \right) \rightarrow 0,T_{S} \gg T_{2}'\]
+
+Analogamente:
+
+\[\exp\left( - \frac{1}{2}\frac{T_{S}}{T_{2}'} \right)\exp\left( j\pi\overline{\gamma}T_{S}Gx \right) \rightarrow 0,T_{S} \gg T_{2}'\]
+
+La PSF, aggiungendo questa ulteriore ipotesi, si riduce a:
+
+\[h_{SE}(x) = \frac{- \frac{2}{\overline{\gamma}GT_{2}'}}{- \frac{1}{{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}} - 4\pi^{2}x^{2}}\]
+
+Riarragiando i termini si può scrivere:
+
+\[h_{SE}(x) = \frac{2\overline{\gamma}GT_{2}'}{1 - 4\pi^{2}x^{2}{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}}\]
+
+Si è ottenuto lo stesso risultato del caso precedente.
+
+\subsection{Zero filled}\label{zero-filled}
+
+Un metodo di interpolazione molto utilizzato nella pratica, al fine di ricostruire un segnale di cui si conosce un numero di finito di campioni mediante la trasformata di Fourier, consiste nell'aggiunta di zeri così da ottenere un maggior numero sui quali ricostruire l'immagine.
+
+Si suppone di aver campionato nel \(k\)-spazio, da un valore \(- k_{\min}\) a \(+ k_{\max}\) con un passo di campionamento \(\Delta k\). Il campionamento del segnale, inoltre, avviene in una finestra temporale di lunghezza \(W\). Mediante la trasformata inversa di Fourier è possibile ricostruire la densità protonica \(\widehat{\rho}(x)\) su \(N\) punti pari mediante la relazione:
+
+\[\widehat{\rho}(x) = \Delta k\sum_{p = - \frac{N}{2}}^{\frac{N}{2} - 1}{s(p\Delta k)\exp\left( \frac{j2\pi pq}{N} \right)}\]
+
+Dove \(\Delta x = W^{- 1}\) e il \(FOV = L = \Delta k^{- 1}\). L'ampiezza dell'oggetto da ricostruire dipende, in ultima analisi, da \(\Delta k\).
+
+Il Fourier pixel size, \(\Delta x\), è legato alla risoluzione spaziale tramite la PSF ed è dovuto essenzialmente al troncamento, al campionamento e l'applicazione di eventuali filtri per ridurre gli errori di rinning. La risoluzione spaziale \(\Delta x_{RMI}\) fornisce un'informazione sulla minima dimensione che devono possedere due entità affinché siano distinti nell'immagine.
+
+La risoluzione spaziale \(\Delta x\) è legata anche al numero di campioni acquisiti nel \(k\)-spazio, tramite la relazione:
+
+\[\Delta x = \frac{1}{N\Delta k}\]
+
+Per migliorare la risoluzione è necessario aumentare il numero di punti o ridurre l'intervallo di campionamento nel \(k\)-spazio. Tuttavia, la durata del campionamento è legata a vari fattori della sequenza, ad esempio, nella gradient-echo, la durata complessiva dell'acquisizione \(W\) deve essere tale da non sentire gli effetti del rilassamento.
+
+Una metodica utilizzata per migliorare la risoluzione consiste nell'aumentare, mediante appositi algoritmi digitali, la finestra di acquisizione \(W\) un certo numero di zeri del segnale \(s(k)\). Tale algoritmo è detto zero filling.
+
+Nella pratica, generalmente, non si estende la finestra di acquisizione \(W\) oltre un raddoppio di quella in cui sono acquisiti i campioni. Se la finestra \(W\) raddoppia, la risoluzione spaziale si dimezza:
+
+\[\Delta x = \left. \ \frac{1}{NW} \right|_{W = 2W} = \frac{1}{2NW} = \frac{\Delta x}{2}\]
+
+Il set di dati acquisiti, a valle dell'introduzione dello zero filled, si scrive come:
+
+\[{\widehat{s}}_{0}(p\Delta k) = \left\{ \begin{aligned}
+0,\ \  & - N \leq p \leq - \frac{N}{2} - 1 \\
+s(p\Delta k),\ \  & - \frac{N}{2} \leq p \leq \frac{N}{2} - 1 \\
+0,\ \  & \frac{N}{2} \leq p \leq N - 1
+\end{aligned} \right.\ \]
+
+In ogni caso, il numero \(N\) dei campioni deve essere scelto in modo da essere un numero pari, se possibile potenza di \(2\).
+
+Il segnale \({\widehat{s}}_{0}(p\Delta k)0\), nell'intervallo di campionamento fisicamente realizzato, corrisponde al segnale realmente acquisito; mentre all'esterno di questo intervallo si aggiungono tanti zeri, centrati si \(p\Delta k\), sia alla sinistra che alla destra dell'intervallo \(\lbrack - N/2;N/2 - 1\rbrack\) così da avere una finestra di ampiezza doppia.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69182in,height=2.34091in,alt={Immagine che contiene testo, linea, Diagramma, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image290.pdf}\caption{Figura .: Segnale acquisito ed estensione con zero padding con \(N = 32\)}
+\end{figure}
+
+Si applica ora la trasformata discreta di Fourier inversa al segnale \({\widehat{s}}_{0}(p\Delta k)\), a valle dello zero filling. In questo modo si ricostruisce un segnale proporzionale alla densità protonica, valutata in \(q\Delta x/2\):
+
+\[{\widehat{\rho}}_{0}\left( q\frac{\Delta x}{2} \right) = \frac{1}{2N}\sum_{p = - N}^{N - 1}{{\widehat{s}}_{0}(p\Delta k)\exp\left( j2\pi\frac{pq}{2N} \right)}\]
+
+La normalizzazione per \(2N\) è dovuta al fatto che il numero di punti su cui si calcola la trasformata è raddoppiato. Il segnale \({\widehat{s}}_{0}(p\Delta k)\) è null' all'esterno dell'intervallo \(\lbrack - N/2;N/2 - 1\rbrack\) per cui è possibile ridurre gli indici su cui calcolare la sommatoria:
+
+\[{\widehat{\rho}}_{0}\left( q\frac{\Delta x}{2} \right) = \frac{1}{2N}\sum_{p = - \frac{N}{2}}^{\frac{N}{2} - 1}{{\widehat{s}}_{0}(p\Delta k)\exp\left( j2\pi\frac{pq}{2N} \right)}\]
+
+Dalla sequenza di dati acquisiti nel \(k\)-spazio, ottenuta mediante lo zero filling, è possibile ricostruire due immagini, una per \(q\) pari e l'altra per \(q\) dispari.
+
+Si considerano i multipli peri della quantità \(q = 2r\), dove \(r \in \lbrack - N/2;N/2 - 1\rbrack\). L'immagine ricostruita su questi punti è data da:
+
+\[\left. \ {\widehat{\rho}}_{0}\left( q\frac{\Delta x}{2} \right) \right|_{q = 2r} = {\widehat{\rho}}_{0}(r\Delta x) = \frac{1}{2N}\sum_{p = - \frac{N}{2}}^{\frac{N}{2} - 1}{{\widehat{s}}_{0}(p\Delta k)\exp\left( j2\pi\frac{rq}{N} \right)}\]
+
+L'immagine ricostruita coincide con l'immagine che sarebbe stata ricostruita in assenza di zero filled, scalata di fattore \(1/2\):
+
+\[{\widehat{\rho}}_{0}(q\Delta x) = \frac{1}{2}\widehat{\rho}(r\Delta x)\]
+
+L'immagine ottenuta coincide con la densità protonica che sarebbe stata ricostruita in assenza di zero padding, \({\widehat{\rho}}_{0}(q\Delta x)\), e contiene solamente \(N\) punti. In altre parole, la trasformata inversa di Fourier a vale dello zero padding coincide, nei punti multipli pari di \(\Delta x/2\), con la trasformata che si avrebbe senza l'applicazione dello zero filling, a meno di un fattore di scala \(1/2\).
+
+Si analizza, ora, il comportamento dell'antitrasformata della sequenza con zero filling nei punti dispari di \(\Delta x/2\). A tale scopo si scrive \(p = 2r + 1\); sottiene:
+
+\[\left. \ {\widehat{\rho}}_{0}\left( q\frac{\Delta x}{2} \right) \right|_{q = 2r} = {\widehat{\rho}}_{0}\left( (2r + 1)\frac{\Delta x}{2} \right) = \frac{1}{2N}\sum_{p = - \frac{N}{2}}^{\frac{N}{2} - 1}{{\widehat{s}}_{0}(p\Delta k)\exp\left( j2\pi\frac{(2r + 1)q}{2N} \right)} = \frac{1}{2N}\sum_{p = - \frac{N}{2}}^{\frac{N}{2} - 1}{{\widehat{s}}_{0}(p\Delta k)\exp\left( j\pi\frac{(2r + 1)q}{N} \right)}\]
+
+Per le proprietà degli esponenziali, si ha:
+
+\[= \frac{1}{2N}\sum_{p = - \frac{N}{2}}^{\frac{N}{2} - 1}{\left( {\widehat{s}}_{0}(p\Delta k)\exp\left( j\pi\frac{p}{N} \right) \right)\exp\left( j2\pi\frac{rp}{N} \right)}\]
+
+Per il teorema della traslazione, è possibile scrivere:
+
+\[{\widehat{\rho}}_{0}\left( (2r + 1)\frac{\Delta x}{2} \right) = \frac{1}{2}\widehat{\rho}\left( r\Delta x + \frac{\Delta x}{2} \right)\]
+
+La densità protonica ricostruita con lo zero filling, per i multipli dispari di \(\Delta x/2\), coincide con la densità protonica ricostruita su \(N\) punti e traslata di \(\Delta x/2\) rispetto al punto \(r\), e scalta di un fattore \(1/2\).
+
+Mediante la tecnica dello zero filling, la densità protonica è sia nota nei punti \(r\Delta x\) sia nei punti \((2r + 1)\Delta x/2\), permettendo così una ricostruzione migliore dell'immagine.
+
+Si osservi che l'interpolazione con zero filling non varia il FOV e il passo di campionamento effettivo nel \(k\)-spazio, \(\Delta k\), ma varia il campionamento nello spazio-immagine nell'intervallo \(\lbrack - L/2;L/2\rbrack\). In altre parole, lo zero padding non aggiunge \emph{nuova informazione indipendente} sul segnale, ovvero non migliora la risoluzione intrinseca data dalla larghezza di banda campionata, ma agisce come un'\textbf{interpolazione} nel dominio spaziale. Aumentando il numero di punti nella Trasformata Inversa di Fourier, otteniamo un'immagine con più pixel, che appare più dettagliata e meno "a blocchi" o "scalettata", perché il segnale è valutato anche nei punti intermedi.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68958in,height=5.33333in,alt={Immagine che contiene testo, diagramma, linea, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image291.pdf}\caption{Figura .: Ricostruzione del segnale tramite la trasformata inversa di Fourier a valle dello zero filled}
+\end{figure}
+
+Si considera un voxel con dimensione \(\Delta x\) e un oggetto, contenuto nel voxel, prossimo a metà dell'intervallo \(\lbrack 0;\Delta x\rbrack\) molto piccolo.
+
+\begin{figure}
+\centering
+\includegraphics[width=2.31508in,height=2.78731in,alt={Immagine che contiene testo, Rettangolo, cerchio, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image292.pdf}\caption{Figura .: Voxel con piccolo oggetto}
+\end{figure}
+
+A causa del campionamento e del troncamento nel \(k\)-spazio, la densità protonica dell'oggetto di cui si vuole eseguire l'imaging, \(\rho(x)\), è filtrata dalla PSF dovuta al troncamento e al campionamento, \(h_{WS}(x)\):
+
+\[\widehat{\rho}(x) = \rho(x)*h_{WS}(x)\]
+
+La densità protonica ricostruita è una versione filtrata dell'oggetto a causa della PSF. Nel caso migliore, la PSF ha un'estensione uguale al Fourier pixel size, \(\Delta x\).
+
+Si applica questo concetto all'oggetto prima considerato, posizione nei pressi di \(\Delta x/2\). Durante la ricostruzione, a causa del filtraggio e del campionamento, l'oggetto è slargato per la convoluzione con la PSF nel dominio dello spazio-immagine. Inoltre, in assenza di zero padding, il campione ricostruito è posizione nei multipli interi di \(\Delta x\). Ne consegue che i campioni più vicini all'oggetto considerato si trovano per \(x = 0\) e \(x = \Delta x\); ciò determina una sottostima della densità protonica del voxel posizionato tra due campioni.
+
+\begin{figure}
+\centering
+\includegraphics[width=2.36364in,height=2.7741in,alt={Immagine che contiene testo, Rettangolo, schermata, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image293.pdf}\caption{Figura .: Effetto della ricostruzione in assenza di zero filled}
+\end{figure}
+
+Mediante l'introduzione dell'interpolazione zero filled l'immagine viene ricostruita anche nei punti multipli di \(\Delta x/2\), migliorando la stima della densità protonica del voxel.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69208in,height=3.82576in,alt={Immagine che contiene testo, diagramma, Diagramma, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image294.pdf}\caption{Figura .: Sottostima dell'intensità dell'oggetto a causa dell'assenza di interpolazione}
+\end{figure}
+
+Si può dimostrare che in assenza di zero filled e con PSF di tipo \(sinc\) la perdita di segnale può essere anche del \(30\% \div 40\%\); di conseguenza, gli oggetti di piccole dimensioni sono attenutati, in termini di intensità cromatica nell'immagine, anche del \(40\%\)m rendendo questi ultimi poco visibili.
+
+Lo zero filled permette di osservare anche oggetti più piccoli, riducendo gli effetti dello sfocamento sull'immagine ricostruita.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=3.67361in,alt={Immagine che contiene testo, linea, diagramma, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image295.pdf}\caption{Figura .: Ricostruzione con zero padding}
+\end{figure}
+
+Si osservi che la PSF non cambia a valle dell'applicazione della tecnica dello zero filled poiché quest'ultima non introduce nessun effetto filtrante. La PSF legata al campionamento e al troncamento è un limite intrinseco della risonanza magnetica e della strumentazione di elaborazione.
+
+\subsection{Partial Fourier imaging}\label{partial-fourier-imaging}
+
+In alcuni contesti pratici, come quando si vuole, ad esempio, minimizzare i tempi di imaging di una sequenza (o in altre occasioni) non si campiona il \(k\)-spazio simmetricamente. In questi casi si acquisisce un \(k\)-spazio asimmetrico nella direzione del phase encoding, così da, appunto, ridurre i tempi di acquisizione, avendo un minor numero di ripetizioni.
+
+Le tecniche di ricostruzione con \(k\)-spazio acquisito in modo asimmetrico prevedono che il campionamento lungo la direzione \(k_{PE}\) rispetti il criterio di Nyquist solamente per metà del \(k\)-spazio, spesso la metà positiva con \(k_{R} > 0\), mentre il campionamento nell'altro semipiano del \(k\)-spazio, spesso per le direzioni di codifica di fase negative \(k_{PE} < 0\), è solo parziale. Ciò permette di ridurre il numero di incrementi del gradiente di codifica di fase.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=1.06061in,alt={Immagine che contiene linea, Diagramma, schermata, diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image296.pdf}\caption{Figura .: Distribuzione dei campioni asimmetrici lungo la direzione di codifica di fase}
+\end{figure}
+
+L'operazione di acquisizione di un solo semipiano del \(k\)-spazio nella direzione di codifica di fase è possibile, infatti, dal punto di vista teorico il segnale registrato gode della proprietà di hermitianità:
+
+\[s( - k) = s^{*}(k)\]
+
+Questa proprietà discende dal fatto che il segnale \(s(k)\) è la trasformata di Fourier della densità protonica \(\rho(x)\) la quale è una funzione reale.
+
+I campioni nella direzione della codifica di fase positiva non sono indipendente da quelli negativi, quindi, noto l'andamento per \(k_{PE} > 0\) è possibile ricavare, per simmetria, le componenti negative.
+
+In linea teorica è sia possibile dimezzare i tempi di acquisizione, sia acquisire il doppio delle informazioni per la codifica di fase se vengono campionate \(k_{PE}\) positive e negative. Con quest'ultima soluzione si ottiene un FOV più largo lungo l'asse di codifica di fase.
+
+L'approssimazione di funzione hermitiana per \(s(k)\) non è verificata, infatti, a causa delle disomogeneità di campo magnetico, o sfasamento dei ricettori, la densità protonica ricostruita, antitrasformando il segnale \(s(k)\) nel \(k\)-spazio, non è reale ma immaginaria, la quale è utile per analizzare il tipo di problematica presente nel sistema di ricezione e le disomogeneità di campo.
+
+Si suppone che la relazione di hermitianità sia valida, ovvero \(s( - k) = s^{*}(k)\). In questa condizione si ricostruisce una densità protonica reale, che non coincide con quella effettivamente misurata. Ciò porta a errori di ricostruzione.
+
+Non potendo campionare solamente il semipiano positivo del \(k\)-spazio, nella direzione di codifica di fase, si adotta una strategia di ricostruzione parziale in cui si acquisisce metà del \(k\)-spazio nella direzione positiva del phase econding e alcune righe nella direzione negativa.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.85625in,height=5.85625in,alt={Immagine che contiene testo, schermata, linea, Parallelo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image297.pdf}\caption{Figura .: Righe del k-spazio con campionamento parziale lungo l'asse di cofica di fase}
+\end{figure}
+
+Tipicamente si indica con \(n_{+}\) il numero delle righe positive e con \(m_{-}\) il numero delle righe negative. Di solito i due parametri sono scelti in modo che \(n_{+} \gg n_{-}\). Ad esempio, se si acquisiscono \(128\) righe positive, quelle negative potrebbero essere \(16\), così di collezionare anche alcune informazioni sul versante negativo.
+
+Un possibile algoritmo per la ricostruzione della densità protonica è composto da una serie di istruzioni iterative con cui si arriva alla migliore stima della densità protonica, mediante approssimazioni successive.
+
+L'algoritmo si basa sull'ipotesi che, la regione centrale del \(k\)-spazio ovvero nell'intervallo \(\left\lbrack - n_{-};n_{-} - 1 \right\rbrack\), sia una buona approssimazione della fase dell'immagine ricostruita. Dai punti centrali è, di conseguenza, possibile ricavare la fase \(\phi\) dell'immagine ricostruita mediante una DFT inversa. Per incrementare la precisione della risoluzione è possibile utilizzare anche l'interpolazione zero filled.
+
+\begin{figure}
+\centering
+\includegraphics[width=2.99097in,height=5.25in,alt={Immagine che contiene testo, schermata, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image298.pdf}\caption{Figura .: Sezione del k-spazio utilizzato per la ricostruzione della fase}
+\end{figure}
+
+Il primo passo dell'algoritmo prevede il troncamento nella finestra \(\left\lbrack - n_{-};n_{-} - 1 \right\rbrack\) e lo zero padding del set di dati misurato nell'intervallo simmetrico \(\left\lbrack - n_{-};n_{+} - 1 \right\rbrack\), ottenendo il segnale:
+
+\[{\widehat{s}}_{\phi}(p\Delta k) = \left\{ \begin{aligned}
+0,\ \  & - n_{-} \leq p \leq - n_{-} - 1 \\
+s(p\Delta k),\ \  & - n_{-} \leq p \leq n_{-} - 1 \\
+0,\ \  & n_{-} \leq p \leq n_{+} - 1
+\end{aligned} \right.\ \]
+
+Mediante lo zero padding si costruisce una finestra di acquisizione simmetrica, quindi, è prevista l'aggiunta di un numero maggiore di zeri nella porzione con \(k_{PE}\) negativi.
+
+Dai campioni del segnale \({\widehat{s}}_{0}\) si ricostruisce la densità protonica, esplicitando modulo e fase, mediante la IDFT:
+
+\[{\widehat{\rho}}_{\phi}(q\Delta x) = IDFT\left\{ {\widehat{s}}_{\phi}(p\Delta k) \right\}(q\Delta x)\]
+
+Indicando la \(IDFT\) con \(\mathfrak{D}^{- 1}\), la fase della densità protonica ricostruita è data da:
+
+\[\phi(q\Delta x) = \angle{\widehat{\rho}}_{\phi}(q\Delta x) = \angle\mathfrak{D}^{- 1}\left\{ {\widehat{s}}_{\phi}(p\Delta k) \right\}\]
+
+L'immagine di partenza \({\widehat{\rho}}_{\phi}\) può essere scritta in termini di modulo e fase:
+
+\[{\widehat{\rho}}_{\phi}(q\Delta x) = \left| \mathfrak{D}^{- 1}\left\{ {\widehat{s}}_{\phi}(p\Delta k) \right\} \right|\exp\left( j\angle\mathfrak{D}^{- 1}\left\{ {\widehat{s}}_{\phi}(p\Delta k) \right\} \right)\]
+
+Inizializzata una variabile di conteggio \(j = 0\), un'immagine iniziale \(\rho(x)\) è ottenuta da una versione zero padded dei dati misurati, estesi a \(2n_{+}\). Detta \(s_{0}(p\Delta k)\) il segnale nel \(k\)-spazio alla prima iterazione, dato dal segnale misurato \(s_{m}\) in \(\left\lbrack - n_{-};n_{+} - 1 \right\rbrack\) e da zero nell'intervallo \(\left\lbrack - n_{+}; - n_{-} - 1 \right\rbrack\) per lo zero padding:
+
+\[s_{0}(p\Delta x) = \left\{ \begin{aligned}
+s_{m}(p\Delta k),\ \  & - n_{-} \leq p \leq n_{+} - 1 \\
+0,\ \  & - n_{+} \leq p \leq - n_{-} - 1
+\end{aligned} \right.\ \]
+
+Gli zeri sono posizionati in modo da ottenere una finestra simmetrica \(\left\lbrack - n_{+};n_{+} \right\rbrack\), ovvero una finestra simmetrica rispetto l'origine a meno di un campione.
+
+Con il segnale \(s_{0}(p\Delta x)\) del \(k\)-spazio, si ricostruisce l'immagine mediante IDFT. Sia \({\widehat{\rho}}_{0}\) l'immagine ricostruita alla prima iterazione:
+
+\[{\widehat{\rho}}_{0}(q\Delta x) = \mathfrak{D}^{- 1}\left\{ s_{0}(p\Delta x) \right\}\]
+
+Da questo passo inizia l'algoritmo iterativo. In particolare, l'immagine all'iterazione \(j + 1\)-esima è ottenuta a partire dall'immagine \(j\)-esima ricostruita nell'iterazione precedente e la fase iniziale calcolata nel primo passo.
+
+Nello specifico, dall'immagine \({\widehat{\rho}}_{j}\) del \(j\)-esimo passo, si considera solamente il modulo, poiché la fase \(\phi(q\Delta x)\), calcolata nel primo passo, è supposta essere quella che meglio approssima la fase reale. All'iterazione \(j + 1\)-esima, l'immagine ricostruita è data da:
+
+\[{\widetilde{\rho}}_{j + 1}(q\Delta x) = \left| {\widehat{p}}_{j}(q\Delta x) \right|\exp\left( j\angle\mathfrak{D}^{- 1}\left\{ {\widehat{s}}_{\phi}(p\Delta k) \right\} \right) = \left| {\widehat{p}}_{j}(q\Delta x) \right|\exp\left( j\phi\left( (p\Delta k) \right) \right)\]
+
+Questa immagine intermedia è trasformata secondo Fourier al fine di creare un set di dati intermedi del \(k\)-spazio, ricostruendo i campioni del segnale \(s(k)\). Applicando la DFT all'immagine nello step \(j + 1\)-esimo, si ottiene il segnale \({\widehat{s}}_{j + 1}(p\Delta k)\) nel \(k\)-spazio:
+
+\[{\widetilde{s}}_{j + 1}(p\Delta k)\mathfrak{= D}\left\{ {\widetilde{\rho}}_{j + 1}(q\Delta x) \right\}(p\Delta k)\]
+
+Il segnale ricostruito nello step \(j + 1\)-esimo, \({\widetilde{s}}_{j + 1}(p\Delta k)\), a differenza del segnale misurato \(s_{m}(p\Delta x)\) e con zero padding, \(s_{0}(p\Delta x)\), non ha zeri nell'intervallo \(\left\lbrack - n_{+};n_{+} - 1 \right\rbrack\) poiché l'immagine ricostruita \({\widehat{p}}_{j + 1}(q\Delta x)\) non coincide con l'immagine iniziale \({\widehat{\rho}}_{0}(q\Delta x)\).
+
+I dati complessi dell'iterazione precedente,\(s_{j}(p\Delta k)\) contenuti nell'intervallo di padding \(\left\lbrack - n_{+}\Delta k;n_{-}\Delta k \right\rbrack\) sono sostituiti con quelli dell'iterazione corrente \(j + 1\)-esima \({\widetilde{s}}_{j + 1}\); mentre i campioni nell'intervallo di misura \(\left\lbrack - n_{-};n_{+} - 1 \right\rbrack\), dov'è contenuto il segnale acquisito, non sono modificati. In altre parole, il segnale ricostruito allo step \(j + 1\)-esimo è:
+
+\[s_{j + 1}(p\Delta x) = \left\{ \begin{aligned}
+s_{m}(p\Delta k),\ \  & - n_{-} \leq p \leq n_{+} - 1 \\
+{\widetilde{s}}_{j + 1}(p\Delta k),\ \  & - n_{+} \leq p \leq - n_{-} - 1
+\end{aligned} \right.\ \]
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=1.58403in,alt={Immagine che contiene schermata, testo, linea, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image299.pdf}\caption{Figura .: Aggiornamento della pozione negativa di \(k_{PE}\)}
+\end{figure}
+
+In questo modo i campioni del \(k\)-spazio nella direzione di codifica di fase negativa, \(K_{PE} < 0\), sono corrette e completate a ogni iterazione.
+
+Antitrasformato l'ultimo segnale campionato nel \(k\)-spazio ottenuto, \(s_{j + 1}(p\Delta x)\), si ottiene la densità protonica dell'iterazione \(j + 1\)-esima:
+
+\[{\widehat{\rho}}_{j + 1}(q\Delta x) = \mathfrak{D}^{- 1}\left\{ s_{j + 1}(p\Delta x) \right\}\]
+
+Se le immagini ricostruite al passo \(j\)-esimo e \(j + 1\)-esimo sono tali che il modula della differenza sia sufficientemente piccola, ovvero al di sotto di una certa soglia:
+
+\[\left| {\widehat{\rho}}_{j + 1}(q\Delta x) - {\widehat{\rho}}_{j}(q\Delta x) \right| < \varepsilon\]
+
+L'algoritmo ha termine, altrimenti si procede col passo \(j + 2\)-esimo, definendo la nuova immagine come:
+
+\[{\widetilde{\rho}}_{j + 2}(q\Delta x) = \left| {\widehat{p}}_{j + 1}(q\Delta x) \right|\exp\left( j\phi\left( (p\Delta k) \right) \right)\]
+
+Questo algoritmo si basa, in definitva, sulla convergenza della sequenza di immagini \({\widetilde{\rho}}_{j}\) all'immagine reale per \(j \rightarrow \infty\).
+
+Se la condizione \(\left| {\widehat{\rho}}_{j + 1}(q\Delta x) - {\widehat{\rho}}_{j}(q\Delta x) \right| < \varepsilon\) è soddisfatta \({\widehat{\rho}}_{j + 1}(q\Delta x)\) è l'immagine ricostruita finale.
+
+La convergenza di \({\widehat{\rho}}_{j}(q\Delta x) \rightarrow \rho(q\Delta x),j \rightarrow \infty\) non è dimostrata analiticamente, tuttavia, nella pratica, si è visto che l'uso di questo algoritmo permette di ricostruire in modo sufficientemente affidabile l'immagine reale.
+
+Per questo algoritmo, in definitiva, è importante la sostituzione dei campioni di \(s_{j + 1}\) per ogni iterazione, con i campioni negati nel \(k\)-spazio di \({\widetilde{s}}_{j + 1}\), al fine di convergere all'immagine reale.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=2.28333in,alt={Immagine che contiene schermata, Rettangolo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image300.pdf}\caption{Figura .: Esempio di ricostruzione mediante metodo iterativo}
+\end{figure}
+
+Anche in questo caso gli artefatti legati al troncamento e al campionamento sono sempre presenti, dunque, può essere aggiungere un ulteriore filtraggio dell'immagine ricostruita con la finestra di Hamming, al fine di ridurre gli artefatti da rinning per l'effetti Gibbs. Ciò può essere eseguito nell'ultimo passo dell'algoritmo, quando la relazione \(\left| {\widehat{\rho}}_{j + 1}(q\Delta x) - {\widehat{\rho}}_{j}(q\Delta x) \right| < \varepsilon\) è soddisfatta.
+
+Si dimostra che nel \(k\)-spazio, il segnale, ottenuto a valle delle iterazioni e dopo la finestratura con Hamming, è dato da:
+
+\[s_{j + 1}(p\Delta x) = \left\{ \begin{matrix}
+s_{m}(p\Delta k) & - n_{-} \leq p \leq n_{+} - 1 \\
+{\widetilde{s}}_{j + 1}(p\Delta k) & - n_{+} \leq p \leq - n_{-} - 1 \\
+\frac{1}{2}\left\{ \begin{array}{r}
+s_{m}(p\Delta k)\left\lbrack 1 + \cos\left( \pi + \frac{\pi\left( p + n_{-} \right)}{u} \right) \right\rbrack + \\
+ + {\widetilde{s}}_{j + 1}(p\Delta k)\left\lbrack 1 + \cos\left( 1 + \frac{\pi\left( p + n_{-} \right)}{u} \right) \right\rbrack
+\end{array} \right\} & - n_{-} \leq p \leq - n_{-} + o - 1
+\end{matrix} \right.\ \]
+
+\subsection{Immagini DICOM}\label{immagini-dicom}
+
+Il DICOM (\emph{Digital Imaging and Communications in Medicine}) è lo standard internazionale utilizzato per memorizzare e trasmettere dati di bioimmagini, come quelli derivanti da risonanza magnetica (MRI), tomografia computerizzata (CT), tomografia a emissione di positroni (PET) o ultrasuoni. Generalmente, ogni immagine è salvata in un file separato con estensione .dcm, anche se esistono file privi di estensione.
+
+Il DICOM è anche un'architettura di rete che permette la trasmissione delle informazioni radiologiche tra diverse apparecchiature. Questa componente è fondamentale perché consente di integrare i dati provenienti da sistemi diagnostici differenti.
+
+Lo standard DICOM è nato da una collaborazione tra produttori di dispositivi per imaging medico per definire criteri comuni per comunicazione, visualizzazione, archiviazione e stampa delle immagini biomediche. Il DICOM non definisce un algoritmo di compressione: nella maggior parte dei casi, le immagini sono salvate non compresse, secondo la codifica originale della strumentazione.
+
+Un file DICOM contiene due sezioni principali:
+
+\begin{itemize}
+\item
+  Header (o intestazione) contenenti informazioni sul paziente, tipo di scansione, dimensioni e parametri dell'immagine;
+\item
+  Immagine ovvero i dati grezzi che compongono visivamente l'immagine diagnostica.
+\end{itemize}
+
+La dimensione dell'header varia in base alla quantità di informazioni presenti.
+
+I dati sono organizzati in una struttura gerarchica composta da:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Paziente, cioè il soggetto a cui è riferita l'acquisizione diagnostica;
+\item
+  Study (o esame), una sessione clinica in cui il paziente si sottopone a uno o più esami;
+\item
+  Series (of serie), un insieme di immagini ottenute con la stessa tecnica/modalità;
+\item
+  Immagini, cioè i singoli file che compongono l'acquisizione diagnostica.
+\end{enumerate}
+
+Ogni study può comprendere più series, ciascuna ottenuta con una modalità di acquisizione (modality), come MRI, CT o X-Ray. Il campo Modality, presente nell'header DICOM, identifica la modalità di acquisizione impiegata (es. CT, MRI, US, CR). Ogni modality corrisponde a una tecnica diagnostica diversa, e può produrre immagini singole o interi set tridimensionali, con caratteristiche specifiche di contrasto e risoluzione.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.10107in,height=5.3125in,alt={Immagine che contiene testo, schermata, Carattere, numero Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/10_Ric3D/image301.pdf}\caption{Figura .: Struttura gerarchica del DICOM}
+\end{figure}
+
+Modalità che generano immagini 3D sono:
+
+\begin{itemize}
+\item
+  MRI, che permette la ricostruzione di volumi cerebrali, articolari, ecc.
+\item
+  CT, per, ad esempio, scansioni toraciche, addominali;
+\item
+  PET per immagini di carsttere metabolico.
+\end{itemize}
+
+Per la ricostruzione volumetrica, il DICOM utilizza campi come:
+
+\begin{itemize}
+\item
+  SliceLocation;
+\item
+  ImagePositionPatient;
+\item
+  PixelSpacing;
+\item
+  SliceThickness.
+\end{itemize}
+
+Questi valori indicano la posizione e l'orientamento nello spazio delle immagini, e permettono ai software di ricostruire e visualizzare correttamente il volume 3D. Tali immagini possono essere utilizzate per ricostruzioni multiplanari, rendering volumetrici, e pianificazione preoperatoria.
+
+Nell'header Sono contenute delle meta-informazioni che non necessariamente sono legate all'immagine, tra cui:
+
+\begin{itemize}
+\item
+  Nome file, identificatore del file immagine salvato;
+\item
+  Versione Dicom, specifica la versione dello standard seguita. Attualmente la V3. 3 è in vigore;
+\item
+  OP Class UID, identificatore unico globale dell'oggetto memorizzato;
+\item
+  Dati del paziente come nome, ID, sesso, data di nascita;
+\item
+  Spessore delle slice, indica lo spessore delle sezioni anatomiche acquisite (in \(mm\)).
+\item
+  Dimensione dei pixel, descrive l'altezza e larghezza dei singoli pixel;
+\item
+  Profondità in bit, numero di bit usati per rappresentare l'intensità di ciascun pixel. Nel DICOM, il numero di bit utilizzato per rappresentare un pixel (BitsStored) può differire dal numero di bit effettivamente utilizzati per rappresentare la scala dei toni (BitsAllocated). Questo consente di usare solo una parte del range disponibile, utile ad esempio per limitare il rumore o adattarsi a vincoli di visualizzazione;
+\item
+  Tempo di ripetizione (\(T_{R}\)), intervallo tra due impulsi di eccitazione (MRI);
+\item
+  Tempo di inversione (\(T_{I}\)), intervallo tra impulso di inversione e impulso di eccitazione (MRI);
+\item
+  Tempo di echo (\(T_{E}\)), tempo tra eccitazione e ricezione del segnale (MRI);
+\item
+  Tipo di pesatura, che può essere di tipo \(T_{1}\), \(T_{2}\) o densità protonica, in base ai parametri di sequenza;
+\item
+  Gap tra le slice, spazio vuoto (in \(mm\)) tra due sezioni consecutive;
+\item
+  Intensità del campo magnetico, indica la potenza del magnete in Tesla (es. \(1.5\ T\), \(3\ T\));
+\item
+  Numero di ripetizioni, quante volte è ripetuta la sequenza per aumentare SNR. Quando una stessa sequenza viene ripetuta più volte con parametri invariati, i segnali ottenuti vengono mediati. La media riduce il rumore casuale, migliorando il rapporto segnale/rumore (SNR), un fattore critico nella qualità diagnostica delle immagini;
+\item
+  Percentuale di \(k\)-spazio acquisito, frazione dei dati raccolti per la ricostruzione mediante algoritmi iterativi;
+\item
+  Banda di ricezione, intervallo di frequenze su cui si acquisisce il segnale. Una banda più ampia consente una migliore risoluzione temporale, ma può aumentare il rumore;
+\item
+  FOV (\emph{Field of View}), area visibile nell'immagine (espressa in \(mm\)) regolabile in base all'esame clinico;
+\item
+  Localizzazione della slice, posizione specifica della sezione acquisita lungo l'asse;
+\item
+  Pixel spacing, distanza in \(mm\) tra pixel adiacenti in ciascuna direzione;
+\end{itemize}
+
+In tecniche come la MRI, può capitare che alcuni pixel abbiano valori negativi. Questo è dovuto alla \textbf{codifica di fase} nel segnale ricevuto: il segnale può avere un'oscillazione positiva o negativa in funzione della direzione del gradiente applicato. La presenza di pixel negativi può influenzare la visualizzazione, e spesso viene compensata nei software di post-processing.
+
+In passato, prima della diffusione dei sistemi di acquisizione digitali, le immagini radiologiche venivano prodotte su \textbf{film fotografici} (pellicole) che rappresentavano visivamente le strutture anatomiche grazie alla trasparenza variabile del supporto.
+
+Con l'introduzione del formato DICOM e dei \textbf{sistemi PACS} (Picture Archiving and Communication System), è emersa l'esigenza di \textbf{digitalizzare anche le immagini analogiche} per integrarli in archivi elettronici e garantire continuità nelle cartelle cliniche digitali.
+
+Questa operazione di digitalizzazione avviene attraverso dispositivi detti:
+
+\begin{itemize}
+\item
+  \textbf{Scanner di film radiologici}: macchine apposite che convertono le pellicole in immagini digitali DICOM.
+\item
+  Il formato risultante mantiene una qualità sufficientemente alta per la \textbf{visualizzazione diagnostica}, ma la risoluzione dipende dalla tecnologia dello scanner.
+\end{itemize}
+
+Nel DICOM, le immagini ottenute da film scannerizzati sono etichettate spesso con:
+
+\begin{itemize}
+\item
+  \textbf{Imaging type: "SECONDARY"} -- indica che l'immagine non è originaria (non prodotta direttamente dal dispositivo di acquisizione), ma ottenuta per conversione.
+\item
+  \textbf{Origine dello studio}: è documentato nell'header attraverso tag specifici che tracciano la provenienza analogica dell'immagine.
+\end{itemize}
+
+Questa distinzione tra immagini \textbf{primary} (direttamente digitali) e \textbf{secondary} (digitalizzate) è fondamentale, poiché può influenzare:
+
+\begin{itemize}
+\item
+  L'affidabilità della diagnosi
+\item
+  La compatibilità con alcuni algoritmi di elaborazione
+\item
+  L'uso legale delle immagini in ambito forense
+\end{itemize}
+
+Tra le meta-informazioni vi sono anche degli attributi riservati al produttore, che possono contenere parametri personalizzati o proprietari, leggibili solo con software dedicati del produttore dell'apparecchiatura.
+
+All'interno delle meta-informazioni sono presenti daate importanti come:
+
+\begin{itemize}
+\item
+  Data accesso paziente, quando il paziente entra nel sistema ospedaliero;
+\item
+  Data acquisizione immagine, quando l'immagine viene effettivamente registrata;
+\item
+  Data disponibilità immagine, quando il file immagine è pronto per la visualizzazione dopo l'elaborazione.
+\end{itemize}
+
+Lo standard DICOM è gestito anche da MatLab mediante i comandi:
+
+\begin{itemize}
+\item
+  dicominfo() che estrae tutte le meta-informazioni dell'immagine;
+\item
+  dicomread(), permette di leggere e visualizzare l'immagine contenuta nel file DICOM.
+\end{itemize}
+
+In conclusione, DICOM è il formato standard per l'imaging medico. Tutti i software e le apparecchiature moderne devono supportarlo. Esso consente una gestione integrata e strutturata dei dati clinici, tecnici e diagnostici, facilitando la condivisione in ambito sanitario.
+
+\subsection{Istogramma per la visualizzazione dell'immagine}\label{istogramma-per-la-visualizzazione-dellimmagine}
+
+Per descrivere il meccanismo di visualizzazione delle immagini si considera, a titolo Per descrivere il meccanismo di visualizzazione delle immagini, si consideri, a titolo di esempio, una risonanza magnetica alle mammelle finalizzata a evidenziare la presenza di eventuali lesioni maligne.
+
+In questo tipo di esame, la paziente viene posizionata in \textbf{decubito prono} (cioè a pancia in giù), con la schiena rivolta verso l'alto e le mammelle inserite all'interno di \textbf{antenne riceventi} dedicate, solitamente costituite da due avvolgimenti.
+
+Mediante algoritmi digitali è possibile selezionare e visualizzare un determinato intervallo di livelli di grigio presenti nell'immagine, in modo da ottimizzare la visibilità della lesione.
+
+Si può, ad esempio, costruire l'\textbf{istogramma} dell'immagine contando il numero di pixel corrispondenti a ciascuna gradazione di grigio. Le tecniche di manipolazione dell'immagine agiscono spesso modificando la distribuzione dei livelli di grigio rappresentati nell'istogramma.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=3.125in,alt={L\textquotesingle istogramma in fotografia: cos\textquotesingle è e come usarlo al meglio}]{media/10_Ric3D/image302.pdf}\caption{Figura .: Istogramma di un'immagine radiologica}
+\end{figure}
+
+Nell'immagine radiologica possono mancare alcune gradazioni di grigio e, inoltre, l'occhio umano non è in grado di distinguere tutte le gradazioni presenti in un'immagine digitale.
+
+Per migliorare la percezione visiva, è possibile \textbf{selezionare una finestra} di livelli di grigio (windowing). La scelta di una porzione dell'istogramma e la sua espansione all'intero intervallo di visualizzazione produce un'immagine con \textbf{migliore contrasto apparente}: non perché il contrasto intrinseco tra i tessuti sia aumentato, ma perché, concentrando l'intervallo su piccole variazioni di densità protonica, il sistema assegna a tali differenze un maggior numero di gradazioni visibili. Il risultato è un'evidenziazione più netta delle differenze di intensità tra i tessuti.
+
+Se la finestra selezionata è molto stretta, gran parte dell'immagine apparirà tendente al \textbf{bianco}; se invece è molto ampia, prevarranno toni più scuri fino al \textbf{nero}.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68333in,height=5.55833in]{media/10_Ric3D/image303.pdf}\caption{Figura .: Elaborazione basata sull'istogramma}
+\end{figure}

@@ -1,0 +1,994 @@
+\begin{center}
+\vfill
+    \chapter{Fast Imaging}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+
+
+\section{Fast Imaging in the Steady State}\label{fast-imaging-in-the-steady-state}
+
+L'imaging rapido è forse una delle tecniche più interessanti della risonanza magnetica (MRI). Ci sono varie metodiche basate sull'applicazione rapida di gradienti oppure angoli di ribaltamento della magnetizzazione inferiore a \(\pi/2\).
+
+Le tecniche di fast imaging permettono di superare di superare uno dei maggiori limiti della risonanza magnetica, ovvero l'elevato tempo di acquisizione. Se, ad esempio, il tempo di rilassamento longitudinale è di \(1\ s\) come nei tessuti più liquidi, è necessario aspettare circa \(3 \div 5\ s\) tra una ripetizione e l'altra.
+
+Una possibile soluzione riguarda l'applicazione di un gradiente dopo l'applicazione di un impulso a radiofrequenza, che ribalta la magnetizzazione di un flip \(\vartheta < \pi/2\). Ciò implica che la magnetizzazione longitudinale, invece di essere ribaltata lungo uno degli assi del sistema rotante, è ruotata di un angolo \(\vartheta < \pi/2\). Con questa soluzione, il tempo necessario affinché la magnetizzazione torni all'equilibrio dopo l'ultimo gradiente sia inferiore.
+
+Sia \(t = 0\ s\) il tempo di applicazione dell'impulso a radiofrequenza che ribalta la magnetizzazione di un angolo \(\vartheta\). Il vettore di magnetizzazione un instante temporale immediatamente successivo, \(t = 0^{+}\ s\), avrà due componenti longitudinale e trasversale date dalla sua proiezione lungo gli assi:
+
+\[\left\{ \begin{matrix}
+M_{z}\left( 0^{+} \right) = M_{0}\cos\vartheta \\
+M_{\bot}\left( 0^{+} \right) = M_{0}\sin\vartheta
+\end{matrix} \right.\ \]
+
+\begin{figure}
+\centering
+\includegraphics[width=3.98717in,height=2.63469in,alt={Immagine che contiene testo, linea, Carattere, diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/13_FastImm/image333.pdf}\caption{Figura .: Proiezione del vettore magnetizzazione lungo gli assi}
+\end{figure}
+
+Secondo le equazioni di Bloch, tra un impulso a radiofrequenza e il successivo della sequenza seguente, la magnetizzazione longitudinale tende al valore di regime \(M_{0}\) con costante di tempo \(T_{1}\). Tra i due impulsi non è detto che la magnetizzazione longitudinale raggiunga l'equilibrio termico. Quindi, se il tempo di ripetizione \(T_{R}\) è tale che la magnetizzazione longitudinale non ritorni all'equilibrio, al successivo impulso le componenti del vettore magnetizzazione saranno minori di quelle ottenute col primo impulso.
+
+Al terzo impulso a radiofrequenza la componente longitudinale, avendo raggiunto un valore minore del primo caso, è ridotta ulteriormente. Per un numero sufficiente di cicli, il processo giunge a un equilibrio dinamico o \emph{steady state}. In altre parole, la componente longitudinale, nell'intervallo tra una sequenza e la successiva di ampiezza \(T_{R}\), recupera la stessa ampiezza che aveva prima dell'impulso a radiofrequenza. In conclusione, terminato il transitorio, la sequenza permette di eseguire l'imaging in modo rapido.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=4.15486in,alt={Immagine che contiene testo, linea, Diagramma, diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/13_FastImm/image334.pdf}\caption{Figura .: Andamento della magnetizzazione longitudinale fino al raggiungimento dello steady state}
+\end{figure}
+
+\subsection{Valutazione del segnale registrato}\label{valutazione-del-segnale-registrato}
+
+Per valutare i vantaggi e svantaggi e, più in generale, le caratteristiche della tecnica a steady state è necessario valutare analiticamente il segnale ricevuto. Si suppone di applicare una sequenza gradient-echo, composta da un impulso a radiofrequenza, che ribalta la magnetizzazione di un flip angle \(\vartheta\), un gradiente di selezione della fetta nell'imaging bidimensionale, un gradiente di codifica di fase, variato tra una sequenza e la successiva e, infine, un gradiente di lettura. Tra l'applicazione di una sequenza e la successiva è necessario applicare un gradiente di spoiling lungo le tre dimensioni del \(k\)-spazio, variabile da una sequenza e la successiva.
+
+scopo principale del gradiente di spoiling è eliminare la magnetizzazione trasversale residua alla fine di ogni ciclo di acquisizione, per evitare che interferisca con il segnale del ciclo successivo. Questo è cruciale per ottenere immagini \(T_{1}\)-pesate. Avere un gradiente di spoiling con gradiente variabile in modo casuale o semi-casuale a ogni ripetizione assicura che il rifasamento degli spin sia differente per ogni ciclo, eliminando il segnale residuo. Questo è un modo per evitare l'accumulo di echi indesiderati che potrebbero compromettere il contrasto dell\textquotesingle immagine.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68333in,height=6.65in]{media/13_FastImm/image335.pdf}\caption{Figura .: Sequenza gradient-echo con gradienti di spoiling di ampiezza variabile e impulso RF a \(\vartheta\)}
+\end{figure}
+
+L'applicazione dei gradienti di spoling determina il nome della sequenza short-\(T_{R}\) spoiled gradient-echo. Questi gradienti hanno il compito di sfasare la magnetizzazione trasversale prima di raggiungere il tempo. In questo modo, prima di applicare l'impulso a radiofrequenza la magnetizzazione trasversale si annulla, mentre la componente longitudinale è non nulla.
+
+In assenza di gradienti di spoiled, all'applicazione dell'impulso a \(\vartheta\) è necessario considerare anche la componente trasversale, rendendo di conseguenza l'analisi più complessa. Nella trattazione successiva si suppone di non adoperare gradienti di spoiling al fine di studiare il caso più completo.
+
+Sia \(t_{n}\) il tempo che intercorre tra l'impulso \(n\)-esimo e l'impulso \(n + 1\)-esimo. Tra i due impulsi deve passare un tempo \(T_{R}\). È valida la relazione:
+
+\[nT_{R} < t_{n} < (n + 1)T_{R}\]
+
+\begin{figure}
+\centering
+\includegraphics[width=5.05833in,height=0.80833in,alt={Immagine che contiene testo, schermata, linea, Carattere Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/13_FastImm/image336.pdf}\caption{Figura .: Intervallo tra l\textquotesingle impulso \(n\)-esimo e \((n + 1)\)-esimo}
+\end{figure}
+
+Con un abuso di notazione si pone \(t_{n} = t - nT_{R}\) in modo da portare l'origine dei tempi in \(nT_{R}\). Nell'intervallo tra due ripetizioni \(t_{n} = t - nT_{R}\) rappresenta lo spostamento dall'origine dei tempi all'istante \(nT_{R}\) di applicazione dell'impulso \(n\)-esimo. Al tempo \(t_{n}\) la componente trasversale ricevuta dall'antenna è data delle equazioni di Bloch:
+
+\[M_{\bot}\left( t_{n} \right) = M_{\bot}\left( 0^{+} \right)\exp\left( - \frac{t_{n}}{T_{2}} \right),0 < t_{n} < T_{R}\]
+
+Dove \(t = 0^{+}\) è l'istante immediatamente successivo all'applicazione dell'impulso a radiofrequenza. La componente trasversale dall'inizio della sequenza è legata alla magnetizzazione longitudinale dalla proiezione della componente longitudinale lungo il piano trasverso:
+
+\[M_{\bot}\left( 0^{+} \right) = M_{z}\left( 0^{-} \right)\sin\vartheta\]
+
+Ovviamente, \({\overset{\underline{}}{M}}_{\bot}\) dipende dal valore che assume la componente longitudinale un istante prima dell'impulso a \(\vartheta\), poiché in quest'ultimo la magnetizzazione longitudinale è ribaltata quasi istantaneamente. La componente trasversa è:
+
+\[M_{\bot}\left( t_{n} \right) = {\overset{\underline{}}{M}}_{\bot}\left( 0^{+} \right)\exp\left( - \frac{t_{n}}{T_{2}} \right) = {\overset{\underline{}}{M}}_{z}\left( 0^{-} \right)\sin\vartheta\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Per calcolare con precisione la componente trasversale è necessario esplicitare la componente longitudinale. Per l'equazione di Bloch, tra l'applicazione di un impulso e il successivo, la componente longitudinale è data da:
+
+\[M_{z}\left( t_{n} \right) = M_{0}\left( 1 - \exp\left( - \frac{t_{n}}{T_{1}} \right) \right) + M_{z}\left( 0^{+} \right)\exp\left( - \frac{t_{n}}{T_{1}} \right)\]
+
+La componente longitudinale dipende dal valore che aveva prima dell'impulso a radiofrequenza, che a sua volta è legata alla componente longitudinale prima dell'impulso:
+
+\[M_{z}\left( 0^{+} \right) = M_{z}\left( 0^{-} \right)\cos\vartheta\]
+
+L'equazione complessiva è data da:
+
+\[M_{z}\left( t_{n} \right) = M_{0}\left( 1 - \exp\left( - \frac{t_{n}}{T_{1}} \right) \right) + M_{z}\left( 0^{-} \right)\cos\vartheta\exp\left( - \frac{t_{n}}{T_{1}} \right)\]
+
+I transitori si estinguono con andamento esponenziale e costante di tempo \(T_{1}\). Dopo un certo numero di impulsi il transitorio si estingue, dunque, le riduzioni del segnale registrato si esauriscono. Si raggiunge così lo stato steady state nel quale tra un impulso e il successivo la magnetizzazione recupera completamente il valore che aveva prima dell'impulso a radiofrequenza.
+
+Dal punto di vista analitico, la magnetizzazione trasversale un attimo prima dell'impulso \(n + 1\)-esimo è:
+
+\[M_{\bot}\left( (n + 1)T_{R} \right) = M_{\bot}\left( nT_{R}^{+} \right)\exp\left( - \frac{T_{R}}{T_{2}} \right)\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Per semplicità di notazione si pone:
+
+\[E_{2} = \exp\left( - \frac{T_{R}}{T_{2}} \right)\]
+
+Con questa posizione la magnetizzazione trasversale si scrive come:
+
+\[M_{\bot}\left( (n + 1)T_{R} \right) = M_{\bot}\left( nT_{R}^{+} \right)E_{2}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+La magnetizzazione trasversale all'istante \(nT_{R}^{+}\) è uguale alla proiezione della magnetizzazione longitudinale un istante prima di applicare l'impulso \(n\)-esimo:
+
+\[M_{\bot}\left( nT_{R}^{+} \right) = M_{z}\left( nT_{R}^{-} \right)\sin\vartheta\]
+
+Da cui:
+
+\[M_{\bot}\left( (n + 1)T_{R} \right) = M_{z}\left( nT_{R}^{+} \right)\sin\vartheta\left( nT_{R}^{+} \right)E_{2}\]
+
+La componente longitudinale, un attimo prima dell'applicazione dell'impulso \(n + 1\)-esimo è:
+
+\[M_{z}\left( (n + 1)T_{R}^{-} \right) = M_{z}\left( nT_{R}^{-} \right)\cos\vartheta\exp\left( - \frac{T_{R}}{T_{1}} \right) + M_{0}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1}} \right) \right)\]
+
+Per semplicità di notazione si pone;
+
+\[E_{1} = \exp\left( - \frac{T_{R}}{T_{1}} \right)\]
+
+Con questa posizione, la componente longitudinale si scrive come:
+
+\[M_{z}\left( (n + 1)T_{R}^{-} \right) = M_{z}\left( nT_{R}^{-} \right)E_{1}\cos\vartheta + M_{0}\left( 1 - E_{1} \right)\]
+
+All'equilibrio termodinamico si instaura una componente longitudinale \(M_{ze}\) che viene recuperata nell'intervallo tra l'applicazione di un impulso a radiofrequenza e il successivo. Quindi la magnetizzazione longitudinale un istante prima dell'applicazione dell'impulso a \(\vartheta\) deve essere uguale all'istante prima l'applicazione dell'impulso successivo:
+
+\[M_{z}\left( (n + 1)T_{R}^{-} \right) = M_{z}\left( nT_{R}^{-} \right) = M_{ze}\]
+
+La relazione che lega la componente longitudinale con gli estremi dell'intervallo di ampiezza \(T_{R}\), \(\left\lbrack nT_{R};(n + 1)T_{R} \right\rbrack\), si scrive come:
+
+\[M_{z}\left( (n + 1)T_{R}^{-} \right) = M_{z}\left( nT_{R}^{-} \right)E_{1}\cos\vartheta + M_{0}\left( 1 - E_{1} \right) \Leftrightarrow M_{ze} = M_{ze}E_{1}\cos\vartheta + M_{0}\left( 1 - E_{1} \right)\]
+
+Con questa relazione è possibile ricavare il valore della magnetizzazione all'equilibrio. Si portano al primo membro i termini contenenti \(M_{ze}\):
+
+\[M_{ze} - M_{ze}E_{1}\cos\vartheta = M_{0}\left( 1 - E_{1} \right)\]
+
+Ricavando \(M_{ze}\) si ottiene:
+
+\[M_{ze} = M_{0}\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\]
+
+Nota questa quantità è possibile analizzare il comportamento della magnetizzazione trasversale all'equilibrio. Dalla relazione \(M_{\bot}\left( (n + 1)T_{R} \right) = M_{z}\left( nT_{R}^{+} \right)\sin\vartheta\left( nT_{R}^{+} \right)E_{2}\), si ha:\(\left( t_{n} \right) = {\overset{\underline{}}{M}}_{\bot}\left( 0^{+} \right)\exp\left( - t_{n}/T_{2} \right)\), si ha:
+
+\[M_{\bot}\left( (n + 1)T_{R} \right) = M_{ze}\sin\vartheta\left( nT_{R}^{+} \right)E_{2}\exp\left( - \frac{t_{n}}{T_{2}} \right) = M_{0}\sin\vartheta\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Nota la componente trasversale della magnetizzazione è possibile ricostruire l'immagine della densità protonica del voxel, dipendente da \(\vartheta\) e il tempo di echo:
+
+\[\widehat{\rho}\left( \vartheta,T_{E} \right) = \rho_{0}\sin\vartheta\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+La densità protonica ottenuta, ovvero l'immagine, non ha una pesatura semplice in \(T_{1}\), \(T_{2}\) o \(\rho_{0}\) me dipende da tutti questi parametri, secondo la relazione individuata. Tipici tempi di ripetizione sono di \(T_{E} \simeq 4\ ms\).
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=2.48333in,alt={Immagine che contiene testo, linea, diagramma, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/13_FastImm/image337.pdf}\caption{Figura .: Andamento del segnale del voxel proveniente dalla materia bianca e griggia al variare del tempo di ripetizione (sinistra) e del flip angle (destra)}
+\end{figure}
+
+La sequenza appena introdotta è nota come short \(T_{R}\) steady state incoherent o SSI, dove il termine incoherent si riferisce alla presenza del gradiente di spoiling che sfasa tutti gli isocromati per annullare la componente trasversa prima di ogni ripetizione. In assenza dei gradienti di spoling si ottiene una sequenza short-\(T_{R}\) steady state coherent.
+
+\subsection{\texorpdfstring{Pesatura in \(\mathbf{T}_{\mathbf{1}}\) con sequenza short-\(\mathbf{T}_{\mathbf{R}}\) steady state}{Pesatura in \textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{1\}\} con sequenza short-\textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{R\}\} steady state}}\label{pesatura-in-mathbft_mathbf1-con-sequenza-short-mathbft_mathbfr-steady-state}
+
+Dalla relazione individuata per \(\widehat{\rho}\left( \vartheta,T_{E} \right)\) si evince che la pesatura dipende sia dal tempo d'echo che dal flip angle \(\vartheta\) dell'impulso a radiofrequenza. Si vuole determinare l'angono in corrispondenza del quale il segnale assume il suo valore massimo. A tale scopo si deriva rispetto \(\vartheta\) e si pone a zero la derivata
+
+\[\frac{\partial\widehat{\rho}}{\partial\vartheta} = 0 \Leftrightarrow \frac{\partial}{\partial\vartheta}\left( \rho_{0}\sin\vartheta\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right) \right) = 0\]
+
+Grazie alla linearità della derivata, si ha:
+
+\[\left( 1 - E_{1} \right)\rho_{0}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\frac{\partial}{\partial\vartheta}\left( \sin\vartheta\frac{1}{1 - E_{1}\cos\vartheta} \right) = 0\]
+
+I termini costante possono essere semplificati poiché diversi da zero, quindi:
+
+\[\frac{\partial}{\partial\vartheta}\left( \sin\vartheta\frac{1}{1 - E_{1}\cos\vartheta} \right) = 0\]
+
+Si esegue la derivata:
+
+\[\cos\vartheta\frac{1}{1 - E_{1}\cos\vartheta} + \sin\vartheta\frac{1}{\left( 1 - E_{1}\cos\vartheta \right)^{2}}\left( - E_{1}\sin\vartheta \right) = 0\]
+
+Si considera \(1 - E_{1}\cos\vartheta\) e si verifica se può essere uguale a zero:
+
+\[1 - E_{1}\cos\vartheta = 0 \Leftrightarrow \cos\vartheta = \frac{1}{E_{1}}\]
+
+Per definizione \(E_{1} = \exp\left( - T_{R}/T_{1} \right)\). Poiché \(T_{R}\) è dell'ordine del \(ms\) mentre \(T_{1}\) dei secondi, l'esponenziale è circa uguale all'unità:
+
+\[\exp\left( - \frac{T_{R}}{T_{1}} \right) \simeq 1\]
+
+La condizione \(\cos\vartheta = E_{1}^{- 1}\) è verificata quando \(\vartheta \simeq 2m\pi,m \in \mathbb{N}_{0}\). Ne discende che è possibile semplificare \(1 - E_{1}\cos\vartheta\) nell'espressione per valutare \(\vartheta\) massimo, a patto che la soluzione \(\vartheta_{opt}\) non sia prossima a \(0\). Si ottiene:
+
+\[\cos\vartheta - E_{1}\sin^{2}\vartheta\frac{1}{1 - E_{1}\cos\vartheta} = 0\]
+
+Si esegue il minimo comune multiplo:
+
+\[\left( 1 - E_{1}\cos\vartheta \right)\cos\vartheta - E_{1}\sin^{2}\vartheta = 0\]
+
+Svolgendo i prodotti si ottiene:
+
+\[\cos\vartheta - E_{1}\cos^{2}\vartheta - E_{1}\sin^{2}\vartheta = 0\]
+
+Si raccoglie \(- E_{1}\):
+
+\[\cos\vartheta - E_{1}\left( \cos^{2}\vartheta + \sin^{2}\vartheta \right) = 0\]
+
+Applicando le relazioni trigonometriche, si ottiene:
+
+\[\cos\vartheta - E_{1} = 0\]
+
+Da cui:
+
+\[\cos\vartheta = E_{1}\]
+
+Applicando la funzione inversa al coseno si ottiene l'angolo di massimo:
+
+\[\vartheta_{opt} = \arccos\left( E_{1} \right)\]
+
+Applicando la definizione di \(E_{1}\) si ricava:
+
+\[\vartheta_{opt} = \arccos\left( \exp\left( - \frac{T_{R}}{T_{1}} \right) \right)\]
+
+L'angolo \(\vartheta_{opt}\), in corrispondenza del quale il segnale del tessuto nel voxel ha il suo valore massimo, è detto angolo di Ernst ed è una quantità minore di \(\pi/2\). Questo angolo è generalmente indicato con \(\vartheta_{E}\).
+
+Nell'intorno dell'angolo di Ernst si esaltano i tessuti che presentano un tempo di rilassamento minore, realizzando una pesatura in \(T_{1}\). Quindi, in base alla scelta dell'angolo di ribaltamento, si ottengono immagini diverse in grado di mostrare pesature diverse. Ad esempio, per piccoli flip angle la materia grigia, avendo un tempo di rilassamento longitudinale \(T_{1}\) minore, risulta più luminosa della materia bianca. Per flip angle intorno ai \(17{^\circ}\), invece, si ha un cambio di tendenza in quanto la materia grigia risulta essere meno luminosa della materia bianca.
+
+In conclusione, note le caratteristiche dei tessuti è possibile scegliere opportunamente il valore del flip-angle.
+
+\subsection{Angolo di Ernst per piccoli tempi di ripetizione}\label{angolo-di-ernst-per-piccoli-tempi-di-ripetizione}
+
+Si suppone che il tempo di ripetizione tra una sequenza e l'altra sia molto minore del tempo di rilassamento longitudinale \(T_{1}\) dei tessuti:
+
+\[T_{R} \ll T_{1}\]
+
+In questa ipotesi, il termine \(E_{1}\) piò essere sviluppato in serie di Taylor:
+
+\[E_{1} = \exp\left( - \frac{T_{R}}{T_{1}} \right) \simeq 1 - \frac{T_{R}}{T_{1}}\]
+
+È valida la relazione trigonometrica:
+
+\[\sin\vartheta = \sqrt{1 - \cos^{2}\vartheta}\]
+
+Applicando questa relazione per l'angolo di Ernst \(\vartheta = \vartheta_{E} = \arccos\left( E_{1} \right)\) è possibile scrivere:
+
+\[\sin\vartheta_{E} = \sqrt{1 - \cos^{2}\vartheta_{E}} = \sqrt{1 - \cos^{2}\left( \arccos\left( E_{1} \right) \right)}\]
+
+Ma \(\cos^{2}\left( \arccos\left( E_{1} \right) \right) = E_{1}^{2}\) perché funzioni inverse, per cui:
+
+\[\sin\vartheta_{E} = \sqrt{1 - E_{1}^{2}}\]
+
+Applicando l'approssimazione per \(T_{R} \ll T_{1}\) si scrive:
+
+\[\sin\vartheta_{E} = \sqrt{1 - E_{1}^{2}} \simeq \sqrt{1 - \left( 1 - \frac{T_{R}}{T_{1}} \right)^{2}}\]
+
+Svolgendo il quadrato, si ottiene:
+
+\[\sin\vartheta_{E} \simeq \sqrt{1 - 1 + 2\frac{T_{R}}{T_{1}} - \left( \frac{T_{R}}{T_{1}} \right)^{2}} = \sqrt{2\frac{T_{R}}{T_{1}} - \left( \frac{T_{R}}{T_{1}} \right)^{2}}\]
+
+Siccome \(T_{R}/T_{1} \ll 1\), è possibile trascurare i termini di ordine superiore al primo, ottenendo:
+
+\[\sin\vartheta_{E} \simeq \sqrt{2\frac{T_{R}}{T_{1}}}\]
+
+Se \(T_{R} \ll T_{1}\), il termine \(E_{1} = \exp\left( - T_{R}/T_{1} \right) \simeq 1\). In questa condizione l'angolo di Ernst è molto minore di \(1\), poiché l'arcocoseno in prossimità di \(1\) tende a \(0\):
+
+\[\vartheta_{E} = \arccos\left( E_{1} \right) \ll 1\]
+
+In questa ipotesi è possibile approssimare il seno con il suo argomento, così da ricavare un'espressione semplice per l'angolo di Ernst:
+
+\[\vartheta_{E} \simeq \sqrt{2\frac{T_{R}}{T_{1}}}\]
+
+Con questa approssimazione, la componente trasversale del vettore di magnetizzazione, valutata nell'angolo di Ernst è:
+
+\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\sin\vartheta_{E}\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta_{E}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Si è visto che \(\sin\vartheta_{E} = \sqrt{1 - E_{1}^{2}}\) e che \(\vartheta_{E} = \arccos\left( E_{1} \right)\), per cui:
+
+\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\sin\vartheta_{E}\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta_{E}}\exp\left( - \frac{t_{n}}{T_{2}} \right) = M_{0}\sqrt{1 - E_{1}^{2}}\ \frac{1 - E_{1}}{1 - E_{1}\cos\left( \arccos\left( E_{1} \right) \right)}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Da cui:
+
+\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\sqrt{1 - E_{1}^{2}}\ \frac{1 - E_{1}}{1 - E_{1}^{2}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Si scompongono i termini \(1 - E_{1}^{2}\) in \(\left( 1 - E_{1} \right)\left( 1 + E_{1} \right)\):
+
+\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\sqrt{\left( 1 - E_{1} \right)\left( 1 + E_{1} \right)}\ \frac{1 - E_{1}}{\left( 1 - E_{1} \right)\left( 1 + E_{1} \right)}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Nella frazione è possibile semplificare \(1 - E_{1}\):
+
+\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\ \frac{\sqrt{\left( 1 - E_{1} \right)\left( 1 + E_{1} \right)}}{\left( 1 + E_{1} \right)}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Grazie alle proprietà delle radici, è possibile scrivere:
+
+\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\ \sqrt{\frac{\left( 1 - E_{1} \right)\left( 1 + E_{1} \right)}{\left( 1 + E_{1} \right)^{2}}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Da cui:
+
+\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\ \sqrt{\frac{1 - E_{1}}{1 + E_{1}}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Nella condizione \(T_{R} \ll T_{1}\) è possibile applicare lo sviluppo di Taylor per \(E_{1}\), ottenendo:
+
+\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\ \sqrt{\frac{1 - E_{1}}{1 + E_{1}}}\exp\left( - \frac{t_{n}}{T_{2}} \right) \simeq M_{0}\ \sqrt{\frac{1 - \left( 1 - \frac{T_{R}}{T_{1}} \right)}{1 + 1 - \frac{T_{R}}{T_{1}}}}\exp\left( - \frac{t_{n}}{T_{2}} \right) =\]
+
+Svolendo le somme, si ottiene:
+
+\[M_{\bot}\left( \vartheta_{E} \right) \simeq M_{0}\ \sqrt{\frac{\frac{T_{R}}{T_{1}}}{2 - \frac{T_{R}}{T_{1}}}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Dato che \(T_{R} \ll T_{1}\) è possibile trascurare \(T_{R}/T_{1}\) al denominatore:
+
+\[M_{\bot}\left( \vartheta_{E} \right) \simeq M_{0}\ \sqrt{\frac{\frac{T_{R}}{T_{1}}}{2 - \frac{T_{R}}{T_{1}}}}\exp\left( - \frac{t_{n}}{T_{2}} \right) \simeq M_{0}\ \sqrt{\frac{T_{R}}{2T_{1}}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Poiché \(T_{2} < T_{1}\) e \(0 < t_{n} < T_{R}\) il termine \(\exp\left( - t_{n}/T_{2} \right)\) tende all'unità:
+
+\[\exp\left( - \frac{t_{n}}{T_{2}} \right) \simeq 1\]
+
+Si ottiene:
+
+\[M_{\bot}\left( \vartheta_{E} \right) \simeq M_{0}\ \sqrt{\frac{T_{R}}{2T_{1}}}\]
+
+All'interno della radice quadrata, si moltiplica e divide per \(2\):
+
+\[M_{\bot}\left( \vartheta_{E} \right) \simeq M_{0}\sqrt{\frac{T_{R}}{2T_{1}}} = M_{0}\sqrt{\frac{2T_{R}}{4T_{1}}}\]
+
+Poiché si è visto che:
+
+\[\vartheta_{E} \simeq \sqrt{2\frac{T_{R}}{T_{1}}}\]
+
+È possibile concludere che:
+
+\[M_{\bot}\left( \vartheta_{E} \right) \simeq M_{0}\frac{\vartheta_{E}}{2}\]
+
+La magnetizzazione trasversale, nel punto di massimo \(\vartheta_{E}\) e per tempi di ripetizioni molto minori del tempo di rilassamento longitudinale, è proporzionale a metà dell'angolo di Ernst, espresso in radianti, tramite la costante \(M_{0}\).
+
+\subsection{\texorpdfstring{Pesatura in densità protonica con sequenza short-\(\mathbf{T}_{\mathbf{R}}\) steady state}{Pesatura in densità protonica con sequenza short-\textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{R\}\} steady state}}\label{pesatura-in-densituxe0-protonica-con-sequenza-short-mathbft_mathbfr-steady-state}
+
+La relazione generale della magnetizzazione trasversa, in funzione del flip angle, è data da:
+
+\[M_{\bot}(\vartheta) = M_{0}\sin\vartheta\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Si suppone che \(\vartheta \ll 1\). È possibile arrestare lo sviluppo del seno al primo ordine e del coseno al secondo ordine:
+
+\[\sin\vartheta \simeq \ \vartheta\]
+
+\[\cos(\vartheta) \simeq 1 - \frac{\vartheta^{2}}{2}\]
+
+La componente trasversale del vettore magnetizzazione può essere approssimata come:
+
+\[M_{\bot}(\vartheta) = M_{0}\sin\vartheta\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \frac{t_{n}}{T_{2}} \right) \simeq M_{0}\vartheta\frac{1 - E_{1}}{1 - E_{1}\left( 1 - \frac{\vartheta^{2}}{2} \right)}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Si divide e moltiplica il secondo membro per \(1 - E_{1}\):
+
+\[M_{\bot}(\vartheta) \simeq \frac{M_{0}\vartheta}{\frac{1 - E_{1}\left( 1 - \frac{\vartheta^{2}}{2} \right)}{1 - E_{1}}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Svolgendo i prodotti, si ottiene:
+
+\[M_{\bot}(\vartheta) \simeq \frac{M_{0}\vartheta}{\frac{1 - E_{1} + E_{1}\frac{\vartheta^{2}}{2}}{1 - E_{1}}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Grazie alla proprietà distributiva del prodotto, si ha:
+
+\[M_{\bot}(\vartheta) \simeq \frac{M_{0}\vartheta}{\frac{1 - E_{1}}{1 - E_{1}} + \frac{E_{1}}{1 - E_{1}}\frac{\vartheta^{2}}{2}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Per cui:
+
+\[M_{\bot}(\vartheta) \simeq \frac{M_{0}\vartheta}{1 + \frac{E_{1}}{1 - E_{1}}\frac{\vartheta^{2}}{2}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+
+Se il tempo di ripetizione è molto minore del tempo di rilassamento longitudinale \(T_{1}\) è possibile sviluppare \(E_{1}\) in serie di Taylor:
+
+\[E_{1} \simeq 1 - \frac{T_{R}}{T_{1}}\]
+
+Sostituendo, si ottiene:
+
+\[M_{\bot}(\vartheta) \simeq \frac{M_{0}\vartheta}{1 + \frac{1 - \frac{T_{R}}{T_{1}}}{1 - \left( 1 - \frac{T_{R}}{T_{1}} \right)}\frac{\vartheta^{2}}{2}}\exp\left( - \frac{t_{n}}{T_{2}} \right) =\]
+
+Si considera solamente il denominatore. Svolgendo le operazioni di somme:
+
+\[1 + \frac{1 - \frac{T_{R}}{T_{1}}}{1 - \left( 1 - \frac{T_{R}}{T_{1}} \right)}\frac{\vartheta^{2}}{2} = 1 + \frac{1 - \frac{T_{R}}{T_{1}}}{1 - 1 + \frac{T_{R}}{T_{1}}}\frac{\vartheta^{2}}{2} = 1 + \frac{1 - \frac{T_{R}}{T_{1}}}{\frac{T_{R}}{T_{1}}}\frac{\vartheta^{2}}{2} =\]
+
+Da cui:
+
+\[= 1 + \left( \frac{T_{1}}{T_{R}} - 1 \right)\frac{\vartheta^{2}}{2}\]
+
+Per l'ipotesi \(T_{R} \ll T_{1}\) risulta che \(T_{1} \gg T_{R}\), per cui è possibile trascurare l'unità:
+
+\[1 + \left( \frac{T_{1}}{T_{R}} - 1 \right)\frac{\vartheta^{2}}{2} \simeq 1 + \frac{T_{1}}{T_{R}}\frac{\vartheta^{2}}{2}\]
+
+Si è visto che:
+
+\[\vartheta_{E} \simeq \sqrt{2\frac{T_{R}}{T_{1}}}\]
+
+Elevando al quadrato e invertendo la relazione, si ha:
+
+\[\vartheta_{E}^{- 2} \simeq \frac{1}{2}\frac{T_{1}}{T_{R}}\]
+
+Sostituendo nel denominatore della magnetizzazione trasversale si ha:
+
+\[1 + \frac{T_{1}}{T_{R}}\frac{\vartheta^{2}}{2} \simeq 1 + \frac{\vartheta^{2}}{\vartheta_{E}^{2}}\]
+
+La componente trasversale del vettore di magnetizzazione si scrive come:
+
+\[M_{\bot}(\vartheta) \simeq \frac{M_{0}\vartheta}{1 + \frac{\vartheta^{2}}{\vartheta_{E}^{2}}}\exp\left( - \frac{t_{n}}{T_{2}} \right) =\]
+
+Nelle ipotesi \(T_{R} \ll T_{1}\) e \(\vartheta \ll 1\), la magnetizzazione trasversale dipende dalla magnetizzazione longitudinale all'equilibrio \(M_{0}\) e dal flip angle \(\vartheta\). Fissato quest'ultimo parametro, il segnale registrato dipende linearmente da \(M_{0}\), di conseguenza l'immagine ricostruita presenta un contrasto pesato in densità protonica.
+
+In definitiva, con la sequenza short-T\_R steady state, se il flip angle è prossimo al valore di Ernst l'immagine risulta pesata in \(T_{1}\), mentre per angoli \(\vartheta \ll 1\) si ottiene una pesatura in densità protonica.
+
+\subsection{Tempo necessario per raggiungere lo steady state}\label{tempo-necessario-per-raggiungere-lo-steady-state}
+
+Si vuole valutare il tempo necessario affinché si raggiunga lo stato stazionario. Si parte dalla componente longitudinale del vettore di magnetizzazione un istante prima dell'applicazione dell'impulso \(n + 1\)-esimo
+
+\[M_{z}\left( (n + 1)T_{R}^{-} \right) = M_{z}\left( nT_{R}^{-} \right)E_{1}\cos\vartheta + M_{0}\left( 1 - E_{1} \right)\]
+
+Questa espressione è ricorsiva, nel senso che la componente longitudinale all'istante \((n + 1)T_{R}^{-}\) dipende dall'istante \(nT_{R}^{-}\), che a sua volta dipende dalla magnetizzazione longitudinale all'istante \((n - 1)T_{R}^{-}\) e così via. In particolare, all'istante \(t = nT_{R}^{-}\) è possibile scrivere:
+
+\[M_{z}\left( nT_{R}^{-} \right) = M_{z}\left( (n - 1)T_{R}^{-} \right)E_{1}\cos\vartheta + M_{0}\left( 1 - E_{1} \right)\]
+
+A sua volta \(M_{z}\left( (n - 1)T_{R}^{-} \right)\) dipende dall'istante temporale \((n - 2)T_{R}^{-}\), secondo la relazione:
+
+\[M_{z}\left( (n - 1)T_{R}^{-} \right) = M_{z}\left( (n - 2)T_{R}^{-} \right)E_{1}\cos\vartheta + M_{0}\left( 1 - E_{1} \right)\]
+
+Si sostituisce questo risultato nella relazione per \(M_{z}\left( nT_{R}^{-} \right)\):
+
+\[M_{z}\left( nT_{R}^{-} \right) = M_{z}\left( (n - 1)T_{R}^{-} \right)E_{1}\cos\vartheta + M_{0}\left( 1 - E_{1} \right) = \left( M_{z}\left( (n - 2)T_{R}^{-} \right)E_{1}\cos\vartheta + M_{0}\left( 1 - E_{1} \right) \right)E_{1}\cos\vartheta + M_{0}\left( 1 - E_{1} \right) =\]
+
+Svolgendo i prodotti si ottiene:
+
+\[= \left( E_{1}\cos\vartheta \right)^{2}M_{z}\left( (n - 2)T_{R}^{-} \right) + M_{0}\left( 1 - E_{1} \right)E_{1}M_{z}\left( (n - 2)T_{R}^{-} \right)\cos\vartheta + M_{0}\left( 1 - E_{1} \right)\]
+
+Nell'espressione appena individuato è presente una potenza di \(E_{1}\cos\vartheta\), pesato per il valore della magnetizzazione un attimo prima dell'impulso \((n - 2)\)-esimo.
+
+Iterando la ricorsione si può dimostrare una relazione che tiene conto del punto iniziale in cui è applicato il primo impulso:
+
+\[M_{z}(n) = \sum_{l = 0}^{n - 1}\left\lbrack \left( E_{1}\cos\vartheta \right)^{l}\left( 1 - E_{1} \right)M_{0} \right\rbrack + M_{0}\left( E_{1}\cos\vartheta \right)^{n}\]
+
+Dove la sommatoria tiene conto dei contributi \(M_{0}\left( 1 - E_{1} \right)E_{1}\cos\vartheta + M_{0}\left( 1 - E_{1} \right)\), mentre la potenza \(n\)-esima generalizza il termine \(\left( E_{1}\cos\vartheta \right)^{2}\).
+
+La relazione \(M_{z}(n)\) descrive come varia la magnetizzazione in funzione del numero di impulsi \(n\) a partire dai valori iniziali. Essendo una sommatoria geometrica, essa converge. È possibile scrivere la somma della serie:
+
+\[M_{z}(n) = \sum_{l = 0}^{n - 1}\left\lbrack \left( E_{1}\cos\vartheta \right)^{l}\left( 1 - E_{1} \right)M_{0} \right\rbrack + M_{0}\left( E_{1}\cos\vartheta \right)^{n} = M_{0}\left( 1 - E_{1} \right)\frac{1 - \left( E_{1}\cos\vartheta \right)^{n}}{1 - E_{1}\cos\vartheta} + M_{0}E_{1}^{2n}\]
+
+\begin{figure}
+\centering
+\includegraphics[width=6.525in,height=3.55556in,alt={Immagine che contiene testo, diagramma, linea, Carattere Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/13_FastImm/image338.pdf}\caption{Figura .: Andamento della magnetizzazione longitudinale all\textquotesingle aumentare del numero di ripetizioni}
+\end{figure}
+
+La relazione può essere semplificata se valutata per un flip angle uguale a quello di Ernst, \(\vartheta = \vartheta_{E}\):
+
+\[\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = M_{0}\left( 1 - E_{1} \right)\frac{1 - \left( E_{1}\cos\vartheta_{E} \right)^{n}}{1 - E_{1}\cos\vartheta_{E}} + M_{0}E_{1}^{2n}\]
+
+Dove \(\vartheta_{E} = \arccos\left( E_{1} \right)\). Sostituendo questa relazione si ottiene:
+
+\[\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = M_{0}\left( 1 - E_{1} \right)\frac{1 - \left( E_{1}\cos\left( \arccos\left( E_{1} \right) \right) \right)^{n}}{1 - E_{1}\cos\left( \arccos\left( E_{1} \right) \right)} + M_{0}E_{1}^{2n}\]
+
+Per cui:
+
+\[\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = M_{0}\left( 1 - E_{1} \right)\frac{1 - \left( E_{1}^{2} \right)^{n}}{1 - E_{1}^{2}} + M_{0}E_{1}^{2n}\]
+
+Il termine \(1 - E_{1}^{2}\) può essere scomposto in \(\left( 1 - E_{1} \right)\left( 1 + E_{1} \right)\). \(\left( 1 - E_{1} \right)\) piò essere semplificato, ottenendo:
+
+\[\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = M_{0}\frac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n}\]
+
+Per valutare lo stato stazionario si passa al limite per \(n \rightarrow \infty\) di questa lezione:
+
+\[\lim_{n \rightarrow \infty}\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = \lim_{n \rightarrow \infty}\left( M_{0}\frac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} \right)\]
+
+I termini
+
+\[E_{1}^{2n} = \exp\left( - \frac{2nT_{R}}{T_{1}} \right) \rightarrow 0,n \rightarrow \infty\]
+
+Per cui si ottiene:
+
+\[\lim_{n \rightarrow \infty}\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = \lim_{n \rightarrow \infty}\left( M_{0}\frac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} \right) = M_{0}\frac{1}{1 + E_{1}} = M_{ze}\]
+
+Questo risultato coincide con il valore della magnetizzazione longitudinale allo steady state.
+
+L'errore relativo commesso nel confondere il valore della magnetizzazione un attimo prima dell'applicazione dell'impulso \((n + 1)\)-esimo con il valore allo steady state, con un flip angle uguale a quello di Ernst, è definito come:
+
+\[\alpha = \frac{M_{z}\left( n,\vartheta_{E} \right) - M_{ze}\left( \vartheta_{E} \right)}{M_{ze}\left( \vartheta_{E} \right)}\]
+
+Dove:
+
+\[M_{ze}\left( \vartheta_{E} \right) = \frac{M_{0}}{1 + E_{1}}\]
+
+\[M_{z}\left( n,\vartheta_{E} \right) = M_{0}\frac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n}\]
+
+In altre parole, \(\alpha\) è l'errore relativo commesso nel confondere il valore della magnetizzazione longitudinale dopo \(n\) impulsi col valore del limite per \(n \rightarrow \infty\), ovvero con la magnetizzazione allo steady state. Sostituendo le espressioni per \(M_{ze}\left( \vartheta_{E} \right)\) e \(M_{z}\left( n,\vartheta_{E} \right)\) si ottiene:
+
+\[\alpha = \frac{M_{z}\left( n,\vartheta_{E} \right) - M_{ze}\left( \vartheta_{E} \right)}{M_{ze}\left( \vartheta_{E} \right)} = \frac{M_{0}\frac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} - \frac{M_{0}}{1 + E_{1}}}{\frac{M_{0}}{1 + E_{1}}}\]
+
+Si considera il numeratore e si applica la proprietà distributiva del prodotto:
+
+\[M_{0}\frac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} - \frac{M_{0}}{1 + E_{1}} = \frac{M_{0}}{1 + E_{1}} - \frac{M_{0}E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} - \frac{M_{0}}{1 + E_{1}} =\]
+
+Semplificando, si ottiene:
+
+\[= M_{0}E_{1}^{2n} - \frac{M_{0}E_{1}^{2n}}{1 + E_{1}} =\]
+
+Raccogliendo i termini comuni, si ottiene:
+
+\[= M_{0}E_{1}^{2n}\left( 1 - \frac{1}{1 + E_{1}} \right) =\]
+
+Applicando il minimo comune multiplo si ottiene:
+
+\[= M_{0}E_{1}^{2n}\left( \frac{1 + E_{1} - 1}{1 + E_{1}} \right) = M_{0}E_{1}^{2n}\left( \frac{E_{1}}{1 + E_{1}} \right)\]
+
+Sostituendo questo risultato nell'espressione dell'errore relativo, \(\alpha\), si ottiene:
+
+\[\alpha = \frac{M_{0}\frac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} - \frac{M_{0}}{1 + E_{1}}}{\frac{M_{0}}{1 + E_{1}}} = \frac{M_{0}E_{1}^{2n}\left( \frac{E_{1}}{1 + E_{1}} \right)}{\frac{M_{0}}{1 + E_{1}}}\]
+
+Semplificando i termini comuni tra numeratore e denominatore, ottiene l'espressione per l'errore relativo:
+
+\[\alpha = E_{1}^{2n + 1}\]
+
+Se si vuole un certo errore \(\alpha\) è necessario applicare un numero \(n_{\alpha}\) di impulsi, ottenuto invertendo la relazione per \(\alpha\):
+
+\[\alpha = E_{1}^{2n_{\alpha} + 1}\]
+
+Ricordando la definizione di \(E_{1}\), si ottiene la relazione:
+
+\[\alpha = \left( \exp\left( - \frac{T_{R}}{T_{1}} \right) \right)^{2n_{\alpha} + 1}\]
+
+Passando ai logaritmi, si ricava un'espressione lineare per \(n_{\alpha}\):
+
+\[\log\alpha = - \frac{T_{R}}{T_{1}}\left( 2n_{\alpha} + 1 \right)\]
+
+Risolvendo per \(n_{\alpha}\) si ottiene il tempo richiesto per raggiungere l'errore \(\alpha\) desiderato:
+
+\[n_{\alpha} = - \frac{1}{2}\frac{T_{2}}{T_{R}}\log\alpha - \frac{1}{2}\]
+
+Se, ad esempio, si vuole commettere un errore del \(10\%\) sul grasso con un impulso a radiofrequenza all'angolo di Ernst, è necessario applicare \(8\) impulsi, a \(T_{R} = 40\ ms\).
+
+Dalla relazione \(n_{\alpha}\) si evince che il numero di impulsi è strettamente legato al tessuto da analizzare. La materia bianca (white matter), essendo più liquida del grasso, possiede un tempo di rilassamento longitudinale \(T_{1}\) maggiore del grasso. Con un tempo di ripetizione di \(40\ ms\) è necessario applicare \(18\) impulsi.
+
+Se, infine, si vuole un'approssimazione maggiore, come a \(1\%\)m per il grasso bisogna applicare \(16\) impulsi, mentre per la materia bianca \(36\) impulsi.
+
+In definitiva, se si vuole un'ottima approssimazione è necessario applicare un certo numero di impulsi affinché si possa ritenere raggiunto lo steady state.
+
+Generalmente, il prodotto \(n_{\alpha}T_{R} \simeq T_{1}\), se \(\alpha\) è dell'ordine del \(10\%\). Di conseguenza, per avere un errore percentuale \(\alpha\) è necessario applicare un numero di sequenze \(n_{\alpha}\), che occupano un intervallo temporale dello stesso ordine di grandezza di \(T_{1}\) quindi dell'ordine del secondo. Successivamente, l'acquisizione risulta essere più rapida rispetto a una classica sequenza di acquisizione.
+
+\subsection{\texorpdfstring{Vantaggi e svantaggi della sequenza short-\(\mathbf{T}_{\mathbf{R}}\) steady state}{Vantaggi e svantaggi della sequenza short-\textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{R\}\} steady state}}\label{vantaggi-e-svantaggi-della-sequenza-short-mathbft_mathbfr-steady-state}
+
+Lo svantaggio della sequenza risiede nel dover aspettare un tempo dato da un multiplo di \(T_{1}\), in base all'approssimazione desiderata, prima di eseguire l'imaging.
+
+Questa sequenza è particolarmente utile nell'imaging tridimensionale, in cui i tempi sono molto lunghi. La sequenza, infatti, permette di ridurre il tempo di ripetizione \(T_{R}\) permettendo un vantaggio temporale.
+
+Si osserva, infine, che, nel caso generale, la magnetizzazione longitudinale è data da:
+
+\[M_{z}(n) = M_{0}\left( 1 - E_{1} \right)\frac{1 - \left( E_{1}\cos\vartheta \right)^{n}}{1 - E_{1}\cos\vartheta} + M_{0}E_{1}^{2n}\]
+
+Riducendo l'angolo di ribaltamento si ottiene un'attenuazione del segnale ricevuto; tuttavia, ciò non inficia la visualizzazione dei tessuti in quanto il contrasto tra due tessuti non viene perso, anzi, la sequenza permette di enfatizzare un tessuto in base al tempo di rilassamento longitudinale o densità protonica.
+
+Il vantaggio principale della sequenza è strettamente legato al tempo di ripetizione di circa \(40\ ms\). Ciò permette di ridurre gli artefatti da movimento del paziente all'interno del gantry.
+
+Questa sequenza è molto utilizzata nella pratica poiché permette di ottenere un elevato contrasto tra i tessuti con un tempo ridotto.
+
+\subsection{\texorpdfstring{Applicazione della short-\(\mathbf{T}_{\mathbf{R}}\) inchoerent gradient-echo}{Applicazione della short-\textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{R\}\} inchoerent gradient-echo}}\label{applicazione-della-short-mathbft_mathbfr-inchoerent-gradient-echo}
+
+La risonanza magnetica può essere utilizzata anche per eseguire la mammografia. In questo contesto, si orienta la paziente in modo che le mammelle siano posizionate all'interno delle antenne di ricezione, dette bobine bilaterali. La paziente è posta in posizione prona all'interno del gantry. Di solito l'imaging è tridimensionale e sfrutta una sequenza di tipo short-\(T_{R}\) inchoerent gradient-echo in cui le mammelle sono sezionate secondo piani coronarici.
+
+L'asse di frequency encoding è solitamente diretto lungo la direzione minore della mammella, campionata con circa \(96\) punti; mentre il phase encoding è campionato con un numero di punti uguale a \(128\) punti. Con \(96\) campioni è necessario ricorrere ad algoritmi iterativi sopprimere il riempimento parziale del \(k\)-spazio. L'asse longitudinale \(z\) resta invariato a patto di modificare la direzione positiva.
+
+In base al differente flip angle si ottengono diversi contrasti: se l'angolo \(\vartheta\) è piccolo, la pesatura è in densità protonica; all'aumentare del flip angle si passa a una pesatura in \(T_{1}\).
+
+Il tessuto fibroghiandolare è più liquido del tessuto circostante, quindi, presenta un valore di \(T_{1}\) molti longo. All'aumentare dell'angolo di ribaltamento, il segnale proveniente da questo tessuto tende a essere attenuato, apparendo più scuro nell'immagine finale; viceversa, il grasso risulta essere molto brillante. Le lesioni mammarie dovrebbero avere un tempo di rilassamento longitudinale intermedio tra il tessuto fibroghiandolare e il tessuto adiposo, dunque, appaiono con gradazione di grigio diverse dai due tessuti, per immagini pesate in \(T_{1}\)
+
+La pesatura, a parità di rapporto segnale/rumore influenza l'imaging, quindi, modifica il rapporto contrasto/rumore, poiché cambia la visibilità nei tessuti.
+
+\subsection{\texorpdfstring{Stima del tempo \(\mathbf{T}_{\mathbf{1}}\) mediante variazioni del flip angle}{Stima del tempo \textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{1\}\} mediante variazioni del flip angle}}\label{stima-del-tempo-mathbft_mathbf1-mediante-variazioni-del-flip-angle}
+
+L'intensità del segnale del pixel dipende dal flip angle, \(s(\vartheta)\). IN una sequenza basata su short-\(T_{R}\) incoherent gradient-echo, il segnale del voxel è data dalla relazione:
+
+\[s\left( \vartheta,T_{E} \right) = \rho_{0}\sin\vartheta\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+Per stimare il tempo di rilassamento longitudinale è necessario acquisire più immagini con flip angle diversi e applicare un algoritmo di fitting come least square.
+
+Si suppone che un voxel contenga un solo tessuto, quindi il segnale registrato dipende solo dalle sue caratteristiche biochimiche.
+
+Eseguendo l'imaging con differenti flip angle si ottengono diversi segnali del voxel, distribuiti nel piano \(\widehat{\rho}(\vartheta) - \vartheta\). È possibile determinare i parametri del tessuto sotto analisi noti \(n\) punti sperimentali e la curva teorica che lega il segnale del voxel con il flip angle. In altre parole, si vuole determinare la curva di parametri \(\rho_{0}\), \(T_{1}\) e \(T_{2}\) che meglio descrive la distribuzione dei dati sperimentali.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=4.63333in,alt={Immagine che contiene testo, linea, schermata, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/13_FastImm/image339.pdf}\caption{Figura .: Distribuzione dei punti sperimentali e curva di fit teorica}
+\end{figure}
+
+Si osservi che per una sequenza short-\(T_{R}\), il tempo di ripetizione \(T_{R}\) è molto minore del tempo di rilassamento legato alle disomogeneità di campo, \(T_{2}^{*}\), dunque, il termine esponenziale legato a questi due tempi tende all'unità:
+
+\[E_{2} = \exp\left( - \frac{T_{R}}{T_{2}} \right) \simeq 1,T_{R} \ll T_{2}\]
+
+Il segnale del voxel, contenente il tessuto di interesse, può essere approssimato come:
+
+\[s(\vartheta) \simeq \rho_{0}\sin\vartheta\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\]
+
+La risoluzione del problema sfrutta la minimizzazione dell'errore quadratico medio tra la curva \(\widehat{\rho}(\vartheta)\), con i parametri \(\rho_{0}\), \(T_{1}\) e \(T_{2}\) da valutare, e i punti sperimentalmente misurati. Il problema della determinazione dei parametri è molto simile a una regressione lineare di tipo OLS (\emph{Ordinary Least Square}); tuttavia, il legame tra i parametri del tessuto e il flip angle è non lineare, dunque, si parla di NLS (Non-linear least squares), di più difficile risoluzione.
+
+\subsubsection{Risoluzione numerica del metodo NLS}\label{risoluzione-numerica-del-metodo-nls}
+
+Al fine di applicare l'algoritmo di elaborazione digitale per la valutazione dei parametri del segnale del voxel, si acquisiscono più immagini DICOM del tessuto di interesse, come il tessuto fibroghiandolare.
+
+clear all\\
+close all\\
+\strut \\
+percorso = \textquotesingle C:\textbackslash Users\textbackslash ausil\textbackslash OneDrive - Università di Napoli Federico II\textbackslash Università\textbackslash Ing. Biomedica\textbackslash Magistrale\textbackslash I Anno\textbackslash Strumentazione Avanzata per la Diagnosi e Terapia\textbackslash Matlab\textbackslash MRI\textbackslash MAMMELLA\_VARI\_FA\textbackslash breast\_vari\_FA\textbackslash\textquotesingle;\\
+handleFigure = 0;\\
+\strut \\
+\% leggo una fetta centrale\\
+\% tutti i flip angle\\
+\strut \\
+lista = dir({[}percorso \textquotesingle*.dcm\textquotesingle{]});\\
+\strut \\
+for k = 1:length(lista)\\
+info = dicominfo({[}lista(k).folder \textquotesingle/\textquotesingle{} lista(k).name{]});\\
+FA(k) = info.FlipAngle;\\
+pos(k,:) = info.ImagePositionPatient;\\
+end\\
+\strut \\
+posizioni = unique(pos(:,2));\\
+indici = find(pos(:,2)==posizioni(35));\\
+\strut \\
+handleFigure = handleFigure + 1;\\
+hf = figure(handleFigure);\\
+for k = 1:3\\
+IM(:,:,k) = dicomread({[}lista(indici(k)).folder \textquotesingle/\textquotesingle{} lista(indici(k)).name{]});\\
+subplot(2,2,k)\\
+imagesc(IM(:,:,k))\\
+colormap(gray)\\
+axis equal\\
+axis off\\
+end
+
+\begin{figure}
+\centering
+\includegraphics[width=4.625in,height=3.16667in]{media/13_FastImm/image340.pdf}\caption{Figura .: Immagini mammografiche acquisite a diversi flip angle (FA) pesate in \(T_{1}\)}
+\end{figure}
+
+Per stimare i parametri, si utilizza la tecnica dei minimi quadrati non lineari (NLS), implementata in MATLAB dalla funzione lsqcurvefit. Il metodo mediante software considera nell'indentificare una ROI (Region Of Interest) sulla quale identificare i parametri di interesse. La ROI viene selezionata tramite una maschera che assume valore unitario all'interno della ragione contenente il tessuto di interesse e nullo all'esterno.
+
+\% seleziono una regione di cui fare il grafico
+
+bw = imfreehand(gca);
+
+BW = bw.createMask;
+
+handleFigure = handleFigure + 1;
+
+hf = figure(handleFigure);
+
+imshow(BW)
+
+\begin{figure}
+\centering
+\includegraphics[width=2.175in,height=1.16667in]{media/13_FastImm/image341.pdf}\caption{Figura .: ROI della mammella}
+\end{figure}
+
+La funzione lsqcurvefit riceve in ingresso la funzione teorica che lega i parametri cercati con i dati misurati, il valore iniziale della stima dei parametri cercati, i flip angle sui quali è calcolata la curva e le misure del segnale del voxel ottenute sperimentalmente.
+
+close all\\
+clear E1est\\
+TR = 0.0098;\\
+FUN = @(p,teta) p(2)*sin(teta) * (1-p(1)) ./ (1-p(1)*cos(teta));\\
+\strut \\
+xdata = FA(indici)*pi/180;\\
+x0 = {[}exp(-TR/0.9) 80{]}; \% un T1 iniziale\\
+\strut \\
+opzioni = optimset(\textquotesingle Display\textquotesingle,\textquotesingle off\textquotesingle);\\
+\strut \\
+hw = waitbar(0,\textquotesingle...\textquotesingle);\\
+Nt = size(dum,1);\\
+for k = 1:Nt\\
+waitbar(k/Nt,hw);\\
+ydata = double(dum(k,:));\\
+{[}E1est(k,:),resnorm(k){]} = lsqcurvefit(FUN,x0,xdata,ydata,{[}0 0{]},{[}1 4000{]},opzioni);\\
+end\\
+close(hw)\\
+\strut \\
+T1 = -TR./log(E1est(:,1));\\
+T1(T1\textgreater2)=NaN; \% valori troppo lunghi sono errori\\
+\strut \\
+T1v = double(BWv);\\
+T1v(BWv==1)=T1;\\
+\strut \\
+PDv = double(BWv);\\
+PDv(BWv==1) = E1est(:,2);
+
+Noti i parametri per un certo numero di pixel, contenuti nella ROI, è possibile costruire una mappa del tempo \(T_{1}\) ed \(\rho_{0}\), in cui maggiore è il valore di questi due parametri e più luminoso è il pixel.
+
+handleFigure = handleFigure + 1\\
+hf = figure(handleFigure)\\
+subplot(2,3,1)\\
+imagesc(reshape(T1v,{[}size(IM,1),size(IM,2){]}))\\
+colormap(gray)\\
+title(\textquotesingle mappa T1\textquotesingle)\\
+axis equal\\
+axis off\\
+\strut \\
+subplot(2,3,4)\\
+imagesc(reshape(PDv,{[}size(IM,1),size(IM,2){]}))\\
+title(\textquotesingle mappa PD\textquotesingle)\\
+axis equal\\
+axis off\\
+\strut \\
+subplot(2,3,2)\\
+imagesc(IM(:,:,1))\\
+title({[}\textquotesingle flip \textquotesingle{} num2str(FA(indici(1))){]})\\
+axis equal\\
+axis off\\
+\strut \\
+subplot(2,3,3)\\
+imagesc(IM(:,:,2))\\
+title({[}\textquotesingle flip \textquotesingle{} num2str(FA(indici(2))){]})\\
+axis equal\\
+axis off\\
+\strut \\
+subplot(2,3,5)\\
+imagesc(IM(:,:,3))\\
+title({[}\textquotesingle flip \textquotesingle{} num2str(FA(indici(2))){]})\\
+axis equal\\
+axis off
+
+\begin{figure}
+\centering
+\includegraphics[width=4.66667in,height=3.44167in,alt={Immagine che contiene schermata, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/13_FastImm/image342.pdf}\caption{Figura .: Immagini \(T_{1}\)-pesate e \(\rho_{0}\) pesate}
+\end{figure}
+
+Le immagini ottenute con questa procedura non sono indipendenti tra loro, infatti, le regioni per cui il tempo di rilassamento longitudinale è elevato risultano essere più scure, essendo l'immagine pesata in \(T_{1}\). Si ottiene, in definitiva, un'immagine in cui le regioni più luminose sono associate a bassi valori di \(T_{1}\). Siccome il tempo \(T_{1}\) è caratteristico del tessuto, le immagini dipendono strettamente da esso. Ad esempio:
+
+\begin{itemize}
+\item
+  Acqua pura, liquido cerebrospinale (CSF) e cisti fluide hanno tempi di rilassamento \(T_{1}\) e \(T_{2}\) molto lunghi. Questo significa che appaiono scuri nelle immagini \(T_{1}\)-pesate e molto luminosi (iperintensi) nelle immagini \(T_{2}\)-pesate;
+\item
+  Il tessuto fibroghiandolare (tipico, ad esempio, del parenchima mammario) ha tempi di rilassamento \(T_{1}\) e \(T_{2}\) intermedi, ovvero più brevi rispetto ai fluidi. Di conseguenza, appare di un segnale grigio intermedio sia nelle immagini \(T_{1}\) che in quelle \(T_{2}\);
+\item
+  Il tessuto adiposo (grasso) ha un tempo di rilassamento \(T_{1}\) molto breve, il che lo rende molto luminoso (iperintenso) nelle immagini \(T_{1}\)-pesate. Il suo \(T_{2}\) è relativamente breve, simile a quello del tessuto fibroghiandolare, apparendo quindi con un segnale grigio intermedio o leggermente più luminoso del tessuto fibroghiandolare nelle immagini \(T_{2}\)-pesate.
+\item
+  Lesioni neoplastiche (cancro) spesso presentano un'importante componente edematosa (gonfiore dovuto all'accumulo di fluidi) e un aumento della cellularità. L\textquotesingle edema aumenta i tempi di rilassamento \(T_{1}\) e \(T_{2}\) della lesione, rendendola generalmente più scura del tessuto fibroghiandolare circostante in immagini pesate in \(T_{1}\) e molto più luminosa (iperintensa) in \(T_{2}\). È per questo motivo che le immagini \(T_{2}\)-pesate sono spesso utilizzate per evidenziare le lesioni.
+\end{itemize}
+
+Nell'algoritmo digitale, maggiore è il numero di immagini acquisite con flip angle diversi e migliore è la valutazione dei parametri della curva di interesse; tuttavia, questa richiesta è in conflitto con la necessità di mantenere bassi i tempi di acquisizione. Nella pratica clinica non è detto che si acquisicano varie immagini con flip angle diversi. Generalmente si acquisisce una sola immagine e, se necessario, più immagini con flip angle diversi.
+
+\subsection{Risoluzione analitica del problema NLS}\label{risoluzione-analitica-del-problema-nls}
+
+Dal punto di vista analitico non esiste una soluzione in forma chiusa per il problema non-linear least square. Per ottenere una soluzione si esegue un algoritmo iterativo in cui individua il set di parametri che minimizza lo scarto quadratico medio.
+
+Dato un set di misure \(y_{1},y_{2},\ldots,y_{n}\) e una serie di parametri incogniti \(x_{1},x_{2},\ldots,x_{n}\), si definiscono il vettore delle misure \(\overset{\underline{}}{y}\) e delle incognite, \(\overset{\underline{}}{x}\) come:
+
+\[\overset{\underline{}}{y} = \left( \begin{array}{r}
+y_{1} \\
+y_{2} \\
+ \vdots \\
+y_{n}
+\end{array} \right),\overset{\underline{}}{x} = \left( \begin{array}{r}
+x_{1} \\
+x_{2} \\
+ \vdots \\
+x_{n}
+\end{array} \right)\]
+
+Il problema consiste nel minimizzare lo scarto quadratico medio tra i valori misurati \(\overset{\underline{}}{y}\) e i punti teorici \(\overset{\underline{}}{f}\left( \overset{\underline{}}{x} \right)\), dipendenti dal vettore delle incognite, \(\overset{\underline{}}{x}\):
+
+\[\min_{\overset{\underline{}}{x}}\left\| \overset{\underline{}}{y} - \overset{\underline{}}{x} \right\|^{2}\]
+
+Il valor quadratico medio può essere espresso come sommatoria degli scarti quadratici tra le misure effettivamente eseguite e le previsioni teoriche:
+
+\[\left\| \overset{\underline{}}{y} - \overset{\underline{}}{x} \right\|^{2} = \sum_{k}^{}\left( y_{k} - f\left( x_{k} \right) \right)^{2}\]
+
+L'errore commesso nella minimizzazione del valor quadratico medio è detto residuo.
+
+Per minimizzare l'errore quadratico medio si considera un vettore dei punti di misura \({\overset{\underline{}}{x}}^{0}\), assunto come punto di partenza dell'algoritmo, e si esegue un algoritmo iterativo, che aggiorna il vettore delle incognite al fine di raggiungere il minimo. Gli algoritmi dipendono dalla funzione teorica \(f\) considerata. I più famosi sono:
+
+\begin{itemize}
+\item
+  \textbf{Il metodo di Newton:} sfrutta le derivate prime e seconde (matrice Hessiana) della funzione per trovare il minimo. È molto veloce se la stima iniziale è buona, ma può essere computazionalmente costoso e instabile;
+\item
+  \textbf{Il metodo di Gauss-Newton:} Una variante del metodo di Newton specifica per i problemi di minimi quadrati. Evita il calcolo della matrice Hessiana completa, approssimandola con lo Jacobiano. È più efficiente di Newton ma meno robusto.
+\item
+  \textbf{Il metodo di Levenberg-Marquardt:} Il più robusto dei tre, è un ibrido tra il metodo di Gauss-Newton e la discesa del gradiente. Adatta dinamicamente il suo comportamento per garantire la convergenza, anche con stime iniziali non precise. Per questo motivo, è il metodo più utilizzato per il fitting di curve non lineari.
+\item
+  \textbf{Variable Propagation (Propagazione delle Variabili):} Non è un algoritmo completo di per sé, ma una tecnica per semplificare i problemi di ottimizzazione. Separa i parametri lineari da quelli non lineari, riducendo la complessità del problema e migliorando l\textquotesingle efficienza e la stabilità del processo di fit.
+\end{itemize}
+
+Al termine del processo iterativo si ottiene una stima \({\overset{\underline{}}{x}}^{est}\) il più vicino possibile ai parametri che hanno generato le misure \(\overset{\underline{}}{y}\). Al fine di ottenere una stima fisicamente possibile, è necessario fornire dei vincoli, come limite superiore e inferiore dei parametri. Ad esempio, la densità protonica relativa \(\rho_{0}\) può assumere valori tra \(0\) e \(1\), con valore unitario in caso di acqua; oppure, il tempo di rilassamento longitudinale non può essere maggiore di \(2\ s\).
+
+È sempre necessario valutare tutti i risultati ottenuti poiché potrebbero non avere nessun senso fisico. Ciò si verifica in presenza di dati misurati molto rumorosi.
+
+In ambito clinico è spesso necessario avere solamente un'informazione qualitativa del tempo \(T_{1}\), ottenuta mediante pesatura in questo parametro. In altri contesti, è necessario valutare quantitativamente il tempo di rilassamento longitudinale. Solo in queste situazioni si procede con la risoluzione del problema non-linear least square e con la successiva generazione della mappa \(T_{1}\).
+
+\subsubsection{\texorpdfstring{Linearizzazione del problema NLS per stima di \(\mathbf{\rho}_{\mathbf{0}}\) e \(\mathbf{T}_{\mathbf{1}}\)}{Linearizzazione del problema NLS per stima di \textbackslash mathbf\{\textbackslash rho\}\_\{\textbackslash mathbf\{0\}\} e \textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{1\}\}}}\label{linearizzazione-del-problema-nls-per-stima-di-mathbfrho_mathbf0-e-mathbft_mathbf1}
+
+In alcuni casi è possibile linearizzare la minimizzazione degli scarti quadratici al fine di ridurre un problema NLS in OLS.
+
+Il segnale del voxel, nel caso di sequenza short-\(T_{R}\) dipende, secondo una legge nota, dal flip-angle (FA), densità protonica e tempo di rilassamento longitudinale \(T_{1}\) del tessuto di cui è composto il voxel:
+
+\[s\left( \vartheta,T_{1},\rho_{0} \right) = \rho_{0}\sin\vartheta\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\]
+
+Si vuole linearizzare la dipendenza del segnale \(s\) dai parametri \(E_{1}\) e \(\rho_{0}\); a tale scopo si moltiplica ambo i membri per \(1 - E_{1}\cos\vartheta\):
+
+\[\left( 1 - E_{1}\cos\vartheta \right)s\left( \vartheta,T_{1},\rho_{0} \right) = \left( 1 - E_{1} \right)\rho_{0}\sin\vartheta\]
+
+Si divide anche per \(\sin\vartheta\):
+
+\[\left( 1 - E_{1}\cos\vartheta \right)\frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} = \left( 1 - E_{1} \right)\rho_{0}\]
+
+Si svolgono i prodotti al primo membro:
+
+\[\frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} - E_{1}\cos\vartheta\frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} = \left( 1 - E_{1} \right)\rho_{0}\]
+
+Il rapporto tra il seno e il coseno coincide con la tangente dell'angolo, per cui:
+
+\[\frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} - E_{1}s\left( \vartheta,T_{1},\rho_{0} \right)\frac{\cos\vartheta}{\sin\vartheta} = \left( 1 - E_{1} \right)\rho_{0}\]
+
+Dove:
+
+\[\frac{\cos\vartheta}{\sin\vartheta} = \cot\vartheta = \frac{1}{\tan\vartheta}\]
+
+Da cui:
+
+\[\Longleftrightarrow \frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} - E_{1}\frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\tan\vartheta} = \left( 1 - E_{1} \right)\rho_{0}\]
+
+Si porta al secondo membro i termini dipendenti da \(E_{1}\):
+
+\[\frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} = \left( 1 - E_{1} \right)\rho_{0} + E_{1}\frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\tan\vartheta}\]
+
+Rispetto al flip angle la quantità \(\left( 1 - E_{1} \right)\rho_{0}\) è costante, per cui può essere indicata semplicemente con \(c\):
+
+\[c = \left( 1 - E_{1} \right)\rho_{0}\]
+
+Se si pone:
+
+\[\left\{ \begin{matrix}
+y = \frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} \\
+x = \frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\tan\vartheta}
+\end{matrix} \right.\ \]
+
+Si ottiene una relazione di tipo lineare dove coefficiente angolare e intercetta dipendono dai parametri \(E_{1}\) e \(\rho_{0}\):
+
+\[y = E_{1}x + c\]
+
+La relazione del segnale nel voxel in questo modo è stata linearizzata nei confronti di \(E_{1}\), legato a \(T_{1}\), e \(\rho_{0}\).
+
+Per ogni \(k\)-esima sequenza di acquisizione il segnale del voxel (\(s_{k}\)) è noto, poiché misurato sperimentalmente, così come il flip angle (\(\vartheta_{k}\)) impostato dall'esterno. In altre parole, sono note le quantità \(y_{k}\) e \(x_{k}\) noti \(s_{k}\) e \(\vartheta_{k}\):
+
+\[\left\{ \begin{matrix}
+y_{k} = \frac{s_{k}}{\sin\vartheta_{k}} \\
+x_{k} = \frac{s_{k}}{\tan\vartheta_{k}}
+\end{matrix} \right.\ \]
+
+È possibile definire una matrice dei coefficienti \(\overset{\underline{}}{\overset{\underline{}}{X}}\) come:
+
+\[\overset{\underline{}}{\overset{\underline{}}{X}} = \begin{pmatrix}
+x_{1} & 1 \\
+x_{2} & 1 \\
+ \vdots & \vdots \\
+x_{n} & 1
+\end{pmatrix}\]
+
+È il vettore delle misurazioni \(\overset{\underline{}}{Y}\):
+
+\[\overset{\underline{}}{Y} = \begin{pmatrix}
+y_{1} \\
+y_{2} \\
+ \vdots \\
+y_{n}
+\end{pmatrix}\]
+
+Il vettore dei parametri da valutare è:
+
+\[\overset{\underline{}}{P} = \begin{pmatrix}
+E_{1} \\
+c
+\end{pmatrix}\]
+
+La relazione può essere espressa in forma matriciale come:
+
+\[\overset{\underline{}}{Y} = \overset{\underline{}}{\overset{\underline{}}{X}}\begin{pmatrix}
+E_{1} \\
+c
+\end{pmatrix}\]
+
+Usando la teoria della minimizzazione dei minimi quadrati o OLS si ottiene una stima dei parametri \(T_{1}\) e \(c\):
+
+\[\overset{\underline{}}{P} = \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{Y}\]
+
+La stima ottenuta con il metodo \textbf{NLS} e quella ottenuta con \textbf{OLS} linearizzato non coincidono, ma presentano differenze che evidenziano i limiti della linearizzazione.
+
+La linearizzazione semplifica il calcolo, ma non implica necessariamente una soluzione migliore. L'OLS, in questo caso, produce un algoritmo più semplice per la stima di \(\rho_{0}\) e \(T_{1}\), ma presenta un errore maggiore perché la linearizzazione introduce una distorsione nel rumore dei dati.
+
+Per valutare la precisione di entrambi i metodi, si possono usare provette con concentrazioni note di un mezzo di contrasto. Ogni concentrazione modifica il tempo di rilassamento \(T_{1}\) secondo le \textbf{formule di Solomon-Bloembergen}. Stimando i parametri con OLS e NLS, si può verificare quale stima si avvicina di più al valore teorico.
+
+Si osserva che al diminuire della concentrazione del mezzo di contrasto, l\textquotesingle errore della stima aumenta, rendendo la misurazione più difficile. Questo dimostra che il metodo NLS, non richiedendo la linearizzazione del problema, è più robusto e preciso.
+
+L'uso dei mezzi di contrasto è cruciale per rilevare patologie come le neoplasie. Il liquido di contrasto agisce come un tracciante che evidenzia la distribuzione del sangue, un parametro fondamentale per identificare l\textquotesingle{}\textbf{angiogenesi}, un processo di formazione di nuovi vasi sanguigni spesso associato alla crescita dei tumori.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=4.25208in,alt={Immagine che contiene testo, schermata, linea, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/13_FastImm/image343.pdf}\caption{Figura .: Andamento dell\textquotesingle errore per NLS e OLS}
+\end{figure}
+
+\subsection{Dynamic Contrast-Enhanced (DCE) Magnetic Resonance Imaging (MRI)}\label{dynamic-contrast-enhanced-dce-magnetic-resonance-imaging-mri}
+
+La \textbf{DCE-MRI (Dynamic Contrast-Enhanced Magnetic Resonance Imaging)} è una tecnica di risonanza magnetica che fornisce informazioni dettagliate sulla \textbf{vascolarizzazione} e sull\textquotesingle aggressività delle lesioni tumorali. Questa metodica è ampiamente utilizzata in oncologia perché i tumori, per crescere, promuovono l\textquotesingle angiogenesi, un processo che aumenta l\textquotesingle apporto di sangue e, di conseguenza, la concentrazione locale del mezzo di contrasto.
+
+La tecnica prevede l\textquotesingle acquisizione di una serie di immagini veloci in sequenza temporale. Le immagini vengono acquisite prima, durante e dopo l\textquotesingle iniezione endovenosa di un mezzo di contrasto a base di \textbf{gadolinio}. L\textquotesingle analisi dei dati si basa sulle \textbf{curve intensità-tempo (TIC)}, che misurano come l\textquotesingle intensità del segnale (legata alla concentrazione del mezzo di contrasto) cambia nel tempo all\textquotesingle interno di una specifica \textbf{regione di interesse (ROI)} selezionata sull\textquotesingle immagine. L\textquotesingle andamento di queste curve offre indizi cruciali. In un tessuto tumorale, il grafico mostra un rapido aumento dell\textquotesingle intensità (fase di \textbf{wash-in}) seguito da una diminuzione (fase di \textbf{wash-out}). L\textquotesingle inclinazione di queste fasi dipende dall\textquotesingle aggressività del tumore: lesioni più aggressive, avendo una maggiore vascolarizzazione, mostrano un wash-in più rapido e una velocità di wash-out più elevata.
+
+L'analisi di dati DCE-RMI, con l'ausilio di diversi approcci di elaborazione, è ampiamente utilizzata nello studio dell'angiogenesi tumorale e nello sviluppo di nuovi farmaci in grado di bloccare questo processo di crescita cellulare.
+
+La metodica prevede che il tecnico radiologo o l'operatore selezioni la ROI di cui si vuole studiare la vascolarizzazione. I risultati, dunque, sono operatore dipendente, nel senso che due radiologi potrebbero selezione ROI lievemente diverse, ottenendo stime diverse. Inoltre, il metodo DCE-MRI non fornisce informazioni fisiopatologiche del tessuto di interesse.
+
+Un approccio semi-quantitativo prevede di calcolare opportuni indici descrittivi della curva intensità-tempo o TIC, i quali risultano essere meno sensibili alle variazioni tra i protocolli di acquisizione e meno dipendenti da altri fattori della sequenza.
+
+Si definiscono:
+
+\begin{itemize}
+\item
+  \textbf{Tempo di arrivo nella vena (VAT):} Il tempo impiegato affinché l\textquotesingle intensità raggiunga il \(20\%\) del suo picco massimo dopo l'iniezione del mezzo di contrasto;
+\item
+  \textbf{Tempo al picco (TTP):} Il tempo necessario per raggiungere l\textquotesingle intensità di picco (PI), ovvero il punto più alto della curva;
+\item
+  \textbf{Tempo alla fase di picco (TTPP):} Il tempo per raggiungere il \(90\%\) del picco massimo.
+\item
+  \textbf{Rapporto di washout (WR):} La differenza tra l'intensità di picco e l'intensità al termine dello studio.
+\end{itemize}
+
+\includegraphics[width=4.70581in,height=2.46667in,alt={Schematic illustration of the time-intensity curve (TIC) and measured parameters. Hepatic vein arrival time (HVAT) was the time from contrast agent injection to 20\% of peak intensity (PI, 2 ). Time to peak (TTP) and time-to-peak phase (TTPP) were defined as the times to reach PI and 90\% PI, respectively. Washout ratio (WR) was defined as (PI À the intensity at the end of the study; }]{media/13_FastImm/image344.pdf}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{13}
+\item
+  Figura .: TIC per imaging epatico ( Hepatic vein arrival time (HVAT)
+\end{enumerate}
+
+)
+
+La metodica è molto utilizzata in oncologia poiché le neoplasie promuovono l'angiogenesi, aumentando localmente la concentrazione del mezzo di contrasto infuso nel paziente.
+
+In presenza di tumore l'andamento del TIC, legato al tracciante nel voxel tumore, si osserva un primo assorbimento del mezzo di contrasto molto rapido; successivamente vi è un decremento con pendenza dipendente dall'aggressività tumorale. Infatti, i tumori più aggressivi, avendo una maggiore vascolarizzazione, presentano una maggiore velocità di escrezione del mezzo di contrasto. In gergo, la fase di assorbimento è detta wash-in mentre quella di espulsione wash-out. L'ipervascolarizzazione può determinare, inoltre, un picco più elevato.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=4.08958in,alt={Immagine che contiene testo, linea, Diagramma, diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/13_FastImm/image345.pdf}\caption{Figura .: Curva TIC in presenza di neoplasia rispetto al tessuto sano}
+\end{figure}
+
+Con la metodica DCE-MRI, i tumori sono discriminato sulla base dell'assorbimento del mezzo di contrasto o wash-in e della fase di espulsione wash-out.
+
+In letteratura si parla di quantitative imaging poiché, la metodica DCE-MRI, oltre a fornire un'immagine radiologica, permette di valutare l'aggressività tumorale sulla base dei tempi delle fasi di wash-in e wash-out.
+
+La misura dei tempi è normalmente effettuata nelle applicazioni cliniche al fine di eseguire la diagnosi di neoplasie e seguire il loro sviluppo sotto trattamento antitumorale.
+
+A differenza della CT con mezzo di contrasto o PET, la DCE-MRI può essere eseguita più volte sullo stesso paziente, in tempi ravvicinati, senza rischi per la salute del paziente legati a radiazioni ionizzanti.
+
+Gli algoritmi che permettono la valutazione delle caratteristiche delle TIC devono essere estremamente precisi e semplici da usare, così da ottenere una mappa a pseudocolori indicante la velocità di efflusso e deflusso del contrasto, parametri legati all'aggressività tumorale. Le immagini a pseudocolori dipendono dal tempo di echo, dal tempo di ripetizione, dal flip angle e, ovviamente, dalle dimensioni del voxel.
+
+La tecnica DCE-MRI così descritta può essere eseguita solamente con risonanza magnetica. È possibile, tuttavia, ottenere delle immagini funzionali analoghe con gli ultrasuoni, i quali presentano una risoluzione peggiore della risonanza magnetica. Nel caso di ultrasuoni, il mezzo di contrasto è caratterizzato da microbolle rivestite da una membrana stabilizzate di fosfolipidi, albumina o altri polimeri. Le immagini ecografiche sono anche più rumorose per cui le strutture anatomiche piccole non possono essere visualizzate.
+
+I raggi X non permettono acquisizioni continue poiché ciò richiederebbe un aumento della dose di radiazioni assorbite dal paziente, aumentando il rischio biologico.
+
+\subsection{Echo Planar imaging}\label{echo-planar-imaging}
+
+Agli inizi degli anni '90 Peter Mansfield ideò una metodica nota come Echo-Planar Imaging (EPI), caratterizzata da un'elevata risoluzione temporale in quanto, con una sola eccitazione a radiofrequenza, si riesce ad acquisire un'immagine completa pesata in \(T_{2}^{*}\). Questa sequenza di imaging con risonanza magnetica permette di ottenere immagini funzionali, soprattutto delle strutture cardiache.
+
+La sequenza EPI è basata su una classica gradient-echo, in cui si applica un impulso a radiofrequenza, un gradiente di selezione della fetta, di codifica di fase e di lettura. In una classica sequenza gradient-echo, dopo aver acquisito l'echo, nella finestra temporale centrata sul tempo d'echo \(T_{E}\), si aspetta un tempo di ripetizione \(T_{R}\), al fine di acquisire una seconda riga del \(k\)-spazio, variando i gradienti di codifica di fase e di frequenza. Per ridurre il tempo complessivo dell'esame diagnostico, la sequenza EPI prevede l'acquisizione di più righe del \(k\)-spazio con un solo impulso a radiofrequenza nel tempo di ripetizione \(T_{R}\).
+
+Un primo modo per eseguire l'operazione di acquisizione durante l'impulso consiste nell'invertire il gradiente di lettura, generando così un rifasamento e, conseguentemente un secondo echo, al tempo \(T_{E,2}\). Data la presenza dei decadimenti con tempi \(T_{2}\) e \(T_{2}^{*}\), il secondo echo ha ampiezza minore del primo.
+
+\includegraphics[width=5.25in,height=3.58333in,alt={MRI Physics: MRI Pulse Sequences - XRayPhysics}]{media/13_FastImm/image346.pdf}
+Con questa metodica è possibile acquisire due righe di \(k\)-spazi differenti, caratterizzati da una pesatura in \(T_{2}\) diversa.
+
+A ogni ripetizione si acquisiscono due righe di due \(k\)-spazi differenti. Di conseguenza, nello stesso tempo di imaging di una normale sequenza gradient-echo si ottengono due immagini con pesatura diverse dello stesso distretto anatomico. Questa procedura consente di ottenere due immagini, dimezzando così i tempi necessari per acquisire due immagini a contrasto diverso, in base al tempo \(T_{2}\), separatamente.
+
+Una seconda soluzione consiste nell'aggiunta di un gradiente di codifica di fase nell'intervallo di tempo tra il primo gradiente di lettura, al tempo \(T_{E,1}\) e il secondo tempo \(T_{E,2}\). Il gradiente lungo l'asse di codifica di fase ha l'effetto di cambiare la riga del \(k\)-spazio acquisito. In particolare, dopo aver acquisito l'echo durante il tempo \(T_{E,1}\), il gradiente aggiuntivo sposta la coordinata dell'asse di codifica di fase, generalmente associata all'asse \(y\). In questo modo, col secondo gradiente di lettura si acquisisce una seconda riga del \(k\)-spazio in senso retrogrado poiché il gradiente di lettura ha polarità opposta.
+
+Ripetendo questa sequenza un tempo \(T_{R}\) è possibile acquisire una riga pari in un verso e una dispari nel verso opposto, dimezzando i tempi di imaging per acquisire una singola immagine.
+
+Rispetto alla soluzione precedente, in cui si acquisivano due immagini diversamente pesate, grazie al gradiente di codifica di fase interposto tra i due gradienti di lettura e le relative acquisizioni, si ottiene una singola immagine.
+
+Nella pratica in ogni ripetizione, si varia il gradiente di codifica di fase iniziale in modo da selezionare solo una riga pari del \(k\)-spazio; le righe dispari si ottengono, all'interno della stessa sequenza, col secondo gradiente di codifica di fase, il quale sfasa gli isocrmati selezionando la successiva riga dispari del \(k\)-spazio.
+
+In questo modo è possibile acquisire un'intera immagine in metà del tempo; tuttavia, bisogna evidenziare che l'acquisizione delle linee dispari avviene in senso discorde rispetto alle righe pari; inoltre, la pesatura in \(T_{2}\) lungo le linee pari è diversa dalla pesatura in \(T_{2}\) delle righe dispari dello stesso \(k\)-spazio, essendo acquisite con due tempi di echo diversi. L'elaborazione software deve essere tale da compensare il decadimento esponenziale tre le diverse righe.
+
+Estendendo il ragionamento e l'elaborazione software è possibile applicare tanti gradienti di codifica di fase tra un gradiente di lettura e il successivo, in modo da acquisire completamente tutto il \(k\)-spazio relativo a quel gradiente di selezione della fetta.
+
+A ogni tempo d'echo si acquisisce il segnale emesso dal paziente. In una sequenza reale, il gradiente di codifica di fase è applicato tra una transizione e l'altra del gradiente di lettura. Per la sua breve durata il gradiente di codifica di fase è noto come \emph{blip}.
+
+La sequenza eredita il decadimento esponenziale con \(T_{2}\) tra le varie righe del \(k\)-spazio; inoltre, è necessario rovesciare i vettori dispari del \(k\)-spazio così da avere tutte le acquisizioni eseguite nello stesso verso.
+
+Il vantaggio temporale di questa soluzione è palese poiché in un tempo \(T_{R}\), dell'ordine di \(1\ s\), si campiona tutto il \(k\)-spazio relativo a una singola fetta. In questo caso, si parla di single-shot EPI.
+
+Se non si acquisisce l'intero \(k\)-spazio con una sequenza si parla di \(k\)-spazio segmentato. Questa soluzione è applicata per evitare che il decadimento esponenziale renda il segnale ricevuto dalle ultime righe di ampiezza confrontabile col rumore, non permettendo la ricostruzione.
+
+La sequenza EPI è particolarmente utilizzata negli studi di analisi e verifica dell'attività cerebrale.
+
+La metodica EPI permette di ottenere immagini pesate in \(T_{2}\) o \(T_{2}^{*}\). Se si esegue un'imaging pesato in \(T_{2}\), la sequenza richiede un'elevata omogeneità di campo, dunque, è necessario vere un ottimo shimming. In presenza di campi magnetici principali disomogenei, si ottiene un'immagine pesata in \(T_{2}^{*}\), non legata esclusivamente alle caratteristiche intrinseche del tessuto. In alcune applicazioni, la pesatura in \(T_{2}^{*}\) risulta vantagiosa.
+
+\subsubsection{Gestione dei gradienti alternativa per EPI}\label{gestione-dei-gradienti-alternativa-per-epi}
+
+Una variante della sequenza EPI non sfrutta gradienti spinti, di forma quasi onda quadra, i quali sono abbastanza complessi da generare nella pratica. Per limiti fisici, i gradienti hanno un certo periodo di salita e discesa non nulli, come si vorrebbe nel caso ideale.
+
+Al fine di semplificare la realizzazione dei gradienti, dal punto di vista tecnologico, è possibile eseguire delle sequenze di gradienti con forma sinusoidale, di ampiezza variabile. Con questa soluzione i tempi di salita non devono essere istantanei ma smussati nel tempo, quindi, più semplici da ottenere.
+
+Si dimostra che la sequenza di gradienti di forma sinusoidale con ampiezza crescente porta a un'acquisizione del \(k\)-spazio non rettangolare ma a spirale. Ciò complica la ricostruzione dell'immagine via software, in quanto sono necessari algoritmi di interpolazione, ma permette di ottenere hardware più semplici.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.92569in,height=3.52778in,alt={Gradients and k-space filling}]{media/13_FastImm/image347.pdf}\caption{Figura .: Applicazione dei gradienti e relativo riempimento del \(k\)-spazio}
+\end{figure}

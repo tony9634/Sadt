@@ -1,0 +1,546 @@
+\begin{center}
+\vfill
+    \chapter{Principio fisico dei detettori}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+\section{Detettori}\label{detettori}
+
+I fotoni emergenti dal corpo del paziente, che non hanno interagito con i suoi tessuti, devono essere rilevati da apposite sezioni hardware dette detettori. Da uno schema generale di un detettore, è possibile notare che questo si compone essenzialmente di due parti:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\item
+  Trasduttore, che converte il fotone in energia elettrica;
+\item
+  Elettronica per il \emph{Signal Processing}.
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics[width=3.86458in,height=2.14583in,alt={P3993\#yIS1}]{media/17_Detettori/image423.pdf}\caption{Figura .: Schema generale di un detettore}
+\end{figure}
+
+Il trasduttore è la regione di detettore sensibile alla radiazione incidente, che produce eccitazione e ionizzazione. Lo stato fisico del trasduttore e la densità determinano quale dei due processi è favorito. Successivamente vi è uno stadio elettronico che converte l'interazione della radiazione con il trasduttore in un segnale elettrico misurabile, che, successivamente, è processato, analizzato e contato.
+
+I detettori solitamente funzionano in \emph{Pulse Mode}, ovvero in modalità pulsata, poiché i vari impulsi di corrente successivi possono essere di varia intensità. Tipicamente, l'elettronica a valle, dal punto di vista del detettore, può essere schematizzata come un'impedenza di tipo RC parallelo, dove R è la resistenza di ingresso al circuito e C è la capacità equivalente del detettore e del circuito di misura. Il detettore rappresenta il forzamento del sistema RC e può essere schematizzato come un generatore di corrente.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.54865in,height=1.03013in,alt={P3997\#yIS1}]{media/17_Detettori/image424.pdf}\caption{Figura .: Elettronica a valle del detettore}
+\end{figure}
+
+Tale considerazione è di fondamentale importanza poiché permette di capire delle importanti caratteristiche dei detettori. Questi, infatti, possono essere di tipo \emph{Small RC} o \emph{Large RC}, a seconda che la costante di tempo \(\tau = RC\) sia piccola o grande. Se \(\tau\) è piccola, l'elettronica a valle reagisce prontamente all'impulso di corrente, quindi, la tensione misurata avrà lo stesso andamento temporale dell'impulso di corrente che arriva dal detettore.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.93328in,height=3.0052in,alt={P4000\#yIS1}]{media/17_Detettori/image425.pdf}\caption{Figura .: Risposta per Small R}
+\end{figure}
+
+Se, invece, \(\tau\) è grande, cioè l'elettronica ha un'evoluzione temporale molto lenta, lo stadio in uscita si comporta come un integratore, ovvero come un filtro passa-basso.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.61683in,height=1.90724in,alt={P4003\#yIS1}]{media/17_Detettori/image426.pdf}\caption{Figura .: Risposta per Large RC}
+\end{figure}
+
+Ovviamente, in base all'applicazione, si può scegliere uno dei due comportamenti, per cui, l'elettronica a valle è progettata per fornire la tensione di uscita desiderata.
+
+\subsection{Caratteristiche del detettore}\label{caratteristiche-del-detettore}
+
+Prima di analizzare in dettaglio le caratteristiche, è importante notare che i decadimenti, si verificano in maniera casuale nel tempo, di conseguenza anche l'emissione dei fotoni \(\gamma\) e l'annichilazione dei positroni sono casuali.
+
+Gli eventi casuali e indipendenti gli uni dagli altri obbediscono al processo statistico di Poisson. Tra due eventi successivi trascorre un intervallo di tempo che ha una distribuzione esponenziale. Per un gran numero di eventi, la distribuzione di Poisson, per il teorema del limite centrale, tende a una distribuzione gaussiana.
+
+Il detettore è caratterizzato da una serie di grandezze che ne determinano le specifiche come trasduttore da energia elettromagnetica a energia elettrica come tensione.
+
+\begin{itemize}
+\item
+  L'\emph{Energy Resolution} rappresenta l'indeterminazione con cui è rilevata l'energia di un fotone. Per comprendere la distribuzione energetica del detettore, si costruisce un grafico che presenta l'ampiezza dell'impulso sull'asse delle ascisse e il numero di impulsi rilevati dal detettore sull'asse delle ordinate.
+\end{itemize}
+
+Dal punto di vista operativo, si irradia il dispositivo di rilevamento con una radiazione di energia nota e si misurano il numero di impulsi rilevati dal detettore stesso. Si ottiene un andamento del tipo:
+
+\begin{figure}
+\centering
+\includegraphics[width=6.17527in,height=3.57124in,alt={P4012\#yIS1}]{media/17_Detettori/image427.pdf}\caption{Figura .: Differential Pulse Height Distribution}
+\end{figure}
+
+Si realizza, così, una sorta di istogramma delle energie. Esisterà, quindi, un certo intervallo di energie per cui il detettore riesce a rilevare un maggior numero di impulsi, cioè risulta più sensibile; mentre in altri range energetici il detettore si mostra meno sensibile.
+
+In genere, si assiste alla presenza di una regione a bassa energia in cui i detettori hanno una buona sensibilità. Dunque, per le basse energie, i detettori sono generalmente in grado di rilevare gli impulsi, cosa che, invece, risulta più difficile per le alte energie. Si parla, perciò, di sensibilità energetica del detettore.
+
+Idealmente, si vorrebbe che il detettore sia perfettamente sensibile alle energie di interesse come 511keV per PET, in modo da discriminare i fotoni relativi all'annichilamento rispetto a quelli generati a causa di altri effetti di \emph{Scattering} come effetto Compton o effetto fotoelettrico.
+
+Avendo una sensibilità molto limitata, tutti i fotoni che hanno interagito con la materia non sono rilevati poiché la loro energia è esterna al piccolo intorno di 511keV.
+
+Nella realtà il detettore si mostra sensibile per un range di energie abbastanza esteso e ciò porta a un'indeterminazione sulla misura poiché sono rilevati sia i fotoni provenienti dall'annichilamento positronico ma anche quelli deviati per effetto Compton.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.31484in,height=2.48637in,alt={P4019\#yIS1}]{media/17_Detettori/image428.pdf}\caption{Figura .: Risoluzione energetica caso ideale}
+\end{figure}
+
+La risoluzione energetica ha una variabilità dovuta a una serie di diverse cause:
+
+\begin{itemize}
+\item
+  \emph{Drift} delle caratteristiche del detettore durante il funzionamento. Questo elemento, infatti, può cambiare le sue caratteristiche nel tempo sia a causa dell'usura sia aumenti di temperatura o altro;
+\item
+  Rumore casuale all'interno del detettore, dovuto alla presenza dei materiali droganti nella struttura cristallina;
+\item
+  Rumore della strumentazione introdotto dalla circuiteria elettronica;
+\item
+  Rumore statistico dovuto alla natura discreta del segnale misurato che rappresenta il contributo predominante per la degradazione dell'immagine.
+\end{itemize}
+
+La risoluzione energetica è definita considerando il picco dell'istogramma precedentemente illustrato, di cui si valuta l'ampiezza a mezza altezza (FWHM).
+
+\begin{figure}
+\centering
+\includegraphics[width=4.27733in,height=3.93486in,alt={P4027\#yIS1}]{media/17_Detettori/image429.pdf}\caption{Figura .: Valutazione a mezza altezza del picco}
+\end{figure}
+
+Se l'energia è \(H_{0}\), la risoluzione si calcola come:
+
+\[R = \frac{FWHM}{H_{0}}\]
+
+Ovviamente, più è stretto il picco, migliore sarà la risoluzione energetica;
+
+\begin{itemize}
+\item
+  L'efficienza assoluta (\(\varepsilon_{abs}\)) è definita come il numero di eventi rilevati in un certo intervallo di tempo rispetto al numero di fotoni emessi dalla sorgente nello stesso intervallo. La radiazione è emessa in maniera isotropica, cioè in tutte le direzioni. Questa quantità è ottenuta misurando il numero di quanti rilevati rispetto a quelli effettivamente emessi. I fotoni che non sono rilevati hanno subito un processo di assorbimento con la materia oppure il detettore non è stato in gradi di rilevarli per motivi di carattere statistico;
+\item
+  La grandezza che realmente quantifica il funzionamento del detettore è l'efficienza intrinseca (\(\varepsilon_{int}\)), definita come il numero di eventi rilevati in un dato intervallo di tempo rispetto al numero di fotoni incidenti sul detettore nello stesso intervallo. Non tutti i fotoni incidenti sul dettore sono rilevati, quindi, alcuni fotoni potrebbero essere persi, riducendo l'efficienza della trasduzione.
+\end{itemize}
+
+L'efficienza intrinseca per i fotoni \(\gamma\) coincide con la probabilità che questi hanno di impattare sul detettore, cioè con:
+
+\[P = 1 - e^{- \mu x}\]
+
+Dove \(\mu\) è funzione di densità, numero atomico del materiale di rilevazione ed energia della radiazione incidente ed \(e^{- \mu x}\) la probabilità che esso rilevi i fotoni. L'efficienza intrinseca è, inoltre, influenzata dallo \emph{Stopping Power} tramite \(\mu\). La relazione che intercorre tra efficienza assoluta e intrinseca è la seguente:
+
+\[\varepsilon_{int} = \varepsilon_{abs}\frac{4\pi}{\Omega}\]
+
+Dove \(\Omega\) è l'angolo solido del detettore visto dalla posizione della sorgente;
+
+\begin{itemize}
+\item
+  L'efficienza di picco tiene conto solo di quelle interazioni che depositano l'intera energia; per ottenerne una stima si integra l'area della \emph{Pulse-Height Distribution}.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=3.74489in,height=3.56885in,alt={P4040\#yIS1}]{media/17_Detettori/image430.pdf}\caption{Figura .: Pulse-Height Distribution}
+\end{figure}
+
+\begin{itemize}
+\item
+  L'efficienza geometrica è il numero di fotoni incidenti sul detettore rispetto al numero di fotoni emessi dalla sorgente:
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=4.1105in,height=3.20988in,alt={P4043\#yIS1}]{media/17_Detettori/image431.pdf}\caption{Figura .: Efficienza geometrica}
+\end{figure}
+
+Più grande è il detettore e più vicino alla sorgente, maggiore sarà la sua efficienza geometrica, poiché intercetta più eventi. Per la scelta del detettori è necessario selezionare dei materiali col più alto coefficiente di assorbimento e con una geometria tale da evitare la dispersione dei fotoni nello spazio. Ovviamente è da considerare anche la risoluzione geometrica legata proprio al materiale utilizzato;
+
+\begin{itemize}
+\item
+  Lo \emph{Stopping Power} per i fotoni \(\gamma\) è legato al coefficiente di attenuazione lineare \(\mu\). Inoltre, è influenzato da spessore, densità, numero atomico del materiale assorbente ed energia della radiazione incidente;
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=6.05302in,height=2.37086in,alt={P4047\#yIS1}]{media/17_Detettori/image432.pdf}\caption{Figura .: Caratteristiche che influenzano lo Stopping Power per diversi tipi di materiali}
+\end{figure}
+
+Lo ioduro di sodio attivato al tallio, che rappresenta l'elemento drogante, a parità di spessore con altri materiali, è sufficientemente massiccio, con un coefficiente di attenuazione lineare di 0.504cm\textsuperscript{-1}. Il germanato di bismuto, invece, presenta un coefficiente di attenuazione lineare maggiore di 0.920cm\textsuperscript{-1}. Per la realizzazione dei detettori della PET è, quindi, molto usato il germanato di bismuto per il suo grande valore di attenuazione;
+
+\begin{itemize}
+\item
+  Il \emph{Dead Time} è definito come il minimo intervallo di tempo che deve intercorrere tra due eventi per poter essere rilevati separatamente. Esso dipende dal detettore e dall'elettronica posta a valle di quest'ultimo. A causa della natura casuale del decadimento radioattivo, vi saranno eventi non rilevati, poiché si verificano dopo un intervallo di tempo troppo piccolo rispetto all'evento precedente. Esistono essenzialmente due modalità di funzionamento per un detettore: paralizzabile e non paralizzabile.
+\end{itemize}
+
+Se un impulso giunge sul cristallo detettore mentre il fotone precedente è processato, questo non è rilevato e si dice che l'impulso è rigettato, per cui il detettore è detto non paralizzabile. Se il rigetto del secondo evento prolunga il \emph{Dead Time} in modo da impedire la detezione di un terzo evento, distanziato di \(\tau\) dal primo impulso, il detettore è detto paralizzabile.
+
+Per trasdurre un fotone in un segnale elettronico, il rilevatore impiega un certo tempo \(\tau\) che scandisce la minima distanza temporale in cui due fotoni possono essere rilevati. Se il detettore è non paralizzabile e un fotone incide sul detettore mentre un fotone è processato, il tempo \(\tau\) di lavorazione del fotone non varia. Il secondo fotone è perso ma dopo un tempo \(\tau\) dal primo è possibile riconoscere nuovamente un fotone, anche se, durante il processo di conversione, altri fotoni sono giunti sul detettore.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.48531in,height=3.17569in,alt={P4053\#yIS1}]{media/17_Detettori/image433.pdf}\caption{Figura .: Logica del Dead Time}
+\end{figure}
+
+I materiali reali presentano delle caratteristiche intermedie tra il comportamento paralizzabile e non paralizzabile. Esistono ovviamente dei materiali che tendono ad approssimare un comportamento piuttosto che un altro.
+
+Il \emph{Dead Time} determina la perdita di eventi, quindi, si registra un tasso di interazione inferiore rispetto a quello che realmente giunge al detettore. Inoltre, è molto importante se il tasso di conteggio è molto alto, infatti, in queste condizioni, le misure devono essere opportunamente corrette. I parametri che caratterizzano il \emph{Dead Time}, indicato con \(\tau\), sono:
+
+\begin{itemize}
+\item
+  \emph{n}, ovvero il tasso reale di interazione con il detettore;
+\item
+  \emph{m}, ovvero il tasso registrato.
+\end{itemize}
+
+Per un impulso non paralizzabile il prodotto:
+
+\[m\tau\]
+
+restituisce la frazione di tempo in cui il detettore è ``morto'', nel senso che non può rilevare nessun evento di incidenza. La quantità:
+
+\[nm\tau\]
+
+è il tasso di perdita degli eventi veri, che può anche essere definito come:
+
+\[n - m\]
+
+Quindi, dall'eguaglianza delle due definizioni è possibile ottenere una relazione che permette di valutare il tasso reale incidente \emph{n} dato il tatto registrato \emph{m}:
+
+\[nm\tau = n - m\]
+
+Per un impulso paralizzabile, invece, si definisce la distribuzione \(P(T)\) degli intervalli tra gli eventi, data dalla distribuzione di Poisson:
+
+\[P(T) = n\ e^{- nT}\]
+
+Con T variabile aleatoria indicante l'intervallo tra due eventi. La probabilità di osservare un intervallo più lungo di \(\tau\) tra due eventi è:
+
+\[ne^{- n\tau}\]
+
+Quindi, il tasso di occorrenza degli intervalli più lunghi di \(\tau\) è pari al tasso degli eventi registrati:
+
+\[m = n\ e^{- n\tau}\]
+
+\begin{figure}
+\centering
+\includegraphics[width=5.60702in,height=3.17822in,alt={P4073\#yIS1}]{media/17_Detettori/image434.pdf}\caption{Figura .: Eventi registrati in funzione degli eventi reali}
+\end{figure}
+
+Come si nota dal grafico, è possibile schematizzare il tasso registrato \emph{m} in funzione del tasso reale \emph{n}, ottenendo una curva per il detettore paralizzabile e un'altra per il detettore non paralizzabile. La differenza sta nel fatto che, nel caso del paralizzabile, dato un certo tasso \(m_{1}\) di eventi registrati, si avrà una corrispondenza con due tassi reali differenti, mentre nel caso del non paralizzabile, la corrispondenza è biunivoca, perché dato un certo numero di eventi registrati, ci sarà un unico valore corrispondente di eventi reali. Quindi, nel caso di detettore non paralizzabile, si può ricavare, per formula inversa, il numero di eventi reali, partendo dagli eventi registrati, cosa che invece non può essere effettuata con un detettore paralizzabile a causa dell'incertezza per la non biunivocità.
+
+Se lo stadio elettronico è in \emph{Pulse Mode}, ciascun evento è processato separatamente. L'ampiezza dell'impulso è proporzionale all'energia del fotone incidente e la durata dell'impulso limita il tasso di rilevamento, poiché ogni evento deve essere processato separatamente.
+
+\subsection{Detettori a scintillazione}\label{detettori-a-scintillazione}
+
+I cristalli di scintillazione sono i materiali attualmente maggiormente utilizzati per la realizzazione dei detettori della PET.
+
+Il fenomeno della scintillazione prevede che, quando un fotone incide sul materiale scintillatore, si ha la generazione di un impulso luminoso visibile.
+
+Gli scintillatori rilasciano luce ultravioletta o visibile, tipicamente blu, quando interagiscono per effetto fotoelettrico o effetto Compton. Essi sono realizzati con dei cristalli, tra i quali sono molto adoperati quelli basati su ioduro di sodio o germanato di bismuto, drogati con delle impurità, cioè con delle specie atomiche differenti.
+
+Gli effetti fotoelettrico o Compton si realizzano all'interno del materiale e corrispondono ad un'eccitazione degli elettroni del materiale. Gli elettroni nei cristalli possono assumere bande energetiche discrete, dove le bande energetiche più elevate sono la banda di valenza e la banda di conduzione, separate da un \emph{Band Gap} di valori energetici proibiti per l'elettrone. La banda superiore è detta di valenza, dove risiedono gli elettroni più energetici. Se queste particelle ricevono energie tali da svincolarsi dal legame chimico in cui risiedono, passano alla banda di conduzione.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.19685in,height=3.3084in,alt={P4082\#yIS1}]{media/17_Detettori/image435.pdf}\caption{Figura .: Schema bande energetiche}
+\end{figure}
+
+All'interno della banda proibita possono, però, trovarsi altri livelli energetici in prossimità delle impurità droganti. In genere, quindi, il cristallo di scintillazione non è puro: se lo fosse, ci sarebbe solamente banda di valenza e banda di conduzione. Nei cristalli di scintillazione comunemente utilizzati, si introducono, invece, delle impurità droganti, che vanno ad occupare delle vacanze all'interno della struttura cristallina oppure introducono dei difetti nella struttura atomica.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.60868in,height=1.13067in,alt={P4085\#yIS1}]{media/17_Detettori/image436.pdf}\caption{Figura .: Impurità nei cristalli}
+\end{figure}
+
+Poiché i livelli energetici delle impurità sono differenti da quelli del resto del cristallo, in prossimità delle impurità si formano degli ulteriori livelli energetici che non sarebbero presenti normalmente nel gap energetico. Nei semiconduttori, il \emph{Band Gap} è dell'ordine di 1-1.3eV, mentre nei cristalli di scintillazione è dell'ordine di 3-4eV.
+
+I nuovi livelli energetici introdotti nel \emph{Band Gap} hanno un ruolo fondamentale nel processo di scintillazione e sono indicati come stati attivati di eccitazione.
+
+\subsubsection{Bande energetiche}\label{bande-energetiche}
+
+Il cristallo puro è una successione periodica di atomi della stessa specie. Avendo una struttura periodica, anche il potenziale che si viene a creare è periodico. Ogni nucleo, infatti, genera un proprio potenziale coulombiano e, dalle sovrapposizioni con gli altri potenziali dei nuclei nella struttura cristallina, si ottiene il potenziale periodico nella struttura cristallina.
+
+\begin{figure}
+\centering
+\includegraphics[width=2.82067in,height=3.89833in,alt={P4091\#yIS1}]{media/17_Detettori/image437.pdf}\caption{Figura .: Potenziale periodico dalla struttura cristallina}
+\end{figure}
+
+Un elettrone immerso nel potenziale periodico risulta possedere bande di livelli energetici permessi separati da bande proibite. Questo comportamento può essere determinato risolvendo l'equazione di Schrödinger per un elettrone posto in un potenziale periodico semplificato monodimensionale, noto come modello di Kronig-Penney.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.23725in,height=2.06336in,alt={P4094\#yIS1}]{media/17_Detettori/image438.pdf}\caption{Figura .: Potenziale periodico semplificato del modello Kroning-Penney}
+\end{figure}
+
+Per il teorema di Bloch, le funzioni d'onda devono avere una forma periodica del tipo:
+
+\[\psi(x) = u(x)e^{jkx}\]
+
+dove \(u(x)\) è una funzione periodica e \(k\) è un fattore di fase. Se il potenziale fosse ovunque nullo, ovvero se l'elettrone fosse libero, si avrebbe, includendo anche il tempo:
+
+\[\Psi(x,t) = \psi(x) \cdot \Phi(t) = u(x)e^{jkx}e^{- j\frac{E}{\hslash}t} = u(x)e^{j\left( kx - \frac{E}{\hslash}t \right)}\]
+
+Da cui si evince l'interpretazione di \(k\) come numero d'onda. Scrivendo le equazioni per le regioni I, in cui il potenziale è nullo, e II, dove il potenziale ha un valore \(V_{0}\), si ottengono due equazioni per \emph{u(x)} nelle due regioni:
+
+\[\frac{d^{2}u_{I}}{dx^{2}} + 2jk\frac{du_{I}}{dx} - \left( k^{2} - \alpha^{2} \right)u_{I}(x) = 0\]
+
+\[\frac{d^{2}u_{II}}{dx^{2}} + 2jk\frac{du_{II}}{dx} - \left( k^{2} - \beta^{2} \right)u_{II}(x) = 0\]
+
+Dove
+
+\[\alpha^{2} = \frac{2mE}{\hslash^{2}}\]
+
+\[\beta^{2} = \frac{2mE}{\hslash^{2}} - \frac{2mV_{0}}{\hslash^{2}}\]
+
+Con \(E\) energia, \(m\) massa, \(V_{0}\) potenziale nella regione II. Le soluzioni sono del tipo:
+
+\[u_{I}(x) = Ae^{j(\alpha - k)x} + Be^{j(\alpha + k)x}\]
+
+\[u_{II}(x) = Ce^{j(\beta - k)x} + De^{j(\beta + k)x}\]
+
+Le condizioni al contorno da imporre per ottenere la soluzione riguardano la continuità della funzione d'onda all'interfaccia tra due regioni di potenziale. Si ottengono le condizioni al contorno:
+
+\[\left\{ \begin{array}{r}
+u_{I}(0) = u_{II}(0) \\
+u_{I}(a) = u_{II}( - b) \\
+\left. \ \frac{du_{I}}{dx} \right|_{x = 0} = \left. \ \frac{du_{II}}{dx} \right|_{x = 0} \\
+\left. \ \frac{du_{I}}{dx} \right|_{x = a} = \left. \ \frac{du_{II}}{dx} \right|_{x = - b}
+\end{array} \right.\ \]
+
+Si ottiene così il sistema di equazioni:
+
+\[\left\{ \begin{array}{r}
+A + B = C + D\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \\
+Ae^{j(\alpha - k)a} + Be^{j(\alpha + k)a} = \ Ce^{- j(\beta - k)b} + De^{- j(\beta + k)b}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \\
+Aj(\alpha - k) + Bj(\alpha + k) = Cj(\alpha - k) + Dj(\alpha + k)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \\
+Aj(\alpha - k)e^{j(\alpha - k)a} + Bj(\alpha + k)e^{j(\alpha + k)a} = Cj(\alpha - k)e^{- j(\alpha - k)b} + Dj(\alpha + k)e^{- j(\alpha + k)b}
+\end{array} \right.\ \]
+
+La risoluzione del sistema porta all'equazione
+
+\[\cos\left( k(a + b) \right) = \frac{\alpha^{2} + \beta^{2}}{2\alpha\beta}\sin(a\alpha) + \sin(b\beta) + \cos(a\alpha)\cos(b\beta)\]
+
+Le soluzioni dell'equazione di Schrödinger esistono se questa relazione ammette soluzioni. Se \(b \rightarrow 0\) e \(V_{0} \rightarrow \infty\), ovvero si fa tendere la regione II a un impulso di Dirac, si approssima il potenziale in corrispondenza del nucleo tendente, appunto, all'infinito. È possibile, così, semplificare l'equazione:
+
+\[\cos(ka) = \frac{mV_{0}ab}{\hslash^{2}}\frac{\sin(a\alpha)}{a\alpha} + \cos(a\alpha)\]
+
+Questa equazione non può essere risolta analiticamente. Visualizzando il secondo membro, posto uguale a \(f(a\alpha)\), e tenendo conto che il primo membro può assumere solo valori compresi in (-1; 1), si vede che i valori di energia \(E\) sono collegati ai valori di \(k\) ed è possibile trovare la soluzione mediante il metodo grafico:
+
+\begin{figure}
+\centering
+\includegraphics[width=6.21409in,height=2.33524in,alt={P4118\#yIS1}]{media/17_Detettori/image439.pdf}\caption{Figura .: Risoluzione grafica dell'equazione}
+\end{figure}
+
+Le soluzioni sono discrete dove ogni intervallo è disgiunto dal precedente. Pertanto, le soluzioni che si ottengono corrispondono a delle bande di energia discrete e discontinue. Esistono, quindi, intervalli di energie in cui la funzione d'onda non è definita, dunque, l'elettrone non può assumere quelle energie. È possibile visualizzare le soluzioni tracciando l'andamento dell'energia in funzione del variare di \(k\):
+
+\begin{figure}
+\centering
+\includegraphics[width=5.99118in,height=5.51504in,alt={P4121\#yIS1}]{media/17_Detettori/image440.pdf}\caption{Figura .: Relazione tra energia E e k}
+\end{figure}
+
+La presenza di un elemento drogante nel reticolo cristallino introduce delle bande intermedie tra la banda di conduzione e quella di valenza, note come stati eccitati di attivazione. Un elettrone può, quindi, passare dalla banda di valenza a quella intermedia se riceve energia sufficiente.
+
+\subsubsection{Funzionamento dei cristalli di scintillazione}\label{funzionamento-dei-cristalli-di-scintillazione}
+
+Un fotone \(\gamma\) con energia pari a 511keV può interagire con gli elettroni della banda di valenza per effetto fotoelettrico o effetto Compton, portandoli nella banda di conduzione e innescando un processo a cascata che distribuisce l'energia iniziale della radiazione incidente su tutti gli elettroni e i fotoni emessi. In seguito al passaggio di elettroni in banda di conduzione, si generano, contemporaneamente, delle lacune in banda di valenza, ovvero siti in cui non c'è carica negativa, ma positiva, che sono in grado di migrare all'interno del cristallo. Gli elettroni migrano finché la loro energia non si abbassa ulteriormente, arrivando sul bordo inferiore della banda di conduzione. A questo punto, potrebbero transitare verso la banda di valenza, cioè perdere ancora energia e andare ad occupare una lacuna, attraverso un meccanismo noto come processo di ricombinazione elettrone--lacuna.
+
+Un altro processo possibile prevede che, se gli elettroni e le lacune si trovano in prossimità di un sito di attivazione, ovvero il sito di impurità drogante, l'elettrone, invece di transitare dalla banda di conduzione alla banda di valenza, passa verso i livelli energetici intermedi, posti nella banda proibita del sito attivatore. Dopo un tempo di permanenza variabile, dell'ordine di ns, si ha un'ulteriore perdita energetica, per cui l'elettrone transita verso un livello energetico inferiore, come ad esempio il livello più basso del sito di attivazione, noto come \emph{Ground State}, da cui passa, poi, alla banda di valenza. A ogni transizione degli elettroni da una banda di energia all'altra, si generano dei fotoni di energia pari al gap di transizione.
+
+Nel processo di ricombinazione elettrone--lacuna la radiazione potrebbe trovarsi nell'ultravioletto, mentre nel secondo processo i siti energetici introdotti dalle impurità sono ad un livello energetico per il quale la radiazione ottenuta è nello spettro del visibile. Il fenomeno di emissione di luce visibile per breve tempo è detto fluorescenza, quindi, i processi che portano alla formazione della radiazione luminosa si verificano in tempo dell'ordine dei ns. Viceversa, quando la luce visibile viene emessa per un tempo più lungo, si parla di fosforescenza. In questo caso, i siti di attivazione possono intrappolare un elettrone anche per un tempo più lungo dei ns. La luce è, quindi, rilasciata dopo un certo ritardo dall'assorbimento dei fotoni \(\gamma\).
+
+In genere, si preferisce la fluorescenza, in quanto, all'arrivo del fotone \(\gamma\), si vorrebbe la generazione immediata della radiazione, poiché quella generata in un secondo momento diventa un disturbo, che si sovrappone ad altre radiazioni successive.
+
+Tuttavia, i materiali reali non sono né esattamente fluorescenti né fosforescenti ma mostrano un comportamento approssimabile in uno dei due meccanismi di funzionamento.
+
+\subsubsection{Caratteristiche ideali di uno scintillatore}\label{caratteristiche-ideali-di-uno-scintillatore}
+
+Nella pratica, si vorrebbe che il cristallo scintillatore presenti delle caratteristiche ideali quali:
+
+\begin{itemize}
+\item
+  Breve tempo di interazione e di \emph{Stopping Time}. Per raggiungere questi obiettivi, nella PET si usano dei detettori solidi con un \emph{Stopping Time} dell'ordine dei ps;
+\item
+  Ad ogni fotone \(\gamma\) deve corrispondere un impulso di corrente rilevabile dalla circuiteria a valle;
+\item
+  Funzionamento in modalità pulsata (\emph{Pulse Mode}), al fine di rilevare ogni singolo impulso. In altre parole, la durata dell'impulso di corrente del rilevatore deve essere così breve che impulsi adiacenti siano completamente non interagenti;
+\item
+  Possibile conversione di fotoni \(\gamma\) in fotoni visibili. Si tende, infatti, a non utilizzare gap che generano una radiazione ultravioletta;
+\item
+  Conversione lineare nel senso che il numero di fotoni visibili deve essere proporzionale alla energia incidente. Con una \emph{Band Gap} di 3eV, in caso di relazione perfettamente lineare, si avrebbero circa \(1.7 \cdot 10^{5}\) fotoni luminosi.
+\end{itemize}
+
+Ovviamente i materiali non hanno un'efficienza di conversione del 100\%, quindi, il numero dei fotoni è minore;
+
+\begin{itemize}
+\item
+  Il cristallo di scintillazione deve essere trasparente alla lunghezza d'onda della propria emissione, ovvero il cristallo di scintillazione non deve assorbire il fotone emesso da un elettrone che passa dalla banda di conduzione a quella di valenza. A tale scopo si inseriscono i siti di impurità così che il fotone emergente dalla transizione sito di attivazione a banda di valenza non abbia l'energia per portare altri elettroni alla banda di valenza e, quindi, non sia assorbito. In assenza di drogante non emergerebbe nessuna radiazione dal cristallo poiché appena un fotone è liberato per una transizione di stato di un elettrone, è assorbito da un altro che passa nella banda di conduzione, ricominciando il ciclo. Si vorrebbe, quindi, che lo spettro di emissione del cristallo sia disgiunto dallo spettro di assorbimento. Ciò è realizzato grazie ai droganti;
+\item
+  Il tempo di decadimento della luminescenza (fluorescenza) prodotta deve essere breve. Esso dipende dai materiali utilizzati e dai tipi di drogati contenuti;
+\item
+  Indice di rifrazione vicino a quello del vetro per l'accoppiamento con lo stadio successivo, ovvero il tubo fotomoltiplicatore.
+\end{itemize}
+
+\subsubsection{Afterglow (fosforescenza)}\label{afterglow-fosforescenza}
+
+Nell'\emph{Afertglow}, la luminescenza si verifica con un tempo di ritardo molto lungo, il che è un fenomeno indesiderato nel caso della PET, perché potrebbe implicare che un elettrone, intrappolato in uno dei siti attivatori con tempo di decadimento molto lungo, rimanga nel sito per un tempo talmente prolungato che potrebbe decadere all'arrivo di un secondo fotone \(\gamma\). Ne discende che questo elettrone appartiene al meccanismo di scintillazione del fotone \(\gamma_{1}\), ma potrebbe decadere quando arriva il fotone \(\gamma_{2}\). Ciò rappresenta, ovviamente, un disturbo, in quanto, se gli elettroni intrappolati sono molti, si può generare una radiazione aggiuntiva non prevista. Inoltre, ciò causa un discostamento tra il comportamento ideale del cristallo scintillatore e quello effettivamente osservato nella pratica. In particolar modo, la conversione tra energia incidente e radiazione luminosa emessa è non lineare.
+
+L'\emph{Afterglow}, quindi, non permette di riconoscere l'energia di un fotone. Ciò è un problema dal punto di vista della ricostruzione dell'immagine, perché non conoscendo l'energia del fotone, non è possibile sapere se questa è molto bassa e, quindi, se il fotone deriva da una notevole deviazione per effetto Compton oppure da un evento di annichilazione. I fotoni con energia inferiore ai 511keV dovrebbero essere, in linea teorica, scartati poiché questi derivano da iterazioni con la materia.
+
+Purtroppo, il fenomeno non è completamente eliminabile, infatti, è sempre presente quando nel cristallo vi è del drogante. Questo fenomeno, in definitiva, porta il cristallo a emettere una radiazione luminosa secondo il meccanismo della fosforescenza.
+
+Una sorgente di energia che determina l'\emph{Afterglow} è rappresentata dall'energia termica. Gli elettroni, se ricevono sufficiente energia termica, passano dalla banda di valenza a un sito di attivazione dove sono intrappolati e rilasciati, dopo un certo tempo variabile, durante, ad esempio, l'esame diagnostico PET. Le immagini risultanti sono, quindi, affette da un rumore di cui bisogna tener conto nel processo di ricostruzione.
+
+\subsubsection{Quenching}\label{quenching}
+
+\includegraphics[width=2in,height=2.23145in,alt={P4147\#y1}]{media/17_Detettori/image441.pdf}
+Figura .: Variazione di energia
+
+L'energia delle bande, infatti, varia nello spazio con andamenti anche molto complessi. Ad esempio, in un centro di attivazione, si potrebbe avere una struttura a bande con gap energetici variabili.
+
+Questa struttura fa in modo che alcune transizioni tra i livelli energetici della banda di conduzione e della banda di valenza possano non essere radiative. Ad esempio, la transizione A--C è radiativa ad alta energia, perché il gap energetico è molto alto; allo stesso modo, la transizione B--D è radiativa a più bassa energia.
+
+La transizione F--F', invece, potrebbe non essere radiativa, perché fuori dal range di energie che generano radiazioni visibili e, quindi, inefficaci.
+
+Esistono, in letteratura, una serie di studi volti a determinare le caratteristiche che devono avere i materiali per limitare tale fenomeno.
+
+In particolare, si cerca di strutturare e realizzare un materiale in modo che le transizioni energetiche siano quanto più radiative possibili e col minor \emph{Afterglow} realizzabile.
+
+\subsubsection{Efficienza del processo di scintillazione}\label{efficienza-del-processo-di-scintillazione}
+
+Nella maggior parte dei materiali scintillatori, per creare una coppia elettrone-lacuna occorre una energia in media pari a 3 volte il gap della banda proibita. Uno dei materiali storicamente più utilizzati è lo ioduro di sodio drogato al tallio (NaI(Tl)), che ha una grande efficienza. Per questo materiale occorrono circa 20eV per creare una coppia elettrone-lacuna.
+
+Ad esempio, dato 1MeV di radiazione incidente, si assiste a circa \(5 \times 10^{4}\) coppie elettrone-lacuna, cioè una radiazione di uscita di \(12 \times 10^{4}eV\). Poiché ciascun fotone ha un'energia di 3eV, vi saranno \(4 \times 10^{4}\) coppie formate. L'efficienza, in questo caso, è del 12\%, che seppur complessivamente bassa, è comunque più alta rispetto a tutti gli altri materiali.
+
+L'efficienza si definisce come:
+
+\[Efficienza = \frac{numero\ di\ fotoni}{numero\ di\ coppie}\]
+
+Data la sua elevata efficienza, questo materiale è preso come riferimento per calcolare l'efficienza degli altri materiali.
+
+\subsubsection{Caratteristiche del cristallo di scintillazione}\label{caratteristiche-del-cristallo-di-scintillazione}
+
+Per la presenza dei materiali droganti, lo spettro di emissione, legato al gap energetico, del cristallo di scintillazione non coincide con lo spettro di assorbimento. In questo modo, si ha la sicurezza che la radiazione emessa non sia assorbita dal cristallo stesso.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.58125in,height=4.68681in,alt={P4161\#yIS1}]{media/17_Detettori/image442.pdf}\caption{Figura .: Spettro di emissione e assorbimento del cristallo}
+\end{figure}
+
+Lo spettro di emissione del cristallo di scintillazione deve, ovviamente, essere coerente con lo spettro di assorbimento dell'elettronica a valle. Dopo il cristallo, sede della conversione tra il fotone \(\gamma\) a luce visibile, si trova il fotomoltiplicatore che converte la radiazione luminosa in energia elettrica.
+
+Nell'accoppiamento tra il cristallo e il fotomoltiplicatore è fondamentale la conoscenza dello spettro di emissione del cristallo e di assorbimento dell'elettronica, così da accoppiarli al meglio. In altre parole, i due spettri devono essere tali da sovrapporsi il più possibile così che la maggior parte della radiazione emessa dal cristallo sia assorbita dallo stadio di fotomoltiplicazione. Il \emph{Matching} tra i due spettri garantisce, quindi, un'efficienza di conversione del fotone \(\gamma\) in impulso di corrente ottima.
+
+Osservando lo spettro di emissione dei vari materiali è possibile ricavare informazioni legate alla radiazione emessa e il materiale con cui deve essere realizzato il \emph{Photo Multiplier Tube} o PMT. Non è detto che tutti i cristalli di scintillazione si accoppino con tutti i PMT, quindi, è necessario scegliere la coppia che permette la più alta sovrapposizione possibile tra i due spettri.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=3.00347in,alt={P4166\#yIS1}]{media/17_Detettori/image443.pdf}\caption{Figura .: Spettro di emissione di alcuni cristalli}
+\end{figure}
+
+Il NaI(Tl) emette nel blu con una lunghezza d'onda di 315-550nm a cui corrisponde un'energia dei fotoni emessi di 3eV. L'efficienza di questo materiale, sebbene sia 12\%, dipende soprattutto dall'energia incidente. Infatti, è possibile tracciare un grafico che permette di studiare come varia l'efficienza in funzione dell'energia.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.40219in,height=4.63619in,alt={P4169\#yIS1}]{media/17_Detettori/image444.pdf}\caption{Figura .: Grafico Efficienza-energia}
+\end{figure}
+
+Le caratteristiche di diversi materiali sono tabellate così da rendere più semplice il loro confronto:
+
+\begin{figure}
+\centering
+\includegraphics[width=6.73364in,height=3.88339in,alt={P4172\#yIS1}]{media/17_Detettori/image445.pdf}\caption{Figura .: Caratteristiche dei materiali}
+\end{figure}
+
+Le efficienze riportate sono sempre valori medi, poiché si parla di processi statistici: il NaI(Tl) genera in media 38000 coppie; tuttavia, durante il suo normale funzionamento possono essere generate più o meno coppie in base a fluttuazioni quantistiche. La maggior problematica associata a questo materiale è il tempo di morto di 230ns. Un altro materiale molto importante è l'ortosilicato di lutezio (LSO) che presenta un tempo morto molto ridotto rispetto al NaI(Tl) di circa 47ns. Con questo materiale è possibile identificare anche gli impulsi molto ravvicinati tra loro. Dunque, il tasso di eventi reali può essere stimato con buona precisone a partire dal tasso di eventi misurato.
+
+Tuttavia, rispetto allo ioduro di sodio attivato al tallio, presenta un'efficienza inferiore di 25000 di fotoni luminosi emessi per ogni MeV di energia incidente.
+
+Affinché la radiazione luminosa non subisca deflessione importanti all'interfaccia tra cristallo scintillatore e vetro del fotomoltiplicatore, il cristallo di scintillazione deve possedere un coefficiente di riflessione quanto più simile al vetro. Generalmente, i cristalli presentano un coefficiente di riflessione variabile nel range di 1.5-1.8.
+
+Una delle proprietà da tenere in considerazione nella scelta di un materiale piuttosto che un altro è la igroscopicità, ovvero la tendenza di un certo materiale a reagire con il vapore acquo nell'ambiente. Lo ioduro di sodio è igroscopico, quindi, il vapore acquo può degradarlo. Per evitare questo effetto, il materiale deve essere posizionato all'interno di un contenitore che lo ripara dal vapore acquo dell'aria. LSO, invece, non è igroscopico, quindi, non necessita di particolari accorgimenti per il suo mantenimento. Ovviamente questa proprietà incide sui costi della PET totale.
+
+Non tutti i materiali possono essere lavorati per realizzare gli anelli di detettori con le dimensioni volute, mentre altri si trovano allo stato liquido o gassoso.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.40678in,height=3.36364in,alt={P4179\#yIS1}]{media/17_Detettori/image446.pdf}\caption{Figura .: Proprietà materiali scintillatori}
+\end{figure}
+
+Il germanato di bismuto e l'ortosilicato di lutezio attivato al cesio presentano un'alta densità, un elevato numero atomico, una robustezza meccanica e non sono idroscopi. La loro efficienza è buona con scarsa emissione secondaria. Di contro, l'ortosilicato di gadolinio (GSO) e il cadmio si sfaldano facilmente.
+
+Il fluoruro di balio (BaF\textsubscript{2}) ha una costante di decadimento molto piccola di 0.6ns; tuttavia, ha emissioni secondarie a causa dell'\emph{Afterglow} che determina immagini molto rumorose. Inoltre, la lunghezza d'onda emessa è nello spettro dei raggi UV e, quindi, richiede dei PMT con quarzi costosi per l'accoppiamento.
+
+Per quanto riguarda l'accoppiamento con il tubo fotomoltiplicatore, si fa riferimento al diagramma di emissione della radiazione luminosa del cristallo in funzione della lunghezza d'onda e, quindi, energia incidente.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.17126in,height=3.11573in,alt={P4184\#yIS1}]{media/17_Detettori/image447.pdf}\caption{Figura .: Accoppiamento PMT}
+\end{figure}
+
+Per il tempo di decadimento si osserva un andamento esponenziale in intervalli di tempo sufficientemente lunghi per il germanato di bismuto mentre per LSO è pressocché lineare:
+
+\begin{figure}
+\centering
+\includegraphics[width=5.02134in,height=3.63884in,alt={P4187\#yIS1}]{media/17_Detettori/image448.pdf}\caption{Figura .: Tempo di decadimento}
+\end{figure}
+
+\subsection{Arrangiamento del blocco detettore}\label{arrangiamento-del-blocco-detettore}
+
+\includegraphics[width=3.80208in,height=2.82292in,alt={P4190\#y1}]{media/17_Detettori/image449.pdf}
+Il cristallo di scintillazione prevede delle scanalature, quindi, questo elemento deve essere lavorato in modo tale da essere tagliato per inserire le scalmanature dell'ordine 8x8 quadrati. Sono possibili anche blocchi con una divisione di 6x6. Complessivamente, il blocco detettore ha una grandezza di 4-5cm di lato per 3-4cm di spessore. Nella struttura standard, inoltre, sono previsti quattro fotomoltiplicatori dietro a un singolo cristallo di scintillazione.
+
+Figura .: Blocco detettore
+
+Nelle scanalature si inserisce un materiale riflettente, opaco alla radiazione, in modo tale che ciascun quadrato, che si viene a formare, assume il comportamento di una guida d'onda, poiché la radiazione può viaggiare solo in quello spessore, riflettendosi lungo le pareti. In questo modo la diffusione della luce tra un canale e l'altro è impedita.
+
+\includegraphics[width=2.26042in,height=2.69792in,alt={P4193\#y1}]{media/17_Detettori/image450.pdf}
+Figura .: Funzionamento blocco detettore monodimensionale
+
+Questo processo è detto logica di Anger e consente di ricostruire su quale dei canali iniziali è arrivato il fotone \(\gamma\), quindi, è possibile conoscere la posizione di incidenza con un'incertezza dell'ordine di 4mm, invece di un'incertezza di 4cm, che si avrebbe se il cristallo scintillatore non fosse scanalato.
+
+\includegraphics[width=2.52083in,height=2.40625in,alt={P4195\#y1}]{media/17_Detettori/image451.pdf}
+Figura .: Blocco detettore visto dall'alto
+
+\[X_{\gamma} = \frac{(B + D) - (A + C)}{A + B + C + D}\]
+
+\[Y_{\gamma} = \frac{(A + B) - (C + D)}{A + B + C + D}\]
+
+Le coordinate \({(X}_{\gamma},Y_{\gamma})\) sono variabili tra -1 e 1: sono 1 o -1 quando non si hanno fotoni luminosi su tutti i rispettivi detettori, ovvero verso gli estremi oppure una certa percentuale all'avvicinarsi del centro, in cui assumono valori intermedi. Le correnti, in definitiva, dipenderanno dal PMT che ha catturato la radiazione, quindi, dal fatto che quest'ultima è arrivata solo su A, solo su B o al 50\% tra A e B. La logica di Anger permette di ridurre l'incertezza di 4cm a 4mm, ottenendo immagini molto più precise.
+
+A rigor di logica, maggiore è il numero di fotomoltiplicatori e migliore è la risoluzione spaziale dell'immagine; tuttavia, esistono dei limiti costruttivi legati alle minime dimensioni fisicamente realizzabili dei fotomoltiplicatori stessi. Nelle apparecchiature molto recenti e ancora poco diffuse non si utilizzano i PMT ma tecnologie a semiconduttore.
+
+I blocchi detettori (cristallo di scintillazione e PMT) con dimensioni di 4-5cm, assemblati in 8 unità, formano un modulo; l'insieme di più moduli costituiscono l'anello di detezione. Più anelli di detezione sono uniti per realizzare il \emph{Gantry} della macchina PET.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.58133in,height=4.84167in,alt={P4201\#yIS1}]{media/17_Detettori/image452.pdf}\caption{Figura .: Anello di detezione}
+\end{figure}
+
+I blocchi di detettori hanno una dimensione di circa \(50x50x30{mm}^{3}\), il numero di scanalature tipicamente è di 8x8. Il PMT possiede, a sua volta, una certa geometria. In particolare, può avere sezione trasversale quadrata o rotonda. Per ridurre il senso di claustrofobia, tipicamente gli scanner hanno una dimensione minima di 56.2cm fino a massimo di 70cm.
+
+Il numero di blocchi detettori che costituiscono gli anelli detettori va da 144 a 288. Questa quantità è legata alla precisione con cui si riesce a rilevare la posizione di incidenza di un fotone \(\gamma\), che a sua volta si traduce in qualità dell'immagine ricostruita. Maggiore è il numero di blocchi detettori e migliore è la risoluzione dell'immagine.
+
+Le dimensioni del cristallo scintillatore sono riportante in termini di direzione transassiale, assiale e radiale. Infatti, dato che il cristallo è immesso in un anello detettore ha una dimensione radiale, ovvero nella dimensione che lo congiunge con il centro dell'anello di detezione, assiale, parallela all'asse longitudinale del paziente, e transassiale, ovvero tangente alla circonferenza dell'anello. Le tre dimensioni sono ovviamente diverse: la dimensione radiale si aggira intorno ai 20-30mm, quella assiale dai 4.05mm a 8mm mentre la transiassiale tra 4mm e 6.39mm.
+
+Il materiale con cui è realizzato il cristallo ha uno certo \emph{Stopping Power} legato al coefficiente di attenuazione lineare. Chiaramente maggiore è lo spessore del cristallo, cioè maggiore è la dimensione radiale, maggiore è la probabilità che il fotone \(\gamma\) si intercettato. Uno spessore radiale limitato può aumentare la percentuale dei fotoni \(\gamma\) non rilevati perdendo così di efficienza. L'energia elettromagnetica incidente, infatti, può non essere assorbita sulla superficie esterna del cristallo scintillatore ma in profondità della sua struttura.
+
+Ovviamente, maggiore è lo spessore del materiale e maggiore è il percorso che i fotoni luminosi devo compiere all'interno del cristallo, quindi, maggiore è la probabilità che essi siano assorbiti. È necessario scegliere un giusto spessore così da trovare un compromesso tra aumento dell'efficienza e radiazione emessa dal cristallo scintillatore. La perdita di alcuni fotoni luminosi può essere tollerata a patto che vi sia un aumento del numero di fotoni \(\gamma\) intercettati dal cristallo.
+
+Il numero degli anelli di detezione è legato al numero di eventi rilevati. Infatti, i due fotoni emergenti dal corpo non sono diretti secondo una direzione prestabilita, ma ogni direzione dello spazio presenta la stessa probabilità di essere intrapresa. Una parte dei fotoni emergono anche parallelamente all'asse longitudinale del corpo e, a causa della struttura aperta dell'anello di detettori, non sono intercettati. I fotoni che viaggiano con un certo angolo rispetto alla normale sono rilevati se il numero degli anelli di rilevazione è adatto. Ciò si traduce in una migliore ricostruzione dell'immagine e aumento dell'efficienza totale del sistema. Tuttavia, il costo del macchinario PET aumenta poiché è maggiore il numero dei cristalli di scintillazione e PMT. Generalmente, il numero degli anelli di detezione è compreso tra i 18 e 32.
+
+Lo spessore della fetta in PET è maggiore di quella in risonanza magnetica ed è in media uguale a 4mm contro l'1mm della risonanza magnetica. La grandezza dei voxel deriva proprio alle dimensioni dei cristalli scintillatori, delle scanalature e dei PMT.
+
+La finestra di coincidenza temporale è un fattore molto importante per poter considerare due fotoni \(\gamma\) rilevati da detettori opposti come risultati di evento di annichilazione. Questa finestra temporale è generalmente di 8-12.5ns. Al di fuori di tale intervallo i due fotoni non sono considerati provenienti da uno stesso evento di annichilazione e sono, di conseguenza, scartati. Se il tempo morto è troppo elevato, anche la finestra temporale di detezione risulta essere abbastanza estesa, dunque, fotoni non appartenenti allo stesso fenomeno di annichilazione potrebbero essere interpretati come tali, portando a un errore nella ricostruzione delle immagini.
+
+La sola contemporaneità non basta per identificare se due fotoni provengono dallo stesso evento di annichilazione. I moderni materiali presentano un una risoluzione energetica di 350-650keV. Se i fotoni rientrano in questo intervallo energetico sono accettabili per la ricostruzione delle immagini.
+
+Altre caratteristiche tipiche dei blocchi di detezione sono riportati nelle seguenti tabelle:
+
+\begin{figure}
+\centering
+\includegraphics[width=5.01326in,height=2.62679in,alt={P4213\#yIS1}]{media/17_Detettori/image453.pdf}\caption{Figura .: Caratteristiche blocchi detettore}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=6.12814in,height=4.42157in,alt={P4215\#yIS1}]{media/17_Detettori/image454.pdf}\caption{Figura .: Caratteristiche scanner PET commerciali}
+\end{figure}
+
+Esistono detettori a scintillazione a fotodiodo, cioè dei semiconduttori sensibili ai raggi \(\gamma\), che sono usati particolarmente nelle PET/MRI, le quali, però, sono molto poco diffuse a causa dei costi attualmente molto elevati e la mancanza di un campo di applicazione principe come l'oncologia per la PET.
+
+Queste macchine oltre a presentare gli anelli detettori tipici della PET e tutte le problematiche associate alla risonanza magnetica dovute alla generazione dei gradienti, il raffreddamento del superconduttore e così via, ci sono anche questioni legate all'interazione magnetica dei fotomoltiplicatori che ha portato all'introduzione di tecnologie a semiconduttore.

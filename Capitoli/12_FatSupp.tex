@@ -1,0 +1,357 @@
+\begin{center}
+\vfill
+    \chapter{Fat suppression}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+\subsection{Chimical shift del grasso}\label{chimical-shift-del-grasso}
+
+Al fine di non visualizzare delle strutture anatomiche, che normalmente avrebbero un segnale paragonabile a quello del tessuto di interesse, si rende necessario l'applicazione di varie metodiche per la soppressione del grasso o dell'acqua. Ad esempio, i tessuti come i nervi ottici o il tessuto fibroghiandolare mammario sono ben visualizzati se si attua una soppressione del segnale proveniente dal grasso che circonda le strutture anatomiche di interesse.
+
+Se non si ricorre a una sequenza di \emph{inversion recovery} seguita da una spin-echo, applicata nel momento in cui la magnetizzazione del tessuto da sopprimere è nulla, è possibile che le proprietà intrinseche delle macromolecole, che schermano il campo magnetico principale ai protoni, causano degli artefatti. Infatti, anche per un campo statico principale perfettamente uniforme, localmente a livello molecolare, sono presenti delle disomogeneità di campo dovute alla struttura della macromolecola biologica. In altre parole, un protone libero, ovvero appartenente a una molecola d'acqua, vede un campo magnetico principale diverso rispetto a un protone legato a una macromolecola. Ciò avviene perché gli elettroni orbitanti intorno ai nuclei degli atomi che compongono la molecola modificano localmente il campo magnetico.
+
+Come esito finale, i protoni d'acqua risuonano a una frequenza di precessione di Lamour lievemente diversa da quella dei protoni legati alle macromolecole. Ad esempio, i protoni legati agli atomi di grasso presentano una frequenza di precessione inferiore di quella di un protone dell'acqua.
+
+La differenza di precessione tra protoni legati a molecole d'acqua e legati al grasso è data da:
+
+\[\Delta f_{fw} = f_{f} - f_{w} = - \sigma_{fw}\overline{\gamma}B_{0}\]
+
+Dove il pedice \(f\) indica il grasso (\emph{fat}) con formula \(CH_{8}CH_{4}\), e \(w\) l'acqua (\emph{water}) con formula \(H_{2}O\).
+
+La quantità \(\sigma_{fw}\) è un parametro positivo indicante lo shift chimico tra acqua e grasso, detto costante di \emph{shielding} o schermatura o shift chimico. In gergo si dice che i protoni sono immersi in un ambiente molecolare.
+
+Ovviamente, i vari ambienti molecolari modificano il campo principale localmente in modo diverso, quindi, la costante di \emph{shielding} è caratteristica di ogni sostanza.
+
+Sebbene l'equazione per lo shift di frequenza sia stata scritta per l'acqua e il grasso, essa ha validità generale a patto di cambiare il valore della costante di \emph{shielding} tra le molecole.
+
+La maggior parte del grasso nel corpo umano presenta una costante di \emph{shielding} di:
+
+\[\sigma_{fw} = 3.35\ ppm = 3.335 \cdot 10^{- 6}\]
+
+Per un campo principale \(B_{0} = 1.5\ T\), ciò porta a uno shift in frequenza di:
+
+\[\left| \Delta f_{fw} \right| = \left| - \sigma_{fw}\overline{\gamma}B_{0} \right| = 3.335 \cdot 10^{- 6} \cdot 42.6 \cdot 10^{6}\frac{Hz}{T}1.5\ T = 214\ Hz\]
+
+La densità protonica dell'acqua può anche essere molto maggiore di quella del grasso in un tessuto sano, tuttavia, il segnale del voxel legato ai lipidi per una sequenza con intervalli di ripetizione di breve durata può essere molto maggiore di quello legato all'acqua, poiché quest'ultimo presenta un tempo di rilassamento longitudinale \(T_{1}\) maggiore.
+
+Il problema dell'elevato segnale del grasso è amplificato quando l'antenna superficiale usata in risonanza è posta in prossimità del tessuto adiposo che riveste i tessuti. Inoltre, risuonando a frequenze diverse, l'adipe può introdurre una serie di artefatti nell'immagine finale. Gli artefatti da spostamento chimico, come i bordi scuri o luminosi visibili ai confini tra grasso e acqua lungo la direzione di lettura, sono un classico esempio di questo fenomeno.
+
+L'artefatto appare come una doppia linea al confine tra tessuti a base d'acqua (come muscoli o organi) e tessuti a base di grasso:
+
+\begin{itemize}
+\item
+  Banda di Bordo Scuro: A causa della loro frequenza leggermente inferiore, i segnali dei protoni del grasso vengono codificati in una posizione leggermente diversa rispetto ai protoni dell'acqua. Questo causa un'interruzione del segnale in corrispondenza del confine tra i due tessuti, creando una banda scura.
+\item
+  Banda di Bordo Luminoso: Allo stesso tempo, i segnali dei protoni del grasso e dell'acqua si sovrappongono in un'altra area del confine, producendo una banda luminosa.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=3.56061in,height=3.56061in]{media/12_FatSupp/image320.pdf}\caption{Figura .: Artefatto dovuto al grasso}
+\end{figure}
+
+Si applica una sequenza FID a un campione contenente grasso e acqua, caratterizzata da un impulso a \(\pi/2\) che ribalta la magnetizzazione sul piano trasverso. Si registra, poi, il segnale emesso dal ritorno all'equilibrio emesso dal voxel.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69167in,height=5.16667in]{media/12_FatSupp/image321.pdf}\caption{Figura .: Sequenza FID e segnale registrato}
+\end{figure}
+
+La frequenza di risonanza dell'acqua, nel sistema rotante, è maggiore di quella del grasso di un fattore \(\Delta f_{fw}\). Questo shift in frequenza rispetto alla sequenza di Lamour genera un problema nell'immagine ricostruita se l'ampiezza della banda di accettazione del voxel è maggiore di \(f_{fw}\). Infatti, il segnale di risonanza sarà caratterizzato da due picchi, uno di ampiezza maggiore legato alla concentrazione di acqua e centrato in \(\overline{\gamma}B_{0}\) nel sistema fisso del laboratorio (o a \(0\ Hz\) nel sistema rotante) e l'altro, di intensità inferiore centrato a \(\overline{\gamma}B_{0} - \Delta f_{fw}\) nel sistema fisso da laboratorio (o a \(- \Delta f_{fw}\) nel sistema rotante.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69167in,height=3.99152in]{media/12_FatSupp/image322.pdf}\caption{Figura .: Spettro del segnale registrato da acqua e grasso}
+\end{figure}
+
+Il segnale nel voxel è dato dalla combinazione di due picchi spettrali, rispettivamente a frequenza \(f_{0} = 2\pi\omega_{o} = 2\pi\gamma B_{0}\) e shiftata di \(\Delta f_{fw}\):
+
+\[s = s(w)\exp\left( - j\omega_{0}t \right) + s(f)\exp\left( - \left( \omega_{0} + \frac{\Delta f_{fw}}{2\pi} \right)t \right)\]
+
+Nel sistema rotante, la magnetizzazione dell'acqua e del grasso, a valle dell'impulso a radiofrequenza a \(\pi/2\), mostrano comportamenti diversi:
+
+\begin{itemize}
+\item
+  La magnetizzazione dell'acqua resta solidale al sistema di riferimento rotante e giace sull'asse del ribaltamento su cui è applicato l'impulso;
+\item
+  La magnetizzazione del grasso, procedendo con una frequenza di risonanza inferiore, è ritardata rispetto all'asse di ribaltamento.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=5.19167in,height=5.78333in]{media/12_FatSupp/image323.pdf}\caption{Figura .: Vettori di magnetizzazione di acqua e tessuto adiposo nel sistema rotante}
+\end{figure}
+
+Si suppone di eseguire un imaging mediante l'applicazione di gradienti che selezionano una riga del \(k\)-spazio. Si suppone che il gradiente di lettura sia applicato lungo l'asse \(x\).
+
+\begin{figure}
+\centering
+\includegraphics[width=5in,height=5.51059in]{media/12_FatSupp/image324.pdf}\caption{Figura .: FID con gradiente di lettura il quale rende la frequenza una funzione della posizione}
+\end{figure}
+
+Nel voxel di lunghezza \(\Delta x\), a causa del gradiente applicato, vi è una variazione di frequenza dipendente dalla posizione degli isocromati:
+
+\[\omega(x) = \gamma G_{x}x + \gamma B_{0}\]
+
+In altre parole, tra \(x\) e \(x + \Delta x\) si ha una variazione della frequenza di risonanza di \(\Delta f\) data dalla relazione:
+
+\[\Delta f = \overline{\gamma}G_{x}\Delta x\]
+
+Nella banda del volumetto \(\Delta x\) sono contenute le frequenze di risonanza dell'acqua e del grasso, distanziate da uno \emph{shift} frequenziale \(\Delta f_{fw}\), una quantità intrinseca e costante. Applicando il gradiente di lettura \(G_{x}\), le due frequenze misurate sono spostate in base alla loro posizione reale. Si \(x_{1}\) la posizione fissa degli isocromati legati al grasso e \(x_{2}\) quella degli isocromati legati all'acqua. La frequenza di risonanza del grasso è, quindi:
+
+\[f_{f} = \overline{\gamma}B_{0} - \Delta f_{fw} + \overline{\gamma}G_{x}x_{1}\]
+
+Mentre per l'acqua:
+
+\[f_{w} = \overline{\gamma}B_{0} + \overline{\gamma}G_{x}x_{2}\]
+
+Poiché i due isocromati si trovano in posizioni diverse, la differenza tra le loro frequenze misurate non è più semplicemente lo shift chimico, ma una quantità che dipende anche dal gradiente applicato. La differenza di frequenza tra i due segnali è data da:
+
+\[\Delta f_{finale} = \overline{\gamma}B_{0} - \Delta f_{fw} + \overline{\gamma}G_{x}x_{1} - \overline{\gamma}B_{0} - \overline{\gamma}G_{x}x_{2} = - \Delta f_{fw} + \overline{\gamma}G_{x}\left( x_{1} - x_{2} \right)\]
+
+Questa relazione dimostra che la differenza di frequenza tra i due segnali è la somma di due componenti: lo shift chimico intrinseco e uno shift dovuto al gradiente e alla distanza tra le posizioni reali dei due isocromati.
+
+È possibile applicare un gradiente di lettura tale per cui le frequenze di risonanza siano portati fuori dal range di frequenze contenute nel voxel.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69167in,height=3.99167in]{media/12_FatSupp/image325.pdf}\caption{Figura .: Applicazione del gradiente tale che il picco spettrale del grasso vada all'esterno della banda di ricezione del voxel}
+\end{figure}
+
+Con questa soluzione sono acquisite solamente le frequenze contenute nel voxel e, dunque, solo le componenti legati agli isocromati dell'acqua, mentre il segnale nel grasso viene soppresso.
+
+Il segnale del grasso, in altre parole, può essere spostato e invadere i voxel vicini, un fenomeno noto come"\emph{spatial misregistration artifact} (artefatto da dislocazione spaziale). Questo artefatto si verifica perché i segnali dei protoni del grasso vengono codificati in una posizione leggermente diversa rispetto a quelli dell'acqua.
+
+Il segnale del grasso proviene dalla posizione \(x_{1}\) con frequenza, a causa del gradiente di lettura \(f_{f}\left( x_{1} \right) = \overline{\gamma}B_{0} - \Delta f_{fw} + \overline{\gamma}G_{x}x_{1}\). Il sistema di ricostruzione mappa il segnale nella posizione \(x_{f}\) tale per cui:
+
+\[f\left( x_{f} \right) = \overline{\gamma}B_{0} + \overline{\gamma}G_{x}x_{f}\]
+
+Il sistema di ricostruzione interpreta il segnale ricevuto ignorando lo shift in frequenza legato allo \emph{shielding} e lo interpreta come un segnale posizionato in \(x_{f}\) a causa dell'applicazione del gradiente. Siccome i due segnali \(f_{f}\left( x_{1} \right)\) e \(f_{f}\left( x_{f} \right)\) sono uguali, è possibile determinare lo shift di posizione:
+
+\[f_{f}\left( x_{1} \right) = f_{f}\left( x_{f} \right) \Leftrightarrow \overline{\gamma}B_{0} - \Delta f_{fw} + \overline{\gamma}G_{x}x_{1} = \overline{\gamma}B_{0} + \overline{\gamma}G_{x}x_{f}\]
+
+Il termine \(\overline{\gamma}B_{0}\) è in comune ai due membri, dunque, può essere semplificato:
+
+\[- \Delta f_{fw} + \overline{\gamma}G_{x}x_{1} = + \overline{\gamma}G_{x}x_{f}\]
+
+Risolvendo l'equazione si ottiene:
+
+\[x_{1} - x_{f} = \frac{\Delta f_{fw}}{\overline{\gamma}G_{x}}\]
+
+Questa relazione dimostra che più grande è il gradiente di lettura (\(G_{x}\)), minore sarà lo shift spaziale, riducendo così l'artefatto.
+
+La soluzione riguardante il gradiente non è ottimale in quanto il picco spettrale associato al tessuto adiposo può essere mappato in posizione diverse da quella reale nel FOV, generando un artefatto nella ricostruzione. In altre parole, il segnale del grasso determina una variazione della densità protonica del campo di vista dell'immagine, visualizzando sull'immagine il grasso in posizioni diverse da quelle realmente presenti nel corpo.
+
+In generale, affinché non si verifichi questo artefatto, la banda di frequenza \(\Delta f\) contenuta nel voxel di ampiezza \(\Delta x\) deve essere maggiore del \emph{chimical shift}:
+
+\[\Delta f > \sigma_{fw}\overline{\gamma}B_{0}\]
+
+Con questa soluzione il grasso e l'acqua sono contenuti nello stesso voxel, visualizzando così il grasso nel distretto anatomico effettivamente occupato.
+
+Se si vuole una banda nel voxel minore del \emph{chemical shift} è necessario applicare una sequenza di inversion recovery in grado di sopprimere il grasso, combinata alla sequenza di acquisizione.
+
+La banda del voxel deve essere opportunamente scelta. È noto, infatti, che la banda del voxel è legata al rapporto segnale/rumore: minore è la banda di frequenza contenuta nel voxel e maggiore è il rapporto segnale rumore, secondo un andamento del tipo:
+
+\[SNR \propto \frac{1}{\sqrt{{BW}_{R}}}\]
+
+Questo requisito è in contrasto con l'ampliamento della banda al fine di eliminare l'artefatto legato al \emph{chemical shift}, poiché, come visto, per ridurre tale fenomeno è necessario avere una banda per voxel maggiore dello shift in frequenza delle due sostanze- Ciò produce una riduzione del rapporto segnale/rumore.
+
+Al fine di scegliere una banda per voxel minore, così da aumentare il rapporto segnale/rumore, è necessario adottare opportune strategie di soppressione dei tessuti di non interesse come il grasso, tramite una sequenza di \emph{inversion recovery}.
+
+\subsection{Eccitazione selettiva}\label{eccitazione-selettiva}
+
+Oltre alla tecnica di inversion recovery per la soppressione del segnale proveniente da un tessuto, esistono molte altre metodiche come la tecnica di eccitazione selettiva.
+
+Grasso e acqua presentano differenti frequenze di risonanza, dunque, applicando un campo principale perfettamente omogeneo, è possibile trasmettere un impulso a radiofrequenza con banda sufficientemente stretta da ribaltare il vettore magnetizzazione di una sola specie chimica.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69167in,height=2.84167in,alt={Immagine che contiene testo, diagramma, Diagramma, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/12_FatSupp/image326.pdf}\caption{Figura .: Impulso a radiofrequenza per ribaltare solamente gli isocromati di un tessuto}
+\end{figure}
+
+Si vuole eleminare il segnale proveniente dal grasso; a tale scopo si applica un impulso a \(\pi/2\) in grado di eccitare solamente tale tessuto, quindi, con frequenza \(f_{0} - \Delta f_{fw}\) e a banda molto limitata così da evitare l'eccitazione dei protoni d'acqua.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.425in,height=5.81667in,alt={Immagine che contiene testo, diagramma, linea, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/12_FatSupp/image327.pdf}\caption{Figura .: Eccitazione selettiva della sola magnetizzazione legata al grasso}
+\end{figure}
+
+Subito dopo l'impulso a radiofrequenza di \(\pi/2\) si applica un gradiente detto di spoiling, tipicamente lungo \(z\), generalmente asse di \emph{slice selection}. Questo gradiente ha l'effetto di variare la frequenza di risonanza all'interno della fetta eccitata, contenente solo grasso.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.1in,height=3.99089in,alt={Immagine che contiene testo, schermata, diagramma, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/12_FatSupp/image328.pdf}\caption{Figura .: Gradiente di spoiling}
+\end{figure}
+
+L'effetto risultate è uno sfasamento degli isocromati che porta la magnetizzazione del grasso a essere completamente nulla. Con questa tecnica la componente longitudinale è nulla per il ribaltamento mentre quella trasversale per lo sfasamento introdotto dal gradiente di spoiling.
+
+Dopo l'applicazione dell'impulso a radiofrequenza a banda stretta e il gradiente di spoiling, il grasso non è più eccitabile. In questa condizione si dice che il grasso è saturo mentre la tecnica è nota come \emph{fat saturation} o FAT-SAT.
+
+Successivamente, è possibile applicare una classica sequenza di acquisizione del \(k\)-spazio come la gradient-echo o spin-echo, caratterizzata da impulsi di eccitazione con banda stretta e frequenza centrale uguale a quella di risonanza dell'acqua:
+
+\[BW = \overline{\gamma}B_{0}\]
+
+Si suppone di applicare una sequenza gradient-echo per acquisire il segnale, dunque, esaurito il gradiente di spoiling si applica un impulso a \(\pi/2\) per eccitare la magnetizzazione dell'acqua. La sequenza gradient-echo permette di generare l'echo.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=5.50278in,alt={Immagine che contiene testo, diagramma, linea, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/12_FatSupp/image329.pdf}\caption{Figura .: Sequenza per la soppressione del grasso e imaging}
+\end{figure}
+
+Con questa sequenzia si rimuove completamente gli artefatti dovuti al grasso, poiché si annulla il segnale proveniente da questo tessuto; tuttavia, l'eccitazione selettiva presenta lo svantaggio di essere molto sensibile alla disomogeneità del campo principale. In caso di disomogeneità del campo principale, gli impulsi centrati a \(f_{0} - \Delta f_{fw}\) potrebbero eccitare porzioni di acqua che risuonano a quella frequenza per l'introduzione del termine aggiuntivo, legato alle disomogeneità \(\Delta B\), nella frequenza di Lamour dell'acqua:
+
+\[f_{w} = \overline{\gamma}B_{0} + \overline{\gamma}\Delta B\]
+
+\(f_{w}\) potrebbe essere uguale \(f_{0} - \Delta f_{fw}\):
+
+\[\overline{\gamma}B_{0} + \overline{\gamma}\Delta B = f_{0} - \Delta f_{fw} \Leftrightarrow \overline{\gamma}\Delta B = - \Delta f_{fw}\]
+
+Se la condizione \(\overline{\gamma}\Delta B = - \Delta f_{fw}\) è verificata si portano porzioni di acqua alla saturazione.
+
+Si osservi che le disomogeneità del campo \(\Delta B\) sono garantite dai costruttori di \(1\ ppm\) del campo generato all'interno una sfera con diametro di \(25\ cm\).
+
+L'ampiezza di \(\Delta B\) è molto vicina a quella del coefficiente di shielding e ciò può determinare la mancata cancellazione del grasso o, addirittura, la soppressione del segnale proveniente da porzioni del tessuto da analizzare.
+
+Per limitare gli effetti delle disomogeneità di campo, l'ampiezza \(\Delta B\) dovrebbe essere inferiore a \(1\ ppm\) così da non essere confrontabile col coefficiente di shielding.
+
+\subsection{Gradient-echo per la soppressione del grasso}\label{gradient-echo-per-la-soppressione-del-grasso}
+
+È possibile applicare dei gradienti per sopprimere il segnale proveniente da un tessuto non voluto, sfruttando l'effetto del \emph{chemical shift}.
+
+Si applica un impulso a radiofrequenza che eccita l'intero volume contenente un campione di acqua e grasso, dunque, con un contenuto frequenziale abbastanza ampio, uguale a \(\Delta f_{fw}\).
+
+Applicando una sequenza gradient-echo bidimensionale, si applica un gradiente di selezione della fetta, un gradiente di codifica di fase incrementato a ogni ripetizione e, in fine, il gradiente di lettura composto da un gradiente di defasamento negativo e uno di rifasamento positivo, con area solitamente doppia del primo. Quando l'area del secondo gradiente uguaglia quella del primo, all'istante \(T_{E}\), si forma l'echo.
+
+Sia \(t = 0\ s\) l'istante di tempo al centro dell'impulso a radiofrequenza. La fase degli isocromati può variare sia per l'applicazione del gradiente di lettura sia per il \emph{chemical shift} tra acqua e grasso. La variazione della fase legata al gradiente di lettura si verifica quando quest'ultimo è applicato, secondo la relazione:
+
+\[\phi(t) = - \int_{}^{}{\omega dt} = - \gamma G_{x}xt\]
+
+All'applicazione del gradiente negativo nella direzione di lettura, la fase varia con legge lineare e pendenza positiva.
+
+Nel momento in cui il gradiente è invertito, la fase decresce con pendenza uguale, essendo uguale l'ampiezza in modulo del gradiente, ma di segno opposto. Al tempo di \(t = T_{E}\), la fase si annulla per tutti gli isocromati, formando l'echo.
+
+Lo sfasamento introdotto dal chemical shift, avendo sempre lo stesso segno, non può essere recuperato con l'inversione del gradiente. In particolare, la frequenza di risonanza del grasso è minore di quella dell'acqua, quindi, la sua fase è ritardata rispetto all'acqua nel sistema di riferimento rotante.
+
+Nel tempo, la pendenza della fase legata al chemical shift resta costante e negativa:
+
+\[\phi(t) = 2\pi\Delta f_{fw} = - 2\pi\left| \Delta f_{fw} \right|\]
+
+Dal punto di vista teorico, è possibile modellare il fenomeno del chemical shift come una disomogeneità del campo magnetico principale \(B_{0}\) che detemina una frequenza di risonanza diversa per il grasso:
+
+\[\Delta f_{fw} = \overline{\gamma}\Delta B_{fw}\]
+
+A causa della disomogeneità di campo \(\Delta B_{fw}\), vista solamente dagli isocromati legati alle molecole di grasso, al tempo d'echo la fase del grasso non è completamente recuperata.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=6.68194in,alt={Immagine che contiene testo, diagramma, linea, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/12_FatSupp/image330.pdf}\caption{Figura .: Sequenza gradient-echo con andamento della fase di acqua e grasso}
+\end{figure}
+
+Dal punto di vista analitico, la fase dell'acqua può essere scritta, durante il gradiente di rifasamento, in cui ha pendenza negativa, come:
+
+\[\phi_{w}\left( t' \right) = - \gamma G_{x}xt'\]
+
+Dove la definizione \(t' = t - T_{E}\) è utile a portare l'origine dei tempi al tempo d'echo. Per definizione di \(k\)-spazio (\(k_{x} = \ \overline{\gamma}G_{x}t\)), è possibile scrivere:
+
+\[\phi_{w}\left( k_{x} \right) = 2\pi k_{x}x\]
+
+La fase del grasso, invece, subisce l'effetto del gradiente e delle disomogeneità di campo, legati al \emph{chemical shift}. Rispetto al tempo \(t'\) durante il gradiente di rifasamento, è possibile scrivere:
+
+\[\phi_{f}\left( t' \right) = - \gamma G_{x}xt' - \gamma\Delta B_{fw}t'\]
+
+Si raccoglie moltiplica e divide per \(2\pi\), al fine di ottenere \(\overline{\gamma} = \gamma/2\pi\):
+
+\[\phi_{f}\left( t' \right) = - 2\pi\overline{\gamma}G_{x}xt' - 2\pi\overline{\gamma}\Delta B_{fw}t'\]
+
+Si raccoglie il termine \(2\pi\overline{\gamma}G_{x}t'\):
+
+\[\phi_{f}\left( t' \right) = - 2\pi\overline{\gamma}G_{x}\left( x + \frac{\Delta B_{fw}}{G_{x}} \right)t'\]
+
+Questa relazione può essere espressa in termini del \(k\)-spazio:
+
+\[\phi_{f}\left( k_{x} \right) = - 2\pi k_{x}\left( x + \frac{\Delta B_{fw}}{G_{x}} \right)\]
+
+Nel \(k\)-spazio, la fase del grasso è sfasata di una quantità \(- \ \Delta B_{fw}/G_{x}\). Siccome la fase del grasso, al tempo d'echo, non è recuperata, è necessario introdurre un termine addizionale di fase che tiene conto dello sfasamento introdotto dall'ambiente molecolare:
+
+\[\phi_{f}\left( k_{x} \right) = - 2\pi k_{x}\left( x + \frac{\Delta B_{fw}}{G_{x}} \right) - 2\pi\overline{\gamma}\Delta B_{fw}T_{E}\]
+
+Si pone:
+
+\[\Delta\omega_{fw} = 2\pi\overline{\gamma}\Delta B_{fw}\]
+
+La fase aggiuntiva è presente nel segnale del voxel ricostruito:
+
+\[s\left( T_{E} \right) = s_{w} + s_{f}\exp\left( - j\Delta\omega_{fw}T_{E} \right)\]
+
+La differenza di fase al tempo d'echo si rifletta sul segnale ricostruito come un termine di fase che rendere il segnale proveniente da grasso complesso. Dunque, il segnale del grasso dipende dalla fase \(\Delta\omega_{fw}T_{E}\), che a sua volta dipende strettamente dal tempo d'echo.
+
+Per annullare questo segnale la tecnica prevede di acquisire due immagini, una allineata con la fase del grasso e una in opposizione di fase. Per acquisire l'immagine in fase col segnale del grasso, si sceglie il tempo di echo da che \(\Delta\omega_{fw}T_{E}\) sia un multiplo intero di \(2\pi\):
+
+\[\Delta\omega_{fw}T_{E} = 2n\pi,n\mathbb{\in N}\]
+
+In questa condizione, il segnale del voxel legato al grasso è puramente reale:
+
+\[\left. \ s_{f}\exp\left( - j\Delta\omega_{fw}T_{E} \right) \right|_{\Delta\omega_{fw}T_{E} = 2n\pi} = s_{f}\]
+
+L'immagine in fase è ottenuta sommando le immagini ricostruite di acqua e grasso:
+
+\[s_{IN} = \left. \ s\left( T_{E} \right) \right|_{\Delta\omega_{fw}T_{E} = 2n\pi} = s_{w} + s_{f}\]
+
+Dal punto di vista del sistema rotante, le due magnetizzazioni di acqua e grasso sono in fase, ovvero il loro sposamento differisce per un multiplo interno di \(2\pi\). Il segnale risultante è dato dalla somma dei segnali provenienti dai due tessuti.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.85012in,height=1.79192in,alt={Immagine che contiene schizzo, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/12_FatSupp/image331.pdf}\caption{Figura .: Magnetizzazioni in fase di acqua e grasso}
+\end{figure}
+
+La seconda immagine è ottenuta in opposizione di fase, ovvero il tempo di echo è scelto in modo tale che:
+
+\[\Delta\omega_{fw}T_{E} = n\pi,n\mathbb{\in N}\]
+
+In questa situazione, gli isocromati di acqua e grasso sono in opposizione di fase. Nel sistema di riferimento rotante, le due fasi differiscono per un multiplo interno di \(\pi\):
+
+\begin{figure}
+\centering
+\includegraphics[width=1.03139in,height=1.69815in,alt={Immagine che contiene schizzo, unghia/chiodo, bianco e nero Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/12_FatSupp/image332.pdf}\caption{Figura .: Magnetizzazioni in opposizione di fase di acqua e grasso}
+\end{figure}
+
+La fase dell'immagine del grasso, con questa scelta, è negativa, dunque, l'intero segnale è negativo:
+
+\[\left. \ s_{f}\exp\left( - j\Delta\omega_{fw}T_{E} \right) \right|_{\Delta\omega_{fw}T_{E} = n\pi} = - s_{f}\]
+
+L'immagine dovuta al grasso si sottrae a quella dell'acqua, ottenendo così il segnale del voxel:
+
+\[s_{OP} = \left. \ s\left( T_{E} \right) \right|_{\Delta\omega_{fw}T_{E} = n\pi} = s_{w} - s_{f}\]
+
+Acquisite le due immagini è possibile ricavare sia l'immagine dell'acqua \(s_{w}\) sia quella del grasso \(s_{f}\) mediante delle semplici operazioni di somma e sottrazione. Se, ad esempio, si sommano le due immagini in fase si risale all'immagine dell'acqua:
+
+\[s_{OP} + s_{IN} = s_{w} - s_{f} + s_{w} + s_{f} = 2s_{w}\]
+
+Da cui:
+
+\[s_{w} = \frac{s_{OP} + s_{IN}}{2}\]
+
+Mediante sottrazione tra le due immagini, invece, si ricava l'immagine del grasso:
+
+\[s_{IN} - s_{OP} = s_{w} + s_{f} - s_{w} + s_{f} = 2s_{f}\]
+
+Da cui:
+
+\[s_{f} = \frac{s_{IN} - s_{OP}}{2}\]
+
+Con questa metodica è semplice ricostruire l'immagine della sezione anatomica di interesse rimuovendo la componente del segnale del voxel indesiderata. In caso di acqua e grasso i tempi di echo da utilizzare sono, all'incirca:
+
+\[T_{E,IN} = \frac{2\pi}{\Delta\omega_{fw}} \simeq 4.54\ ms\]
+
+\[T_{E,OP} = \frac{\pi}{\Delta\omega_{fw}} \simeq 2.27\ ms\]
+
+Dove \(\Delta\omega_{fw} = 2\pi\overline{\gamma}\Delta B_{fw}\) e \(\Delta B_{fw} = \gamma\Delta f_{fw} \Leftrightarrow \ \Delta f_{fw} = \Delta B_{fw}/\gamma\). Combinando si ottiene:
+
+\[\Delta\omega_{fw} = 2\pi\ \Delta f_{fw} \simeq 1382\ rad/s\]
+
+La metodica non richiede una grande omogeneità di campo poiché non eccita selettivamente un tessuto; tuttavia, dovendo acquisire due immagini dello stesso distretto anatomico, con tempi di echo diversi, questa strategia presenta lo svantaggio di incrementare i tempi di acquisizione.

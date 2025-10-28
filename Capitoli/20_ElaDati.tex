@@ -1,0 +1,398 @@
+\begin{center}
+\vfill
+    \chapter{Elaborazione dei dati acquisiti in PET}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+\section{Acquisizione dei dati}\label{acquisizione-dei-dati}
+
+Una volta discriminato l'energia dell'impulso e la coincidenza temporale tra due eventi, per ricostruire l'immagine finale è necessario eseguire delle ulteriori elaborazioni sulla modalità di acquisizione dei dati. Per eliminare dai dati utilizzati per la ricostruzione delle immagini i fotoni provenienti da iterazioni con la materia, che aggiungerebbero solo rumore sull'immagine, si ricorre alla collimazione elettronica.
+
+\subsection{Collimazione elettronica: sinogramma}\label{collimazione-elettronica-sinogramma}
+
+Per realizzare un'immagine con buona qualità è necessario acquisire il maggior numero possibile di eventi di annichilazione. Una volta che il positrone si annichila con un elettrone atomico genera una coppia di fotoni \(\gamma\) diretti in qualsiasi direzione dello spazio. Se si utilizza un singolo anello di detettori si rischia di perdere un gran numero di eventi di annichilazione in cui i fotoni \(\gamma\) non si propagano in modo perpendicolare al piano dell'anello. Per tale motivo si realizzano degli scanner PET con più linee di detettori in modo da prelevare anche i fotoni emessi con un certo angolo fino a un valore limite. Questa problematica non si presenta in CT poiché si ha l'emissione di un numero di fotoni X molto più elevato e, quindi, il rumore e le perdite risultano essere contenute.
+
+Il paziente è posto al centro del \emph{Gantry}, nel FOV, dove inizia a emettere fotoni \(\gamma\), alcuni dei quali possono interagire con la materia. Per la presenza dei due fotoni associati a un singolo evento di annichilazione è possibile scartare i fotoni scatterati mediante la collimazione elettronica.
+
+La collimazione elettronica si basa sul concetto di \emph{Line Of Response} o LOR, una linea che unisce due detettori appartenente al FOV. La LOR identifica la linea lungo cui i fotoni provenienti da un evento di annichilazione di un positrone con un elettrone viaggiano verso i detettori. Di conseguenza, se due fotoni colpiscono due detettori posti su una LOR, vi è una certa probabilità che i due eventi appartengano a un processo di annichilazione. Ovviamente esistono delle complicanze, dovute a fenomeni statistici, che possono portare a false letture.
+
+\begin{figure}
+\centering
+\includegraphics[width=2.49426in,height=2.53913in,alt={P4715\#yIS1}]{media/20_ElaDati/image510.pdf}\caption{Figura .: Esempi di LOR}
+\end{figure}
+
+Tramite la definizione di LOR è possibile realizzare un sinogramma nel contesto della PET. Il sinogramma è un grafico cartesiano dove sull'asse delle ordinate vi è l'angolo di inclinazione di una certa LOR rispetto, solitamente, a una linea orizzontale. Ad esempio, nell'immagine precedente, la LOR A identifica l'angolo nullo mentre B e C presentano rispetto alla LOR A un certo angolo via via crescente. La LOR D è perpendicolare alla LOR A e, dunque, nel sinogramma corrisponde al limite superiore dell'asse delle ordinate.
+
+Sull'asse delle ascisse si trova il \emph{Displacement}, ovvero lo scostamento della LOR rispetto al centro del \emph{Gantry}. Ad esempio, la LOR D passa per il centro e, quindi, ha \emph{Displacement} nullo mentre la LOR A presenta la distanza massima rispetto al centro.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.39097in,height=3.28264in,alt={P4719\#yIS1}]{media/20_ElaDati/image511.pdf}\caption{Figura .: LOR e rispettivo sinogramma}
+\end{figure}
+
+Il sinogramma, quindi, instaura una trasformazione geometrica biunivoca tra le varie LOR del \emph{Gantry} e un punto nel piano \emph{Angle-Displacement} che caratterizza l'inclinazione della LOR rispetto l'orizzontale e la distanza dal centro. Noti i due parametri è univocamente determinata la LOR.
+
+Se si considera un punto nel \emph{Gantry} e si tracciano tutte le possibili LOR, si ottiene una curva con un andamento sinusoidale. Da questo risultato discende il nome sinogramma.
+
+La corrispondenza geometrica è fondamentale poiché all'atto dell'acquisizione dei dati, si valuta il numero di eventi che si verificano per ogni LOR. Ogni coppia di detettori, infatti, misura un certo numero di coincidenze diverso da un'altra coppia che individua una LOR diversa.
+
+Siccome i detettori sono in numero finito, non è possibile avere tutti gli angoli e \emph{Dispacement} del piano ma solamente dei punti discretizzati. Il numero di coincidenze è inserito in una struttura dati simile a una matrice, corrispondente al piano discretizzato del sinogramma. Ogni punto del piano \emph{Angle-Displacement} contiene, quindi, informazioni sul numero di conteggi effettuato su una LOR.
+
+Il sinogramma, altro non è un istogramma bidimensionale dove i due punti del piano individuano la LOR mentre sul terzo asse vi è il numero di conteggi, spesso rappresentato sul piano del sinogramma come gradi di grigio.
+
+In presenza di diverse strutture nella sezione del corpo umano, si ottiene un sinogramma più complesso in cui, ad ogni punto dello spazio-immagine, è associata una certa sinusoide poiché attraversato da LOR con angoli e distanze dal centro diverse. Ovviamente LOR parallele generano sinusoidi parallele.
+
+Nell'immagine sottostante si vede una \emph{Slice} del paziente e il relativo sinogramma. Gli agenti con maggior quantità di tracciante sono rappresentati da gradazioni di grigio più scure rispetto a regioni con minor quantità di radiofarmaco.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.71629in,height=3.55844in,alt={P4728\#yIS1}]{media/20_ElaDati/image512.pdf}\caption{Figura .: Esempio di sinogramma}
+\end{figure}
+
+Per costruire un sinogramma si fissa un particolare angolo e si analizza il numero di eventi di coincidenza rilevato da LOR parallele tra loro.
+
+La linea nel sinogramma rappresenta, quindi, la proiezione del paziente lungo l'angolo considerato poiché mostra come il tracciante si distribuisce lungo una linea.
+
+In particolare, nella regione in cui la densità di tracciante è più alta, emergono più coppie di eventi rilevati dai detettori inclinati dell'angolo scelto e, dunque, sono più scure rispetto a regioni con piccole concentrazioni di radio nucleotide.
+
+Il sinogramma è difficilmente interpretabile, quindi, è successivamente elaborato per estrarre l'immagine della \emph{Slice} del corpo.
+
+Una modalità di rappresentazione del sinogramma consiste nel mostrare il diagramma per ogni fetta: si suppone di acquisire le \emph{Slice} del corpo secondo piani di detezione ortogonali al paziente. Rappresentando i dati ottenuti da tutte le \emph{Slice} in termini di \emph{Angle} e \emph{Dispacement} si ottiene un sinogramma del tipo:
+
+\begin{figure}
+\centering
+\includegraphics[width=3.17532in,height=4.7907in,alt={P4735\#yIS1}]{media/20_ElaDati/image513.pdf}\caption{Figura .: Sinogramma di tutte le fette}
+\end{figure}
+
+Considerando invece, una rappresentazione in cui il sinogramma è ristretto a un angolo si ottiene una proiezione di una singola \emph{Slice} del corpo:
+
+\begin{figure}
+\centering
+\includegraphics[width=4.4672in,height=3.77907in,alt={P4738\#yIS1}]{media/20_ElaDati/image514.pdf}\caption{Figura .: Sinogramma di una fetta fissato l'angolo}
+\end{figure}
+
+Visualizzando le varie fette relative a un particolare angolo si riesce a intravedere una possibile struttura anatomica relativa alla \emph{Slice}.
+
+Entrambe le visualizzazioni non sono utilizzate poiché, mediante algoritmi digitali, si ricostruisce il volume tridimensione \emph{Slice} per \emph{Slice} così come avviene in CT.
+
+\subsection{Piani di detezione}\label{piani-di-detezione}
+
+Si suppone di mettere in coincidenza ciascun detettore di un anello con i detettori dello stesso anello. Questa soluzione limita l'acquisizione ai soli eventi che si verificano nei piani trasversi al paziente. Ponendo \(N\) anelli di rilevatori in serie si ottengono \(N\) piani paralleli che sezionano il paziente nel \emph{Ganty} in modo ortogonale all'asse principale.
+
+Le coincidenze avvenute lungo LOR che congiungono anelli differenti non sono rilevate. Di conseguenza, una coppia di fotoni che viaggia trasversalmente al \emph{Gantry} non è rilevata.
+
+Per illustrare il modo in cui i vari detettori di un anello sono correlati con altri detettori di altro si utilizza il michelogramma. Il grafico è costruito riportando sull'asse delle ascisse e delle ordinate i numeri dei detettori di due anelli. Nelle coppie di anelli posti in detezione si inserisce un asterisco.
+
+Nella logica prima citata, il michelogramma mostra una retta diagonale che unisce ogni detettore con un altro dello stesso anello. Questa modalità è la più semplice per rilevare i fotoni \(\gamma\) provenienti da eventi di annichilazione, ma non è l'unica possibile.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.21875in,height=2.6138in,alt={P4747\#yIS1}]{media/20_ElaDati/image515.pdf}\caption{Figura .: Coincidenze tra i detettori di un anello e michelogramma corrispondente}
+\end{figure}
+
+È possibile realizzare la circuiteria di controllo in modo che ogni anello sia in coincidenza anche con gli anelli adiacenti, ad esempio il primo anello è messo in relazione col secondo e con se stesso e così via. Ciò permette di individuare degli ulteriori piani obliqui, nella direzione di un anello il successivo, rispetto alla direzione longitudinali su cui poter ricavare le proiezioni dei radionuclidi. Se si pongono \(N\) anelli con questa logica di coincidenza si individuano \(N(N - 1)\) piani di detezione ovvero si ha una maggiore copertura del paziente.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.08333in,height=3.09653in,alt={P4750\#yIS1}]{media/20_ElaDati/image516.pdf}\caption{Figura .: Coincidenze tra i detettori di due anelli adiacenti e michelogramma corrispondente}
+\end{figure}
+
+La maggior copertura degli anelli di detezione comporta dei circuiti di coincidenza tra i due anelli. Se per un due detettori si hanno un centinaio di componenti elettronici da utilizzare, per mettere in relazione tutti i detettori di un anello in coincidenza bisogna utilizzare circa:
+
+\[\frac{100 \cdot 99}{2}\sim 5000\]
+
+Nei circuiti di coincidenza. La relazione tra gli \(N\) detettori di un anello con quello successivo richiede circa:
+
+\[5000 \cdot 2N\]
+
+Il costo complessivo dell'apparecchiatura aumenta notevolmente poiché aumentano i costi associati alla circuiteria di controllo e coincidenza. I costruttori possono prevedere anche quattro anelli in congiunzione, raddoppiando il numero degli elementi circuitali necessari alla realizzazione dello scanner.
+
+Iterando il ragionamento delle coincidenze è possibile mettere in relazione ogni detettore con tutti gli altri così da poter ottenere la copertura massima del paziente. A questa soluzione corrisponde il maggior numero di eventi rilevati poiché i fotoni emergenti in modo isotropo possono essere intercettati da quasi tutte le direzioni oblique rispetto all'asse del \emph{Gantry}.
+
+Tuttavia, questa soluzione porta a una complessità circuitale e computazionale degli algoritmi di ricostruzione che aumentano notevolmente il costo totale dell'apparecchiatura. In ogni caso la ricostruzione dell'immagine risulta essere molto più accurata per l'elevato numero di eventi valutati.
+
+Questa configurazione è tipica delle apparecchiature più recenti poiché i costi dell'elettronica e della fabbricazione sono stati ridotti negli ultimi anni. Ciò ha reso possibile congiungere ogni anello con tutti gli altri del \emph{Gantry}.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.32836in,height=2.73142in,alt={P4760\#yIS1}]{media/20_ElaDati/image517.pdf}\caption{Figura .: Coincidenze tra i detettori di tutti gli anelli e michelogramma corrispondente}
+\end{figure}
+
+Nelle applicazioni pratiche, non sempre è richiesta la massima copertura possibile del paziente, ad esempio, ci sono casi in cui l'esame radiologico richiede un \emph{Imaging} bidimensionale basato su alcune fette particolari del paziente. A tale scopo i costruttori prevedono dei setti interplanari, realizzati con materiale pesante assorbente le radiazioni \(\gamma\), evitando il rilevamento di fotoni che prevengono all'esterno di una \emph{Slice}. I setti, generalmente in piombo o tungsteno, sono, quindi, posti in modo da intercettare e assorbire tutti i fotoni che non appartengono alla \emph{Slice} di interesse. Questa soluzione, se da un lato permette di ridurre il rumore sovrapposto all'immagine poiché gli eventi indesiderati sono eliminati, dall'altro presenta lo svantaggio di ridurre proprio il numero totale di eventi rilevati e ciò comporta una minor qualità dell'immagine.
+
+I setti interplanari sono configurati dal radiologo mediante il tavolo di comando: questi elementi sono retraibili a seconda del tipo di \emph{Imaging} da eseguire sul paziente per effettuare la diagnosi del suo stato di salute.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.47761in,height=3.37176in,alt={P4764\#yIS1}]{media/20_ElaDati/image518.pdf}\caption{Figura .: Presenza dei setti interplanari}
+\end{figure}
+
+\subsection{Sensibilità}\label{sensibilituxe0}
+
+La sensibilità è un parametro molto importante legato al numero di eventi contati. Intuitivamente è semplice rendersi conto che i fotoni dalla zona centrale del paziente possono essere intercettati con maggior probabilità. Infatti, un fotone emergente dalla regione centrale del \emph{Gatry} può essere rilevato da uno qualsiasi degli anelli, se questi sono messi tutti in coincidenza.
+
+Se l'evento di annichilazione, invece, si verificare nelle zone periferiche del paziente, verso la pelle, i fotoni prodotti hanno maggior probabilità di essere rilevati dagli anelli posti in periferia o quello immediatamente in prossimità.
+
+È possibile concludere che l'intero processo di acquisizione dei dati al centro del paziente è più sensibile rispetto alla periferia del corpo. Riportando su un diagramma la sensibilità in funzione della posizione assiale si ottiene un grafico diverso in base al tipo di acquisizione:
+
+\includegraphics[width=4.67639in,height=5.86736in,alt={P4770\#y1}]{media/20_ElaDati/image519.pdf}
+Per un'acquisizione 3D, invece, bisogna fornire il \emph{Ring Difference} (\(rd\)), cioè il numero di anelli messi in congiunzione. Se, ad esempio, 11 su 16 anelli sono tra loro in coincidenza, la regione centrale presenta una sensibilità molto elevata mentre per le regioni periferiche essa decresce dato che le coppie di fotoni, provenienti dalle zone periferiche dal centro del \emph{Gantry}, sono rilevabili solo da pochi anelli. La sensibilità in funzione della posizione assiale presenta una forma del tipo trapezoidale.
+
+Figura .: Andamento della sensibilità per varie coincidenze
+
+Nel caso in cui tutti gli anelli sono messi in congiunzione tra loro, il punto al centro del \emph{Gantry} presenta la massima sensibilità di rilevazioni. Progressivamente, tutte le altre posizioni all'interno del \emph{Gantry}, all'allontanarsi dal centro, presenteranno un valore di sensibilità sempre più ridotto. La sensibilità in funzione della posizione assiale ha un andamento di tipo triangolare.
+
+In definitiva, quindi, all'aumentare del numero di anelli in congiunzione, si riduce l'ampiezza della regione in cui la sensibilità può essere considerata costante. Quindi, per avere il maggior numero di conteggi e la sensibilità più costante possibile, è necessario spostare il lettino porta-paziente così da cambiare il distretto anatomico situato al centro del \emph{Gantry}.
+
+Il lettino è spostato in modo tale che la sensibilità delle aree laterali, non situate mai al centro del \emph{Gantry} si sommino. Il risultato è una sensibilità sufficientemente costante sulla maggior parte del corpo del paziente. Questo processo è essenziale per poter eseguire una PET \emph{Total Body} dove, per ricostruire allo stesso modo tutte le regioni del corpo, è essenziale il movimento del lettino porta-paziente all'interno del \emph{Gantry}.
+
+Se il lettino non fosse mosso durante l'esame strumentale, le regioni centrali del corpo risulterebbero meglio ricostruite di altre poiché il numero dei fotoni rilevati è maggiore proprio in virtù della maggiore sensibilità.
+
+Prima di ricostruzione l'immagine, è necessario notare che l'acquisizione dei dati è influenzata da una serie di fattori quali:
+
+\begin{itemize}
+\item
+  La normalizzazione, dovuta alle disuguaglianze tra coppie di detettori;
+\item
+  L'attenuazione dei fotoni, a causa delle possibili interazioni con la materia;
+\item
+  Coincidenze \emph{Random};
+\item
+  Coincidenze di \emph{Scatter};
+\item
+  \emph{Deat Time};
+\item
+  \emph{Radial Elongation}.
+\end{itemize}
+
+\subsubsection{Normalizzazione}\label{normalizzazione}
+
+I moderni scanner PET presentano dai 10000 a 20000 detettori e centinaia di fotomoltiplicatori, quindi, l'architettura hardware è estremamente complessa.
+
+A questi numeri bisogna aggiungere la replicazione della circuiteria di amplificazione e rilevazione delle coincidenze per ogni coppia di detettori secondo il michelogramma.
+
+Ovviamente l'elettronica di controllo, prelievo e del cristallo scintillatore presentano delle differenze che determinano la variazione della sensibilità di una coppia di detettori. Inoltre, i parametri con cui la circuiteria analogica è realizzata dipendono dall'invecchiamento dei componenti o dall'aumento di temperatura locale, che potrebbe modificare il guadagno solo per un numero finito di detettori.
+
+Sono presenti altri fenomeni quali la \emph{Dark Current}, anch'essa dipendente dalla temperatura, e le variazioni del fattore di emissione secondario.
+
+Il blocco di scintillazione presenta delle dimensioni abbasta grandi, dell'ordine di 4cm x 4cm x 4cm, quindi, è molto complesso realizzare un drogaggio perfettamente omogeneo. Esisterà, quindi, una certa distribuzione del drogante all'interno della struttura cristallina. Ne discende che i livelli energetici di scintillazione presentano una certa distribuzione all'interno del cristallo, sicuramente diversa da un altro cristallo dello stesso macchinario.
+
+Di conseguenza, la sensibilità tra varie coppie di detettori dipende, oltre che dalla posizione rispetto il \emph{Gantry}, anche dal guadagno dei PMT e dalla variabilità fisica e costruttiva dei detettori stessi e dei cristalli scintillatori. Il risultato finale è una non uniformità dei dati acquisiti dovuti a coppie più sensibile di altre e viceversa. Sistematicamente, per ragioni costruttive, alcuni rilevatori captano più fotoni rispetto ad altri.
+
+Per compensare la disomogeneità dei dati si esegue una procedura di normalizzazione, applicata, di solito, con una cadenza temporale piuttosto spinta, come una volta a settimana di notte. Ciò è essenziale per evitare che le variazioni parametriche, che avvengono per l'invecchiamento dell'elettronica, possano pesare sui dati acquisiti e, in definitiva, sull'immagine ricostruita.
+
+La procedura di normalizzazione è normata da norme europee recepite dall'ente CEI in Italia ed è eseguita esponendo uniformemente tutti i detettori a una sorgente del radionuclide Germanio-68 (\(_{}^{68}{Ge}\ \)) che emette fotoni di energia uguale a 511keV. La sorgente è posizionata al centro del \emph{Gantry}, in assenza di paziente, così da eccitare tutti i detettori allo stesso modo.
+
+La procedura di irradiazione può durare dalle 6 alle 8 ore, in base alla sorgente, così da poter acquisire un numero statisticamente significativo di fotoni. Per tale motivo, solitamente, la normalizzazione è eseguita di notte.
+
+Una volta determinato il sinogramma dei fotoni rilevati durante il periodo di esposizione, si raccolgono i dati sia 2D che 3D e, a partire dai quali, si determinano i coefficienti di normalizzazione. In particolare, per ogni coppia di detettori in coincidenza, si calcola il fattore di normalizzazione come:
+
+\[F_{i} = \frac{A_{mean}}{A_{i}}\]
+
+Dove \(A_{mean}\) è il conteggio medio delle coincidenze di tutte le LOR, noto dal sinogramma, mentre \(A_{i}\) è il conteggio delle coincidenze sulla LOR i-esima che unisce la coppia di detettori considerati.
+
+Il fattore di normalizzazione permette di confrontare le prestazioni di una coppia di detettori con le prestazioni media. Se, infatti, la coppia di detettori è più sensibile rispetta alla media risulta che \({A_{mean} < A_{i} \Leftrightarrow \ F}_{i} < 1\), viceversa, se è meno sensibile \({A_{mean} > A_{i} \Leftrightarrow \ F}_{i} > 1\).
+
+Quando si esegue l'acquisizione del sinogramma sul paziente nella \emph{Routine} clinica, la i-esima coppia di detettori rileva un conteggio di coincidenze \(C_{i}\) da correggere mediante il fattore di normalizzazione \(F_{i}\) nel seguente modo:
+
+\[C_{norm,i} = {C_{i}F}_{i}\]
+
+Moltiplicando il conteggio della i-esima LOR per il fattore di normalizzazione, si compensa la maggiore o minore sensibilità della coppia di detettori rispetto alla media.
+
+Grazie ai conteggi normalizzati, si riesce a ricostruire delle immagini con qualità molto migliore rispetto all'assenza di normalizzazione poiché quest'ultime, presenterebbero degli artefatti legati alla maggiore o minore intensità del sinogramma non per il diverso numero di conteggi ma per la diversa sensibilità delle coppie rilevatori.
+
+\subsubsection{\texorpdfstring{Attenuazione dei fotoni \(\gamma\)}{Attenuazione dei fotoni γ}}\label{attenuazione-dei-fotoni-ux3b3}
+
+I fotoni \(\gamma\), prodotti da un processo di annichilazione, sono attenuati nei vari tessuti incontrati poiché possono interagire con la materia per effetto Compton o fotoelettrico.
+
+Con riferimento a un materiale omogeneo, la probabilità che un fotone emerga e che sia rilevato da un detettore è:
+
+\[P = e^{- \mu d}\]
+
+Dove \(\mu\) è il coefficiente di attenuazione lineare, mentre \(d\) la distanza percorsa da un fotone nella materia.
+
+Un evento di annichilazione di positrone con un elettrone produce due fotoni di energia uguale a 511keV che viaggiano in direzione opposte. Il rilevamento di un fotone \(\gamma\) è indipendente dalla cattura del secondo fotone, poiché se un fotone è assorbito dalla materia non è detto che anche l'altro interagisca con essa. La probabilità di intercettare entrambi i fotoni è, quindi, ottenuta come prodotto delle probabilità di intercettare i fotoni:
+
+\[P = e^{- \mu d_{1}}e^{- \mu d_{2}}\]
+
+Con \(d_{1}\) percorso compiuto da un fotone e \(d_{2}\) il cammino nella materia dell'altro. Sia \(D\) lo spessore del corpo, la probabilità di rilevare entrambe i fotoni può essere scritta come:
+
+\[P = e^{- \mu D}\]
+
+Esistono delle zone del corpo da cui i fotoni emergono con maggiore probabilità e sono, quindi, maggiormente intercettati dai detettori. In altre zone del corpo umano, invece, vi è una maggiore probabilità di assorbimento e, di conseguenza, una minore probabilità di essere intercettati dai rilevatori.
+
+Questa differenza di emissione potrebbe creare degli artefatti nell'immagine ricostruita poiché le zone con maggior probabilità di emissione dei fotoni risulteranno avere una maggiore concentrazione di tracciante rispetto alle zone con minor emissione. L'artefatto determina la rappresentazione della distribuzione dell'attività del radionuclide con maggiore intensità luminosa nelle regioni con maggior probabilità di emissione dei fotoni e, quindi, non direttamente collegata alla maggiore o minore attività.
+
+La descrizione matematica della probabilità di emissione di entrambi i fotoni nei mezzi eterogeni come il corpo del paziente richiede l'utilizzo della nozione di integrale:
+
+\[P = P_{1}P_{2} = e^{- \int_{a}^{x}{\mu ds}}e^{- \int_{x}^{b}{\mu ds}}\]
+
+Dove \(x\) è il punto in cui avviene l'annichilazione mentre \(a\) e \(b\) sono gli estremi del segmento che congiunge il punto di annichilazione con i detettori. La probabilità può essere scritta come esponenziale dell'integrale di linea del coefficiente di assorbimento del corpo del paziente:
+
+\[P = e^{- \int_{a}^{b}{\mu\left( \mathbf{r} \right)ds}}\]
+
+L'integrale è ovviamente esteso alla LOR che congiunge i due detettori.
+
+Dal numero di conteggi rilevati dalle varie LOR e nota la probabilità che quella LOR possa intercettare i fotoni in base ai tessuti incontrati, è possibile correggere l'immagine tenendo conto dell'attenuazione, che contribuisce al rumore sovrapposto all'immagine.
+
+Si osservi che la probabilità che un fotone sia assorbito dipende dal materiale incontrato e dal percorso che esso compie all'interno del corpo umano. Così i fotoni generati nelle regioni più interne del corpo umano hanno una maggiore probabilità di essere attenuati rispetto a quelli emessi in prossimità della superficie corporea o nei polmoni poiché il cammino compiuto ha durata minore e i tessuti incontrati sono meno densi.
+
+L'immagine risultate, quindi, mostra una maggiore attività apparente in prossimità della pelle e nei polmoni. Questi artefatti devono essere compensati per ottenere delle immagini che mostrino solamente la distribuzione dell'attività effettiva nel corpo del paziente.
+
+Per tale motivo è nata la PET/CT ovvero un'apparecchiatura che, all'interno dello stesso \emph{Gantry}, contiene sia il tubo radiogeno che la strumentazione necessaria per la rilevazione degli eventi di annichilazione. La PET/CT non nasce per ottenere delle immagini CT con informazioni di carattere funzionale, ma per correggere gli artefatti dell'immagine PET.
+
+Dal punto di vista tecnologico il \emph{Gantry} della PET/CT è composto da due apparecchiature in linea l'una con l'altra. Si presentano ovviamente sia le problematiche della CT, legate al tubo rotante e all'alimentazione di circa 100kV, sia della PET, dovuta ai detettori posti ad anello e all'alimentazione a 1kV circa dei fotomoltiplicatori.
+
+Il protocollo clinico prevede prima l'acquisizione delle immagini CT, in assenza di liquido di contrasto, poiché con le CT spirali si riesce a eseguire l'\emph{Imaging Total Body} in pochi secondi, e successivamente si procede con l'esame PET dalla durata di 30-45min per il \emph{Total Body}.
+
+Gli elevati tempi di scansione sono dovuti ai tempi di decadimento del tracciante, dell'ordine di un paio d'ore.
+
+Se il centro radiologico acquista il tracciante dall'esterno, il tempo per eseguire l'esame strumentale PET aumenta perché l'attività del radio-tracciante è ridotta, quindi, è necessario un maggior tempo per rilevare un numero di conteggi sufficienti alla ricostruzione dell'immagine.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.80088in,height=2.06944in,alt={P4825\#yIS1}]{media/20_ElaDati/image520.pdf}\caption{Figura .: Schema di PET/CT}
+\end{figure}
+
+Storicamente la PET nasce come strumentazione a sé, molto utilizzata nel campo dell'analisi cerebrale. Con l'avvento dell'fMRI la macchina PET si è spostata sulle applicazioni oncologiche.
+
+Nelle immagini PET la morfologia dell'organo non risulta essere ben evidenziata, mentre la componente funzionale è ben visibile, sebbene sia difficile comprendere il distretto anatomico. La logica di rappresentazione delle immagini è inversa rispetto alla CT: le porzioni che possiedono un'elevata attività sono rappresentare col nero, mentre le zone con minor attività col bianco. Le sole immagini PET sono difficilmente analizzabili e presentano gli errori dovuti alla probabilità di attenuazione dei fotoni \(\gamma\).
+
+Per correggere gli artefatti e, allo stesso tempo, ottenere immagini di carattere morfo-funzionale si ricorre al PET/CT. In assenza di correzione, si osserva una maggiore attività sulla superficie del corpo poiché il fotone \(\gamma\), dovendo attraversare una minor quantità di tessuto se emerge tangenzialmente, presenta una maggior probabilità di essere rilevato. Le correzioni introdotte dalle immagini CT riguardano, dunque, prevalentemente la superficie del corpo e i polmoni.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.35387in,height=3.46296in,alt={P4830\#yIS1}]{media/20_ElaDati/image521.pdf}\caption{Figura .: In alto immagini non corrette, in basso immagini corrette con la CT}
+\end{figure}
+
+La CT permette di ottenere delle immagini che mostrano come varia il coefficiente di attenuazione lineare del corpo del paziente. Dalle immagini morfologiche della CT è, inoltre, possibile ricavare le distanze \(D\) che i vari fotoni percorrono all'interno del corpo umano.
+
+Con le due informazioni delle immagini CT, cioè distanza e coefficiente di assorbimento, è possibile stimare la probabilità con cui i fotoni sono attenuati all'intero dell'organismo e, tramite questa conoscenza, si operano le correzioni.
+
+Nello specifico, le immagini CT permettono di valutare l'integrale di linea del coefficiente di assorbimento lineare lungo una LOR.
+
+\[\int_{a}^{b}{\mu\left( \mathbf{r} \right)ds}\]
+
+Il coefficiente di assorbimento lineare dipende anche dell'energia della radiazione assorbita. Dunque, il coefficiente \(\mu\) ricostruito con la CT non coincide, numericamente, con quello presente nella probabilità che i due fotoni \(\gamma\) siano rilevati.
+
+In radiologia convenzionale, i raggi X presentano energia dell'ordine di 80-120keV mentre per la PET i fotoni \(\gamma\) hanno energia di 511keV e, quindi, i coefficienti di attenuazione possono essere anche molto differenti tra loro.
+
+L'immagine CT non può essere utilizzata per la correzione dell'immagine PET senza applicare una procedura di elaborazione che permetta di stimare i coefficienti di attenuazione lineare alle energie della PET a partire dalle misurazioni ottenute con le energie della radiologia convenzionale.
+
+La correzione richiede delle segmentazioni automatiche, ovvero degli algoritmi che automaticamente dividono l'immagine CT in tessuti omogenei (in gergo si dice che le immagini sono segmentate).
+
+Questa operazione risulta essere abbastanza complessa da realizzare nella pratica e può indurre una serie di artefatti nell'immagine ricostruita a causa di una segmentazione non perfetta.
+
+Sulla base della conoscenza dell'attenuazione di quel tessuto omogeneo alle energie della CT si riesce a determinare il coefficiente di attenuazione alle energie della PET mediante operazioni di prolungamento.
+
+Questo processo è possibile poiché le curve del coefficiente di attenuazione massico sono state determinate sperimentalmente e pubblicate sulla letteratura scientifica.
+
+Per la valutazione della probabilità che entrambi i fotoni siano rilevati, le case produttrici degli scanner PET/CT introducono una serie di algoritmi proprietario le cui linee generali ricalcano la segmentazione automatica dell'immagine CT e il ricalco del coefficiente di attenuazione.
+
+Confrontando le immagini ottenute con la CT, la PET e la PET/CT è possibile analizzare le differenze e migliorie introdotte dall'ultima metodica di \emph{Imaging}:
+
+\begin{figure}
+\centering
+\includegraphics[width=6.25552in,height=4.07407in,alt={P4845\#yIS1}]{media/20_ElaDati/image522.pdf}\caption{Figura .: Rispettivamente immagini CT, PET e PET/CT}
+\end{figure}
+
+Le immagini PET/CT sono mostrate in pseudo-colori indicanti l'attività nel corpo del paziente. Solitamente si sceglie la mappa termica dove il blu indica assenza di attività mentre il rosso la massima attività.
+
+Con la CT gli organi molli sono molto pochi contrastati ma con riferimenti anatomici molto più evidenti rispetto a un'immagine PET. La fusione delle due immagini porta a risultati con informazioni morfologiche e funzionali corrette.
+
+\subsubsection{False coincidenze}\label{false-coincidenze}
+
+Le coincidenze possono essere \emph{True}, \emph{Scatter} o multiple:
+
+\begin{itemize}
+\item
+  \emph{True Coincidences} in cui l'evento di annichilazione è rilevato mediante la cattura di entrambi i fotoni emergenti sulla LOR percorsa;
+\item
+  Le coincidenze di tipo \emph{Scatter} possono verificarsi quando, in un evento di annichilazione, un fotone è deviato per le interazioni con la materia. Se esso non riduce la sua energia al di sotto della soglia di rilevazione, i due fotoni sono rilevati su una LOR diverse da quella originale. Si produce così una LOR apparente che introduce una quota di rumore sull'immagine;
+\item
+  Nelle coincidenze \emph{Random} due eventi di annichilazione avvengono quasi simultaneamente e, per caso, due fotoni delle due diverse coppie di fotoni sono assorbiti dalla materia. I restanti due fotoni viaggiano lungo le rispettive LOR fino ad essere rilavati dai detettori come eventi contemporanei poiché giungo sull'anello con un ritardo ammissibile. La logica di controllo non riconosce l'evento di annichilazione su una delle due LOR effettiva ma su una terza, intermedia tra le due reali. In altre parole, invece di riconoscere i due eventi, si riconosce un solo evento in una posizione diversa da quella effettiva, mostrando un'attività in un distretto anatomico anche molto diverso da quelli originale. Mentre l'evento \emph{Scatter} può essere scartato sulla base della discriminazione energetica se il fotone \(\gamma\) riduce la sua energia al di sotto della soglia di rilevazione per effetto Compton, l'evento \emph{Random} non può essere rilevato poiché i fotoni giungono sull'anello di rilevatori con la giusta energia.
+\end{itemize}
+
+La correzione degli eventi \emph{Random} può essere eseguita essendoci la possibilità di stimare il numero di queste coincidenze che possono verificarsi all'interno dello scanner noti i tassi di conteggio su due detettori:
+
+\[2\tau r_{1}r_{2}\]
+
+Non è, quindi, possibile determinare se un evento rilevato sia da associare a una coincidenza \emph{True} oppure \emph{Random}, ma è possibile conoscere il numero medio degli eventi casuali;
+
+\begin{itemize}
+\item
+  Le coincidenze multiple sono più rare ma sono molto più complesse da determinare. Esse si verificano quando due eventi di annichilazione occorrono all'incirca nello stesso momento e un fotone di una coppia è attenuato dalla materia. Sul detettore giungono, quindi, tre fotoni in coincidenza temporale che individuerebbero tre LOR. Una di queste può essere scartata poiché congiunge due detettori secondo una linea non appratente per il FOV. Viceversa, la LOR reale e quella appratente sono entrambe plausibili, quindi, il sistema elettronico potrebbe scegliere di scartare una delle due oppure conteggiarle entrambe. In ogni caso si generano degli errori nella ricostruzione delle immagini.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=4.83666in,height=4.47222in,alt={P4858\#yIS1}]{media/20_ElaDati/image523.pdf}\caption{Figura .: Possibili coincidenze}
+\end{figure}
+
+\subsubsection{Distorsioni geometriche}\label{distorsioni-geometriche}
+
+Prima di poter ricostruire l'immagine PET è necessario tener conto anche delle distorsioni geometriche introdotte da come sono disposti i detettori nel \emph{Gantry}. Generalmente nel \emph{Gantry} i detettori sono distribuiti uniformemente lungo l'anello. Di conseguenza, le LOR al centro dell'anello presentano una certa spaziatura tra di loro, che si riduce all'allontanarsi dal centro. Vi è, dunque, un certo grado di disomogeneità lungo tutto il raggio dell'anello.
+
+La distorsione generata è nota come effetto ad arco e deve essere compensata per ricostruire al meglio le immagini. Questi errori sono più visibili per pazienti molto massicci poiché rientrano in un maggior numero di zone con diversa spaziatura tra detettori a cui corrisponde una diversa risoluzione spaziale.
+
+Oltre all'architettura ad anello sono possibili altre geometrie per l'arrangiamento dei detettori come, ad esempio, a semianello rotante, \emph{array} di detettori lineari disposti a esagono o una coppia \emph{array} paralleli tra loro. Per le due geometrie aperte, il \emph{Gantry} deve essere messo in rotazione per rilevare quanti più eventi possibili.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.29975in,height=5.79167in,alt={P4864\#yIS1}]{media/20_ElaDati/image524.pdf}\caption{Figura .: Possibili Gantry con spaziature tra i detettori}
+\end{figure}
+
+Le soluzioni aperte sono state le prime ad essere realizzate poiché permettono di abbattere i costi della circuiteria elettronica di controllo. Al giorno d'oggi, la maggior parte degli scanner PET prevede un'architettura ad anello di detettori fisso intorno al paziente, situato nel FOV.
+
+\subsubsection{Radial Elongation}\label{radial-elongation}
+
+Un altro errore introdotto nell'acquisizione dei dati è dovuto alla regione in cui il fotone è assorbito all'interno del cristallo scintillatore con uno spessore di 3-4cm. Nei due casi limiti:
+
+\begin{itemize}
+\item
+  Il fotone \(\gamma\) incide sul detettore ed è subito convertito in radiazione luminosa;
+\item
+  Oppure lo stesso fotone può essere assorbito alla fine del cristallo scintillatore.
+\end{itemize}
+
+Sulla base della posizione lungo lo spessore del cristallo scintillatore in corrispondenza della quale il fotone \(\gamma\) è assorbito, possono essere identificate delle LOR diversa, spaziate di una certa quantità \(d\). Ovviamente, non è possibile conoscere la posizione dell'evento di annichilazione a causa della diversa posizione di assorbimento del fotone \(\gamma\) incidente nel cristallo scintillatore. Quindi, l'algoritmo di elaborazione ricostruisce l'immagine considerando una LOR media individuata dalla stessa coppia di detettori. Ciò introduce una certa indeterminazione sulla posizione di annichilazione e, di conseguenza, delle maggiori dimensioni del voxel.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.69828in,height=4.14583in,alt={P4872\#yIS1}]{media/20_ElaDati/image525.pdf}\caption{Figura .: Indeterminazione sulla LOR per diversa posizione di assorbimento nel cristallo}
+\end{figure}
+
+Tutti gli errori che affliggono i dati misurati si cumulano e fanno sì che il voxel non possa avere dimensioni inferiori di un certo limite, generalmente di 6mm. Le immagini PET sono molto meno definite e contrastate rispetto alle immagini di Risonanza Magnetica che presentano un voxel di circa 1mm e alle immagini della CT, con un voxel di 1mm o inferiore. La risoluzione spaziale della PET è, quindi, intrinsecamente molto limitata.
+
+Per ottenere un'immagine più accurata sono applicate, simultaneamente, la correzione dell'attenuazione, la normalizzazione, il filtraggio e infine si procede con la ricostruzione dell'immagine.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.50733in,height=7.77083in,alt={P4876\#yIS1}]{media/20_ElaDati/image526.pdf}\caption{Figura .: Processo di correzione delle immagini}
+\end{figure}
+
+\subsection{Considerazioni su FOV e michelogramma}\label{considerazioni-su-fov-e-michelogramma}
+
+Dal punto di vista geometrico è utile introdurre il FOV o \emph{Field Of View} come l'angolo limite per accettare gli eventi di coincidenza per ogni singolo detettore.
+
+Non ha, quindi, senso mettere in coincidenza ogni detettore con tutti gli altri presenti nell'anello poiché è altamente improbabile che delle coincidenze \emph{True} si verifichino all'esterno del paziente situato nel FOV. In questo modo è possibile ottenere un risparmio della circuiteria di controllo poiché non ha senso mettere in coincidenza due detettori connessi da una LOR che non passa per il paziente.
+
+Ogni detettore è in coincidenza con il semianello corrispondente così che le LOR prodotte coprano solamente tutto o parte del FOV. Quindi, sulla base della scelta progettuale del FOV si eseguono le opportune coincidenze tra i detettori dello stesso anello.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69583in,height=3.01667in,alt={P4882\#yIS1}]{media/20_ElaDati/image527.pdf}\caption{Figura .: Coincidenze tra i detettori di un anello}
+\end{figure}
+
+La scelta di mettere in comunicazione solamente i detettori di uno stesso anello che coprono il FOV permette di abbattere i costi dell'apparecchiatura poiché si riducono i componenti elettronici necessari per realizzare lo scanner.
+
+\subsection{Malfunzionamento degli anelli detettori}\label{malfunzionamento-degli-anelli-detettori}
+
+Un'altra correzione può riguardare il malfunzionamento di uno dei due recettori posti in coincidenza. Tale malfunzionamento può essere evidenziato e corretto osservando che tutte le LOR che fanno capo a un singolo detettore sono allocate su una diagonale del sinogramma.
+
+Si acquisisce, quindi, il sinogramma posizionando un \emph{Phantom} con un coefficiente di assorbimento lineare costante sorgente di raggi \(\gamma\). Si analizza poi il sinogramma e se si evidenziano delle linee nere allora si è in presenza di un malfunzionamento e dalla sua posizione si risale alla coppia di detettori guasti.

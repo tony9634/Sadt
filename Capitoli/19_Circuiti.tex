@@ -1,0 +1,659 @@
+\begin{center}
+\vfill
+    \chapter{Circuiti di elaborazione in PET}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+\section{Circuiti elettronici per la PET}\label{circuiti-elettronici-per-la-pet}
+
+Nel \emph{Gantry} si verifica un'annichilazione che produce due fotoni \(\gamma\) che viaggiano in direzione opposta. Questi fotoni sono intercettati da una coppia di detettori, ognuno formato da uno scintillatore e dei fotomoltiplicatori. In uscita da quest'ultimo si ha un impulso di corrente, convertito a sua volta in un impulso di tensione.
+
+Come primo passo si amplifica il segnale in uscita dal fotomoltiplicatore con un blocco di preamplificazione che fornisce un primo guadagno e un successivo stadio di amplificazione che porta il segnale al livello voluto.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.7037in,height=3.13909in,alt={P4423\#yIS1}]{media/19_Circuiti/image471.pdf}\caption{Figura .: Logica di elaborazione PET}
+\end{figure}
+
+In seguito, sono eseguiti due processi in parallelo: la discriminazione dell'energia contenuta nell'impulso di tensione, importante per determinare se il fotone proviene da un evento di \emph{Scattering} o no, e la discriminazione della posizione, con la logica di Anger, in base alla coordinate del reticolato scintillatore, e la tempistica di arrivo, che, insieme alla tempistica proveniente dall'altro fotone \(\gamma\) dello stesso evento di annichilazione, permette di rilevare se i due fotoni sono contemporanei. Il circuito di coincidenza consente di verificare la differenza temporale tra l'arrivo dei due \(\gamma\) su due diversi detettori. Se questo tempo è minore di 10ns i due fotoni sono considerati come contemporanei e, quindi, provenienti dallo stesso evento di annichilazione. In caso di esito positivo la posizione dei fotoni è memorizzata così da poter ricostruire l'immagine.
+
+Per ogni coppia di detettori la circuiteria deve essere esattamente uguale alle altre coppie di rilevatori. Ciò comporta una serie di problemi costruttivi poiché il \emph{Gantry} è composto da centinaia di coppie ed è complesso realizzare così tanti componenti elettronici esattamente uguali. Delle variazioni di amplificazioni, valutazioni energetiche e temporali possono portare, ad esempio, all'errata valutazione di un fotone che potrebbe essere scartato sebbene non abbia interagito con la materia.
+
+Il processo di rilevazione passa per la PHA (\emph{Pulse-Height Analyzer}) che presenta un andamento a campana nell'intorno di 511keV e un altro picco in prossimità di energie più basse. Se l'energia del fotone non rientra nella finestra energetica considerata, il fotone è scartato.
+
+L'intera logica deve possedere una tempistica estremamente rapida così da rilevare il maggior numero possibile di annichilazione.
+
+Lo strumento di misura deve avere un'impedenza di ingresso molto elevata così da poter trascurare la corrente che scorre nel circuito di prelievo. In questo modo si minimizzano gli effetti di carico tra la sorgente e lo strumento di misura.
+
+L'impedenza in uscita deve essere molto basse così da minimizzare le perdite di segnale quando si collega un carico al circuito di misura.
+
+Per la trasmissione del segnale si utilizzano dei cavi coassiali, formati da un conduttore centrale e una maglia metallica separati da un dielettrico, prevalentemente polietilene. La maglia metallica è ricoperta a sua volta da un isolante per evitare la dispersione dei campi e problematiche di sicurezza.
+
+Il cavo coassiale più diffuso è indicato con RG-58C/U caratterizzato da:
+
+\begin{itemize}
+\item
+  Dielettrico in polietilene;
+\item
+  Impedenza caratteristica di 50Ω;
+\item
+  Capacità lungo la linea di 100pF/m;
+\item
+  Velocità di propagazione di 0.66c, ovvero il 66\% della velocità della luce.
+\end{itemize}
+
+L'utilizzo dei cavi coassiali è fondamentale date le alte frequenze raggiunte dal segnale in PET.
+
+Per evitare riflessioni bisogna adattare l'impedenza della linea con quella del carico del circuito di prelievo e amplificazione del segnale. A tale scopo bisogna annullare il coefficiente di riflessione all'interfaccia sorgente/linea e linea/carico.
+
+Dal punto di visto analitico, il coefficiente di riflessione è dato da:
+
+\[\Gamma(d) = \frac{\dot{Z}(d) - {\dot{Z}}_{C}}{\dot{Z}(d) + {\dot{Z}}_{C}}\]
+
+Per annullare questa quantità, il carico deve essere uguale all'impedenza caratteristica del cavo coassiale.
+
+Nei casi più semplici la linea può essere chiusa su un carico con impedenza uguale a quella caratteristica, su un cortocircuito o circuito aperto. Nel primo caso la linea trasmette completamente il segnale senza subire riflessioni; invece, negli altri due casi si ha una riflessione dell'onda trasmessa. Se la linea è chiusa su un cortocircuito o \emph{Short}, il coefficiente di riflessione è:
+
+\[\Gamma = - 1\]
+
+L'onda, giunta al carico, è riflessa completamente con polarità opposta.
+
+Chiudendo la linea di trasmissione su un circuito aperto, il coefficiente di riflessione è:
+
+\[\Gamma = 1\]
+
+Il segnale trasmesso, alla sezione del carico, è riflesso mantenendo la polarità.
+
+\subsection{Tipi di impulsi}\label{tipi-di-impulsi}
+
+Con riferimento al cavo coassiale è possibile distinguere gli impulsi lenti e veloci in base alla durata dell'impulso rispetto alla velocità di trasmissione lungo il cavo coassiale:
+
+\begin{itemize}
+\item
+  Gli impulsi veloci possiedono un \emph{Rise-Time} comparabile o minore rispetto il tempo di transito lungo la linea;
+\item
+  Gli impulsi lenti, invece, possiedono un \emph{Rise-Time} molto maggiore del tempo di propagazione lungo la linea.
+\end{itemize}
+
+Conoscere le costanti di tempo con cui il segnale evolve è fondamentale per classificare l'impulso.
+
+Si suppone che l'impulso di corrente sia in uscita a un circuito \emph{Large RC}, le equazioni che descrivono la forma d'onda sono note:
+
+\[\left\{ \begin{array}{r}
+v_{C}(t) \simeq \frac{Q}{C}\left( 1 - e^{- \lambda t} \right),\ \ t \ll \frac{1}{\theta} \\
+v_{C}(t) \simeq \frac{Q}{C}e^{- \theta t},\ \ t \gg \frac{1}{\lambda}
+\end{array} \right.\ \]
+
+Si suppone che \(\theta = 0.1MHz\) e \(\lambda = 15MHz\).
+
+Il tempo di salita può essere stimato come tre-quattro volte la costante di tempo con cui l'impulso raggiunge il regime:
+
+\[\tau = 3\frac{1}{\lambda} = 12ns\]
+
+Se la linea di trasmissione è lunga 1m, il tempo con cui il segnale è trasmesso è dato da:
+
+\[t = \frac{L}{v} = \frac{1m}{0.66 \cdot 3.00 \cdot \frac{10^{8}m}{s}} = 5.05ns\]
+
+Il tempo di salita del segnale è maggiore del tempo di propagazione, quindi, si conclude che con queste caratteristiche l'impulso è lento.
+
+\subsection{Preamplificatore}\label{preamplificatore}
+
+Il blocco di preamplificazione ha lo scopo di amplificare il debole segnale proveniente dal fotomoltiplicatore, aggiungendo una minima quantità di rumore. Questo elemento deve essere il più vicino possibile al fotomoltiplicatore così da ridurre la lunghezza dei cavi e, di conseguenza, gli effetti parassiti e le interferenze elettromagnetiche.
+
+Il blocco di preamplificazione ha lo scopo di disaccoppiare lo stato di fotoamplificazione con gli elementi a valle della circuiteria elettronica. Questa funzione è svolta grazie all'elevata impedenza di ingresso e la bassa impedenza di uscita. Gli amplificatori di tensione ricevono in ingresso una tensione e in uscita una tensione amplificata di una quantità \(A\), detta guadagno. Questa soluzione è nota come \emph{Voltage-Sensitive} e può essere realizzata anche con un amplificatore invertente o non invertente.
+
+Si considera un amplificatore invertente dato dal circuito:
+
+\begin{figure}
+\centering
+\includegraphics[width=4.15741in,height=2.09113in,alt={P4465\#yIS1}]{media/19_Circuiti/image472.pdf}\caption{Figura .: Amplificatore invertente}
+\end{figure}
+
+Idealmente, l'operazionale possiede un guadagno infinito, tuttavia, nella pratica tale quantità è elevata ma non infinita. Se risulta che:
+
+\[A \gg \frac{R_{2}}{R_{1}}\ \]
+
+Allora la funzione di trasferimento è data da:
+
+\[V_{out} = - \frac{R_{2}}{R_{1}}V_{in}\]
+
+Dove \(V_{in}\) è l'ampiezza dell'impulso di tensione in uscita dal fotomoltiplicatore legato sia alla carica Q depositata sull'anodo sia dalla capacità C del circuito anodica d'uscita.
+
+Se il segnale è ottenuto come la sovrapposizione di un corrente alternata e una continua, è possibile filtrare la componente continua e a bassa frequenza introducendo una capacità in ingesso all'amplificatore nella configurazione invertente.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.78176in,height=2.68519in,alt={P4473\#yIS1}]{media/19_Circuiti/image473.pdf}\caption{Figura .: Configurazione invertente con capacità di accoppiamento}
+\end{figure}
+
+In questo caso, la funzione di trasferimento può essere scritta nel dominio dei fasori:
+
+\[G(\omega) = - \frac{R_{3}}{R_{2} + Z_{C}} = - \frac{j\omega CR_{3}}{1 + j\omega CR_{2}}\]
+
+La risposta in frequenza ha un carattere passa-alto con frequenza di taglio e guadagno di cortocircuito noti:
+
+\[\left\{ \begin{array}{r}
+G = - \frac{R_{3}}{R_{2}}\  \\
+f_{c} = \frac{1}{2\pi R_{2}C}
+\end{array} \right.\ \]
+
+Se si vuole realizzare un filtro passa-alto con frequenza di taglio di 100Hz e un guadagno di 100 allora bisogna dimensionare i componenti tali da soddisfare le relazioni:
+
+\[\left\{ \begin{array}{r}
+\frac{R_{3}}{R_{2}} = \ 100 \\
+\frac{1}{2\pi R_{2}C} = 100Hz
+\end{array} \right.\ \]
+
+Se si pone \(R_{2} = 1k\mathrm{\Omega}\), allora la risoluzione del sistema è semplice:
+
+\[\left\{ \begin{array}{r}
+R_{3} = \ 100k\mathrm{\Omega} \\
+C = 1.6\mu F
+\end{array} \right.\ \]
+
+Il blocco della componente in continua può essere eseguito anche tramite un amplificatore non invertente con una capacità in ingresso di accoppiamento.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.9081in,height=2.69403in,alt={P4484\#yIS1}]{media/19_Circuiti/image474.pdf}\caption{Figura .: Amplificatori non invertenti}
+\end{figure}
+
+La resistenza \(R_{1}\) è utilizzata per limitare la corrente di polarizzazione, dell'ordine di 10nA o minore, dell'operazionale. Questa resistenza è ottenuta col parallelo di \(R_{2}\) e \(R_{3}\):
+
+\[R_{1} = R_{2}||R_{3} = \frac{R_{2}R_{3}}{R_{2} + R_{3}}\]
+
+Con questa soluzione il guadagno e la frequenza di taglio sono dati dalle relazioni:
+
+\[\left\{ \begin{array}{r}
+G = 1 + \frac{R_{3}}{R_{2}}\  \\
+f_{c} = \frac{1}{2\pi R_{2}C}
+\end{array} \right.\ \]
+
+Se si vuole ottenere un guadagno di 100 e una frequenza di taglio a 100Hz, in questo caso, ponendo \(R_{2} = 1k\mathrm{\Omega}\) si ottiene:
+
+\[\left\{ \begin{array}{r}
+R_{3} = \ 99k\mathrm{\Omega} \\
+C = 1.6 \mu F
+\end{array} \right.\ \]
+
+Con i due stadi preamplificatori si realizza, contemporaneamente, il blocco della componete continua e il disaccoppiamento del tubo fotomoltiplicatori dalla circuiteria a valle.
+
+\subsection{Main Amplifier}\label{main-amplifier}
+
+Successivamente al preamplificatore si trova il circuito amplificatore vero e proprio con lo scopo di aumentare il livello del segnale. Inoltre, questo stadio consente di fornire, attraverso il \emph{Pulse Shaping}, una certa forma al segnale per permettere il \emph{Processing} del segnale stesso agli stati successivi.
+
+Le elaborazioni devono essere eseguite mantenendo un giusto compromesso tra conservazione delle informazioni caratterizzanti dell'ingresso, quali ampiezza e il \emph{Timing}, cioè la tempistica dell'impulso con cui si rileva la coincidenza.
+
+Lo \emph{Shaping} è essenziale per evitare il fenomeno del \emph{Pulsa Pile-Up} in cui la forma degli impulsi potrebbero facilmente generare distorsioni di ampiezza, soprattutto nel caso di eventi molto vicini tra loro.
+
+Se gli impulso sono molto vicini tra loro, potrebbero sovrapporsi falsando così la risoluzione energetica. Questo fenomeno è noto come \emph{Pulse Pile-Up} ovvero l'impilamento degli impulsi.
+
+Gli impulsi sono legati agli eventi statistici di rilevazione dei fotoni \(\gamma\) provenienti da processi di annichilazione, che si verificano con velocità di decadimento dell'ordine di 200-300MBq quindi, milioni di eventi al secondo. La distanza temporale tra due eventi è dell'ordine di un centesimo di \(\mu s\).
+
+Se la durata dell'impulso di tensione, rilevato dalla strumentazione a valle, è più lunga di qualche decina di ns, può accedere che due impulsi successivi interagiscano tra di loro, sommandosi, e dando luogo a un impulso con ampiezza maggiore e, quindi, con un contenuto informativo sulla carica accumulata sull'anodo alterato. In definitiva, l'interferenza tra i due impulsi provoca un artefatto nella ricostruzione dell'energia associata al fotone incidente.
+
+Molto probabilmente l'effetto di \emph{Pulse Pile-Up} determina l'eliminazione dell'impulso poiché la sua energia non rientra nella finestra energetica selezionata. Per tale ragione è necessario modificare la forma dell'impulso, riducendo la loro durata temporale. In questo modo impulsi vicini nel tempo non interagiscono tra di loro e, di conseguenza, non si verifica l'effetto del \emph{Pulsa Pile-Up}. Gli impulsi sono così correttamente associati alla propria energia poiché il valore del picco non è influenzato da segnali ravvicinati.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.85754in,height=6.33333in,alt={P4501\#yIS1}]{media/19_Circuiti/image475.pdf}\caption{Figura .: Pulse Pile-Up in alto}
+\end{figure}
+
+\subsubsection{Pulse Shaping}\label{pulse-shaping}
+
+Il processo analogico di modellazione dell'impulso o \emph{Pulse Shaping} può essere effettuato mediante numerose metodiche, tra cui la più comune riguarda l'utilizzo di una cascata di circuito CR e RC, separati da uno stadio di disaccoppiamento. I buffer sono utilizzati anche per adattare il segnale di ingresso e il segnale elaborato con l'uscita.
+
+Il primo circuito CR si comporta come un derivatore, ovvero un filtro passa-alto, che lascia passare le sole componenti ad alta frequenza. Il secondo stadio, invece, si comporta come un integratore, che nel dominio della frequenza rappresenta un filtro passa-basso. La cascata dei due circuiti si comporta come un filtro passa-banda.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.52882in,height=3.47619in,alt={P4506\#yIS1}]{media/19_Circuiti/image476.pdf}\caption{Figura .: Circuito CR-RC}
+\end{figure}
+
+Se in ingresso si pone un segnale molo lento, schematizzabile come un gradino, il primo stadio CR lascia passare solo le componenti in alta frequenza associate ai fronti di salita e discesa. Il segnale continuo decade con una costante di tempo \(\tau_{d}\) dipendente dai parametri C ed R della rete differenziatore. Il segnale così ottenuto è, poi, filtrato passa-basso, quindi, i fronti di salita sono smussati e variano con costante di tempo \(\tau_{i}\). La forma d'onda risultate è un impulso con durata finita dipendente dalle costanti di tempo scelte per realizzare il sistema.
+
+Siccome i due stadi sono separati da un buffer è possibile analizzare la risposta al gradino separatamente. Se le due costanti di tempo sono diverse, il segnale in uscita dal primo stadio deve rispettare l'equazione ottenuta dalla legge di Kirchhoff per le tensioni:
+
+\[\left\{ \begin{array}{r}
+\frac{dv_{C}}{dt} + \frac{1}{R_{1}C_{1}}v_{C} = \frac{E_{in}}{R_{1}C_{1}} \\
+v_{C}(0) = 0
+\end{array} \right.\ \]
+
+L'integrale generale dell'equazione differenziale è dato da:
+
+\[v_{C}(t) = ke^{- \frac{t}{\tau_{d}}} + E_{in}\]
+
+Imponendo la condizione iniziale:
+
+\[v_{C}(t) = E_{in}\left( 1 - e^{- \frac{t}{\tau_{d}}} \right)\]
+
+Questa tensione rappresenta il forzamento del secondo stadio, governato, quindi, dalle equazioni:
+
+\[\left\{ \begin{array}{r}
+\frac{dv_{C}}{dt} + \frac{1}{R_{2}C_{2}}v_{C} = \frac{E_{in}}{R_{2}C_{2}}\left( 1 - e^{- \frac{t}{\tau_{d}}} \right) \\
+v_{C}(\infty) = 0
+\end{array} \right.\ \]
+
+La soluzione del problema è nota:
+
+\[v_{C}(t) = \frac{\tau_{i}}{\left( \tau_{d} - \tau_{i} \right)}E_{in}\left( e^{- \frac{t}{\tau_{d}}} - e^{- \frac{t}{\tau_{i}}} \right)\]
+
+Nel caso in cui le due costanti di tempo siano uguali, per ottenere l'espressione dell'uscita è necessario eseguire un'operazione di limite:
+
+\[\lim_{\tau_{i} \rightarrow \tau_{d}}{v_{C}(t)} = \lim_{\tau_{i} \rightarrow \tau_{d}}{\frac{\tau_{i}}{\left( \tau_{d} - \tau_{i} \right)}E_{in}\left( e^{- \frac{t}{\tau_{d}}} - e^{- \frac{t}{\tau_{i}}} \right)} = E_{in}\lim_{\tau_{i} \rightarrow \tau_{d}}{\frac{e^{- \frac{t}{\tau_{d}}}\left( 1 - e^{- \frac{t}{\tau_{i}}}e^{\frac{t}{\tau_{d}}} \right)\tau_{i}}{\tau_{d}\left( 1 - \frac{\tau_{i}}{\tau_{d}} \right)}\frac{{(E}_{in}e^{- \frac{t}{\tau_{d}}})}{\tau_{d}}} = = \lim_{\tau_{i} \rightarrow \tau_{d}}{\tau_{i}\frac{\left( 1 - e^{- \frac{t}{\tau_{i}}}e^{\frac{t}{\tau_{d}}} \right)}{\left( 1 - \frac{\tau_{i}}{\tau_{d}} \right)}} = \frac{t}{\tau_{d}}E_{in}e^{- \frac{t}{\tau_{d}}}\]
+
+La soluzione CR-RC, grazie al filtraggio passa-banda del segnale, permette di incrementare il rapporto segnale/rumore.
+
+\subsubsection{\texorpdfstring{\emph{Gaussian} CR-(RC)\textsuperscript{n}}{Gaussian CR-(RC)n}}\label{gaussian-cr-rcn}
+
+Ponendo in ingresso un circuito CR e tanti circuiti RC in cascata, opportunamente separati da stadi di buffer, si riesce a ottenere una forma d'onda a campana di Gauss. È comodo utilizzare questa metodica poiché la campana di Gauss è caratterizzata solo dall'ampiezza e della durata, legate alla deviazione standard. Queste informazioni permettono di discriminare l'energia del fotone incidente e l'istante di tempo in cui si è verificato la ricezione. La durata di ogni campana, ovviamente, deve essere progettata così da evitare il fenomeno del \emph{Pulse Pile-Up}. A fine condizionamento analogico, le varie gaussiane prodotte, oltre ad avere la stessa ampiezza, presentano un picco direttamente collegato alla carica accumulata sull'anodo.
+
+È possibile dimostrare che con quattro stadi di tipo RC posti in cascata la forma d'onda ottenuta ben approssima una gaussiana. Per ottenere lo stesso effetto è possibile utilizzare filtri attivi passa-basso di tipo \emph{Sallen-Key}.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.44459in,height=1.76191in,alt={P4525\#yIS1}]{media/19_Circuiti/image477.pdf}\caption{Figura .: Cella Sallen-Key}
+\end{figure}
+
+Dato che il filtro \emph{Sallen-Key} è composto da due blocchi integratori RC, avrà una funzione di trasferimento a due poli del tipo
+
+\[H(s) = \frac{A_{0}}{1 + \omega_{c}\left( C_{1}\left( R_{1} + R_{2} \right) + \left( 1 - A_{0} \right)R_{1}C_{2} \right)s + \omega_{c}^{2}R_{1}R_{2}C_{1}C_{2}s^{2}}\]
+
+\subsubsection{Undershoot}\label{undershoot}
+
+Considerare un ingresso a gradino equivale a considerare il caso limite in cui il segnale del fotomoltiplicatore risulta essere molto più lungo delle costanti di tempo del circuito di filtraggio. In questa condizione è possibile considerare l'elaborazione come integrazione infinita sul segnale in ingresso.
+
+Nella realtà, i segnali provenienti dai preamplificatori presentano una durata finita legata al tempo di decadimento. Di conseguenza si assiste a una visibile modifica nella risposta dello \emph{Shaper} come l'\emph{Undershoot}. Questo problema deriva dall'operazione di derivazione del primo blocco CR che opera un filtraggio passa-alto sul segnale in ingresso.
+
+Quest'ultimo possiede una propria costante di tempo diversa dalla rete elettrica, e ciò può portare a delle componenti negative con durata molto ampia. Sommandosi con gli altri impulsi, queste componenti negative possono causare dei problemi di \emph{Pile-Up} portando a una sottostima dell'energia del fotone incidente poiché l'ampiezza dell'impulso successivo si somma con una componente negativa e, dunque, risulta essere complessivamente ridotta di intensità.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.45274in,height=1.90909in,alt={P4533\#yIS1}]{media/19_Circuiti/image478.pdf}\caption{Figura .: Impulso originale}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=6.29786in,height=1.97403in,alt={P4535\#yIS1}]{media/19_Circuiti/image478.pdf}\caption{Figura .: Undershoot}
+\end{figure}
+
+La problematica può essere risolta cancellando lo zero-polo nella funzione di trasferimento mediante un circuito del tipo:
+
+\begin{figure}
+\centering
+\includegraphics[width=5.45329in,height=2.09524in,alt={P4538\#yIS1}]{media/19_Circuiti/image479.pdf}\caption{Figura .: Filtro passa-banda}
+\end{figure}
+
+Dove sono presenti due circuiti RC in cascata, separati da uno stadio di buffer. La funzione di trasferimento è ottenuta moltiplicando le funzioni di trasferimento di ogni singolo stadio:
+
+\[H(s) = \frac{R_{1}\left( R_{pz}C_{1}s + 1 \right)}{\left( 1 + s\tau_{2} \right)\left( R_{pz} + R_{1}\left( R_{pz}C_{1}s + 1 \right) \right)}\]
+
+Il numeratore introduce uno zero e, quindi, rappresenta il termine di differenziazione del segnale.
+
+Se si pone \(R_{pz} = \frac{\tau_{2}}{C_{1}}\) la funzione di trasferimento si riduce a una semplice cascata di filtri RC passivi:
+
+\[H(s) = \frac{R_{1}}{\left( \frac{\tau_{2}}{C_{1}} + R_{1} + \frac{\tau_{1}\tau_{2}}{C_{1}}s \right)}\]
+
+Con questa soluzione si rimuove il fenomeno dell'\emph{Undershoot} così da avere un impulso di durata finita senza nessun attraversamento per lo zero.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.45647in,height=1.80952in,alt={P4546\#yIS1}]{media/19_Circuiti/image480.pdf}\caption{Figura .: Uscita dallo Shaping}
+\end{figure}
+
+\subsubsection{Baseline Shift}\label{baseline-shift}
+
+La capacità della rete CR, presente all'interno della soluzione di \emph{Shaping CR-RC}, blocca la componente continua poiché mostra un'elevatissima impedenza a basse frequenze. La tensione ai capi della resistenza presenta solamente una componete alternata con valor medio nullo: la forma d'onda presenta componenti positive e negative che sottendono la stessa area così da avere un valor medio nullo. Questo disturbo è noto come \emph{Baseline Shift} e può causare distorsioni d'ampiezza di impulsi ravvicinati nel tempo.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.3221in,height=3.9881in,alt={P4550\#yIS1}]{media/19_Circuiti/image481.pdf}\caption{Figura .: Baseline Shift}
+\end{figure}
+
+Il \emph{Baseline Shift} determina la comparsa di altri \emph{Undershoot} che portano a una sottostima dell'ampiezza del picco e, di conseguenza, dell'energia del fotone incidente.
+
+Per risolvere il problema introdotto dalle capacità di accoppiamento si adotta una metodica nota come \emph{Baseline Restoration} che prevede l'utilizzo del circuito RC la cui uscita è pilotata da un interruttore:
+
+\begin{figure}
+\centering
+\includegraphics[width=3.67354in,height=2.31226in,alt={P4554\#yIS1}]{media/19_Circuiti/image482.pdf}\caption{Figura .: Circuito di risoluzione del Baseline Shift}
+\end{figure}
+
+L'interruttore è aperto finché l'impulso è positivo. Non appena il segnale attraverso lo zero, l'interruttore è chiuso e il segnale è posizionato a massa con una costante di tempo data da:
+
+\[\tau = \left( R + R_{0} \right)C\]
+
+Il circuito, con l'interruttore chiuso, si comporta come un filtro passa-alto che cortocircuita verso masse le componenti negative del segnale.
+
+Nei circuiti reali la funzione dall'interruttore è eseguita da diodi o altri componenti non lineari che realizzano un raddrizzatore a singola semionda.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.97014in,height=3.04289in,alt={P4560\#yIS1}]{media/19_Circuiti/image483.pdf}\caption{Figura .: Circuito reale per risolvere il Baseline Shift}
+\end{figure}
+
+Nei due diodi identici D1 e D2, polarizzati direttamente, si lascia fluire una corrente di piccola entità \(2i\) che si ripartisce in modo uguale nei due elementi non lineari. Quando il segnale in ingresso è nullo il potenziale del nodo di ingresso coincide con il potenziale di rifermento poiché, avendo un nodo in comune, i due diodi si portano allo stesso potenziale. Virtualmente, quindi, il nodo di ingresso è collegato al riferimento.
+
+Se l'impulso di tensione in ingresso è positivo, il diodo D1 è contro-polarizzato, quindi, la corrente \(2i\) scorre completamente verso massa tramite D2. Il nodo di ingresso, appena a valle della capacità si porta alla tensione dell'impulso di tensione del fotomoltiplicatore.
+
+Quando la tensione in ingresso è negativa, D1 entra in conduzione (potenziale del catodo maggiore dell'anodo negativo) così come il diodo D2. Ciò porta il nodo di entrata al potenziale nullo finché il segnale in ingresso non supera la soglia di conduzione del diodo.
+
+Lo \emph{Shift} della linea di base si presenta con i circuiti di \emph{Shaping} monopolari. Esso può essere eliminato ricorrendo a uno \emph{Shaping} bipolare dei segnali, che, tuttavia, riduce il rapporto segnale/rumore rispetto a un circuito monopolare.
+
+\subsection{Pulse Shaping con Single Delay Line}\label{pulse-shaping-con-single-delay-line}
+
+La modellazione dell'impulso con un circuito \emph{Single Delay Line} rappresenta un'alternativa al circuito CR-RC e produce ancora un impulso monopolare. La soluzione prevede la sostituzione della capacità con una linea di trasmissione chiusa su un corto circuito che riflette il segnale in ingresso. Con questa soluzione non si ricorre a filtri passa-alto o passa-basso, quindi, non si modificano il fronte di salita e discesa né si produce il decadimento esponenziale del segnale. Ciò peggiora il rapporto segnale/rumore poiché le componenti di disturbo non sono cancellate.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.85903in,height=2.29565in,alt={P4568\#yIS1}]{media/19_Circuiti/image484.pdf}\caption{Figura .: Single Delay Line}
+\end{figure}
+
+La linea di trasmissione è progettata in modo che la sua lunghezza assicuri un tempo di propagazione uguale a \(2T\), con \(T\) durata per giungere al carico. Si suppone di trasmettere sulla linea un segnale a gradino. Quando il segnale è trasmesso, giunge sul carico cortocircuito dove è riflesso e ribaltato. Il segnale viaggia, quindi, in senso retrogrado e con polarità opposta. L'onda progressiva e regressiva, sulla linea di trasmissione, si sommano per dare origine a un segnale di durata\(\ 2T\).
+
+\begin{figure}
+\centering
+\includegraphics[width=4.20432in,height=4.17391in,alt={P4571\#yIS1}]{media/19_Circuiti/image485.pdf}\caption{Figura .: Shaping Single Delay Line con impulso reale}
+\end{figure}
+
+Se l'impulso trasmesso non è rettangolare, può verificarsi il fenomeno dell'\emph{Undershoot} dovuto alla sovrapposizione della porzione di onda progressiva con l'onda regressiva di ampiezza, in modulo, maggiore. Ciò provoca un impulso positivo di durata \(2T\) e la restante porzione dell'impulso è negativa poiché la somma tra le due onde porta all'attraversamento per lo zero.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.35714in,height=3.03072in,alt={P4574\#yIS1}]{media/19_Circuiti/image486.pdf}\caption{Figura .: Single Delay Line con impulso reale}
+\end{figure}
+
+Questo problema è facilmente risolto utilizzando un carico con impedenza minore di quella caratteristica della linea di trasmissione. Infatti, il carico, oltre a ribaltare e riflettere il segnale, ne causa un'attenuazione tanto maggiore quanto minore è il coefficiente di riflessione alla sezione del carico. Progettando la linea di trasmissione e il carico è possibile fare in modo che l'impulso risultante abbia durata di \(2T\) e che le componenti che non rientrano in questa durata temporale siano esattamente uguali e opposte all'onda riflessa che viaggia in senso opposto. Il risultato è un impulso monofasico con durata finita e ampiezza legata all'energia del fotone incidente.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.79762in,height=3.05508in,alt={P4577\#yIS1}]{media/19_Circuiti/image487.pdf}\caption{Figura .: Single Delay Line chiusa su impedenza}
+\end{figure}
+
+\subsection{Double Delay Line}\label{double-delay-line}
+
+Il \emph{Double Dalay Line} permette di ottenere gli impulsi bipolari ponendo in cascata due linee di trasmissione con stesso ritardo e separate da uno stadio di Buffer. Questo circuito non introduce nessun filtraggio, quindi il SNR è minore rispetto al circuito CR-RC. Tuttavia, le linee di trasmissione possono avere velocità di propagazione molto spinte e, di conseguenza, un conteggio di eventi più elevato.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.88095in,height=1.80922in,alt={P4581\#yIS1}]{media/19_Circuiti/image488.pdf}\caption{Figura .: Double Delay Line}
+\end{figure}
+
+Se si trasmette un segnale a gradino, alla prima interfaccia di separazione tra la linea di trasmissione e il cortocircuito, si genera un'onda riflessa di polarità opposta che, sovrapponendosi con l'onda progressiva, determina la formazione di un impulso rettangolare.
+
+L'impulso si propaga lungo la linea ed è posto in ingresso al secondo stadio, nel quale si propaga con la stessa velocità del primo. Quindi, dopo un tempo uguale alla sua durata è riflesso con polarità opposta. In uscita, quindi, vi è un impulso bipolare ottenuto dal segnale a gradino positivo e la sua versione ritardata di \(2T\) e con polarità opposta.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.24999in,height=3.75556in,alt={P4585\#yIS1}]{media/19_Circuiti/image489.pdf}\caption{Figura .: impulso con Double Delay Line}
+\end{figure}
+
+Il passaggio per lo zero è importante per la rilevazione della tempistica poiché, in genere, i circuiti che permettono di discriminare questo evento presentano le prestazioni migliori rispetto al passaggio per il massimo.
+
+Nella realtà, l'impulso di corrente con durata di qualche ns è convertito in tensione dallo stadio di prelievo e amplificato da un preamplificatore. Il segnale così ottenuto presenta una durata molto maggiore di quella originale e un fronte di discesa con un'evoluzione esponenziale. Per limitare l'impulso nel tempo si esegue l'operazione di \emph{Shaping} che permette di avere una tempistica standardizzata, mantenendo le informazioni sul picco massimo di tensione legato alla quantità di carica accumulata sull'anodo e, quindi, dall'energia del fotone \(\gamma\) incidente.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.92857in,height=4.36633in,alt={P4589\#yIS1}]{media/19_Circuiti/image490.pdf}\caption{Figura .: Varie elaborazioni degli impulsi del PMT}
+\end{figure}
+
+\subsection{Discriminatore differenziale}\label{discriminatore-differenziale}
+
+Prelevato il segnale in uscita dal fotomoltiplicatore e modificata la forma, è necessario elaborare le informazioni riguardanti gli istanti di occorrenza e le ampiezze degli impulsi. La prima conoscenza è fondamentale per rilevare le coincidenze di due fotoni provenienti dello stesso evento di annichilazione, mentre la seconda permette di ricavare l'energia dei fotoni incidenti. Una prima soluzione potrebbe essere la conversione del segnale analogico elaborato in digitale. Tuttavia, a causa delle brevi durate degli impulsi, i campionatori necessari dovrebbero avere un'estrema frequenza di campionamento. Ancora oggi, quindi, molte elaborazioni, come la discriminazione energetica, sono svolte mediante circuiti analogici.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69555in,height=1.50217in,alt={P4593\#yIS1}]{media/19_Circuiti/image491.pdf}\caption{Figura .: Elaborazione digitale del segnale PET}
+\end{figure}
+
+L'energia dei vari impulsi può subire delle fluttuazioni energetiche dovute a fenomeni statistici. Ciò impone l'uso di una finestra di 350-650keV in cui i fotoni sono considerati provenienti da un evento di annichilazione e non \emph{Scattering}. La soglia da adottare per la rilevazione energetica non è unica. Se la soglia fosse unica esisterebbe una scarsa tolleranza al rumore poiché vi sarebbero delle oscillazioni intorno alla soglia che genererebbero delle commutazioni spurie nel comparatore.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.96009in,height=4.90476in,alt={P4596\#yIS1}]{media/19_Circuiti/image492.pdf}\caption{Figura .: Commutazioni spurie}
+\end{figure}
+
+Per evitare questi effetti si utilizzano dei comparatori a isteresi, realizzati con un \emph{Trigger} di Schmitt. Nella tecnica a isteresi la soglia non è fissa ma varia in un determinato intervallo, la cui ampiezza dipende dal livello di rumore del segnale in ingresso così da ridurre le commutazioni spurie. La realizzazione circuitale del comparatore a isteresi è la seguente:
+
+\begin{figure}
+\centering
+\includegraphics[width=3.48399in,height=2.79762in,alt={P4599\#yIS1}]{media/19_Circuiti/image493.pdf}\caption{Figura .: Commutatore di Schmitt}
+\end{figure}
+
+Ovviamente se il segnale in ingresso è minore della soglia \(V_{S}(t) - V_{in} > 0\), l'OpAmp satura verso l'alimentazione positiva; mentre, se la soglia è minore dell'ingresso \(V_{S}(t) - V_{in} < 0\), si ha la saturazione verso l'alimentazione negativa.
+
+La soglia di tensione del comparatore è variabile, nel senso che assume valori diversi a seconda dell'uscita. È possibile scrivere:
+
+\[V_{S}(t) = V_{R} + R_{2}i(t) = V_{R} + \frac{R_{2}}{R_{1} + R_{2}}\left( V_{out}(t) - V_{R} \right)\]
+
+Se la tensione di ingresso è minore della tensione di soglia superiore o \emph{High Threshold,} l'uscita sarà alta.
+
+\[V_{S}^{H}(t) = V_{R} + \frac{R_{2}}{R_{1} + R_{2}}\left( V_{H} - V_{R} \right)\]
+
+Una volta che il segnale in ingresso supera la soglia l'uscita si porta al valore basso della saturazione negativa. Il valore della soglia si riduce portandosi al valore \emph{Low Threshold}.
+
+\[V_{S}^{L}(t) = V_{R} + \frac{R_{2}}{R_{1} + R_{2}}\left( V_{L} - V_{R} \right)\]
+
+\begin{figure}
+\centering
+\includegraphics[width=6.51538in,height=2.28571in,alt={P4608\#yIS1}]{media/19_Circuiti/image494.pdf}\caption{Figura .: Andamento del segnale e della soglia}
+\end{figure}
+
+Il valore dell'isteresi è dato dall'ampiezza della striscia ottenuta come differenza delle due soglie:
+
+\[S = \frac{R_{2}}{R_{1} + R_{2}}\left( V_{H} - V_{L} \right)\]
+
+I segnali, per poter essere accettati, devono essere contenuti nella striscia di tensioni. I valori dei limiti superiore e inferiore sono imposti in modo che le energie rientrino nell'intervallo di 350-650keV. Le energie maggiore di 511keV possono essere dovute a \emph{Dark Current} oppure a fluttuazioni statistiche che portano il cristallo scintillatore a emettere un numero di fotoni maggiore del valore medio. Ancora, gli atomi droganti possono introdurre delle radiazioni \emph{Afterglow} indipendenti dai fotoni \(\gamma\) incidenti. Per energie non comprese nell'intervallo energetico di 350-650keV, il dato è considerato corrotto dal rumore e, quindi, scartato.
+
+Le soglie del commutatore a isteresi sono in volt, quindi, è necessario utilizzare apposite conversioni per fare in modo che la banda energetica sia quella voluta. I valori delle soglie dipendono dalla quantità di carica accumulata sull'anodo, il guadagno dell'amplificazione e dall'energia dei fotoni incidenti.
+
+\subsection{Conversione digitale}\label{conversione-digitale}
+
+Nella conversione A/D il range della tensione analogica da convertire è diviso in un certo numero di intervalli, idealmente con ampiezza uguale, e a ciascun intervallo è associato un livello digitale, codificato su un certo numero di bit. La funzione ingresso-uscita del convertitore A/D è detta a scalino.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.61597in,height=3.88642in,alt={P4616\#yIS1}]{media/19_Circuiti/image495.pdf}\caption{Figura .: Caratteristica ingresso-uscita di un ADC}
+\end{figure}
+
+In ascissa è riportata l'ampiezza relativa del range di tensioni da codificare con \(V_{in}\) e con \(V_{refLo}\) gli estremi dell'intervallo da codificare. L'intervallo è rapportato al valore di riferimento, spesso di 3.3V.
+
+Sulle ordinate si pongono i \(2^{m}\ \)livelli dove \(m\) è il numero di bit utilizzati. Si definisce risoluzione \(Q\) come:
+
+\[Q = \frac{E_{FSR}}{2^{m}}\]
+
+Q rappresenta l'ampiezza ideale degli intervalli di tensione da codificare. Possono, comunque, presentarsi degli errori dovuto allo scostamento della caratteristica reale da quella ideale.
+
+L'ampiezza degli intervalli, quindi, può variare e, per quantificare tale effetto, si definisce l'errore come non-linearità differenziale:
+
+\[DNL(k) = \frac{W(k) - Q}{Q}\]
+
+Dove \(W(k)\) è l'ampiezza del \(k\)-esimo intervallo.
+
+\subsubsection{Elaborazione digitale}\label{elaborazione-digitale}
+
+Le elaborazioni dei segnali nel mondo digitale presentano una maggiore flessibilità e, inoltre, la manipolazione delle forme d'onda, lo \emph{Shaping} e tutti gli altri processi sono realizzati con le caratteristiche volute.
+
+I segnali digitali sono meno affetti da artefatti, a eccezione dell'errore di quantizzazione, poiché, data la caratteristica ingresso-uscita dei componenti digitali, un eventuale rumore sovrapposto è reiettato dal primo stadio di elaborazione.
+
+Nel caso specifico della PET, la tempistica degli impulsi è dell'ordine dei ns e ciò richiede un convertitore analogico/digitale con elevatissime frequenze di campionamento.
+
+Il risultato è una limitazione dell'accuratezza temporale poiché eventi più veloci non possono essere rilevati. I contatori sono elementi essenziali nell'hardware della PET poiché permettono di memorizzare il numero di eventi rilevato. Esso è realizzato mediante la connessione in cascata di vari flip-flop, temporizzati da un unico segnale di clock.
+
+Per la PET si utilizzano contatori asincroni, in cui il segnale di clock è posto in ingresso solamente al primo stadio. Questo commuta e porta la sua uscita al flip-flop successivo che, quindi, cambia stato a sua volta. Con \(n\) bistabili si possono memorizzare \(2^{n}\) parole binarie.
+
+I flip-flop o bistabili sono circuiti elettronici sequenziali molto semplici utilizzati nell'elettronica digitale come elementi di memoria elementare poiché possono conservare lo stato alto o basso. Il flip-flop J-K è il più semplice e presenta due ingressi J e K per il cambio stato e uno di sincronizzazione.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.76389in,height=3.83222in,alt={P4632\#yIS1}]{media/19_Circuiti/image496.pdf}\caption{Figura .: registri contatori}
+\end{figure}
+
+\subsection{Time Pick-Off}\label{time-pick-off}
+
+Per permettere il conteggio è necessario discriminare gli eventi utili e considerare solo quelli che possiedono determinate caratteristiche come segnali di \emph{Trigger}. Esistono alcuni criteri per generare il segnale di \emph{Trigger} attraverso l'individuazione di un instante di occorrenza di un evento, detto \emph{Time Pick-Off}.
+
+La rilevazione del fronte di salita può essere effettuata mediante il conteggio del tempo necessario affinché l'impulso superi una certa soglia. Questa metodica pone una serie di problematiche di rilevazione. Infatti, può accadere che le ampiezze degli impulsi siano diverse tra loro, quindi, un segnale con ampiezza minore, a parità di forma d'onda, impiega un tempo maggiore a superare la soglia rispetto a un segnale con ampiezza maggiore. In altre parole, due impulsi contemporanei ma con energia differenti saranno rilevati in istanti di tempo successivi poiché il segnale a energia maggiore raggiunge prima il valore della soglia. Analogamente, due impulsi non contemporanei ma con ampiezza diversa possono essere rilevati nello stesso istante poiché raggiungono la soglia in intervalli di tempo differenti. La problematica associata all'attraversamento della soglia per segnali con diverse energie è detta \emph{Amplitude Walk}.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68646in,height=1.1039in,alt={P4637\#yIS1}]{media/19_Circuiti/image497.pdf}\caption{Figura .: Errore da Amplitude Walk}
+\end{figure}
+
+La presenza del rumore sovrapposto agli impulsi elettrici può essere tale che la rilevazione avvenga prima o dopo l'effettivo superamento della soglia da parte della forma d'onda non corrotta dal rumore. Questo fenomeno è note come \emph{Time Jitter} e porta a un errore di rilevazione nel superamento della soglia.
+
+Il \emph{Time Jitter} e l'\emph{Amplitude Walk} determinano degli errori nella rilevazione della tempistica degli impulsi con effetti sulla ricostruzione dell'immagine.
+
+Per risolvere questi inconvenienti si ricorre a impulsi bipolari, caratterizzati da una componente positiva e una negativa. Invece di rilevare il passaggio per una soglia, si determina l'istante di tempo in cui l'impulso oltrepassa lo zero, detto istante di \emph{Zero-Crossing}. Per realizzare queste forme d'onda è comodo utilizzare i \emph{Dual Daley Line} che, tuttavia, non filtrano il segnale.
+
+Lo \emph{Shaping} della forma d'onda impulsiva deve essere tale che la durata della fase positiva sia uguale a quella negativa. In questo modo, indipendentemente dall'ampiezza del segnale, l'istante di \emph{Zero-Crossing} è costante per ogni impulso: due impulsi contemporanei, attraversano lo zero nello stesso istante di tempo. Si riduce, quindi, il fenomeno dell'\emph{Amplitude Walk}.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.69792in,height=2.17142in,alt={P4643\#yIS1}]{media/19_Circuiti/image498.pdf}\caption{Figura .: Attraversamento per lo zero di un impulso bifasico}
+\end{figure}
+
+Il circuito per la rilevazione dello \emph{Zero-Crossing} è dato da:
+
+\begin{figure}
+\centering
+\includegraphics[width=4.43698in,height=2.72917in,alt={P4646\#yIS1}]{media/19_Circuiti/image499.pdf}\caption{Figura .: Circuito di rilevazione dello zero-crossing}
+\end{figure}
+
+La configurazione presentata è sostanzialmente un comparatore con isteresi, dove l'ingresso è comparato con una soglia. L'uscita è alta se l'ingresso supera la soglia, altrimenti è bassa. I diodi D1 e D2 fungono da circuiti di protezione poiché evitano che tensioni estremamente elevate siano poste in ingresso all'operazionale. La capacità nella rete di retroazione è detta di \emph{Speed-Up} e permette la commutazione rapida del fronte d'onda raccolto al secondario.
+
+Il fenomeno dell'isteresi determina la rilevazione del passaggio per lo zero quando la tensione si trova in un suo intorno. Infatti, è possibile dimostrare che l'evento di passaggio per lo zero appartiene a una fascia di {[}-2.5mV 2.5mV{]} all'interno del quale avviene la comparazione con isteresi. Data la soglia mobile, questa comparazione risulta essere più robusta rispetto al rumore sovrapposto e, inoltre, l'errore introdotto dall'ampiezza dell'isteresi è comunque contenuto. Ad esempio, se si amplifica il segnale fino a raggiungere un valore dell'ordine della decina di volt, l'errore commesso è 0.5\%.
+
+\subsubsection{Costant Fraction Timing}\label{costant-fraction-timing}
+
+La \emph{Costant Fraction Timing} permette di utilizzare un impulso monopolare per lo \emph{Zero-Crossing} mediante un'opportuna operazione di \emph{Shaping}. Dell'impulso in ingresso, come a esempio un gradino reale di polarità negativa, si produce una versione attenuata di un fattore \(F < 1\) costante. Successivamente, il segnale di partenza è ritardato, invertito e sommato con la sua versione attenuata. Il risultato è una forma d'onda con uno \emph{Zero-Crossing} con una parte negativa di ampiezza massima \(Fv_{in}\). La forma dell'impulso finale è controllata e presenta un passaggio per lo zero così da rendere più semplice la determinazione delle occorrenze.
+
+\begin{figure}
+\centering
+\includegraphics[width=2.63621in,height=3.90625in,alt={P4652\#yIS1}]{media/19_Circuiti/image500.pdf}\caption{Figura 20.31: Shaping con Constant Fraction Timing}
+\end{figure}
+
+Dal punto di vista hardware, questa soluzione utilizza un amplificatore con guadagno minore dell'unità, un ritardatore, realizzato ad esempio con una linea di ritardo, e un sommatore.
+
+Il \emph{Leading Edge} funziona meglio quando la soglia è al 10-20\% del livello massimo, ottenuto in assenza di \emph{Amplitude Walk}, e, inoltre, il \emph{Time Jitter} risulta essere ridotto. Ciò porta a considerare il passaggio dello zero nella forma d'onda manipolata con buona approssimazione uguale all'istante di occorrenza dell'evento.
+
+\subsection{Coincidenza}\label{coincidenza}
+
+Una volta rilevata l'occorrenza temporale dei vari impulsi è necessario valutare se due eventi sono coincidenti. Come prima istanza si cerca di determinare la distribuzione della tempistica di un impulso attraverso un diagramma detto \emph{Time-Spectrum}.
+
+L'impulso prodotto da una sorgente di annichilazione è inviato a due canali nei quali si misura l'istante di occorrenza di ciascun impulso tramite dei circuiti di \emph{Time Pick-Off}. Il primo canale permette di rilevare l'occorrenza dell'evento che avvia lo \emph{Start} di un timer. Il secondo canale presenta un circuito di \emph{Time Pick-Off}, identico al primo, seguito da una linea di ritardo costante T. L'evento di attraversamento dello zero del secondo canale, posticipato rispetto al primo, determina il segnale di \emph{Stop} del conteggio da parte del contatore. Un analizzatore a valle quantifica il tempo del conteggio tra l'evento di \emph{Start} (passaggio per lo zero del primo canale) e di \emph{Stop} (passaggio per lo zero del secondo canale).
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69583in,height=0.77083in,alt={P4659\#yIS1}]{media/19_Circuiti/image501.pdf}\caption{Figura .: Logica di rilevazione delle coincidenze}
+\end{figure}
+
+In assenza di rumore e fluttuazioni statistiche, tutti gli impulsi presenterebbero un'occorrenza uguale al tempo di ritardo introdotto nel secondo canale T.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.55052in,height=2.54167in,alt={P4662\#yIS1}]{media/19_Circuiti/image502.pdf}\caption{Figura .: Time-Spectrum ideale}
+\end{figure}
+
+A causa dei disturbi dovuti a parametri costruttivi, il \emph{Time Jitter} e l'\emph{Amplitude Walk} è introdotta una certa aleatorietà nel ritardo tra gli istanti di occorrenza. I fenomeni di \emph{Time Jitter} e \emph{Amplitude Walk} ovviamente sono indipendenti tra i due canali poiché i due circuiti non sono esattamente uguali, di conseguenza non rilevano lo \emph{Zero-Crossing} esattamente nello stesso punto del segnale. Può capitare che un circuito di \emph{Time Pick-Off} rilevi lo zero prima dell'altro e viceversa.
+
+La distribuzione non è, quindi, impulsiva ma avrà un certo \emph{Spread}, tendente a una gaussiana, con valor medio T. Rappresentando la distribuzione temporale in un piano dove sull'asse delle ascisse vi è il ritardo e sull'asse delle ordinate il numero di conteggi per canale si ottiene il \emph{Time-Spectrum}.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.64097in,height=2.97917in,alt={P4666\#yIS1}]{media/19_Circuiti/image503.pdf}\caption{Figura .: Time-Spectrum reale}
+\end{figure}
+
+Si considerano ora il caso in cui la sorgente di impulsi sia racchiusa tra due detettori che introducono a loro volta altri fenomeni di ritardo, modificando lo spettro del tempo.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.18031in,height=2.4434in,alt={P4669\#yIS1}]{media/19_Circuiti/image504.pdf}\caption{Figura .: Logica realmente utilizzata in PET}
+\end{figure}
+
+Tipicamente gli eventi rilevati da due detettori sono divisi in tre categorie: normali, \emph{Scatter} e \emph{Random}. Tutti gli eventi, indipendentemente dalla loro origine sono detti \emph{Prompt Coincidences}.
+
+\begin{itemize}
+\item
+  Gli eventi normali, in cui entrambi gli impulsi provenienti da un processo di annichilazione sono rilevati, sono detti \emph{True Coincidence}. In questo caso, dato che i due circuiti di \emph{Time Pick-Off} non sono esattamente uguali tra loro, tra lo \emph{Start} e lo \emph{Stop} non passa un tempo esattamente uguale a T ma che può essere leggermente maggiore o minore, distribuito secondo una certa legge probabilistica;
+\item
+  Gli eventi \emph{Scatter} sono dovuti all'interazioni dei fotoni \(\gamma\) all'interno della materia. I fotoni sono deviati e perdono energia a causa dell'effetto Compton o fotoelettrico. Ciò potrebbe portare alla rilevazione solo di un fotone da parte di un detettore. Può anche accadere che, pur arrivando entrambi sui detettori, uno dei fotoni non è rilevato. In questo caso, il fotone rilevato avvia i processi che portano all'inizio del conteggio da parte del contatore; tuttavia, non essendo stato rilevato il secondo fotone non si produce un segnale di \emph{Stop}. Il contatore verrà fermato casualmente da un'annichilazione successiva, che non corrisponde all'evento che ha avviato lo \emph{Start}. Questo tipo di occorrenze introduce una componente continua nel \emph{Time-Spectrum} poiché, in un certo istante, la probabilità di rilevare un evento di \emph{Scatter} è mediamente costante. Questa componente continua è detta \emph{Chance Intervals} poiché il contatore può contare tempi molti lunghi o piccoli in modo causale;
+\item
+  Gli eventi di tipo \emph{Random} si verificano in presenza di più sorgenti di radioisotopo. Nel corpo umano, una volta immesso il tracciante, nascono degli eventi contemporanei di annichilazione. Ciò dà luogo a più rilevazioni simultanee che introducono una quota di rumore sull'immagine.
+\end{itemize}
+
+Il \emph{Time-Spectrum} presenta, quindi, un picco in corrispondenza del ritardo T tra i due canali, dove si verificano il maggior numero di eventi rilevati, che formano il \emph{True} delle coincidenze. A causa degli eventi \emph{Scatter} sono possibili eventi non legati alla stessa annichilazione che determinano ritardi più lunghi o più corti di T con la medesima probabilità. Lo spettro è, quindi, dato da:
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68472in,height=2.89097in,alt={P4676\#yIS1}]{media/19_Circuiti/image505.pdf}\caption{Figura .: Time-Spectrum con coincidenze casuali}
+\end{figure}
+
+Bisogna scartare le false coincidenze dovute agli effetti di \emph{Scattering} che rientrano in un ritardo ammissibile ovvero appartenenti all'area riservata alle \emph{True Coincidence}. È possibile determinare la probabilità con cui si verificano i \emph{Chance Intervals} osservando che la probabilità che sia trascorso un tempo T senza aver rilevato un evento di \emph{Stop} è:
+
+\[P_{T} = e^{- r_{2}T}\ \]
+
+Dove \(r_{2}\) è il \emph{Rate} di intervalli rilevati dal detettore D2.
+
+La probabilità che al tempo T vi sia un segnale di \emph{Stop} è ottenuta moltiplicando la probabilità che sia trascorso un tempo T senza aver rilevato un evento di \emph{Stop} per il \emph{Rate} di intervalli rilevati dal detettore D2:
+
+\[P_{stop} = {r_{2}e}^{- r_{2}T}\]
+
+La probabilità che sia rilevato anche un evento di \emph{Start} è ottenuta moltiplicando la probabilità \(P_{stop}\) per il tasso di eventi rilevati dal primo detettore:
+
+\[P = {r_{1}r_{2}e}^{- r_{2}T}\]
+
+Questa quantità coincide con la probabilità che si verifichi un evento di \emph{Scatter} con ritardo T tra l'evento di \emph{Start} e \emph{Stop} non correlati a un solo evento di annichilazione. Se T è piccolo, essa si riduce al prodotto tra le frequenze medie di rilevazione.
+
+Si dice tasso complessivo di coincidenze casuali come:
+
+\[2\tau r_{1}r_{2}\]
+
+Dato dal prodotto dei due tassi di eventi rilevati di entrambi i detettori per la finestra di tempo \(\tau\) in cui i due eventi sono ritenuti simultanei. Due eventi, infatti, non sono mai veramente simultanei ma tra di loro vi è un certo ritardo dovuto al diverso spazio percorso dai fotoni dal paziente verso i detettori.
+
+Nell'apparecchiatura PET si utilizzano due canali dove in un ramo si trovano un circuito di \emph{Time Pick-Off} per il rilevamento per lo zero e un ritardatore costante. Il secondo ramo, invece, oltre al \emph{Time Pick-Off} presenta un circuito di ritardo variabile.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.27083in,height=1.68759in,alt={P4690\#yIS1}]{media/19_Circuiti/image506.pdf}\caption{Figura .: Logica con ritardo costante e variabile lungo le linee}
+\end{figure}
+
+I due ritardi, posti diversi tra loro, sono necessari per poter stimare il numero delle coincidenze causali che rientrano in quelle ammissibili. A tale scopo si utilizza un'unità di coincidenza che verifica se due eventi rientrano nella finestra temporale di durata \(\tau\).
+
+Tramite l'unità di coincidenza è semplice stimare il tasso di coincidenza casuale e, noto anche il tasso di eventi rilevato, è possibile valutare il tasso di coincidenze vere mediante la sottrazione tra il tasso totale e casuale di coincidenze.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.01968in,height=7in,alt={P4694\#yIS1}]{media/19_Circuiti/image507.pdf}\caption{Figura .: Time-Spectrum corretto}
+\end{figure}
+
+In assenza di correzione, nella ricostruzione delle immagini si considerano anche eventi non legati a un fenomeno di annichilazione.
+
+La finestra di risoluzione \(\tau\) non può essere troppo piccola perché altrimenti si perdono delle coincidenze vere, ma nemmeno troppo grande perché altrimenti si avrebbe una dispersione elevata che comporta il riconoscimento di eventi di \emph{Scatter} come \emph{True}. Tipico valore della finestra è di 12ns.
+
+Dal punto di vista hardware, i circuiti di coincidenza contengono delle porte logiche o sommatori: i due ingressi possono essere sia posti in ingresso a un'unità logica la cui uscita è alta nel momento in cui entrambi gli ingressi sono alti, sia una somma e selezionare una soglia per verificare l'istante in cui si ha la coincidenza.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.21507in,height=3.40298in,alt={P4699\#yIS1}]{media/19_Circuiti/image508.pdf}\caption{Figura .: Rilevazione della coincidenza digitale}
+\end{figure}
+
+Se si utilizza una porta NAND allora quando i due impulsi sono entrambi alti l'uscita è bassa. Dunque, l'evento di coincidenza si verifica quando l'uscita della porta logica è bassa.
+
+Un circuito complessivo per l'acquisizione ed elaborazione del segnale PET è il seguente:
+
+\begin{figure}
+\centering
+\includegraphics[width=6.61522in,height=3.63542in,alt={P4703\#yIS1}]{media/19_Circuiti/image509.pdf}\caption{Figura .: Circuito per coincidenze e discriminazione energetica}
+\end{figure}
+
+L'uscita dei fotomoltiplicatori è posta in ingresso a degli amplificatori. Il sommatore riceve in ingresso tutti i segnali amplificati e li invia a un blocco per la discriminazione dell'istante temporale di occorrenza. In parallelo a questo ramo, vi sono gli integratori con \emph{Reset} che ricevono solamente un canale in uscita dall'amplificatore. Le uscite di questi blocchi sono sommate e posti in ingresso a un discriminatore dell'ampiezza dell'impulso o PHA. Se gli eventi sono simultanei e le energie rientrano nell'intervallo di 350-650keV l'uscita della porta AND è alta e abilita il conteggio del numero di eventi rilevato.
+
+Il circuito prevede anche una sezione in cui si determina la posizione spaziale del fotone \(\gamma\) sulla \(\gamma\)-camera, secondo la logica di Anger.
+
+I segnali risultanti dalle elaborazioni sono poi digitalizzati e inviati a un elaboratore digitale che si occupa della ricostruzione dell'immagine a partire dal numero di fotoni ricevuto e dalla loro posizione spaziale.

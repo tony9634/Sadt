@@ -3,6 +3,8 @@
 %Questo è il preambolo, dove si inseriscono i pacchetti e le impostazioni che servono per compilare il documento. Quanto scritto dopo il simbolo '%' è solo un commento e serve a fini dimostrativi.
 \documentclass[a4paper, 13, oneside]{report}
 \linespread{1.5} %interlinea
+\setlength{\parindent}{0pt} % niente rientro dopo punto a capo
+\setlength{\parskip}{0.75em}
 \pagestyle{plain}
 \usepackage{geometry} %margini
 \geometry{a4paper, top=2.5cm, bottom=2cm, left=2cm, right=2cm, bindingoffset=5mm}
@@ -46,9 +48,6 @@
 \captionsetup{textfont=sl}
 \maxdeadcycles=300
 
-\usepackage{parskip}
-
-
 \usepackage{morefloats}
 
 \usepackage[italian]{babel} %lingua principale
@@ -88,6 +87,7 @@
 \usepackage{fancyhdr}
 \usepackage[export]{adjustbox}
 
+\usepackage[version=4]{mhchem}
 \usepackage{hyperref} %hyperlink
 \hypersetup{
     colorlinks=true,
@@ -122,15 +122,32 @@
 \dominitoc
 \tableofcontents
 
-{
-\setlength{\parindent}{0pt}
 \include{Capitoli/1_Meccanica}
 \include{Capitoli/2_Relatività}
 \include{Capitoli/3_Elettromagnetismo}
 \include{Capitoli/4_Quantistica}
 \include{Capitoli/5_MecStatistica}
+
 \include{Capitoli/6_IntroMRI}
-}
+\include{Capitoli/7_MRISignal}
+\include{Capitoli/8_Grad}
+\include{Capitoli/9_Ric2D}
+\include{Capitoli/10_Ric3D}
+\include{Capitoli/11_SNR}
+\include{Capitoli/12_FatSupp}
+\include{Capitoli/13_FastImm}
+\include{Capitoli/14_FuncImm}
+\include{Capitoli/15_HWRMI}
+
+\include{Capitoli/16_PrincFis}
+\include{Capitoli/17_Detettori}
+\include{Capitoli/18_PTM}
+\include{Capitoli/19_Circuiti}
+\include{Capitoli/20_ElaDati}
+\include{Capitoli/21_RicImmPET}
+\include{Capitoli/22_PrestazioniPET}
+\include{Capitoli/23_DualEn}
+\include{Capitoli/24_VisualImm}
 
 \medskip
 

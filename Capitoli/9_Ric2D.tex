@@ -1,0 +1,576 @@
+\begin{center}
+\vfill
+    \chapter{Ricostruzione bidimensionale in MRI}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+
+\section{Ricostruzione tridimensionale in RMI}\label{ricostruzione-tridimensionale-in-rmi}
+
+L'imagining monodimensionale permette la ricostruzione della densità protonica solamente lunga una direzione, decodificando la posizione con la frequenza di precessione degli isocromati, a opera del gradiente.
+
+Per ottenere una ricostruzione tridimensionale della densità protonica è possibile applicare più gradienti ortogonali tra loro. Infatti, se un gradiente lungo \(z\) permette di campionare il \(k\)-spazio lungo la direzione \(k_{z} = \overline{\gamma}G_{z}z\), l'applicazione di altri due gradienti lungo le altre due dimensioni \(x\) e \(y\) consente di campionare lo spazio \(k\) anche nelle direzioni \(k_{x}\) e \(k_{y}\).
+
+Dal punto di vista analitico, la variabile \(\overset{\underline{}}{k}\) può essere espressa come una terna del tipo:
+
+\[\overset{\underline{}}{k} = \left( \begin{array}{r}
+k_{x} \\
+k_{y} \\
+k_{z}
+\end{array} \right)\]
+
+Il segnale registrato durante la finestra di acquisizione è ottenuto come trasformata tridimensionale della densità protonica efficace:
+
+\[s\left( \overset{\underline{}}{k} \right) = \int_{V}^{}{\widehat{\rho}\left( \overset{\underline{}}{r} \right)\exp\left( - j2\pi\overset{\underline{}}{k} \cdot \overset{\underline{}}{r} \right)d^{(3)}\overset{\underline{}}{r}}\]
+
+Dove \(\overset{\underline{}}{r}\) è il vettore posizione nello spazio:
+
+\[\overset{\underline{}}{r} = \left( \begin{array}{r}
+x \\
+y \\
+z
+\end{array} \right)\]
+
+Registrando il segnale in una finestra di acquisizione abbastanza breve da poter trascurare gli effetti dei tempi di rilassamento, è possibile ricostruire la densità protonica mediante trasformata inversa di Fourier:
+
+\[\widehat{\rho}\left( \overset{\underline{}}{r} \right) = \int_{V}^{}{s\left( \overset{\underline{}}{k} \right)\exp\left( j2\pi\overset{\underline{}}{k} \cdot \overset{\underline{}}{r} \right)d^{(3)}\overset{\underline{}}{k}}\]
+
+Dal punto di vista realizzativo, il processo di ricostruzione è ottenuti un impulso a radiofrequenza che ribalta la magnetizzazione di \(\pi/2\) su uno degli assi del sistema rotante e tre gradienti di campo principale, nelle tre direzioni dello spazio.
+
+\[G_{z} = \frac{\partial}{\partial z}B_{z}\left( \overset{\underline{}}{r} \right),G_{x} = \frac{\partial}{\partial x}B_{z}\left( \overset{\underline{}}{r} \right),G_{y} = \frac{\partial}{\partial y}B_{z}\left( \overset{\underline{}}{r} \right)\]
+
+In forma compatta è possibile scrivere:
+
+\[\overset{\underline{}}{G} = \overset{\underline{}}{\nabla}B_{z}\]
+
+Questa relazione è valida nell'ipotesi in cui la componente lungo \(z\) del campo magnetico principale varia in base alla posizione nello spazio, mentre le altre sono nulle:
+
+\[{\overset{\underline{}}{B}}_{0} = \left( \begin{array}{r}
+0 \\
+0 \\
+B_{z}(x,y,z)
+\end{array} \right)\]
+
+Ciò è dovuto al fatto che la frequenza di Larmour \(\omega_{0}\) è legata solamente alla coordinata \(z\).
+
+\begin{figure}
+\centering
+\includegraphics[width=3.97247in,height=2.5in]{media/9_Ric2D/image237.pdf}\caption{Figura .: Campo vettoriale diretto lungo l'asse z, con intensità che varia linearmente con la posizione tridimensionale}
+\end{figure}
+
+La sequenza utilizzata è composta da tre gradienti lungo le tre dimensioni del sistema di riferimento fisso. I gradienti lungo \(z\) e \(y\) hanno durata, rispettivamente di \(\tau_{z}\) e \(t_{y}\) e possono anche essere sovrapposti tra loro. Il gradiente lungo \(x\) è detto di lettura e deve essere applicato separatamente. Durante l'applicazione di questo gradiente è attivata la finestra temporale per la registrazione del segnale nel \(k\)-spazio, \(s\left( \overset{\underline{}}{k} \right).\)
+
+I gradienti lungo \(y\) e \(z\) sono detti gradienti di codifica di fase poiché consentono di alterare la fase in base alla posizione nello spazio degli isocromati.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.13333in,height=2.3864in]{media/9_Ric2D/image238.pdf}\caption{Figura .: Sequenza per l'imagining tridimensionale}
+\end{figure}
+
+Data la presenza di più gradienti, è possibile associare a ogni posizione \(\overset{\underline{}}{r}\) una certa frequenza lungo le tre dimensioni spaziali.
+
+Il segnale acquisito nella finestra di acquisizione è del tipo:
+
+\[s\left( \overset{\underline{}}{k} \right) = \int_{V}^{}{\widehat{\rho}\left( \overset{\underline{}}{r} \right)\exp\left\lbrack j\phi\left( \overset{\underline{}}{r} \right) \right\rbrack d^{(3)}\overset{\underline{}}{r}}\]
+
+Dove la fase è legata alla variabile \(\overset{\underline{}}{k}\) nel \(k\)-spazio dalla relazione:
+
+\[\phi\left( \overset{\underline{}}{r} \right) = 2\pi\overset{\underline{}}{k} \cdot \overset{\underline{}}{r}\ \]
+
+La fase varia sia per l'applicazione dei gradienti lungo \(z\), per un tempo \(\tau_{z}\), e lungo \(y\), per un tempo \(\tau_{y}\), sia per l'applicazione del gradiente lungo \(x\). Le componenti del \(k\)-spazio sono definite come:
+
+\[k_{i} = \overline{\gamma}\int_{t_{1}}^{t}{G_{i}(\tau)d\tau},i = x,y,z\]
+
+Per gradienti costanti nel tempo, si ha:
+
+\[\left\{ \begin{matrix}
+k_{z} = \overline{\gamma}G_{z}\tau_{z} \\
+k_{y} = \overline{\gamma}G_{y}\tau_{y} \\
+k_{x} = \overline{\gamma}G_{x}\left( t - t_{1} \right)
+\end{matrix} \right.\ \]
+
+La fase può essere scritta come sovrapposizione delle varie fasi generate dai gradienti, principio noto come sovrapposizione delle fasi. A valle dalla demodulazione si ha:
+
+\[\phi\left( \overset{\underline{}}{r},t \right) = 2\pi\overline{\gamma}G_{z}\tau_{z}z + 2\pi\overline{\gamma}G_{y}\tau_{y}y + 2\pi\overline{\gamma}G_{x}\left( t - t_{1} \right)x\]
+
+Per definizione \(2\pi\overline{\gamma} = \gamma\), quindi:
+
+\[\phi\left( \overset{\underline{}}{r},t \right) = \gamma G_{z}\tau_{z}z + \gamma G_{y}\tau_{y}y + \gamma G_{x}\left( t - t_{1} \right)x\]
+
+La quantità \(G_{z}z\) rappresenta la disomogeneità di campo magnetico applicata lungo \(z\), ovvero la disomogeneità di campo vista dagli isocromati lungo \(z\). La quantità \(\gamma G_{z}z\) è la frequenza di precessione degli isocromati a valle della demodulazione. Infine, \(\gamma G_{z}\tau_{z}z\) fornisce la variazione di fase degli isocromati legati alla posizione \(z\).
+
+Analogamente, la quantità \(\gamma G_{y}\tau_{y}y\) è la variazione di fase degli isocromati in base alla loro posizione lungo \(y\).
+
+La fase legata alla precessione lungo \(x\) dipende esplicitamente dal tempo poiché la finestra di acquisizione è aperta solo su questo gradiente. In definitiva, all'applicazione del gradiente di lettura si è accumulata una fase su \(z\), data da \(\gamma G_{z}\tau_{z}z\), e su \(y\), data da \(\gamma G_{y}\tau_{y}y\); mentre con il gradiente di lettura si registra la variazione di fase o equivalentemente si campiona il \(k\)-spazio.
+
+Il segnale registrato nella finestra di acquisizione è dato dalla trasformata tridimensionale della densità protonica:
+
+\[s(t) = \iiint_{V}^{}{\widehat{\rho}(x,y,z)\exp\left( - j\gamma G_{z}\tau_{z}z - j\gamma G_{y}\tau_{y}y - j\gamma G_{x}tx \right)dxdydz}\]
+
+Ponendo:
+
+\[\left\{ \begin{matrix}
+k_{y} = \overline{\gamma}\int_{0}^{t}{G_{y}(\tau)d\tau} \\
+k_{z} = \overline{\gamma}\int_{0}^{t}{G_{z}(\tau)d\tau} \\
+k_{x} = \overline{\gamma}\int_{0}^{t}{G_{x}(\tau)d\tau}
+\end{matrix} \right.\  \Leftrightarrow \left\{ \begin{matrix}
+k_{y} = \overline{\gamma}G_{y}\tau_{y} \\
+k_{z} = \overline{\gamma}G_{z}\tau_{z} \\
+k_{x} = \overline{\gamma}G_{x}t
+\end{matrix} \right.\ \]
+
+Il segnale registrato può essere espresso come:
+
+\[s\left( \overset{\underline{}}{k} \right) = \iiint_{V}^{}{\widehat{\rho}(x,y,z)\exp\left\lbrack - j\left( 2\pi k_{z}z + 2\pi k_{y}y + 2\pi k_{x}x \right) \right\rbrack dxdydz}\]
+
+Mentre \(k_{z}\) e \(k_{y}\) sono fissati, \(k_{x} = k_{x}(t)\) dipende dal tempo, per cui il passaggio tra la componente temporale col \(k\)-spazio avviene mediante \(k_{x}\).
+
+Il segnale nel \(k\)-spazio, \(s\left( \overset{\underline{}}{k} \right)\) è una trasformata di Fourier tridimensionale della densità protonica efficace.
+
+Il \(k\)-spazio, quindi, è una struttura tridimensionale, dove per ricostruire l'immagine \(k_{y}\) e \(k_{z}\) sono fissi mentre \(k_{x}\) è campionato nel \(k\)-spazio. In altre parole, la sequenza introdotta permette di campionare una retta nel \(k\)-spazio.
+
+\begin{figure}
+\centering
+\includegraphics[width=2.69774in,height=2.6in]{media/9_Ric2D/image239.pdf}\caption{Figura .: Campionamento nel k-spazio della retta}
+\end{figure}
+
+\subsection{\texorpdfstring{Utilizzo dei gradienti per campionare il \(\mathbf{k}\)-spazio}{9Utilizzo dei gradienti per campionare il \textbackslash mathbf\{k\}-spazio}}\label{utilizzo-dei-gradienti-per-campionare-il-mathbfk-spazio}
+
+Si pone, ora, il problema di come disporre i vari gradienti tra loro. Si suppone, a titolo d'esempio, di applicare il gradiente lungo \(x\) per un tempo predefinito \(\tau_{x}\), quello lungo \(y\) per un tempo \(\tau_{y}\) e quello lungo \(x\) per \(\tau_{x}\); inoltre, tutti i gradienti sono applicati contemporaneamente.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.00178in,height=2.48333in]{media/9_Ric2D/image240.pdf}\caption{Figura .: Gradienti lungo gli assi applicati contemporaneamente}
+\end{figure}
+
+In questo caso la relazione che lega la densità protonica efficace \(\widehat{\rho}\left( \overset{\underline{}}{r} \right)\) col segnale acquisito nel \(k\)-spazio è ottenuto mediante trasformata tridimensionale di Fourier:
+
+\[s\left( \overset{\underline{}}{k} \right) = \iiint_{V}^{}{\widehat{\rho}(x,y,z)\exp\left\lbrack - j\left( 2\pi k_{z}z + 2\pi k_{y}y + 2\pi k_{x}x \right) \right\rbrack dxdydz}\]
+
+Per ricostruire la densità protonica efficace \(\widehat{\rho}\left( \overset{\underline{}}{r} \right)\) è necessario campionare il \(k\)-spazio, acquisendo una matrice \(3 \times 3\), così che, mediante algoritmi digitali, è possibile ricavare la trasformata inversa di Fourier.
+
+Aver scelto di scelto di sovrapporre gli impulsi, determina l'acquisizione di un unico punto nello spazio \(k\) di coordinate:
+
+\[\overset{\underline{}}{k} = \left( \begin{array}{r}
+\overline{\gamma}G_{x}\tau_{x} \\
+\overline{\gamma}G_{y}\tau_{y} \\
+\overline{\gamma}G_{z}\tau_{z}
+\end{array} \right)\]
+
+Avendo acquisito il segnale a fine dei tre gradienti, la fase degli isocromati è costante e, dunque, non si ottiene una matrice tridimensionale ma un singolo punto.
+
+\begin{figure}
+\centering
+\includegraphics[width=1.88483in,height=1.63333in,alt={Generazione immagine completata}]{media/9_Ric2D/image241.pdf}\caption{Figura .: Campionamento nel k-spazio con gradienti applicati contemporaneamente}
+\end{figure}
+
+Per ottenere un buon campionamento nel \(k\)-spazio è necessario ripetere la tecnica di applicazione dei gradienti lungo le tre dimensioni spaziali, diverse volte, modificano la durata o l'ampiezza del gradiente in modo da ottenere il giusto numero di campioni per invertire la trasformata di Fourier. Tipicamente, si mantiene costante la durata temporale e si varia l'ampiezza del gradiente. Se, ad esempio, si mantiene costante l'ampiezza di \(G_{x}\) e \(G_{y}\) ma si varia \(G_{z}\), si ottiene un secondo punto con stesse coordinate \(k_{x}\) e \(k_{y}\) ma diverse \(k_{z}\) e così via.
+
+Tra l'applicazione di una sequenza e l'altra è necessario che il vettore di magnetizzazione ritorni all'equilibrio, dopo essere stati ribaltato sul piano trasverso per l'applicazione dell'impulso a \(\pi/2\).
+
+Affinché il vettore di magnetizzazione raggiunga l'equilibrio è necessario aspettare \(3 \div 5\ T_{1}\), tempo di rilassamento longitudinale, che governa l'evoluzione della componente lungo \(z\) del vettore di magnetizzazione nel tempo. Non aspettando un tempo almeno uguale a \(3T_{1}\) tra l'applicazione dei gradienti, allora si acquisirebbero dei punti con diverse ampiezze della magnetizzazione, portando ad artefatti nella ricostruzione dell'immagine. Infatti, la densità protonica sarebbe diversa tra punti di rette diverse nel \(k\)-spazio. Se, invece, il vettore di magnetizzazione raggiunge l'equilibrio la densità protonica è uguale per ogni punto.
+
+Per ottenere un campionamento soddisfacente nel \(k\)-spazio tridimensionale è buona norma dividere il volume in voxel da \(256 \times 256 \times 80\) o \(256 \times 256 \times 100\). Ognuno di questi elementi di volume occupa una certa posizione nello spazio.
+
+\begin{figure}
+\centering
+\includegraphics[width=1.64348in,height=1.65in]{media/9_Ric2D/image242.pdf}\caption{Figura .: Voxel elementare}
+\end{figure}
+
+La matrice per la ricostruzione dell'immagine ha una dimensione di \(2^{8} \times 2^{8} \times 100\); per cui il numero di punti nel \(k\)-spazio è dato all'incirca da:
+
+\[2^{8} \times 2^{8} \times 100 = 2^{16} \times 100 \simeq 6.5 \cdot 10^{6}\]
+
+Se, per acquisire due punti successivi è necessario aspettare almeno un tempo di \(3\ s\), per campionare completamente il volume è necessario un tempo apprensivamente di:
+
+\[3\ s \cdot 6.5 \cdot 10^{6} \simeq 19 \cdot 10^{6}\ s \simeq 220\ day\]
+
+All'atto pratico non è possibile ricostruire un intero volume del paziente sia perché il tempo di acquisizione è estremamente lungo, sia perché il paziente potrebbe muoversi causando artefatti nella ricostruzione. I movimenti del paziente, infatti, variano la distribuzione della densità protonica nello spazio e, quindi, i punti acquisiti per lo stesso volume potrebbero presentare una densità protonica diversa nel tempo. La ricostruzione porta a un errore di visualizzazione per la variazione nel tempo della funzione \(\widehat{\rho}\). In conclusione, questo approccio non può essere realizzato all'atto pratico.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.53728in,height=2.80208in]{media/9_Ric2D/image243.pdf}\caption{Figura .: Andamento della magnetizzazione nel tempo}
+\end{figure}
+
+La scelta di mantenere costante l'ampiezza costante del gradiente e variare il tempo di applicazione risulta ancora più impraticabile poiché dilatare sempre di più il tempo d'esame.
+
+La soluzione adottata nella pratica sfrutta i gradienti di codifica di fase e il gradiente di lettura, applicati separatamente. Durante l'ultimo gradiente, si registra il segnale da campionare per riempire il \(k\)-spazio.
+
+I gradienti di codifica di fase hanno una durata prefissate così da ottenere un campionamento nel \(k\)-spazio dipendente dall'intensità del gradiente. I passi di campionamento sono dati da:
+
+\[\left\{ \begin{matrix}
+\Delta k_{z} = \overline{\gamma}\Delta G_{z}\tau_{z} \\
+\Delta k_{z} = \overline{\gamma}\Delta G_{z}\tau_{z}
+\end{matrix} \right.\ \]
+
+Il gradiente di lettura permette, invece, di acquisire il segnale \(s\left( \overset{\underline{}}{k} \right)\) nel tempo, ovvero il campionamento lungo \(k_{x}\) non avviene per variazione del gradiente ma mediante campionamento nel tempo del segnale registrato. L'intervallo di campionamento lungo \(k_{x}\) è legato al campionamento nel tempo \(\Delta t\):
+
+\[\Delta k_{x} = \overline{\gamma}G_{x}\Delta t\]
+
+Si considera una sequenza composta da due gradienti di codifica di fase \(G_{z}\) e \(G_{y}\) con durata, rispettivamente \(\tau_{z}\) e \(\tau_{y}\) applicati contemporaneamente. Ciò equivale a fissare le due coordinate nel \(k\)-spazio:
+
+\[\left\{ \begin{matrix}
+k_{z} = \overline{\gamma}G_{z}\tau_{z} \\
+k_{y} = \overline{\gamma}G_{y}\tau_{y}
+\end{matrix} \right.\ \]
+
+\begin{figure}
+\centering
+\includegraphics[width=4.50081in,height=2.63333in]{media/9_Ric2D/image244.pdf}\caption{Figura .: Sequenza con gradienti di codifica di fase applicati contemporaneamente e di lettura separato}
+\end{figure}
+
+Iniziando la finestra di acquisizione duante il gradiente di lettura, applicato dopo la fine dei primi due gradienti, si ottiene una coordinata \(k_{x}\) variabile nel tempo secondo la relazione:
+
+\[k_{x}(t) = \overline{\gamma}G_{z}t\]
+
+Questo processo equivale a selezionare una riga, di coordinate \(\left( k_{x}(t),k_{y},k_{z} \right)\), nel \(k\)-spazio. È così possibile campionare con un passo \(\Delta t\), il segnale acquisito; il che equivale a campionare il \(k\)-spazio in una direzione, mentre le altre due sono fisse. In gergo, si parla di acquisire una riga del \(k\)-spazio con valori di \(k\) sia positiiv che nevegativi.
+
+Variando l'ampiezza dei gradienti di codifica di fase in modo opportuno è possibile campionare un'ulteriore riga del \(k\)-spazio nella direzione delle \(k_{x}\).
+
+\begin{figure}
+\centering
+\includegraphics[width=2.42441in,height=2.26667in,alt={Immagine che contiene linea, schizzo, diagramma, disegno Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/9_Ric2D/image245.pdf}\caption{Figura .: Due righe del \(k\)-spazio}
+\end{figure}
+
+Per ottenere \(256\) campioni in questa direzione è necessario scegliere opportunemente il periodo di camponamento \(\Delta t\), così da acquisire il giusto numero di punti nella finestra di acquisizione. Al fine di ottenere \(256\) punti lungo l'asse \(z\) è necessario variare l'ampiezza del gradiente di altrettanti valori, così da fissare la coordinata \(k_{z}\). Infine, per i \(100\) campioni lungo la coordinata \(y\) di varia l'ampiezza del gradiente in tale direizone lo stesso numero di volte. Il piano \(y - z\) è, in definitiva, campionato puntualmente.
+
+I \(256\) campioni lungo \(x\) sono acquisiti durante la finestra di acquisizione, dell'ordine dei \(ms\); di conseguenza, il tempo per campionare i punti \(k_{x}\) è trascurabile.
+
+Il tempo che intercorre tra due senquenze con valori dei gradienti diversi deve essere almeno di \(3T_{1} \simeq 3\ s\). Il tempo di acquisizione del volumetto elementare si riduce a:
+
+\[2^{8} \times 100 \times 3\ s = 76800\ s \simeq 21\ h\]
+
+Questo tempo, sebbene molto minore di quello necessario ad acquisire i vari punti nel \(k\)-spazio singolarmente, è ancora estremamente lungo; per cui si rende necessario l'uso di altre strategie per velocizzare i tempi di acquisizione.
+
+Dalle strateggie applicate per campionare il \(k\)-spazio discende la potenza della tecnica di eccitazione con campi elettromagnetici da appilicare in risonanza.
+
+Una volta campionato il \(k\)-sèazio, si ricostruisce l'immagine della densità protonica mediante trasformata inversa di Fourier dei camponi acquisi:
+
+\[\widehat{\rho} = \sum_{i}^{}{\sum_{k}^{}{\sum_{j}^{}{s\left( k_{i}.k_{k},k_{j} \right)\exp\left\lbrack - j2\pi\left( k_{x}x + k_{y}y + k_{z}z \right) \right\rbrack}}}\]
+
+Nell'anlisi della sequenza nel tempo, per indicare che l'ampiezza del gradiente varia tra una sequenza e l'altra si utilizza il simbolo composto da righe parallele, rappresentanti l'ampiezza dei gradienti e una freccia indicante il verso di variazione dell'ampiezza del gradiente. Quest'ultima può anche non essere presente.
+
+\begin{figure}
+\centering
+\includegraphics[width=1.51456in,height=1.28958in]{media/9_Ric2D/image246.pdf}\caption{Figura .: Simbolo per indicare che l'ampiezza del gradiente aumenta tra una sequenza e la successiva}
+\end{figure}
+
+Con questa notazione, la sequenza introdotta per il riempimento del \(k\)-spazio con gradienti di codifica di fase applicati contemporaneamente è la sequente:
+
+\begin{figure}
+\centering
+\includegraphics[width=5.97772in,height=3.8151in]{media/9_Ric2D/image247.pdf}\caption{Figura .: Sequenza con gradienti variabili tra un'applicazione e la successiva}
+\end{figure}
+
+Per indicare che la sequenza è ripetuta si utilizza una freccia ricurva.
+
+In definitiva, mediante questa tecnica è possibile ottenere un campionamento tridimensionale del \(k\)-spazio. La configurazione può essere implementata mediante della sequenza spin-echo o gradient-echo.
+
+\subsection{Imagining bidimensionale}\label{imagining-bidimensionale}
+
+Si restringe l'analisi al solo piano del \(k\)-spazio, \(k_{x} - k_{y}\). Il riempimento del \(k\)-spazio deve avvenire per linee in cui, il valore del gradiente lungo \(y\), quindi \(k_{y}\), è fissato. Il segnale registrato viene campionato nel \(k\)-spazio lungo la direzione \(k_{x}\), ottenendo una riga.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.12121in,height=4.15909in]{media/9_Ric2D/image248.pdf}\caption{Figura .: Linee acquisite nel k-spazio bidimensionale}
+\end{figure}
+
+La sequenza necessaria per lo scopo è ottenuta mediante l'applicazione di un impulso a radiofrequenza, per eccitare gli isocromati, e due impulsi di gradiente, uno lungo \(x\) e l'altro lungo \(y\). Il gradiente di codifica di fase, \(G_{y}\), è applicato per un tempo \(\tau_{y}\), mentre il gradiente di lettura, \(G_{x}\), sfrutta una sequenza gradiente-echo.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.33214in,height=3.0463in]{media/9_Ric2D/image249.pdf}\caption{Figura .: Sequenza applicata per campionare il \(k\)-spazio bidimensionale}
+\end{figure}
+
+L'intensità del gradiente \(G_{y}\) varia ogni volta che la sequenza è ripetuta; in questo modo, a ogni ciclo viene fissata un'ordinata nel \(k\)-spazio, \(k_{y}\) data dalla relazione:
+
+\[k_{y} = \overline{\gamma}G_{y}\tau_{y}\]
+
+Il campionamento lungo la coordinata \(k_{y}\) è ottenuta variando l'ampiezza del gradiente di una quantità \(\Delta G_{y}\), dunque:
+
+\[\Delta k_{y} = \overline{\gamma}\Delta G_{y}\tau_{y}\]
+
+Dove \(\tau_{y}\) è fissato.
+
+Scelto un valore del gradiente \(G_{y}\), ovvero una coordinata \(k_{y}'\), l'applicazione del primo impulso di defasamento sposta la coordinata \(k_{x}\) a valori negativi, dato dalla quantità:
+
+\[k_{x} = - \overline{\gamma}G_{x}\tau_{x}\]
+
+Dove il segno è dovuto alla polarità negativa del gradiente. Il secondo impulso di gradiente di rifasamento, sposta la coordinata \(k_{x}\) dal valore \(- \overline{\gamma}G_{x}\tau_{x}\) al valore finale:
+
+\[k_{x} = \overline{\gamma}G_{x}\tau_{x}'\]
+
+La coordinata \(k_{x}\) è detta anche codifica di frequenza.
+
+Solitamente si sceglie \(\tau_{x}' = 2\tau_{x}\) in questo modo \(k_{x}\) percorre una riga nel \(k\)-spazio di coordinata \(k_{y}'\) da \(- k_{\max}\) \(k_{\max}\).
+
+Il passo di campionamento, ovvero l'intervallo tra un valore acquisito di \(k_{x}\) e il successivo, dipende dal periodo di campionamento \(\Delta t\) nel dominio del tempo, con cui è registrato il segnale durante la finestra di acquisizione:
+
+\[\Delta k_{x} = \overline{\gamma}G_{x}\Delta t\]
+
+Alla seconda applicazione della sequenza si varia il gradiente lungo \(y\) di una quantità \(\Delta G_{y}\). La coordinata della riga cambia, passando da \(k_{y}'\) a \(k_{y}^{''}\). La sequenza gradiente-echo si ripete allo stesso modo, quindi, si acquisiscono valori sia positivi che negativi di \(k_{x}\), con un passo di campionamento legato a \(\Delta t\) da un valore minimo a uno massimo.
+
+Ripetendo la procedura per \(100\) volte si ottiene una matrice bidimensionale di \(256 \times 100\) da cui è possibile ricostruire una fetta della densità protonica \(\widehat{\rho}(x,y)\). Con questa metodica si realizza una scansione ordinata del \(k\)-spazo che parte da uno dei valori estremi fino all'altro estremo, di polarità opposta, mantenendo costante \(k_{y}\).
+
+Il tempo di ripetizione tra l'applicazione di un impulso e il successivo deve essere tale da garantire il recupero della magnetizzazione. Se il tempo di ripetizione è di \(3\ s\), per ottenere \(100\) righe lungo \(k_{y}\) è necessario un tempo di \(300\ s \simeq 5\ min\) per ottenere una singla fetta. Si osservi che il campionamento di \(k_{x}\) avviene in una finestra temporale di ampiezza molto minore dei tempi di rilassamento \(T_{1}\) e \(T_{2}\), quindi, può essere trascurata nell'analisi dei tempi di acquisizione del \(k\)-spazio. Più nel dettaglio \(\Delta t\) è dell'ordine dei \(ms\).
+
+Avere due componenti diverse lungo gli assi non introduce una quota di rumore nella ricostruzione dell'immagine poiché, nel sistema di riferimento del laboratorio, l'asse \(z\) è disposto parallelamente al gantry, quindi diretto nella direzione verticale del paziente; l'asse \(x\) è diretto verso la sinistra del paziente mentre l'asse \(y\) è entrante nella schiena del paziente.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=2.7755in,alt={Coordinate sytems.png}]{media/9_Ric2D/image250.pdf}\caption{Figura .: Sistema di riferimento in risonanza magnetica}
+\end{figure}
+
+Questa organizzazione, sebbene non seguita da tutti i costruttori di apparecchiature, è seguito dallo standard DICOM.
+
+Con il sistema di riferimento scelto, l'asse delle \(x\) è diretto nel verso della direzione maggiore della sezione del corpo umano, con dimensione dell'ordine di \(50 \div 60\ cm\). L'asse \(y\), invece, è diretto verso la dimensione minore della sezione del corpo, dell'ordine di \(25 \div 30\ cm\). In questo contesto, per ottenere una buona ricostruzione, non è fondamentale campionare le due dimensioni del piano con lo stesso passo di campionamento, poiché le dimensioni non sono uguali: alla dimensione minore corrisponde il minor numero di punti, mentre alla codifica di frequenza, dato che avviene lungo la direzione maggiore, corrisponde un numero di punti maggiore.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.63889in,height=2.15854in]{media/9_Ric2D/image251.pdf}\caption{Figura .: Schematizzazione della sezione del corpo umano e sistema di riferimento}
+\end{figure}
+
+L'acquisizione sequenziale della codifica di fase, mediante la variazione del gradiente lungo \(y\) da un valore massimo al minimo o viceversa, può portare a degli errori di ricostruzione a causa dei movimenti del paziente, che rendono la densità protonica efficace non statica ma variabile nel tempo. Di conseguenza, tra una sequenza di acquisizione e l'altra, durante il tempo di ripetizione, possono presentarsi degli artefatti da movimento, Ad esempio, tra la prima e l'ultima riga del \(k\)-spazio, il paziente può essersi mossi, variando la disposizione spaziale della densità protonica. In questa evenienza, il \(k\)-spazio contiene dati non consistenti che introducono degli errori nella ricostruzione.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.06335in,height=3.58383in,alt={Immagine che contiene testo, Carattere, schermata, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/9_Ric2D/image252.pdf}\caption{Figura .: Acquisizione del k-spazio con densità protonica efficace dipendente dal tempo}
+\end{figure}
+
+La densità protonica efficace è legata al segnale registrato tramite la trasformata di Fourier, dunque, il segnale registrato rappresenta il contenuto frequenziale dell'immagine \(\widehat{\rho}(x,y)\). È noto che le basse frequenze corrispondono a zone dell'immagine omogenee, mentre le alte frequenze a zone che subiscono rapide variazioni. Acquisendo il segnale in modo sequenziale, da un estremo all'altro, le componenti frequenziali intorno allo zero possono essere già disturbate da artefatti da movimento, nel senso che si riferiscono a una diversa distribuzione protonica rispetto all'inizio dell'acquisizione. La ricostruzione dell'immagine porta a degli errori sia nelle componenti omogenee dell'immagine, legate al parenchima di un organo, sia dei contorni sfumati, legati ai bordi dei vari organi.
+
+Per preservare il contenuto a basse frequenze si riempie il \(k\)-spazio tracciando dapprima le righe che sono più vicine all'asse \(k_{x}\) e acquisendo, alternativamente, una riga per \(k_{y} > 0\) e l'altra per \(k_{y} < 0\). Questa alternanza permette di acquisire le prime righe al centro del \(k\)-spazio in cui risiedono le informazioni relative al parenchima di un organo.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.15972in,height=2.65556in]{media/9_Ric2D/image253.pdf}\caption{Figura .: Acquisizione alternata del \(k\)-spazio}
+\end{figure}
+
+Il vantaggio di questa tecnica risiede nel fatto che, statisticamente, il paziente resta fermo nei primi minuti della scansione della slice. Gli artefatti da movimento, dunque, saranno visibili solamente alle alte frequenze, determinando di conseguenza una sfumatura dei bordi.
+
+L'acquisizione delle righe spettrali, partendo dal centro in maniera alternata, è detta centrica e permette di avere le righe centrali acquisite con maggiore affidabilità. Gli artefatti a basse frequenze si presentano se il paziente si muove molto durante l'imaging, negli altri casi almeno le righe associate a regioni omogenee sono acquisite con fedeltà.
+
+A differenza del RMI, la CT riesce ad acquisire immagini tomografiche total body anche in breath hold in pochi secondi, per cui non presenta il fenomeno dello smussamento dei bordi. Lo svantaggio risiede nella necessità di fornire radiazioni ionizzanti al paziente, acquisendo così la densità elettronica per discriminare i tessuti.
+
+\subsection{Multislice selection}\label{multislice-selection}
+
+La risonanza magnetica può essere utilizzata per acquisire contemporaneamente più fette mediante l'applicazione di impulsi a radiofrequenza che selezionano ascisse predefinite lungo \(z\), con un determinato spessore. Mediante l'applicazione del gradiente di campo magnetico lungo \(z\), si instaura una relazione biunivoca tra la posizione degli isocromati e la frequenza di precessione di Larmor, secondo la relazione:
+
+\[\omega(z) = \gamma B_{0} + \gamma G_{z}z \Leftrightarrow f(z) = f_{0} + \overline{\gamma}G_{z}z\]
+
+Si definisce asse di selezione della slice o \emph{slice selection axis} come la direzione perpendicolare al piano in cui giace la slice di interesse. Generalmente, la slice giace nel piano \(xy\), dunque, il \emph{slice selection axis} coincide con l'asse \(z\). In questo modo si ottiene una slice detta trasversale del corpo umano.
+
+La scelta dell'asse \(y\) come slice selection asxis porta a ottenrere delle slice del corpo dette radiali o frontali; mentre la scelta dell'asse \(x\) porta a ottenere delle slice definite sagittali.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.80587in,height=5.46875in]{media/9_Ric2D/image254.pdf}\caption{Figura .: Piani in cui viene diviso il corpo}
+\end{figure}
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4566}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1700}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3734}}@{}}
+\caption{Tabella 9.1: Piani in cui è sezionato il corpo umano}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\textbf{Applied slice select gradient}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Name}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Slice plane orientation}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\textbf{Applied slice select gradient}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Name}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Slice plane orientation}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(G_{x}\) & sagittal & parallel to \(y - z\) plane \\
+\(G_{y}\) & coronal & parallel to \(x - z\) plane \\
+\(G_{z}\) & transverse & parallel to \(x - y\) plane \\
+\end{longtable}
+
+Nello specifico, per la slice trasversale, la frequenza di precessione è una funzione lineare della posizione \(z\) degli isocromati.
+
+Si vuole eccitare una sottile fetta del corpo umano, considerato uniforme, mediante l'eccitazione degli isocromati a una data frequenza di precessione. L'eccitazione dell'impulso a radiofrequenza eccita gli isocromati della slice allo stesso modo, nel sendo che tutti gli isocromati possiedono la stessa fase e flippano allo stesso modo dopo la slice selection. Dal punto di vista analitico, il paziente più essere diviso in infinite fette sottilissime, posizionate lungo la coordinata \(z\).
+
+\begin{figure}
+\centering
+\includegraphics[width=4.55406in,height=3.03588in,alt={Generazione immagine completata}]{media/9_Ric2D/image255.pdf}\caption{Figura .: Paziente diviso in slice}
+\end{figure}
+
+Per selezionare una singola fetta alla coordinata \(z_{0}\) all'interno del volume del paziente, è necessario che l'impulso a radiofrequenza abbia una frequenza esattamente uguale a \(f\left( z_{0} \right) = f_{0} + \overline{\gamma}G_{z}z\), frequenza di precessione degli spin a quella data ascissa. In ipotesi di campo principale omogeno, il termine \(f_{0}\) viene rimosso a valle della demodulazione.
+
+Per selezionare solamente la frequenza \(f\left( z_{0} \right)\) l'impulso a radiofrequenza deve essere una sinusoide infinita, cosicché il suo spettro sia una delta di Dirac centrata alla frequenza \(f\left( z_{0} \right)\). Nel sistema di riferimento fisso del laboratorio il campo a radiofrequenza deve essere:
+
+\[B_{1}(t) = A\cos\left( 2\pi f\left( z_{0} \right)t \right)\]
+
+Nel sistema di riferimento rotante o a valle della demodulazione, l'impulsi RF si scrive come:
+
+\[B_{1}(t) = A\cos\left( 2\pi\overline{\gamma}G_{z}z_{o}t \right)\]
+
+In questo modo gli isocromati a frequenza \(z_{0}\) flippano sul piano trasverso.
+
+Nella pratica non è possibile ottenere un impulso infinitamente lungo e, per motivi di rapidità di esecuzione, tempi lungi portano a maggiori artefatti da movimento.
+
+Lo spettro di frequenza di un impulso reale non è impulsivo, come desiderato, ma è finito. Di conseguenza, non viene selezionata una fetta infinitesima del corpo umano ma con un certo spessore \(\Delta z\).
+
+Nel dominio del tempo, l'impulso a radiofrequenza può essere pensato come un segnale \(sinc\) troncato nello spazio:
+
+\[B_{1} = A{sinc}\left( 2\pi f\left( z_{0} \right)t \right){rect}\left( \frac{z}{\Delta z} \right)\]
+
+La trasformata di Fourier dell'impulso è una \(rect\) smussata, così da avere una migliore selezione. Nel sistema di riferimento fisso, l'impulso a radiofrequenza è ottenuto come modulazione della \(sinc\) di una portante a frequenza \(f\left( z_{0} \right) = f_{0} + \overline{\gamma}G_{z}z_{0}\). Nel sistema rotante, invece, l'impulso è centrato nell'origine del sistema di riferimento, in quanto è stata eseguita l'operazione di demodulazione.
+
+La banda della \(sinc\) può essere considerata coincidente con il lobo principale, che si estende da \(- \overline{\gamma}G_{z}\Delta z/z\) a \(\overline{\gamma}G_{z}\Delta z/z\).
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68958in,height=2.34861in,alt={Immagine che contiene testo, linea, Diagramma, diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/9_Ric2D/image256.pdf}\caption{Figura .: Impulso a RF e sua trasformata di Fourier}
+\end{figure}
+
+La banda dell'impulso a radiofrequenza è data dal:
+
+\[BW_{RF} \equiv \Delta f = \overline{\gamma}G_{z}\Delta z\]
+
+In altre parole, grazie all'applicazione del gradiente di campo \(G_{z}\), vi è un intervallo frequenziale, dipendente dallo spessore \(\Delta z\) della slice, che viene eccitato dall'impulso a radiofrequenza. Gli isocromati contenenti nella fetta di spessore \(\Delta z\) sono ribaltati, dando origine a una magnetizzazione trasversa diversa da zero. Il ritorno all'equilibrio produce il segnale registrato dalle antenne.
+
+Si introduce lo spessore di fetta o \emph{slice} \emph{thickness} come:
+
+\[TH = \Delta z\]
+
+Lo spessore della slice eccitata dall'impulso a radiofrequenza, con banda \(BW_{RF}\) è data da:
+
+\[TH = \Delta z = \frac{BW_{RF}}{\overline{\gamma}G_{z}}\]
+
+Progettando opportunamente l'impulso a radiofrequenza, in modo da avere una banda \(BW_{RF}\) quanto più piccola possibile, si riesce a ridurre lo spessore della slice del corpo umano. Tipici spessori in risonanza magnetica sono di \(1\ mm\) fino a \(3 \div 4\ mm\) in alcune applicazioni.
+
+A causa di problemi pratici, non è possibile ottenere fette con uno spessore minore di \(1\ mm\), poiché, preso un cubetto elementare con spessore inferiore a tale dimensione, il numero di protoni contenuti potrebbe essere anche molto minore del numero di Avogadro. Il segnale dovuto al ritorno all'equilibrio della fetta, di conseguenza, potrebbe non essere registrato poiché confuso dal rumore. Per garantire un certo rapporto segnale/rumore il minimo spessore della slice del corpo umano è fissato a \(1\ mm\).
+
+Data la finitezza dello spessore della slice, gli spin all'estremo \(- z_{0}\) saranno più lenti rispetto agli spin posizionati all'estremo \(z_{0}\). Alla fine dell'impulso a radiofrequenza, gli spin non avranno la stessa fase ma ci sarà un certo defasamento, dovuto proprio alla dimensione finita della slice.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68958in,height=5.34097in]{media/9_Ric2D/image257.pdf}\caption{Figura .: Andamento della fase a causa dello spessore della slice}
+\end{figure}
+
+Per evitare la dispersione degli isocromati nel piano trasverso, bisogna applicare, subito dopo il gradiente di eccitazione, un gradiente di rifocalizzazione con polarità opposta al primo. Questo gradiente inverte l'andamento degli spin in modo da avere una rifocalizzazione sull'asse del ribaltamento. Tipicamente si progetta il gradiente di eccitazione in modo che abbia area doppia rispetto a quello di focalizzazione successivo; in modo che, all'istante \(t = 0\ s\) di fine del gradiente di focalizzazione, la magnetizzazione è tutta focalizzata sull'asse del ribaltamento. Gli spin nella fetta selezionata, in altre parole, possiedono tutti la stessa fase.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.15909in,height=4.11903in]{media/9_Ric2D/image258.pdf}\caption{Figura .: Sequenza per focalizzare tutti gli isocromati}
+\end{figure}
+
+Per campionare il \(k\)-spazio è necessario applicare un gradiente nella direzione \(y\), con ampiezza variabile tra una sequenza e l'altra, mentre sull'asse \(x\) è applicata una sequenza gradient-echo. Il lungo \(y\) si ha il gradiente di codifica di fase o \emph{phase encoding} \(G_{y}\), mentre lungo \(x\) quello di lettura.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.01515in,height=4.01515in,alt={Immagine che contiene testo, diagramma, linea, Carattere Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/9_Ric2D/image259.pdf}\caption{Figura .: Sequenza per l'acquisizione del segnale proveniente da una singola slice}
+\end{figure}
+
+Il segnale è acquisito durante l'impulso di rifocalizzazione del gradiente lungo \(x\), così da campionare l'asse \(k_{x}\) con un passo di campionamento di:
+
+\[\Delta k_{x} = \gamma G_{z}\Delta t\]
+
+Il riempimento del \(k\)-spazio avviene per righe, ovvero, si fissa l'ampiezza \(G_{y}\) del gradiente lungo \(y\) e si campiona la riga. Alla successiva applicazione della sequenza si varia il valore del gradiente di codifica di fase così da selezionare una seconda ordinata del \(k\)-spazio, acquisendo una seconda riga, e così via. Tra due sequenze consecutive è necessario aspettare un tempo di ripetizione \(T_{R}\) di almeno \(3\ s\) per garantire che il vettore di magnetizzazione ritorni all'equilibrio.
+
+Per ridurre i tempi di acquisizione dell'intero volume del paziente mediante la tecnica della slice selection, è possibile progettare gli impulso in modo da eccitare più fette contemporaneamente. Infatti, valendo il principio di sovrapposizione delle fasi, è possibile applicare il gradiente di selezione, di fase e di lettura, prestando attenzione a non sovrapporre temporalmente il gradiente di defasamento della gradient-echo con gli altri due.
+
+Per un imaging della slice bidimensionale, la sequenza più rapida possibile prevede:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Un impulso a radiofrequenza;
+\item
+  Un gradiente di selezione della slice, seguito da un gradiente di focalizzazione;
+\item
+  Un gradiente di codifica di fase sovrapposto al gradiente di focalizzazione;
+\item
+  Un gradiente di defasamento e di lettura tramite la sequenza gradient-echo.
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=7.16875in,alt={Immagine che contiene testo, diagramma, linea, Carattere Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/9_Ric2D/image260.pdf}\caption{Figura .: Sequenza tipicamente adottata nella slice selection}
+\end{figure}
+
+I gradienti di focalizzazione, di codifica, di fase e di defasamento sono sovrapposti, mentre i gradienti di selezione della fetta e di lettura sono applicati, rispettivamente, subito prima e subito dopo i tre gradienti.
+
+Lo schema proposto, oltre a essere ripetuto nel tempo, può essere ripetuto in modo da selezionare delle slice ad ascisse \(z\) diverse tra loro, permettendo di limitare le interferenze tra i segnali emanati dal ritorno all'equilibrio del vettore di magnetizzazione della singola slice.
+
+Applicando la stessa sequenza di eccitazione, ma con un impulso RF a frequenza:
+
+\[f\left( z_{1} \right) = \overline{\gamma}B_{0} + \overline{\gamma}G_{z}z_{1}\]
+
+Si eccita contemporaneamente sia la slice a \(z_{0}\) sia a \(z_{1}\). Per evitare fenomeni di interferenza tra le due fette, acquisite contemporaneamente, deve intercorrere una distanza di \(3 \div 4\ mm\), dove:
+
+\[d = \frac{\Delta\omega_{slice} - 2\pi BW}{\gamma G_{z}}\]
+
+Nel caso in cui non sia rispettato il giusto gap possono verificarsi problemi di sfocamento o blander.
+
+La selezione di più fette, separate da un giusto gap, risulta essere molto conveniente per ridurre l'intero processo di acquisizione dei dati volumetrici. Infatti, in un tempo \(T_{R}\) si ottengono informazioni per \(n\) fette contemporaneamente, riducendo i tempi di acquisizione. Con questa soluzione, in \(5\ min\) è possibile ottenere più fette.
+
+L'unione delle fette, mediante appositi algoritmi di interpolazione, permette di ottenere un'immagine tridimensionale del corpo umano. Questa metodica è nota come 3D-multislice.
+
+La metodica appena descritta differisce dall'eccitazione 3D poiché, in quest'ultimo caso, l'impulso a radiofrequenza eccita l'intero volume, dunque, non vi è necessità del gradiente di selezione della fetta.
+
+In alcune metodiche, come l'oncologia o nello studio della diffusione in vivo, si applica la ricostruzione 3D multislice, selezionando opportunamente le slice da eccitare per la ricostruzione; viceversa, in alcuni casi si preferisce la ricostruzione tridimensionale come l'analisi spettroscopica.
+
+\subsection{Spettroscopia con risonanza magnetica}\label{spettroscopia-con-risonanza-magnetica}
+
+La risonanza magnetica spettroscopica o MRSI (\emph{Magnetic Resonance Spettroscopic Imaging}) è una tecnica di risonanza magnetica grazie alla quale è possibile rilevare la composizione metabolica del volume sotto analisi.
+
+Si divide il volume-paziente in tanti volumetti elementari, ognuno dei quali contiene un certo numero di macromolecole, in cui sono contenuti gli atomi di idrogeno di cui si vuole determinare la distribuzione.
+
+Le molecole che contengono l'idrogeno schermano i protoni di idrogeno dal campo magnetico principale, quindi, il campo visto dal protone è diverso da quello applicato esternamente. Questo fenomeno è dovuto alla rotazione degli elettroni orbitanti intorno al protone in modo piuttosto complesso.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.37378in,height=3.17708in]{media/9_Ric2D/image261.pdf}\caption{Figura .: Elettroni orbitanti in macromolecola}
+\end{figure}
+
+Il campo percepito dal protone è dato da:
+
+\[B_{0} + \Delta B\]
+
+Le variazioni del campo principale \(\Delta B\) sono caratteristiche strettamente alle molecole a cui è legato l'atomo di idrogeno. Di conseguenza, ogni sostanza presenta protoni dell'idrogeno che risuonano a una determinata frequenza di precessione, dipendente dalla molecola stessa.
+
+Il segnale prelevato è dato dalla somma di tutti i segnali, a frequenze diverse, dei nuclei legati alle diverse macromolecole
+
+\begin{figure}
+\centering
+\includegraphics[width=5.15139in,height=3.85312in,alt={Risonanza magnetica per spettroscopia encefalo convenzionata Roma}]{media/9_Ric2D/image262.pdf}\caption{Figura .: Spettroscopia RM in neuroradiologia}
+\end{figure}
+
+In basi allo spettro ricevuto possibile determinare la composizione chimica del tessuto e la sua attività metabolica. Ogni spettro del segnale è caratteristico di una specifica molecola.
+
+Per ottenere questo risultato è necessario applicare una sequenza 3D non multislice, applicando un gradiente di codificaa di fase lungo \(y\) e \(z\), e un gradiente di lettura, mediante gradient-echo, lungo \(x\).
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=6.69306in,alt={Immagine che contiene testo, diagramma, Disegno tecnico, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/9_Ric2D/image263.pdf}\caption{Figura .: Sequenza di imagining 3D}
+\end{figure}
+
+Il segnale letto, una volta antitrasformato, fornisce lo spettro del segnale ricevuto da ogni singolo volumetto in cui è possibile scomporre il paziente.
+
+Questo tipo di imaging ha una durata maggiore di un 3D multislice. Mediante delle sequenze, dette veloci, è possibile ottenere un volume dell'ordine di \(256 \times 256 \times 128\) in circa \(4 \div 5\ min\) mediante un 2D multislice.
+
+Per effettuare un'analisi oncologica in grado di determinare il tipo e lo stadio del tumore, in base al suo metabolismo, è necessario applicare la 3D tradizionale, più lunga.
+
+È possibile eseguire un 3D multislice per analizzare il volume da studiare dal punto di vista fisiologico, e un secondo tipo di analisi funzionale per evidenziare i comportamenti metabolici di una massa o un tessuto.
+
+È possibile eseguire un imaging di diffusione con la tecnica del DWI (\emph{Diffusion Weighted Imaging}) in cui si evidenzia la mobilità dei protoni dell'acqua di un tessuto o di un farmaco. Questa tecnica si presta molto bene all'individuazione di edemi, con risoluzione più spinta della CT.

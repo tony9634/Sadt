@@ -1,0 +1,717 @@
+\begin{center}
+\vfill
+    \chapter{Ricostruzioni delle immagini PET}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+\section{Ricostruzione delle immagini PET}\label{ricostruzione-delle-immagini-pet}
+
+I metodi di ricostruzione delle immagini possono essere classificati essenzialmente in due categorie:
+
+\begin{itemize}
+\item
+  I metodi basati sulla trasformata di Radon sono ottenuti mediante retroproiezione filtrata. Questo meccanismo di ricostruzione, pur essendo quello storicamente più utilizzato, non presenta le migliori caratteristiche di ricostruzione. Ad esempio, la quantità di fotoni rilevati, quindi, l'intensità del sinogramma, sono molto limitate rispetto alle intensità di fotoni in radiologia convenzionale. Quindi, gli algoritmi della CT non offrono le stesse prestazioni in PET;
+\item
+  In PET sono stati predisposti altri algoritmi alternativi basati sulla ricostruzione iterativa che presentano una ricostruzione molto migliore di quelli basati sulla trasformata di Radon.
+\end{itemize}
+
+La qualità di un'immagine può essere valutata mediante apposite procedure statistiche in cui sono mostrate le stesse immagini a diversi radiologi in vari momenti della giornata.
+
+Lo stesso radiologo, infatti, può eseguire due refertazioni diverse della stessa immagine in diversi momenti della giornata poiché la lettura delle immagini radiografiche richiede una certa dose di attenzione che si riduce con la stanchezza.
+
+Questa caratteristica è detta variabilità intrasoggettiva poiché si verifica all'interno dello stesso soggetto a seconda della sua stanchezza. Mostrare la stessa immagine in momenti diversi del giorno consente di superare questa variabilità. Le analisi statistiche su più radiologi diversi permettono poi di superare anche la variabilità intersoggettiva tra i diversi radiologi.
+
+Dalle valutazioni statistiche si ricava un indice numerico che quantifica la qualità di un algoritmo e la bontà con cui ricostruisce le immagini.
+
+\subsection{Assorbimento dei fotoni}\label{assorbimento-dei-fotoni}
+
+Sia \(N(a)\) il numero dei fotoni emessi da un punto di ascissa \(a\) su una LOR congiungente due detettori e appartenente al FOV. I fotoni emessi dall'evento di annichilazione incontrano un coefficiente di assorbimento lineare \(\mu(s)\) dove \(s\) è il punto della linea attraversata dal fotone, ovvero un punto sulla LOR.
+
+Il numero dei fotoni emergenti \(dN\) dopo aver attraversato uno strato di materia \(ds\) centrato nel punto \((a,s)\) sufficientemente piccolo tale da poter considerare il materiale omogeneo, è proporzionale, secondo la legge di Lamber-Beer, al numero di fotoni che attraversa lo spessore di materiale per il suo coefficiente di attenzione, ovvero:
+
+\[dN = - \mu(s)N(a)ds\]
+
+Integrando l'equazione lungo la LOR individuata si ottiene:
+
+\[N(x) = N(a)e^{- \int_{a}^{x}{\mu(s)ds}}\]
+
+Il numero di fotoni che giungono sul detettore, distante \(d_{2}\) dal punto di annichilazione, è dato dal numero di fotoni che non sono attenuati dalla materia:
+
+\[N\left( d_{2} \right) = N(a)e^{- \int_{a}^{d_{2}}{\mu(s)ds}}\]
+
+L'esponenziale, dipendente dal coefficiente di assorbimento lineare, rappresenta la probabilità che il fotone sia assorbito lungo il percorso tra il punto di annichilazione e il detettore lungo la LOR:
+
+\begin{figure}
+\centering
+\includegraphics[width=5.4533in,height=1.40278in,alt={P4905\#yIS1}]{media/21_RicImmPET/image528.pdf}\caption{Figura .: Distanze percorse dai due fotoni emergenti dal sito di annichilazione}
+\end{figure}
+
+La logica di controllo della PET impone che per ricostruire il punto di annichilazione, e, quindi, l'immagine, è necessario rilevare entrambi i fotoni prodotti dall'annichilazione del positrone con un elettrone della materia. Va considerata anche la probabilità che il secondo fotone, percorrendo una distanza \(d_{1}\), raggiunga il secondo detettore. Scelto il verso di percorrenza positivo che va dal punto \(a\) verso il primo detettore allora si ha:
+
+\[N\left( d_{1} \right) = N(a)e^{- \int_{d_{1}}^{a}{\mu(s)ds}}\]
+
+Il numero dei fotoni che sono rilevati contemporaneamente è dato dal prodotto dei numeri di fotoni rilevati su ciascun detettore poiché il rilevamento di uno è indipendente dall'arrivo dell'altro sul secondo detettore:
+
+\[N\left( d_{1},d_{2} \right) = N(a)e^{- \int_{d_{1}}^{a}{\mu(s)ds}}e^{- \int_{a}^{d_{2}}{\mu(s)ds}} = N(a)e^{- \int_{d_{1}}^{d_{2}}{\mu(s)ds}}\]
+
+Il numero di coincidenze dovuto agli eventi di annichilazione dipende dall'esponenziale dell'integrale di linea del coefficiente di attenuazione lungo la LOR che congiunge i due detettori:
+
+\[\int_{d_{1}}^{d_{2}}{\mu(s)ds}\]
+
+Per ogni punto \(a\) della LOR, esiste una sorgente puntiforme che emette \(N(a)\) fotoni a loro volta attenuati nel percorso tra la sorgente e i detettori. Il numero di fotoni emessi dalla sorgente dipende dalla quantità di tracciante lungo la LOR \(\lambda(s)\) per lo spessore infinitesimo della sorgente di radiazione \(ds\) secondo la relazione:
+
+\[dN(a) = \lambda(s)ds\]
+
+Per ottenere il numero di coppie di fotoni generati lungo tutta la LOR basta semplicemente integrare tutti i contributi elementari sul percorso che unisce i due detettori:
+
+\[N\left( d_{1},d_{2} \right) = N(a)e^{- \int_{d_{1}}^{d_{2}}{\mu(s)ds}}\]
+
+Ma è noto che:
+
+\[N(a) = \int_{d_{1}}^{d_{2}}{\lambda(s)ds}\ \]
+
+Da cui è possibile scrive che:
+
+\[N\left( d_{1},d_{2} \right) = \int_{d_{1}}^{d_{2}}{\lambda(s)ds}e^{- \int_{d_{1}}^{d_{2}}{\mu(s)ds}}\]
+
+In questo modo si considerano tutti i fotoni emergenti all'interno del paziente fissata una LOR.
+
+In PET, il coefficiente di assorbimento non è noto e non può essere stimato se non mediante la PET/CT. La conoscenza di questo parametro permette di correggere le immagini PET con la stima della probabilità di attenuazione dei fotoni. In CT questa problematica non si presenta poiché la sorgente di radiazione è esterna, quindi, i fotoni attraversano i tessuti umani e la radiazione residua incide sui rilevatori. La tecnica trasmissiva permette di ricavare l'integrale di linea del coefficiente di attenuazione lineare note che siano l'intensità di radiazione iniziale e l'intensità misurata sulla lastra radiografica o detettori allo stato solido.
+
+L'intensità di radiazione può essere espressa come il numero di fotoni che attraversa una data superficie, quindi, noto il numero dei fotoni emessi e rilevati è possibile valutare l'integrale di linea del coefficiente di attenuazione lineare come:
+
+\[\frac{N\left( d_{2} \right)}{N_{0}} = e^{- \int_{a}^{d_{2}}{\mu(s)ds}}\]
+
+In PET, invece, la radiazione non è generata all'esterno ma all'interno del corpo. A priori, quindi, non è possibile conoscere la radiazione emessa da un punto del corpo poiché non è nota la distribuzione del tracciante all'interno dell'organismo.
+
+Prima dell'introduzione della PET/CT, si posizionava una sorgente radioattiva, solitamente germanio-68, all'esterno del paziente che emanava un'intensità di fotoni \(\gamma\) nota. Questi fotoni attraversando il paziente, permettevano di ricostruire una mappa del coefficiente di attenuazione lineare dei tessuti all'energia dei fotoni \(\gamma\) di 511keV allo stesso modo della CT.
+
+Al giorno d'oggi, questa metodica non è più utilizzata poiché il germanio-68 decade con un tempo di emivita delle ore, quindi, per acquisire un numero di fotoni abbastanza elevato è necessario aspettare un tempo molto lungo. In aggiunta, va considerato anche tempo dell'\emph{Imaging} PET stesso, ottenuto mediante il radiotracciante. In totale ci vorrebbe un tempo di un'ora circa per la radiazione trasmissiva e circa 45min per l'esame PET vero e proprio. I tempi estremamente lunghi portano alla ricostruzione di immagini con numerosi e notevoli artefatti da movimento.
+
+D'altro canto, la CT permette di ottenere delle immagini \emph{Total Body} in pochi secondi, dunque, riduce notevolmente gli artefatti da movimento a discapito di una compensazione del coefficiente di attenuazione lineare che non risulta essere perfetta.
+
+Mediante la scansione trasmissiva che sia essa con CT o radioisotopo, è possibile stimare l'integrale di linea del coefficiente di assorbimento lineare come:
+
+\[\frac{N\left( d_{2} \right)}{N_{0}} = e^{- \int_{a}^{d_{2}}{\mu(s)ds}}\]
+
+Ovviamente nel caso della PET/CT il coefficiente \(\mu(s)\) deve essere ricalcolare per le energie tipiche della PET.
+
+Il numero di fotoni congiuntamente rilevati su entrambi i detettori può essere scritto come:
+
+\[N\left( d_{1},d_{2} \right) = \int_{d_{1}}^{d_{2}}{\lambda(s)ds}\ e^{- \int_{d_{1}}^{d_{2}}{\mu(s)ds}} = \frac{N\left( d_{2} \right)}{N_{0}}\int_{d_{1}}^{d_{2}}{\lambda(s)ds}\]
+
+Da quest'ultima relazione è possibile risalire all'integrale di linea della distribuzione del tracciante lungo la LOR individuata dai due detettori come:
+
+\[N\left( d_{1},d_{2} \right)\frac{N_{0}}{N\left( d_{2} \right)}\  = \int_{d_{1}}^{d_{2}}{\lambda(s)ds}\]
+
+Con degli algoritmi di ricostruzione, noti il numero di fotoni congiuntamente rilevati da due detettori posti su una LOR e il numero di fotoni trasmesso e ricevuto, posti entrambi su una stessa retta coincidente con la LOR, è possibile determinare il modo in cui il radionuclide è distribuito nel corpo del paziente.
+
+\subsection{Filtered Back Projection o FBP}\label{filtered-back-projection-o-fbp}
+
+Siccome la formula per la ricostruzione è molto simile a quella ottenuta in CT, si potrebbe pensare di utilizzare degli algoritmi basati sulla retroproiezione filtrata o FBP (\emph{Filtered Back Projection}) per invertire la trasformata di Radon.
+
+Si definisce la proiezione o trasformata di Radon di una funzione \(f(x,y)\) l'integrale di linea della funzione \(f(x,y)\) lungo una linea parallela all'asse del detettore ad una distanza \(\xi\)' dall'origine. L'operazione di proiezione corrisponde ad una operazione di campionamento spaziale e si può scrivere, per una data funzione \(f(x,y,k)\):
+
+\[p_{\gamma}(\xi) = R\left\lbrack f(x,y) \right\rbrack = \iint_{\mathbb{R}^{2}}^{}{f(x,y)\delta\left( x\cos(\gamma) + \sin(\gamma) - \xi \right)dxdy} = \iint_{\mathbb{R}^{2}}^{}{f\left( \mathbf{r} \right)*\delta\left( \mathbf{r} - \mathbf{L} \right)d^{(2)}\mathbf{r}}\]
+
+\(\mathbf{L}\) è un vettore che rappresenta la linea lungo cui avviene la proiezione mentre \(\mathbf{r}\) è il vettore posizione di un generico punto nel piano.
+
+Fissato il punto nel piano \(\mathbf{r}\), al variare del parametro \(\gamma\) si ottiene la proiezione della funzione \(f\left( \mathbf{r} \right)\) lungo tutte le rette passante per il punto in esame, ovvero si costruisce il sinogramma.
+
+A partire dal sinogramma è possibile ricostruire l'immagine sfruttando un risultato noto come teorema della fetta centrale che lega la trasformata di Fourier monodimensionale della trasformata di Radon con la trasformata bidimensionale della funzione immagine, ristretta a una retta passante per l'origine dello spazio-frequenza e formante con l'asse delle ascisse un angolo \(\gamma\):
+
+\[P_{\gamma}(q) = \left. \ F(q,p) \right|_{(q,\gamma)}\]
+
+Si può dimostrare che questo metodo introduce una \emph{Point Spread Function} o PSF del tipo \(\frac{1}{r}\) che provoca uno sfocamento dell'immagine ricostruita:
+
+\[g(x,y) = f\left( \mathbf{r} \right)*\frac{1}{\left| \mathbf{r} \right|}\]
+
+L'effetto introdotto dalla PSF è detto \emph{Blurring} e per ridurlo si sfruttano algoritmi basati sulla retroproiezione filtrata. Questa metodica sfrutta dei filtri passa-basso che, inoltre, permettono di ridurre il rumore introdotto e il fenomeno di Gibbs. La frequenza di taglio del filtro deve essere opportunamente scelta per ridurre il rumore ma allo stesso tempo è necessario ridurre lo sfocamento introdotto dalla reiezione delle alte frequenze.
+
+\[g(x,y) = f\left( \mathbf{r} \right)*\frac{1}{\left| \mathbf{r} \right|}*h\left( \mathbf{r} \right)\]
+
+I filtri implementati molto spesso sono anche dedicati solo a particolari distretti corporei, in cui il rumore può presentarsi con diverse caratteristiche. Le proprietà che deve possedere un filtro molto spesso sono determinate su base empirica. Uno dei filtri più utilizzati è la finestra di Hamming.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.94958in,height=3.47015in,alt={P4950\#yIS1}]{media/21_RicImmPET/image529.pdf}\caption{Figura .: Risposta in frequenza dei vari filtri}
+\end{figure}
+
+La retroproiezione filtrata è stata storicamente utilizzata nelle applicazioni PET per ricostruire l'immagine, tuttavia, a causa del ridotto numero di fotoni conteggiati rispetto ai fotoni X in CT, questa metodica restituisce immagini con scarsa risoluzione e qualità.
+
+Anche ricostruendo l'immagine con un \emph{Kernel}, ovvero una matrice di convoluzione o maschera, opportuno le ricostruzioni sono molto rumorose e presentano l'artefatto a stella tipico. Ciò è dovuto, appunto, allo scarso numero di fotoni rilevato che rende il segnale molto più rumoroso di un segnale CT.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.37547in,height=4.86458in,alt={P4954\#yIS1}]{media/21_RicImmPET/image530.pdf}\caption{Figura .: Effetto del Kernel sull'immagine}
+\end{figure}
+
+Per ricostruire l'immagine PET si sfruttano degli algoritmi iterativi dove, per passi successivi, si corregge il sinogramma fino a che il sinogramma attuale e quello precedente non differiscano per una determinata soglia. Gli algoritmi basati su FBP presentano un numero finito di passi predefinito, quindi, risultano essere più veloci rispetto ad algoritmi iterativi.
+
+Per analizzare quale metodo di ricostruzione offra le caratteristiche migliori si considerano dei fantocci o \emph{Phantom} contenenti delle sorgenti di radionuclidi. I fantocci presentano una forma cilindrica al cui interno sono contenuti altri cilindri ripieni del mezzo di contrasto.
+
+Si osserva che, a parità di esposizione, i metodi basati sulla retroproiezione filtrata permettano di ricostruire immagini molto meno chiare e nitide rispetto a un algoritmo iterativo tipo OSEM. Per piccoli numeri di fotoni, l'immagine con FBP è decisamente poco leggibile poiché non sono evidenziate e contrastate le strutture interne del fantoccio. Il metodo iterativo, invece, permette di ottenere una buona stima della \emph{Slice} già dopo 10s dell'esposizione.
+
+Ovviamente, per entrambe le possibili ricostruzioni, maggiore è il tempo di esposizione e migliore è la risoluzione dell'immagine.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68681in,height=2.19306in,alt={P4960\#yIS1}]{media/21_RicImmPET/image531.pdf}\caption{Figura .: Immagini con FBP in alto e con OSEM in basso}
+\end{figure}
+
+La retroproiezione filtrata risultata inefficiente, non solo per la scarsità delle coppie di fotoni assorbiti ma anche per la degradazione del segnale a opera del rumore Compton e di Poisson. Gli eventi di annichilazione, infatti, risultano rispettare la statistica di Poisson poiché l'interazione dei positroni con gli elettroni sono eventi statistici e indipendenti tra i vari atomi di radionuclide così come i fotoni che colpiscono il cristallo scintillatore. Ne discende che il numero delle coppie di fotoni incidenti sui detettori è assimilabile al numero di eventi verificatosi in un determinato intervallo spaziale. La distribuzione che meglio approssima il comportamento del rumore quantico sovrapposto al segnale segue la statistica di Poisson:
+
+\[P_{N}(\lambda) = \frac{\lambda\left( \mathbf{r} \right)^{N\left( \mathbf{r} \right)}e^{- \lambda\left( \mathbf{r} \right)}}{N\left( \mathbf{r} \right)!}\]
+
+Dove \(\mathbf{r}\) è la coordinata spaziale, \(N\) il numero di coppie ricevute, \(\lambda\) il numero medio di coppie.
+
+La distribuzione di Poisson può assumere con probabilità diversa da zero solamente valori interi non negativi.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.14405in,height=3.21875in,alt={P4966\#yIS1}]{media/21_RicImmPET/image532.pdf}\caption{Figura .: Andamento della PDF di Poisson}
+\end{figure}
+
+Il modello di Poisson descrive tutti gli esperimenti di conteggio di piccole manifestazioni come l'arrivo delle coppie, a patto di scegliere il parametro \(\lambda\) adeguatamente. Si dimostra anche che il valor medio e la varianza della PDF di Poisson coincidono con \(\lambda\).
+
+Il rapporto segnale/rumore può essere espresso come:
+
+\[SNR = \frac{E\left\lbrack P_{N} \right\rbrack}{VAR\left\lbrack P_{N} \right\rbrack} = \sqrt{\lambda}\]
+
+Le fluttuazioni introdotte da questo rumore diminuiscono all'aumentare del numero medio di coppie rilevato, ma ciò comporta una maggior dose al paziente che a sua volta aumenta i tempi dell'esame diagnostico. È, quindi, necessario un giusto compromesso tra tempistiche, dose assorbita dal paziente e SNR.
+
+All'aumentare del numero di eventi, per il teorema del limite centrale, la distribuzione di Poisson tende a una gaussiana \(N\) di media e varianza \(\lambda\):
+
+\[P_{N}(\lambda)\sim N(\lambda,\lambda)\]
+
+In questo caso, il rumore quantico può essere modellato come un rumore gaussiano le cui proprietà statistiche dipendo dal numero medio di coppie di fotoni che incidono sui detettori.
+
+\subsection{Metodi iterativi}\label{metodi-iterativi}
+
+I maccanismi di elaborazione dei dati PET secondo protocolli interativi prevedono la ricostruzione delle immagini mediante approssimazioni successive che partano da un'immagine iniziale per raggiungere una stima sempre migliore dell'anatomia effettiva del paziente. Il processo di ricostruzione procede per un numero di passi non prevedibile a propri poiché è eseguito finché il sinogramma corrente non differisce dal sinogramma precedente di una certa soglia. Nella pratica il numero di passi che un algoritmo iterativo compie per ottenere una soddisfacente qualità di costruzione non è molto elevato. I tempi di ricostruzione con i moderni calcolatori non sono così troppo elevati ma la qualità è molto migliore di un'immagine ottenuto con retroproiezione filtrata.
+
+Si è visto che le immagini CT ricostruite con algoritmi iterativi presentano delle caratteristiche molto migliori rispetto a quelle ottenute con il classico procedimento basato sulla trasformata inversa di Radon. Ciò consente di ridurre il dosaggio di radiazione X fornita al paziente a parità di qualità dell'immagine. Gli algoritmi usati in CT appartengono alla tipologia ASIR o \emph{Adaptive Statistical Iterative Reconstruction}.
+
+Dal punto di vista operativo, i metodi iterativi prevedono uno schema ciclico basato su una stima iniziale dell'immagine (\emph{Estimated Image}) a partire da congetture iniziali (\emph{Initial Guess}). Si calcolano delle proiezioni che permettono di ricostruire il sinogramma corrispondente all'immagine stimata e lo si compara con le proiezioni effettivamente misurate dalla PET. La differenza tra le proiezioni misurate, provenienti dal corpo del paziente, e quelle stimate, basate sulle congetture iniziale e i successivi aggiusti, è poi utilizzata per correggere l'immagine corrente. Dopodiché l'algoritmo procede finché la discrepanza tra le proiezioni effettivamente misurate e quelle stimate non sono inferiori di una certa soglia o finché le due immagini stimate da due cicli diversi non differiscono per una piccola quantità.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.22619in,height=2.11408in,alt={P4979\#yIS1}]{media/21_RicImmPET/image533.pdf}\caption{Figura .: Schema di un algoritmo iterativo}
+\end{figure}
+
+\subsubsection{Forward Projection}\label{forward-projection}
+
+Un possibile metodo per l'esecuzione di un algoritmo iterativo consiste nel valutare una distribuzione pesata dall'errore così da ottenere una proiezione diretta. Si indica con \(q_{i}\) il numero di fotoni che incide sull'i-esimo pixel dell'immagine, dato dalla relazione:
+
+\[q_{i} = \sum_{j}^{}{a_{ij}C_{j}}\]
+
+Dove \(C_{j}\) è l'attività nel j-esimo pixel mentre \(a_{ij}\) è la probabilità che l'emissione del pixel \(j\) sia registrata nella i-esima LOR.
+
+Si osservi che nella notazione per indicare i pixel si è utilizzato un solo indice \(j\). I pixel sono, quindi, numerati in maniera progressiva a partire dal primo elemento della riga. Così la prima riga sarà numerata da \(1\) fino a \(n\), la seconda da \(n + 1\) a \(2n\) e così via.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.23243in,height=2.30208in,alt={P4987\#yIS1}]{media/21_RicImmPET/image534.pdf}\caption{Figura .: Schema dei parametri in esame}
+\end{figure}
+
+Nota l'attività di un pixel j-esimo e la probabilità che questo stesso pixel sia rilevato dalla LOR i-esima e sommate per tutti i pixel è possibile ricavare il numero di fotoni contati dalla i-esima LOR. In altre parole, \(q_{i}\) rappresenta la stima della proiezione dell'immagine se le attività fossero esattamente uguali a \(C_{j}\).
+
+Se si indica con \(p_{i}\) le proiezioni effettivamente misurate sulla LOR i-esima, l'errore può essere definito come la differenza tra la proiezione effettiva e quella stimata:
+
+\[\varepsilon = p_{i} - q_{i}\]
+
+L'errore è distribuito poi in maniera pesata sui pixel di una LOR così da poter correggere l'immagine stimata. Ai parametri \(C_{j}\) devono essere aggiunti delle quantità \(\mathrm{\Delta}C_{j}\) valutata secondo la relazione:
+
+\[\mathrm{\Delta}C_{j} = \frac{a_{ij}\left( p_{i} - q_{i} \right)}{\sum_{j}^{}a_{ij}} = \frac{a_{ij}\varepsilon}{\sum_{j}^{}a_{ij}}\]
+
+In quest'ottica, i coefficienti \(a_{ij}\) rappresentano i fattori di peso con cui distribuire l'errore e di conseguenza correggere l'immagine.
+
+Ricalcolati i coefficienti \(C_{j}\), si ripete la valutazione dell'immagine e la stima dell'orrore che poi è distribuito sull'intera stima, così da poter correggere l'immagine corrente. Il processo si ripete finché l'errore tra le due immagini non si riduce al di sotto di una soglia.
+
+\subsubsection{Classificazione dei metodi in base alle correzioni}\label{classificazione-dei-metodi-in-base-alle-correzioni}
+
+I metodi iterativi per la ricostruzione delle immagini possono essere classificati in base a come si corregge l'immagine stimata:
+
+\begin{itemize}
+\item
+  Nella correzione \emph{Point-By-Point} si calcolano gli errori di tutte le LOR passanti per un punto, si corregge quel punto per poi passare a un altro e così via;
+\item
+  Nella correzione \emph{LOR-By-LOR} si calcolano gli errori per ogni LOR e si applica la correzione sui voxel di una singola LOR per poi passare alla successiva;
+\item
+  Per la ricostruzione simultanea, invece, l'immagine è ricostruita o \emph{updatata} simultaneamente.
+\end{itemize}
+
+Questi metodi possono essere implementati in varie tipologie di algoritmi, tra cui quelle attualmente più utilizzate sono:
+
+\begin{itemize}
+\item
+  \emph{Maximum Likelihood Expectation Maximization} o MLEM basato, come suggerisce il nome, sulla massima verosimiglianza in grado di massimizzare il valore atteso. Esso richiede molte interazioni per poter ricostruire un'immagine ottimale;
+\item
+  \emph{Ordered Subset Expectation Maximization} o OSEM è una variante più efficiente della tipologia MLEM. In questo algoritmo le proiezioni sono ordinate in sottogruppi, dove N sottogruppi di LOR corrispondo a N interazioni eseguite con la tipologia MLEM.
+\end{itemize}
+
+Ovviamente aumentando il numero di segmenti N aumenta anche il tempo necessario per ottenere il risultato.
+
+Gli algoritmi basati sulla retroproiezione filtrata devono lavorare su un'immagine in cui sono già state effettuate le correzioni quali normalizzazioni, riduzione del rumore, delle coincidenze \emph{Random}, di \emph{Scatter} e delle attenuazioni.
+
+Negli algoritmi MLEM e OSEM, la maggior parte delle correzioni preliminari possono essere inglobate all'interno della stessa procedura di elaborazione. Inoltre, con queste tipologie non si osservano gli artefatti introdotti dalla retroproiezione, come gli artefatti a stella, e, per le correzioni inglobate, si migliore il rapporto segnale/rumore.
+
+Una futura tipologia di algoritmi utilizzati sono i \emph{Row Action Maximum Likelihood} in cui si sfruttano delle sequenze di proiezioni ortogonali che determinano una convergenza più veloce degli OSEM.
+
+Gli algoritmi di retroproiezione non permettono di visualizzare lesioni di piccole dimensioni e, per quelle di ampiezza maggiore, non presentano contorni netti e definiti. Nei polmoni, invece, qualsiasi tipo di lesione risulta essere poco visibile per gli artefatti a stella. Questi problemi si risolvono con gli algoritmi iterativi.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.22619in,height=2.20865in,alt={P5009\#yIS1}]{media/21_RicImmPET/image535.pdf}\caption{Figura .: Confronto tra immagini con FBP e OSEM. A polmoni, B fegato sano, C fegato con tumore, D mammella}
+\end{figure}
+
+\subsubsection{Ricostruzione 3D}\label{ricostruzione-3d}
+
+I metodi di ricostruzione iterativi si prestano molto meglio alla ricostruzione di volumi tridimensionali \emph{Slice} per \emph{Slice} mentre gli algoritmi di retroproiezione filtrata permettono di ricostruire solamente una \emph{Slice} alla volta. Il volume paziente deve essere poi ricostruito mediante altre elaborazioni di interpolazione.
+
+L'algoritmo OSEM è intrinsecamente tridimensionale e ciò consente di avere una maggiore sensibilità assiale poiché aumentano i piani di detezione e di conseguenza aumenta il numero di fotoni ricevuto. Il numero di LOR risulta essere molto maggiore del numero di pixel e ciò porta a un aumento della memoria occupata dall'algoritmo, la sua complessità computazionale e il tempo necessario per ottenere il risultato. Tuttavia, con gli elaboratori moderni questa soluzione permette la ricostruzione dell'intero volume paziente in tempi ragionevoli.
+
+La direzione di una LOR nello spazio è individuata dai coseni direttori che essa forma con gli assi. Il versore di una qualsiasi LOR può essere espresso come:
+
+\[\widehat{n} = \left( \begin{array}{r}
+n_{x} \\
+n_{y} \\
+n_{z}
+\end{array} \right) = \left( \begin{array}{r}
+\cos\vartheta\cos\varphi \\
+\sin\vartheta\cos\varphi \\
+\sin\varphi
+\end{array} \right)\]
+
+Ponendo \(\varphi = 0\) si ottiene la direzione della LOR situata nel piano \(x - y\), ovvero si ricade nel caso bidimensionale.
+
+I metodi iterativi possono essere applicati direttamente in 3D anche se i tempi di calcolo aumentano notevolmente perché la parametrizzazione del sinogramma si complica enormemente.
+
+Per ridurre il carico computazione è possibile esegue un'operazione di \emph{Rebinning} di dati 3D in dati 2D. In particolare, la procedura di \emph{Single Slice Rebinning} o SSRB consiste nell'assegnare le LOR non planari, ovvero con \(\varphi \neq 0\), a piani bidimensionali che passano per il loro punto medio.
+
+Questo metodo è, quindi, equivalente a un'acquisizione \emph{Multi-Ring} e presenta ottime prestazioni per le LOR centrali.
+
+Un altro metodo utilizzabile è il \emph{Fourier Rebinning} o FORE che consiste nell'applicare la trasformata di Fourier bidimensionale ai sinogramma obliqui.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.64354in,height=5.30952in,alt={P5021\#yIS1}]{media/21_RicImmPET/image536.pdf}\caption{Figura .: Tecnica di Rebinning}
+\end{figure}
+
+\subsubsection{Approccio Bayesiano}\label{approccio-bayesiano}
+
+Il principio di funzionamento del MLEM si basa su un approccio statistico detto Bayesiano. Siano:
+
+\begin{itemize}
+\item
+  \(Q\) le misure effettuate. Le misure sulla i-esima LOR sono indicate con \(q_{i}\);
+\item
+  \(\Lambda\) l'immagine ricostruita tramite le attività stimata \(C_{j}\) di ogni voxel;
+\item
+  \(p(\Lambda)\) la probabilità a priori che può essere stimata;
+\item
+  \(p\left( Q \middle| \Lambda \right)\) la probabilità di ottenere i dati misurati \(Q\) dalle immagini ricostruite \(\Lambda\);
+\item
+  \(p\left( \Lambda \middle| Q \right)\) la probabilità a posteriori, ovvero la probabilità di tutte le attività \(\Lambda\) avendo osservato i conteggi Q.
+\end{itemize}
+
+L'ultima probabilità è legata alle altre tramite la relazione di Bayes:
+
+\[p\left( \Lambda \middle| Q \right) = \frac{p\left( Q \middle| \Lambda \right)p(\Lambda)}{p(Q)}\ \]
+
+Dove \(p(Q)\)è la probabilità di avere le proiezioni Q.
+
+Nell'ottica dell'approccio Bayesiano, \(p\left( Q \middle| \Lambda \right)\) è la verosimiglianza, ovvero la probabilità che le misure effettive \(Q\) siano rispettate dall'immagine ricostruita \(\Lambda\).
+
+\subsubsection{Maximum A Posteriori Probability}\label{maximum-a-posteriori-probability}
+
+L'approccio a massima probabilità a posteriori o MAP (\emph{Maximum A Posteriori Probability}) consiste nel massimizzare la probabilità a posteriori \(p\left( \Lambda \middle| Q \right)\) per ottenere la ricostruzione dell'immagine più probabilmente compatibile con le misurazioni \(Q\) ottenute. In altre parole, si vuole far in modo che la probabilità di ottenere l'immagine \(\Lambda\) abbia la massima probabilità date le misure eseguite.
+
+Solitamente si ritiene che la probabilità a priori \(p(\Lambda)\) sia costante, ovvero che tutte le immagini abbiano la stessa probabilità di essere corrette. Questa considerazione consente di semplificare l'analisi poiché non è nota l'anatomia del paziente prima di eseguire l'\emph{Imaging}, ma non è sempre verificata, ad esempio, la probabilità di ottenere un'immagine con due fegati è nulla.
+
+Fissata \(p(\Lambda)\), per massimizzare \(p\left( \Lambda \middle| Q \right)\) è necessario variare il parametro \(\Lambda\). Dato che \(p(Q)\) è costante rispetto a \(\Lambda\) e noto avendo eseguito le misure, massimizzare la probabilità a posteriori \(p\left( \Lambda \middle| Q \right)\) equivale a massimizzare la verosimiglianza.
+
+\[\max{\left\{ p\left( \Lambda \middle| Q \right) \right\} = \max\left\{ p\left( Q \middle| \Lambda \right) \right\}\ }\]
+
+Si indica con \(\lambda_{j}\) l'attività locale nel pixel ovvero il numero di fotoni emessi nell'unità di tempo nel voxel j-esimo. Sebbene l'immagine sia una matrice tridimensionale, i pixel sono numerati con un solo indice riga per riga, una \emph{Slice} alla volta. Dunque, una volta definito l'ordine i pixel, sono tutti identificati con un unico indice. L'immagine totale \(\Lambda\) è una matrice formata da tutte le attività locali nel pixel:
+
+\[\Lambda = \left\{ \lambda_{j} \right\}_{j = 1,\ldots,J}\ \]
+
+Siano poi \(c_{ij}\) i coefficienti di attenuazione, ovvero la sensibilità del detettore i-esimo nei confronti del pixel j-esimo. \(c_{ij}\) è la probabilità che l'i-esimo detettori rilevi l'attività del j-esimo pixel.
+
+Fissato \(i\), sommando su tutti i \(J\) pixel il prodotto di \(c_{ij}\) e \(\lambda_{j}\) si ottiene il numero dei fotoni che dovrebbe essere rilevato dall'i-esimo detettore:
+
+\[r_{i} = \sum_{j = 1}^{J}{c_{ij}\lambda_{j}}\]
+
+Il costruttore dello scanner PET fornisce una mappa tridimensionale dei coefficienti \(c_{ij}\) che, quindi, sono noti e dipendenti dal particolare scanner PET.
+
+Il metodo MAP, rispetto al metodo della retroproiezione filtrata, ingloba al suo interno la distribuzione di Poisson degli eventi probabilistici di annichilazione. Infatti, la probabilità di misurare un numero di fotoni \(q_{i}\) sul detettore \(i\), quando il valore atteso è il numero di fotoni che dovrebbe essere rilevato dall'i-esimo detettore \(r_{i}\), segue la relazione:
+
+\[p\left( q_{i} \middle| r_{i} \right) = \frac{r_{i}^{q_{i}}e^{- r_{i}}}{q_{i}!}\]
+
+Dato che ogni fotone che giunge sul detettore i-esimo è indipendente dagli altri, la probabilità complessiva di osservare le misurazioni, quando il valore atteso è l'immagine ricostruita \(\Lambda\), è data dal prodotto delle singole probabilità \(p\left( q_{i} \middle| r_{i} \right)\).
+
+\[p\left( Q \middle| \Lambda \right) = \prod_{i}^{}\frac{r_{i}^{q_{i}}e^{- r_{i}}}{q_{i}!}\]
+
+Dove \(p\left( Q \middle| \Lambda \right)\) è la verosimiglianza delle osservazioni data l'immagine stimata corrente legate alle attività dei singoli pixel \(\lambda_{j}\). La quantità \(r_{i}\) dipende proprio dall'attività nel j-esimo pixel \(\lambda_{j}\). Dunque, la verosimiglianza dipende anche dall'immagine corrente tramite gli elementi \(\lambda_{j}\) che la compongono.
+
+Le misurazioni sono state eseguite prima dell'elaborazione delle immagini, quindi, \(q_{i}\) è costante tra un'iterazione e l'altra. Per poter massimizzare la verosimiglianza è necessario variare i parametri \(\lambda_{j}\), ovvero l'immagine corrente. Variando l'immagine complessiva, varia il numero di fotoni atteso sull'i-esimo detettore \(r_{i}\) e, in definitiva, la verosimiglianza. Trascurando \(q_{i}!\) al denominatore poiché costante, per calcolare il valore massimo della verosimiglianza si applica il logaritmo a entrami i membri dell'espressione:
+
+\[p\left( Q \middle| \Lambda \right) = \prod_{i}^{}\frac{r_{i}^{q_{i}}e^{- r_{i}}}{q_{i}!} \Leftrightarrow \log{p\left( Q \middle| \Lambda \right)} = \sum_{i}^{}\left( q_{i}\log r_{i} - r_{i} \right)\]
+
+Si definisce \emph{Likelihood} come:
+
+\[{L\left( Q \middle| \Lambda \right) = log}{p\left( Q \middle| \Lambda \right)}\]
+
+Dato che il logaritmo è una funzione monotona, invece di massimizzare la verosimiglianza, si massimizza la \emph{Likelihood}. Sostituendo a \(r_{i}\) la sua espressione si ottiene:
+
+\[L\left( Q \middle| \Lambda \right) = \sum_{i}^{}{\left( q_{i}\log{\sum_{j = 1}^{J}{c_{ij}\lambda_{j}}} - \sum_{j = 1}^{J}{c_{ij}\lambda_{j}} \right)\ }\]
+
+Se la matrice \(C\) dei coefficienti di attenuazione del pixel j-esimo rispetto all'i-esimo detettore ha rango massimo, l'hessiano, ovvero la matrice delle derivate seconde rispetto a \(\lambda_{j}\), della funzione di \emph{Likelihood} è definito negativo (\(\mathbf{x}H\mathbf{x}^{T} < 0,\ \forall\mathbf{x}\epsilon\mathbb{R}^{n},\ \mathbf{x} \neq \mathbf{0}\). Ne discende che i suoi autovalori sono tutti negativi).
+
+Per ottenere il massimo della \emph{Likelihood} bisogna porre il suo gradiente uguale a zero, ovvero:
+
+\[\frac{\partial L}{\partial\lambda_{j}} = \frac{\partial}{\partial\lambda_{j}}\sum_{i}^{}\left( q_{i}\log{\sum_{j = 1}^{J}{c_{ij}\lambda_{j}}}\  - \sum_{j = 1}^{J}{c_{ij}\lambda_{j}} \right) = 0\]
+
+\[\frac{\partial}{\partial\lambda_{j}}\sum_{i}^{}{(q_{i}}\log{\sum_{j = 1}^{J}{c_{ij}\lambda_{j}}}\  - \sum_{j = 1}^{J}{c_{ij}\lambda_{j}}) = \sum_{i}^{}\left( \frac{q_{i}}{\sum_{j = 1}^{J}{c_{ij}\lambda_{j}}}\sum_{j = 1}^{J}c_{ij} - \sum_{j = 1}^{J}c_{ij} \right) = = \sum_{i}^{}\left( \left( \frac{q_{i}}{\sum_{j = 1}^{J}{c_{ij}\lambda_{j}}} - 1 \right)\sum_{j = 1}^{J}c_{ij} \right)\]
+
+In definitiva, per massimizzare la funzione di \emph{Likelihood}, bisogna porre
+
+\[\sum_{i}^{}\left( \left( \frac{q_{i}}{\sum_{j = 1}^{J}{c_{ij}\lambda_{j}}} - 1 \right)\sum_{j = 1}^{J}{c_{ij}\lambda_{j}} \right) = 0\]
+
+Da questa espressione è possibile calcolare le attività che devono avere i pixel affinché la \emph{Likelihood} sia massima.
+
+Per trovare la soluzione di questo sistema di equazioni si dovrebbe invertire la matrice di coefficienti \(C\) di ordine \(I \times J\), dove \(I\) è il numero di detettori dell'ordine di 64x144x16=147456, dove 144 sono i detettori su un anello, 16 gli anelli e 64 gli elementi della griglia del cristallo scintillatore, e J il numero di pixel dell'ordine di 128x128=16384.
+
+La matrice \(C\) dei coefficienti di peso \(c_{ij}\) possiede un numero elevatissimo di elementi dato da 16384x147456 il che rende la sua inversione un'operazione complessa dal punto di vista computazionale e soggetta a enormi errori poiché per eseguire l'inversione devono essere eseguite una serie di operazioni all'interno delle quali gli errori si propagano.
+
+Quindi, anche un piccolo errore iniziale nel calcolo della matrice si propaga fino a ottenere un'inversa corrotta da rumori molto ampi.
+
+La soluzione dei \(\lambda_{j}\) non è ottenibile in forma chiusa per ragioni di tipo numeriche. Per risolvere il problema si ricorre ad algoritmi di tipo iterativo.
+
+\subsubsection{Gradient Ascent}\label{gradient-ascent}
+
+Un metodo per la ricerca del massimo è detto \emph{Gradient Ascent} che si basa sulla ricerca del massimo tramite la valutazione della direzione di massima salita. Un algoritmo speculare è detto \emph{Gradient Vessel} in cui si ricerca la direzione di massima discesa e, dunque, riesce a trovare il minimo. I passi da eseguire per entrambe le tipologie sono identici a patto di invertirne il segno.
+
+L'algoritmo parte da un'immagine arbitraria \(\Lambda\), ad esempio, un'immagine costante monocromatica. Per ogni iterazione si calcola il gradiente per ciascun elemento della matrice \(\Lambda\), \(\lambda_{j}\), così da ottenere la direzione di massima salita. Il gradiente è, infatti, il vettore che permette di determinare la direzione nello spazio delle \(\lambda_{j}\) in cui la \emph{Likelihood} presenta la massima variazione.
+
+Per ottenere la stima all'iterazione successiva si aggiunge alla stima corrente \(\lambda_{j}\) un'opportuna quantità ricavata dal gradiente. La risoluzione analitica del problema sfrutta la teoria del \emph{Non-Linear Least Square}.
+
+Ciò rende l'algoritmo robusto ma lento ed è per questo motivo che si adotta un'altra tipologia di soluzioni note come \emph{Expectation Maximization}.
+
+\subsubsection{Expectation Maximization}\label{expectation-maximization}
+
+L'algoritmo \emph{Expectation Maximization} è molto utilizzato nella pratica clinica per ricostruire le immagini PET poiché risulta essere molto più rapido rispetto al \emph{Gradient Ascent}. Questa soluzione cerca il massimo della \emph{Likelihood} in un modo alternativo che consente di ripetere le iterazioni un numero limitato di volte.
+
+Per ottenere il massimo della \emph{Likelihood} si introduce una variabile aleatoria incognita poiché non osservabile \(X = \left\{ x_{ij} \right\}\), dove \(x_{ij}\) è il numero di fotoni provenienti dalla posizione j-esima e rilevati dall'i-esimo detettore.
+
+La variabile \(X\) obbedisce alla statistica di Poisson e i suoi valori sono detti variabili complete. Si pone che il valor medio \(x_{ij}\) dato \(\Lambda\) uguale alla relazione:
+
+\[E\left\lbrack x_{ij} \middle| \Lambda \right\rbrack = c_{ij}\lambda_{j}\]
+
+Ovvero, il valor medio dei fotoni provenienti dalla posizione j-esima e rilevati dal detettore i-esimo, data l'immagine \(\Lambda\), è uguale all'attività del j-esimo pixel \(\lambda_{j}\) per la sensibilità del detettore i-esimo rispetto al pixel j-esimo.
+
+Con l'introduzione delle variabili complete \(x_{ij}\), la \emph{Likelihood}, logaritmo naturale della verosimiglianza, può essere espresso come doppia sommatoria sui pixel (\(j\)) e detettori (\(j\)):
+
+\[L_{x}(X,\Lambda) = \sum_{i}^{}{\sum_{j = 1}^{J}{{(x}_{ij}\log\left( c_{ij}\lambda_{j} \right) - c_{ij}\lambda_{j})}}\]
+
+Dove si suppone noto, per ogni voxel, quanti fotoni siano stati emessi verso un certo detettore. Le variabili complete sostituiscono, quindi, le misure realmente determinate \(q_{i}\).
+
+Ovviamente, non essendo effettivamente noti i valori di \(x_{ij}\) non è possibile calcolare la \emph{Likelihood} \(L_{x}(X,\Lambda)\). Tuttavia, è possibile calcolare il valor medio di tale quantità attraverso un procedimento noto come \emph{Expectation-step} o semplicemente E-step:
+
+\[{E\lbrack L_{x}}(X,\Lambda)\left| \ Q,\Lambda^{old}\  \right\rbrack = E\left\lbrack \sum_{i}^{}{\sum_{j = 1}^{J}{{(x}_{ij}\log\left( c_{ij}\lambda_{j} \right) - c_{ij}\lambda_{j})}} \right\rbrack = \ \sum_{i}^{}{\sum_{j = 1}^{J}{{(E\lbrack x}_{ij}\rbrack\log\left( c_{ij}\lambda_{j} \right) - c_{ij}\lambda_{j})}}\]
+
+Calcolando il valor medio è possibile, quindi, dimostrare che esso dipende solamente dall'attività del j-esimo pixel \(\lambda_{j}\). In questo modo è possibile procedere con la massimizzazione della funzione di verosimiglianza media calcolata nell'E-step con la stima precedente dell'immagine \(\Lambda^{old}\).Il processo di massimizzazione è noto come M-step e permette di determinare una nuova immagine \(\Lambda\) tale da massimizzare la verosimiglianza.
+
+Nell'E-step, si pone \(n_{ij}\) il valore atteso di \(x_{ij}\). La sommatoria su \(j\) di tutti i valor medi delle \(x_{ij}\) dovrebbe essere uguale alle osservazioni effettivamente misurate dal detettore i-esimo:
+
+\[\sum_{j}^{}{E\left\lbrack x_{ij} \right\rbrack = q_{i} \Leftrightarrow}\sum_{j}^{}{n_{ij} = q_{i}}\]
+
+Infatti, deve risultare anche che \(n_{ij} = c_{ij}\lambda_{j}\). La sommatoria si riduce proprio alle misure effettuate:
+
+\[\sum_{j}^{}{c_{ij}\lambda_{j} = q_{i}}\]
+
+Si può dimostrare che la quantità \(n_{ij}\) è dato da:
+
+\[n_{ij} = c_{ij}\lambda_{j}^{old}\frac{q_{i}}{\sum_{i}^{}{c_{ij}\lambda_{j}^{old}}}\]
+
+Il valor medio della \emph{Likelihood} dipende dall'immagine stimata nello step precedente, i cui coefficienti sono noti, e da un'immagine \(\Lambda\) da valutare in modo da ottimizzare la verosimiglianza.
+
+Nel M-Step, si procede con il calcolo del gradiente del valor medio e la sua posizione a zero così da poter determinare le attività correnti del j-esimo pixel che massimizzano la \emph{Likehood}:
+
+\[\frac{\partial}{\partial\lambda_{j}}{E\lbrack L_{x}}(X,\Lambda)\left| \ Q,\Lambda^{old}\  \right\rbrack = \frac{\partial}{\partial\lambda_{j}}\sum_{i}^{}{\sum_{j = 1}^{J}{n_{ij}\ \log\left( c_{ij}\lambda_{j} \right) - c_{ij}\lambda_{j})}} = 0\]
+
+Dove, derivando rispetto a \(\lambda_{j}\) la sommatoria su \(j\) si elimina poiché, tra tutti gli elementi, solamente il j-esimo è non nullo:
+
+\[\frac{\partial}{\partial\lambda_{j}}\sum_{i}^{}{\sum_{j = 1}^{J}{n_{ij}\log\left( c_{ij}\lambda_{j} \right) - c_{ij}\lambda_{j})}} = \sum_{i}^{}\left( \frac{n_{ij}}{\lambda_{j}} - c_{ij} \right)\]
+
+Ponendo uguale a zero si ottiene l'attività del j-esimo pixel che massimizza la \emph{Likelihood}:
+
+\[\sum_{i}^{}{\left( \frac{n_{ij}}{\lambda_{j}} - c_{ij} \right) = 0}\]
+
+La cui soluzione è:
+
+\[\lambda_{j} = \frac{\sum_{i}^{}n_{ij}}{\sum_{i}^{}c_{ij}}\]
+
+Sostituendo ai valori attesi delle variabili complesse l'espressione determinata:
+
+\[n_{ij} = c_{ij}\lambda_{j}^{old}\frac{q_{i}}{\sum_{i}^{}{c_{ij}\lambda_{j}^{old}}}\]
+
+Si ottiene una relazione che lega l'attività del j-esimo pixel che massimizza la \emph{Likelihood} in funzione delle misure effettuate e le attività dell'immagine precedente:
+
+\[\lambda_{j} = \lambda_{j}^{old}\frac{1}{\sum_{m}^{}c_{mj}}\ \sum_{i}^{}{c_{ij}\frac{q_{i}}{\sum_{k}^{}{c_{ik}\lambda_{k}^{old}}}}\]
+
+Dove \(\frac{1}{\sum_{m}^{}c_{mj}}\) è la \emph{Sensitivity} dello scanner per il j-esimo pixel mentre \(\sum_{k}^{}{c_{ik}\lambda_{k}^{old}}\) è la proiezione che sarebbe misurata se l'immagine precedente fosse la vera immagine. Entrambi i fattori rappresentano dei pesi con cui stimare la nuova immagine.
+
+Nonostante la sua apparente complessità analitica, l'algoritmo \emph{Expectation Maximization} presenta un'ottima ricostruzione e un tempo di calcolo ridotto.
+
+Infatti, vari studi dimostrano che il numero di iterazioni necessario per un'ottima ricostruzione delle immagini è di circa 10. Per un'iterazione, in generale, è necessario aspettare un tempo dell'ordine di 1s, quindi, l'immagine è ricostruita dopo circa 10s.
+
+Ogni iterazione, infatti, comprende fondamentalmente delle moltiplicazioni in cui alcuni termini restano costanti poiché indipendenti dall'immagine precedente.
+
+Uno dei problemi principali di questo algoritmo riguarda la convergenza del risultato all'immagine reale.
+
+Infatti, per un'immagine non affetta da rumore è possibile notare che, all'aumentare del numero di iterazioni, la verosimiglianza cresce mentre l'errore quadratico medio si riduce.
+
+Viceversa, quando i dati sono rumorosi, esiste un minimo locale dell'errore quadratico medio, intorno alla decina di iterazioni, dopodiché aumenta.
+
+È fondamentale controllare il numero di iterazioni da compiere affinché il contenuto informativo dell'immagine non risulti essere completamente corrotto dal rumore.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.05218in,height=4.41667in,alt={P5111\#yIS1}]{media/21_RicImmPET/image537.pdf}\caption{Figura .: Immagine priva di rumore (DX) e con rumore (SX). Con 64 iterazioni l'immagine rumorosa è illeggibile}
+\end{figure}
+
+La \emph{Maximum Likelihood Expectation Maximization} o MLEM non è realmente implementata negli scanner PET poiché ogni costruttore realizza una propria variante dell'algoritmo.
+
+Esiste, inoltre, una variante ancora più efficiente dell'algoritmo detta OSEM (\emph{Ordered Subset Expectation Maximization}) che possono essere sia bidimensionali che tridimensionali.
+
+\subsection{Effetto di volume parziale}\label{effetto-di-volume-parziale-1}
+
+La PET presenta la problematica che i voxel, in cui è scomponibile il corpo del paziente sono sufficientemente grandi, dell'ordine di 6mm lato.
+
+Ciò comporta che le immagini sono affette dalla problematica del volume parziale che si verifica quando un voxel contiene uno o più tessuti e si manifesta con una riduzione complessiva del contrasto, definito come la capacità di distingue due strutture molto vicine tra loro.
+
+L'oggetto emettente di piccole dimensioni o \emph{Hot-Spot} nel voxel sembra avere un'attività inferiore di quella reale perché essa è distribuita sull'intero voxel, con dimensioni molto più grandi.Tale effetto è compensato mediante l'introduzione di un coefficiente di correzione, definito come il rapporto tra l'attività ricostruita e l'attività vera, su una regione di interesse o ROI più piccola del doppio della risoluzione spaziale.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.10614in,height=3.19792in,alt={P5119\#yIS1}]{media/21_RicImmPET/image538.pdf}\caption{Figura .: Fantoccio e immagine PET}
+\end{figure}
+
+Esistono degli studi in letteratura che analizzando il contrasto tra masse tumorali e il \emph{Background}. In particolare, essi evidenziano che le masse tumorali sono ben visibili quando vi è un elevato numero di conteggi e il rapporto tra la luminosità delle cellule tumorali rispetto al \emph{Background} è dell'ordine della decina. Da ciò si evince la necessità di rilevare la gran parte degli eventi di annichilazione, poiché, in caso contrario, l'immagine risulta essere poco visibile anche con un contrasto elevato.
+
+Se il contrasto di per sé è basso, anche con un numero di conteggi molto elevato l'immagine non permette di distinguere le masse tumorali rispetto al \emph{Background}.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.15717in,height=3.97727in,alt={P5123\#yIS1}]{media/21_RicImmPET/image539.pdf}\caption{Figura .: Ricostruzione dell'immagine tumore con diversi conteggi e contrasto rispetto lo sfondo}
+\end{figure}
+
+Generalizzando, il contrasto dipende anche dall'intensità del radio tracciate rispetto al \emph{Background} nella struttura anatomica. Più è elevato è il rapporto tra la luminosità della struttura anatomica irradiante rispetto il \emph{Background} e maggiore è il numero di conteggi, allora più nitida è l'immagine.
+
+\subsection{Protocollo di ricostruzione PET/CT}\label{protocollo-di-ricostruzione-petct}
+
+Per ottenere immagini PET molto più affidabili e priva di artefatti si ricorre al protocollo PET/CT che prevede una scansione preliminare con la CT spirale per identificare le zone di cui eseguire l'\emph{Imaging}. Si ottengono così delle immagini, dette \emph{µ-Image}, che mostrano come è distribuito il coefficiente di attenuazione lineare all'interno del corpo del paziente.
+
+Si inietta poi il liquido di contrasto e si esegue la scansione PET volta a ottenere le immagini di emissione che forniscono informazioni sulla distribuzione del radionuclide all'interno del corpo del paziente.
+
+Dalla fusione delle immagini trasmissive della CT ed emissive della PET si ottiene un'immagine globale che mostra sia l'anatomia del paziente che l'attività metaboliche dei suoi tessuti mediante delle scale di pseudocolori.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=2.68361in,alt={P5130\#yIS1}]{media/21_RicImmPET/image540.pdf}\caption{Figura .: Protocollo PET/CT}
+\end{figure}
+
+La fusione delle immagini è un problema non del tutto chiuso. Per sovrapporre l'immagine PET alla CT è necessario eseguire delle operazioni di interpolazione poiché il voxel della prima metodica è più grande della seconda. La CT, infatti, presenta una dimensione del voxel dell'ordine di 1mm o minore, mentre la PET di 6mm.
+
+Dal \emph{Dicom Info} è possibile rilevare la \emph{Slice Location} ovvero l'ascissa lungo l'asse \(z\) della \emph{Slice} di interesse sia per le immagini CT che PET.
+
+A causa dei voxel di ampiezza diversa, non è possibile avere la stessa ascissa \(z\) per le due \emph{Slice} da combinare. Dunque, per combinare le due immagini, si scelgono due \emph{Slice} che differiscono per una piccola quantità, inferiore del millimetro.
+
+Nei DICOM sono contenute anche le informazioni sull'orientamento del paziente grazie alla voce \emph{ImageOrientationPatient}. Questa informazione è fornita come un vettore contenente i coseni direttori degli assi rispetto al sistema di riferimento identificato dallo scanner. In alcuni esami l'asse lungo cui si posiziona il paziente può non coincidere con quello dello scanner, ad esempio, in cardiologia l'asse di \emph{Imaging}, di solito, coincide con l'asse cardiaco.
+
+Con la PET/CT si tende ad allineare le fette poiché la ricostruzione PET procede, solitamente, lungo piani ortogonali all'asse \(z\).
+
+Con \emph{PixelSpacing,} invece, si indica lo spessore di un voxel nelle direzioni \(x\) e \(y\), mentre con \emph{ImagePositionPatient} si ottengono informazioni sul posizionamento del primo pixel, in alto a sinistra, dell'immagine nel sistema di riferimento paziente.
+
+Con le informazioni contenute nei \emph{Dicom Info} è possibile leggere le immagini CT e PET e ricavarne i dettagli. Solitamente, oltre a non essere allineate, le immagini CT presenta una dimensione di 512x512 mentre l'immagine PET di 128x128, quindi, risulta avere un minor numero di pixel poiché questi possiedono dimensioni maggiori. Da ciò è ovvio che un singolo voxel dell'immagine PET contiene più voxel della CT.
+
+Prima di sovrapporre le immagini è necessario riallinearle. A tale scopo si ricorre alle informazioni contenute nel DICOM, secondo il quale, le coordinate tridimensionali di un punto nell'immagine nel sistema di riferimento paziente, identificato da un quaternione ovvero un vettore di quattro componenti, possono essere ricavate dalle coordinate-immagine \((i,\ j,\ 0)\) moltiplicate per la matrice le cui tre righe sono i coseni direttori dei punti dell'immagine seguita da una colonna di zeri, rappresentante la coordinata \(z\), e poi un'altra contenente la posizione del punto alla sinistra dell'immagine:
+
+\[\left( \begin{array}{r}
+p_{x} \\
+p_{y} \\
+p_{z} \\
+1
+\end{array} \right) = \begin{pmatrix}
+\begin{array}{r}
+X_{x} \\
+X_{y} \\
+X_{z} \\
+0
+\end{array} & \begin{matrix}
+\begin{array}{r}
+Y_{x} \\
+Y_{y} \\
+Y_{z} \\
+0
+\end{array} & \ 
+\end{matrix}\begin{matrix}
+\begin{array}{r}
+0 \\
+0 \\
+0 \\
+0
+\end{array} & \begin{array}{r}
+S_{x} \\
+S_{y} \\
+S_{z} \\
+0
+\end{array}
+\end{matrix}
+\end{pmatrix}\left( \begin{array}{r}
+i \\
+j \\
+0 \\
+1
+\end{array} \right)\]
+
+Per ogni pixel della matrice dell'immagine è possibile costruire il suo quaternione, dunque, ogni pixel dell'immagine sia CT che PET possiede la sua quaterna di coordinate. La coordinata \(z\) per una \emph{Slice} è fissata e, quindi, non ha senso considerarla. Per tale motivo essa è posta a zero.
+
+La griglia risultante per la CT avrà 512x512x4 componenti, mentre per la PET ha una griglia di quaternioni di 128x128x4.
+
+Con questa procedura si ottengono le coordinate dei punti nel sistema di riferimento solidale col \emph{Gantry} dello scanner, ovvero i punti di entrambe le immagini sono riferite a un unico sistema di riferimento. In questo modo è possibile eseguire l'interpolazione così da mostrare le informazioni di un voxel della PET su più voxel della CT.
+
+Mediante algoritmi di interpolazione bidimensionali (\emph{interp2} in Maltab), a partire delle due griglie costruite sulle immagini PET e CT e dall'attività misurate nelle immagini PET, sono valutati i valori dell'immagine PET in un punto in cui non è stata misurata l'attività. In particolare, si vuole ricavare il valore dell'immagine PET negli stessi punti dell'immagine CT così da costruire un'immagine dell'emissione con stessa dimensione dell'immagine di trasmissione. L'interpolazione, in definitiva, è necessaria per poter sovrapporre le due immagini.
+
+L'interpolazione sfrutta la conoscenza dei valori assunti da una funzione in determinati punti discreti per valutare il valore del pixel in punti non misurati mediante una stima pesata con diverse relazioni in base al tipo di interpolazione che si vuole ottenere. Se i pesi sono segmenti di rette, l'interpolazione è detta bilineare.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.33681in,height=3.18472in,alt={P5146\#yIS1}]{media/21_RicImmPET/image541.pdf}\caption{Figura .: Schema di interpolazione bilineare}
+\end{figure}
+
+Con l'interpolazione bilineare, l'immagine risultate PET/CT presenta dei contorni più sfumati poiché l'algoritmo di interpolazione si comporta come un filtraggio passa-basso.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\caption{Figura .: Immagine CT e immagine PET/CT con interpolazione lineare}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=2.99057in,height=2.99057in,alt={P5149C1T9\#yIS1}]{media/21_RicImmPET/image542.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=2.99664in,height=3.01887in,alt={P5150C2T9\#yIS1}]{media/21_RicImmPET/image543.pdf}\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=2.99057in,height=2.99057in,alt={P5149C1T9\#yIS1}]{media/21_RicImmPET/image542.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=2.99664in,height=3.01887in,alt={P5150C2T9\#yIS1}]{media/21_RicImmPET/image543.pdf}\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+
+La bilineare non è sempre preferibile rispetto ad altre metodiche. Nella pratica, spesso si frutta un'interpolazione della \emph{Nearest} in cui si assegna ai punti intorno a un pixel misurato, il valore dell'attività nota.
+
+Il punto incognito assume, quindi, il valore del pixel con luminosità nota più vicino. L'immagine ottenuta mostra un certo grado di granulosità dovuta proprio alla conservazione della maggior dimensione dei pixel della PET. Ingrandendo, infatti, si osserva un quadrato funzionale omogeneo sovrapposto all'immagine anatomica.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4982}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5018}}@{}}
+\caption{Figura .: Differenza tra bilineare (SX) e Nearest (DX)}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=3.16403in,height=3.1875in,alt={P5155C1T10\#yIS1}]{media/21_RicImmPET/image543.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=3.20798in,height=3.18229in,alt={P5156C2T10\#yIS1}]{media/21_RicImmPET/image544.pdf}\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=3.16403in,height=3.1875in,alt={P5155C1T10\#yIS1}]{media/21_RicImmPET/image543.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=3.20798in,height=3.18229in,alt={P5156C2T10\#yIS1}]{media/21_RicImmPET/image544.pdf}\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+
+L'ultimo aspetto riguarda la visione dell'immagine stesse. La sovrapposizione non è banale poiché è necessario unire un'immagine a colori con una in scala di grigio. Scegliendo opportunamente i pesi della sovrapposizione è possibile enfatizzare un aspetto funzionale in pseudocolori oppure l'espetto morfologico in scala di grigi.
+
+Questa configurazione è gestita dal radiologo mediante manopole o pulsanti sulla \emph{Console} di visualizzazione.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\caption{Figura .: A sinistra immagine più anatomica che funzionale a destra più funzionale che anatomica}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=3.14603in,height=3.125in,alt={P5161C1T11\#yIS1}]{media/21_RicImmPET/image545.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=3.125in,height=3.125in,alt={P5162C2T11\#yIS1}]{media/21_RicImmPET/image546.pdf}\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=3.14603in,height=3.125in,alt={P5161C1T11\#yIS1}]{media/21_RicImmPET/image545.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=3.125in,height=3.125in,alt={P5162C2T11\#yIS1}]{media/21_RicImmPET/image546.pdf}\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+
+Esistono anche metodi di visualizzazione multiplanari in cui lo stesso distretto anatomico è mostrato secondo i piani transassiali, sagittali e coronale, simultaneamente per CT, PET e la loro fusione. Quest'ultima permette di riconoscere, in modo chiaro, le regioni che presentano un'attività maggiore e, quindi, una maggiore concentrazione di radionuclide.
+
+Un altro protocollo di visualizzazione delle immagini è il MIP o \emph{Maximum Intensity Projection} in cui ogni pixel dell'immagine assume solo il massimo valore di attività che lo interessano. Si ignorano così le integrazioni delle varie attività.
+
+\subsection{Artefatti nelle immagini PET}\label{artefatti-nelle-immagini-pet}
+
+Le immagini PET possono essere affette da una serie di errori che portano a una scorretta valutazione diagnostica.
+
+La presenza di oggetti metallici come protesi o otturazione dentarie in CT genera artefatti a stella molto forti a causa dell'elevato assorbimento di questi materiali alle energie della radiologia convenzionale. L'immagine PET permette di risolvere parzialmente la presenza degli artefatti metallici correggendo l'attenuazione.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68681in,height=1.21667in,alt={P5170\#yIS1}]{media/21_RicImmPET/image547.pdf}\caption{Figura .: A immagine CT, B immagine PET, C immagine corretta}
+\end{figure}
+
+Siccome l'esame PET ha una durata di 30-45min diventano importanti gli artefatti da movimento. A questa categoria appartengono gli artefatti legati al respiro del paziente durante l'esame e visibile prevalentemente nella regione diaframmatica e polmonare.
+
+Se il radio tracciante scorre in prossimità dei polmoni, a causa del movimento ritmico legato alla respirazione, i punti di annichilazione si trovano ad altezze diverse per ogni istante di tempo. I fotoni emergenti impattano su diverse LOR falsando così la misura che, a sua volta, provoca un artefatto nell'immagine ricostruita. Ovviamente, siccome la CT non presenta questa problematica, non è ottima la correzione delle immagini in prossimità dei polmoni.
+
+La risoluzione dell'artefatto da movimento legato alla respirazione è ancora in corso di studio poiché a oggi non esiste un metodo efficacie per la sua risoluzione. Alcuni studi prevedono l'\emph{Imaging} con semplici telecamere che registrano i movimenti del paziente, per poi ricostruire l'immagine in maniera sincrona con i movimenti respiratori. Analogamente, è possibile utilizzare delle semplici fasce elastiche che memorizzano i movimenti toracici mediante variazioni della resistenza di elementi sensibili al loro interno.
+
+L'artefatto legato alla respirazione può portare a diagnosi errate poiché alcuni errori legati alla respirazione potrebbero essere scambiate per lesioni del parenchima del fegato posto subito sotto i polmoni. In presenza di lesione, invece, queste potrebbero essere spostate al di sotto o al di sopra della posizione effettiva.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.89167in,height=5.36404in,alt={P5176\#yIS1}]{media/21_RicImmPET/image548.pdf}\caption{Figura .: Esempio di artefatto da respirazione.}
+\end{figure}
+
+Gli artefatti da iniezione sono dovuti alla distribuzione non uniforme del tracciante. Infatti, nel sito di infusione del radionuclide si osserva un'attività maggiore che deve essere considerata al momento della refertazione. Non conoscendo il punto di iniezione si potrebbe evidenziare questa regione come lesionata portando a una diagnosi errata.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.67767in,height=2.78261in,alt={P5179\#yIS1}]{media/21_RicImmPET/image549.pdf}\caption{Figura .: Artefatto da iniezione}
+\end{figure}
+
+Se, per motivi diagnosti, la CT è eseguita mediante contrasto radiopaco, le immagini PET corrette con CT risultati avranno un'intensa attività nelle zone perfuse dal tracciare della CT.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68472in,height=1.57639in,alt={P5182\#yIS1}]{media/21_RicImmPET/image550.pdf}\caption{Figura .: Artefatti da mezzo di contrasto radiopaco}
+\end{figure}
+
+Infine, se il FOV della CT è differente da quello dalla PET, che generalmente ha estensione minore, potrebbero esserci delle zone dell'immagine PET non corrette, soprattutto in pazienti corpulenti. Ciò potrebbe portare a delle omissioni di informazioni cliniche rilevanti come lesioni tumorali maligne in prossimità della superficie del corpo come la pelle.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.31137in,height=4.87736in,alt={P5185\#yIS1}]{media/21_RicImmPET/image551.pdf}\caption{Figura .: Artefatto da FOV (melanoma non corretto)}
+\end{figure}

@@ -1,0 +1,650 @@
+\begin{center}
+\vfill
+    \chapter{Immagini funzionali}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+
+
+\section{Tecniche di imaging strutturale e funzionale}\label{tecniche-di-imaging-strutturale-e-funzionale}
+
+Le tecniche di \textbf{imaging funzionale} non si concentrano sulla struttura, ma su come il corpo o gli organi \textbf{lavorano}. Queste tecniche sono utilizzate per studiare i processi fisiologici come il metabolismo, il flusso sanguigno o l'attività neuronale per capire come funzionano i tessuti. Queste tecniche sono usate per studiare l\textquotesingle attività cerebrale, la diffusione di farmaci o il funzionamento di specifici organi.
+
+\subsection{Magnetic resonance spectroscopic imaging}\label{magnetic-resonance-spectroscopic-imaging}
+
+La Magnetic Resonance Spectroscopic Imaging (MRSI) è una metodica spettroscopica di risonanza magnetica in grado di fornire immagini funzionali, indicante il metabolismo dei tessuti.
+
+Storicamente la risonanza magnetica nasce per scopi di spettroscopia; se, infatti, si irradia un campione con un campo elettromagnetico statico \(B_{0}\) ci si aspetterebbe che ogni protone risuoni alla frequenza di Larmor (\(\omega_{0} = \gamma B_{0}\)). In realtà, il segnale ricevuto contiene molte frequenze, legate al chemical shift. Ogni nucleo di idrogeno, infatti, percepisce il campo magnetico totale dato dal campo statico e di una disomogeneità di campo, introdotta dalla schermatura dell'ambiente molecolare in cui è inserito il protone stesso.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.6981in,height=3.66667in,alt={Immagine che contiene diagramma, cerchio, schermata, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/14_FuncImm/image348.pdf}\caption{Figura .: Schema della sezione del corpo umano immerso in un campo magnetico}
+\end{figure}
+
+In particolare, ogni molecola produce uno specifico effetto di schermatura, quindi, lo spettro del segnale registrato possiede delle componenti spettrali, le cui frequenze dipendono dal tipo di molecole presenti. L'ampiezza del picco dipende dal numero di molecole di una specifica sostanza che risuonano alla frequenza della componente armonica registrata; in altre parole, l'ampiezza del picco spettrale dipende dalla concentrazione della molecola all'interno del corpo irradiato. La maggior parte delle molecole presenta un coefficiente di shielding \(\sigma\) di circa \(0 \div 4\ ppm\).
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=3.99236in,alt={Immagine che contiene testo, diagramma, Diagramma, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/14_FuncImm/image349.pdf}\caption{Figura .: Vari picchi spettrali relativi a macromolecole diverse}
+\end{figure}
+
+Dal punto di vista analitico, il segnale decade esponenzialmente come i tempi di rilassamento \(T_{1}\) e \(T_{2}\); dunque, è necesario inserire un opportuno fattore di attenuazione o damping factor, caratteristico della molecola, al fine di descrivere al meglio il segnale registrato dal voxel.
+
+Le sequenze utilizzate per eseguire l'imaging spettroscopico sono abbastanza semplici, poiché non prevedono la presenza di gradiente di selezione della fetta. L'imaging è, infatti, tridimensionale ed è ottenuto applicando tre gradienti di fase lungo i tre assi, al fine di acquisire un preciso voxel.
+
+Il segnale misurato al tempo di echo è dato dalla somma di varie sinusoidi con frequenze di risonanza diverse in base alla molecola contenuta nel campione.
+
+Dal punto di vista analitico, il segnale si esprime come una somma di vari componenti frequenziali:
+
+\[s = \sum_{i}^{}{{\widehat{\rho}}_{i}\exp\left( j\left( \omega_{i} + \phi_{i} \right) \right)}\]
+
+Ogni specie chimica è caratterizzata da una propria densità protonica efficace, frequenza di risonanza e sfasamento. Al fine di eccitare tutte le varie molecole, gli impulsi di eccitazione devono essere ad ampio spettro, così da selezionare l'interno range di frequenze delle specie chimiche di interesse.
+
+Sfruttando opportunamente i gradienti di selezione lungo i tre assi è possibile effettuare la codifica di fase dei vari voxel, al fine di ottenere lo spettro di ciascuno di essi. Tramite questa informazione è possibile ricavare delle mappe di distribuzione delle varie macromolecole.
+
+La metodica MRSI è molto utilizzata nello studio della composizione cerebrale poiché permette la generazione di mappe di distribuzione dei principali metaboliti cerebrali, come:
+
+\begin{itemize}
+\item
+  N-Acetil-Aspartato (NAA), marker della funzionalità neuronale;
+\item
+  Creatina (Cr), indice del metabolismo energetico;
+\item
+  Colina (Cho), legata al metabolismo delle membrane cellulari
+\end{itemize}
+
+Per poter quantificare le varie molecole, ovvero misurare le concentrazioni, è necessario elaborare opportunamente il segnale ricevuto, mediante tecniche appropriate. Il segnale spettroscopico può essere modellato come un segnale complesso campionato, del tipo:
+
+\[s(n) = \sum_{k = 1}^{n}{c_{k}\xi_{k}^{n}} + \varepsilon(n)\]
+
+Dove \(c_{k} = a_{k}\exp\left( j\phi_{k} \right)\) tiene conto che la ricostruzione del \(k\)-spazio è complessa a causa degli sfasamenti, mentre \(\xi_{k}^{n} = \exp\left( - \alpha_{k} + j2\pi\nu_{k} \right)\), ovvero è il termine esponenziale che comprende il decadimento dovuto a \(T_{2}\) (se si applica una sequenza spin-echo) o \(T_{2}^{*}\) (se si applica una sequenza gradient-echo) e la frequenza di risonanza caratteristica della specie chimica. Più nel dettaglio il termine \(\alpha_{k}\) è il damping factor mentre \(a_{k}\) è legato alla concentrazione delle molecole contenute nel materiale. In ambito clinico il termine di fase ha poco interesse. Infine, il termine \(\varepsilon(n)\) rappresenta il rumore sovrapposto alla misura eseguita.
+
+A partire dai dati acquisiti è possibile costruire una matrice dei dati con una struttura Hankel, ovvero una matrice quadrata o rettangolare in cui ogni elemento \(a_{ij}\) dipende solo dalla somma degli indici di riga e di colonna, ovvero \(a_{ij} = f(i + j - 1)\).In parole più semplici, una matrice di Hankel ha elementi costanti lungo le antidiagonali, ovvero le diagonali che salgono da sinistra verso destra.
+
+Nel caso specifico delle misurazioni, si ha:
+
+\[\overset{\underline{}}{\overset{\underline{}}{S}} = \begin{pmatrix}
+s_{0} & s_{1} & s_{2} & \cdots & s_{M - 1} \\
+s_{1} & s_{2} & s_{3} & \cdots & s_{M} \\
+\cdots & \cdots & \cdots & \cdots & \cdots \\
+s_{L - 1} & s_{L} & s_{L + 1} & \cdots & s_{N - 1}
+\end{pmatrix}\]
+
+In accordo con la matrice di Hankel, sulla prima riga vi sono i campioni da \(s_{0}\) a \(s_{M - 1}\), mentre sulla seconda riga vi sono i campioni da \(s_{1}\) a \(s_{M}\). In generale, ogni riga della matrice di Hankel si ottiene dalla riga precedente, traslandola verso sinistra di un campione. Tale processo è ripetuto un certo numero \(N\) di volte, fino a ottenere \(L\) righe. I parametri \(L\) e \(M\) devono essere scelti opportunamente in base alle analisi da eseguire; tuttavia, non esiste una regola precisa per la scelta di questi parametri. Nella pratica si sceglie \(M\) prossimo a \(L\).
+
+Se il segnale fosse costituito solo da sinusoidi senza rumore la matrice dei dati \(\overset{\underline{}}{\overset{\underline{}}{S}}\) avrebbe un rango \(K\), numero delle sinusoidi che compongono il segnale. La presenza del rumore \(\varepsilon(n)\) determina che il rango della matrice sia pieno pari al \(\min(LM)\).
+
+In assenza di rumore, dal rango della matrice \(\overset{\underline{}}{\overset{\underline{}}{S}}\) si riesce a determinare il numero di sinusoidi presenti nel segnale, note le quali è semplice determinare le frequenze di risonanze delle varie molecole contenute nel materiale.
+
+A causa del rumore, è necessario elaborare la matrice in modo da individuare il numero delle sinusoidi effettivamente presenti nel segnale acquisito. Un modo per analizzare il rango della matrice di Henkle \(\overset{\underline{}}{\overset{\underline{}}{S}}\) consiste nella \emph{Singular Value Decomposition} (SVD), un procedimento simile alla decomposizione in autovettori e autovalori. Ordinando i valori singolari in ordine decresecente si osserva in genere una netta discontinuità tra i valori songolari corrispondneti al segnale ed i valori corrispondenti al rumore. Nel caso di decomposizione ai valori singolari, il concetto di autovettore è sostituito da quello di valore singolare.
+
+\subsubsection{Cenni sui valori singolari}\label{cenni-sui-valori-singolari}
+
+Una matrice \(\overset{\underline{}}{\overset{\underline{}}{X}}\) complessa con dimensioni \(N \times M\) e rango \(r\) può essere decomposta come:
+
+\[\overset{\underline{}}{\overset{\underline{}}{X}} = \overset{\underline{}}{\overset{\underline{}}{U}}\overset{\underline{}}{\overset{\underline{}}{\Sigma}}{\overset{\underline{}}{\overset{\underline{}}{V}}}^{H}\]
+
+Dove \(\overset{\underline{}}{\overset{\underline{}}{U}}\) è una matrice \(N \times N\), \(\overset{\underline{}}{\overset{\underline{}}{V}}\) una matrice unitaria \(M \times M\) mentre \(\overset{\underline{}}{\overset{\underline{}}{\Sigma}}\) è una matrice \(N \times M\) diagonale. Gli elementi di \(\overset{\underline{}}{\overset{\underline{}}{\Sigma}}\) diversi da zero sono detti valori singolari.
+
+La matrice \(\overset{\underline{}}{\overset{\underline{}}{X}}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{H}\) è semidefinita positiva, dunque, i suoi autovalori \(\sigma_{1}^{2},\sigma_{2}^{2},\ldots,\sigma_{M}^{2}\) sono non negativi. Siccome il rango di \(\overset{\underline{}}{\overset{\underline{}}{X}}\) è \(r\), i primi \(r\) autovalori sono non negativi, mentre i restanti \(M - r\) sono nulli.
+
+Siano \({\overset{\underline{}}{v}}_{1},{\overset{\underline{}}{v}}_{2},\ldots,v_{M}\) gli autovettori corrispondenti agli autovalori \(\sigma_{1}^{2},\sigma_{2}^{2},\ldots,\sigma_{M}^{2}\). Si considera l'arrangiamento:
+
+\[\overset{\underline{}}{\overset{\underline{}}{V}} = \left\lbrack {\overset{\underline{}}{\overset{\underline{}}{V}}}_{1},{\overset{\underline{}}{\overset{\underline{}}{V}}}_{2} \right\rbrack\]
+
+Dove \({\overset{\underline{}}{\overset{\underline{}}{V}}}_{1}\) contiene le prime \(r\) colonne di \(\overset{\underline{}}{\overset{\underline{}}{V}}\), mentre \({\overset{\underline{}}{\overset{\underline{}}{V}}}_{2}\) le restanti, quindi è nulla. Risulta che:
+
+\[{\overset{\underline{}}{\overset{\underline{}}{V}}}_{1}^{H}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{H}\overset{\underline{}}{\overset{\underline{}}{X}}{\overset{\underline{}}{\overset{\underline{}}{V}}}_{1} = \left( {diag}\left( \sigma_{1},\sigma_{2},\ldots,\sigma_{r} \right) \right)^{2}\]
+
+Ponendo:
+
+\[{\overset{\underline{}}{\overset{\underline{}}{\Sigma}}}_{r} = {diag}\left( \sigma_{1},\sigma_{2},\ldots,\sigma_{r} \right)\]
+
+La relazione si scrive come:
+
+\[{\overset{\underline{}}{\overset{\underline{}}{V}}}_{1}^{H}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{H}\overset{\underline{}}{\overset{\underline{}}{X}}{\overset{\underline{}}{\overset{\underline{}}{V}}}_{1} = {\overset{\underline{}}{\overset{\underline{}}{\Sigma}}}_{r}\]
+
+Ovviamente è possibile scrivere anche la relazione per \({\overset{\underline{}}{\overset{\underline{}}{V}}}_{2}\), dove:
+
+\[{\overset{\underline{}}{\overset{\underline{}}{V}}}_{2}^{H}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{H} = \overset{\underline{}}{\overset{\underline{}}{O}}\]
+
+Risulta che:
+
+\[{\overset{\underline{}}{\overset{\underline{}}{\Sigma}}}_{r}^{- 1}{\overset{\underline{}}{\overset{\underline{}}{V}}}_{1}^{H}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{H}\overset{\underline{}}{\overset{\underline{}}{X}}{\overset{\underline{}}{\overset{\underline{}}{V}}}_{1}{\overset{\underline{}}{\overset{\underline{}}{\Sigma}}}_{r}^{- 1} = \overset{\underline{}}{\overset{\underline{}}{I}}\]
+
+Ponendo:
+
+\[\overset{\underline{}}{\overset{\underline{}}{X}}{\overset{\underline{}}{\overset{\underline{}}{V}}}_{1}{\overset{\underline{}}{\overset{\underline{}}{\Sigma}}}_{r}^{- 1} = \overset{\underline{}}{\overset{\underline{}}{U}}\]
+
+Si ottiene la relazione:
+
+\[{\overset{\underline{}}{\overset{\underline{}}{U}}}^{H}\overset{\underline{}}{\overset{\underline{}}{U}} = \overset{\underline{}}{\overset{\underline{}}{I}}\]
+
+Da cui si costruisce la matrice:
+
+\[{\overset{\underline{}}{\overset{\underline{}}{U}}}^{H}\overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\overset{\underline{}}{U}} = \left( \begin{array}{r}
+{\overset{\underline{}}{\overset{\underline{}}{U}}}_{1}^{H} \\
+{\overset{\underline{}}{\overset{\underline{}}{U}}}_{2}^{H}
+\end{array} \right)\ \overset{\underline{}}{\overset{\underline{}}{X}}\left\lbrack {\overset{\underline{}}{\overset{\underline{}}{V}}}_{1},{\overset{\underline{}}{\overset{\underline{}}{V}}}_{2} \right\rbrack = \begin{pmatrix}
+{\overset{\underline{}}{\overset{\underline{}}{\Sigma}}}_{r} & \overset{\underline{}}{\overset{\underline{}}{O}} \\
+\overset{\underline{}}{\overset{\underline{}}{O}} & \overset{\underline{}}{\overset{\underline{}}{O}}
+\end{pmatrix}\]
+
+\subsubsection{Linear prediction SVD}\label{linear-prediction-svd}
+
+Quando il segnale acquisito durante la spettroscopia non presenta rumore sovrapposto, si dimostra che il segnale soddisfa l'equazione di predizione lineare con coefficienti \(q_{k}\) del tipo:
+
+\[{\widehat{s}}_{n} = q_{1}s_{n + 1} + q_{2}s_{n + 2} + \ldots + q_{M}s_{n + M}\]
+
+dove i termini \(q_{k}\) sono i coefficienti del modello a predizione lineare. Se è presente del rumore, questa relazione non è esattamente valida; in tal caso, è opportuno scegliere \(M \gg K\) in modo che le componenti di rumore siano tenute in conto dai coefficienti aggiuntivi \(q_{k},k = 1,2,\ldots,M\)
+
+Il segnale può essere espresso in termini matriciali. Si definisce il vettore dei segnali ricostruiti:
+
+\[\widehat{\overset{\underline{}}{s}} = \left( \begin{array}{r}
+\begin{array}{r}
+\begin{array}{r}
+{\widehat{s}}_{0} \\
+{\widehat{s}}_{1}
+\end{array} \\
+ \vdots 
+\end{array} \\
+{\widehat{s}}_{N - M - 1}
+\end{array} \right)\]
+
+Il vettore dei coefficienti della regressione:
+
+\[\overset{\underline{}}{q} = \left( \begin{array}{r}
+\begin{array}{r}
+\begin{array}{r}
+q_{1} \\
+q_{2}
+\end{array} \\
+ \vdots 
+\end{array} \\
+q_{M}
+\end{array} \right)\]
+
+E la matrice di Hankle:
+
+\[\overset{\underline{}}{\overset{\underline{}}{S}} = \begin{pmatrix}
+s_{0} & s_{1} & s_{2} & \cdots & s_{M - 1} \\
+s_{1} & s_{2} & s_{3} & \cdots & s_{M} \\
+\cdots & \cdots & \cdots & \cdots & \cdots \\
+s_{L - 1} & s_{L} & s_{L + 1} & \cdots & s_{N - 1}
+\end{pmatrix}\]
+
+Per la decomposizione in valori singolari è possibile scrivere:
+
+\[\overset{\underline{}}{\overset{\underline{}}{S}} = {\overset{\underline{}}{\overset{\underline{}}{U}}}^{H}\overset{\underline{}}{\overset{\underline{}}{\Sigma}}\overset{\underline{}}{\overset{\underline{}}{V}}\]
+
+Dato il suo andamento sinusoidale del segnale acquisito, i valori singolari del rumore sono prossimi allo zero, dunque, si può ottenere una pulizia del rumore ponendo i valori singolari del rumore esattamente uguali a zero.Questo processo si chiama \textbf{troncamento della SVD}. In questo modo, si ottiene una matrice \(\widehat{\overset{\underline{}}{\overset{\underline{}}{S}}}\), a partire da quella di Henkle \(\overset{\underline{}}{\overset{\underline{}}{S}}\), con rango \(k\). La matrice ripulita non possiede più struttura di Henkel. Tale struttura può essere ripristinata ponendo su ciascuna antidiagonale il valor medio dei termini su quella diagonale. Al fine di ottenere i valori dei coefficienti del modello di predizione lineare si utilizza un algoritmo OLS:
+
+\[\overset{\underline{}}{q} = \left( {\widehat{\overset{\underline{}}{\overset{\underline{}}{S}}}}^{T}\widehat{\overset{\underline{}}{\overset{\underline{}}{S}}} \right)^{- 1}\widehat{\overset{\underline{}}{\overset{\underline{}}{S}}}\widehat{\overset{\underline{}}{s}}\]
+
+Dove \(\widehat{\overset{\underline{}}{s}}\) è il vettore ripulito dal rumore.
+
+Per ottenere le componenti armoniche del segnale ripulito dal rumore, si calcolano i poli situati all'esterno al cerchio di raggio unitario, ovvero i poli il cui modulo è maggiore di \(1\). Le componenti armoniche (le sinusoidi) del segnale di risonanza magnetica sono intrinsecamente smorzate. Per modellarle correttamente il modello di predizione lineare, i poli del filtro devono trovarsi fuori dal cerchio unitario al fine di individuare le sinusoidi smrozate.
+
+In MATLAB si utilizza la funzione henkel, per costruire una matrice di Henkel, e svd per eseguire la decomposizione ai valori singolari. Noti questi due parametri è possibile implementare l'algoritmo di pulizia.
+
+\subsubsection{Rapporto segnale/rumore in MRSI}\label{rapporto-segnalerumore-in-mrsi}
+
+Al fine di ottenere delle ricostruzioni mediante la tecnica del MRSI con un buon rapporto segnale/rumore è necessario aumentare la dimensione del voxel, poiché all'interno del corpo umano la concentrazione delle macromolecole è piuttosto bassa. Inoltre, l'aumento del voxel permette di compensare parzialmente l'aumento dei tempi di imaging: acquisendo un volume di \(32 \times 32 \times 16\), con un tempo di ripetizione di \(1\ s\) è necessario aspettare \(16384\ s = 273\ min = 4.55\ h\).
+
+La tecnica di MRSI è applicata solamente in distretti anatomici con dimensione ridotta o su una singola fetta di interesse, in modo da evitare al paziente una permanenza nel gantry di quasi tre ore.
+
+La ricostruzione delle armoniche non può essere eseguita anche adoperando una FFT poiché i picchi spettrali tendono a sovrapporsi. Con questa metodica è possibile solamente risolvere i picchi di ampiezza maggiore e ben distanziati tra loro. Gli spettri dei segnali registrati tendono ad assumere la forma di una lorentziana, dunque, con durata finita nel dominio della frequenza.
+
+Per la ricostruzione dell'immagine è necessario avere un'ottima apparecchiatura, al fine di ridurre anche il rumore, e un software ottimizzato per la ricostruzione delle frequenze e la loro visualizzazione sulla ROI con pseudocolori. Si può ritenere che i due contributi siano pesati allo stesso modo, ovvero al \(50\%\).
+
+\subsubsection{Utilizzato dalla MSRI in clinica}\label{utilizzato-dalla-msri-in-clinica}
+
+La tecnica MSRA è utilizzata per l'individuazione di tumori alla prostata, al seno e altre regioni anatomiche in cui è possibile selezionare una ROI di piccola ampiezza, al fine di ridurre i tempi di acquisizione.
+
+Anche i tumori cerebrali possono essere individuati con questa tecnica poiché queste neoplasie alterano la normale concentrazione dei metaboliti del cervello quali N-Acetil-Aspartato (NAA), Creatina (Cr) e Colina (Cho). Lo squilibrio tra questi metaboliti è indice di tumore e sono ben documentati in letteratura scientifica.
+
+\subsubsection{Cenni sulle nuove frontiere della medicina}\label{cenni-sulle-nuove-frontiere-della-medicina}
+
+Le tecniche di imaging funzionale con risonanza magnetica, quali DCE-MRI e MRSI, sebbene siano piuttosto recenti (rese disponibili in forma matura in clinica solamente negli ultimi \(25\) anni) forniscono una prospettiva per l'impiego del precision medicine. Questa nuova visione della medicina è ritagliata sul paziente e sfrutta metodiche che possono valutare, con elevata precisione, una patologia del paziente. La metodica permette poi di scegliere una terapia ottima e specifica per quel dato paziente.
+
+Inoltre, con la precision medicine è possibile analizzare il progredire della malattia oppure il corretto funzionamento della terapia somministrata.
+
+La medicina di precisione richiede un numero elevato di strumentazione, \textbf{tecnologie sofisticate e un'integrazione di dati} provenienti da diverse fonti quali imaging (sia morfologici che funzionali), genetica, dati clinici, ecc. Il focus non è sulla quantità, ma sulla complessità e l'interconnessione dei dati come:
+
+\begin{itemize}
+\item
+  \textbf{Dati genetici e genomici:} Per identificare le mutazioni molecolari che guidano una malattia specifica in quel paziente.
+\item
+  \textbf{Dati clinici:} Le informazioni storiche del paziente, le risposte a terapie passate e i fattori di rischio.
+\end{itemize}
+
+\subsection{Applicazione della EPI in risonanza magnetica funzionale}\label{applicazione-della-epi-in-risonanza-magnetica-funzionale}
+
+La sequenza EPI è molto sfruttata nella risonanza magnetica funzionale o fMRI (functional Magnetic Resonance Imaging). Le immagini fMRI sono indicative della funzionalità di un organo, spesso il cervello. Nella pratica, l'acronimo fMRI è legato strattamente alle applicazioni sullo studio cerebrale, poiché la metodica permette di evidenziale con mappe di pseudo-colori le zone cerebrali attivate da uno stimolo.
+
+Con la sequenza echo-planar è possibile acquisire intere porzioni del volume cerebrale con una risoluzione temporale dell'ordine di \(2 \div 3\ s\). L'evoluzione temporale dell'attività cerebrale è dell'ordine di qualche secondo, quindi, la sequenza EPI consente di valutare l'evoluzione temporale dell'encefalo con buona risoluzione temporale.
+
+La fMRI è una metodica di analisi complementare all'elettroencefalogramma (EEG) in cui si studiano i potenziali elettrici prelevati sullo scalpo del paziente. Essendo segnali elettrici, l'EEG può essere valutato con risoluzione spaziale anche molto spinta, in base alle caratteristiche possedute dalla circuiteria di acquisizione ed elaborazione. Le tempistiche elettriche sono dell'ordine dei \(ms\), molto più veloci, quindi, di quelle meccaniche legate al flusso di sangue sfruttato dalla fMRI. In linea teoria, l'EEG può essere acquisito anche mentre si esegue la fMRI, prestando attenzione a utilizzare elettrodi amagnetici.
+
+La metodologia fMRI sfrutta il consumo di ossigeno da parte dei neuroni attivati durante la somministrazione di uno specifico stimolo. Quando un neurone è stimolato, infatti, assorbe una quantità di ossigeno dal sangue in concentrazione maggiore. In altre parole, il consumo di ossigeno da parte del neurone dipende dall'attività cerebrale.
+
+L'ossigeno nel sangue è trasportato dall'emoglobina che si presenta in due forme:
+
+\begin{itemize}
+\item
+  L'ossiemoglobina, se legata all'ossigeno;
+\item
+  Desossiemoglobina, se non legata all'ossigeno.
+\end{itemize}
+
+Studi sperimentali hanno dimostrato che la desossiemoglobina, avendo un atomo di ferro non legato all'ossigeno, presenta una coppia di elettroni spaiati (\({Fe}^{2 +}\ \)) e, di conseguenza, offre un comportamento paramagnetico. Le sostanze paramagnetiche sono debolmente attratte da un campo magnetico esterno e hanno una suscettività magnetica positiva e notevolmente più elevata rispetto alle sostanze diamagnetiche.
+
+Quando l'emoglobina è legata all'ossigeno, non vi sono coppie di elettroni spaiati, che possono interferire col campo esterno applicato. L'ossiemoglobina presenta un comportamento diamagnetico, legato alla rotazione degli elettroni intorno al nucleo.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.14394in,height=3.14342in,alt={Immagine che contiene cartone animato, clipart, disegno, Elementi grafici Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/14_FuncImm/image350.pdf}\caption{Figura .: Ossiemoglobina legata all\textquotesingle ossigeno e desossiemoglobina}
+\end{figure}
+
+La presenza di elementi paramagnetici nel sangue introduce delle disomogeneità di campo rilevate dalla tecnica di imaging con risonanza magnetica. Di conseguenza, se in un certo voxel vi è una concentrazione rilevante di ossiemoglobina non si hanno alterazioni del campo magnetico; in altre parole, in presenza di sangue ossigenato non si hanno delle alterazioni legate alla componente paramagnetiche del sangue apprezzabili. Quando, invece, il cervello estrae ossigeno dal sangue provoca un aumento della desossiemoglobina. Il voxel contenete questa sostanza vede una disomogeneità di campo magnetico legata al comportamento paramagnetico di questa molecola. Al fine di evidenziare il comportamento paramagnetico, le sequenze devono essere tali da ottenere immagini con pesatura in \(T_{2}^{*}\) al fine di evidenziare proprio le disomogeneità di campo introdotte dall'attivazione cerebrale.
+
+Il vettore di magnetizzazione è legato al campo magnetico \(\overset{\underline{}}{H}\) tramite la suscettività magnetica \(\chi\):
+
+\[\overset{\underline{}}{M} = \chi\overset{\underline{}}{H}\]
+
+Anche il vettore induzione magnetica \(\overset{\underline{}}{B}\) è legato alla magnetizzazione tramite la suscettibilità \(\chi\) e la permeabilità magnetica del vuoto dalla relazione:
+
+\[\overset{\underline{}}{B} = \frac{1 + \chi}{\chi}\mu_{0}\overset{\underline{}}{M}\]
+
+Al variare della suscettività magnetica \(\chi\) cambia la magnetizzazione \(\overset{\underline{}}{M}\), dovuta al campo magnetico \(\overset{\underline{}}{B}\) applicato. Di conseguenza, gli spin vedono un campo magnetico diverso che porta il segnale di quel voxel ad avere caratteristiche differenti dai tessuti circostanti, in cui la quantità di desossiemoglobina è trascurabile. La presenza di questo tipo di emoglobina determina un cambio locale della suscettibilità \(\chi\) che porta a una variazione del vettore di magnetizzazione nel voxel.
+
+È possibile ritenere che la suscettibilità del sangue sia data da una somma pesata delle concentrazioni di emoglobina ossigenata e deossigenata:
+
+\[\chi_{blood} = HCT\left( \chi_{OXY}Y + (1 - Y)\chi_{DEOXY} \right)\]
+
+Dove \(HCT\) è l'ematocrito, ovvero la componente corpuscolare del sangue, di cui il \(99\%\) è composto da globuli rossi, rispetto alla componente liquida o siero, contenente ioni e altre molecole disciolte. Il termine \(Y\) è la percentuale di emoglobina ossigenata mente \((1 - Y)\) è la percentuale di desossiemoglobina nell'ipotesi che nel sangue vi siano solo queste due forme di emoglobina. La presenza di carbossiemoglobina, prodotta quando l'emoglobina è legata al monossido di carbonio \(CO\), e la metaemoglobina, contenente un atomo di ferro del gruppo eme ossidato, è trascurata.
+
+Al fine di ottenere la suscettività magnetica del sangue, alla componente legata alla porzione corpuscolare è necessario aggiungere anche il comportamento magnetico del plasma \((1 - HCT)\chi_{plasma}\), ottenendo:
+
+\[\chi_{blood} = HCT\left( \chi_{OXY}Y + (1 - Y)\chi_{DEOXY} \right) + (1 - HCT)\chi_{plasma}\]
+
+Dove \(1 - HCT\) è la percentuale di volume di sangue legata al plasma.
+
+Quando il cervello entra in attività consuma ossigeno, facendo aumentare la percentuale di desossiemoglobina e, di conseguenza, variando la suscettività magnetica del sangue. Le variazioni della suscettibilità possono essere semplicemente calcolate come:
+
+\[\Delta\chi_{blood} = HCT\left( \chi_{OXY}Y_{1} + \left( 1 - Y_{1} \right)\chi_{DEOXY} \right) + (1 - HCT)\chi_{plasma} - HCT\left( \chi_{OXY}Y_{2} + \left( 1 - Y_{2} \right)\chi_{DEOXY} \right) - (1 - HCT)\chi_{plasma}\]
+
+La componente legata al plasma si semplifica, ottenendo:
+
+\[\Delta\chi_{blood} = HCT\left( \chi_{OXY}Y_{1} + \left( 1 - Y_{1} \right)\chi_{DEOXY} \right) - HCT\left( \chi_{OXY}Y_{2} + \left( 1 - Y_{2} \right)\chi_{DEOXY} \right)\]
+
+Si pone \(HCT\) in evidenza:
+
+\[\Delta\chi_{blood} = HCT\left( \chi_{OXY}Y_{1} + \left( 1 - Y_{1} \right)\chi_{DEOXY} - \chi_{OXY}Y_{2} - \left( 1 - Y_{2} \right)\chi_{DEOXY} \right)\]
+
+Svolendo i prodotti si ottiene:
+
+\[\Delta\chi_{blood} = HCT\left( \chi_{OXY}Y_{1} + \chi_{DEOXY} - Y_{1}\chi_{DEOXY} - \chi_{OXY}Y_{2} - \chi_{DEOXY} + Y_{2}\chi_{DEOXY} \right)\]
+
+Si semplificano i termini di segno opposto (\(\chi_{DEOXY}\)) e si raccoglie in evidenza, si ha:
+
+\[\Delta\chi_{blood} = \ HCT\left( \chi_{OXY}Y_{1} - Y_{1}\chi_{DEOXY} - \chi_{OXY}Y_{2} + Y_{2}\chi_{DEOXY} \right) = HCT\left( \chi_{OXY}\left( Y_{1} - Y_{2} \right) + \chi_{DEOXY}\left( Y_{2} - Y_{1} \right) \right) = HCT\left( Y_{2} - Y_{1} \right)\left( - \chi_{OXY} + \chi_{DEOXY} \right)\]
+
+Ponendo \(\Delta Y = \left( Y_{2} - Y_{1} \right)\) si ottiene:
+
+\[\Delta\chi_{blood} = - HCT\Delta Y\left( - \chi_{OXY} + \chi_{DEOXY} \right)\]
+
+Si mette in evidenza il segno negativo in parentesi, ottenendo:
+
+\[\Delta\chi_{blood} = - HCT\Delta Y\left( \chi_{OXY} - \chi_{DEOXY} \right)\]
+
+La variazione di suscettività \(\Delta\chi_{blood}\) è sufficiente per poter essere misurata dalla risonanza magnetica, nel senso che origina una variazione di segnale del voxel, per la variazione del vettore di magnetizzazione, apprezzabili per gli strumenti di risonanza magnetica. Si può dimostrare che il segnale del sangue deossigenato ha una suscettività magnetica maggiore di circa il \(20\%\) rispetto al sangue completamente ossigenato. Ne discende che il segnale prelevato ha ampiezza minore, poiché, aumentando le disomogeneità di campo, il defasamento degli isocromati è più veloce.
+
+Gli effetti che determinano le variazioni di segnale in funzione dell'attività cerebrale sono denominati come Blood Oxygenation Level Dependent (BOLD). Vari studi hanno determinato che il contrasto BOLD a seguito dell'attività cerebrale non è dovuto al fatto che la ossiemoglobina aumenta il segnale del voxel ricevuto ma dallo spostamento della desossiemoglobina a opera della ossiemoglobina, la quale aumenta il segnale di risonanza magnetica prelevato.
+
+Nella metodica BOLD, il meccanismo di contrasto di un certo voxel dipende, in ogni caso, dal livello di ossigeno nel sangue.
+
+Il fenomeno del BOLD dipende essenzialmente da due eventi concomitanti:
+
+\begin{itemize}
+\item
+  Uno legato alla variazione di suscettività del sangue, \(\Delta\chi_{blood}\), che varia in base al consumo di ossigeno dei neuroni;
+\item
+  Il flusso sanguigno che trasporta il sangue deossigenato, sostituendolo con quello ossigenato.
+\end{itemize}
+
+Si considera un vaso sanguigno in prossimità di un neurone cerebrale. A causa di una stimolazione psicofisica o cognitiva, come un potenziale evocato o ERP, dei neuroni si attivano e, per generare il potenziale d'azione, hanno bisogno di ossigeno, prelevato dal liquido interstiziale. Si attiva, così, una risposta vascolare che porta all'afflusso di sangue ossigenato, il quale, dopo aver ceduto ossigeno al liquido interstiziale, defluisce come sangue deossigenato. La variazione della suscettività del sangue \(\Delta\chi_{blood}\) varia in modo abbastanza complesso, poiché, per l'attivazione della risposta allo stimolo di alcuni neuroni, vi è una riduzione dell'ossigeno nel tessuto cerebrale, aumentando la suscettibilità del sangue, L'afflusso di ossigeno e il deflusso di sangue deossigenato determina, poi, un aumento e una riduzione della suscettibilità del sangue.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.55669in,height=3.03764in]{media/14_FuncImm/image351.pdf}\caption{Figura .: Neurone che preleva ossigeno per generare il potenziale d\textquotesingle azione}
+\end{figure}
+
+Quando un'area del cervello si attiva a causa di uno stimolo, l'aumento dell\textquotesingle attività neuronale crea una richiesta di ossigeno e glucosio. Dato che l'ossigeno interstiziale viene inizialmente consumato, si attiva una risposta vascolare che produce un afflusso massiccio di sangue ricco di ossigeno. Questa sequenza di eventi non è istantanea e ha un andamento ben definito nel tempo, noto come \textbf{Risposta Emodinamica} o \textbf{HRF (Hemodynamic Response Function)}. La curva è caratterizzata da:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Latenza e Calo Iniziale (Initial Dip):} Subito dopo l\textquotesingle attivazione neuronale, vi è un brevissimo calo di ossigeno locale, dovuto al consumo immediato da parte dei neuroni. Questo può portare a un leggero e rapido calo del segnale fMRI (il cosiddetto \emph{initial dip}), sebbene questo effetto sia molto piccolo e difficile da misurare con gli attuali scanner.
+\item
+  \textbf{Picco Positivo:} A causa della forte richiesta metabolica, il cervello attiva una \textbf{risposta vascolare} che pompa molto più sangue ossigenato del necessario. Questo eccesso di ossigeno nel sangue, che non è immediatamente consumato, porta a un aumento della concentrazione di emoglobina ossigenata (diamagnetica) rispetto a quella deossigenata (paramagnetica). Questo si traduce in una \textbf{diminuzione della suscettibilità magnetica} locale e in un forte \textbf{aumento del segnale fMRI}. Il picco del segnale si raggiunge tipicamente circa \(5 \div 6\ s\) dopo l'attivazione neuronale.
+\item
+  \textbf{Undershoot Post-Stimolo:} Dopo che lo stimolo è terminato e l'attività neuronale torna ai livelli di base, il flusso sanguigno si riduce, ma il volume del sangue impiega più tempo a tornare ai livelli pre-stimolo. Questa discrepanza temporale provoca un temporaneo aumento della concentrazione di deossiemoglobina, portando a una \textbf{riduzione del segnale fMRI} al di sotto del livello di base (l\textquotesingle{}\emph{undershoot}).
+\item
+  \textbf{Ritorno alla Linea di Base:} Infine, sia il flusso che il volume sanguigno tornano gradualmente ai loro valori basali, e il segnale fMRI torna al livello di riferimento. L'intero ciclo può durare da \(15\) a \(20\) secondi, a seconda dell'individuo e della regione cerebrale.
+\end{enumerate}
+
+La risposta vascolare è, in altre parole, la reazione del flusso sanguigno a uno stimolo psicosomatico.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68958in,height=3.80278in,alt={Immagine che contiene testo, linea, diagramma, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/14_FuncImm/image352.pdf}\caption{Figura .: Risposta emodinamica a una stimolazione neuronale}
+\end{figure}
+
+Per ottenere la curva della risposta vascolare è necessario utilizzare delle metodiche estremamente invasive, che richiedono l'utilizzo di elettrodi posizionati all'intero dei vasi sanguigni cerebrali. Sull'uomo queste metodiche non sono mai state applicate per problemi etici. Le curve sono state misurate empiricamente solo su animali da laboratorio come scimmie.
+
+Dato che l'evoluzione della risposta è dell'ordine del secondo, è necessario acquisire l'intero volume cerebrale in un tempo dell'ordine del secondo. Ciò è possibile mediante l'utilizzo delle sequenze rapide, solitamente la EPI.
+
+Per acquisire l'intero volume cerebrale si utilizzano delle fette perpendicolari all'encefalo, così da sezionarlo nel migliore dei modi. La maggior parte degli studi fMRI utilizza \textbf{fette assiali oblique}, orientate \textbf{parallelamente al piano AC-PC} (che collega il \textbf{commissura anteriore} e la \textbf{commissura posteriore}), per ottimizzare la copertura del cervello e ridurre artefatti. In questo caso, l\textquotesingle asse di slice selection è \textbf{perpendicolare a questo piano obliquo}, quindi leggermente inclinato rispetto all\textquotesingle asse verticale.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.77639in,height=3.14429in,alt={Immagine che contiene testo, mappa, diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/14_FuncImm/image353.pdf}\caption{Figura .: Sezione dell\textquotesingle encefalo}
+\end{figure}
+
+Inoltre, con l'utilizzo delle sequenze veloci EPI è possibile ottenere delle immagini pesate in \(T_{2}^{*}\), necessarie per rilevare le variazioni locali del campo magnetico dovute alle differenze di suscettività \(\Delta\chi_{blood}\). Ne discende che per la tecnica fMRI l'introduzione delle disomogeneità di campo principale è fondamentale per l'imaging. Infatti, in base al defasamento degli isocromati, è possibile risalire alle zone cerebrali con maggiore concentrazione di desossiemoglobina.
+
+A causa dell'acquisizione molto rapida acquisizione delle immagini con sequenza EPI, il segnale prelevato potrebbe risultare molto rumoroso. Dunque, le tecniche fMRI richiedono una circuiteria più sofisticata e algoritmi di ricostruzione più robusti al rumore.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.56061in,height=3.33648in,alt={Immagine che contiene testo, linea, Diagramma, diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/14_FuncImm/image354.pdf}\caption{Figura .: Segnale BOLD rumoroso}
+\end{figure}
+
+Si suppone di applicare uno stimolo visivo a un paziente sottoposto all'imaging funzionale con risonanza magnetica. Dopodiché non viene somministrato nessuno stimolo. In seguito, si applica uno stimolo uguale o diverso da quello precedente.
+
+Durante l'applicazione dello stimolo on-off, quando è applicato lo stimolo psicosomatico, si verifica una risposta emodinamica nelle zone neurali coinvolte nell'elaborazione dello stimolo, come quello occipitale per la vista. Se il paziente reagisce allo stesso modo per ogni stimolo, le forma d'onda della risposta emodinamica è la stessa.
+
+Questa ipotesi di linearità dell'encefalo non è sempre ben verificata a causa del fenomeno di assuefazione, in cui il cervello si adatta agli stimoli ripetuti. Per evitare questo fenomeno si applicano diversi stimoli consecutivi nel tempo, come la visioni di immagini diverse oppure uno stimolo visivo e uno uditivo in ordine casuale e altro ancora.
+
+La presenza della risposta emodinamica si traduce in una variazione della suscettività magnetica. Ciò determina una variazione del segnale proveniente dal voxel, rappresentato con una luminosità diversa. Fissato un certo voxel, quindi, la sua luminosità varia nel tempo con un andamento uguale alla risposta emodinamica cerebrale.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=2.62708in,alt={Immagine che contiene testo, Diagramma, diagramma, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/14_FuncImm/image355.pdf}\caption{Figura .: Segnale emodinamico legato a diversi stimoli ripetuti}
+\end{figure}
+
+Nell'imaging EPI il segnale è molto, quindi, la risposta all'attività cerebrale non è chiaramente visibile; tuttavia, questa misura rumorosa è l'unica possibile sull'uomo. Si rende necessaria l'estrazione del segnale utile dal rumore.
+
+Nella visualizzazione delle immagini finali solitamente si rappresenta il distretto anatomico di interesse, generalmente l'encefalo, con gradazioni di grigio, a cui si sovrappone l'immagine funzionale, indicante il grado di attivazione cerebrale, in pseudocolori, generalmente blu e giallo.
+
+I dati ottenuti per la ricostruzione delle immagini permettono di ricostruire l'evoluzione temporale dell'attività cerebrale, dunque, oltre alle tre dimensioni spaziali vi è una quarta dimensione ovvero il tempo. Per tale motivo i dati sono detti quadridimensionali.
+
+L'analisi del segnale è complicata dall'esistenza di voxel di zone encefaliche diverse che non rispondono selettivamente a un singolo stimolo psicosomatico ma si attivano con stimoli diversi tra loro. Questi voxel avranno un'attività permanente visualizzata sull'immagine funzionale con uno pseudocolore. I voxel che invece rispondono a un singolo stimolo, se si è lontani dalla condizione di assuefazione, rispondono allo stesso modo allo stesso stimolo. Ciò è particolarmente verificata quando gli stimoli sono forniti in ordine casuale al paziente. Tramite le varie risposte si ricostruisce una mappa dello stimolo.
+
+\subsubsection{Tecniche di elaborazione della risposta emodinamica}\label{tecniche-di-elaborazione-della-risposta-emodinamica}
+
+Per elaborare i segnali prodotti dalle variazioni di suscettibilità magnetica per l'attività cerebrale si ricorre ad algoritmi di ordinary least square o OLS. Date \(n\) misurazioni si cerca la retta che minimizza lo scarto quadratico medio tra i valori misurati e la retta teorica. I dati misurati possono essere espressi in forma matriciale come:
+
+\[\overset{\underline{}}{y} = \overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta}\]
+
+Dove \(\overset{\underline{}}{\overset{\underline{}}{X}}\) è la matrice degli stimoli:
+
+\[\overset{\underline{}}{\overset{\underline{}}{X}} = \begin{pmatrix}
+x_{1} & 1 \\
+x_{2} & 1 \\
+ \vdots & \vdots \\
+x_{n} & 1
+\end{pmatrix}\]
+
+Data la matrice \(\overset{\underline{}}{\overset{\underline{}}{X}}\) e misurato il valore delle uscite \(\overset{\underline{}}{y}\), è possibile ricavare i parametri della regressione lineare mediante il metodo della pseudoinversa:
+
+\[\overset{\underline{}}{\vartheta} = \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}\overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{y}\]
+
+Questo metodo può essere applicato solamente se il cervello reagisce allo stesso modo quando sollecitato dallo stesso stimolo. Implicitamente, dunque, si assume un comportamento lineare del cervello. In quest'ottica la risposta emodinamica altro non è che la risposta impulsiva del cervello, visto come un sistema lineare.
+
+In queste ipotesi, somministrando \(n\) volte lo stesso stimolo si ottengono \(n\) risposte uguali; tuttavia, a causa del rumore sovrapposto, i segnali registrati differiscono significativamente (Figura 13.22). Per estrarre il segnale di risposta emodinamica dal rumore si esegue il fit dei dati, ovvero si calcola l'ampiezza \(B_{1}\) della risposta che meglio approssima il segnale misurato, nel senso che minimizza lo scarto quadratico medio tra la curva teorica e i dati misurati.
+
+Ovviamente, applicando stimoli diversi si ottengono tante risposte per quanti sono gli stimoli, ognuna con propria ampiezza caratteristica. Ad esempio, si suppone di applicare due stimoli psicosomatici al paziente. Si ottengono due risposte emodinamiche di ampiezza, rispettivamente, \(B_{1}\) e \(B_{2}\).
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68958in,height=3.97708in]{media/14_FuncImm/image356.pdf}\caption{Figura .: Risposte emodinamiche relative a due stimoli diversi}
+\end{figure}
+
+Si ripete \(n\) l'applicazione di entrambi gli stimoli. Le due risposte, sommate \(n\) volte, permettono di ottenere \(n\) misurazioni dalle quali è possibile estrarre le ampiezze \(B_{1}\) e \(B_{2}\) separatamente.
+
+La risposta emodinamica del paziente ai due stimoli, ripetuti \(n\) volte. può essere espressa come:
+
+\[\overset{\underline{}}{y} = \begin{pmatrix}
+{\overset{\underline{}}{B}}_{1} & {\overset{\underline{}}{B}}_{2} & \overset{\underline{}}{1}
+\end{pmatrix}\left( \begin{array}{r}
+b_{1} \\
+b_{2} \\
+q
+\end{array} \right)\]
+
+\(\overset{\underline{}}{y}\) è data dalla risposta che avrebbe dato la prima stimolazione se fosse applicata da sola \({\overset{\underline{}}{B}}_{1}\), sommata con la risposta che avrebbe generato il secondo stimolo se fosse applicato da solo \({\overset{\underline{}}{B}}_{2}\). La colonna unitaria, \(\overset{\underline{}}{1}\), tiene conto di un eventuale offset presente della risposta. In questo caso, ogni colonna \({\overset{\underline{}}{B}}_{1}\) e \({\overset{\underline{}}{B}}_{2}\) è una risposta psicosomatica.
+
+In questo caso il vettore dei parametri incogniti della risposta emodinamica è:
+
+\[\overset{\underline{}}{\vartheta} = \left( \begin{array}{r}
+b_{1} \\
+b_{2} \\
+q
+\end{array} \right)\]
+
+La mappa a pseudocolori ricostruita rappresenta l'intensità dei coefficienti \(b_{1}\) e \(b_{2}\) per ogni voxel.
+
+Nota la matrice di design \(\overset{\underline{}}{\overset{\underline{}}{X}} = \begin{pmatrix}
+{\overset{\underline{}}{B}}_{1} & {\overset{\underline{}}{B}}_{2} & \overset{\underline{}}{1}
+\end{pmatrix}\), contenente le informazioni su come sono organizzate le risposte emodinamiche rappresenta la risposta emodinamica attesa. Per ogni stimolo, misurando i segnali effettivamente ottenuti \(\overset{\underline{}}{y}\), è possibile applicare il metodo OLS per determinare i parametri cercati:
+
+\[\overset{\underline{}}{\vartheta} = \left( \begin{array}{r}
+b_{1} \\
+b_{2} \\
+q
+\end{array} \right) = \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}\overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{y}\]
+
+È possibile eseguire, con questa metodica, la regressione lineare su tutto il voxel contemporaneamente, poiché nel vettore \(\overset{\underline{}}{y}\) vi è la risposta complessiva del segnale per ogni voxel al variare del tempo.
+
+Successivamente, l'algoritmo prevedere un'analisi statistica che sfrutta un \(T\)-test per controllare se il valor medio della distribuzione di valori ottenuti si discosta da un riferimento fissato. Il test non prevede la conoscenza della varianza del segnale e del rumore.
+
+\subsubsection{Applicazioni della fMRI}\label{applicazioni-della-fmri}
+
+La risonanza magnetica funzionale è molto utilizzata in ricerca per l'analisi cerebrali, al fine di comprendere il funzionamento dell'encefalo, in base alle aree che si arrivano sulla base dello stimolo somministrato al paziente.
+
+Con la fMRI è possibile analizzare tutte le aree cerebrali, anche quelle più profonde come il diencefalo. Questa operazione, ad esempio, non può essere eseguita con l'elettroencefalogramma o EEG, in quanto questa metodica prevede l'acquisizione dei potenziali elettrici sullo scalpo del paziente e, dunque, fornisce un'informazione integrale dell'attività cerebrale. In altre parole, l'EEG permette di ottenere delle informazioni complessive di ciò che si verifica al di sotto dello scalpo, senza fornire indicazioni su quali zone del cervello sono state attivate.
+
+Con la metodica fMRI, in vivo, è possibile analizzare quali zone dell'encefalo sono attivate in base allo stimolo somministrato. Per tale motivo, questa sezione delle neuroscienze è in rapido sviluppo ed è ben documentata in letteratura.
+
+Esistono anche applicazioni cliniche della metodica fRMI; infatti, essa è molto adoperata per la diagnosi e il follow-up di malattie neurodegenerative come l'Alzheimer e il Parkinson. La risonanza funzione permette di perfezionare la diagnosi, fornendo dati oggettivi sul grado e sull'avanzamento della patologia. In questo modo è possibile scegliere la terapia e seguire il suo avanzamento con elevata precisione.
+
+In campo neuropsichiatrico o forcese, la fMRI può essere utilizzata, ad esempio, per realizzare una macchina della verità.
+
+Ci sono state anche applicazioni poco fortunate in termini di successo per il Brain-Computer-Interface (BCI), una metodica che si basa sulla misura dell'attività cerebrale per controllare un dispositivo elettronico. Con risonanza magnetica funzionale è possibile ottenere un'informazione molto più precisa poiché fornisce informazioni sia nello spazio sia nel tempo. Tuttavia, a causa degli elevati costi della strumentazione e il tempo necessario per acquisire i dati, al giorno d'oggi questa metodica è poco accessibile.
+
+La qualità del segnale può essere aumentata utilizzando campi magnetici più intensi. La magnetizzazione all'equilibrio dipende dal quadrato del campo principale applicato, \(B_{0}^{2}\); dunque, aumentando \(B_{0}\) anche la magnetizzazione all'equilibrio \(M_{0}\) aumenta. Di conseguenza il segnale prelevato ha ampiezza maggiore a parità di rumore sovrapposto.
+
+I campi principali più diffusi sono a \(1.5\ T\) anche se negli ultimi \(5 \div 6\) anni sono entrati in vigore anche scanner con campi principali da \(3\ T\). Per scopi di ricerca è possibile utilizzare anche campi da \(7 \div 9\ T\), mentre per animali si può arrivare anche a \(11\ T\).
+
+L'aumento del campo principale accresce il costo delle apparecchiature e della loro gestione; inoltre, cambiano le sequenze di acquisizione poiché i tempi di rilassamento dipendono dal campo applicato. Per questi motivi commercialmente è ancora molto diffusa la strumentazione a \(1.5\ T\) su cui viene eseguita la fMRI in ambito clinico. Con questi scanner si ottengono immagini abbastanza rumorose che potrebbero portare a false letture o risultati poco attendibili senza una buona elaborazione del segnale.
+
+\subsection{Diffusion weighted imaging}\label{diffusion-weighted-imaging}
+
+La Risonanza Magnetica di Diffusione (\textbf{DWI}), nota anche come \textbf{Diffusion Weighted Imaging}, è considerata una tecnica di \textbf{imaging funzionale} o, più precisamente, una tecnica che fornisce informazioni \textbf{funzionali e microstrutturali} sul tessuto.
+
+La metodica sfrutta la diffusione mediante moto browniano dei protoni di idrogeno nel corpo umano.
+
+Data una particella immersa in un ambiente circostante, essa non è ferma ma si muove con un andamento casuale nel tempo per il semplice moto legato all'agitazione termica. Le particelle, in instanti di tempo diversi, occupano posizione diverse all'interno dell'ambiente in cui sono immerse.
+
+La diffusione è governata dal coefficiente di Einstein \(\mathcal{D}\) che quantifica lo spostamento della particella nel tempo. Questa grandezza è data da:
+
+\[\mathcal{D =}\frac{k_{B}T}{6\pi\eta r}\]
+
+Dove \(k_{B}\) è la costante di Boltzmann, \(T\) la temperatura assoluta della particella, \(\eta\) la viscosità del fluido nel quale la particella si muove e \(r\) il raggio della particella supposta sferica.
+
+Il coefficiente di diffusione dell'acqua a temperatura ambiente è:
+
+\[\mathcal{D =}\frac{k_{B}T}{6\pi\eta r} = \frac{1.38 \cdot 10^{- 23}\ \frac{J}{K}295\ K\ }{6\pi \cdot 1.0\frac{m^{2}}{s}0.1 \cdot 10^{- 9}m} = \frac{1.38 \cdot 10^{- 23}\ \frac{kg}{K}m/295\ K\ }{6\pi \cdot 1.0\frac{m^{2}}{s}0.1 \cdot 10^{- 9}m} = 2.2 \cdot 10^{- 12}\frac{m^{2}}{s} = 2.2\frac{pm^{2}}{s}\]
+
+Dove \(k_{B} = 1.38 \cdot 10^{- 23}J/K\), \(T = 295\ K\), \(\eta = 1\ m^{2}/s\) e \(r = 0.1\ nm\).
+
+In pochi istanti di tempo la molecola d'acqua percorre uno spazio di alcuni micron. La densità protonica, localmente, varia col tempo, di conseguenza, la magnetizzazione macroscopica nel tempo deve variare anch'essa per il fenomeno della diffusione protonica.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.53125in,height=3.53125in,alt={Immagine che contiene schizzo, disegno, clipart, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/14_FuncImm/image357.pdf}\caption{Figura .: Random walk di uno spin}
+\end{figure}
+
+Nel 1956 Torrey propose l'aggiunta di due termini all'equazione di Bloch per tener conto del flusso e della diffusione dei protoni:
+
+\[\frac{d\overset{\underline{}}{M}}{dt} = \gamma\overset{\underline{}}{M} \times {\overset{\underline{}}{B}}_{0} + \frac{M_{0} - M_{z}}{T_{1}}{\widehat{i}}_{z} - \frac{1}{T_{2}}{\overset{\underline{}}{M}}_{\bot} - \left( \overset{\underline{}}{\nabla} \cdot \overset{\underline{}}{v} \right)\overset{\underline{}}{M} + \overset{\underline{}}{\nabla} \cdot \left( \overset{\underline{}}{\overset{\underline{}}{\mathcal{D}}}\overset{\underline{}}{\nabla}\overset{\underline{}}{M} \right)\]
+
+Dove \(\overset{\underline{}}{M}\) è il vettore di magnetizzazione del voxel con valore all'equilibrio \(M_{0}\), \({\overset{\underline{}}{B}}_{0}\) è il campo magnetico statico applicato, \(T_{1}\) e \(T_{2}\) sono i tempi di rilassamento del tessuto, \(\overset{\underline{}}{v}\) è il flusso e \(\overset{\underline{}}{\overset{\underline{}}{\mathcal{D}}}\) il tensore di diffusione con rango \(2\).
+
+Il termine \(\left( \overset{\underline{}}{\nabla} \cdot \overset{\underline{}}{v} \right)\overset{\underline{}}{M}\) descrive il trasporto della magnetizzazione dovuto al flusso del fluido ed è noto come \textbf{advezione.} Questo termine è incluso solo se il fluido è comprimibile per garantire la conservazione della magnetizzazione. Per i fluidi biologici (come l'acqua nei tessuti) spesso si assume l'ipotesi di incomprimibilità è, dunque, può essere trascurato.
+
+Infine, \(\overset{\underline{}}{\nabla} \cdot \left( \overset{\underline{}}{\overset{\underline{}}{\mathcal{D}}}\overset{\underline{}}{\nabla}\overset{\underline{}}{M} \right)\) è il termine di diffusione di Fick, che modella il flusso di magnetizzazione da aree ad alta a bassa concentrazione.
+
+Si dimostra che, in caso di applicazione di un gradiente continuo, la componente trasversa della magnetizzazione evolve come:
+
+\[M_{xy}(t) = M_{0}\exp\left( - \frac{t}{T_{2}} \right)\exp\left( - \gamma G^{2}\mathcal{D}\frac{t^{3}}{3} \right)\]
+
+Dove \(G\) è l'ampiezza del gradiente applicato e \(\mathcal{D}\) la diffusività lungo la direzione trasversale. La derivazione della relazione appena citata coinvolge anche la distribuzione statistica delle frequenze dei vari isocromati.
+
+Dalla relazione si osserva che l'attenuazione della magnetizzazione trasversale non dipende solamente dal tempo di rilassamento \(T_{2}\) ma anche dal coefficiente di diffusione del protone e dal gradiente applicato.
+
+Nella pratica è possibile applicare delle sequenze che risaltano la diffusione degli isocromati. Prima di entrare nel dettaglio della sequenza, è comodo scrivere la magnetizzazione trasversale come:
+
+\[M_{xy}(t) = M_{0}\exp\left( - \frac{t}{T_{2}} \right)\exp\left( - b\mathcal{D} \right)\]
+
+Dove \(b\) è un coefficiente molto importante nel contesto di imaging di diffusione o Diffusion Weighting Imaging (DWI) ed è dato da:
+
+\[b = \gamma G^{2}\frac{t^{3}}{3}\]
+
+Mediante delle sequenze è possibile evidenziare come le molecole d'acqua si muovono nel tempo. A tale fenomeno corrisponde uno sfasamento degli isocromati che attenua il segnale come nella preazione per \(M_{xy}(t)\).
+
+Il coefficiente \(b\), contenendo nella sua definizione il gradiente applicato, dipende dalla sequenza applicata per avere immagini pesate in diffusione. Indipendentemente dalla sequenza applicata la relazione:
+
+\[M_{xy}(t) = M_{0}\exp\left( - \frac{t}{T_{2}} \right)\exp\left( - b\mathcal{D} \right)\]
+
+Resta valida a patto di ridefinire il coefficiente \(b\).
+
+La sequenza utilizzata è nota come Stejskal-Tanner o \emph{Pulsed Gradient Spin Echo} (PGSE) ed è composta da una spin-echo con gradiente pulsato detto di diffusione.
+
+La sequenza prevede di applicare due gradienti, separati da un intervallo temporale \(\Delta\), di ampiezza \(G\) e durata \(\delta\) ai due lati di un impulso a radiofrequenza di \(\pi\). A precedere il primo gradiente vi è un impulso a \(\pi/2\).
+
+La sequenza è sostanzialmente ottenuta dall'unione di una sequenza spin-echo con una gradient-echo. I due gradienti permettono di recuperare la disomogeneità di campo principale grazie all'impulso a \(\pi\), nel senso che al tempo d'echo, \(T_{E}\), tutti gli isocromati sono focalizzati lungo un asse del sistema rotante.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=3.83611in,alt={Immagine che contiene schermata, linea, diagramma, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/14_FuncImm/image358.pdf}\caption{Figura .: Sequenza Stejskal-Tanner}
+\end{figure}
+
+Quando gli isocromati sono in movimento a seguito del primo impulso a radiofrequenza, lo sfasamento può essere modellato come la sovrapposizione dello sfasamento legato al primo gradiente:
+
+\[\phi_{1} = \gamma\int_{0}^{\delta}{Gxdt} = \gamma G\delta x\]
+
+Dove \(x\) è la posizione spaziale occupata dallo spin.
+
+Il secondo contributo è lo sfasamento legato al secondo gradiente, applicato quando uno spin si è spostato dalla posizione \(x\) a \(x'\):
+
+\[\phi_{2} = \int_{0}^{\delta}{Gx'dt} = \gamma G\delta x'\]
+
+Tra l'applicazione del primo gradiente, quando lo spin è in posizione \(x\) e il secondo gradiente, quando lo spin è in posizione \(x'\), gli isocromati acquisiscono una differenza di fase:
+
+\[\phi = \phi_{2} - \phi_{1} = \ \gamma G\delta x - \gamma G\delta x' = \gamma G\delta\left( x - x' \right)\]
+
+Dopo l'applicazione dell'impulso a \(\pi\) la somma complessiva delle fasi è non nulla poiché \(x \neq x'\). Se lo spin resta nella stessa posizione, \(x = x'\), lo sfasamento è nullo e ciò porta a una fase nulla, condizione che si veridica al tempo d'echo.
+
+Lo sfasamento introdotto dalla diffusione è legato al termine \(\exp\left( - b\mathcal{D} \right)\) dell'espressione della magnetizzazione trasversa.
+
+Per la sequenza Stejskal-Tanner si dimostra che il termine \(b\) è dato da:
+
+\[b = \gamma^{2}G^{2}\delta^{2}\left( \Delta - \frac{1}{3}\delta \right)\]
+
+Con questa specifica sequenza, \(b\) è legato alla durata \(\delta\) dei due gradienti e all'intervallo di applicazione tra i due \(\Delta\). Lo sfasamento è quindi noto controllando l'ampiezza e la durate dei due gradienti. In conclusione, manipolando i gradienti di diffusione è possibile modificare il parametro \(b\) al dine di enfatizzare la presenza di sfasamento legato alla diffusione. Ovviamente, quando \(b\) aumenta, la magnetizzazione trasversale si riduce.
+
+Tipicamente si acquisiscono più immagini con diversi valori di \(b\). A meno de rumore, i dati si distribuiscono su una curva esponenziale decrescente. Ripetendo la misura è possibile stimare il coefficiente \(b\) e, dunque, la diffusività \(\mathcal{D}\) dei protoni, mediante un algoritmo OLS a valle della linearizzazione della curva teorica.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68958in,height=4.36389in]{media/14_FuncImm/image359.pdf}\caption{Figura .: Dati esponenziali dispersi a causa del rumore}
+\end{figure}
+
+Il coefficiente di diffusione è fondamentale poiché, in base a come l'acqua diffonde nel tessuto, è possibile discriminare un distretto anatomico sano da uno neoplastico. Ad esempio, l'acqua libera presente un ben determinato coefficiente di diffusione nel tessuto di interesse, mentre quando diffonde in un distretto anatomico altamente irregolare a causa della neoplasia, il coefficiente di diffusione risulta aumentato. L'aggressività del tumore è, quindi, valutata stimando il coefficiente di diffusione \(\mathcal{D}\), poiché maggiore è quest'ultimo e maggiore è l'irregolarità strutturare e, di conseguenza, più aggressivo è il tumore.
+
+\subsubsection{Trattografia}\label{trattografia}
+
+L'analisi dei coefficienti di diffusione lungo le tre dimensioni spaziali è molto importante anche nello studio del funzionamento cerebrale. È possibile eseguire una trattografiam ovvero una modellazione tridimensionale utilizzate in neuroscienze per visualizzare i tratti neurali, ovvero fasci di assoni che trasportano informazioni sensitive o motorie all\textquotesingle interno del midollo spinale e del cervello
+
+In questa tecnica la diffusione non è studiata analizzando il comportamento complessivo nello spazio, come accade per la diffusion weigth imaging classico, ma i gradienti di diffusione sono applicati lungo i tre assi dello spazio, così da ottenere il coefficiente di diffusione \(\mathcal{D}\) lungo i tre assi mediante apposite immagini di diffusione. In questo modo, per ogni voxel è noto come l'acqua diffonde lungo gli assi.
+
+Arrangiando i gradienti in modo particolare è possibile ottenere il tensore di diffusione contenente, oltre al coefficiente di diffusione lungo gli assi, anche i coefficienti di diffusione nelle direzioni non canoniche, ottenute combinando le proiezioni lungo gli assi. Questa metodica è nota come Diffusion Tensor Imaging (DTI)
+
+Il tensore di diffusione è esprimibile come matrice \(3 \times 3\) simmetrica, data da:
+
+\[\overset{\underline{}}{\overset{\underline{}}{\mathcal{D}}} = \begin{pmatrix}
+\mathcal{D}_{xx} & \mathcal{D}_{xy} & \mathcal{D}_{xz} \\
+\mathcal{D}_{xy} & \mathcal{D}_{yy} & \mathcal{D}_{yz} \\
+\mathcal{D}_{xz} & \mathcal{D}_{yz} & \mathcal{D}_{zz}
+\end{pmatrix}\]
+
+Il tensore di diffusione permette di conoscere per ogni voxel qual è la direzione preferenziale del moto dell'acqua.
+
+Nel DWI una volta ottenuti i coefficienti di diffusione lungo gli assi si opera una sorta di media così da calcolare come, all'incirca, l'acqua diffonde isotropicamente nel tessuto, quindi su una sfera. Al contrario, nel DTI si ottiene la direzione preferenziale lungo cui l'acqua diffonde.
+
+La DTI è utilizzata a livello cerebrale per l'individuazione della direzione preferenziale del moto d'acqua di una determinata regione. L'assone, infatti, presenta una struttura con direzione preferenziale.
+
+Studiando la direzione di diffusione del voxel contenente un insieme di assoni allineati tra loro è possibile evidenziare una direzione preferenziale del moto di acqua grazie al tensore di diffusione. Nella pratica si ottengono delle immagini, dette trattografie cerebrali che forniscono informazioni globali su come sono orientati gli assoni. Note le direzioni preferenziali è possibile tracciare delle linee, in pseudocolori, che collegano le varie parti dell'encefalo.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.17431in,height=2.81042in,alt={Fig 1}]{media/14_FuncImm/image360.pdf}\caption{Figura .: Trattografia cerebrale}
+\end{figure}
+
+Le linee, dal punto di vista analitico, presentano punto per punto come tangente il tensore di diffusione.
+
+In vivo non esiste nessun'altra tecnica che permetta di studiare i collegamenti dei vari assoni cerebrali.
+
+In aggiunta alla tecnica fMRI, la DTI permette anche di comprendere il motivo per cui certe zone dell'encefalo si attivano in concomitanza di certi stimoli, migliorando l'informazione fornita dalla fMRI.
+
+Con il tensore di diffusione \(\overset{\underline{}}{\overset{\underline{}}{\mathcal{D}}}\) si evita di eseguire un numero enorme di misure, una per ogni direzione dello spazio \(\overset{\underline{}}{v}\). Per ottenere come una particella diffonda lungo una direzione \(\overset{\underline{}}{v}\) con coseni direttori \(\vartheta\) e \(\varphi\):
+
+\[\overset{\underline{}}{v} = \left( \begin{array}{r}
+\begin{array}{r}
+\sin\varphi\cos\vartheta \\
+\sin\varphi\sin\vartheta
+\end{array} \\
+\cos\varphi
+\end{array} \right) = \begin{pmatrix}
+v_{x} \\
+v_{y} \\
+v_{z}
+\end{pmatrix}\]
+
+È necessario applicare il prodotto scalare tra il tensore di tensore di diffusione e la direzione:
+
+\[\overset{\underline{}}{\overset{\underline{}}{\mathcal{D}}} \cdot \overset{\underline{}}{v} = \begin{pmatrix}
+\mathcal{D}_{xx} & \mathcal{D}_{xy} & \mathcal{D}_{xz} \\
+\mathcal{D}_{xy} & \mathcal{D}_{yy} & \mathcal{D}_{yz} \\
+\mathcal{D}_{xz} & \mathcal{D}_{yz} & \mathcal{D}_{zz}
+\end{pmatrix} \cdot \begin{pmatrix}
+v_{x} \\
+v_{y} \\
+v_{z}
+\end{pmatrix} = \begin{pmatrix}
+\mathcal{D}_{xx}v_{x} + \mathcal{D}_{xy}v_{y} + \mathcal{D}_{xz}v_{z} \\
+\mathcal{D}_{xy}v_{x} + \mathcal{D}_{yy}v_{y} + \mathcal{D}_{yz}v_{z} \\
+\mathcal{D}_{xz}v_{x} + \mathcal{D}_{yz}v_{y} + \mathcal{D}_{zz}v_{z}
+\end{pmatrix}\]
+
+Ovviamente, con la metodica DTI non è possibile ricostruire tutti gli assioni ma solamente la direzione preferenziale di un gruppo di essi, contenuto nel voxel con dimensione dell'ordine di \(1\ mm\).
+
+La metodica DTI, insieme alla fMRI, è utilizzata in clinica per la diagnosi e il follow-up delle malattie neurodegenerative. È, inoltre, possibile evidenziare il corretto collegamento dei circuiti cerebrali o la presenza di patologie o interventi pregressi che hanno modificato tali collegamenti.

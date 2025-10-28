@@ -1,0 +1,578 @@
+\begin{center}
+\vfill
+    \chapter{Principi fisici della PET}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+\subsection{Struttura atomica}\label{struttura-atomica}
+
+Per comprendere il funzionamento della PET (\emph{Positrion Emission Tomography}) è necessario analizzare il funzionamento dell'atomo. Esso è formato da un nucleo, in cui sono presenti protoni e neutroni; attorno al nucleo orbitano gli elettroni. Nel complesso, il numero di protoni è pari al numero di elettroni, per cui l'atomo è detto stabile. Il numero di protoni, e, quindi, di elettroni, è detto numero atomico ed è indicato con Z.
+
+\[\# protoni = \# elettroni = Z\  \rightarrow numero\ atomico\]
+
+Il numero di protoni più quello dei neutroni è detto, invece, numero di massa atomica e è indicato con \(A\).
+
+\[\# protoni + \# neutroni = A\  \rightarrow numero\ di\ massa\ atomica\]
+
+Il numero di neutroni è spesso indicato semplicemente come \(N\):
+
+\[\# neutroni = N\]
+
+%\begin{figure}
+%\centering
+%\includegraphics[width=3.08217in,height=3.24306in,alt={P3733\#yIS1}]{media/16_PrincFis/image406.pdf}
+%\caption{Figura .: Organizzazione in shell}
+%\end{figure}
+
+I livelli energetici su cui giacciano gli elettroni sono quantizzati, denotati come \emph{Shell} (gusci), e si differenziano in base alla diversa energia: il livello energetico più basso è detto K, quello immediatamente successivo L e quello successivo ancora M e così via. Ogni livello energetico possiede dei sottolivelli energetici (\emph{Subshells}) legati alla problematica del momento angolare. Questi ulteriori livelli sono indicati con le lettere s, p, d, f. Ad esempio, il livello energetico K possiede un livello s in cui è probabile trovare al massimo due elettroni con spin opposto secondo il principio di esclusione di Pauli:
+
+\[K = s\left( 2e^{-} \right)\]
+
+Allo stesso modo, il livello L possiede il sottolivello s, che può ospitare, come prima, al massimo 2 elettroni, e il sottolivello p, che ospita al massimo 6 elettroni poiché composto da tre orbitali, per un totale di 8 elettroni:
+
+\[L = s\left( 2e^{-} \right) + p\left( 6e^{-} \right)\]
+
+Nel livello energetico M, infine, vi sono i due sottolivelli già citati, s e p, e in più vi è anche il sottolivello d, che ospita al massimo 10 elettroni, per un totale di 18 elettroni:
+
+\[M = \left( 2e^{-} \right) + p\left( 6e^{-} \right) + d\left( 10e^{-} \right)\]
+
+Spesso l'atomo è rappresentato secondo il modello planetario in cui gli elettroni ruotano interno al nucleo. La meccanica quantistica ha sostituito il concetto deterministico di orbita con quello probabilistico di orbitale. La forma e il numero degli orbitali sono ottenuti risolvendo l'equazione di Schrödinger. L'orbitale s e unico e ha la forma di una sfera, gli orbitali p sono tre, posizionati perpendicolarmente tra loro e con una forma bilobata, gli orbitali d sono 5 mentre gli f sono 7. Questi ultimi hanno una forma molto più complessa.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.72917in,height=3.26695in,alt={P3742\#yIS1}]{media/16_PrincFis/image407.pdf}\caption{Figura .: Orbitali atomici}
+\end{figure}
+
+Per la PET sono di particolare interesse i nuclidi, indicati con la scrittura dove sono facilmente osservabili il numero di massa A e numero atomico Z poiché posti alla sinistra, rispettivamente in alto e in basso, del simbolo chimico della sostanza di interesse.
+
+\[_{Z}^{A}X_{N}\]
+
+Dove X è la specie atomica di interesse. Esistono 270 nuclidi stabili e 2700 instabili; questi ultimi sono detti radionuclidi, poiché l'instabilità determina un'emissione di radiazioni elettromagnetiche e corpuscolare. Le sostanze assumono una diversa nomenclatura in base ad alcune caratteristiche riportante in tabella:
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3729}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2938}}@{}}
+\caption{Tabella 17.1: Nomenclatura sostanze}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\textbf{NOMENCLATURA}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{CARATTERISTICHE}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{ESEMPIO}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\textbf{NOMENCLATURA}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{CARATTERISTICHE}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{ESEMPIO}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Isotopi} & Stesso numero atomico Z & \(_{6}^{12}{C\ e\ }_{6}^{14}C\) \\
+\textbf{Isotoni} & Stesso numero di neutroni N & \(_{8}^{16}{O_{8}\ e\ _{7}^{15}N_{8}}\) \\
+\textbf{Isobari} & Stesso numero di massa A & \(_{}^{131}I\ e\ _{}^{131}{Xe}\) \\
+\textbf{Isomeri} & Differente energia & \(_{}^{99}{Tc}\ e\ _{}^{99m}{Tc}\) \\
+\end{longtable}
+
+Di particolare importanza sono gli isomeri dove, a causa di azioni esterne, qualche elettrone o protone si trova in uno stato energetico superiore o eccitato rispetto all'elemento base.
+
+Le particelle elementari presentano una massa espressa in termini di energia. Dalla relazione di Einstein \(E = mc^{2}\) è noto, infatti, che la massa può essere espressa in termini di energia in eV, e viceversa.
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\caption{Tabella 17.2: Caratteristiche elementi atomici}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\textbf{PARTICELLA}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{MASSA (MeV)}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\textbf{PARTICELLA}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{MASSA (MeV)}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Elettrone & 0.511 \\
+Protone & 938.78 \\
+Neutrone & 939.07 \\
+\end{longtable}
+
+Protone e neutrone hanno, quindi, pressocché la stessa massa mentre l'elettrone ha una massa di circa un millesimo delle due masse. Nella valutazione della massa atomica, trascurare la presenza dell'elettrone porta a un errore estremamente limitato.
+
+\subsection{Tipi di decadimento}\label{tipi-di-decadimento}
+
+Esistono numerosi elementi, in natura o prodotti in laboratorio mediante reazioni nucleari, che possiedono un nucleo energeticamente instabile. Questi elementi decadono, attraverso processi chimico-fisici, per trasformarsi in elementi più leggeri ed energeticamente stabili.
+
+Il decadimento di un atomo instabile è accompagnato dall'emissione di corpuscoli carichi da parte del nucleo e/o di energia irradiata sottoforma di radiazione elettromagnetica nello spettro dei raggi \(\gamma\). Nel dettaglio:
+
+\begin{itemize}
+\item
+  Il decadimento \(\alpha\) è proprio dei nuclei pesanti, come ad esempio l'uranio \(_{}^{235}U\), che, decadendo, libera, appunto, una particella \(\alpha\). Questa non è altro che un nucleo di elio (He), costituito da 2 protoni e 2 neutroni, e con una vita breve all'interno dei tessuti umani, poiché è assorbita nel giro di 0.03mm;
+\item
+  Il decadimento \(\beta^{-}\) è proprio dei nuclidi ricchi di neutroni: i neutroni in eccesso, non necessari per l'equilibrio del nucleo, possono decadere e trasformarsi secondo la seguente reazione:
+\end{itemize}
+
+\[n \rightarrow p + \beta^{-} + \underline{v}\]
+
+Il neutrone si trasforma, quindi, in tre particelle: un protone, una particella \(\beta^{-}\), elettrone di carica negativa emesso dal nucleo, e un antineutrino \(\underline{v}\), una particella inerte priva di massa.
+
+Dal punto di vista energetico, la reazione deve essere bilanciata per cui l'energia di transizione sarà uguale alla differenza di energia tra i due nuclidi. L'energia di transizione si divide tra il protone che resta nel nucleo e cambia la natura chimica dell'atomo, la particella \(\beta^{-}\) e l'antineutrino \(\underline{v}\). Quest'ultima particella è debolmente interagente con la materia ed è introdotta per bilanciare dal punto di vista energetico il decadimento;
+
+\begin{itemize}
+\item
+  Il decadimento \(\beta^{+}\) è proprio dei nuclidi ricchi di protoni e avviene secondo la reazione:
+\end{itemize}
+
+\[p \rightarrow n + \beta^{+} + v\]
+
+Il protone si trasforma, quindi, in tre particelle: un neutrone, una particella \(\beta^{+}\), ovvero un elettrone di carica positiva detto positrone, e un neutrino, antiparticella dell'antineutrino. Anche in questo caso deve esserci un bilancio energetico; poiché al secondo membro vi è un'energia, espressa in massa di:
+
+\[m_{neutrone} = m_{protone} + m_{elettrone}\ \ \ e\ \ \ m_{\beta^{+}} = m_{elettrone}\]
+
+è necessaria un'energia di transizione maggiore di 1.022MeV. Al primo membro, inoltre, per lo stesso motivo, vi sono \(2 \times 0.511MeV\). Questo decadimento è il più utilizzato in PET, in particolar modo quello del Fluoro (F), che, legandosi al glucosio, permette la seguente reazione:
+
+\[_{9}^{18}{F_{9} \rightarrow_{8}^{18}{O_{10} + \beta^{+} + v}}\]
+
+Il fluoro, legato alla macromolecola biologica metabolicamente non tossica come il glucosio, esegue il suo stesso percorso all'interno del corpo umano e, sfruttando il positrone emesso, si riesce a ricostruire le immagini della distribuzione del radionuclide;
+
+\begin{figure}
+\centering
+\includegraphics[width=4.28306in,height=3.575in,alt={P3799\#yIS1}]{media/16_PrincFis/image408.pdf}\caption{Figura .: Schema riassuntivo del decadimento}
+\end{figure}
+
+\begin{itemize}
+\item
+  L'\emph{Electron Capture} è proprio dei nuclidi ricchi di protoni ed è un fenomeno per cui un protone può catturare un elettrone, portandolo internamente al nucleo, generando così un neutrone e un neutrino. In questo caso, l'energia di transizione deve essere minore di 1.022MeV, mentre l'energia dei nuclidi deve essere maggiore di 1.022MeV;
+\item
+  La Transizione isomerica avviene quando un nucleo si trova in uno stato energetico eccitato a causa di una cessione di energia da parte dell'ambiente. Se lo stato eccitato ha un tempo di vita molto lungo, allora si chiama stato metastabile. È il caso del tecnezio-99 \(_{}^{99}{Tc}\) che, tramite questa transizione, emette un fotone \(\gamma\);
+\item
+  La struttura atomica prevede che gli \emph{Shell} più interni, quindi, dal K all'M e così via, siano i primi a riempirsi di elettroni. Nel processo di decadimento può accadere che un elettrone del livello energetico più interno acquisisca energia tale da essere espulso dall'atomo. Questo elettrone è detto \emph{Auger Electon} e lascia una vacanza negli strani più interni della struttura atomica. Per ritornare alla condizione di riposo, un elettrone dello strato più esterno può riempire la vacanza del livello interno emettendo un fotone di energia uguale alla differenza tra i due livelli energetici. Ciò conferisce maggiore stabilità all'atomo.
+\end{itemize}
+
+Il fotone emesso dall'elettrone che riempie la vacanza può anche interagire con un altro elettrone più esterno dello stesso atomo che, essendo debolmente legato al nucleo, è espulso formando un ulteriore elettrone di Auger.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.41623in,height=2.56944in,alt={P3805\#yIS1}]{media/16_PrincFis/image409.pdf}\caption{Figura .: Elettrone di Auger}
+\end{figure}
+
+\subsection{Tempo di dimezzamento}\label{tempo-di-dimezzamento}
+
+Il fenomeno del decadimento radioattivo ha una certa probabilità di occorrenza, cioè non è un fenomeno deterministico, ma è aleatorio. Sia \(P\) la probabilità di decadere, uguale per ogni atomo, e \(N(t)\) il numero di atomi radioattivi che, all'istante \(t\), possono potenzialmente decadere. Dal processo binomiale, la probabilità di avere \(k\) decadimenti su \(N(t)\) atomi è pari a:
+
+\[P = \left( \begin{array}{r}
+N(t) \\
+k
+\end{array} \right)p^{k}(1 - p)^{N(t) - k}\]
+
+È possibile valutare la media statistica tra la differenza del numero di atomi radioattivi al tempo \(t + dt\) e del numero di atomi radioattivi al tempo \(t\). Per la probabilità binomiale, questo valor medio deve essere uguale a \(p\) volte il valor medio di \(N(t)\):
+
+\[E\left\lbrack N(t + dt) - N(t) \right\rbrack = E\lbrack dN\rbrack = - E\left\lbrack N(t) \right\rbrack p\]
+
+Se si esprime \(p\) come una probabilità nell'unità di tempo costante per tutti gli atomi di quella specie, è lecito scrivere che:
+
+\[p = \lambda dt\]
+
+Da cui risulta che:
+
+\[E\left\lbrack N(t + dt) - N(t) \right\rbrack = E\lbrack dN\rbrack = - E\left\lbrack N(t) \right\rbrack\lambda dt\]
+
+\[E\left\lbrack \frac{dN}{dt} \right\rbrack = - E\left\lbrack N(t) \right\rbrack\lambda\]
+
+Si ottiene, quindi, un'equazione del tipo:
+
+\[- \frac{dN}{dt} = \lambda N\]
+
+Dove \(- \frac{dN}{dt}\) è il tasso di decadimento, o attività, e può essere anche indicato con \(A\). La soluzione è ovviamente del tipo esponenziale:
+
+\[A(t) = A_{0}e^{- \lambda t}\]
+
+Dove \(\lambda\) è la costante di decadimento o di disintegrazione ed è specifica per ogni nucleo che segue il processo del decadimento. Questo modello di decadimento statistico è coerente con le misurazioni sperimentali ed è, quindi, coerente con le applicazioni pratica.
+
+Per praticità, poiché il fenomeno è esponenziale, si introduce il tempo di emivita, ovvero il tempo in cui l'attività del radionuclide si dimezza:
+
+\[A\left( t_{\frac{1}{2}} \right) = \frac{1}{2}A_{0}\]
+
+\[A_{0}e^{- \lambda t} = \frac{1}{2}A_{0}\]
+
+Da quest'ultima relazione è possibile ricavare la definizione del tempo di emivita:
+
+\[t_{\frac{1}{2}} = \frac{\log(2)}{\lambda} = \frac{0.693}{\lambda}\]
+
+Si definisce vita media come il reciproco della costante di decadimento:
+
+\[\tau = \frac{1}{\lambda}\]
+
+Si può dire che un radionuclide decade del 63\% in una vita media. Infatti, risulta che:
+
+\[A(\tau) = A_{0}e^{- \lambda\tau} = A_{0}e^{- \frac{\lambda}{\lambda}} = \frac{A_{0}}{e} = 0.63A_{0}\]
+
+Oltre al tempo di emivita del radionuclide, bisogna considerare il tempo impiegato dall'organismo umano per eliminare il radiofarmaco somministrato. Solitamente, infatti, i radiofarmaci sono espulsi attraverso le urine in un tempo dipendente dal farmaco stesso e dalla dose. Al tempo di decadimento, quindi, si aggiunge un tempo di decadimento biologico, definito dalla costante \(\lambda_{b}\), ovvero la costante di escrezione dal sistema biologico. Il tempo di decadimento biologico è calcolato come:
+
+\[T_{b} = \frac{0.693}{\lambda_{b}}\]
+
+Si definisce una costante efficace \(\lambda_{e}\), data da:
+
+\[\lambda_{e} = \lambda_{b} + \lambda_{p}\]
+
+dove \(\lambda_{p}\) è la costante reale. Da questa scrittura è possibile, quindi, definire un tempo efficace, secondo la relazione:
+
+\[\frac{1}{T_{e}} = \frac{1}{T_{b}} + \frac{1}{T_{p}}\]
+
+L'unità di misura utilizzata è il Bequerel (Bq), dove:
+
+\[1Bq = 1\ disintegrazione\ per\ secondo\ (dps)\]
+
+Ormai obsoleto è il Curie (Ci), definito come il numero delle disintegrazioni al secondo che avvengono in un grammo di Radio-226.
+
+\[1Ci = 3.7 \times 10^{10}dps = 37GBq\]
+
+\subsubsection{Esempio numerico di decadimento}\label{esempio-numerico-di-decadimento}
+
+Dato il decadimento nel tempo con legge esponenziale, l'attività di un certo radionuclide non si mantiene costante nel tempo. Dunque, note le varie costante è possibile calcolare la dose necessaria da somministrare al paziente in base all'intervallo di tempo tra produzione del tracciante e infusione per eseguire l'esame diagnostico PET.
+
+La qualità di un'immagine PET dipende molto dall'attività del radionuclide infuso del paziente, infatti, maggiore è la dose e maggiore è il rapporto segnale/rumore. Per poter ricostruire in maniera ottima l'immagine anche dopo molte ore dalla produzione del radionuclide è necessario valutare l'attività tramite le varie costanti temporali.
+
+Con questo procedimento è possibile ricostruire immagini funzionali di buona qualità prescindendo dall'orario in cui è eseguito l'esame diagnostico.
+
+Una dose di \(_{}^{18}F - FDG\) ha un'attività di \(20\) \(mCi\) alle ore 10.00. Quanto era l'attività alle 7.00 e quanto sarà alle 14.00? Il tempo di emivita è 110min.
+
+Si converte il tempo di emivita in ore:
+
+\[t_{\frac{1}{2}} = 110min \Leftrightarrow \ t_{\frac{1}{2}} = \frac{110min}{60min/h} = 1.8h\]
+
+Per esprimere l'attività da \(Ci\) a \(Bq\) è necessario utilizzare la relazione tra le due misure:
+
+\[1Ci = 37Gbq \Leftrightarrow 20mCi = 740MBq\]
+
+La costante di decadimento la si ottiene dalla relazione che la lega con il tempo di emivita:
+
+\[t_{\frac{1}{2}} = \frac{0.693}{\lambda} \Leftrightarrow \lambda = \frac{0.693}{t_{\frac{1}{2}}} = \frac{0.693}{1.8h} = 0.385\frac{1}{h}\]
+
+Dalla relazione del decadimento \(A(t) = A_{0}e^{- \lambda t}\), si ricava l'attività alle 7.00 e alle 14.00, ponendo
+
+\[A_{0} = A(10.00) = 740MBq\]
+
+Dunque:
+
+\[A(7h) = A(10h)e^{- \lambda t} = 740MBq \cdot e^{- 0.385\frac{1}{h} \cdot 7h} \simeq 51MBq\]
+
+\[A(14h) = A(10h)e^{- \lambda t} = 740MBq \cdot e^{- 0.385\frac{1}{h} \cdot 14h} \simeq 3.5MBq\]
+
+\subsection{Interazione particelle--materia}\label{interazione-particellemateria}
+
+Per quanto riguarda la formazione delle immagini PET, bisogna tenere conto dei vari fenomeni di interazione tra le particelle cariche, quali positroni, elettroni e particelle \(\alpha\), e la materia. Le particelle, infatti, possono interagire con la materia in vari modi:
+
+\begin{itemize}
+\item
+  Espulsione di elettroni a causa della collisione di una particella carica con un elettrone atomico. In questo caso si parla di ionizzazione degli atomi;
+\item
+  Eccitamento di un elettrone portandolo al livello energetico superiore senza estrarlo;
+\item
+  Rottura di legami chimici.
+\end{itemize}
+
+Tipicamente, la particella \(\beta\), più leggera, si muove a zig-zag, urtando le varie particelle presenti intorno, mentre la particella \(\alpha\), che è molto più pesante, si muove in linea retta. Il range percorso dalle particelle, ovvero la distanza percorsa nel tessuto prima che la particella sia assorbita, dipende da vari fattori, quali energia, carica, massa e densità della materia attraversata. Quando un positrone perde la sua energia, a causa dei vari urti che subisce, e arriva a riposo, si combina con un elettrone di un atomo del tessuto assorbente. In quel momento le due particelle \(\beta^{+}\) ed \(e^{-}\) si annichiliscono e si ha l'emissione di due fotoni \(\gamma\) opposti, con energia pari a 511keV. Il processo è a carica nulla poiché le particelle hanno la stessa carica ma di segno opposto, quindi, il principio di conservazione della carica è rispettato così come quello della quantità di moto e massa-energia poiché emergono due fotoni di energia di 511keV che viaggiano in direzioni opposte.
+
+\subsection{Principio di funzionamento della PET}\label{principio-di-funzionamento-della-pet}
+
+Si inietta un tracciante, tipicamente a base di fluoro, nel paziente, che, essendo instabile, decade secondo un processo di decadimento \(\beta^{+}\), emettendo positroni. Questi ultimi percorrono una breve distanza all'interno dei tessuti biologici di circa 1-2mm e tipicamente 1.3mm, prima di perdere la loro energia e annichilirsi con un elettrone del tessuto. Da questo processo sono generato due fotoni \(\gamma\) che viaggiano in direzione opposta all'energia di 511keV. Questi fotoni fuoriescono dal paziente e sono catturati da un anello di detettori. Il fenomeno è poi memorizzato all'interno di un computer, che lo elabora e costruisce un'immagine. Dalla cattura del fotone \(\gamma\) in poi, il processo è totalmente digitale.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.80833in,height=4.24925in,alt={P3865\#yIS1}]{media/16_PrincFis/image410.pdf}\caption{Figura .: Schema di funzionamento PET}
+\end{figure}
+
+I radionuclidi più utilizzati in PET sono riportati nella seguente tabella con le rispettive caratteristiche.
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2793}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2502}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4705}}@{}}
+\caption{Tabella 17.3: Caratteristiche radionuclidi}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\textbf{RADIONUCLIDE}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{EMIVITA}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{RANGE IN ACQUA DEI POSITRONI EMESSI (mm)}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\textbf{RADIONUCLIDE}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{EMIVITA}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{RANGE IN ACQUA DEI POSITRONI EMESSI (mm)}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{F-18} & 110min & 0.46 \\
+\textbf{Rb-82} & 75s & 4.10 \\
+\end{longtable}
+
+Un parametro fondamentale è il range in mm percorso in acqua dai positroni emessi, poiché, nella PET, non è possibile rilevare il punto di emissione del positrone, ma solo il punto di annichilazione, che, evidentemente, è diverso dal primo, poiché il positrone è in grado di spostarsi del suddetto range. Pertanto, si avrà l'incertezza di circa mezzo mm sul punto di decadimento per il F-18, molto utilizzato in oncologia.
+
+\subsection{Interazione fotoni--materia}\label{interazione-fotonimateria}
+
+Per capire come funziona il meccanismo di ricostruzione, bisogna innanzitutto comprendere quali sono i meccanismi di interazione tra i fotoni \(\gamma\) e la materia. I possibili fenomeni sono:
+
+\begin{itemize}
+\item
+  Effetto fotoelettrico;
+\item
+  Diffusione Rayleigh;
+\item
+  Effetto Compton;
+\item
+  Produzione di coppie.
+\end{itemize}
+
+I vari fenomeni sono generalmente proporzionali al numero atomico Z, all'energia \(E\) e alla densità \(\rho\). È possibile realizzare un grafico dove sull'asse delle ascisse sono riportate le energie, espresse in \(E = hf\), sull'asse delle ordinate il numero atomico del materiale assorbitore. Si ottiene il grafico sperimentale:
+
+\begin{figure}
+\centering
+\includegraphics[width=6.05006in,height=3.34201in,alt={P3889\#yIS1}]{media/16_PrincFis/image411.pdf}\caption{Figura .: Interazioni fotoni--materia in funzione di E e Z}
+\end{figure}
+
+Si nota che, al variare dell'energia e del numero atomico cambia anche la probabilità che si verifichi una delle interazioni citate, per cui, per basse energie, si assiste alla predominanza dell'effetto fotoelettrico; viceversa, per energie molto alte, quindi, non di interesse per la PET, predomina la produzione di coppie.
+
+L'effetto Compton, invece, si verifica molto più probabilmente in un range di energie che va dai 500keV a 7-8MeV. In particolare, all'energie della PET, intorno ai 511keV, per materiali con basso numero atomico si ha la predominanza dell'effetto Compton. Al crescere del numero atomico si assiste alla predominanza dell'effetto fotoelettrico.
+
+Le curve, che separano la probabilità che avvenga un certo tipo di interazione invece di un altro, stanno ad indicare che, in quei punti, la probabilità che avvenga, ad esempio, l'effetto Compton o l'effetto fotoelettrico è la stessa, si ha cioè \(\sigma = \tau\).
+
+\subsubsection{Effetto fotoelettrico}\label{effetto-fotoelettrico-1}
+
+Nell'effetto fotoelettrico, un fotone \(\gamma\) trasferisce interamente la sua energia ad un elettrone interno (\emph{K-Shell}) e l'elettrone viene espulso.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.45608in,height=2.81667in,alt={P3896\#yIS1}]{media/16_PrincFis/image412.pdf}
+\caption{Figura .: Effetto fotoelettrico}
+\end{figure}
+
+La probabilità che questo processo avvenga è proporzionale al cubo del numero atomico del materiale assorbente e inversamente proporzionale al cubo dell'energia del fotone incidente:
+
+\[P \propto \frac{Z^{3}}{E_{\gamma}^{3}}\]
+
+La vacanza nella \emph{K-Shell} è riempita da un elettrone proveniente dai livelli energetici superiori, a seguito dell'emissione di fotoni X oppure di un elettrone di Auger.
+
+Se il fotone incidente ha energia inferiore all'energia di legame dell'elettrone, l'interazione fotoelettrica non può avvenire. Non appena l'energia dei fotoni incidenti diventa uguale a quella di legame, l'effetto fotoelettrico diviene un meccanismo dominante di interazione. Quando l'energia del fotone incidente aumenta ulteriormente, la probabilità di questa interazione decresce come:
+
+\[\frac{1}{E_{\gamma}^{3}}\]
+
+Dopo l'effetto fotoelettrico, l'atomo risulta ionizzato poiché ha perso un elettrone appartenente alle \emph{Shell} più interne, mentre l'elettrone espulso può interagire con altri atomi, causando ulteriori ionizzazioni. Si ha, quindi, una cascata di transizioni elettroniche al fine di riempire la vacanza creata dall'espulsione dell'elettrone interno. Questo processo si manifesta con l'emissione di fotoni con energia pari alla differenza dei due livelli energetici. Siccome ogni atomo possiede dei livelli energetici ben determinati, la radiazione emessa da un materiale è diversa da un altro. A questi fotoni emergenti si dà il nome di radiazione caratteristica. Se il numero atomico dell'atomo preso in considerazione è basso, ovvero Z è piccolo, allora si ha una bassa energia di legame K; per queste sostanze, quindi, predomina l'effetto Auger.
+
+\subsubsection{Diffusione Rayleigh}\label{diffusione-rayleigh}
+
+La diffusione di Rayleigh è anche detta \emph{Scattering} cioè deflessione ed è causata da un elettrone che diffonde un fotone, senza perdita di energia. Il processo è anche detto diffusione coerente.
+
+Durante la diffusione di Rayleigh, l'elettrone aumenta temporaneamente la sua energia, ma non è rimosso dall'atomo, cosa che, invece, accade con l'effetto fotoelettrico. Le energie in gioco, infatti, non sono sufficienti a strappare o scalzare l'elettrone dall'atomo. L'elettrone ritorna al suo livello energetico iniziale emettendo un fotone che ha energia pari a quella del fotone incidente, ma in una direzione leggermente diversa. La probabilità di questa interazione è direttamente proporzionale a Z e inversamente proporzionale a E.
+
+\subsubsection{Effetto Compton}\label{effetto-compton}
+
+Nell'effetto Compton, un fotone \(\gamma\) incidente impatta su un atomo e trasferisce parte della sua energia ad un elettrone del livello energetico più esterno, scalzandolo. Dall'urto emergono un fotone e un elettrone, le cui energie, se sommate, devono essere circa pari all'energia del fotone incidente.
+
+Il fotone emerso può interagire ancora con gli atomi circostanti tramite effetto fotoelettrico o effetto Compton.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.32548in,height=3.12897in,alt={P3910\#yIS1}]{media/16_PrincFis/image413.pdf}\caption{Figura .: Effetto Compton}
+\end{figure}
+
+L'energia dell'elettrone a riposo è data dalla relazione di Einstein:
+
+\[E = mc^{2}\]
+
+Inoltre, l'energia si può anche scrivere come:
+
+\[E = hf = h\frac{c}{\lambda}\]
+
+Dove \(h\) è la costante di Planck. Vale la conservazione della quantità di moto, per cui:
+
+\[\mathbf{p}_{i} = \mathbf{p}_{f} + \mathbf{p}_{e^{-}\ diffuso}\]
+
+Vale, inoltre, anche la conservazione dell'energia, secondo cui l'energia del fotone incidente \(E_{fi}\), sommata all'energia iniziale dell'elettrone (coincidente con la sua energia a riposo) \(E_{ei}\) è uguale alla somma dell'energia del fotone emergente \(E_{ff}\), dell'elettrone scalzato \(E_{ef}\) e della sua energia cinetica \(E_{c}\):
+
+\[E_{e_{i}} + E_{f_{i}} = E_{f_{f}} + E_{e_{f}} + E_{c}\]
+
+\[m_{e_{i}}c^{2} + hf_{i} = m_{e_{f}}c^{2} + hf_{f} + \frac{1}{2}m_{e_{f}}v^{2}\]
+
+Dove:
+
+\[m_{e_{f}} = \frac{m_{e_{i}}}{\sqrt{1 - \left( \frac{v^{2}}{c^{2}} \right)}}\]
+
+Scomponendo l'equazione per la conservazione della quantità di moto si ottiene un sistema:
+
+\[\left\{ \begin{array}{r}
+\frac{h}{\lambda_{i}} = \frac{m_{e_{i}}}{\sqrt{1 - \left( \frac{v^{2}}{c^{2}} \right)}}\cos\varphi + \frac{h}{\lambda_{f}}\cos\varphi \\
+\frac{m_{e_{i}}}{\sqrt{1 - \left( \frac{v^{2}}{c^{2}} \right)}}\sin\theta = \frac{h}{\lambda_{f}}\sin\theta
+\end{array} \right.\ \]
+
+Dal sistema, aggiungendo anche la conservazione dell'energia, si ricava che:
+
+\[\lambda_{f} - \lambda_{i} = \mathrm{\Delta}\lambda = \frac{h}{m_{e_{i}}c}\left( 1 - \cos\varphi \right)\]
+
+Siccome la lunghezza d'onda dipende dall'angolo, è possibile realizzare un grafico, da cui si evince che per basse energie incidenti (linea tratteggiata a 20keV) si ha una probabilità uniforme che i fotoni siano deflessi in tutte le direzioni dello spazio.
+
+Se l'energia incidente aumenta (140keV), diventa più probabile che il fotone emergente abbia la stessa direzione del fotone incidente. Siccome l'angolo di incidenza può essere qualsiasi, l'energia del fotone emesso per effetto Compton varia con continuità a differenza della radiazione caratteristica per l'effetto fotoelettrico.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.77412in,height=5.79473in,alt={P3929\#yIS1}]{media/16_PrincFis/image414.pdf}\caption{Figura .: Grafico effetto Compton}
+\end{figure}
+
+La probabilità dell'effetto è, quindi, proporzionale alla densità del mezzo assorbente e inversamente proporzionale all'energia del fotone che attraversa la materia.
+
+\subsection{Attenuazione della radiazione}\label{attenuazione-della-radiazione}
+
+Nell'attraversamento della materia, un fotone può subire vari processi:
+
+\begin{enumerate}
+\def\labelenumi{\Alph{enumi})}
+\item
+  Il fotone non interagisce con la materia e, quindi, passa indisturbato attraverso di essa;
+\item
+  Il fotone può subire un'interazione fotoelettrica con l'immissione di una radiazione caratteristica dovuta alla transizione di un elettrone dal livello energetico superiore a quello inferiore e un fotoelettrone;
+\item
+  Una diffusione coerente di Rayleigh senza perdita di energia;
+\item
+  Oppure effetto Compton in cui il fotone incidente cede parte della sua energia a un elettrone atomico che viene scalzato.
+\end{enumerate}
+
+Questi effetti determinano una riduzione del numero di fotoni in uscita dalla materia.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.18881in,height=4.02778in,alt={P3939\#yIS1}]{media/16_PrincFis/image415.pdf}\caption{Figura .: Vare tipologie di interazioni}
+\end{figure}
+
+I vari fenomeni di assorbimento si verificano ovviamente con diversa probabilità in dipendenza del materiale assorbente, tramite il numero atomico, e dell'energia del fotone incidente.
+
+I vari meccanismi con le relative dipendenze della probabilità con cui si verificano sono riassunti nella tabella successiva:
+
+\begin{figure}
+\centering
+\includegraphics[width=6.03896in,height=2.68286in,alt={P3943\#yIS1}]{media/16_PrincFis/image416.pdf}\caption{Figura .: Effetti di assorbimento e probabilità di comparsa}
+\end{figure}
+
+Tutte le probabilità di assorbimento all'interno della materia possono essere sommate, dando una probabilità complessiva di assorbimento quantificata dal coefficiente di attenuazione lineare \(\mu\), misurato in \(cm^{- 1}\). Si definisce:
+
+\[\mu = \tau + \sigma + \sigma_{R} + \kappa\]
+
+Dove:
+
+\begin{itemize}
+\item
+  \(\tau\) è il coefficiente dell'effetto fotoelettrico;
+\item
+  \(\sigma\) è il coefficiente dell'effetto Compton;
+\item
+  \(\sigma_{R}\) è il coefficiente della diffusione di Rayleigh;
+\item
+  \(\kappa\) è il coefficiente della produzione di coppie.
+\end{itemize}
+
+Il coefficiente di assorbimento lineare, dal punto di vista fisico, rappresenta la probabilità che un fotone sia assorbito in un'unità di lunghezza del materiale che attraversa.
+
+Per l'energia della PET e della radiologia convenzionale, l'effetto Compton e fotoelettrico hanno la maggior probabilità di occorrenza. Dunque, per queste energie il coefficiente lineare di assorbimento lineare dipende essenzialmente da \(\tau\) e \(\sigma\):
+
+\[\mu \simeq \tau + \sigma\]
+
+Da questa relazione è possibile ricavare una legge di tipo esponenziale, per cui il numero di fotoni ad un certo spessore \emph{x} dipende dal numero di fotoni che inizialmente hanno inciso sul materiale moltiplicato per \(e^{- \mu x}\), rappresentate la probabilità che un fotone sia assorbito dal materiale nel percorrere il cammino fino a \emph{x}.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.21125in,height=2.37483in,alt={P3956\#yIS1}]{media/16_PrincFis/image417.pdf}\caption{Figura .: Attenuazione in scala lineare e semilogaritmica}
+\end{figure}
+
+Si definisce lo strato emivalente oppure \emph{Half Value Layer} (HVL) come lo spessore che deve avere un certo materiale con coefficiente di assorbimento lineare \(\mu\) affinché il numero dei fotoni incidente sia dimezzato. Il numero dei fotoni emergenti da un corpo di spessore \emph{x} segue la relazione:
+
+\[N(x) = N_{0}e^{- \mu x}\]
+
+Dove \(N_{0}\) è il numero dei fotoni incidenti mentre \(e^{- \mu x}\) la probabilità con cui essi siano attenuati. Lo spessore emivalente può essere ricavato come:
+
+\[N(HVL) = \frac{N_{0}}{2} \Leftrightarrow \frac{N_{0}}{2} = N_{0}e^{- \mu HVL}\]
+
+Da cui si ricava:
+
+\[HVL = - {\frac{\log\left( \frac{1}{2} \right)}{\mu} = \frac{\log(2)}{\mu} = \frac{0.693}{\mu}}\]
+
+Il concetto di strato emivalente è molto importante nella radioprotezione poiché è necessario che la radiazione scatterizzata dal paziente non colpisca il personale tecnico che esegue l'esame diagnostico oppure pazienti al di fuori della sala PET. Noto il coefficiente di assorbimento \(\mu\) è possibile dimensionare gli strati protettivi necessari a non diffondere la radiazione \(\gamma\) nei locali circostanti.
+
+Spesso la schermatura è in piombo, alluminio e, dosando il giusto spessore delle pareti, si riducono i costi per la sua realizzazione fisica. I materiali utilizzati possiedono uno spessore emivalente piccolo, o equivalentemente un gande valore del coefficiente di attenuazione lineare per quella determinata energia incidente.
+
+Un altro parametro di fondamentale importanza è il \emph{Mass Attenuation Coefficient} o il coefficiente di attenuazione di massa \(\mu_{g}\), che si ottiene dal coefficiente di attenuazione lineare, normalizzato rispetto alla densità del materiale assorbitore:
+
+\[\mu_{g} = \frac{\mu}{\rho}\]
+
+Il coefficiente di attenuazione massico è misurato in \(\frac{cm^{2}}{kg}\).
+
+Questa quantità è definita perché alcuni materiali, cambiando la densità a seconda dello stato fisico, modificano anche il livello di attenuazione in funzione della densità. Si usa, quindi, il coefficiente di attenuazione massico \(\mu_{g}\) per compensare queste variazioni.
+
+Studi sperimentali, presenti in letteratura, hanno permesso di rappresentare, in scala logaritmica, i coefficienti di attenuazione in funzione dell'energia espressa in MeV.
+
+Per l'aria, il diagramma presenta una linea continua rappresentante il reale andamento del coefficiente di attenuazione massico dato dalla somma dei vari contributi dell'attenuazione. Le linee tratteggiate, invece, rappresentano il contributo di un singolo fenomeno di assorbimento, cioè effetto Compton, fotoelettrico ed ecc. Grazie alla scala logaritmica, la probabilità di avere l'effetto fotoelettrico o lo \emph{Scattering} di Rayleigh presentano un andamento pressoché lineare.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.58653in,height=3.06389in,alt={P3972\#yIS1}]{media/16_PrincFis/image418.pdf}\caption{Figura .: Coefficiente di attenuazione lineare dell'aria}
+\end{figure}
+
+Analogamente per quanto accade per l'aria, studi sperimentali hanno determinato l'andamento dei vari fenomeni di assorbimento che contribuiscono al coefficiente di assorbimento massico per acqua, piombo e tessuti molli.
+
+Per l'acqua è possibile notare un andamento del coefficiente di attenuazione di massa molto simile a quello dell'aria. In entrambi i casi, per le energie della PET l'effetto principale che attenua la radiazione incidente è l'effetto Compton.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.40697in,height=2.98662in,alt={P3976\#yIS1}]{media/16_PrincFis/image419.pdf}\caption{Figura .: Coefficiente di attenuazione lineare dell'acqua}
+\end{figure}
+
+Per il piombo, è interessante osservare il fenomeno del \emph{K-Edge}, in corrispondenza del quale si ha una forte variazione del potere di assorbimento. Questo fenomeno si verifica poiché i fotoni, dell'energia in corrispondenza della quale il coefficiente di assorbimento massico presenta una discontinuità, riescono a scalzare gli elettroni più interni, situati nel \emph{K Shell}, per effetto fotoelettrico. Gli elettroni più interni richiedono, infatti, energie molto importanti per poter essere estratti. Per energie superiori il coefficiente di assorbimento aumenta poiché i fotoni sono assorbiti anche dagli elettroni nello strato K, non possibile con energie inferiori.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.34595in,height=2.88178in,alt={P3979\#yIS1}]{media/16_PrincFis/image420.pdf}\caption{Figura .: Coefficiente di attenuazione lineare del piombo}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=4.50027in,height=4.172in,alt={P3981\#yIS1}]{media/16_PrincFis/image421.pdf}\caption{Figura .: Coefficiente di attenuazione lineare dei tessuti molli}
+\end{figure}
+
+È interessante osservare anche il confronto tra materiali differenti, come piombo, iodio, osso, tessuti molli e grasso:
+
+\begin{figure}
+\centering
+\includegraphics[width=6.07301in,height=4.48349in,alt={P3984\#yIS1}]{media/16_PrincFis/image422.pdf}\caption{Figura .: Confronto tra coefficienti di attenuazione tra materiali differenti}
+\end{figure}
+
+Come si può notare, osso, tessuti molli e grasso hanno coefficienti di attenuazione più bassi rispetto a piombo e iodio; inoltre, all'aumentare dell'energia, le tre curve dei materiali biologici tendono ad unirsi. In termini pratici, se si realizza un \emph{Imaging} convenzionale ad energie molto elevate, osso, grasso e tessuti molli avranno lo stesso coefficiente di attenuazione lineare, quindi, lo stesso tipo di assorbimento. Ne consegue che non è conveniente realizzare un \emph{Imaging} convenzionale a raggi X con energie così elevate, poiché i vari tessuti non sarebbero contrastati, rendendo l'immagine poco chiara. Solitamente, si realizza un \emph{Imaging} a più bassa energia così da massimizzare il contrasto, pagando, ovviamente, il prezzo di un maggiore rumore sull'immagine.
+
+Dal confronto con tutti i diagrammi, è possibile osservare che il coefficiente di assorbimento massico è una funzione decrescente dell'energia. Quindi, per la maggior parte dei materiali, esso si riduce all'aumentare dell'energia.

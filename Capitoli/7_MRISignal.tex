@@ -1,0 +1,1106 @@
+\begin{center}
+\vfill
+    \chapter{Segnale della risonanza magnetica}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+
+\section{Segnale registrato in RMI}\label{segnale-registrato-in-rmi}
+
+Per ottenere una misura del vettore di magnetizzazione, è necessario perturbare l'equilibrio raggiunto dagli spin contenuti nei tessuti del paziente. Una volta perturbato il sistema mediante un impulso a radiofrequenze, il vettore di magnetizzazione ritorna al valore di equilibrio, secondo un'evoluzione dettata dai tempi di rilassamento spin-reticolo, \(T_{1}\), e spin-spin, \(T_{2}\).
+
+All'interno del gantry vi sono delle antenne (\emph{RF coil}) poste ortogonalmente tra loro in modo da produrre un campo a polarizzazione circolare. Nello specifico, le antenne possono essere pensate, in linea di principio, come due spire percorse da corrente poste una nel piano verticale e l'altra nel piano orizzontale rispetto al corpo del paziente.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.27171in,height=4.22976in,alt={P3570\#yIS1}]{media/7_MRISignal/image81.pdf}\caption{Figura .: Schema strutturale di gantry per risonanza magnetica}
+\end{figure}
+
+Nel gantry sono presenti altre bobine utilizzate per generare un gradiente di campo, utile per variare la frequenza di Larmor lungo la direzione \({\widehat{i}}_{z}\) con un andamento noto. In questo modo è possibile selezionare una singola \emph{slice} del corpo umano.
+
+Una volta terminata l'erogazione del campo a radiofrequenza, la magnetizzazione si rilassa, ovvero torna all'equilibrio termodinamico con il campo principale. Durante la fase di ritorno all'equilibrio è possibile captare i segnali con apposite antenne, spesso le stesse utilizzate per la trasmissione del campo a radiofrequenza ma possono essere anche atre antenne.
+
+Le antenne posso essere pensare come spire percorse da corrente su cui il rilassamento della magnetizzazione induce una fem. (o emf.) per la legge di Faraday-Neumann-Lentz. Tramite la fem. indotta è possibile ricostruire immagini di sezioni del corpo umano.
+
+\subsection{Valutazione fem. indotta sulle antenne riceventi}\label{valutazione-fem.-indotta-sulle-antenne-riceventi}
+
+Al fine di ricostruire immagini di sezioni del paziente è necessario capire come la fem. indotta sull'antenna ricevente sia legata alle variazioni di magnetizzazione, durante il ritorno all'equilibrio termodinamico del vettore di magnetizzazione.
+
+Per la legge di Faraday-Neumann-Lent, la fem. indotta sull'antenna ricevente è:
+
+\[emf = - \dfrac{d}{dt}\Phi_{S}(B)\]
+
+Dove \(\Phi_{S}(B)\) è il flusso del campo magnetico concatenato con l'antenna di area \(S\):
+
+\[\Phi_{S}(B) = \int_{S}^{}{\overset{\underline{}}{B} \cdot d\overset{\underline{}}{S}}\]
+
+Dato un volumetto \(V'\) di spin, il vettore di magnetizzazione di tale volumetto si concatena con la spira di area \(S\). Le variazioni del vettore di magnetizzazione inducono una fem. sulla spira.
+
+In generale, il campo magnetico è legato al potenziale vettore \(\overset{\underline{}}{A}\) dalla definizione:
+
+\[\overset{\underline{}}{B} = \overset{\underline{}}{\nabla} \times \overset{\underline{}}{A}\ \]
+
+Da cui la fem.:
+
+\[emf = - \dfrac{d}{dt}\Phi_{S}(B) = - \dfrac{d}{dt}\int_{S}^{}{\overset{\underline{}}{B} \cdot d\overset{\underline{}}{S}} = - \dfrac{d}{dt}\int_{S}^{}{\overset{\underline{}}{\nabla} \times \overset{\underline{}}{A} \cdot d\overset{\underline{}}{S}}\]
+
+Si dimostra che il potenziale vettore in un certo punto \(\overset{\underline{}}{r}\), esterno alla regione contenente le sorgenti, è dato da:
+
+\[\overset{\underline{}}{A}\left( \overset{\underline{}}{r} \right) = \dfrac{\mu_{0}}{4\pi}\int_{V'}^{}{\dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}\overset{\underline{}}{J}\left( {\overset{\underline{}}{r}}' \right)dV'}\]
+
+Dove \({\overset{\underline{}}{r}}'\) è un punto appartenente al volumetto elementare di spin.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.32351in,height=3.05in,alt={P3589\#yIS1}]{media/7_MRISignal/image82.pdf}\caption{Figura .: Distanze tra volumetto elementare e antenna}
+\end{figure}
+
+Il sistema di riferimento è scelto in modo tale che in \({\overset{\underline{}}{r}}'\) vi sia una certa densità di corrente \(\overset{\underline{}}{J}\left( {\overset{\underline{}}{r}}' \right)\), sorgente del campo infinitesimo \(d\overset{\underline{}}{B}\) indotto nella posizione \(\overset{\underline{}}{r}\) sull'antenna.
+
+L'integrale che permette di calcolare il potenziale vettore è valutato su \({\overset{\underline{}}{r}}'\) ed è risolvibile note le sorgenti \(\overset{\underline{}}{J}\), ovvero la densità di corrente nel volumetto. La quantità \(\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|\) rappresenta la distanza tra il punto di osservazione \(\overset{\underline{}}{r}\) rispetto i punti del volumetti \({\overset{\underline{}}{r}}'\), soggetti alla densità di corrente \(\overset{\underline{}}{J}\).
+
+È noto che, per effetto dei campi magnetici applicati, si generano delle densità di correnti vincolate date dalla relazione:
+
+\[{\overset{\underline{}}{J}}_{vinc}\left( {\overset{\underline{}}{r}}' \right) = {\overset{\underline{}}{\nabla}}' \times \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right)\]
+
+Dove la notazione \({\overset{\underline{}}{\nabla}}' \times\) indica che il rotore è valutato rispetto la coordinata \({\overset{\underline{}}{r}}'\).
+
+Sull'espressione della fem. indotta è possibile applicare il teorema di Stokes, con il quale il flusso del rotore può essere scritto come la circuitazione del potenziale vettore \(\overset{\underline{}}{A}\) sulla linea che rappresenta il contorno \(\partial S\), della superficie \(S\) della spira:
+
+\[emf = - \dfrac{d}{dt}\int_{S}^{}{\overset{\underline{}}{\nabla} \times \overset{\underline{}}{A} \cdot d\overset{\underline{}}{S}} = - \dfrac{d}{dt}\oint_{l}^{}{\overset{\underline{}}{A} \cdot d\overset{\underline{}}{l}}\]
+
+Dove si pone \(l = \partial S\). Si sostituisce l'espressione per il potenziale vettore in funzione delle densità di correnti:
+
+\[emf = - \dfrac{d}{dt}\oint_{l}^{}{\overset{\underline{}}{A} \cdot d\overset{\underline{}}{l}} = - \dfrac{d}{dt}\oint_{l}^{}{\left\lbrack \dfrac{\mu_{0}}{4\pi}\int_{V'}^{}{\dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}\overset{\underline{}}{J}\left( {\overset{\underline{}}{r}}' \right)dV'} \right\rbrack \cdot d\overset{\underline{}}{l}}\]
+
+Inoltre, le densità di corrente nel volumetto sono di tipo vincolato, dunque, l'espressione per la fem. si può scrive come:
+
+\[emf = - \dfrac{\mu_{0}}{4\pi}\dfrac{d}{dt}\oint_{l}^{}{\left\lbrack \int_{V'}^{}{\dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}\overset{\underline{}}{J}\left( {\overset{\underline{}}{r}}' \right)dV'} \right\rbrack \cdot d\overset{\underline{}}{l}} = - \dfrac{\mu_{0}}{4\pi}\dfrac{d}{dt}\oint_{l}^{}{\left\lbrack \int_{V'}^{}{\dfrac{{\overset{\underline{}}{\nabla}}' \times \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right)}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}dV'} \right\rbrack \cdot d\overset{\underline{}}{l}}\]
+
+È possibile applicare la relazione:
+
+\[\overset{\underline{}}{\nabla} \times \left\lbrack f\left( \overset{\underline{}}{r} \right)\overset{\underline{}}{a}\left( \overset{\underline{}}{r} \right) \right\rbrack = \nabla f\left( \overset{\underline{}}{r} \right) \times \overset{\underline{}}{a}\left( \overset{\underline{}}{r} \right) + f\left( \overset{\underline{}}{r} \right)\nabla \times \overset{\underline{}}{a}\left( \overset{\underline{}}{r} \right)\]
+
+Dove \(f\left( \overset{\underline{}}{r} \right)\) è una qualsiasi funzione scalare e \(\overset{\underline{}}{a}\left( \overset{\underline{}}{r} \right)\) una funzione vettoriale. Da questa relazione si ricava \(f\left( \overset{\underline{}}{r} \right)\nabla \times \overset{\underline{}}{a}\left( \overset{\underline{}}{r} \right)\):
+
+\[f\left( \overset{\underline{}}{r} \right)\overset{\underline{}}{\nabla} \times \overset{\underline{}}{a}\left( \overset{\underline{}}{r} \right) = \overset{\underline{}}{\nabla} \times \left\lbrack f\left( \overset{\underline{}}{r} \right)\overset{\underline{}}{a}\left( \overset{\underline{}}{r} \right) \right\rbrack - \overset{\underline{}}{\nabla}f\left( \overset{\underline{}}{r} \right) \times \overset{\underline{}}{a}\left( \overset{\underline{}}{r} \right)\]
+
+Si pone:
+
+\[f\left( \overset{\underline{}}{r} \right) = \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|},\ \ \overset{\underline{}}{a}\left( \overset{\underline{}}{r} \right) = {\overset{\underline{}}{\nabla}}' \times \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right)\]
+
+Con questa posizione l'identità può essere scritta come:
+
+\[\dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}\overset{\underline{}}{\nabla} \times \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) = \overset{\underline{}}{\nabla} \times \left\lbrack \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}\overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \right\rbrack - \overset{\underline{}}{\nabla}\left( \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|} \right) \times \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right)\]
+
+L'espressione per l'\emph{electromotive force} può essere scritta come:
+
+\[emf = - \dfrac{\mu_{0}}{4\pi}\dfrac{d}{dt}\oint_{l}^{}{\left\lbrack \int_{V'}^{}{\left\{ {\overset{\underline{}}{\nabla}}' \times \left\lbrack \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}\overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \right\rbrack - \overset{\underline{}}{\nabla'}\left( \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|} \right) \times \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \right\} dV'} \right\rbrack \cdot d\overset{\underline{}}{l}} = - \dfrac{\mu_{0}}{4\pi}\dfrac{d}{dt}\oint_{l}^{}{\left\lbrack \int_{V'}^{}{{\overset{\underline{}}{\nabla}}' \times \left\lbrack \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}\overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \right\rbrack dV'} - \int_{V'}^{}{\overset{\underline{}}{\nabla'}\left( \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|} \right) \times \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right)}dV' \right\rbrack \cdot d\overset{\underline{}}{l}}\]
+
+Si considera l'integrale:
+
+\[\int_{V'}^{}{{\overset{\underline{}}{\nabla}}' \times \left\lbrack \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}\overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \right\rbrack dV'}\]
+
+Si può dimostrare che, per un teorema simile a quello di Stokes, l'integrale considerato è uguale all'integrale calcolato sulla frontiera del volumetto della funzione di cui si applica il rotore, vettor la normale della frontiera. In altre parola, è valida la relazione:
+
+\[\int_{V'}^{}{{\overset{\underline{}}{\nabla}}' \times \left\lbrack \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}\overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \right\rbrack dV'} = \int_{\partial V'}^{}{\widehat{n} \times \left\lbrack \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}\overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \right\rbrack dS'}\]
+
+Si ottiene così, un integrale superficiale. La relazione è sempre valida, quindi, vale anche per il volumetto \(V\), su cui effettuare l'integrale, leggermente più grande del volumetto \(V'\), contenente le sorgenti del campo. All'esterno del volumetto la magnetizzazione è nulla, di conseguenza l'integrale di flusso è nullo, in quanto il vettore di magnetizzazione è nullo sulla superficie.
+
+\begin{figure}
+\centering
+\includegraphics[width=1.46875in,height=1.26687in,alt={P3617\#yIS1}]{media/7_MRISignal/image83.pdf}\caption{Figura .: Volume \(V\) su cui calcolare l'integrale, leggermente più grande di \(V'\) contenente gli spin}
+\end{figure}
+
+La forza elettromotrice si riduce a:
+
+\[emf = - \dfrac{\mu_{0}}{4\pi}\dfrac{d}{dt}\oint_{l}^{}{\left\lbrack - \int_{V'}^{}{\overset{\underline{}}{\nabla'}\left( \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|} \right) \times \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right)dV'} \right\rbrack \cdot d\overset{\underline{}}{l}} = \dfrac{\mu_{0}}{4\pi}\dfrac{d}{dt}\oint_{l}^{}{\int_{V'}^{}{\overset{\underline{}}{\nabla'}\left( \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|} \right) \times \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right)dV'} \cdot d\overset{\underline{}}{l}}\]
+
+Per la linearità è possibile invertire gli integrali su \(d\overset{\underline{}}{l}\) e \(dV'\):
+
+\[emf = \dfrac{\mu_{0}}{4\pi}\dfrac{d}{dt}\int_{V'}^{}{\oint_{l}^{}{\overset{\underline{}}{\nabla'}\left( \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|} \right) \times \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \cdot d\overset{\underline{}}{l}}dV'}\]
+
+Nell'integrale della fem. compare un prodotto misto, per cui valgono le identità:
+
+\[\overset{\underline{}}{\nabla'}\left( \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|} \right) \times \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \cdot d\overset{\underline{}}{l} = \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \times d\overset{\underline{}}{l} \cdot \overset{\underline{}}{\nabla'}\left( \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|} \right) = d\overset{\underline{}}{l} \times \overset{\underline{}}{\nabla'}\left( \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|} \right) \cdot \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right)\]
+
+L'ultimo termine può essere scritto come:
+
+\[\overset{\underline{}}{\nabla'}\left( \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|} \right) \times \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \cdot d\overset{\underline{}}{l} = - \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \cdot \overset{\underline{}}{\nabla'}\left( \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|} \right) \times d\overset{\underline{}}{l}\]
+
+Dalla relazione \(\overset{\underline{}}{\nabla}f\left( \overset{\underline{}}{r} \right) \times \overset{\underline{}}{a}\left( \overset{\underline{}}{r} \right) = \overset{\underline{}}{\nabla} \times \left\lbrack f\left( \overset{\underline{}}{r} \right)\overset{\underline{}}{a}\left( \overset{\underline{}}{r} \right) \right\rbrack - f\left( \overset{\underline{}}{r} \right)\overset{\underline{}}{\nabla} \times \overset{\underline{}}{a}\left( \overset{\underline{}}{r} \right)\) è possibile scrivere:
+
+\[\overset{\underline{}}{\nabla'}\left( \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|} \right) \times d\overset{\underline{}}{l} = \overset{\underline{}}{\nabla} \times \left( \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}d\overset{\underline{}}{l} \right) - \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}\overset{\underline{}}{\nabla} \times \ d\overset{\underline{}}{l}\]
+
+La fem. può essere scritta come:
+
+\[emf = \dfrac{\mu_{0}}{4\pi}\dfrac{d}{dt}\int_{V'}^{}{\oint_{l}^{}\left\lbrack - \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \cdot {\overset{\underline{}}{\nabla}}' \times \left( \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}d\overset{\underline{}}{l} \right) + \overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \cdot \dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}{\overset{\underline{}}{\nabla}}' \times \ d\overset{\underline{}}{l} \right\rbrack}dV'\]
+
+\(d\overset{\underline{}}{l}\) è esterno al volumetto elementare, poiché versore che agisce sulla spira, dunque, \({\overset{\underline{}}{\nabla}}' \times \ d\overset{\underline{}}{l} = \overset{\underline{}}{0}\):
+
+\[emf = - \dfrac{\mu_{0}}{4\pi}\dfrac{d}{dt}\int_{V'}^{}{\overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \cdot {\overset{\underline{}}{\nabla}}' \times \oint_{l}^{}{\dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}d\overset{\underline{}}{l}}}dV'\]
+
+La circuitazione non opera all'interno del volumetto, dunque, su \({\overset{\underline{}}{r}}'\) ma solo sulla spira, quindi su \(\overset{\underline{}}{r}\). Di conseguenza, è possibile portare \(\overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right)\) all'esterno del simbolo di circuitazione.
+
+Nell'espressione della fem. compare il termine:
+
+\[\dfrac{\mu_{0}}{4\pi}\oint_{l}^{}{\dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}d\overset{\underline{}}{l}}\]
+
+È noto che il potenziale vettore generato da una corrente filiforme \(I\), che scorre nell'elemento infinitesimo di antenna \(d\overset{\underline{}}{l}\), è dato da:
+
+\[\overset{\underline{}}{A}\left( {\overset{\underline{}}{r}}' \right) = \dfrac{\mu_{0}}{4\pi}\oint_{l}^{}{\dfrac{I}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}d\overset{\underline{}}{l}}\]
+
+L'integrale nel calcolo della fem. è, quindi, il potenziale vettore nel punto \({\overset{\underline{}}{r}}'\) della spira usata come antenna quando in essa scorre una corrente unitaria. L'espressione della fem. si scrive come:
+
+\[emf = - \dfrac{\mu_{0}}{4\pi}\dfrac{d}{dt}\int_{V'}^{}{\overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \cdot {\overset{\underline{}}{\nabla}}' \times \oint_{l}^{}{\dfrac{1}{\left| \overset{\underline{}}{r} - {\overset{\underline{}}{r}}' \right|}d\overset{\underline{}}{l}}dV'} = - \dfrac{\mu_{0}}{4\pi}\dfrac{d}{dt}\int_{V'}^{}{\overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \cdot {\overset{\underline{}}{\nabla}}' \times \overset{\underline{}}{A}\left( {\overset{\underline{}}{r}}' \right)dV'}\]
+
+Il campo \({\overset{\underline{}}{B}}_{ric}\left( {\overset{\underline{}}{r}}' \right) = {\overset{\underline{}}{\nabla}}' \times \overset{\underline{}}{A}\left( {\overset{\underline{}}{r}}' \right)\) è il campo magnetico che sarebbe prodotto dalla spira ricevente in \({\overset{\underline{}}{r}}'\) se in essa scorresse una corrente unitaria. Il campo \({\overset{\underline{}}{B}}_{ric}\) è detto ricevente e l'equazione per la fem. si scrive come:
+
+\[emf = - \dfrac{\mu_{0}}{4\pi}\dfrac{d}{dt}\int_{V'}^{}{\overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \cdot {\overset{\underline{}}{B}}_{ric}\left( {\overset{\underline{}}{r}}' \right)dV'}\]
+
+La relazione ricava lega la forza elettromotrice alla magnetizzazione tramite la derivata dell'integrale di volume del prodotto scalare della magnetizzazione stessa col campo che sarebbe prodotto dalla spira in \({\overset{\underline{}}{r}}'\) con una corrente unitaria.
+
+Il costruttore e/o il progettista del macchinario realizzano l'antenna ricevente in modo che produca un campo noto in \({\overset{\underline{}}{r}}'\).
+
+Misurata la fem. indotta sulla spira, l'unica incognita della relazione per la fem. è la magnetizzazione.
+
+\[emf = - \dfrac{\mu_{0}}{4\pi}\dfrac{d}{dt}\int_{V'}^{}{\overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}' \right) \cdot {\overset{\underline{}}{B}}_{ric}\left( {\overset{\underline{}}{r}}' \right)dV'}\]
+
+Nell'ipotesi in cui il volume non vari nel tempo, è possibile scambiare il simbolo di derivata con quello di integrale:
+
+\[emf = - \dfrac{\mu_{0}}{4\pi}\int_{V'}^{}{\dfrac{\partial\overset{\underline{}}{M}\left( {\overset{\underline{}}{r}}',t \right)}{\partial t} \cdot {\overset{\underline{}}{B}}_{ric}\left( {\overset{\underline{}}{r}}' \right)dV'}\]
+
+Il campo generato della spira è fissato e non dipende dal tempo.
+
+Per effettuare l'\emph{imaging} si applica un impulso a radiofrequenza che ribalta la magnetizzazione. Durante il ritorno all'equilibrio, il vettore di magnetizzazione varia nel tempo, inducendo una fem. sulla spira ricevente, proporzionale alla velocità di variazione della magnetizzazione.
+
+Esplicitando il prodotto scalare tra magnetizzazione e campo ricevente si ottiene:
+
+\[emf = - \dfrac{\mu_{0}}{4\pi}\int_{V'}^{}{\left( \dfrac{\partial M_{x}}{\partial t}B_{ric,x} + \dfrac{\partial M_{y}}{\partial t}B_{ric,y} + \dfrac{\partial M_{z}}{\partial t}B_{ric,z} \right)dV'}\]
+
+Dato che le componenti trasverse \(M_{x}\) e \(M_{y}\) evolvono nel sistema fisso secondo un andamento oscillatorio smorzato, le derivate di queste componenti, a meno di costanti di fase, avranno dei termini del tipo:
+
+\[\omega_{0}M_{0}\exp\left( j\omega_{0}t \right) + \dfrac{\partial M_{z}}{\partial t}B_{ric,z}\]
+
+La componente longitudinale \(M_{z}\) evolve esponenzialmente con costante di tempo \(T_{1}\), quindi la derivata di tale componente rispetto al tempo sarà del tipo:
+
+\[\dfrac{1}{T_{1}}\exp\left( - \dfrac{t}{T_{1}} \right)\]
+
+Dato che \(\omega_{0}\) è dell'ordine di \(64 \cdot 10^{6}\ rad/s\) mentre il tempo di rilassamento \emph{spin-lattice} è di \(1\ s\), risulta che:
+
+\[\omega_{0} \gg \dfrac{1}{T_{1}}\]
+
+Nella fem. indotta, il contributo delle componenti trasversale è molto maggiore del contributo longitudinale, che può essere trascurato. In altre parole, la fem. è proporzionale approssimativamente solo alle derivate delle componenti trasverse:
+
+\[emf \propto \dfrac{\partial M_{x}}{\partial t}B_{ric,x} + \dfrac{\partial M_{y}}{\partial t}B_{ric,y}\]
+
+La componente longitudinale può essere trascurata.
+
+Si è dimostrato che il segnale ricevuto dall'antenna, indotto dalle variazioni della magnetizzazione macroscopica di un volumetto elementare del paziente è proporzionale a:
+
+\[emf \propto \int_{V'}^{}{\left( \dfrac{\partial M_{x}}{\partial t}B_{ric,x} + \dfrac{\partial M_{y}}{\partial t}B_{ric,y} + \dfrac{\partial M_{z}}{\partial t}B_{ric,z} \right)dV'}\]
+
+Dove \({\overset{\underline{}}{B}}_{ric}\) è il campo magnetico che sarebbe generato dall'antenna ricevente nella posizione \({\overset{\underline{}}{r}}'\) del volumetto paziente, quando in essa scorre una corrente unitaria. Questo campo non dipendente dal tempo, poiché la corrente è costantemente uguale a \(1\ A\). Il volumetto \(V'\) deve avere dimensioni opportune per far sì che vi sia un numero sufficiente di spin e, allo stesso tempo, avere una buona risoluzione dell'immagine.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.21667in,height=2.45459in,alt={P3664\#yIS1}]{media/7_MRISignal/image84.pdf}\caption{Figura .: Rappresentazione del vettore di magnetizzazione e del campo ricevuto}
+\end{figure}
+
+L'evoluzione temporale nel piano trasversale al campo principale del vettore di magnetizzazione può essere studiata mediante il fasore \(M_{+}\), definito come:
+
+\[M_{+}\left( \overset{\underline{}}{r},t \right) = M_{x}\left( \overset{\underline{}}{r},t \right) + jM_{y}\left( \overset{\underline{}}{r},t \right)\]
+
+Ne risulta che \(M_{x}\left( \overset{\underline{}}{r},t \right) = Re\left\{ M_{+}\left( \overset{\underline{}}{r},t \right) \right\}\) e \(M_{x}\left( \overset{\underline{}}{r},t \right) = Im\left\{ M_{+}\left( \overset{\underline{}}{r},t \right) \right\}\). Inoltre, si è visto che il fasore \(M_{+}\) può essere scritto come:
+
+\[M_{+}\left( \overset{\underline{}}{r},t \right) = M_{+}\left( \overset{\underline{}}{r},\ 0 \right)\exp\left( - j\omega_{0}t \right)\exp\left( - \dfrac{t}{T_{2}} \right) = \left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|\exp\left\lbrack j\phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack\exp\left( - j\omega_{0}t \right)\exp\left( - \dfrac{t}{T_{2}} \right)\]
+
+Il tempo di rilassamento \(T_{2}\) dipende dal particolare volumetto considerato, poiché tra i diversi volumetti cambiano le proprietà chimico-fisiche dei tessuti. Analogo discorso vale per la fase iniziale, infatti, ogni vettore di magnetizzazione presenta una fase iniziale nel piano \(x - y\) diverse in base alla posizione del volumetto. Le quantità \(\left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|\) e \(\phi_{0}\left( \overset{\underline{}}{r},\ 0 \right)\) dipendono dalle condizioni iniziali del volumetto.
+
+Siccome \(\omega_{0} \gg T_{1}^{- 1}\) è possibile trascurare la componente longitudinale nella valutazione della fem. Si suppone di applicare una perturbazione a opera di un campo magnetico a radiofrequenza; il vettore di magnetizzazione viene ribaltato lungo il piano trasverso lungo uno degli assi. Si osservi che è possibile avere anche delle perturbazioni che portano la magnetizzazione a giacere sul piano trasverso e non su uno degli assi.
+
+Interrotta la perturbazione, il vettore di magnetizzazione evolve secondo un andamento elicoidale con raggio variabile, descritto delle equazioni di Bloch. In questo contesto non è possibile trascurare i tempi di rilassamento, in quanto le evoluzioni delle componenti del vettore di magnetizzazione sono dettate dai tempi \(T_{1}\) e \(T_{2}\):
+
+\[\dfrac{d\overset{\underline{}}{M}}{dt} = \gamma\overset{\underline{}}{M} \times {\overset{\underline{}}{B}}_{0} + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\widehat{i}}_{z} - \dfrac{1}{T_{2}}{\overset{\underline{}}{M}}_{\bot}\]
+
+Il movimento del vettore di magnetizzazione induce sull'antenna un segnale fem. dipendente prevalentemente dalle componenti trasverse del vettore \(\overset{\underline{}}{M}\), descritte dal fasore \(M_{+}\left( \overset{\underline{}}{r},t \right)\). Questa quantità tiene conto della dipendenza dallo spazio, dal tempo di rilassamento trasversale, dalla fase e dalla frequenza di Larmor alla quale risuonano gli spin nel volumetto elementare. La frequenza di Larmor dei diversi volumetti può essere diversa a causa delle disomogeneità di campo o dei gradienti di campo applicato.
+
+Trascurando l'evoluzione longitudinale, la fem. indotta è proporzionale a:
+
+\[emf \propto \int_{V'}^{}{\left( \dfrac{\partial M_{x}}{\partial t}B_{ric,x} + \dfrac{\partial M_{y}}{\partial t}B_{ric,y} + \dfrac{\partial M_{z}}{\partial t}B_{ric,z} \right)dV'} \simeq \int_{V'}^{}{\left( \dfrac{\partial M_{x}}{\partial t}B_{ric,x} + \dfrac{\partial M_{y}}{\partial t}B_{ric,y} \right)dV'}\]
+
+Portando il simbolo di derivata all'esterno dell'integrale, nell'ipotesi che il volumetto elementare non vari nel tempo, è possibile scrivere:
+
+\[emf \propto \dfrac{d}{dt}\int_{V'}^{}{\left( M_{x}B_{ric,x} + M_{y}B_{ric,y} \right)dV'}\]
+
+La funzione integranda può essere espressa in espressa in termini del fasore:
+
+\[M_{x}B_{ric,x} + M_{y}B_{ric,y} = {\overset{\underline{}}{M}}_{\bot} \cdot {\overset{\underline{}}{B}}_{ric} = \left( Re\left\{ M_{+}\left( \overset{\underline{}}{r},t \right) \right\}{\widehat{i}}_{x} + Im\left\{ M_{+}\left( \overset{\underline{}}{r},t \right) \right\}{\widehat{i}}_{y} \right) \cdot {\overset{\underline{}}{B}}_{ric}\left( \overset{\underline{}}{r} \right)\]
+
+Dove:
+
+\[Re\left\{ M_{+}\left( \overset{\underline{}}{r},t \right) \right\} = Re\left\{ \left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|\exp\left\lbrack - j\left( \phi_{0}\left( \overset{\underline{}}{r} \right) - \omega_{0}\left( \overset{\underline{}}{r} \right)t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right) \right\} = \left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|\exp\left( - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right)\cos\left\lbrack \phi_{0}\left( \overset{\underline{}}{r} \right) - \omega_{0}\left( \overset{\underline{}}{r} \right)t \right\rbrack = \left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|\exp\left( - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right)\cos\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack\]
+
+\[Im\left\{ M_{+}\left( \overset{\underline{}}{r},t \right) \right\} = Im\left\{ \left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|\exp\left\lbrack - j\left( \phi_{0}\left( \overset{\underline{}}{r} \right) - \omega_{0}\left( \overset{\underline{}}{r} \right)t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right) \right\} = \left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|\exp\left( - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right)\sin\left\lbrack \phi_{0}\left( \overset{\underline{}}{r} \right) - \omega_{0}\left( \overset{\underline{}}{r} \right)t \right\rbrack = - \left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|\exp\left( - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right)\sin\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack\]
+
+Per cui la funzione integranda è data da:
+
+\[{\overset{\underline{}}{M}}_{\bot} \cdot {\overset{\underline{}}{B}}_{ric}\left( \overset{\underline{}}{r} \right) = \left( Re\left\{ M_{+}\left( \overset{\underline{}}{r},t \right) \right\}{\widehat{i}}_{x} + Im\left\{ M_{+}\left( \overset{\underline{}}{r},t \right) \right\}{\widehat{i}}_{y} \right) \cdot {\overset{\underline{}}{B}}_{ric}\left( \overset{\underline{}}{r} \right) = \left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|\exp\left( - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right)\left\lbrack B_{ric,x}\left( \overset{\underline{}}{r} \right)\cos\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack - B_{ric,y}\left( \overset{\underline{}}{r} \right)\sin\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack \right\rbrack\]
+
+La fem. indotta sull'antenna è data dalla derivata della quantità appena individuata:
+
+\[emf \propto \dfrac{d}{dt}\int_{V'}^{}{\left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|\exp\left( - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right)\left\lbrack B_{ric,x}\left( \overset{\underline{}}{r} \right)\cos\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack - B_{ric,y}\left( \overset{\underline{}}{r} \right)\sin\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack \right\rbrack dV'} =\]
+
+In ipotesi di volumetto costante nel tempo, è possibile scrivere:
+
+\[= \int_{V'}^{}{\dfrac{\partial}{\partial t}\left\{ \left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|\exp\left( - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right)\left\lbrack B_{ric,x}\left( \overset{\underline{}}{r} \right)\cos\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack - B_{ric,y}\left( \overset{\underline{}}{r} \right)\sin\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack \right\rbrack \right\} dV'} =\]
+
+Svolgendo la derivata temporale, si ha:
+
+\[= \int_{V'}^{}{\left\{ - \dfrac{1}{T_{2}\left( {\overset{\underline{}}{r}}' \right)}\left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|\exp\left( - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right)\left\lbrack B_{ric,x}\left( \overset{\underline{}}{r} \right)\cos\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack - B_{ric,y}\left( \overset{\underline{}}{r} \right)\sin\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack \right\rbrack + \left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|\exp\left( - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right)\left\lbrack - \omega_{0}\left( \overset{\underline{}}{r} \right)B_{ric,x}\left( \overset{\underline{}}{r} \right)\sin\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack - \omega_{0}\left( \overset{\underline{}}{r} \right)B_{ric,y}\left( \overset{\underline{}}{r} \right)\cos\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack \right\rbrack \right\} dV'} \simeq\]
+
+Siccome \(\omega_{0} \gg T_{2}^{- 1}\), è possibile trascurare il termine dipendente solamente dal tempo di rilassamento trasversale:
+
+\[\simeq \int_{V'}^{}{\left\{ \omega_{0}\left( \overset{\underline{}}{r} \right)\left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|\exp\left( - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right)\left\{ - B_{ric,x}\left( \overset{\underline{}}{r} \right)\sin\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack - B_{ric,y}\left( \overset{\underline{}}{r} \right)\cos\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack \right\} \right\} dV'} =\]
+
+All'interno dell'integrale sono presenti solo quantità dipendenti dalla posizione, come la fase iniziale, la frequenza di Larmon, tempo di rilassamento e magnetizzazione iniziale.
+
+Se il campo ricevente è del tipo:
+
+\[B_{ric,x}\left( \overset{\underline{}}{r} \right) = B_{\bot}\left( \overset{\underline{}}{r} \right)\cos\left\lbrack \vartheta\left( \overset{\underline{}}{r} \right) \right\rbrack,\ \ B_{ric,x}\left( \overset{\underline{}}{r} \right) = B_{\bot}\left( \overset{\underline{}}{r} \right)\sin\left\lbrack \vartheta\left( \overset{\underline{}}{r} \right) \right\rbrack\]
+
+Il segnale ricevuto può essere scritto come:
+
+\[= \int_{V'}^{}{\left\{ \omega_{0}\left( \overset{\underline{}}{r} \right)\left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|\exp\left( - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right)\left\{ - B_{\bot}\left( \overset{\underline{}}{r} \right)\cos\left\lbrack \vartheta\left( \overset{\underline{}}{r} \right) \right\rbrack\sin\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack - B_{\bot}\left( \overset{\underline{}}{r} \right)\sin\left\lbrack \vartheta\left( \overset{\underline{}}{r} \right) \right\rbrack\cos\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack \right\} \right\} dV'} = \int_{V'}^{}{\left\{ \omega_{0}\left( \overset{\underline{}}{r} \right)\left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|B_{\bot}\left( \overset{\underline{}}{r} \right)\exp\left( - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right)\left\{ - \cos\left\lbrack \vartheta\left( \overset{\underline{}}{r} \right) \right\rbrack\sin\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack - \sin\left\lbrack \vartheta\left( \overset{\underline{}}{r} \right) \right\rbrack\cos\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack \right\} \right\} dV'}\]
+
+Per le formula di addizione del seno:
+
+\[\cos{\vartheta\left( \overset{\underline{}}{r} \right)}\sin\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack + \sin{\vartheta\left( \overset{\underline{}}{r} \right)}\cos\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack = \sin\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) + \vartheta\left( \overset{\underline{}}{r} \right) \right\rbrack\]
+
+Dunque, trascurando il segno meno, si ottiene:
+
+\[emf \propto \int_{V'}^{}{\left\{ \omega_{0}\left( \overset{\underline{}}{r} \right)\left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|B_{\bot}\left( \overset{\underline{}}{r} \right)\exp\left( - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right)\sin\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) + \vartheta\left( \overset{\underline{}}{r} \right) \right\rbrack \right\} dV'}\]
+
+Le variazione della posizione della frequenza di precessione di Larmor, \(\omega_{0}\left( \overset{\underline{}}{r} \right)\), può essere omessa poiché le sue variazioni sono molto ridotte. È, infatti, possibile esprimere la frequenza di precessione di Larmor come:
+
+\[\omega_{0}\left( \overset{\underline{}}{r} \right) = \omega_{0} + \mathrm{\Delta}\omega_{0}\left( \overset{\underline{}}{r} \right)\]
+
+Le variazioni tipiche della frequenza \(\mathrm{\Delta}f = \mathrm{\Delta}\omega_{0}/2\pi\), sono molto piccole se confrontate con la quantità \(\gamma B_{0}/2\pi\). Infatti, tale quantità è dell'ordine di qualche \(kHz\), mentre la frequenza di risonanza è dell'ordine di \(60\ MHz\), per cui:
+
+\[\omega_{0} \gg \mathrm{\Delta}\omega_{0}\left( \overset{\underline{}}{r} \right)\]
+
+Per cui è possibile portare all'esterno dell'integrale \(\omega_{0}\):
+
+\[emf \propto \omega_{0}\int_{V'}^{}{\left\{ \left| M_{+}\left( \overset{\underline{}}{r},\ 0 \right) \right|B_{\bot}\left( \overset{\underline{}}{r} \right)\exp\left( - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right)\sin\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right)t - \phi_{0}\left( \overset{\underline{}}{r} \right) + \vartheta\left( \overset{\underline{}}{r} \right) \right\rbrack \right\} dV'}\]
+
+All'esterno dell'integrale le variazioni della pulsazione di Larmor possono essere trascurate, mentre all'interno della funzione trigonometrica è importante, in quanto tiene conto che la funzione sinusoidale può variare significativamente anche per piccole variazioni di \(\omega_{0}\).
+
+Il segnale misurato dipende essenzialmente dal tempo di rilassamento traversale, la fase iniziale, magnetizzazione iniziale e in parte anche dal campo generato dall'antenna che, comunque, è una quantità nota poiché opportunamente progettata.
+
+La dipendenza spaziale può essere trascurata se la magnetizzazione proviene da un piccolo campione omogeneo, come, ad esempio, come un bicchiere d'acqua. In questo caso l'integrale è di semplice risoluzione poiché nessuna quantità, come \(T_{2}\) e \(\omega_{0}\), non dipendono dalla posizione spaziale del cubetto elementare \(\overset{\underline{}}{r}\). Sia \(V_{s}\) il volume del campione, il segnale ottenuto è proporzionale a:
+
+\[emf \propto \omega_{0}\int_{V'}^{}{\left\{ \left| M_{+} \right|B_{\bot}\exp\left( - \dfrac{t}{T_{2}} \right)\sin\left\lbrack \omega_{0}t - \phi_{0} + \vartheta \right\rbrack \right\} dV'} = \omega_{0}\left| M_{+} \right|V_{s}B_{\bot}\exp\left( - \dfrac{t}{T_{2}} \right)\sin\left\lbrack \omega_{0}t - \phi_{0} + \vartheta \right\rbrack\]
+
+Affinché la frequenza di precessione sia costante è necessario che il campo principale sia uniforme in tutto lo spazio del campione. Questa ipotesi è verificata se il campione di materiale omogeneo ha dimensioni ridotte.
+
+Le costante di fase sono estremamente importi per il confronto di segnali provenienti da sorgenti di magnetizzazione diverse, in cui è necessario che si verificano degli abbattimenti tra le varie fase dei segnali. Le frequenze \(\omega_{0}\), \(M_{+}\) e \(B_{\bot}\) sono imposte dall'esterno dall'operatore.
+
+Per un campione omogeneo è semplice ottenere informazioni sulla fase. In particolare, avendo un segnale sinusoidale a frequenza \(\omega_{0}\) nota, il processo più semplice da utilizzare è la demodulazione coerente, ovvero una demodulazione in cui si estraggono le informazioni di fase della sinusoide.
+
+\subsection{Demodulazione del segnale registrato}\label{demodulazione-del-segnale-registrato}
+
+Le rapide oscillazioni alla frequenza \(\omega_{0}\), contenuti nel segnale registrato dalle antenne nella risonanza magnetica sono rimosse mediante una circuiteria elettronica che si occupa della demodulazione. Questo processo equivale ad analizzare il segnale proveniente dal sistema di riferimento rotante a frequenza di Larmor.
+
+Il processo di demodulazione corrisponde alla moltiplicazione del segnale estratto dalle antenne, \(s(t)\), per un'oscillazione a frequenza prossima a quella di Larmor, in fase col segnale da demodulare. In seguito, un filtro passa-basso (LPF) estrae le componenti di interesse del segnale in uscita dal moltiplicatore.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.67083in,height=2.07625in,alt={Immagine che contiene nero, oscurità}]{media/7_MRISignal/image85.pdf}\caption{Figura .: Demodulazione del segnale acquisito dalle antenne}
+\end{figure}
+
+Il segnale \(s(t)\) presente ha uno spettro centrato sulla frequenza \(\omega_{0}\). Si ha, quindi:
+
+\[s(t) \propto V_{S}M_{\bot}B_{\bot}\sin\left( \omega_{0}t - \phi_{0} + \vartheta \right)\]
+
+Nel caso in cui il segnale provenga da un piccolo campione omogeneo, lo spettro coincide con due impulsi centrati su \(\omega_{0}\).
+
+\begin{figure}
+\centering
+\includegraphics[width=3.87452in,height=3.425in]{media/7_MRISignal/image86.pdf}\caption{Figura .: Spettro di materiale omogeneo}
+\end{figure}
+
+In questo caso, la frequenza a cui risuonano gli spin del campione, in generale, può risulta diversa dall'oscillazione che produce il sistema di demodulazione. La frequenza del segnale \(s(t)\) registrato può essere espressa come:
+
+\[\omega = \omega_{0} + \delta\omega_{0}\]
+
+Dal punto di vista dello spettro, gli impulsi non sono centrati a \(\omega_{0}\), ma piuttosto dove a:
+
+\[\omega = \omega_{0} + \delta\omega_{0}\]
+
+Dove \(\delta\omega_{0}\) è nota come frequenza di offset rispetto la frequenza di Larmor \(\omega_{0}\).
+
+Trascurando la dipendenza da \(\exp\left( - t/T_{2} \right)\), il seganale registrato \(s(t)\) dipende solo dalla sinusoide:
+
+\[s(t) \propto \sin\left( \omega_{0}t + \delta\omega_{0}t + \vartheta - \phi_{0} \right)\]
+
+In uscita al moltiplicatore, si ottiene un segnale proporzionale a:
+
+\[s(t)\sin\left( \omega_{0}t \right) \propto \sin\left( \omega_{0}t + \delta\omega_{0}t + \vartheta - \phi_{0} \right)\sin\left( \omega_{0}t \right)\]
+
+Per le formule di prostaferesi, il segnale in uscita è proporzionale, a meno di un fattore \(1/2\), a:
+
+\[s(t)\sin\left( \omega_{0}t \right) \propto \cos\left( 2\omega_{o}t + \delta\omega_{0}t + \vartheta - \phi_{0} \right) - \cos\left( \delta\omega_{0}t + \vartheta - \phi_{0} \right)\]
+
+Ovvero il segnale in uscita dal moltiplicatore è dato dalla somma di un termine a frequenza \(2\omega_{o} + \delta\omega_{0}\) e un termine a frequenza \(\delta\omega_{0}\), differenza tra la frequenza di risonanza di Larmor e dell'oscillatore.
+
+Generalmente, risulta:
+
+\[2f_{o} + \delta f_{0} \gg \ \delta f_{0}\]
+
+Infatti, \(f_{0} \simeq 64\ MHz\), mentre \(\delta f_{0}\) è dell'ordine di qualche \(kHz\).
+
+È possibile eseguire un processo di filtraggio, attraverso il quale il termine a frequenza \(2f_{o} + \delta f_{0}\) è completamente rimosso, mentre il termine a bassa frequenza è lasciato inalterato.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.225in,height=1.9202in]{media/7_MRISignal/image87.pdf}\caption{Figura .: Filtraggio a valle del moltiplicatore}
+\end{figure}
+
+Nel momento in cui si considera il tempo di rilassamento \(T_{2}\), lo spettro non è più di tipo impulsivo ma è slargato e centrato sulle frequenze \(\delta f_{0}\) e \(2f_{0} + \delta f_{0}\). Mediante il processo di filtraggio, si conserva solamente il termine in bassa frequenza, centrato su \(\delta f_{0}\).
+
+Nel dominio del tempo, il segnale registrato dalle antenne è un'oscillazione ad alta frequenza, con ampiezza modulata dal termine \(\exp\left( - t/T_{2} \right)\).
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=3.69861in]{media/7_MRISignal/image88.pdf}\caption{Figura .: Segnale registrato dalle antenne}
+\end{figure}
+
+Dopo la demodulazione del segnale registrato, la frequenza della sinusoide modulata da \(\exp\left( - t/T_{2} \right)\) è data dalla bassa frequenza \(\delta f_{0}\), sovrapposta a un'eventuale differenza tra oscillatore locale e segnale registrato.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=3.69861in,alt={Immagine che contiene diagramma, linea, Diagramma Descrizione generata automaticamente}]{media/7_MRISignal/image89.pdf}\caption{Figura .: Segnale a valle della modulazione}
+\end{figure}
+
+Nella pratica, si realizza una demodulazione su due canali:
+
+\begin{itemize}
+\item
+  Su un canale il segnale registrato dalle antenne \(s(t)\) viene moltiplicato per un'oscillazione sinusoidale a frequenza \(\omega_{0}\);
+\item
+  Sul secondo canale, lo stesso segnale è moltiplicato per un'oscillazione cosinusoidale, in quadratura col seno, alla stessa frequenza \(\omega_{0}\).
+\end{itemize}
+
+Questo tipo di modulazione è detta coerente.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.79167in,height=3.14174in]{media/7_MRISignal/image90.pdf}\caption{Figura .: Demodulazione a due canali}
+\end{figure}
+
+Il segnale in uscita dal primo canale è proporzionale al \(\cos\left( \delta\omega_{0} + \vartheta - \phi_{0} \right)\), ovvero alla parte reale della quantità \(M_{+} = \exp\left( j\omega_{0}t \right)\exp\left\lbrack j\left( \vartheta - \phi_{0} \right) \right\rbrack\). Questo canale è detto reale e, studiando l'inviluppo del segnale ottenuto a frequenza \(\delta\omega_{0}\), è possibile ottenere informazioni sulla quantità \(T_{2}\), ovvero la costante di tempo con cui decade l'ampiezza dell'oscillazione.
+
+Il secondo canale è detto immaginario ed è ottenuto moltiplicando il segnale registrato dalle antenne per una cosinusoide a frequenza \(\omega_{0}\). Il segnale a valle del moltiplicatore è, quindi, proporzionale a:
+
+\[s(t)\cos\left( \omega_{o}t \right) \propto \sin\left( \omega_{0}t + \delta\omega_{0}t + \vartheta - \phi_{0} \right)\cos\left( \omega_{0}t \right)\]
+
+Per le formule di prostaferesi, a meno di un fattore moltiplicativo \(1/2\), si ha:
+
+\[s(t)\cos\left( \omega_{o}t \right) \propto \sin\left( \delta\omega_{0}t + \vartheta - \phi_{0} \right) - \sin\left( 2\omega_{0}t + \delta\omega_{0}t + \vartheta - \phi_{0} \right)\]
+
+Il segnale in uscita dal canale immaginario è la parte immaginaria della quantità \(M_{+} = \exp\left( j\omega_{0}t \right)\exp\left\lbrack j\left( \vartheta - \phi_{0} \right) \right\rbrack\).
+
+Mediante la demodulazione a due canali si riesce a ricostruire l'evoluzione sia della parte immaginaria che della parte immaginaria del segnale \(M_{+}\), ovvero le componenti longitudinali e trasversali del vettore di magnetizzazione \(\overset{\underline{}}{M}\).
+
+Siccome il segnale in ingresso ai due canali è lo stesso e poiché i due canali sono posti in parallelo, il rumore sovrapposto al segnale parte reale e parte immaginaria è correlato. In generale, si sfruttano altri schemi che sfruttano delle antenne poste in quadratura, ovvero orientate in maniera ortogonale tra loro, rispetto al campione di cui si vuole eseguire l'imaging.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.87533in,height=4.13095in]{media/7_MRISignal/image91.pdf}\caption{Figura .: Antenne in quadratura}
+\end{figure}
+
+Il segnale registrato da una delle due antenne è in quadratura col segnale registrato dalla seconda, quindi, è possibile ricavare la parte reale e immaginaria del fasore \(M_{+}\) ma con rumore incorrelato. Con questa soluzione è possibile aumentare il rapporto segnale/rumore.
+
+\subsection{Acquisizione con sequenza Free Induction Dacay}\label{acquisizione-con-sequenza-free-induction-dacay}
+
+Il segnale ricevuto dall'antenna, usata come detettore, \(s(t)\) non dipende semplicemente dai parametri del tessuto ma anche da come sono applicati i campo magnetici al corpo in esame, secondo una precisa sequenza di applicazione.
+
+La sequenza più semplice da applicare consiste nell'esperimento \emph{Free Induction Dacay} (decadimento libero dell'induzione) o FID, in cui si irradia il campione con un singolo impulso a radiofrequenza.
+
+Si suppone di avere un campione di un materiale omogeneo, contenente un numero di Avogadro di spin. Immediatamente dopo l'impulso a radiofrequenza \({\overset{\underline{}}{B}}_{1}\), la magnetizzazione, secondo l'equazione di Bloch, si porta dall'asse \({\widehat{i}}_{x'}\) o \({\widehat{i}}_{y'}\) al valore di equilibrio mediante una traiettoria ellittica.
+
+Il segnale registrato dalle antenne non è altro che il decadimento delle componenti trasversali del vettore di magnetizzazione durante la fase di ritorno all'equilibrio. Il segnale registrato dalle antenne, quindi, decade con costante di tempo \(T_{2}\).
+
+\begin{figure}
+\centering
+\includegraphics[width=4.83512in,height=2.48333in]{media/7_MRISignal/image92.pdf}\caption{Figura .: Sequenza FID nel sistema fisso del laboratorio}
+\end{figure}
+
+Nel sistema di riferimento rotante, il campo \({\overset{\underline{}}{B}}_{1}\) appare come un impulso costante sull'asse \({\widehat{i}}_{x'}\) o \({\widehat{i}}_{y'}\). Subito dopo l'esaurimento dell'impulso a radiofrequenze la magnetizzazione trasversale si riduce, in modulo, con costante di tempo \(T_{2}\).
+
+\begin{figure}
+\centering
+\includegraphics[width=4.125in,height=2.07423in]{media/7_MRISignal/image93.pdf}\caption{Figura .: Sequenza FID nel sistema rotante}
+\end{figure}
+
+Il segnale visto nel sistema rotante equivale al segnale acquisito nel sistema fisso dopo la demodulazione. Se la velocità di rotazione del sistema rotante, \(\omega\), è diversa dalla frequenza di Larmor \(\omega_{0}\), nel sistema rotante si osserva un'oscillazione a frequenza \(\delta\omega = \omega_{0} - \omega\).
+
+\begin{figure}
+\centering
+\includegraphics[width=4.02924in,height=2.45833in]{media/7_MRISignal/image94.pdf}\caption{Figura .: Sequenza FID nel sistema rotante con \(\delta\omega = \omega_{0} - \omega \neq 0\)}
+\end{figure}
+
+Si vuole studiare il comportamento della fase del segnale registrato. Il segnale di tensione indotto sull'antenna ricevente, in ipotesi di campione omogeneo, è proporzionale a:
+
+\[s(t) \propto \omega_{0}\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left\{ - j\left\lbrack \left( \omega_{0} - \omega \right)t + \phi_{0} - \vartheta_{B} \right\rbrack \right\}\int_{V}^{}{{\overset{\underline{}}{B}}_{\bot}\left( \overset{\underline{}}{r} \right) \cdot {\overset{\underline{}}{M}}_{\bot}\left( \overset{\underline{}}{r} \right)dV}\]
+
+Per un campione omogeneo, è possibile trascurare il prodotto scalare tra le componenti traverse del vettore di magnetizzazione e del campo prodotto dall'antenna ricevente nel punto \(\overset{\underline{}}{r} \in V\) se fosse percorsa da una corrente unitaria, in quanto si vuole studiare l'evoluzione della fase del segnale registrato. In altre parole, solamente l'argomento dell'esponenziale complesso è di interesse. Con un abuso di notazione si pone:
+
+\[\phi_{0} = \phi_{0} - \vartheta_{B}\]
+
+Dove \(\vartheta_{B}\) è la \emph{field angle}, ovvero l'angolo oltre il quale l'intensità della sorgente si riduce del \(10\%\).
+
+Con questa posizione la fase del segnale registrato è:
+
+\[\phi(t) = \left( \omega_{0} - \omega \right)t + \phi_{0}\]
+
+Una volta che il segnale è stato demodulato, le componenti frequenziali a frequenza maggiore di \(\delta\omega_{0}\) sono eliminate dal filtraggio passabasso. A valle della demodulazione, la fase è:
+
+\[\phi(t) = \delta\omega_{0}t + \phi_{0}\]
+
+Si osservi che l'attenuazione del segnale avviene con constante di tempo \(T_{2}\), la quale varia anche in base alle disomogeneità di campo magnetico. Il tempo \(T_{2}\) è legato allo sfasamento degli spin nel campo trasverso al campo principale. Questo sfasamento dipende dalle iterazioni spin-spin le quali alterano localmente il campo magnetico percepito da uno spin.
+
+Il campo magnetico principale non è omogeneo in tutto lo spazio occupato dal paziente, ma presenta una certa variabilità dell'ordine di grandezza di \(1\ ppa\). Il campo magnetico avvertito da uno spin può, quindi, essere espresso come somma del campo magnetico principale e di un certo termine \(\mathrm{\Delta}B\) legato alle disomogeneità:
+
+\[B\left( \overset{\underline{}}{r} \right) = B_{0} + \mathrm{\Delta}B\left( \overset{\underline{}}{r} \right)\]
+
+Le differenze locali dei campi magnetici sono percepite dai vari spin e si traducono in differenti frequenze di precessione. Dati due spin, che precedono rispettivamente alle frequenze \(\omega_{1}\) e \(\omega_{2}\), le frequenze con cui gli spin precedono possono essere espresse come:
+
+\[\omega_{1} = \omega_{0} + \mathrm{\Delta}\omega_{1},\ \ \omega_{2} = \omega_{0} + \mathrm{\Delta}\omega_{2}\]
+
+Dunque, oltre alle iterazioni spin-spin, si ha un ulteriore effetto legato ai limiti costruttivi dei meccanismi di generazione del campo. All'interno del volumetto elementare di circa \(1\ mm\) di lato e contente un numero di Avogadro di protoni, gli effetti elle impurità del campo si traducono in una riduzione significativa del tempo di rilassamento traversale, poiché le fasi di distribuiscono ancor più casualmente. Mentre il tempo di rilassamento traversale \(T_{2}\) è legato alle interazioni spin-spin, il tempo di rilassamento \(T_{2}'\) è dovuto alle disomogeneità del campo principale.
+
+Il tempo complessivo con cui la componente trasversale \({\overset{\underline{}}{M}}_{\bot}\) si porta a zero è indicato con \(T_{2}^{*}\) ed è legato ai due tempi \(T_{2}\) e \(T_{2}'\) dalla relazione:
+
+\[\dfrac{1}{T_{2}^{*}} = \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'}\]
+
+La fase del segnale registrato dalle antenne in ricezione è:
+
+\[\phi(t) = \left( \omega_{0} - \omega \right)t + \phi_{0}\]
+
+Dove \(\omega = \gamma B_{0} + \gamma\mathrm{\Delta}B\). In definitiva, la fase del segnale è proporzionale a:
+
+\[\phi(t) \propto \gamma\mathrm{\Delta}Bt\]
+
+\(\phi(t)\) tende rapidamente a zero, quando si considera un volumetto elementare del paziente. Ciò determina un decadimento molto più rapido del segnale registrato dalle antenne.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.85833in,height=2.57017in]{media/7_MRISignal/image95.pdf}\caption{Figura .: Andamento dello sfasamento al variare del tempo di rilassamento}
+\end{figure}
+
+L'esperimento FID permette di effettuare lo \emph{shimming} del capo magnetico, ovvero la compensazione delle disomogeneità del campo principale mediante una serie di operazioni meccaniche ed elettriche, come la regolazione della corrente di alimentazione di apposite bobine dette, appunto, di \emph{shimming}. L'esperimento FID è effettuato a monte di altri al fine di omogeneizzare il campo principale.
+
+Un campo principale non omogeneo porta a una serie di problematiche nella valutazione dei tempi di rilassamento, ciò determina una forte incertezza durante l'imaging sulla localizzazione dei volumetti. Il posizionamento dei volumetti è legato ai gradienti di campo.
+
+\subsubsection{\texorpdfstring{Origine del tempo \(\mathbf{T}_{\mathbf{2}}^{\mathbf{*}}\)}{Origine del tempo \textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{2\}\}\^{}\{\textbackslash mathbf\{*\}\}}}\label{origine-del-tempo-mathbft_mathbf2mathbf}
+
+Si vuole determinare l'origine della relazione tra il tempo di rilassamento traversale \(T_{2}\) e quello \(T_{2}^{*}\) legato alle disomogeneità di campo.
+
+Il segnale captato dalle antenne è del tipo:
+
+\[s(t) \propto \omega_{0}\int_{V}^{}{\exp\left\lbrack - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right\rbrack{\overset{\underline{}}{B}}_{\bot}\left( \overset{\underline{}}{r} \right) \cdot {\overset{\underline{}}{M}}_{\bot}\left( \overset{\underline{}}{r} \right)\sin\left\lbrack \omega_{0}\left( \overset{\underline{}}{r} \right) \right\rbrack dV}\]
+
+In linea di principio, per un materiale generico, il tempo di rilassamento traversale, così come la frequenza di precessione di Larmor, dipende dalla posizione \(\overset{\underline{}}{r}\) del volumetto elementare nel corpo, anche a causa delle disomogeneità del campo \(\mathrm{\Delta}\overset{\underline{}}{B}\).
+
+Il processo di demodulazione coerente avviene a frequenza \(\omega\) generata dalla strumentazione di demodulazione e uguale alla velocità angolare del sistema rotante.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.14306in,height=3.19048in]{media/7_MRISignal/image96.pdf}\caption{Figura .: Demodulazione coerente a frequenza \(\omega\)}
+\end{figure}
+
+Il segnale demodulato può essere scritto in forma complessa:
+
+\[s(t) = Re\left\{ s(t) \right\} + jIm\left\{ s(t) \right\}\]
+
+Di pone \(s_{R}(t) = Re\left\{ s(t) \right\}\) e \(s_{I}(t) = Im\left\{ s(t) \right\}\), per cui:
+
+\[s(t) = s_{R}(t) + js_{I}(t)\]
+
+Si è visto che, a valle del processo di demodulazione, il segnale registrato è dato da:
+
+\[s(t) \propto \omega_{0}\int_{V}^{}{\exp\left\lbrack - \dfrac{t}{T_{2}\left( \overset{\underline{}}{r} \right)} \right\rbrack{\overset{\underline{}}{B}}_{\bot}\left( \overset{\underline{}}{r} \right) \cdot {\overset{\underline{}}{M}}_{\bot}\left( \overset{\underline{}}{r},0 \right)\exp\left\{ - j\left\lbrack \left( \omega - \omega_{0} \right)t + \phi_{o}\left( \overset{\underline{}}{r} \right) \right\rbrack \right\} dV}\]
+
+Il segnale \(s(t)\) è proporzionale a un'oscillazione complessa \(\exp(j\mathrm{\Delta}\omega t)\). Si suppone che la fase iniziale dell'oscillazione sia nulla, ovvero \(\phi_{o}\left( \overset{\underline{}}{r} \right) = 0\). Si considera, inoltre, un campione di materiale omogeneo come un bicchiere d'acqua. In questo caso, il tempo di rilassamento trasversale \(T_{2}\) non dipende dalla posizione. Si ritiene, infine, che l'antenna sia ideale, ovvero che il campo irradiato non dipende dalla posizione \(\overset{\underline{}}{r}\). Il segnale registrato, sotto queste ipotesi, è proporzionala a:
+
+\[s(t) \propto \omega_{0}\exp\left( - \dfrac{t}{T_{2}} \right)B_{\bot}\int_{V}^{}{M_{\bot}\left( \overset{\underline{}}{r},0 \right)\exp(j\mathrm{\Delta}\omega t)dV}\]
+
+Le disomogeneità di campo principale \(\mathrm{\Delta}B\) introducono delle variazioni della frequenza di precessione dei vari isocromi, dell'ordine della decina di \(kHz\). La variazione della differenze tra le frequenze di oscillazione del sistema e di precessione degli spin può essere descritta mediante una distribuzione gaussiana o lorentziana.
+
+La distribuzione guassiana che meglio descrive le variazioni di frequenza \(\mathrm{\Delta}\omega\) presenta una media nulla e una varianza dipendente dalla disomogeneità del campo magnetico. Gli spin che presentano una differenza di frequenza positiva, ovvero \(\mathrm{\Delta}\omega > 0 \Leftrightarrow \omega_{0} - \omega > 0\), presentano una velocità maggiore rispetto al sistema di riferimento; mentre quelli per cui la differenza di frequenza è negativa, ovvero \(\mathrm{\Delta}\omega < 0 \Leftrightarrow \omega_{0} - \omega < 0\), presentano una velocità inferiore dell'oscillatore.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.22727in,height=2.60327in]{media/7_MRISignal/image97.pdf}\caption{Figura .: Distribuzione gaussiana}
+\end{figure}
+
+Un'altra possibile distribuzione che può essere attribuita alla variazione della frequenza di precessione è la lorentziana, descritta dalla \(pdf\):
+
+\[p(\mathrm{\Delta}\omega) = \dfrac{2T_{2}'}{1 + (2\pi\mathrm{\Delta}f)^{2}{T_{2}'}^{2}}\]
+
+Dove \(T_{2}'\) è un parametro della lorentziana che, in questo caso, descrive le disomogeneità di campo magnetico, sorgenti della distribuzione stessa.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.12847in,height=2.5514in]{media/7_MRISignal/image98.pdf}\caption{Figura .: Distribuzione lorentziana}
+\end{figure}
+
+Prove sperimentali hanno dimostrato che la reale distribuzione delle frequenze di processione presenta valori intermedi tra le due distribuzioni citate. Per semplicità, si ritiene che la distribuzione delle frequenze di processione sia di tipo lorentziana.
+
+Il segnale prelevato, a seguito della demodulazione, ricorrendo alla \(pdf\) lorentziana, può essere espresso come:
+
+\[s(t) \propto \omega_{0}\exp\left( - \dfrac{t}{T_{2}} \right)B_{\bot}\int_{- \infty}^{+ \infty}{p(\mathrm{\Delta}\omega)\exp(j\mathrm{\Delta}\omega t)d\omega}\]
+
+La percentuale degli isocromati è espressa dalla \(pdf\) lorentziana, ovvero:
+
+\[s(t) \propto \omega_{0}\exp\left( - \dfrac{t}{T_{2}} \right)B_{\bot}\int_{- \infty}^{+ \infty}{\dfrac{2T_{2}'}{1 + (2\pi\mathrm{\Delta}f)^{2}{T_{2}'}^{2}}\exp(j2\pi\mathrm{\Delta}ft)df}\]
+
+La percentuale degli isocromati è massima per \(\mathrm{\Delta}f = 0\), ed è uguale a \(2T_{2}'\); mentre tende a zero per \(\mathrm{\Delta}f \rightarrow \pm \infty\).
+
+L'integrale rappresenta l'antitrasformata di Fourier della \(pdf\) della lorentziana. È noto che:
+
+\[\int_{- \infty}^{+ \infty}{\dfrac{2T_{2}'}{1 + (2\pi\mathrm{\Delta}f)^{2}{T_{2}'}^{2}}\exp(j2\pi\mathrm{\Delta}ft)df} = \exp\left( - \dfrac{|t|}{T_{2}'} \right)\]
+
+Siccome si considerano tempi positivi, \(t > 0\), il segnale registrato è proporzionale a:
+
+\[s(t) \propto \omega_{0}\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left( - \dfrac{t}{T_{2}'} \right) = \omega_{0}\exp\left\lbrack - t\left( \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} \right) \right\rbrack\]
+
+Si definisce:
+
+\[\dfrac{1}{T_{2}^{*}} = \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'}\]
+
+Il tempo \(T_{2}^{*}\) dipende dalla distribuzione della frequenza di precessione dei singoli isocromi, dovuta alle disomogeneità di campo quest'ultimo parametro quantificato da \(T_{2}'\) nella distribuzione di lorentziana, e dal tempo \(T_{2}\), legato alle caratteristiche del materiale in esame.
+
+L'uso della distribuzione di Lorentz rende l'analisi del tempo di rilassamento \(T_{2}^{*}\) molto semplice dal punto di vista analitico, ma non descrive in modo molto accurato i fenomeni reali. Al contrario, la distribuzione gaussiana rende l'analisi più complessa, poiché non esiste una primitiva della \(pdf\). Nei modelli simulati si preferisce utilizzare la distribuzione gaussiana in quanto di più semplice implementazione.
+
+\subsection{Sequenza spin-echo}\label{sequenza-spin-echo}
+
+Anche in presenza di opportune compensazioni, il campo magnetico principale presente una disomogeneità dell'ordine di \(1\ ppm\), ovvero:
+
+\[\mathrm{\Delta}B \simeq 10^{- 6}B_{0}\]
+
+Se, \(B_{0} = 1.5\ T\), la disomogeneità di campo è dell'ordine di \(1.5\ \mu T\). Sebbene tale variazione sia molto bassa, la disomogeneità di campo non può essere trascurata, poiché confrontabile con le variazioni locali del campo, a opera degli spin.
+
+Il tempo di rilassamento \(T_{2}^{*}\) è strettamente legato alle disomogeneità di campo, infatti, per un \(\mathrm{\Delta}B = 1\ ppm\), il tempo \(T_{2}\) di un tessuto passa da \(100\ ms\) a \(5\ ms\) o minore. Inoltre, le disomogeneità di campo possono ridurre fortemente il segnale ottenuto. Per evitare ciò sono state proposte delle sequenze di impulsi per attenuare gli effetti della disomogeneità di campo. La prima proposta è la sequenza spin-echo, composta da due impulsi: il primo su un asse trasversale come \({\widehat{i}}_{x'}\) che fa ruotare la magnetizzazione sul piano trasverso, allineandolo all'asse lungo cui è diretto l'impulso. Se, ad esempio, l'asse di rotazione è \(x'\), l'impulso è indicato con \((\pi/2)_{x'}\), in quanto ruota il vettore di magnetizzazione di un angolo pari a \(\pi/2\), così da precedere intorno all'asse \(x'\).
+
+Il secondo impulso può essere diretto sia lungo \({\widehat{i}}_{x'}\) sia lungo \({\widehat{i}}_{y'}\) ed è di tipo \(\pi\), ovvero ruota la magnetizzazione nel piano trasverso di un angolo pari a \(\pi\)
+
+\begin{figure}
+\centering
+\includegraphics[width=5.43021in,height=1.3332in,alt={Immagine che contiene linea, diagramma, bianco Descrizione generata automaticamente}]{media/7_MRISignal/image99.pdf}\caption{Figura .: Sequenza spin-echo}
+\end{figure}
+
+Al termine del primo impulso a \(\pi/2\) lungo l'asse \(x'\), si registra il segnale \(s(t)\), dato da un'oscillazione a elevata frequenza, nello spettro delle radio-onde, con un'ampiezza che decade con costante di tempo \(T_{2}^{*}\).
+
+Nel sistema di riferimento rotante, i vari spin del volumetto elementare si sfasano tra loro molto rapidamente; per cui, in poco tempo, si orientano in modo casuale, ottenendo così una risultate nulla nel piano trasverso. Il tempo necessario per l'azzeramento della componente trasversa del vettore di magnetizzazione è di circa \(5\ ms\).
+
+Si applica un secondo impulso di \(\pi\) sull'asse \(x'\). Si considera uno spin generico. Esso si trova nel piano trasverso al campo principale \(B_{0}\) e precede interno all'asse \(x'\). Applicato l'impulso a \(\pi\), lo spin percorre metà circonferenza intorno all'asse \(x'\), trovandosi così nel lato opposto, rispetto all'asse \(x'\), alla posizione che occupava prima dell'applicazione dell'impulso a \(\pi\). Generalizzando, dopo l'applicazione dell'impulso a \(\pi\), ogni spin si trova in una posizione speculare alla precedente, rispetto all'asse su cui è applicato l'impulso.
+
+Si osservi che ogni spin possiede una propria frequenza di precessione a causa delle disomogeneità di campo, esprimibile come \(\omega = \omega_{0} + \mathrm{\Delta}\omega\). Gli spin che presentano una frequenza di precessione maggiore ovvero \(\mathrm{\Delta}\omega < 0\), si trovano a destra dell'asse \(x'\), ovvero per \(y' > 0\). Questi spin si allontanano dall'asse \(x'\) poiché la loro fase è negativa nel sistema di riferimento rotante e il loro moto avviene in senso antiorario. Viceversa, gli spin con una frequenza di precessione maggiore della velocità di rotazione del sistema di riferimento rotante, si trovano alla sinistra dell'asse \(x'\), ovvero nella regione di spazio \(y' < 0\). Questi spin, avendo \(\mathrm{\Delta}\omega > 0\), si allontanano dall'asse \(x'\) in senso orario. Infine, gli spin che presentano una \(\mathrm{\Delta}\omega = 0\) precedono alla frequenza \(\omega_{0}\), quindi, sono fermi nel sistema di riferimento rotante.
+
+Dopo l'applicazione dell'impulso a \(\pi\) intorno all'asse \(x'\), gli spin sono ruotati in modo a occupare una posizione speculare rispetto all'asse lungo cui è applicato l'impulso. Di conseguenza, gli spin che precedono con frequenza minore (\(\mathrm{\Delta}\omega > 0\)) si trovano nella regione di spazio che era occupata dagli spin con frequenza di precessione maggiore del sistema di riferimento rotante (\(y' < 0\)) e viceversa.
+
+La frequenza con cui gli spin precedono non cambia con l'applicazione degli impulsi a radiofrequenza, poiché \(\mathrm{\Delta}\omega\) dipende solo dalla disomogeneità del campo principale, non modificata dagli impulsi.
+
+Gli spin lenti, cioè con \(\mathrm{\Delta}\omega < 0\), tendono ad avvicinarsi all'asse \(x'\) in senso antiorario, mentre gli spin veloci, con \(\mathrm{\Delta}\omega > 0\), si muovono verso l'asse \(x'\) in senso orario. Si osservi, tuttavia, che nel sistema fisso del laboratorio tutti gli spin si muovono in senso orario.
+
+Dopo l'applicazione dell'impulso a \(\pi\), gli spin tendono a rioccupare le posizioni che occupavano prima della radioonda. In questo caso si parla di rifocalizzazione, in quanto, dopo un certo tempo, tutti gli spin sanno allineati nuovamente lungo l'asse \(x'\).
+
+\begin{figure}
+\centering
+\includegraphics[width=4.62912in,height=4.42403in,alt={Immagine che contiene diagramma, disegno, schizzo, Disegno tecnico Descrizione generata automaticamente}]{media/7_MRISignal/image100.pdf}\caption{Figura .: Movimento degli spin nella sequenza spin-echo}
+\end{figure}
+
+Nel sistema di riferimento fisso, le varie componenti trasversali degli spin si sommano, producendo un progressivo aumento della componente trasversale, poiché i vari spin si stanno rifocalizzando, portando la somma delle loro componenti trasversali a un valore abbastanza significativo. Dunque, la magnetizzazione trasversale diventa sempre più intensa. Dopo che la magnetizzazione raggiunge il massimo, si ha lo stesso comportamento dopo l'applicazione dell'impulso a \(\pi/2\). Infatti, spin lenti e veloci nel sistema di riferimento rotante tendono a raggiungere il comportamento all'equilibrio termodinamico, mediante un defasamento degli spin, il quale tende ad annullare la componente trasversale della magnetizzazione.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.00295in,height=0.95921in,alt={Immagine che contiene schizzo, disegno, linea, arte Descrizione generata automaticamente}]{media/7_MRISignal/image101.pdf}\caption{Figura .: Segnale registrato dopo l'applicazione dell'impulso a \(\pi\)}
+\end{figure}
+
+Questo processo avviene poiché gli spin conservano la loro frequenza di precessione, dunque, ci sarà un istante in cui gli spin attraversano l'asse \(x'\); dopodiché la magnetizzazione si rilasserà con una costante di tempo \(T_{2}^{*}\). Si noti, inoltre, che anche la rifocalizzazione avviene con costante di tempo \(T_{2}^{*}\), poiché dipendente dalle disomogeneità di campo.
+
+La sequenza spin-echo, composta dai due impulsi, sfrutta la rifocalizzazione della magnetizzazione per stimare il tempo \(T_{2}\).
+
+Analiticamente, è possibile determinare l'instante di tempo in cui la magnetizzazione si rifocalizzata sull'asse \(x'\). La fase dei vari spin è legata alla disomogeneità di campo principale, nel sistema di riferimento rotante, dalla relazione:
+
+\[\phi(t) = - \gamma\mathrm{\Delta}Bt\]
+
+Nel tempo, la fase decresce finché non si applica il secondo impulso. In altre parole, dopo l'applicazione del primo impulso a \(\pi\), per un certo spin, la fase decresce con legge lineare nel tempo.
+
+Sia \(t = 0\ s\) il tempo di fine dell'impulso a \(\pi/2\); dopo un tempo \(\tau\) si applica l'impulso a \(\pi\). La fase dello spin dopo quest'ultimo sarà opposta a quella che lo spin possedeva all'istante di tempo appena precedente a \(\tau\). Ciò è dovuto al fatto che gli spin sono ribaltati rispetto all'asse su cui è applicativo l'impulso a \(\pi\).
+
+Analiticamente, sia \(\phi\left( \tau^{-} \right)\) la fase un istante prima dell'applicazione dell'impulso a \(\pi\):
+
+\[\phi\left( \tau^{-} \right) = - \gamma\mathrm{\Delta}B\tau\]
+
+La fase subito dopo l'interruzione del secondo impulso nel sistema rotante è:
+
+\[.\phi\left( \tau^{+} \right) = - \ \phi\left( \tau^{-} \right) = \ \gamma\mathrm{\Delta}B\tau\]
+
+Esaurito l'impulso a \(\pi\), l'andamento della fase continua a decrescere linearmente, con una fase iniziale \(\phi_{0} = \ \gamma\mathrm{\Delta}B\tau\):
+
+\[\phi(t) = - \gamma\mathrm{\Delta}B(t - \tau) + \ \gamma\mathrm{\Delta}B\tau = \gamma\mathrm{\Delta}B(2\tau - t)\]
+
+Ciò accade poiché l'applicazione degli impulsi non provoca una variazione nella disomogeneità del campo principale, dunque, la frequenza di precessione degli spin non varia a causa degli impulsi a radiofrequenze.
+
+Nel diagramma delle fasi si hanno due tratti paralleli: il primo parte da una condizione di equilibrio, quindi, evolve dallo zero fino a raggiungere la fase \(\phi\left( \tau^{-} \right) = - \gamma\mathrm{\Delta}B\tau\) a causa dell'applicazione del primo impulso. Il secondo tratto ha la stessa pendenza, poiché \(\mathrm{\Delta}B\) è costante, ed ha come condizione iniziale \(\phi_{0} = \ \gamma\mathrm{\Delta}B\tau\).
+
+\begin{figure}
+\centering
+\includegraphics[width=5.13386in,height=3.25197in]{media/7_MRISignal/image102.pdf}\caption{Figura .: Diagrammi della fase dopo l'applicazione dell'impulso a \(\pi/2\)}
+\end{figure}
+
+Ogni spin vede una disomogeneità di campo principale \(\mathrm{\Delta}B\) diversa, dunque, la rispettiva fase evolve con una pendenza diversa. In ogni caso, tutte le fasi degli spin convergono alla fase nulla nello stesso istante, per il parallelismo tra l'andamento dell'andamento della fase prima e dopo l'applicazione dell'impulso a \(\pi\).
+
+\begin{figure}
+\centering
+\includegraphics[width=5.12992in,height=3.25197in]{media/7_MRISignal/image103.pdf}\caption{Figura .: Per tutte gli spin le fasi si annullano nello stesso istante}
+\end{figure}
+
+Il tempo in cui la fase di tutti gli spin è nulla è data dall'equazione:
+
+\[\phi(t) = 0 \Leftrightarrow \mathrm{\Delta}B(2\tau - t) = 0 \Leftrightarrow t = 2\tau\]
+
+Il tempo necessario affinché la fase si annulla, dopo l'applicazione dell'impulso a \(\pi\), è esattamente \(2\tau\), dove \(\tau\) è l'intervallo di tempo tra i due impulsi. Nell'istante \(t = 2\tau\), il segnale di magnetizzazione è il più alto possibile.
+
+Applicando un impulso a \(\pi/2\) si ha un primo sfasamento. Dopo un tempo \(\tau\) si applica il secondo impulso a \(\pi\). La magnetizzazione presenta, quindi, una prima fase di rifasamento e una seconda di defasamento. Per entrambi gli impulsi, per ogni step, gli inviluppo presentano un andamento con costante di tempo \(T_{2}^{*}\).
+
+\begin{figure}
+\centering
+\includegraphics[width=4.81835in,height=3.11733in,alt={Immagine che contiene schizzo, diagramma, disegno, linea Descrizione generata automaticamente}]{media/7_MRISignal/image104.pdf}\caption{Figura .: Sequenza spin-echo e segnale registrato}
+\end{figure}
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Figura .: Andamento degli spin nella sequenza spin-echo}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene orologio, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image105.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene orologio, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image106.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene orologio, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image107.pdf}\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene orologio, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image105.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene orologio, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image106.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene orologio, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image107.pdf}\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene orologio, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image108.pdf}\includegraphics[width=1.5in,height=1.28in]{media/7_MRISignal/image111.pdf}\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene schermata, aeromobile, aeroplano Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image114.pdf}\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene aeromobile Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image117.pdf}\includegraphics[width=1.5in,height=1.28in]{media/7_MRISignal/image120.pdf}\includegraphics[width=1.5in,height=1.28in]{media/7_MRISignal/image123.pdf}\end{longtable}
+
+Il punto in cui si ha il recupero della magnetizzazione, ovvero dove il segnale misurato è massimo, si trova in corrispondenza del tempo di echo, \(T_{E} = 2\tau\).
+
+Durante il processo, gli inviluppo vanno come \(T_{2}^{*}\), poiché legati alle disomogeneità di campo ma, tuttavia, questo è un tempo fittizio, poiché l'unico vero tempo è quello di rilassamento trasversale \(T_{2}\). L'iterazione spin-spin, quantificata appunto dal tempo \(T_{2}\), per com'è stata modellata non dipende dalle variazioni del campo principale, quindi, il suo effetto continua ad agire durante tutta la sequenza di applicazione degli impulsi.
+
+L'ampiezza degli impulsi registrati dalle antenne è modulata anche dalla costante di tempo \(T_{2}\). In altre parole, il primo decadimento e il successivo rifasamento-defasamento presentano delle ampiezze pesate da un termine \(\exp\left( - t/T_{2} \right)\), con cui la magnetizzazione si rilassa nel piano trasversale:
+
+\[M_{\bot} \propto \exp\left( - \dfrac{t}{T_{2}} \right)\]
+
+In definitiva, la magnetizzazione al tempo di echo è ridotta di \(\exp\left( - T_{E}/T_{2} \right)\) rispetto alla magnetizzazione misurata in corrispondenza del primo impulso a \(\pi/2\).
+
+Un primo metodo per ottenere una stima del tempo \(T_{2}\) da una sequenza di impulsi spin-echo consiste nell'attivare una finestra di acquisizione dopo un tempo \(\tau\) dal primo impulso. Il segnale ricevuto riguarda la rifocalizzazione degli spin e il conseguente defasamento.
+
+Il segnale ricevuto è registrato dalle antenne, demodulato e, in seguito, campionato così da poter eseguire delle elaborazioni digitali su di esso.
+
+\begin{figure}
+\centering
+\includegraphics[width=2.68333in,height=2.01894in]{media/7_MRISignal/image126.pdf}\caption{Figura .: Elaborazione del segnale registrato}
+\end{figure}
+
+È possibile misurare il picco dell'echo ricevuto, ricavando informazioni sulla magnetizzazione trasversale, che a sua volta dipende dal tempo \(T_{2}\):
+
+\[M_{\bot} \propto \exp\left( - \dfrac{T_{E}}{T_{2}} \right)\]
+
+In questo modo si ottengono informazioni su \(T_{2}\), annullando gli effetti del tempo \(T_{2}^{*}\). Tuttavia, la misura di un solo segnale non è sufficiente a valutare il tempo di rilassamento trasversale con buona precessione.
+
+La modulazione del segnale registrato come \(\exp\left( - t/T_{2} \right)\) è dovuto al fatto che il vettore di magnetizzazione \(\overset{\underline{}}{M}\) evolve secondo le leggi di Bloch, mentre i vari spin con stessa frequenza (iscocromati) hanno una fase casuale. L'effetto risultante è un segnale trasversale che decresce come \(\exp\left( - t/T_{2}^{*} \right)\) per effetto delle disomogeneità del campo; ciò porta gli spin isocromati a sfasarsi rapidamente rispetti ad altri isocromati, quindi, la magnetizzazione trasversa decade velocemente a zero.
+
+Il vettore di magnetizzazione, per le leggi di Bloch, ha un'ampiezza che decresce come \(\exp\left( - t/T_{2} \right)\). Grazie a questo fenomeno è possibile misurare il tempo di rilassamento trasversale.
+
+\subsection{Multiple spin-echo}\label{multiple-spin-echo}
+
+Esistono due principali soluzioni per stimare di rilassamento trasversale \(T_{2}\) mediante la sequenza spin-echo, entrambe basata sull'acquisizione di segnali con tempi di echo diversi.
+
+\subsubsection{Applicazione multipla della sequenza spin-echo}\label{applicazione-multipla-della-sequenza-spin-echo}
+
+Una prima strategia per ottenere una misura del tempo di rilassamento trasversale \(T_{2}\) consiste nell'applicazione di due sequenze spin-echo con impulsi a \(\pi\) distanziati a tempi di echo diversi. In questa soluzione, la sequenza consiste nell'applicazione di due sequenze spin-echo, separate da un certo intervallo di tempo. La prima sequenza presenta un tempo di echo indicato con \(T_{E_{1}}\), mentre la seconda di \(T_{E_{2}}\). In altre parole, subito dopo il decadimento della componente trasversa a valle della prima applicazione della spin-echo, il segnale acquisito nella seconda applicazione della spin-echo, parte della stessa condizione iniziale della prima ed evolve con stessa dinamica del tipo \(\exp\left( - t/T_{2} \right)\).
+
+\begin{figure}
+\centering
+\includegraphics[width=5.52083in,height=2.62445in]{media/7_MRISignal/image127.pdf}\caption{Figura .: Sequenze spin-echo con tempi di eco diversi}
+\end{figure}
+
+Successivamente, nelle finestre di acquisizione si registrano due echi, il primo con tempo \(T_{E_{1}}\) e il secondo con un tempo di echo \(T_{E_{2}}\) diversi tra loro. Dato il decadimento uguale per entrambe le sequenze spin-echo, acquisendo il segnale nella prima finestra si registra un segnale \(s\left( T_{E_{1}} \right)\) proporzionale al decadimento esponenziale delle componenti trasverse del vettore di magnetizzazione:
+
+\[s\left( T_{E_{1}} \right) \propto M_{\bot} \propto \exp\left( - \dfrac{T_{E_{1}}}{T_{2}} \right)\]
+
+Nella seconda finestra di acquisizione si registra un segnale al tempo di echo \(T_{E_{2}}\), proporzionale alla magnetizzazione trasversa:
+
+\[s\left( T_{E_{2}} \right) \propto M_{\bot} \propto \exp\left( - \dfrac{T_{E_{2}}}{T_{2}} \right)\]
+
+I due segnali ottenuti sono correlati, poiché la magnetizzazione è forzata a evolvere con lo stesso valore iniziale, ovvero \(M_{\bot}\left( \overset{\underline{}}{r},0 \right)\) è comune a entrambe le sequenze. Calcolando il rapporto tra i segnali ottenuti, i fattori di proporzionalità si semplificano, poiché uguali nei due termini, quindi si ottiene:
+
+\[\dfrac{s\left( T_{E_{1}} \right)}{s\left( T_{E_{2}} \right)} = \dfrac{\exp\left( - \dfrac{T_{E_{1}}}{T_{2}} \right)}{\exp\left( - \dfrac{T_{E_{2}}}{T_{2}} \right)}\]
+
+Per semplicità di notazione, si pone:
+
+\[s_{1} = s\left( T_{E_{1}} \right),\ \ s_{2} = s\left( T_{E_{2}} \right)\]
+
+Per cui è possibile scrivere
+
+\[\dfrac{s_{1}}{s_{2}} = \dfrac{\exp\left( - \dfrac{T_{E_{1}}}{T_{2}} \right)}{\exp\left( - \dfrac{T_{E_{2}}}{T_{2}} \right)} = \exp\left( - \dfrac{T_{E_{1}} - T_{E_{2}}}{T_{2}} \right)\]
+
+Invertendo quest'ultima relazione, è possibile ottenere un'espressione per la valutazione di \(T_{2}\):
+
+\[T_{2} = \dfrac{T_{E_{2}} - T_{E_{1}}}{\log\left( \dfrac{s_{1}}{s_{2}} \right)} = \dfrac{T_{E_{2}} - T_{E_{1}}}{\log\left( s_{1} \right) - \log\left( s_{2} \right)}\]
+
+In questo modo si è ottenuta una misura del tempo \(T_{2}\).
+
+Storicamente le prime misure biologiche del tempo \(T_{2}\) sui tessuti umani sfruttavano la metodica appena descritta. Tuttavia, le misure del tempo \(T_{2}\) eseguite sfruttano il segnale registrato, ai tempi di echo, dalle antenne e demodulato è affetta da un errore; infatti, i valori di \(s_{1}\) e \(s_{2}\) sono misurati con una certa incertezza, dunque, per la propagazione dell'errore, anche la valutazione dell'errore \(T_{2}\) è affetta da errore.
+
+La stima del tempo \(T_{2}\) presenta un errore che dipende dall'errore commesso sulla valutazione dei segnali ai tempi di echo \(T_{E_{1}}\) e \(T_{E_{2}}\). Tale errore può essere anche molto importante. Inoltre, l'ipotesi fondamentale, su cui si basa la valutazione di \(T_{2}\) con questa tecnica è che la magnetizzazione iniziale delle due sequenze spin-echo sia la stessa. Affinché questa ipotesi sia verificata, tra una sequenza spin-echo e la successiva deve passare un tempo almeno pari a \(5T_{1}\), in modo che la magnetizzazione raggiunga l'equilibrio.
+
+\subsubsection{\texorpdfstring{Applicazione multipla dei gradienti a \(\mathbf{\pi}\)}{Applicazione multipla dei gradienti a \textbackslash mathbf\{\textbackslash pi\}}}\label{applicazione-multipla-dei-gradienti-a-mathbfpi}
+
+Una soluzione per stimare il tempo di rilassamento trasversale \(T_{2}\) con maggiore precisione prevede l'acquisizione di più echi, mediante una sequenza nota come multiple echo. Si applica, cioè, un primo impulso a \(\pi/2\), il quale perturba l'equilibrio del campione. In seguito, si applica una serie di impulsi a \(\pi\) distanziati da un tempo \(\tau = T_{E}/2\).
+
+\begin{figure}
+\centering
+\includegraphics[width=4.64394in,height=2.92077in]{media/7_MRISignal/image128.pdf}\caption{Figura .: Sequenza multiple spin-echo}
+\end{figure}
+
+Con questa soluzione, mediante un'unica stimolazione inziale a \(\pi/2\), si acquisiscono più misure della magnetizzazione, così da valutare al meglio il tempo \(T_{2}\).
+
+Dal punto di vista del sistema rotante, il primo impulso a \(\pi/2\) ribalta la magnetizzazione sul piano trasverso, in modo che gli spin precedano su uno degli assi \(x'\) o \(y'\). Se l'impulso è applicato lungo l'asse \(y'\), ad esempio, la magnetizzazione si focalizza su questo asse. Gli spin si allontanano in senso orario dall'asse \(y'\) se precedono con una velocità maggiore della rotazione del sistema di riferimento, altrimenti in senso antiorario.
+
+Si applica l'impulso a \(\pi\), ad esempio, diretto lungo l'asse \(x'\). Gli spin sono così ribaltati in modo da occupare una posizione speculare rispetto all'asse su cui è applicato l'impulso, \(x'\), rispetto a quella che possedeva prima dell'impulso.
+
+Gli spin si rifocalizzano su \(- y'\), emettendo l'echo, e, in seguito, si defocalizzano a causa delle diverse velocità di precessione.
+
+Appena gli spin sono abbastanza defocalizzati, si applica un secondo impulso a \(\pi\) intorno all'asse \(x'\). Questa volta gli spin si focalizzano su \(y'\). Ripetendo la sequenza, gli spin si focalizzano alternativamente su \(y'\) e \(- y'\).
+
+Analogamente, se gli impulsi a \(\pi\) sono applicati lungo \(y'\), gli spin si focalizzano alternativamente su \(x'\) e \(- x'\).
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\caption{Figura .: Movimento degli spin nella sequenza multiple spin-echo}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, linea, design, testo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image129.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, linea, design, testo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image129.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, schermata, diagramma, testo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image130.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene linea, schermata, diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image131.pdf}\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, linea, design, testo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image129.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, linea, design, testo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image129.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, schermata, diagramma, testo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image130.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene linea, schermata, diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image131.pdf}\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, design, arte Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image132.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image136.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image140.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, design, arte Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image144.pdf}\includegraphics[width=1.5in,height=1.69243in]{media/7_MRISignal/image148.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, diagramma, linea, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image152.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene linea, schizzo, diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image156.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, linea, diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image160.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, linea, diagramma, disegno Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image164.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, linea, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image168.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, design, arte Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image172.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image176.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, diagramma, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image180.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, design, disegno, diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image184.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, diagramma, disegno, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image188.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image192.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, design, arte Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image196.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, diagramma, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image200.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, linea, diagramma, disegno Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image204.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, diagramma, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image208.pdf}\end{longtable}
+
+Gli impulsi di focalizzazione permettono di misurare un valore del segnale proporzionale alla magnetizzazione, in corrispondenza dei tempi di echo. Tutte le misure condividono lo stesso valore iniziale.
+
+In definitiva, il processo di misura equivale a un campionamento del segnale \(M_{\bot} \propto \exp\left( - t/T_{2} \right)\), con periodo di campionamento \(T_{E}\). Ciò permette una valutazione più accurata del tempo di rilassamento trasversale \(T_{2}\).
+
+In particolare, il tempo di rilassamento \(T_{2}\) è dell'ordine delle centinaia di \(ms\), per cui, affinché il segnale \(\exp\left( - t/T_{2} \right)\) possa considerarsi estinto, è necessario aspettare un intervallo temporale di \(5T_{2}\sim 500\ ms\). Scegliendo un tempo di echo di \(10\ ms\), è possibile eseguire circa \(50\) misurazioni per ricostruire l'evoluzione temporale della magnetizzazione trasversale \(M_{\bot} \propto \exp\left( - t/T_{2} \right)\).
+
+\paragraph{\texorpdfstring{Stima del tempo \(\mathbf{T}_{\mathbf{2}}\) da \(\mathbf{n}\) misurazioni}{Stima del tempo \textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{2\}\} da \textbackslash mathbf\{n\} misurazioni}}\label{stima-del-tempo-mathbft_mathbf2-da-mathbfn-misurazioni}
+
+Si suppone di applicare una sequenza multiple spin-echo. Il segnale misurato, a causa delle disomogeneità di campo, decresce con costante di tempo \(T_{2}^{*}\). Per l'applicazione degli impulsi a \(\pi\) ripetuti, l'ampiezza del picco massimo dell'echo si riduce come \(\exp\left( - t/T_{2} \right)\). Al tempo \(t_{n} = nT_{E}\) gli isocromi sono focalizzati sull'asse \(x'\) o su \(y'\). In questa condizione il segnale registrato ha un massimo, legati a \(\exp\left( - nT_{E}/T_{2} \right)\). Valutando i segnali registrati ai tempi di echo, si ottengono dei campioni del segnale \(\exp\left( - t/T_{2} \right)\), da cui è possibile ricavare il tempo di rilassamento trasversale \(T_{2}\).
+
+Il segnale \(s(t)\) misurato è uguale al modello scelto per descrivere il comportamento del vettore di magnetizzazione, a cui si somma un termine di errore \(\varepsilon\), supposto essere additivo:
+
+\[s(t) = \exp\left( - \dfrac{t}{T_{2}} \right) + \varepsilon\]
+
+Il modello non corrisponde esattamente alle misure sperimentali.
+
+Si valutano i campioni nei tempi di echi \(t_{n} = nT_{E}\):
+
+\[s\left( nT_{E} \right) = s_{n} = \exp\left( - \dfrac{nT_{E}}{T_{2}} \right) + \varepsilon_{n}\]
+
+Il termine di errore \(\varepsilon_{n}\) dipende dalla misura, in quanto ogni misura è affetta da un errore diverso dagli altri e statisticamente indipendenti.
+
+Per valutare il tempo \(T_{2}\) dalle \(n\) misurazioni si applica il metodo dei minimi quadrati o \emph{Least Squares} (LS) o \emph{Ordinary Least Squares} (OLS) ideato da Gauss. A tale scopo, per rendere la relazione tra la misura e la quantità da valutare lineare si applica il logaritmo a ambo i membri dell'equazione per \(s_{n}\):
+
+\[\log\left( s_{n} \right) = - \dfrac{nT_{E}}{T_{2}} + \varepsilon_{n}'\]
+
+Dove \(\varepsilon_{n}'\) è un termine di errore additivo dipendente dal logaritmo dell'errore \(\varepsilon_{n}\). La relazione così scritta può essere scritta nella forma:
+
+\[y = mx + q + \varepsilon\]
+
+Dove \(y = \log\left( s_{n} \right)\), \(m = - nT_{E}/T_{2}\) e \(q \neq 0\) in generale.
+
+Mediante \(n\) misurazioni si ottiene una popolazione di \(n\) coppie \(\left( y_{i},x_{i} \right)\), legati dalla relazione:
+
+\[y_{i} = mx_{i} + q + \varepsilon_{i},\ \ i = 1,\ldots,n\]
+
+Per ogni campione si ottiene una relazione lineare tra \(y\) e i coefficienti \(m\) e \(q\) della regressione. Il sistema di equazioni può essere scritto in forma matriciale:
+
+\[\left\{ \begin{matrix}
+y_{1} = mx_{1} + q + \varepsilon_{1} \\
+\ldots \\
+y_{n} = mx_{n} + q + \varepsilon_{n}
+\end{matrix} \right.\ \]
+
+Si introduce il vettore delle misure:
+
+\[\overset{\underline{}}{y} = \left( \begin{array}{r}
+y_{1} \\
+y_{2} \\
+\ldots \\
+y_{n}
+\end{array} \right)\]
+
+Si introduce la matrice dei coefficienti o di design:
+
+\[\overset{\underline{}}{\overset{\underline{}}{X}} = \begin{pmatrix}
+x_{1} & 1 \\
+x_{2} & 1 \\
+\ldots & \ldots \\
+x_{n} & 1
+\end{pmatrix}\]
+
+Infine, si definisce il vettore delle incognite, spesso indicato con il simbolo \(\overset{\underline{}}{\vartheta}\), con due sole componenti:
+
+\[\overset{\underline{}}{\vartheta} = \left( \begin{array}{r}
+m \\
+q
+\end{array} \right)\]
+
+La relazione di regressione può essere scritta come:
+
+\[\overset{\underline{}}{y} = \overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta}\]
+
+In generale, questa equazione è valida per ogni tipologia di regressione lineare e, dunque, anche il metodo proposto per valutare \(T_{2}\) è valido.
+
+Si osservi che \(\overset{\underline{}}{\overset{\underline{}}{X}}\) è una matrice \(2 \times n\), quindi, non può essere invertita per ottenere la soluzione. In generale, la matrice dei coefficienti nel metodo dei minimi quadrati è di \(m \times n\), dove \(m\) è il numero delle incognite.
+
+Sia \({\overset{\underline{}}{\vartheta}}^{*}\) il valore vero dei parametri incogniti; la seguente equazione:
+
+\[{\overset{\underline{}}{y}}^{*} = \overset{\underline{}}{\overset{\underline{}}{X}}{\overset{\underline{}}{\vartheta}}^{*}\]
+
+rappresenta il valore vero delle osservazioni.
+
+I vari elementi del vettore delle misure \(\overset{\underline{}}{y}\) sono affetti da rumore approssimabile come variabili aleatori \(\varepsilon_{i}\). Sia:
+
+\[\overset{\underline{}}{\varepsilon} = \left( \begin{array}{r}
+\varepsilon_{1} \\
+\varepsilon_{2} \\
+\ldots \\
+\varepsilon_{n}
+\end{array} \right)\]
+
+Si vuole trovare il vettore \(\overset{\underline{}}{\vartheta}\) tale da minimizzare l'errore quadratico medio, ovvero:
+
+\[\widehat{\overset{\underline{}}{\vartheta}} = {\arg{\min_{\overset{\underline{}}{\vartheta}}\left\| \overset{\underline{}}{\varepsilon} \right\|}}^{2} = \arg{\min_{\overset{\underline{}}{\vartheta}}\left\| \overset{\underline{}}{y} - \overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta} \right\|^{2}}\]
+
+I parametri \(\overset{\underline{}}{\vartheta}\) devono rendere minima la distanza tra le misure \(\overset{\underline{}}{y}\) e le previsioni del modello \(\overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta}\).
+
+La quantità \(\left\| \overset{\underline{}}{y} - \overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta} \right\|^{2}\) può essere scritta in forma matriciale come:
+
+\[\left\| \overset{\underline{}}{y} - \overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta} \right\|^{2} = \left( \overset{\underline{}}{y} - \overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta} \right)^{T}\left( \overset{\underline{}}{y} - \overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta} \right)\]
+
+Si indica con \(S\left( \overset{\underline{}}{\vartheta} \right) = \left\| \overset{\underline{}}{y} - \overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta} \right\|^{2}\), l'ultima relazione si scrive come:
+
+\[S\left( \overset{\underline{}}{\vartheta} \right) = \left( \overset{\underline{}}{y} - \overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta} \right)^{T}\left( \overset{\underline{}}{y} - \overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta} \right)\]
+
+Svolgendo il trasposto e i prodotti si ha:
+
+\[S\left( \overset{\underline{}}{\vartheta} \right) = \left( \overset{\underline{}}{y} - \overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta} \right)^{T}\left( \overset{\underline{}}{y} - \overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta} \right) = \left( {\overset{\underline{}}{y}}^{T} - {\overset{\underline{}}{\vartheta}}^{T}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T} \right)\left( \overset{\underline{}}{y} - \overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta} \right) = {\overset{\underline{}}{y}}^{T}\overset{\underline{}}{y} - {\overset{\underline{}}{y}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta} - {\overset{\underline{}}{\vartheta}}^{T}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{y} + {\overset{\underline{}}{\vartheta}}^{T}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta}\]
+
+Le quantità \({\overset{\underline{}}{y}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta}\) e \({\overset{\underline{}}{\vartheta}}^{T}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{y}\) sono degli scalari, quindi, possono essere sommati tra loro:
+
+\[S\left( \overset{\underline{}}{\vartheta} \right) = {\overset{\underline{}}{y}}^{T}\overset{\underline{}}{y} + {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}}{\overset{\underline{}}{\vartheta}}^{2} - 2{\overset{\underline{}}{y}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta}\]
+
+Minimizzare il valore quadratico medio equivale a uguagliare a zero la derivata della quantità \(S\left( \overset{\underline{}}{\vartheta} \right)\):
+
+\[\dfrac{\partial S\left( \overset{\underline{}}{\vartheta} \right)}{\partial\overset{\underline{}}{\vartheta}} = 0 \Leftrightarrow 2{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta} - 2{\overset{\underline{}}{y}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} = 0 \Leftrightarrow {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta} = {\overset{\underline{}}{y}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}}\]
+
+Risulta che:
+
+\[{\overset{\underline{}}{y}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} = {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{y}\]
+
+Per cui si ottiene:
+
+\[{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}}\overset{\underline{}}{\vartheta} = {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{y}\]
+
+Moltiplicando a destra e a sinistra per \(\left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}\), si ottiene l'equazione per la soluzione \emph{ordinary least squares}:
+
+\[\widehat{\overset{\underline{}}{\vartheta}} = \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{y}\]
+
+Si suppone che il rumore sia a media nulla, ovvero:
+
+\[E\left\lbrack \overset{\underline{}}{\varepsilon} \right\rbrack = \overset{\underline{}}{0}\]
+
+La matrice della covarianza è data da:
+
+\[E\left\lbrack \overset{\underline{}}{\varepsilon}{\overset{\underline{}}{\varepsilon}}^{T} \right\rbrack = \sigma^{2}\overset{\underline{}}{\overset{\underline{}}{I}}\]
+
+Si dimostra che la media della soluzione OLS tende al valore vero dei parametri incogniti \({\overset{\underline{}}{\vartheta}}^{*}\), infatti la media di \(\widehat{\overset{\underline{}}{\vartheta}}\) è data da:
+
+\[E\left\lbrack \widehat{\overset{\underline{}}{\vartheta}} \right\rbrack = E\left\lbrack \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{y} \right\rbrack\]
+
+Ma \(\overset{\underline{}}{y} = \overset{\underline{}}{\overset{\underline{}}{X}}{\overset{\underline{}}{\vartheta}}^{*} + \overset{\underline{}}{\varepsilon}\); inoltre la matrice di design non contiene variabili aleatorie, quindi, può essere portato fuori dall'operazione di media statistica:
+
+\[E\left\lbrack \widehat{\overset{\underline{}}{\vartheta}} \right\rbrack = E\left\lbrack \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{y} \right\rbrack = \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}E\left\lbrack \overset{\underline{}}{y} \right\rbrack = \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}E\left\lbrack \overset{\underline{}}{\overset{\underline{}}{X}}{\overset{\underline{}}{\vartheta}}^{*} + \overset{\underline{}}{\varepsilon} \right\rbrack =\]
+
+Per la linearità dell'operatore valor medio si ha:
+
+\[= \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\left( \overset{\underline{}}{\overset{\underline{}}{X}}E\left\lbrack {\overset{\underline{}}{\vartheta}}^{*} \right\rbrack + E\left\lbrack \overset{\underline{}}{\varepsilon} \right\rbrack \right)\]
+
+Per ipotesi il rumore è a media nulla, per cui:
+
+\[E\left\lbrack \widehat{\overset{\underline{}}{\vartheta}} \right\rbrack = \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}}E\left\lbrack {\overset{\underline{}}{\vartheta}}^{*} \right\rbrack\]
+
+Per definizione di matrice inversa risulta:
+
+\[E\left\lbrack \widehat{\overset{\underline{}}{\vartheta}} \right\rbrack = E\left\lbrack {\overset{\underline{}}{\vartheta}}^{*} \right\rbrack\]
+
+La stima di \(T_{2}\) con questo metodo è detto non polarizzata o \emph{unbiased}.
+
+Si calcola, ora, la matrice di covarianza; secondo la definizione si ha:
+
+\[E\left\lbrack \left( \widehat{\overset{\underline{}}{\vartheta}} - {\overset{\underline{}}{\vartheta}}^{*} \right)\left( \widehat{\overset{\underline{}}{\vartheta}} - {\overset{\underline{}}{\vartheta}}^{*} \right)^{T} \right\rbrack = E\left\lbrack \left( \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\left( \overset{\underline{}}{\overset{\underline{}}{X}}{\overset{\underline{}}{\vartheta}}^{*} + \overset{\underline{}}{\varepsilon} \right) - {\overset{\underline{}}{\vartheta}}^{*} \right)\left( \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\left( \overset{\underline{}}{\overset{\underline{}}{X}}{\overset{\underline{}}{\vartheta}}^{*} + \overset{\underline{}}{\varepsilon} \right) - {\overset{\underline{}}{\vartheta}}^{*} \right)^{T} \right\rbrack =\]
+
+Svolgendo i prodotti si ha:
+
+\[= E\left\lbrack \left( \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}}{\overset{\underline{}}{\vartheta}}^{*} + \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\varepsilon} - {\overset{\underline{}}{\vartheta}}^{*} \right)\left( \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}}{\overset{\underline{}}{\vartheta}}^{*} + \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\varepsilon} - {\overset{\underline{}}{\vartheta}}^{*} \right)^{T} \right\rbrack =\]
+
+Per la proprietà della matrice inversa, si ha:
+
+\[= E\left\lbrack \left( {\overset{\underline{}}{\vartheta}}^{*} + \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\varepsilon} - {\overset{\underline{}}{\vartheta}}^{*} \right)\left( {\overset{\underline{}}{\vartheta}}^{*} + \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\varepsilon} - {\overset{\underline{}}{\vartheta}}^{*} \right)^{T} \right\rbrack\]
+
+Semplificando e svolgendo i prodotti si ha:
+
+\[= E\left\lbrack \left( \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\varepsilon} \right)\left( \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\varepsilon} \right)^{T} \right\rbrack = E\left\lbrack \left( \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\varepsilon} \right)\left( {\overset{\underline{}}{\varepsilon}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}}\left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- T} \right) \right\rbrack = \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}E\left\lbrack \overset{\underline{}}{\varepsilon}{\overset{\underline{}}{\varepsilon}}^{T} \right\rbrack\overset{\underline{}}{\overset{\underline{}}{X}}\left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- T}\]
+
+Ma, per ipotesi \(E\left\lbrack \overset{\underline{}}{\varepsilon}{\overset{\underline{}}{\varepsilon}}^{T} \right\rbrack\overset{\underline{}}{\overset{\underline{}}{X}} = \sigma^{2}\overset{\underline{}}{\overset{\underline{}}{I}}\), per cui:
+
+\[E\left\lbrack \left( \widehat{\overset{\underline{}}{\vartheta}} - {\overset{\underline{}}{\vartheta}}^{*} \right)\left( \widehat{\overset{\underline{}}{\vartheta}} - {\overset{\underline{}}{\vartheta}}^{*} \right)^{T} \right\rbrack = \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\sigma^{2}\overset{\underline{}}{\overset{\underline{}}{I}}\overset{\underline{}}{\overset{\underline{}}{X}}\left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- T} = \sigma^{2}\left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}}\left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- T}\]
+
+Dove \({\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}}\) è una matrice simmetrica, per cui l'inversa è anch'essa simmetrica, ovvero:
+
+\[\left\lbrack \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1} \right\rbrack^{T} = \left\lbrack \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{T} \right\rbrack^{- 1} = \left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}\]
+
+Per cui:
+
+\[\left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}{\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} = \overset{\underline{}}{\overset{\underline{}}{I}}\]
+
+Di conseguenza:
+
+\[E\left\lbrack \left( \widehat{\overset{\underline{}}{\vartheta}} - {\overset{\underline{}}{\vartheta}}^{*} \right)\left( \widehat{\overset{\underline{}}{\vartheta}} - {\overset{\underline{}}{\vartheta}}^{*} \right)^{T} \right\rbrack = \sigma^{2}\left( {\overset{\underline{}}{\overset{\underline{}}{X}}}^{T}\overset{\underline{}}{\overset{\underline{}}{X}} \right)^{- 1}\]
+
+La curva stimata per ricostruire le misure può differire da quella teorica sia per eccesso che per difetto; tuttavia, non vi è modo di prevedere né di conoscere esattamente il parametro stimato. Ovviamente, minore è l'errore additivo e più precisa sarà la stima di \(T_{2}\) mediante il metodo dei minimi quadrati.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.78269in,height=3.17361in,alt={Exponential Fitting Using OriginLab 2021 \textbar{} \textbar{} Drawing/Graphing-27}]{media/7_MRISignal/image212.pdf}\caption{Figura .: Fitting della curva esponenziale}
+\end{figure}
+
+\subsection{Inversion recovery}\label{inversion-recovery}
+
+Le sequenze FID e spin-echo sono molto utili per determinare il tempo di rilassamento trasversale \(T_{2}\) e il tempo \(T_{2}^{*}\). Questi due esperimenti, tuttavia, non permettono di valutare il tempo di rilassamento longitudinale \(T_{1}\).
+
+Esiste un esperimento noto come \emph{inversion recovery} che permette di ottenere il tempo \(T_{1}\). Tale metodo può essere impiegato per ottenere una valutazione precisa del tempo di rilassamento longitudinale mediante una sola misura. Nello specifico, la sequenza \emph{inversion recovery} è simile alla spin-echo in cui l'impulso a \(\pi/2\) segue, dopo un opportuno intervallo temporale, un impulso a \(\pi\).
+
+Nella misura di \(T_{1}\) attraverso l'\emph{inversion recovery} è necessario analizzare l'evoluzione temporale della componente longitudinale del vettore di magnetizzazione, regolata dall'equazione di Bloch:
+
+\[\dfrac{dM_{z}}{dt} = \dfrac{1}{T_{1}}\left( M_{0} - M_{z} \right)\]
+
+Dopo l'impulso a \(\pi\) la magnetizzazione è ruotata in modo da essere orientata lungo la direzione negativa dell'asse \(z\).
+
+\begin{figure}
+\centering
+\includegraphics[width=3.95833in,height=4.19583in]{media/7_MRISignal/image213.pdf}\caption{Figura .: Inversione della magnetizzazione dopo l'impulso a \(\pi\)}
+\end{figure}
+
+Sia \(t = 0\) l'istante in cui l'impulso a \(\pi\) è interrotto. La magnetizzazione, in questo istante, è ribaltata di \(\pi\), per cui:
+
+\[M(0) = - M_{0}\]
+
+Dove \(M_{0}\) è il valore della magnetizzazione all'equilibrio termodinamico.
+
+Subito dopo l'applicazione dell'impulso a \(\pi\), il vettore di magnetizzazione evolve mediante un andamento esponenziale del tipo:
+
+\[M_{z}(t) = M_{0}\left\lbrack 1 - \exp\left( - \dfrac{t}{T_{1}} \right) \right\rbrack - M_{0}\exp\left( - \dfrac{t}{T_{1}} \right) = M_{0}\left\lbrack 1 - 2\exp\left( - \dfrac{t}{T_{1}} \right) \right\rbrack\]
+
+Al tempo \(t = T_{I}\) si applica l'impulso a \(\pi/2\) lungo uno degli assi trasversali, \(x'\) o \(y'\). A causa di ciò la magnetizzazione longitudinale è rovesciata nel piano trasversale tramite l'impulso a \(\pi/2\).
+
+\begin{figure}
+\centering
+\includegraphics[width=5.65428in,height=3.825in]{media/7_MRISignal/image214.pdf}\caption{Figura .: Andamento della componente longitudinale nel tempo}
+\end{figure}
+
+Dall'equazione per \(M_{z}(t)\) si nota che esiste un certo istante temporale in cui la magnetizzazione longitudinale si annulla. Se si applica in questo istante l'impulso a \(\pi/2\) non si registrerebbe nessun segnale, in quanto il vettore di magnetizzazione è nullo, dunque, non può essere ribaltato.
+
+Ogni tessuto presenta un tempo di rilassamento \(T_{1}\), quindi, applicando un impulso a \(\pi/2\) nel momento opportuno è possibile ottenere informazioni solamente da alcuni tessuti, mentre altri sono rimossi, in quanto non danno nessun contributo alla magnetizzazione longitudinale. In altre parole, i tessuti che presentano una magnetizzazione longitudinale nulla al tempo \(T_{I}\), \(M_{z}\left( T_{I} \right) = 0\), non contribuiscono all'immagine.
+
+Questa tecnica è utilizzata per rimuovere il grasso, processo noto come \emph{fat suppression}. Noto il tempo \(T_{1}\) del grasso, si applica un impulso a \(\pi\) per ribaltare la magnetizzazione, mentre il secondo impulso a \(\pi/2\) è applicato quando la magnetizzazione del grasso è nulla, così che questo tessuto non contribuisce all'immagine.
+
+Per ottenere la misura di \(T_{1}\) attraverso la sequenza \emph{inversion recovery}, si osservi che al tempo \(t = 0^{+}\), a fine applicazione dell'impulso a \(\pi\), si ha una magnetizzazione orientata lungo \(- {\widehat{i}}_{z}\):
+
+\[M\left( 0^{+} \right) = - M_{0}\]
+
+Prima del tempo \(T_{I}\) di applicazione dell'impulso a \(\pi/2\), il vettore di magnetizzazione longitudinale, ritorna all'equilibrio mediante la l'equazione:
+
+\[M_{z}(t) = M_{0}\left\lbrack 1 - 2\exp\left( - \dfrac{t}{T_{1}} \right) \right\rbrack,\ \ 0 < t < T_{I}\]
+
+Al tempo di inversione, si applica l'impulso a \(\pi/2\) che ribalta la magnetizzazione nel piano trasverso. Al tempo \(T_{I}\), la magnetizzazione longitudinale ha ampiezza:
+
+\[M_{z}\left( T_{I} \right) = M_{0}\left\lbrack 1 - 2\exp\left( - \dfrac{T_{I}}{T_{1}} \right) \right\rbrack\]
+
+La componente trasversale evolve, di conseguenza, mediante la legge:
+
+\[M_{\bot}(t) = \left| M_{0}\left\lbrack 1 - 2\exp\left( - \dfrac{T_{I}}{T_{1}} \right) \right\rbrack \right|\exp\left( - \dfrac{t - T_{I}}{T_{2}^{*}} \right)\]
+
+L'ampiezza del segnale misurato è modulata da un fattore dipendente dal tempo di rilassamento longitudinale \(T_{1}\) tramite \(\left| M_{0}\left\lbrack 1 - 2\exp\left( - T_{I}/T_{1} \right) \right\rbrack \right|\). Il segnale registrato dalle antenne, posizionate in modo da acquisire la magnetizzazione trasversale, si annulla quando:
+
+\[\left| M_{0}\left\lbrack 1 - 2\exp\left( - \dfrac{T_{I}}{T_{1}} \right) \right\rbrack \right| = 0 \Leftrightarrow \exp\left( - \dfrac{T_{I}}{T_{1}} \right) = \dfrac{1}{2}\]
+
+Questa relazione permette di ricavare il tempo di applicazione dell'impulso a \(\pi/2\) in funzione del tempo di rilassamento longitudinale di un tessuto:
+
+\[- \dfrac{T_{I}}{T_{1}} = \log\left( \dfrac{1}{2} \right) \Leftrightarrow \dfrac{T_{I}}{T_{1}} = - \log\left( \dfrac{1}{2} \right) \Leftrightarrow \dfrac{T_{I}}{T_{1}} = \log(2)\]
+
+Da cui:
+
+\[T_{I} = T_{1}\log(2)\]
+
+\begin{figure}
+\centering
+\includegraphics[width=4.41074in,height=3.03691in,alt={Immagine che contiene diagramma, linea, Diagramma Descrizione generata automaticamente}]{media/7_MRISignal/image215.pdf}\caption{Figura .: Andamento della magnetizzazione trasversale nel tempo nell'inversion recovery}
+\end{figure}
+
+Il segnale registrato \(s(t)\) è una funzione del tempo di rilassamento longitudinale \(T_{1}\) la cui valutazione richiede una scelta oculata del tempo di \emph{inversion recovery} \(T_{I}\), in quanto la magnetizzazione non deve essere nulla per il tessuto di interesse.
+
+Noto il tessuto è possibile ricavare il valore \(T_{I}\) per annullare i suoi contributi alla magnetizzazione trasversale. Questo azzeramento permette di cancellare i contributi di un tessuti di interesse. Ad esempio, eccitando i tessuti di un paziente con la sequenza spin-echo, a valle di un \emph{inversion recovery}, è possibile scegliere il tempo di echo tale che la magnetizzazione trasversa del tessuto da sopprimere sia nulla.

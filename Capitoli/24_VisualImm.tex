@@ -1,0 +1,93 @@
+\begin{center}
+\vfill
+    \chapter{Tecniche di visualizzazione delle immagini}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+\subsection{Rappresentazione multiplanare}\label{rappresentazione-multiplanare}
+
+Molti programmi di visualizzazione delle immagini radiografiche, che siano esse CT, PET o MRI, permettono di analizzare un distretto anatomico lungo i tre assi in cui è possibile sezionare il paziente, ovvero assiale, frontale e sagitale. Questa rappresentazione è nota come \emph{Multiplanar Reconstruction} o MPR.
+
+In MatLab è possibile implementare tale funzione mediante delle GUI in cui sono presenti tre finestre, nelle quali si visualizza l'immagine radiografica, sezionata rispetto a un piano, e uno \emph{Slider} che permette di scorrere una delle immagini lungo la direzione di taglio. Per rendere più chiara la visione, sono inseriti degli assi di riferimento che indicano la posizione della \emph{Slice} rispetto a quel piano di sezione.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.85924in,height=4.25833in,alt={P5681\#yIS1}]{media/24_VisualImm/image577.pdf}\caption{Figura .: Sezione anatomica con GUI}
+\end{figure}
+
+Per programmare una GUI è buona norma associare a ogni evento una o più azioni. Il paradigma di programmazione è basato sulla combinazione di azione dell'utente con \emph{Routine} eseguita corrispondente all'iterazione con l'esterno. A ogni azione, lo stato della GUI è aggiornato, con un meccanismo proprio della programmazione orientata agli oggetti.
+
+La \emph{callback} contiene il codice da eseguire all'atto dell'interazione con l'utente. In questo caso, nella finestra di apertura vi è un pulsate che permette di scegliere il file immagine (\emph{uigetfile}) che poi verrà letto (\emph{load}). Con \emph{guidata} si aggiorna lo stato della GUI, ovviamente bisogna fornire l'oggetto (\emph{hObject}) e i dati salvati nella struttura dati nota come \emph{handles}.
+
+Allo scorrere dello \emph{Slider}, la \emph{callback} aggiorna il valore corrente del piano, che sezione il paziente, relativo all'azione eseguita, e aggiorna le immagini nelle finestre coerentemente col piano considerato. Infine, si cambia la posizione delle linee rappresentanti la posizione della \emph{Slice} nel corpo del paziente, in base sempre alla posizione dei tre piani.
+
+\subsection{Maximum Intensity Projection}\label{maximum-intensity-projection}
+
+Una delle tecniche di visualizzazione molto utilizzate nelle applicazioni radiologiche è la \emph{Maximum Intensity Projection} o MIP, ovvero una proiezione a intensità massima. L'immagine mostrata è bidimensionale, con una determinata angolazione, ed è ottenuta proiettando i voxel con intensità massima lungo tutti i raggi di proiezione.
+
+Dall'occhio umano partono dei raggi verso il volume osservato, e, nell'attraversare i tessuti, incontrano una serie di voxel di intensità differenti. Di questi voxel, poi, è visualizzato solamente quello a massima intensità. Ad esempio, in CT, osservando la zona cerebrale, il cranio risulta essere l'elemento più assorbente ed è, quindi, mostrato sull'immagine. Questa visualizzazione può essere ruotata in modo da vedere le proiezioni dei voxel con maggiore intensità secondo diverse angolazioni.
+
+La metodica è molto utilizzata per poter ricostruire adeguatamente le strutture anatomiche, dunque, avere a disposizione un \emph{Volume Rendering} di tipo MIP.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\caption{Figura .: Immagini di visione MIP per diversi angoli}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=3.13644in,height=3.275in,alt={P5691C1T13\#yIS1}]{media/24_VisualImm/image578.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=3.1625in,height=3.3in,alt={P5692C2T13\#yIS1}]{media/24_VisualImm/image579.pdf}\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=3.13644in,height=3.275in,alt={P5691C1T13\#yIS1}]{media/24_VisualImm/image578.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\includegraphics[width=3.1625in,height=3.3in,alt={P5692C2T13\#yIS1}]{media/24_VisualImm/image579.pdf}\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+
+A differenza della lastra radiografica tradizionale, il raggio ottico che attraversa il volume tridimensionale non esegue nessun integrale, quindi, non si proietta l'intero volume su un piano ma solamente i punti con intensità maggiore.
+
+A volte è comodo semplicemente proiettare tutto il volume tridimensionale su un piano. Così facendo si ottiene un'immagine molto più simile a una lastra radiografica, che, tuttavia, può essere visualizzata secondo vari piani nello spazio. La metodica è detta \emph{X-Ray} e mostra immagini molto complesse del tipo:
+
+\begin{figure}
+\centering
+\includegraphics[width=3.45498in,height=3.54762in,alt={P5697\#yIS1}]{media/24_VisualImm/image580.pdf}\caption{Figura .: Visione X-Ray}
+\end{figure}
+
+Dal punto di vista dell'implementazione, è necessario prelevare le coordinate dello \emph{Slider} dalle quali si ricava la matrice di rotazione. Con questa metodica è possibile ruotare il volume-paziente secondo vari angoli dipendenti da come l'operatore interagisce con la GUI.
+
+Si calcolano poi le coordinate del volume ruotate e, infine, si esegue un'interpolazione (\emph{interp3(x,y,z,vol,cx,cy,cz)}) poiché è necessario valutare il coefficiente di assorbimento lineare nelle nuove coordinate.
+
+Per la rappresentazione MIP bisogna trovare il massimo lungo una data direzione del raggio ottico, mentre per la visione \emph{X-Ray} è necessario eseguire una somma di tutte le intensità dei voxel lungo un piano.
+
+\subsection{Tecniche di visualizzazioni quadridimensionali}\label{tecniche-di-visualizzazioni-quadridimensionali}
+
+Una delle tecniche di visualizzazione delle immagini radiologiche, ideata negli ultimi 15-20 anni, riguarda la visualizzazione quadridimensionale. In particolare, invece di mostrare a video dei volumi tridimensionali, si acquisisce un volume più volte nel tempo. Al radiologo è, poi, mostrato come il volume varia nel tempo grazie a più acquisizioni.
+
+La metodica dei quadrivettori è molto utilizzata con la tecnica del \emph{Dynamic Contrast Enhanced MRI}, in cui si segue l'evoluzione del contrasto iniettato per via endovenosa. Mostrando a video come il liquido di contrasto si distribuisce nel corpo umano è possibile evidenziare le zone riccamente vascolarizzate, indici di una probabile lesione neoplastica.
+
+Una volta caricata la fetta, sulla base delle informazioni temporali è possibile costruire una mappa temporale che fornisce informazioni su come si distribuisce il contrasto. La mappa restituisce l'integrale della curva temporale, punto per punto. La GUI, poi, gestisce il passaggio su un voxel: ponendo il cursore su un voxel è visualizzata la curva temporale associata a quell'elemento costituente dell'immagine.
+
+Il livello di concentrazione del mezzo di contrasto, dove la curva temporale è pressocché piatta, è costante nel tempo. Nelle regioni in cui si ha un aumento rapido, il mezzo di contrasto è stato assorbito velocemente nel tempo. La mappa è molto simile alla fetta della MRI all'istante iniziale di infusione del farmaco, tuttavia, presenta delle regioni anatomiche sovrapposte che non erano visibili inizialmente. Col passare del tempo, infatti, queste regioni assorbono una quantità di mezzo di contrasto sempre maggiore, diventando così sempre più brillanti in un \emph{Imaging} T1-pesato.
+
+La visualizzazione dei dati temporali permette di riconoscere delle curve che presentano un andamento compatibile con il tipo di lesioni. Studi in letteratura hanno evidenziato che neoplasie molto aggressive presentano un andamento differente dalle lesioni meno pericolose.
+
+Le lesioni benigne sono caratterizzate da una salita molto rapida, seguita poi da un \emph{Plateau} in cui il livello di contrasto resta all'incirca costante. Per le lesioni magline, invece, si assiste a una rapida salita del livello di contrasto seguita, poi, da una rapida discesa. Il flusso sanguigno nella lesione è così elevato che il liquido di contrasto è prelevato rapidamente, nella fase di \emph{Wash-In}, ed escreto altrettanto velocemente nella fase di \emph{Wash-Out}.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.39513in,height=3.72619in,alt={P5709\#yIS1}]{media/24_VisualImm/image581.pdf}\caption{Figura .: In alto Slice, in basso la mappa temporale a destra la curva temporale}
+\end{figure}
+
+In questo caso, la funzione principale carica e aggiorna la GUI in base ai movimenti del cursore sulla mappa temporale della \emph{Slice}. Per gestire il mouse si usa la funzione \emph{WindowsButtonMotionFcn}. Per la gestione del mouse, si preleva la posizione del cursore tramite \emph{CurrentPoint}, si arrotondano le coordinate e si determina se queste rientrano nella matrice contenente i dati. Se il cursore si muove sulla mappa temporale, le coordinate della sua posizione sono utilizzate per indicizzare la matrice delle curve temporali. Prelevati i dati della curva temporale associati al voxel selezionato, si procede col \emph{plot}.
+
+La mappa temporale, invece, è situata nella \emph{callback} del pulsante ``Mappa'' ed è realizzata mediante una somma sulla dimensione temporale (3), di tutte le \emph{Slice} ottenuta a intervalli di tempo differenti.

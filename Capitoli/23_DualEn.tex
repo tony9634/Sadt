@@ -1,0 +1,410 @@
+\begin{center}
+\vfill
+    \chapter{Tecnologia dual-energy X-ray}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+\section{Dual Energy X-Ray}\label{dual-energy-x-ray}
+
+Molte apparecchiature, come CT e MOC, che misurano la presenza di minerali nel tessuto osseo, si basano sul concetto di \emph{Dual Energy}. In tutte le apparecchiature convenzionali si sfrutta l'ipotesi di fascio di raggi X monocromatico, ovvero tutti i raggi X abbiano la stessa frequenza e, per l'equazione di Planck, anche la stessa energia:
+
+\[E = hf\]
+
+Ciò è utile perché, nel caratterizzare i tessuti con il coefficiente di attenuazione lineare, si riscontra che tale coefficiente dipende dall'energia e, quindi, il confronto dei tessuti è più agevole a parità di energia irradiata.
+
+Il principio dei raggi X \emph{Dual Energy} sfrutta le differenze nel coefficiente di attenuazione di massa per differenti materiali, al variare dell'energia, mediante l'erogazione di due fasci di raggi X monocromatici. Per un materiale fissato:
+
+\[\mu = \mu(E)\]
+
+L'andamento del coefficiente di attenuazione lineare in funzione dell'energia è \href{https://www.nist.gov/pml/x-ray-mass-attenuation-coefficients}{scaricabile} per un consulto. Ad alte energie, ovvero nel range energetico della PET, si nota che tutti i materiali presentano, approssimativamente, lo stesso coefficiente di attenuazione massico. Nel range energetico della CT, è possibile discriminare i tessuti in termini di \(\mu\) poiché i vari materiali biologici attenuano i raggi X in maniera differente.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.85313in,height=4.48148in,alt={P5498\#yIS1}]{media/23_DualEn/image567.pdf}\caption{Figura .: µ di diversi materiali al variare dell'energia.}
+\end{figure}
+
+Nella pratica sono molto utilizzati due approcci nell'applicazioni \emph{Dual Energy}:
+
+\begin{itemize}
+\item
+  L'\emph{Energy Subtraction}, in cui si combinano, in maniera pesata, due immagini dello stesso oggetto ottenute con differenti energie. Un esempio di questa metodica è la \emph{Digital Subtraction Angiography} (DSA), utilizzata per rilevare la presenza di stenosi nei vasi sanguigni.
+\end{itemize}
+
+Irradiando un distretto anatomico con due differenti energie, nella sottrazione tra le due immagini, i tessuti che hanno lo stesso coefficiente di attenuazione, come l'aria e i tessuti molli, sono cancellati mentre il tessuto di interesse è ben visibile;
+
+\begin{itemize}
+\item
+  Nel \emph{Basis Material Decomposition}, invece, le immagini ottenute con differenti energie possono essere decomposte nella somma pesata di due materiali detti materiali di base. Questa metodica è utilizzata nelle CT di ultima generazione e nelle MOC e permette di ricavare i materiali all'interno della struttura irradiata con i due fasci monocromatici a diversa energia.
+\end{itemize}
+
+Con quest'ultimo approccio è possibile individuare una base nello spazio dei materiali che consente poi di identificare i vari materiali.
+
+\subsection{Rappresentazione dei coefficienti di attenuazione}\label{rappresentazione-dei-coefficienti-di-attenuazione}
+
+Negli anni `70, Klein e Nishina studiarono gli andamenti del coefficiente di attenuazione massico in funzione dell'energia della radiazione e si resero conto che certi motivi teorici permettevano di decomporre il \(\mu(E)\) nella somma di più contributi.
+
+I processi dominanti l'assorbimento della radiazione, nel range di energie usate per la diagnostica, sono l'effetto fotoelettrico e l'effetto Compton. I coefficienti di attenuazione dipendono dall'energia. Al di sopra del \emph{K-Edge} la funzione \(\frac{\mu(E)}{\rho}\), coefficiente di attenuazione lineare di massa, può essere decomposta in funzioni opportune del tipo:
+
+\[\frac{\mu(E)}{\rho} = a_{p}f_{p}(E) + \ a_{c}f_{KN}(E)\]
+
+Dove \(a_{p}\) e \(a_{c}\) sono i coefficienti dello sviluppo corrispondenti, rispettivamente, all'effetto fotoelettrico e Compton. Si può dimostrare che le funzioni della scomposizione sono:
+
+\[\left\{ \begin{array}{r}
+f_{p}(E) = \ \frac{1}{E^{3}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \\
+f_{KN}(E) = \ \frac{1 + E}{E^{2}}\left\lbrack \frac{2(1 + E)}{1 + 2E} - \frac{1}{E}\ln(1 + 2E) \right\rbrack + \frac{1}{2E}\ln(1 + 2E) - \frac{(1 + 3E)}{(1 + 2E)^{2}}
+\end{array} \right.\ \]
+
+Equivalentemente si ha:
+
+\[\mu(E) = a_{p}f_{p}(E) + \ a_{c}f_{KN}(E)\]
+
+Ridefinendo opportunamente i coefficienti \(a_{p}\) e \(a_{c}\) che rappresentano i pesi con cui combinare i contributi dell'effetto fotoelettrico e Compton.
+
+La funzione \(f_{p}(E)\) approssima la dipendenza energetica della interazione fotoelettrica, mentre la funzione \(f_{KN}(E)\), detta funzione di Klein-Nishina, fornisce la dipendenza energetica della sezione d'urto totale per effetto Compton.
+
+Rappresentando le due funzioni in scala logaritmica si nota un comportamento prettamente lineare con qualche discostamento difficilmente percettibile. Sommando le due funzioni si ottiene proprio la curva del coefficiente di attenuazione massico in cui è possibile osservare i due tratti lineari a pendenza differente.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.38019in,height=4.2037in,alt={P5516\#yIS1}]{media/23_DualEn/image568.pdf}\caption{Figura .: Andamento delle due funzioni dello sviluppo}
+\end{figure}
+
+I coefficienti dello sviluppo sono espressi in funzione dei parametri fisici del materiale, mediante delle relazioni deducibili da motivi quantomeccanici e sono:
+
+\[\left\{ \begin{array}{r}
+a_{p} = K_{1}\frac{\rho}{A}Z^{n},\ \ n \simeq 4 \\
+a_{c} = K_{2}\frac{\rho}{A}Z\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\end{array} \right.\ \]
+
+Con \(K_{1}\) e \(K_{2}\) costanti, \(\rho\) densità di massa, \(A\) peso atomico, \(Z\) numero atomico. Tale espressione è alla base del \emph{Dual Energy}. I due coefficienti sono, infatti, legati al peso atomico e al numero atomico e, quindi, in qualche modo legati univocamente al materiale, cioè la specie atomica in esame. Inoltre, nel range 30-200keV, includente la radiologia convenzionale, l'errore di rappresentazione, valutato come errore tra la funzione osservata realmente e quella ottenuta dallo sviluppo, è dell'ordine dell'1\%.
+
+Applicando un metodo OLS (in MatLab \textbackslash{} per evitare problematiche associate all'inversione della matrice) per ottenere il fitting delle funzioni \(f_{p}(E)\) e \(f_{KN}(E)\) alle energie di interesse, è possibile dimostrare che i residui, identificati come la differenza tra il valore reale e il modello, assoluti sono più alti alle basse energie e si riducono alle alte energie. I residui percentuali, ottenuti rapportando i residui assoluti rispetto alle misure effettuate, sono al di sotto dell'1\%. Dunque, l'approssimazione utilizzata introduce degli errori completamente trascurabili.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.94101in,height=4.00926in,alt={P5522\#yIS1}]{media/23_DualEn/image569.pdf}\caption{Figura .: Andamento dei residui}
+\end{figure}
+
+Iodio e osso si differenziano di molto, mentre tutti gli altri materiali sono abbastanza simili. Ogni coppia di coordinate del digramma in basso identifica un materiale diverso.
+
+\includegraphics[width=3.03133in,height=2.39815in,alt={P5525\#yIS1}]{media/23_DualEn/image570.pdf}
+Figura .: Andamento di \(a_{c}\) in funzione \(a_{p}\)
+
+\subsection{Dual Energy Contrast-Enhanced Digital Mammography (DE-CEDM)}\label{dual-energy-contrast-enhanced-digital-mammography-de-cedm}
+
+Come esempio di \emph{Energy Subtraction} si considera la \emph{Dual Energy Contrast-Enhanced Digital Mammography} o DE-CEDM. In questo tipo di mammografia digitale si acquisiscono due immagini ad alta e bassa energia dopo la somministrazione del mezzo di contrasto a base di iodio. Successivamente, la sottrazione pesata consente di cancellare il tessuto della mammella.
+
+Lo iodio presenta un picco per il \emph{K-Edge} a circa 33keV e tale fenomeno può essere sfruttato per enfatizzare i tessuti e le regioni in cui è stato iniettato il mezzo di contrasto. Il mezzo di contrasto è iniettato nella paziente circa due minuti prima di effettuare l'esame in modo da poter fluire all'interno dei vasi.
+
+La paziente è posta nell'apparecchiatura di radiologia, la quale genera due fasci monocromatici a energie differenti, effettuando due acquisizioni in maniera non simultanea: una prima acquisizione è effettuata ad alta energia mentre la seconda a bassa energia.
+
+In particolare, sia \(\Phi_{0}^{H}(i,\ j)\) l'intensità del fascio di raggi X ad alta energia incidente sul punto \((i,j)\)dell'immagine quando non c'è la paziente; mentre \(\Phi^{H}(i,\ j)\) è l'intensità dovuta all'attenuazione all'interno della paziente con un fascio ad alta energia. Queste due quantità sono legate dalla seguente espressione:
+
+\[\Phi^{H}(i,\ j) = \Phi_{0}^{H}(i,\ j)e^{- \mu_{b}^{H}(T - t) - \mu_{I}^{H}t}\]
+
+Dove \(\mu_{b}^{H}\) è il coefficiente di attenuazione ad alta energia del tessuto mammario (\emph{Breast}); mentre \(\mu_{I}^{H}\) è il coefficiente di attenuazione dello iodio alla stessa energia; \(t\) è lo spessore del tessuto attraversato dal mezzo contrasto; \(T\) è lo spessore complessivo della mammella; \(T\  - \ t\) è, dunque, lo spessore del solo tessuto fibroghiandolare mammario. Tale relazione indica che \(\Phi^{H}\) ad alta energia nel punto \((i,j)\) è uguale alla quantità di raggi X che arriverebbero se non fosse presente la paziente, per l'esponenziale del coefficiente di attenuazione ad alta energia nello spessore del solo tessuto mammario e il coefficiente di attenuazione dello iodio, moltiplicati per i propri spessori. Un raggio X, attraversando il tessuto mammario, incontra uno spessore \(t\) di iodo e la restante porzione di tessuto fibroghiandolare. Entrambi i materiali attenuano la radiazione in maniera proporzionale ai rispettivi coefficienti di attenuazione.
+
+A bassa energia si ritrova una situazione analoga, descritta dall'equazione:
+
+\[\Phi^{L}(i,\ j) = \Phi_{0}^{L}(i,\ j)e^{- \mu_{b}^{L}(T - t) - \mu_{I}^{L}t}\]
+
+Applicando i logaritmi ed effettuando una soppressione pesata, mediante un coefficiente di peso \(w_{I}\), per ogni pixel delle due immagini, si ottiene:
+
+\[\log{\Phi^{H}(i,\ j)} - w_{I}\log{\Phi^{L}(i,\ j)} = \log{\Phi_{0}^{H}(i,\ j)e^{- \mu_{b}^{H}(T - t) - \mu_{I}^{H}t}} - w_{I}\log{\Phi_{0}^{L}(i,\ j)e^{- \mu_{b}^{L}(T - t) - \mu_{I}^{L}t} =}\]
+
+\[= \log{\Phi_{0}^{H}(i,\ j)} - \mu_{b}^{H}(T - t) - \mu_{I}^{H}t - w_{I}\left( \log{\Phi_{0}^{L}(i,\ j)} - \mu_{b}^{L}(T - t) - \mu_{I}^{L}t \right)\]
+
+Posto:
+
+\[k = \log{\Phi_{0}^{H}(i,\ j)} - w_{I}\log{\Phi_{0}^{L}(i,\ j)}\]
+
+Si ottiene l'equazione:
+
+\[\log{\Phi^{H}(i,\ j)} - w_{I}\log{\Phi^{L}(i,\ j) =}k - \mu_{b}^{H}(T - t) - \mu_{I}^{H}t - w_{I}\left( - \mu_{b}^{L}(T - t) - \mu_{I}^{L}t \right)\]
+
+La costante \(k\) dipende dall'intensità del fascio iniziale alle due energie e una serie di fattori dovuti ai differenti coefficienti di attenuazione del tessuto e del mezzo di contrasto.
+
+Scegliendo opportunamente il peso come:
+
+\[w_{I} = \ \frac{\mu_{b}^{H}}{\mu_{b}^{L}}\]
+
+Si ottiene la cancellazione del tessuto mammario e nell'immagine risultante è mostrata soltanto la differenza dipendente dal mezzo di contrasto:
+
+\[\log{\Phi^{H}(i,\ j)} - w_{I}\log{\Phi^{L}(i,\ j) =}k - \mu_{b}^{H}(T - t) - \mu_{I}^{H}t - w_{I}\left( - \mu_{b}^{L}(T - t) - \mu_{I}^{L}t \right) = = k - \mu_{b}^{H}(T - t) - \mu_{I}^{H}t - \ \frac{\mu_{b}^{H}}{\mu_{b}^{L}}\left( - \mu_{b}^{L}(T - t) - \mu_{I}^{L}t \right) = = k - \mu_{b}^{H}(T - t) - \mu_{I}^{H}t + \mu_{b}^{H}(T - t) + \frac{\mu_{b}^{H}}{\mu_{b}^{L}}\mu_{I}^{L}t = k - \mu_{I}^{H}t + w_{I}\mu_{I}^{L}t\]
+
+In definitiva, riarrangiando l'equazione si ottiene:
+
+\[\log{\Phi^{H}(i,\ j)} - w_{I}\log{\Phi^{L}(i,\ j) =}\ k - \left( \mu_{I}^{H} - w_{I}\mu_{I}^{L} \right)t\ \]
+
+I coefficienti di attenuazione spesso non sono noti alle energie delle radiazioni utilizzate per ottenere l'\emph{Imaging} mammario. In questo caso, è necessario ricorrere a un'operazione di interpolazione (con la funzione \emph{interp1} in MatLab che riceve i punti effettivamente misurati e quali energie si vuole la funzione).
+
+Alle energie di 33keV e 49keV (\emph{infoH.KVP} in DICOM), i tessuti mammari non sono ben visibili.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.29355in,height=3.22222in,alt={P5552\#yIS1}]{media/23_DualEn/image572.pdf}\caption{Figura .: Immagini delle mammelle a 33 e 49keV}
+\end{figure}
+
+Dovendo confrontare diverse immagini è importante che lo spessore della mammella non vari. In DICOM questa informazione si trova alla voce \emph{BodyPartThickness} e generalmente è di circa 90mm.
+
+Le immagini ottenute con la metodica del \emph{Dual Energy Contrast-Enhanced Digital Mammography} dipendono dal coefficiente di peso scelto. Infatti, in base a come si sceglie la quantità \(w_{I}\) si ottengono immagini differenti. Se si pone tale quantità uguale a 0.7, effettivo rapporto tra i due coefficienti di assorbimento della mammella alle due diverse energie, si ottiene un'immagine che permette di evidenziare la presenza o meno di masse tumorali.
+
+Ponendo \(w_{I} = 0\), l'immagine mostrata presenta una gradazione di grigio speculare rispetto alla classica visualizzazione delle immagini radiologiche.
+
+Per avere un ottimo contrasto le energie con cui è irradiata la mammella sono scelte in prossimità del \emph{K-Edge} dello iodo, quindi, energie leggermente inferiori e superiori alla discontinuità del suo coefficiente di attenuazione.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.82672in,height=4.95513in,alt={P5558\#yIS1}]{media/23_DualEn/image573.pdf}\caption{Figura .: Da sinistra coefficiente di peso 0.0-7.1}
+\end{figure}
+
+\subsection{Attenuazione lineare}\label{attenuazione-lineare}
+
+Per poter comprendere come funzioano le applicazioni in \emph{Dual Energy} è necessario studiare come i fotoni X siano attenuati dalla materia.
+
+La relazione che lega l'intensità \(I\) del fascio di raggi X lungo il cammino \(S\) misurata con detettori:
+
+\[I = \int_{}^{}{S(E)e^{- \int_{S}^{}{\mu(x,y,E)ds}}dE\ }\]
+
+Dove \(\mu\) dipende dall'energia oltre che dalla posizione nel piano. L'integrale di \(\mu\) lungo una determinata direzione nel piano restituisce l'attenuazione complessiva a quel determinato valore di energia.
+
+L'esponenziale dell'integrale interno restituisce proprio la quantità di raggi che incidono sul detettore. È necessario, poi, moltiplicare questa quantità per lo spettro energetico \(S(E)\) della sorgente al determinato valore di energia \(E\).
+
+La scrittura:
+
+\[S(E)e^{- \int_{S}^{}{\mu(x,y,E)ds}}\]
+
+Fornisce l'attenuazione subita dai fotoni X con energia \(S(E)\) nell'attraversamento della materia con coefficiente lineare \(\mu(x,y,E)\).
+
+Integrando su tutte le possibili energie si ottiene l'intensità del fascio emergente sul detettore, emesso dalla sorgente X, quando lo spettro è policromatico.
+
+Considerando uno spettro \(S(E)\) costante, composto da fasci mono-energetici ad energia \(E\), l'intensità di radiazione emergente dal corpo del paziente può essere scritta come:
+
+\[I = I_{0}e^{- \int_{S}^{}{\mu(x,y,E)dS}}\]
+
+Dove risulta che:
+
+\[I_{0} = \int_{}^{}{S(E)dE\ }\]
+
+L'immagine all'energia \(E\) può essere ottenuta come:
+
+\[M(E) = - \log\frac{I}{I_{0}} = \int_{S}^{}{\mu(x,y,E)dS}\]
+
+Dove \(I_{0}\) è l'intensità di radiazione che investe il paziente, mentre \(I\) l'intensità emergente. Applicando la decomposizione in effetto Compton ed effetto fotoelettrico si scompone l'immagine come una somma di termini:
+
+\[M(E) = \int_{S}^{}{\left( a_{p}(x,y)f_{p}(E) + \ a_{c}(x,y)f_{KN}(E) \right)dS}\]
+
+Si ottiene, in defiitiva, una somma in cui la dipendenza dalle coordinate \((x,y)\) la si ritrova nei coefficienti \(a_{p}\) e \(a_{c}\), mentre la dipendenza dall'energia la si ha nelle due funzioni. È possibile, quindi, porre:
+
+\[A_{p} = \int_{S}^{}{a_{p}(x,y)dS}\]
+
+\[A_{c} = \int_{S}^{}{a_{c}(x,y)dS}\]
+
+L'immagine può essere ottenuta come sovrapposizione dei due effetti:
+
+\[M(E) = A_{p}f_{p}(E) + A_{c}f_{KN}(E)\]
+
+In definitiva, l'immagine ad una certa energia \(E\) può essere decomposta in due immagini di base che, combinate mediante i pesi \(A_{p}\) e \(A_{c}\), permettono, appunto, di ottenere l'immagine originale.
+
+Se il materiale fosse omogeneo allora risulterebbe che:
+
+\[A_{p} = \int_{S}^{}{a_{p}(x,y)dS} = a_{c}L\]
+
+\[A_{c} = \int_{S}^{}{a_{c}(x,y)dS} = a_{c}L\]
+
+Rendendo la trattazione molto più semplice.
+
+\subsection{\texorpdfstring{Esempi di applicazione di attenuazione in \emph{Dual Energy}}{Esempi di applicazione di attenuazione in Dual Energy}}\label{esempi-di-applicazione-di-attenuazione-in-dual-energy}
+
+\subsubsection{Identificazione di un materiale}\label{identificazione-di-un-materiale}
+
+Misurando il logaritmo dell'attenuazione di un materiale incognito \(x\) omogeneo di spessore noto \(L\) a due diverse energie, si avranno due immagini:
+
+\[\left\{ \begin{array}{r}
+M\left( E_{h} \right) = L\left( a_{p}^{x}f_{p}\left( E_{h} \right) + a_{c}^{x}f_{KN}\left( E_{h} \right) \right) \\
+M\left( E_{l} \right) = L\left( a_{p}^{x}f_{p}\left( E_{l} \right) + a_{c}^{x}f_{KN}\left( E_{l} \right) \right)
+\end{array} \right.\ \]
+
+Le due costanti incognite \(a_{p}^{x}\) ed \(a_{c}^{x}\), caratteristiche del materiale sconosciuto, possono essere risolte facilmente mediante il sistema di due equazioni in due incognite.
+
+Con questa metodica è possibile identificare il materiale note che siano le sue proprietà di attenuazione per due fasci monocromatici.
+
+Tali metodiche sono utilizzate, ad esempio, nei detettori negli aeroporti che devono analizzare la composizione dei materiali all'interno di bagagli, supponendo che gli spessori non siano noti.
+
+\subsubsection{Misura dello spessore del materiale}\label{misura-dello-spessore-del-materiale}
+
+Dati due materiali noti, \(\alpha\) e \(\beta\), di due spessori incogniti differenti \(L_{\alpha}\) ed \(L_{\beta}\)\textsubscript{,} le due equazioni risultanti a due energie differenti per il logaritmo dell'attenuazione saranno:
+
+\[\left\{ \begin{array}{r}
+M\left( E_{h} \right) = L_{\alpha}\left( a_{p}^{\alpha}f_{p}\left( E_{h} \right) + a_{c}^{\alpha}f_{KN}\left( E_{h} \right) \right) + L_{\beta}\left( a_{p}^{\beta}f_{e}\left( E_{h} \right) + a_{c}^{\beta}f_{KN}\left( E_{h} \right) \right) \\
+M\left( E_{l} \right) = L_{\alpha}\left( a_{p}^{\alpha}f_{p}\left( E_{l} \right) + a_{c}^{\alpha}f_{KN}\left( E_{l} \right) \right) + L_{\beta}\left( a_{p}^{\beta}f_{e}\left( E_{l} \right) + a_{c}^{\beta}f_{KN}\left( E_{l} \right) \right)
+\end{array} \right.\ \]
+
+Noti i materiali è possibile misurare lo spessore del mezzo di contrasto e, quindi, del tessuto ghiandolare tramite la loro composizione biochimica.
+
+Questa metodica è sfruttata, ad esempio, in mammografia in cui, noti i coefficienti di attenuazione della mammella e del mezzo di contrasto, è possibile misurare lo spessore del tessuto ghiandolare e della zona perfusa dal tracciante.
+
+\subsection{Basis Material Decomposition}\label{basis-material-decomposition}
+
+La dipendenza energetica delle due funzioni \(f_{p}(E)\) e \(f_{KN}(E)\) è tale che, scegliendo due materiali predefiniti opportuni, uno con \(Z\) basso, rappresentante l'effetto Compton, e l'altro con \(Z\) alto, che esprime l'effetto fotoelettrico, si può decomporre il \(\frac{\mu}{\rho}\) di un qualsiasi materiale nella base costituita dai due materiali prescelti. Infatti, si considerano due materiali \(\alpha\) e \(\beta\), caratterizzati da \(\mu_{\alpha}(E)\) e \(\mu_{\beta}(E)\) scelti come materiale di base. Per ciascun dei due è possibile scrivere l'equazione di decomposizione come:
+
+\[\left\{ \begin{array}{r}
+\left( \frac{\mu}{\rho} \right)_{\alpha}(E) = a_{p}^{\alpha}f_{p}(E) + \ a_{c}^{\alpha}f_{KN}(E) \\
+\left( \frac{\mu}{\rho} \right)_{\beta}(E) = a_{p}^{\beta}f_{p}(E) + \ a_{c}^{\beta}f_{KN}(E)
+\end{array} \right.\ \]
+
+Pertanto, il coefficiente di attenuazione massico per un materiale incognito \(x\) può essere decomposto secondo l'equazione:
+
+\[\left( \frac{\mu}{\rho} \right)_{x}(E) = {c_{\alpha}^{x}\left( \frac{\mu}{\rho} \right)}_{\alpha}(E) + c_{\beta}^{x}\left( \frac{\mu}{\rho} \right)_{\beta}(E)\]
+
+Ovvero un qualsiasi materiale incognito può essere espresso come combinazione dei due materiali noti, mediante i due coefficienti di attenuazione dei due materiali predeterminati, opportunamente pesanti. Una scrittura equivalentemente è la seguente:
+
+\[\mu_{x}(E) = {c_{\alpha}^{x}\ \mu}_{\alpha}(E) + c_{\beta}^{x}\mu_{\beta}(E)\]
+
+Per ottenere il valore dei pesi, si sostituisce il valore dei coefficienti di attenuazione massici dei materiali della base, espressi secondo le equazioni Klein e Nishina, nella scomposizione del materiale incognito. Ovvero:
+
+\[\left( \frac{\mu}{\rho} \right)_{x}(E) = c_{\alpha}^{x}\left( a_{p}^{\alpha}f_{p}(E) + \ a_{c}^{\alpha}f_{KN}(E) \right) + c_{\beta}^{x}\left( a_{p}^{\beta}f_{p}(E) + \ a_{c}^{\beta}f_{KN}(E) \right) = = \left( c_{\alpha}^{x}a_{p}^{\alpha} + c_{\beta}^{x}a_{p}^{\beta} \right)f_{p}(E) + \left( c_{\alpha}^{x}a_{c}^{\alpha} + c_{\beta}^{x}a_{c}^{\beta} \right)f_{KN}(E)\]
+
+Dunque, per il principio di identità dei polinomi, i pesi sono ottenuti come:
+
+\[\left\{ \begin{array}{r}
+a_{c}^{x} = c_{\alpha}^{x}a_{c}^{\alpha} + \ c_{\beta}^{x}a_{c}^{\beta} \\
+a_{p}^{x} = c_{\alpha}^{x}a_{p}^{\alpha} + \ c_{\beta}^{x}a_{p}^{\beta}
+\end{array} \right.\ \]
+
+Il coefficiente di Compton del materiale \(x\) è dato, quindi, dalla somma pesata dei coefficienti dei due materiali di base e, analogamente, anche per il coefficiente relativo all'effetto fotoelettrico.
+
+\subsubsection{Decomposizione in immagini di base}\label{decomposizione-in-immagini-di-base}
+
+Si considera un materiale \(\xi\) di spessore \(L_{\xi}\). La sua proiezione radiografica può essere identificata con un vettore bidimensionale nella base dei due materiali prescelti:
+
+\[\left\{ \begin{array}{r}
+A_{\alpha}^{\xi} = \int_{S}^{}{c_{\alpha}^{\xi}(x,y)dS} \\
+A_{\beta}^{\xi} = \int_{S}^{}{c_{\beta}^{\xi}(x,y)ds}
+\end{array} \right.\ \]
+
+Se i materiali scelti sono omogenei, allora è valida la semplificazione:
+
+\[\left\{ \begin{array}{r}
+A_{\alpha}^{\xi} = \int_{S}^{}{c_{\alpha}^{\xi}(x,y)dS} = \ c_{\alpha}^{\xi}L_{\xi} \\
+A_{\beta}^{\xi} = \int_{S}^{}{c_{\beta}^{\xi}(x,y)ds} = \ c_{\beta}^{\xi}L_{\xi}
+\end{array} \right.\ \]
+
+L'immagine radiografica, alle due energie, può essere espressa come:
+
+\[M^{\xi}(E) = A_{\alpha}^{\xi}\mu_{\alpha}^{\xi}(E) + A_{\beta}^{\xi}\mu_{\beta}^{\xi}(E)\]
+
+Per ogni pixel dell'immagine, i due coefficienti \(A_{\alpha}^{\xi}\) e \(A_{\beta}^{\xi}\) diventano una coppia di coordinate o, equivalentemente, un numero complesso, dotato di modulo ed angolo.
+
+La fase \(\theta^{\xi}\) del vettore \(\left( A_{\alpha}^{\xi},A_{\beta}^{\xi} \right)\ \)dipende solo dal materiale \(\xi\), secondo la relazione:
+
+\[\theta^{\xi} = \tan^{- 1}\left( \frac{A_{\beta}^{\xi}}{A_{\alpha}^{\xi}} \right)\]
+
+Se il mezzo è omogeneo allora:
+
+\[\theta^{\xi} = \tan^{- 1}{\left( \frac{A_{\beta}^{\xi}}{A_{\alpha}^{\xi}} \right) = \tan^{- 1}\left( \frac{c_{\beta}^{\xi}L_{\xi}}{c_{\alpha}^{\xi}L_{\xi}} \right) = \tan^{- 1}\left( \frac{c_{\beta}^{\xi}}{c_{\alpha}^{\xi}} \right)}\]
+
+Il modulo, invece, si esprime come:
+
+\[m^{\xi} = \sqrt{\left( A_{\beta}^{\xi} \right)^{2} + \left( A_{\alpha}^{\xi} \right)^{2}}\]
+
+Dunque, il modulo del vettore dipende sia dal materiale \(\xi\) che dal suo spessore. Se, quest'ultimo è omogeneo, allora:
+
+\[m^{\xi} = \sqrt{\left( A_{\beta}^{\xi} \right)^{2} + \left( A_{\alpha}^{\xi} \right)^{2}} = \sqrt{\left( c_{\alpha}^{\xi}L_{\xi} \right)^{2} + \left( c_{\beta}^{\xi}L_{\xi} \right)^{2}\ } = L_{\xi}\sqrt{\left( c_{\alpha}^{\xi} \right)^{2} + \left( c_{\beta}^{\xi} \right)^{2}}\]
+
+Il vantaggio della rappresentazione di un materiale incognito in termini di materiale di base risiede nella possibilità di identificare il primo materiale mediante dall'angolo che viene a formarsi nel piano.
+
+È possibile una rappresentazione in forma complessa:
+
+\[M^{\xi}(E) \approx \left( A_{\alpha}^{\xi},A_{\beta}^{\xi} \right) \approx m^{\xi}e^{j\theta^{\xi}}\]
+
+La lunghezza del vettore nello stesso piano identifica lo spessore del materiale incognito considerato.
+
+\subsubsection{Identificazione del materiale}\label{identificazione-del-materiale}
+
+Si conseidera un materiale incognito \(x\) di spessore omogeneo. Si eseguono due proiezioni con energie differenti \(E_{h}\) e \(E_{l}\). Siano \(M\left( E_{h} \right)\) e \(M\left( E_{l} \right)\) le due immagini ottenute con le due differenti energie. Per ogni pixel dell'immagine è possibile scrivere la decomposizione in base di materiali:
+
+\[\left\{ \begin{array}{r}
+M\left( E_{h} \right) = A_{\alpha}^{x}\mu_{\alpha}\left( E_{h} \right) + A_{\beta}^{x}\mu_{\beta}\left( E_{h} \right) \\
+M\left( E_{l} \right) = A_{\alpha}^{x}\mu_{\alpha}\left( E_{l} \right) + A_{\beta}^{x}\mu_{\beta}\left( E_{l} \right)
+\end{array} \right.\ \]
+
+Conoscendo i coefficienti di attenuazione lineare per i materiali di base alle due energie in questione, ovvero note le quantità \(\mu_{\alpha}\left( E_{h} \right)\), \(\mu_{\alpha}\left( E_{l} \right)\), \(\mu_{\beta}\left( E_{h} \right)\), \(\mu_{\beta}\left( E_{l} \right)\), è possibile calcolare, ad esempio con algoritmi OLS, le rappresentazioni vettoriali di ciascun pixel nella base dei materiali \(\left( A_{\alpha}^{x},A_{\beta}^{x} \right)\) poiché le altre quantità sono note, avendo eseguito le proiezioni e scelto i materiali della base. Le immagini risultanti sono dette immagini di base.
+
+Ora, combinando le due immagini di base con due coefficienti dati da \(\sin \Phi\) e \(\cos \Phi\), l'immagine risultante sarà:
+
+\[C = A_{\alpha}^{x}\cos \Phi + A_{\beta}^{x}\sin \Phi\]
+
+La relazione scritta altro non è che il prodotto scalare dei due vettori \(\left( A_{\alpha}^{x},A_{\beta}^{x} \right)\), identificato nel piano dei materiali da un certo angolo \(\theta\), e il versore \(\left( \sin \Phi,\cos \Phi \right)\). Empiricamente, con l'uso di un calcolatore, si può variare \(\Phi\) fino a ottenere un prodotto scalare nullo, cioè un'immagine combinata \(C\) in cui il materiale in oggetto è rimosso. All'angolo \(\Phi\) per cui si ottiene ciò, i vettori \(\left( A_{\alpha}^{x},A_{\beta}^{x} \right)\) e \(\left( \sin \Phi,\cos \Phi \right)\) sono ortogonali e il materiale sconosciuto è cancellato. Pertanto, noto l'angolo \(\Phi\), è possibile risalire all'angolo \(\theta\) dalla relazione:
+
+\[\theta + \Phi = \frac{\pi}{2}\]
+
+\begin{figure}
+\centering
+\includegraphics[width=3.06072in,height=2.45in,alt={P5641\#yIS1}]{media/23_DualEn/image574.pdf}\caption{Figura .: Cancellazione del materiale \(\xi\)}
+\end{figure}
+
+E, da quest'ultimo è possibile ricavare il materiale, secondo la relazione \(\theta^{\xi} = \tan^{- 1}\left( \frac{c_{\beta}^{x}}{c_{\alpha}^{x}} \right)\). Ciò vale, ovviamente, se il materiale è unico.
+
+\subsubsection{Identificazione con più materiali}\label{identificazione-con-piuxf9-materiali}
+
+Nella proiezione di un oggetto composto da più materiali omogenei i vettori nella rappresentazione nei materiali di base si sommano. Infatti, presi due materiali \(\xi\) ed \(\eta\), siano \(L_{\xi}\) ed \(L_{\eta}\) i loro spessori. La proiezione è ottenuta integrando i coefficienti di assorbimento lungo lo spessore complessivo, ovvero:
+
+\[M(E) = \int_{}^{}{\mu(x,y,E)ds} = \int_{\xi}^{}{\mu_{\xi}(E)d\xi} + \int_{\eta}^{}{\mu_{\eta}(E)d\eta} = \mu_{\xi}(E)L_{\xi} + \mu_{\eta}(E)L_{\eta}\]
+
+Per cui, decomponendo nella base dei materiali per ogni componente dell'immagine, si ottiene:
+
+\[M(E) = \left( A_{\alpha}^{\xi}\mu_{\alpha}(E) + A_{\beta}^{\xi}\mu_{\beta}(E) \right) + \left( A_{\alpha}^{\eta}\mu_{\alpha}(E) + A_{\beta}^{\eta}\mu_{\beta}(E) \right)\]
+
+Raccogliendo, è possibile scrivere l'equazione come:
+
+\[M(E) = \left( A_{\alpha}^{\xi} + A_{\alpha}^{\eta}\  \right)\mu_{\alpha}(E) + \left( A_{\beta}^{\xi} + A_{\beta}^{\eta} \right)\mu_{\beta}(E)\]
+
+Da cui si evince che le componenti dell'immagine dell'oggetto composto è associata alla somma delle componenti degli oggetti corrispondenti.
+
+Se si applica la combinazione delle immagini di base mediante la pesatura con \(\sin \Phi\) e \(\cos \Phi\) si ottiene:
+
+\[C = \left( A_{\alpha}^{\xi} + A_{\alpha}^{\eta}\  \right)\cos \Phi + \left( A_{\beta}^{\xi} + A_{\beta}^{\eta} \right)\sin \Phi\]
+
+Riarragiando si ha:
+
+\[C = \left( A_{\alpha}^{\xi}\cos \Phi + A_{\beta}^{\xi}\sin \Phi \right) + \left( A_{\alpha}^{\eta}\cos \Phi + A_{\beta}^{\eta}\sin \Phi \right)\]
+
+Pertanto, si può variare \(\Phi\) fino a ottenere la cancellazione di uno dei materiali, uno per volta, in maniera selettiva. Questo processo, in generale, può essere realizzato grazie alla riconoscibilità geometrica degli oggetti. A quel punto il valore \(\Phi\) corrispondente permette di valutare il materiale cancellato.
+
+Mediante algoritmi ed elaborazioni digitali è possibile risalire ai materiali contenuti all'interno di un dato oggetto.
+
+\section{Tipologie di tubi radiogeni}\label{tipologie-di-tubi-radiogeni}
+
+In base al numero e la posizione dei tubi radiogeni si determinano le caratteristiche della strumentazione CT che esegue un esame diagnostico con la metodica del \emph{Dual Energy}. Vi sono essenzialmente tre tipologie di macchinari:
+
+\begin{enumerate}
+\def\labelenumi{\Alph{enumi})}
+\item
+  Il tubo radiogeno è unico ed è alimentato in maniera alternata a bassa ed alta energia, producendo rispettivamente raggi X monocromatici a frequenza maggiore e minore. Questa soluzione è la più semplice dal punto di vista costruttivo, ma risulta essere complicato il cambio del livello energetico in maniera rapida;
+\item
+  Vi possono essere due tubi ad energia fissa, disposti in maniera ortogonale tra loro. Questa architettura presenta lo svantaggio che le due immagini ricostruite sono sfasate. Dunque, vi sono problemi di sincronia;
+\item
+  Può esserci un unico tubo ad energia fissata, ad ampio spettro energetico, quindi, non monocromatico. I detettori, in questo caso, sono sensibili solo a un determinato valore di energia. Con questa soluzione si ottengono le due immagini differenti; tuttavia, il fascio erogato presenta un'intensità molto variabile e ciò comporta degli artefatti nell'immagine ricostruita.
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics[width=6.65466in,height=3.75in,alt={P5665\#yIS1}]{media/23_DualEn/image575.pdf}\caption{Figura .: Schema dei possibili tubi radiogeni}
+\end{figure}
+
+Con queste strumentazioni è possibile eseguire la cancellazione delle strutture ossee in CT oppure delle immagini in pseudocolori indicati la distribuzione del tracciante all'interno del corpo umano.
+
+In ogni caso, il contrasto tra i vari tessuti risulta essere molto migliore rispetto alle apparecchiature CT che utilizzano un solo fascio di raggi X monocromatico, grazie proprio all'utilizzo della metodica dei \emph{Dual Energy}.
+
+Le tipologie di immagini che possono essere ricostruite sono le seguenti:
+
+\begin{figure}
+\centering
+\includegraphics[width=6.54545in,height=6.3215in,alt={P5670\#yIS1}]{media/23_DualEn/image576.pdf}\caption{Figura .: Varie immagini ricostruite}
+\end{figure}

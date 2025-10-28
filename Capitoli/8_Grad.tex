@@ -1,0 +1,560 @@
+\begin{center}
+\vfill
+    \chapter{Uso dei gradienti in MRI}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+\section{Gradienti di campo magnetico}\label{gradienti-di-campo-magnetico}
+
+Un gradiente di campo è un campo magnetico che viene aggiunto a \(B_{0}\), la cui intensità varia linearmente con la posizione lungo un asse scelto.
+
+\subsection{Segnale a valle della demodulazione complessa}\label{segnale-a-valle-della-demodulazione-complessa}
+
+Sia \(s(t)\) il segnale ottenuto a valle della demodulazione, dato da:
+
+\[s(t) \propto \omega_{0}B_{\bot}\int_{V}^{}{M_{\bot}\left( \overset{\underline{}}{r},0 \right)\exp\left\{ j\left\lbrack \Omega t + \phi\left( \overset{\underline{}}{r},t \right) \right\rbrack \right\} dV}\]
+
+Si introduce la costante \(\Lambda\) che include i fattori di proporzionalità del sistema di detezione elettronica e di altri fattori di proporzionalità tra l'integrale di volume e il segnale:
+
+\[s(t) = \Lambda\omega_{0}B_{\bot}\int_{V}^{}{M_{\bot}\left( \overset{\underline{}}{r},0 \right)\exp\left\{ j\left\lbrack \Omega t + \phi\left( \overset{\underline{}}{r},t \right) \right\rbrack \right\} dV}\]
+
+Questa relazione è valida se il campo \(B_{\bot}\), irradiato dall'antenna, nel tempo sia sufficientemente uniforme nel volume irradiato. In questa ipotesi, sia il campo \(B_{\bot}\) sia la fase iniziale del campo irradiato non dipendono dalla posizione.
+
+La quantità \(\Omega\) è la frequenza di rotazione del sistema di riferimento rotante, ovvero la frequenza alla quale si demodula. In assenza di disomogeneità di campo principale \(\Omega\) coincide cona la frequenza di precessione di Larmor:
+
+\[\Omega = \omega_{0}\]
+
+Il segnale registrato \(s(t)\) dipende essenzialmente dalla variazione di fase \(\phi\left( \overset{\underline{}}{r},t \right)\), legata alla frequenza di precessione degli isocromati \(\omega\), dalla relazione:
+
+\[\phi\left( \overset{\underline{}}{r},t \right) = - \int_{0}^{t}{\omega\left( \overset{\underline{}}{r},\tau \right)d\tau}\]
+
+Dove \(\omega = \omega_{0}\) solamente nel caso in cui il campo magnetico principale sia uniforme in tutto lo spazio. Il segno meno nella relazione tra fase e velocità angolare è dovuta alla rotazione in senso orario degli isocromati.
+
+\subsection{Densità protonica}\label{densituxe0-protonica}
+
+Si suppone che il campo magnetico principale sia omogeneo, ovvero uguale a \(B_{0}\) sull'asse \(z\) in tutto lo spazio. Si ritiene, inoltre, che la finestra di acquisizione sia molto più piccola dei tempi di rilassamento longitudinale \(T_{1}\) e trasversale \(T_{2}\). Data che \(T_{1}\) è dell'ordine di \(1\ s\) e \(T_{2}\) di \(100\ ms\), la finestra di acquisizione deve avere un'ampizza di \(3 \div 4\ ms\). All'equilibrio la magnetizzazione può essere espressa in termini di densità protonica \(\rho\), definita come il numero di spin per unità di volume, mediante legge di Curie:
+
+\[M_{0} \simeq \rho\frac{\gamma^{2}\hslash^{2}}{4k_{B}T}B_{0},\ \ \rho = \frac{N}{V}\]
+
+Si applica un impulso a radiofrequenza all'istante \(t = 0\ s\), dopodiché il vettore di magnetizzazione è lasciato in evoluzione libera. Dopo il ribaltamento per l'effetto di un campo a radiofrequenza, la componente trasversale è:
+
+\[M_{\bot}\left( \overset{\underline{}}{r},0 \right) = M_{0}\left( \overset{\underline{}}{r} \right) = \frac{1}{4}\rho\left( \overset{\underline{}}{r} \right)\frac{\gamma^{2}\hslash^{2}}{k_{B}T}B_{0}\]
+
+Il segnale registrato e demodulato:
+
+\[s(t) = \Lambda\omega_{0}B_{\bot}\int_{V}^{}{M_{\bot}\left( \overset{\underline{}}{r},0 \right)\exp\left( j\left( \Omega t + \phi\left( \overset{\underline{}}{r},t \right) \right) \right)dV}\]
+
+può essere scritto come:
+
+\[s(t) = \Lambda\omega_{0}B_{\bot}\int_{V}^{}{\frac{1}{4}\rho\left( \overset{\underline{}}{r} \right)\frac{\gamma^{2}\hslash^{2}}{k_{B}T}B_{0}\exp\left( j\left( \Omega t + \phi\left( \overset{\underline{}}{r},t \right) \right) \right)dV}\]
+
+Si definisce densità protonica efficace \(\widehat{\rho}\left( \overset{\underline{}}{r} \right)\) come:
+
+\[\widehat{\rho}\left( \overset{\underline{}}{r} \right) = \frac{1}{4}\Lambda\omega_{0}B_{\bot}\frac{\gamma^{2}\hslash^{2}}{k_{B}T}B_{0}\rho\left( \overset{\underline{}}{r} \right)\]
+
+Questa relazione risulta valida anche nel caso in cui il campo irradiato dall'antenna ricevente, quando in essa scorre una corrente unitaria, non è omogeneo ma dipendente dalla posizione con un andamento noto:
+
+\[B_{\bot} = B_{\bot}\left( \overset{\underline{}}{r} \right)\]
+
+Con questa posizione il segnale demodulato può essere scritto come:
+
+\[s(t) = \int_{V}^{}{\widehat{\rho}\left( \overset{\underline{}}{r} \right)\exp\left( j\left( \Omega t + \phi\left( \overset{\underline{}}{r},t \right) \right) \right)dV}\]
+
+La densità di spin efficace è legata, in modo proporzionale, alla densità protonica \(\rho\left( \overset{\underline{}}{r} \right)\) del materiale sotto analisi, tramite delle costanti note o applicate dall'esterno. In particolare, la proporzionalità interessa costanti quali la temperatura, la frequenza di Larmor e il campo principale. Tutte queste grandezze sono regolabili dall'esterno.
+
+Nel caso in cui gli effetti del rilassamento non siano trascurabili, ovvero la finestra di acquisizione ha una durata paragonabile con i tempi \(T_{1}\) e \(T_{2}\), la densità protonica efficace, oltre a dipendere dalla posizione, dipende anche dal rilassamento:
+
+\[\widehat{\rho} = \widehat{\rho}\left( \overset{\underline{}}{r},\ T_{1}{,T}_{2} \right)\]
+
+Per eseguire l'imaging è necessario valutare la densità protonica, con tecniche opportune.
+
+\subsection{Applicazione dei gradienti}\label{applicazione-dei-gradienti}
+
+È possibile variare la frequenza di precessione di Larmor degli isocromati, in base alla loro posizione lungo l'asse \(z\), variando il campo magnetico principale lungo questa direzione. Si introducono delle disomogeneità di campo, di solito molto minore dell'ampiezza del campo principale. Nelle applicazioni pratiche si introducono delle disomogeneità, in modo da far variare il campo principale linearmente lungo l'asse \(z\):
+
+\[B_{z}(z,t) = B_{0} + G_{z}(t)z\]
+
+Dove \(G_{z}\) è detto gradiente del campo magnetico principale ed è dato dalla relazione:
+
+\[G_{z}(t) = \frac{\partial B_{z}}{\partial z}\]
+
+La scelta di un gradiente del campo principale linearmente variabile con la posizione \(z\) permette di semplificare la logica di controllo e la trattazione analitica del comportamento degli spin.
+
+Il gradiente di campo \(G_{z}\) può dipendere dal tempo, poiché si potrebbe voler cambiare la sua ampiezza nel corso dell'esperimento al fine di ottenere le informazioni necessarie.
+
+L'applicazione del gradiente determina una variazione della frequenza di precessione dei vari spin lungo la coordinata \(z\). Nel sistema di riferimento fisso del laboratorio, la frequenza di precessione è:
+
+\[\omega(z,t) = \gamma B_{z}(z,t) = \gamma B_{0} + \gamma G_{z}(t)z\]
+
+A seguito della demodulazione, la componente a frequenza \(\gamma B_{0}\) è rimossa. In altre parole, nel sistema di riferimento rotante la frequenza di precessione dei vari isocromati è:
+
+\[\omega(z,t) = \gamma G_{z}(t)z\]
+
+L'uso di un gradiente di campo permette di stabile una relazione biunivoca tra la posizione \(z\) degli spin e la loro frequenza di precessione. La \(\omega(z,t) = \gamma G_{z}(t)z\) è detta codifica di frequenza o \emph{frequency encoding}.
+
+Lo scopo principale della risonanza magnetica per l'imaging del copro umano è quello di estrarre informazioni sulla distribuzione dei protoni degli atomi di idrogeno, di un volumetto elementare. A tale scopo, si rende molto importante la codifica di frequenza.
+
+Dal punto di vista operativo, i costruttori garantiscono un gradiente di campo lineare in una sfera con diametro di \(50\ cm\) circa e centrato al centro del gantry. Tale diametro è detto \emph{Diameter of Spherical Volume} o DSV. Al di fuori della sfera, il campo magnetico si discosta dal valore atteso di una ppm rispetto al gradiente applicato.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.15in,height=1.95384in]{media/8_Grad/image216.pdf}\caption{Figura .: DSV}
+\end{figure}
+
+Per ottenere immagini ben definite, la porzione di corpo che si vuole visualizzare deve essere posizionata al centro della DSV, in cui sia il campo magnetico principale sia i gradienti sono costanti e regolari nello spazio.
+
+Se la frequenza di precessione varia lungo \(z\), allora anche la fase degli isocromati risulta essere una funzione di questa coordinata. È noto, infatti, che la variazione di fase, in un intervallo temporale \(\lbrack 0;t\rbrack\) è:
+
+\[\phi(z,t) = - \int_{0}^{t}{\omega(z,\tau)d\tau}\]
+
+Nel sistema di riferimento rotante, quindi a valle della demodulazione, la frequenza di Larmor è \(\omega(z,t) = \gamma G_{z}(t)z\), per cui:
+
+\[\phi(z,t) = - \int_{0}^{t}{\omega(z,\tau)d\tau} = - \int_{0}^{t}{\gamma G_{z}(t)zd\tau}\]
+
+Le quantità \(\gamma\) e \(z\) non dipendono dalla variabile temporale, quindi, possono essere portate fuori dal simbolo di integrale:
+
+\[\phi(z,t) = - z\gamma\int_{0}^{t}{G_{z}(t)d\tau}\]
+
+Si scrive questa relazione in termini di \(\overline{\gamma} = \gamma\backslash 2\pi \Leftrightarrow \gamma = 2\pi\overline{\gamma}\):
+
+\[\phi(z,t) = - 2\pi\overline{\gamma}z\int_{0}^{t}{G_{z}(t)d\tau}\]
+
+Si definisce la variabile \(k\) o frequenza spaziale, come:
+
+\[k(t) = \overline{\gamma}\int_{0}^{t}{G_{z}(t)d\tau}\]
+
+Questa variabile definisce un dominio definito \(k\)-spazio. Se il gradiente \(G_{z}\) è costante nel tempo, la variabile \(k\) del \(k\)-spazio può essere scritta come:
+
+\[k(t) = \overline{\gamma}G_{z}t\]
+
+Esiste, in definitiva, una corrispondenza tra la variabile \(k\) e il tempo di tipo lineare.
+
+Mediante l'introduzione della variabile \(k\), la fase può essere scritta come:
+
+\[\phi(z,t) = - 2\pi k(t)z\]
+
+In gergo tecnico, si dice che questa relazione descrive la fase nel \(k\)-spazio.
+
+Il segnale \(s(t)\), registrato dall'antenna, a seguito della demodulazione può essere espresso come funzione delle variabili \(z\) e \(t\) come:
+
+\[s(t) = \int_{}^{}{\widehat{\rho}(z)\exp\left\lbrack j\phi(z,t) \right\rbrack dz}\]
+
+In termini della variabile \(k\), il segnale registrato e demodulato può essere riscritto come segue:
+
+\[s(k) = \int_{}^{}{\widehat{\rho}(z)\exp( - j2\pi kz)dz}\]
+
+Questa espressione mostra che, quando si applica un gradiente di campo lineare, il segnale \(s(k)\) rappresenta la trasformata di Fourier della densità protonica efficace del volumetto elementare. Viceversa, la funzione \(\widehat{\rho}(z)\) è l'anti-trasformata di Fourier del segnale \(s(k)\) registrato dalle antenne e demodulato:
+
+\[\widehat{\rho}(z) = \int_{}^{}{s(k)\exp(j2\pi kz)dk}\]
+
+Si usa dire che la densità protonica è la codifica di Fourier o \emph{Fourier encoding} lungo \(z\) di un gradiente lineare. In definitiva, il segnale \(s(k)\) e l'immagine \(\widehat{\rho}(z)\) sono una coppia di trasformate di Fourier, per cui, nota una trasformata è possibile ricavare l'altra.
+
+I campi principali, generalmente usati nella pratica clinica, sono di \(1.5\ T\) o \(3\ T\), mentre valori tipici dei gradienti di campo sono \(10\ mT/m\), \(20\ mT/m\) o \(40\ mT/m\).
+
+Si suppone che il diametro del volumetto sferico in cui il campo principale è uniforme sia di \(50\ cm\). Si vuole determinare la differenza tra la pulsazione di precessione di Larmor ai due estremi della DSV:
+
+\[\mathrm{\Delta}\omega = \omega_{1}\left( z_{1} \right) - \omega_{2}\left( z_{2} \right)\]
+
+Dove, nel sistema fisso del laboratorio, \(\omega_{1}\left( z_{1} \right) = \gamma B_{0} - \gamma G_{z}z_{1}\) e \(\omega_{2}\left( z_{2} \right) = \gamma B_{0} - \gamma G_{z}z_{2}\) per cui:
+
+\[\mathrm{\Delta}\omega = \omega_{1}\left( z_{1} \right) - \omega_{2}\left( z_{2} \right) = \gamma B_{0} - \gamma G_{z}z_{1}\  - \gamma B_{0} + \gamma G_{z}z_{2} = \gamma G_{z}\left( z_{2} - z_{1} \right)\]
+
+Dove \(z_{2} - z_{1}\) è il diametro \(d\) della sfera.
+
+\begin{figure}
+\centering
+\includegraphics[width=2.70833in,height=1.46098in]{media/8_Grad/image217.pdf}\caption{Figura .: Andamento del gradiente nel DSV}
+\end{figure}
+
+Per cui:
+
+\[\mathrm{\Delta}\omega = \gamma G_{z}d\]
+
+Si scrive tale equazione in termini di frequenza, moltiplicando per \(2\pi\) ambo i membri, si ha:
+
+\[\mathrm{\Delta}f = \overline{\gamma}G_{z}d\]
+
+Per l'idrogeno \(\overline{\gamma} = 42.5\ MH_{z}/\), per cui la differenza di frequenze ai due estremi del DSV è:
+
+\[\mathrm{\Delta}f = 42.5\ \frac{MHz}{T} \cdot 10\frac{mT}{m} \cdot 0.5\ m \simeq 200\ kHz\]
+
+Le frequenze di risonanze degli isocromati sono centrate intorno alla frequenza princi pale \(\omega_{0} = \gamma B_{0}\) con una banda di circa \(200\ kHz\). Nel momento in cui i segnale viene de modulato che resta del contenuto frequenziale del segnale è il solo spettro di \(200\ kHz\) centrato in banda base.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.39823in,height=3.0463in]{media/8_Grad/image218.pdf}\caption{Figura .: Banda degli isocromati}
+\end{figure}
+
+Cambiando il gradiente applicato, l'ampiezza della banda, dalla relazione \(\mathrm{\Delta}f = \overline{\gamma}G_{z}d\), varia linearmente.
+
+Si suppone di avere solamente due isocromati in posizione \(- z_{0}\) e \(z_{0}\), a cui corrisponde una certa densità protonica efficace, rispettivamente \({\widehat{\rho}}_{0}\) e \({\widehat{\rho}}_{1}\).
+
+\begin{figure}
+\centering
+\includegraphics[width=3.925in,height=0.99815in]{media/8_Grad/image219.pdf}\caption{Figura .: Distribuzione di due isocromati in posizione speculare}
+\end{figure}
+
+l segnale trasmesso e demodulato è dato da:
+
+\[s(t) = \int_{- \infty}^{\infty}{\widehat{\rho}(z)\exp\left\lbrack j\phi(z,t) \right\rbrack dz}\]
+
+La fase, per l'applicazione del gradiente lineare, ha un andamento anch'essa lineare:
+
+\[\phi\left( z_{0},t \right) = - \gamma G_{z}z_{0}t,\ \ \phi\left( z_{0},t \right) = \gamma G_{z}z_{0}t\]
+
+Siccome gli isocromati si trovano su due punti ben definiti, la distribuzione di densità protonica efficace che lì descrive è data da una somma di impulsi di Dirac, centrati su \(z_{0}\) e \(- z_{0}\):
+
+\[s(t) = \int_{- \infty}^{\infty}{\widehat{\rho}(z)\left\lbrack \delta\left( z - z_{0} \right) + \delta\left( z + z_{0} \right) \right\rbrack\exp\left\lbrack j\phi(z,t) \right\rbrack dz}\]
+
+Integrando si ha:
+
+\[s(t) = {\widehat{\rho}}_{0}\exp\left\lbrack j\phi\left( z_{0},t \right) \right\rbrack + {\widehat{\rho}}_{1}\exp\left\lbrack j\phi\left( z_{1},t \right) \right\rbrack\]
+
+Supponendo che \({\widehat{\rho}}_{1} = {\widehat{\rho}}_{0}\), si ha:
+
+\[s(t) = {\widehat{\rho}}_{0}\left\{ \exp\left\lbrack j\phi\left( z_{0},t \right) \right\rbrack + \exp\left\lbrack j\phi\left( z_{1},t \right) \right\rbrack \right\}\]
+
+Sostituendo il valore delle fasi si ha:
+
+\[s(t) = {\widehat{\rho}}_{0}\left\{ \exp\left\lbrack j\gamma G_{z}z_{0}t \right\rbrack + \exp\left\lbrack - j\gamma G_{z}z_{0}t \right\rbrack \right\}\]
+
+Per le formule di Eulero è possibile scrivere:
+
+\[s(t) = 2{\widehat{\rho}}_{0}\cos\left( \gamma G_{z}z_{0}t \right)\]
+
+In termini del \(k\)-spazio, il segnale registrato è dato da:
+
+\[s(k) = 2{\widehat{\rho}}_{0}\cos\left( 2\pi z_{0}k \right)\]
+
+Campionando il segnale \(s(k)\) è possibile ricostruire la funzione densità protonica mediante la trasformata inversa di Fourier del segnale stesso. Nel caso in esame, infatti:
+
+\[\widehat{\rho}(z) = \int_{- \infty}^{+ \infty}{s(k)\exp(j2\pi kz)dk} = \int_{- \infty}^{+ \infty}{2{\widehat{\rho}}_{0}\cos\left( 2\pi z_{0}k \right)\exp(j2\pi kz)dk} = {\widehat{\rho}}_{0}\left\lbrack \delta\left( z - z_{0} \right) + \delta\left( z + z_{0} \right) \right\rbrack\]
+
+Mediante la anti-trasformata di Fourier, si ottengono i punti su cui sono centrati gli isocromati.
+
+Dal punto di vista pratico e operativo, la trasformata di Fourier inversa non può essere eseguita per problemi legati alla memoria finita dei calcolatori utilizzati. Sul segnale acquisito nel \(k\)- spazio, non è possibile applicare un campionamento infinitesimo ma, bensì, finito. Inoltre, il segnale deve avere un supporto limitato, in quanto acquisito in una finestra di opportuna ampiezza. L'elaborazione numerica prevede di ricostruire la densità protonica approssimandola con la trasformata discreta di Fourier:
+
+\[\widehat{\rho}(z) = \sum_{n}^{}{s\left( k_{n} \right)\exp\left( jn\pi fk_{n}t \right)}\]
+
+Gli algoritmi di ricostruzione introducono degli errori nell'ottenere l'immagine, dovuti sia al campionamento sia all'interruzione del segnale, registrato in una finestra di acquisizione con ampiezza finita. Il campionamento nel tempo è completamente equivalente al campionamento nel \(k\)-spazio, perché le due entità sono correlate. Sia \(\mathrm{\Delta}t\) l'intervallo di campionamento temporale, l'intervallo di campionamento nel \(k\)-spazio è :
+
+\[\mathrm{\Delta}k = \overline{\gamma}G_{z}\mathrm{\Delta}t\]
+
+\subsection{Sequenza gradient-echo}\label{sequenza-gradient-echo}
+
+Note le relazioni tra il tempo \(t\) e il \(k\)-spazio, ci si chiede come debba essere effettuato il campionamento nel \(k\)-spazio, operazione che in gergo viene detta tracciamento delle traiettorie in questo spazio. Si suppone di avere un campione di materiale omogeneo, contenente un numero elevato di spin.
+
+La posizione degli isocromati può essere decodificata mediante l'applicazione di un gradiente di campo. Dal segnale registrato, poi, si campiona il \(k\)-spazio e, mediante una trasformata inversa di Fourier, si ricava l'immagine indicante la posizione degli spin per unità di volume nel campione.
+
+\begin{figure}
+\centering
+\includegraphics[width=1.31559in,height=2.92708in]{media/8_Grad/image220.pdf}\caption{Figura .: Campione}
+\end{figure}
+
+Per ottenere un buon campionamento del \(k\)-spazio, una tecnica è offerta dalla sequenza gradient-echo, in cui è applicato un singolo impulso a \(\pi\backslash 2\) lungo un asse trasverso del sistema di riferimento, e un gradiente lungo l'asse \(z\) per un intervallo di tempo prefissato.
+
+L'impulso a \(\pi/2\) porta la magnetizzazione sul piano trasverso. Nel sistema di riferimento fisso del laboratorio, il recupero della magnetizzazione è visto come una sequenza FID; tuttavia, l'applicazione del gradiente \(G_{z}\) determina un rifasamento più rapido, legato alle diverse distribuzioni degli isocromati nello spazio. Si suppone che l'andamento del gradiente sia di tipo:
+
+\[G_{z}(t) = \left\{ \begin{matrix}
+ - G_{z} & t_{1} < t < t_{2} \\
+0 & t < t_{1},t > t_{2}
+\end{matrix} \right.\ \]
+
+\begin{figure}
+\centering
+\includegraphics[width=5.08584in,height=2.34649in]{media/8_Grad/image221.pdf}\caption{Figura .: Applicazione del gradiente lungo \(z\) e impulso RF}
+\end{figure}
+
+Il gradiente ha polarità negativa ed è applicato nell'intervallo di tempo \(\left\lbrack t_{1},t_{2} \right\rbrack\). Nel dominio del \(k\)-spazio, il gradiente costante si traduce in un andamento lineare della variabile \(k\):
+
+\[k = \overline{\gamma}\int_{t_{1}}^{t_{2}}{G_{z}(\tau)d\tau} = - \overline{\gamma}G_{z}\left( t_{2} - t_{1} \right)\]
+
+Dove il tempo \(t_{0} = 0\) è posizionato al centro del primo impulso a radiofrequenza.
+
+La variabile \(k\) evolve, durante l'applicazione del gradiente con legge lineare e pendenza \(- \overset{\underline{}}{\gamma}G_{z}\). Esaurito l'impulso la variabile \(k\) resta costante.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.95563in,height=3.325in]{media/8_Grad/image222.pdf}\caption{Figura .: Andamento di \(k\) nella sequenza gradient-echo}
+\end{figure}
+
+È noto che la variabile \(k\) è legata alla fase dalla relazione:
+
+\[\phi = - 2\pi kz = 2\pi\overset{\underline{}}{\gamma}G_{z}\left( t_{2} - t_{1} \right)z\]
+
+La fase dipende anche dalla variabile \(z\), quindi, in un diagramma della fase in funzione del tempo, la pendenza della fase da \(z\), infatti, il coefficiente angolare è:
+
+\[m = 2\pi\overline{\gamma}G_{z}z\]
+
+Al variare di \(z\) si ottiene un coefficiente angolare diverso per la fase.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.10264in,height=4.25417in]{media/8_Grad/image223.pdf}\caption{Figura .: Andamento della fase nella sequenza gradient-echo}
+\end{figure}
+
+La pendenza della fase, quindi, dipende dalla posizione degli isocromati. Questo comportamento è in contrasto con quello di \(k\), uguale per tutti i punti dello spazio poiché non dipende dalla posizione. In altre parole, \(k\) è unico per tutti gli isocromati del volume.
+
+L'applicazione di un solo gradient-echo mediante l'applicazione di un solo gradiente non è ottima per riempire il \(k\)-spazio, poiché permette di ottenere valori negativi di questa variabile, rendendo complicata la ricostruzione dell'immagine se non impossibile.
+
+Si costruisce una sequenza gradient-eco in cui si applicano due gradienti di polarità opposta, in modo che l'area sottesa dal secondo impulso sia maggiore (o doppia) di quella sottesa dal primo. Il tempo necessario affinché il secondo impulso sottenda la stessa area del primo corrisponde al tempo di echo, \(T_{E}\), poiché il comportamento della magnetizzazione è simile alla sequenza spin-echo. Il segnale indotto sulle bobine è raccolto durante il secondo gradiente.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.42639in,height=2.4385in]{media/8_Grad/image224.pdf}\caption{Figura .: Sequenza gradient-echo con due gradienti di polarità opposta}
+\end{figure}
+
+Si vuole analizzare il comportamento della fase nei vari instanti di tempo della sequenza. Il gradiente può essere scritto come:
+
+\[G_{z}(t) = \left\{ \begin{matrix}
+ - G_{z}, & t_{1} < t < t_{2} \\
+G_{z}, & t_{3} < t < t_{4} \\
+0, & altrove
+\end{matrix} \right.\ \]
+
+Il comportamento nel \(k\)-spazio è ottenuto integrando il gradiente nel tempo, da cui:
+
+\[k(t) = \left\{ \begin{matrix}
+0, & t < t_{1} \\
+ - \overline{\gamma}G_{z}\left( t - t_{1} \right), & t_{1} < t < t_{2} \\
+ - \overline{\gamma}G_{z}\left( t_{2} - t_{1} \right), & t_{2} < t <_{t3} \\
+\overline{\gamma}G_{z}\left( t - t_{3} \right) - \overline{\gamma}G_{z}\left( t_{2} - t_{1} \right), & t_{3} < t < t_{4} \\
+\overline{\gamma}G_{z}\left( t_{4} - t_{3} \right) - \overline{\gamma}G_{z}\left( t_{2} - t_{1} \right), & t > t_{4}
+\end{matrix} \right.\ \]
+
+\begin{figure}
+\centering
+\includegraphics[width=6.4in,height=2.98818in]{media/8_Grad/image225.pdf}\caption{Figura .: Sequenza gradient-echo con due gradienti di polarità opposta}
+\end{figure}
+
+In definitiva, la variabile \(k\) nel tempo presenta un andamento lineare a tratti, in cui, durante il primo gradiente ha una pendenza negativa; nell'intervallo di tempo tra il primo e il secondo gradiente resta costante per poi procedere con pendenza positiva durante l'applicazione del gradiente con polarità opposta al primo. Il tempo in cui la variabile \(k\) si annulla è dato da:
+
+\[\overline{\gamma}G_{z}\left( t - t_{3} \right) - \overline{\gamma}G_{z}\left( t_{2} - t_{1} \right) = 0 \Leftrightarrow t = t_{3} + t_{2} - t_{1}\]
+
+In questo istante temporale, l'area del secondo gradiente è uguale a quella sottesa dal primo; ovvero l'istante \(t\) appena determinato coincide con la definizione del tempo di echo, per cui:
+
+\[T_{E} = t_{3} + t_{2} - t_{1}\]
+
+Nella finestra di acquisizione nell'intervallo \(\left\lbrack t_{3};t_{4} \right\rbrack\) la variabile \(k\) assume valori sia positivi che negativi, quindi, è possibile tracciare una traiettoria nel \(k\)-spazio che permetta la ricostruzione dell'immagine.
+
+La fase degli isocromati, invece, ha un andamento opposto a quello della variabile \(k\), con pendenza legata alla posizione \(z\):
+
+\[\phi(t) = - 2\pi k(t)z\]
+
+In particolare, la pendenza della fase \(\phi\) aumenta con la posizione \(z\). Nel momento in cui si applica il primo gradiente la fase cresce con andamento lineare. Dopodiché resta costante all'esaurirsi del primo gradiente. Non appena è applicato il secondo gradiente, la fase decresce con pendenza lineare e, per come sono costruiti i gradienti, si annulla al tempo di echo \(T_{E}\), indipendentemente dalla posizione \(z\) degli isocromati.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.375in,height=4.42482in]{media/8_Grad/image226.pdf}\caption{Figura .: Andamento della fase nella sequenza gradient-echo con due gradienti di polarità opposta}
+\end{figure}
+
+In questo caso si ha un fenomeno del tutto simile allo spin-echo, in cui al tempo di echo si recupera la fase mediante il rifasamento dei vari isocromati. Nella sequenza spin-echo, infatti, si è dimostrato che la fase, appena dopo l'impulso RF a \(\pi/2\), decresce con pendenza costante (\textbf{Errore. L'origine riferimento non è stata trovata.}). In seguito all'impulso a \(\pi\), la fase è ribaltata, mantenendo invariata la pendenza. La fase si annulla al tempo d'echo, in quanto si verifica il fenomeno della rifocalizzazione lungo un asse del sistema rotante.
+
+Il comportamento della gradient-echo è del tutto analogo alla spin-echo: in entrambe la fase si annulla al tempo d'echo a cui corrisponde il massimo del segnale percepito.
+
+L'echo è generato dai gradienti, i quali possono essere inseriti secondo un ordine arbitrario, nel senso che il risultato non cambia se si applica prima l'impulso positivo e poi quello negativo, a patto che le aree degli impulsi mantengano i rapporti di almeno \(1:2\). Il primo gradiente applicato è detto gradiente di defasamento o defase, mentre il secondo è detto di refocalizzazione, rifasamento o refase.
+
+Gli isocromati presentano una velocità di precessione dipendente dalla posizione nel sistema rotante. Per l'applicazione del gradiente di defasamento, gli spin si sfasano, mentre con l'applicazione del gradiente di rifocalizzazione si rifasano al tempo di echo \(T_{E}\).
+
+Per rendere la notazione grafica più sempre il \(k\)-spazio non è descritto mediante l'andamento temporale della variabile \(k\), ma si considera un solo asse e la componente del \(k\)-spazio legato a ad esso mediante il gradiente. Dal punto \(z = 0\), l'andamento lineare con pendenza negativa della fase è rappresentato mediante una freccia che si muove verso sinistra. In gergo tecnico si dice che la fase è rappresentata mediante un vettore che si sposta verso sinistra, se il gradiente è negativo, verso sinistra se il gradiente è positivo. Di conseguenza, la fase crescente è descritta da un vettore con direzione opposta al primo, applicato nel punto in cui è arrivata la punta, ovvero \(- k_{\min}\). Il vettore da sinistra a destra raggiunge il valore massimo \(k_{\max}\).
+
+\begin{figure}
+\centering
+\includegraphics[width=5.53069in,height=1.58333in]{media/8_Grad/image227.pdf}\caption{Figura .: Traiettoria nel \(k\)-spazio}
+\end{figure}
+
+Nel dominio del tempo, il segnale registrato è dato dalla defocalizzazione e rifocalizzazione degli isocromati, quest'ultimo punto il cui raggiunge il massimo valore al tempo di echo. L'inviluppo del segnale registrato decade come \(T_{2}^{*}\).
+
+\begin{figure}
+\centering
+\includegraphics[width=5.70833in,height=3.95417in]{media/8_Grad/image228.pdf}\caption{Figura .:Segnale prodotto durante una sequenza gradient-echo con due impulsi di polarità opposta}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=4.25585in,height=5.18138in,alt={Immagine che contiene diagramma, schizzo, disegno, Disegno tecnico Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/8_Grad/image229.pdf}\caption{Figura .: Sequenza gradient-echo nelle varie fasi}
+\end{figure}
+
+\subsection{Gradient-echo e spin-echo}\label{gradient-echo-e-spin-echo}
+
+La sequenza gradient-echo con i due impulsi di polarità opposta non è ancora quella effettivamente utilizzata nella pratica; infatti, la procedura applicata permette di focalizzare gli spin che procedono a frequenza di Larmour diverse, quindi gli sfasamenti, legati al campo gradiente applicato \(G_{z}z\) imposta dall'esterno. In altre parole, la refocalizzazione al tempo di echo è dovuta solamente agli sfasamenti indotti dal gradiente di campo magnetico.
+
+Nella pratica, il campo magnetico principale \(B_{0}\), in assenza di gradiente, presente delle disomogeneità, indicate con \(\Delta B\). Nel momento in cui si applicano i due gradienti di polarità inversa, le differenze di frequenze legate alla disomogeneità di campo principale non sono rifocalizzate dalla sequenza gradient-echo.
+
+Per rifocalizzare anche le disomogeneità di campo legati al tempo \(T_{2}^{*}\), si applica una sequenza ottenuta da una combinazione della sequenza spin-echo con la gradient-echo. Nel dettaglio, si applica un impulso a \(\pi/2\), seguito da un secondo impulso a \(\pi\) lungo uno degli assi \(x'\) o \(y'\). Tra i due impulsi si applica un gradiente lungo \(z\) di una certa polarità. A seguito dell'impulso a \(\pi\), si applica il secondo gradiente lungo \(z\) con stessa polarità del primo e area almeno doppia. Il segnale viene registrato durante l'applicazione del secondo gradiente.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.89167in,height=2.45875in]{media/8_Grad/image230.pdf}\caption{Figura .: Sequenza gradient-echo con spin-echo}
+\end{figure}
+
+Si vuole determinare la fase degli isocromati applicando questa nuova sequenza. Nel dettaglio, ogni isocromato avverte due disomogeneità di campo: una legata all'applicazione del gradiente \(G_{z}(t)\), e l'altra intrinseca del campo magnetico principale, il quale non è perfettamente omogeneo nella regione di interesse.
+
+Si considera una certa coordinata \(z\). La fase degli isocromati è legata sia ai gradienti applicati sia dagli impulsi a radiofrequenza. È possibile applicare la sovrapposizione degli effetti per studiare il comportamento quando solamente una delle due cause, \(G_{z}(t)\) o \(\Delta B\), è applicata.
+
+A causa dell'applicazione del gradiente \(G_{z}(t)\), la fase varia secondo una legge lineare con pendenza negativa. Dal tempo \(t_{2}\) in cui il gradiente si annulla, la fase resta costante, finché non è applicato l'impulso a \(\pi\) che la ribalta.
+
+L'applicazione del secondo produce un rifasamento e defasamento, che annulla la fase, \(\phi(t)\), al tempo di echo, \(T_{E}\). Durante l'applicazione del secondo gradiente la pendenza con cui decresce la fase è negativa ed è uguale al tratto precedente.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.65998in,height=3.61319in]{media/8_Grad/image231.pdf}\caption{Figura .: Andamento della fase dovuto gli impulsi a RF e ai gradienti nella sequenza gradient-echo con spin-echo}
+\end{figure}
+
+La fase degli isocromati, in contemporanea, è soggetta alla disomogeneità del campo principale; di conseguenza, lo sfasamento degli isocromati non inizia col gradiente \(G_{z}\) ma dall'applicazione del primo impulso a \(\pi/2\) lungo uno degli assi del sistema rotante, al tempo \(t_{0} = 0\). Dopo il primo impulso a radiofrequenza, la fase evolve linearmente con pendenza negativa fino all'applicazione dell'impulso a radiofrequenza che ribalta la magnetizzazione di \(\pi\). Questo impulso ribalta la fase in modo speculare rispetto all'istante precedente la sua applicazione. In seguito, la fase procede con la stessa pendenza fino ad annullarsi al tempo di echo, diventando successivamente negativa. La pendenza uguale della fase è legata al fatto che gli impulsi a radiofrequenza non modificano le disomogeneità di campo principale \(\Delta B\).
+
+Sia la fase legata alla disomogeneità di campo principale \(B_{0}\), sia legata al gradiente lungo \(z\) si rifasano al tempo di echo, \(T_{E}\). Ovviamente, per il gradiente lungo \(z\), l'area del secondo impulso dal tempo \(t_{3}\) al tempo di echo \(T_{E}\) deve essere la stessa del primo gradiente applicato, così da garantire, appunto, l'annullamento della fase degli isocromati.
+
+La nuova sequenza nel \(k\)-spazio è rappresentata tenendo conto che la fase subisce un salto a causa dell'impulso a \(\pi\):
+
+\[\phi(z,t) = - \overline{\gamma}\int_{0}^{t}{G_{z}d\tau} = 2\pi kz\]
+
+Se la fase è ribaltata anche la variabile \(k\) è ribaltata. Dal punto di vista grafico, la situazione si rappresenta come:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\item
+  Un vettore che porta \(k\) verso destra, fino ad arrivare a \(k_{\max}\);
+\item
+  A seguito del ribaltamento, il \(k\) si sposta da \(k_{\max}\) a \(- k_{\max}\) senza compiere un'effettiva traiettoria nel \(k\)-spazio. La situazione è descritta graficamente mediante una curva che conuce la variabile \(k\) dal valore che assumeva prima del ribaltamento al suo valore speculare, in modo istantaneo;
+\item
+  Una volta raggiunto il valore \(- k_{\max}\), il secondo gradiente di rifocalizzazione, dopo l'impulso a radiofrequenza, porta la frequenza spaziale \(k\) a crescere con andamento lineare, rappresentato come un vettore da \(- k_{\max}\) a \(k_{\max}\).
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics[width=5.82917in,height=2.7516in]{media/8_Grad/image232.pdf}\caption{Figura .: Andamento nel \(k\)-spazio con sequenza gradient-echo con spin-echo}
+\end{figure}
+
+La finestra di acquisizione è attivata durante l'applicazione del secondo gradiente, quindi, il segnale \(s(t)\) è registrato dalle antenne e campionato nel tempo, per poter essere elaborato da una circuiteria digitale.
+
+Il campionamento nel dominio del tempo può essere legato al campionamento nel dominio della \(k\). Se, infatti \(\Delta t\) è l'intervallo di tempo campionamento nel dominio del tempo, allora, in ipotesi di gradiente costante, il campionamento lungo \(k\) è dato da:
+
+\[\Delta k = \overline{\gamma}G_{z}\Delta t\]
+
+Da cui si passa da \(s\left( t_{n} \right)\) a \(s\left( k_{n} \right)\).
+
+L'applicazione della sequenza spin-echo mista alla gradient-echo permette di campionare il \(k\)-spazio per tutti i valori di \(k\) contenuti nell'intervallo \(\left\lbrack - k_{\max};k_{\max} \right\rbrack\), nella direzione delle \(k\) crescenti, ovvero da \(k\) negative a positive.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.98687in,height=1.10833in]{media/8_Grad/image233.pdf}\caption{Figura .: Campionamento nel \(k\)-spazio}
+\end{figure}
+
+Campionando il segnale \(s(k)\) nel \(k\)-spazio, durante la finestra in cui si forma l'echo è possibile ricostruire la densità protonica del campione mediante trasformata inversa di Fourier:
+
+\[\widehat{\rho}(z) = \sum_{n}^{}{s\left( k_{n} \right)\exp\left( j2\pi nk_{n}z \right)}\]
+
+Questa sequenza permette la sola ricostruzione di un'immagine della densità protonica efficace, legata alla densità protonica lungo la direzione \(z\).
+
+\subsubsection{Segnale registrato della gradient-echo}\label{segnale-registrato-della-gradient-echo}
+
+Si considera un campione di materiale omogeneo di forma cilindrica, disposto lungo la coordinata \(z\) e dimensione longitudinale \(2z_{0}\)
+
+\begin{figure}
+\centering
+\includegraphics[width=4.93525in,height=3.45833in]{media/8_Grad/image234.pdf}\caption{Figura .: Cilindro di materiale omogeneo di lunghezza \(2z_{0}\)}
+\end{figure}
+
+Si applica una sequenza data da un impulso a \(\pi/2\) lungo \(x'\) e un gradiente lungo \(z\) con una durata di tempo \(T = t_{2} - t_{1}\). Si vuole determinare il segnale ricevuto dalle antenne durante l'applicazione del gradiente.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.6333in,height=2.60347in]{media/8_Grad/image235.pdf}\caption{Figura .: Applicazione di un impulso a RF e un gradiente lungo \(z\)}
+\end{figure}
+
+Il segnale nel \(k\)-spazio è ottenuto dalla trasformata di Fourier della densità protonica efficace \(\widehat{\rho}\):
+
+\[s(k) = \int_{- z_{0}}^{z_{0}}{\widehat{\rho}(z)\exp( - j2\pi kz)dz}\]
+
+La densità protonica efficace è costante, poiché il materiale è uniforme, quindi:
+
+\[\widehat{\rho} = {\widehat{\rho}}_{0}\]
+
+\({\widehat{\rho}}_{0}\) può essere portata fuori dal simbolo di integrale:
+
+\[s(k) = {\widehat{\rho}}_{0}\int_{- z_{0}}^{z_{0}}{\exp( - j2\pi kz)dz}\]
+
+Per risolvere l'integrale si moltiplica e divide per il fattore moltiplicativo \(z\) nell'argomento dell'esponenziale:
+
+\[s(k) = {\widehat{\rho}}_{0}\int_{- z_{0}}^{z_{0}}{\exp( - j2\pi kz)dz} = - \frac{1}{j2\pi k}{\widehat{\rho}}_{0}\int_{- z_{0}}^{z_{0}}{\left\lbrack j2\pi kz\exp( - j2\pi kz) \right\rbrack dz} =\]
+
+La cui soluzione è:
+
+\[= - \frac{1}{j2\pi k}{\widehat{\rho}}_{0}\left. \ \exp( - j2\pi kz) \right|_{- z_{0}}^{z_{0}} = - \frac{1}{j2\pi k}{\widehat{\rho}}_{0}\left\lbrack \exp\left( - j2\pi kz_{0} \right) - \exp\left( j2\pi kz_{0} \right) \right\rbrack\]
+
+Per le formule di Eulero, risulta che:
+
+\[\exp\left( - j2\pi kz_{0} \right) - \exp\left( j2\pi kz_{0} \right) = - 2j\sin\left( 2\pi kz_{0} \right)\]
+
+Il segnale registrato si scrive come:
+
+\[s(k) = {\widehat{\rho}}_{0}\left( - \frac{1}{j2\pi k} \right)\left\lbrack - 2j\sin\left( 2\pi kz_{0} \right) \right\rbrack = {\widehat{\rho}}_{0}\frac{\sin\left( 2\pi kz_{0} \right)}{\pi k}\]
+
+Per scrivere il segnale registrato nel \(k\)-spazio più compatto, si moltiplica e divide per \(2z_{0}\):
+
+\[s(k) = {\widehat{\rho}}_{0}\frac{\sin\left( 2\pi kz_{0} \right)}{\pi k}\frac{2z_{0}}{2z_{0}} = 2z_{0}{\widehat{\rho}}_{0}\frac{\sin\left( 2\pi kz_{0} \right)}{2\pi kz_{0}}\]
+
+Per la definizione di \(sinc\), si ha:
+
+\[s(k) = 2z_{0}{\widehat{\rho}}_{0}{sinc}\left( kz_{0} \right)\]
+
+A una distribuzione uniforme lungo \(z\), ovvero rettangolare, corrisponde un segnale ricevuto \(s(k)\) di tipo \(sinc\) e ampiezza \(2{\widehat{\rho}}_{0}z_{0}\).
+
+Nel dominio del tempo, il segnale registrato è ottenuto ricorrendo al legame tra \(k\) e \(t\):
+
+\[k = - \overline{\gamma}G_{z}\left( t - t_{1} \right)\]
+
+Dato che la \(sinc\) è una funzione pari, il segnale registrato nel dominio del tempo può essere scritto come:
+
+\[s(t) = 2z_{0}{\widehat{\rho}}_{0}{sinc}\left\lbrack \overline{\gamma}G_{z}\left( t - t_{1} \right)z_{0} \right\rbrack\]
+
+Il segnale appena determinato è un decadimento di tipo FID.
+
+Dal punto di vista della finestra di acquisizione, il segnale registrato \(s(t)\), essendo centrato al tempo \(t_{1}\), è campionata soltanto per metà onda. Si ha, dunque, una perdita di informazioni in quanto solo metà del segnale emanato viene memorizzato; equivalentemente, la variabile \(k\) assume solamente valori positivi.
+
+L'uso del gradiente di defasamento congiunto con quello di refasamento permette di ottenere l'intero segnale \(sinc\), ottenendo così maggiori informazioni sul materiale considerato. Equivalentemente, la variabile \(k\) assume valori sia positivi che negativi.
+
+La registrazione di una \(sinc\) troncata non permette la ricostruzione ottimale della densità protonica, poiché manchevole di importanti informazioni; viceversa, registrando il segnale durante il gradiente di rifasamento si ottiene l'intera \(sinc\), ricostruendo l'informazione in modo ottimale, poiché il contenuto informativo è massimo.
+
+Il segnale registrato nel secondo gradiente è ottenuto dalla trasformata di Fourier della densità protonica:
+
+\[s(k) = \int_{- z_{0}}^{z_{0}}{\widehat{\rho}(z)\exp( - j2\pi kz)dz}\]
+
+In ipotesi di mezzo omogeneo, \(\widehat{\rho}(z) = {\widehat{\rho}}_{0}\), per cui:
+
+\[s(k) = \int_{- z_{0}}^{z_{0}}{\widehat{\rho}(z)\exp( - j2\pi kz)dz} = {\widehat{\rho}}_{0}\int_{- z_{0}}^{z_{0}}{\exp( - j2\pi kz)dz}\]
+
+La cui soluzione, come nel caso precedente, è data da:
+
+\[s(k) = 2z_{0}{\widehat{\rho}}_{0}{sinc}\left( kz_{0} \right)\]
+
+In questo caso, la variabile \(k\) è data da:
+
+\[k(t) = \overline{\gamma}G_{z}\left( t - t_{3} \right) - \overline{\gamma}G_{z}\left( t_{2} - t_{1} \right) = \overline{\gamma}G_{z}\left( t - t_{3} - t_{2} + t_{1} \right)\]
+
+Per cui, il segnale registrato nel dominio del tempo è:
+
+\[s(t) = 2z_{0}{\widehat{\rho}}_{0}{sinc}\left\lbrack \overline{\gamma}G_{z}\left( t - t_{3} - t_{2} + t_{1} \right)z_{0} \right\rbrack\]
+
+In questo caso, la \(sinc\) è centrata al tempo di echo:
+
+\[T_{E} = t_{3} + t_{2} - t_{1}\]
+
+È possibile scrivere il segnale registrato come:
+
+\[s(t) = 2z_{0}{\widehat{\rho}}_{0}{sinc}\left\lbrack \overline{\gamma}G_{z}\left( t - T_{E} \right)z_{0} \right\rbrack\]
+
+In questo caso, il contenuto informativo è massimo.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.90754in,height=4.82847in]{media/8_Grad/image236.pdf}\caption{Figura .: Segnale registrato per sequenza gradient-echo con mezzo omogeneo}
+\end{figure}
+
+Si osservi che la finestra di registrazione del segnale deve essere tale da poter trascurare gli effetti legati ai tempi di rilassamento \(T_{1}\) e \(T_{2}\). La finestra di acquisizione, per tale ragione, deve essere dell'ordine dei \(ms\).

@@ -1,0 +1,428 @@
+\begin{center}
+\vfill
+    \chapter{Principio fisico del tubo fotomoltiplicatore}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+\section{Tubo fotomoltiplicatore (PMT)}\label{tubo-fotomoltiplicatore-pmt}
+
+Il fotomoltiplicatore o PMT (\emph{Photo-Multiplier Tube}) è situato tra il cristallo di scintillazione e l'elettronica di elaborazione. Questo componente intercetta la radiazione luminosa emergente dal cristallo e, tramite un vetro di accoppiamento, la trasforma in un impulso di corrente.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.37276in,height=2.70756in,alt={P4221\#yIS1}]{media/18_PTM/image455.pdf}\caption{Figura .: Posizione del PMT nel detettore}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=6.22527in,height=2.79303in,alt={P4223\#yIS1}]{media/18_PTM/image456.pdf}\caption{Figura .: Schema interno di un PMT}
+\end{figure}
+
+La struttura, fondamentalmente, si compone di un fotocatodo su cui arriva la luce incidente proveniente dal cristallo. La luce è convertita in elettroni grazie all'effetto fotoelettrico. Gli elettroni sono accelerati all'interno del tubo, in cui è praticato il vuoto (vi è, infatti, una pressione di \(10^{- 4}Pa\)), attraverso degli elettrodi, detti dinodi, mantenuti ad un potenziale diverso rispetto al fotocatodo. L'elettrone emergente dal fotocatodo possiede energia molto limitata, e, per effetto del campo elettrico arriva, sul primo dinodo con una certa energia cinetica. L'elettrone, collidendo con il dinodo, cede l'energia cinetica ai suoi elettroni, scalzandoli. Ad un elettrone incidente coincidono vari elettroni scalzati, che vengono ugualmente accelerati verso il secondo dinodo e così via, innescando, dunque, un fenomeno a valanga. I dinodi, in totale, sono una decina, per cui, ad un elettrone incidente proveniente dal fotocatodo, coincide una corrente di alcuni nA, che può essere rilevata dall'elettronica a valle.
+
+Più nel dettaglio della PET, il blocco detettore dei fotoni \(\gamma\) si compone di un cristallo di scintillazione, in cui i fotoni \(\gamma\) a 511keV sono convertiti in fasci luminosi. Dato che la luce visibile ha un'energia più bassa, dell'ordine di 2-3eV, in uscita al cristallo scintillatore vi sono qualche centinaio di migliaio di fotoni luminosi che, poi, sono convertiti dal fotocatodo in un fascio elettronico da amplificare mediante dinodi. Non esiste una corrispondenza esattamente biunivoca tra fotoni \(\gamma\) incidenti ed elettroni emessi, ma dalla corrente in uscita dal fotomoltiplicatore, dovuta all'effetto a valanga dei dinodi, è possibile risalire all'energia incidente sul cristallo scintillatore. La corrente in uscita dal fotomoltiplicatore deve essere opportunamente rilevata e amplificata per essere leggibile dalla circuiteria a valle.
+
+\subsection{Fotocatodo}\label{fotocatodo}
+
+Il fotomoltiplicatore sfrutta la struttura a bande caratteristiche dei solidi cristallini, usati per la realizzazione del cristallo scintillatore. Per un metallo le bande di conduzione e valenza coincidono, per semiconduttore le due bande sono separate da un gap energetico di qualche eV, per gli isolanti, invece, le due bande sono distanziate da un gap energetico molto elevato.
+
+La struttura a bande si ritrova anche nel fotocatodo del fotomoltiplicatore, generalmente realizzato in un materiale alcalino. Questo elemento possiede una banda di valenza e conduzione separate da un gap energetico e un'interfaccia tra il materiale e il vuoto. Quando la luce di energia \(hf\) incide su degli elettroni della banda di valenza, questi acquisiscono energia per passare alla banda di conduzione. Gli elettroni con sufficiente energia riescono a percorrere lo spazio che li separa tra la posizione originale e lo spazio esterno del materiale. In altre parole, gli elettroni percorrono tutto lo spessore del materiale fino a fuoriuscire nel vuoto, dove sono accelerati dai dinodi. Durante il percorso compiuto all'interno del materiale, gli elettroni possono perdere energia emettendo altri fotoni. In questo caso, le particelle cariche potrebbero non avere energia sufficiente a superare la barriera di potenziale tra la banda di conduzione e il vuoto. L'energia somministrata necessaria che un elettrone deve possedere affinché passi dalla banda di conduzione al vuoto sia detto lavoro di estrazione o energia di estrazione. Questa quantità è legata all'effetto fotoelettrico spiegato da Einstein.
+
+Ovviamente non tutti gli elettroni riescono a superare la barriera di potenziale poiché l'energia acquisita potrebbe non essere sufficiente o dissipata all'interno del materiale stesso. Quindi, il costruttore del fotocatodo deve tener conto di questi fenomeni così da poter realizzare una barriera di potenziale più piccola possibile per aumentare il numero di elettroni fuoriusciti dal materiale. Anche lo spessore del trasduttore è importante poiché i materiali devono essere molto sottili o film da depositare sulla finestra di ingresso. Con questa soluzione gli elettroni devono percorrere un cammino ridotto, rendendo, quindi, meno probabile le dissipazioni energetiche nel cristallo stesso.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.53904in,height=4.5625in,alt={P4231\#yIS1}]{media/18_PTM/image457.pdf}\caption{Figura .: Bande di un cristallo scintillatore}
+\end{figure}
+
+Un parametro importante di questi materiali è l'efficienza quantica o \emph{Quantum Efficiency} (QE) definito come il numero di fotoelettroni emessi rispetto al numero di fotoni incidenti. Idealmente, si vorrebbe che a ogni fotone corrisponda un elettrone estratto, ovvero un 100\% di QE. Tuttavia, nella realtà l'efficienza è dell'ordine del 10-20\%, quindi, per estrarre un elettrone è necessario irradiare il fotocatodo con un certo numero di fotoni. Questo fenomeno si verifica poiché non è detto che l'energia di un elettrone sia tale da superare la barriera di potenziale o che sia conservata nel tragitto tra la posizione originaria e il vuoto.
+
+La fotoemissione si compone di tre passi:
+
+\begin{itemize}
+\item
+  L'assorbimento di un fotone in cui si assiste al trasferimento di energia da un fotone incidente e un elettrone;
+\item
+  Il moto dell'elettrone verso l'interfaccia metallo-vuoto;
+\item
+  La fuga dell'elettrone dalla barriera di potenziale all'interfaccia possibile solo se l'elettrone ha energia sufficiente a superare la barriera di potenziale.
+\end{itemize}
+
+Le perdite di energia possono verificarsi per molti fenomeni anche non strettamente legati al cammino dell'elettrone nel fotocatodo. Possono verificarsi, ad esempio, dei fenomeni riflessivi tra il cristallo scintillatore e il fotocatodo che determinano un parziale assorbimento della radiazione incidente. La porzione di energia incidente estrae elettroni che possono collidere, perdendo così energia, sia con altri elettroni o con il reticolo durante nel cammino verso l'interfaccia fotocatodo-vuoto. Quando l'elettrone collide col reticolo si parla di \emph{Phonon-Scattering} mentre se incide con un altro elettrone si parla di \emph{Electron-Scattering}. Questi due fenomeni aumentano il numero di particelle cariche che non hanno energia sufficiente a superare la barriera di potenziale.
+
+\subsubsection{Metalli per fotocatodo}\label{metalli-per-fotocatodo}
+
+La realizzazione dei fotocatodi pone una serie di problematiche costruttive che riducono il rendimento della conversione fotoni-elettroni. I metalli presentano una superficie molto riflettente, quindi, la quantità di radiazione assorbita è molto limitata. Possono verificarsi anche un gran numero di collisioni tra elettroni liberi e reticolo o altri elettroni. Per tale motivo la profondità di fuga, ovvero il cammino compiuto per giungere all'interfaccia metallo-vuoto, deve essere di 1nm.
+
+L'energia necessaria affinché un elettrone di un metallo superi la barriera di potenziale deve essere maggiore di 3eV; tuttavia, la luce visibile possiede un'energia minore di tale soglia. Quindi, per produrre fotoelettroni, bisogna spostare lo spettro di emissione verso i raggi UV. Per superare tale limite si utilizzano i metalli alcalini per i quali il lavoro di estrazione è minore di 3eV.
+
+Si può vedere che, in genere, l'efficienza dei metalli nella regione visibile è dell'ordine di 1 fotoelettrone per 1000 fotoni incidenti:
+
+\[QE = \frac{1}{1000} = 0.1\%\]
+
+Questa quantità risulta comunque essere molto variabile in base al metallo considerato e le condizioni ambientali.
+
+\subsubsection{Semiconduttori}\label{semiconduttori}
+
+I semiconduttori, a 0K, possiedono elettroni più energetici nella banda di valenza, mentre la banda di conduzione è vuota. Le due bande sono separate da un'energia detta gap di circa 2-3eV. A temperature maggiori dello zero assoluto, alcuni elettroni sufficientemente energetici si spostano nella banda di conduzione.
+
+Gli elettroni nella banda di valenza di questi materiali assorbono fotoni solamente se possiedono un'energia maggiore del gap energetico. In particolare, per la fotoemissione, l'elettrone deve assorbire un'energia maggiore dell'affinità elettronica che tiene conto dell'energia di legame con la quale è legata al reticolo. Ne discende che il fotone non solo deve avere un'energia almeno uguale al gap energetico ma deve tener conto anche dell'affinità elettronica. Il fotone deve avere un'energia almeno uguale alla somma delle due energie:
+
+\[E_{f_{tot}} = E_{G} + E_{A}\]
+
+A favore di questi materiali vi sono alcune proprietà tipiche come il basso numero di collisioni degli elettroni liberi nella banda di conduzione. Ciò comporta che gli elettroni possono percorrere anche una profondità di fuga di 10nm.
+
+Con gli attuali processi tecnologici è possibile realizzare semiconduttori che possiedono un'energia di estrazione, somma del gap e dell'affinità elettronica, anche minore di 2eV.
+
+\subsubsection{Affinità elettronica negativa}\label{affinituxe0-elettronica-negativa}
+
+Normalmente nei materiali semiconduttori le bande di conduzione e valenza sono separate da un gap energetico. Tipicamente il vuoto si trova a un potenziale maggiore della banda di conduzione. Si parla, dunque, di affinità elettronica positiva. Tuttavia, con le attuali metodiche, è possibile produrre dei materiali in cui la banda di conduzione possiede un'energia superiore al vuoto. In questo caso si parla di affinità elettronica negativa e ogni elettrone, per poter fuggire, deve avere un'energia lievemente maggiore a quella di conduzione.
+
+In altre parole, il fotone deve possedere almeno un'energia uguale al gap tra banda di valenza e conduzione per poter estrarre il fotoelettrone.
+
+I materiali con affinità elettronica negativa sono fondamentali per realizzare fotocatodi con elevata efficienza quantica. Un esempio di materiale con affinità negativa è offerto dal fosfato di gallio attivato al cesio o GaP(Cs) che a sua volta possiede delle impurità di atomi zinco (Zn) che realizzano l'accettore, mentre il cesio è posto sulla superficie.
+
+Lo zinco attrae gli elettroni dal cesio che, quindi, è ionizzato positivamente. Gli elettroni in fondo alla banda di conduzione, con energie inferiori, possono fuggire con una profondità di fuga di 100nm.
+
+\subsubsection{Efficienza quantica dei vari materiali}\label{efficienza-quantica-dei-vari-materiali}
+
+Per quantizzare l'efficienza quantica dei vari materiali si osservi che essa dipende all'energia dei fotoni incidenti. Studi in letteratura hanno permesso di ottenere una curva efficienza quantica-energia incidente per vari materiali.
+
+Da questi digrammi è possibile osservare che per metalli di spessore uguale a 400nm, l'efficienza quantica varia nel range di 25-30\% per ogni keV di energia incidente. Per misurare l'efficienza quantica si irradia un fotocatodo di ioduro di sodio drogato al tallio o NaI(Tl), considerato come riferimento da confrontare con altri materiali.
+
+Se l'efficienza è intorno al 30\% gli elettroni emessi per ogni keV sono circa 8-10. Per tale motivo si rende necessaria la fase di moltiplicazione elettronica operata dai dinodi.
+
+Si noti che se la profondità di penetrazione e la probabilità di fuga sono piccole, è maggiore la probabilità di estrarre un elettrone. In questo caso, si potrebbe pensare di aumentare l'efficienza ottimizzando la probabilità di fuga mediante un fotocatodo molto sottile. Tuttavia, ciò provocherebbe un aumento della trasmissione della radiazione.
+
+L'utilizzo dei semiconduttori drogati in modo da avere un'affinità elettrica negativa come il GaP(Cs) permette un aumento dell'efficienza, grazie all'elevata profondità di fuga.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.85057in,height=4.73958in,alt={P4262\#yIS1}]{media/18_PTM/image458.pdf}\caption{Figura .: Efficienza quantica in funzione dell'energia dei fotoni per vari materiali}
+\end{figure}
+
+\subsubsection{Caratteristiche di un fotocatodo}\label{caratteristiche-di-un-fotocatodo}
+
+Per scegliere adeguatamente un fotocatodo di un fotomoltiplicatore, uno dei parametri da considerare è l'efficienza quantica che può andare dal 12\% fino a un massimo di 30\% nei materiali con prestazioni migliori. Non è possibile convertire tutti i fotoni ricevuti in fotoelettroni ma, in media, si assiste a un numero di fotoelettroni emessi legato al QE. Nel processo di trasduzione una quota di energia è sempre persa per vari fenomeni come le dissipazioni in calore.
+
+È importante anche un elevato grado di accoppiamento con il cristallo scintillare, così che i due materiali abbiano un indice di rifrazione quando più simile possibile. Ciò consente di ridurre al minimo la radiazione riflessa. Ovviamente, è necessario che il cristallo scintillatore emetta fotoni luminosi con lunghezza d'onda tale da eccitare il fotocatodo.
+
+È, inoltre, importante considerare il tempo morto di un materiale così da poter ricostruire l'informazione ricevuta sull'energia nel modo più affidabile possibile.
+
+I costruttori dei materiali inseriti in un fotomoltiplicatore forniscono delle tabelle contenenti tutte le caratteristiche e proprietà del materiale utilizzato. Ciò consente di selezionare un materiale piuttosto che un altro in base alle specifiche del progetto e le applicazioni future.
+
+\subsection{Dark Current}\label{dark-current}
+
+La \emph{Dark Current} è un parametro che riguarda il tubo fotomoltiplicatore nel suo complesso ed è definita come la corrente che fluisce nell'anodo dello strumento quando non vi è nessuna radiazione incidente. In linea teorica, ci si aspetterebbe che, quando non vi è nessuna radiazione emessa dal cristallo scintillatore, non sia prodotto nessun fotoelettrone e, di conseguenza, la corrente in uscita al fotomoltiplicatore sia nulla. Tuttavia, esistono dei fenomeni per cui si può generare una corrente anche in assenza di energia luminosa in entrata.
+
+La corrente oscura limita la soglia dei fotoni poiché si sovrappone alla corrente prodotta dalla trasduzione e amplificazione elettronica, introducendo così una certa quota di rumore additivo. Ciò rende complicata la valutazione dell'ampiezza e durata dell'impulso di corrente.
+
+La \emph{Dark Current} può essere prodotta da:
+
+\begin{itemize}
+\item
+  Dispersione ohmica dovuta all'imperfetto isolamento all'interno del tubo e sul contenitore del tubo stesso. Si producono così delle correnti parassite dal contenitore verso l'anodo che corrompono la misura;
+\item
+  L'emissione termoionica, dovuto al riscaldamento del catodo. Quando il catodo o il tubo si riscaldano un numero maggiore di elettroni possiede l'energia necessaria a superare il gap, passando dalla banda di valenza a quella di conduzione. Ciò incrementa il numero di elettroni, che diventa maggiore di quello atteso, e anche l'emissione in assenza di radiazione luminosa incidente. Anche i dinodi possono emettere degli elettroni per emissione termoionica. In questo caso si corrompe l'emissione secondarie;
+\item
+  Gli effetti rigenerativi sono di minor importanza nei fotomoltiplicatori.
+\end{itemize}
+
+Nei metalli l'emissione termoionica è data da tutti gli elettroni che oltrepassano la barriera di potenziale tra la banda di conduzione e il vuoto. La densità di corrente prodotta segue la l'equazione di Richardsson:
+
+\[J = 4\pi emk_{B}^{2}\frac{T}{h^{3}}e^{- \frac{\varphi}{k_{B}T}}\ \]
+
+Dove \(e\) è la carica elementare dell'elettrone, \(m\) la sua massa, \(k_{B}\) la costante di Boltzmann, \(h\) la cosante di Planck, \(T\) la temperatura assoluta e \(\varphi\) la \emph{Work-Function}.
+
+A seconda della temperatura, esiste una densità di corrente termoionica formata da elettroni che sfuggono dal materiale. La corrente è generata indipendentemente dal fascio luminoso in ingresso e forma una porzione della \emph{Dark Current}.
+
+La corrente di disturbo in funzione della temperatura è fornita dal costruttore del fotomoltiplicatore come diagrammi della densità di corrente in funzione della temperatura, parametrizzati la \emph{Dark Emission}, valutata come numero di elettroni emessi al secondo su unità di superficie. La \emph{Dark Current} può assumere valori anche dell'ordine dei pA che, amplificate insieme al segnale utile, costituiscono un rumore di sottofondo su correnti già con intensità molto limitate.
+
+\begin{figure}
+\centering
+\includegraphics[width=2.79331in,height=4.60417in,alt={P4281\#yIS1}]{media/18_PTM/image459.pdf}\caption{Figura .: Dark Current in funzione della temperatura per vari materiali}
+\end{figure}
+
+I semiconduttori sono anche loro soggetti a correnti termoioniche, date dagli elettroni che passano dalla banda di valenza a quella di conduzione. Per questi materiali, l'equazione di Richardsson va modificata sostituendo al lavoro di estrazione la somma del gap energetico e dell'affinità elettronica:
+
+\[J = 4\pi emk_{B}^{2}\frac{T}{h^{3}}e^{- \frac{E_{A} + E_{G}}{k_{B}T}}\]
+
+La quantità \(E_{A} + E_{G}\) è proprio l'energia necessaria che bisogna fornire all'elettrone nella banda di valenza per essere estratto. È importante sottolineare questo punto poiché per i metalli le due bande coincidono, quindi, un elettrone di valenza è anche di conduzione. Invece, per un semiconduttore le due bande sono separate da un gap energetico che l'elettrone deve superare prima di poter essere estratto.
+
+\subsection{Emissione secondaria}\label{emissione-secondaria}
+
+Il fenomeno dell'emissione secondaria è dovuto all'impatto di elettroni sufficientemente energetici, estratti per effetto foto-ionico o per correnti dispersione, sulla superficie dinodi, che a loro volta producono altri elettroni in cascata. Questo processo può essere quantizzato da un'efficienza, indicata con \(\delta\) e detta \emph{Secondary Emission Ratio}, dato dal rapporto di numero di elettroni secondari emessi e il numero di elettroni primari incidenti:
+
+\[\delta = \frac{N_{s}}{N_{e}}\]
+
+Ovviamente si vorrebbe che questa quantità sia più costante possibile e di valore sufficientemente elevato, così da sapere che la quota di rumore è molto limitata e non varia nel tempo. Nella pratica, questa quantità non è costante ma dipende da numerosi fattori statistici. La corrente raccolta dopo il processo di amplificazione elettronica è a sua volta dipendente dall'efficienza: se per ogni fotoelettrone incidente si generano \(\delta\) elettroni secondari, a fine processo si generano \(\delta^{n}\) elettroni secondari, dove \(n\) è il numero dei dinodi.
+
+Se \(\delta\) è costante nel tempo e sufficientemente elevato, il numero degli elettroni secondari cresce rapidamente con il numero dei dinodi così da avere una corrente in uscita di ampiezza sufficientemente intensa da poter essere rilevata.
+
+Ogni volta che un elettrone primario incide sul dinodo, interagisce con un elettrone nel materiale, eccitandolo. L'elettrone eccitato passa nello stato energetico superiore e, se possiede un'energia sufficientemente elevata, supera la barriera di potenziale all'interfaccia tra materiale e vuoto. Tutti gli elettroni che superano la barriera di potenziale formano gli elettroni secondari che sono poi emessi all'esterno del dinodo ed accelerati dal campo elettrico verso il dinodo successivo.
+
+A seconda dei materiali, il \emph{Secondary Emission Ratio} varia da 10 a 20, mentre la probabilità di fuga diminuisce all'aumentare dello spessore del materiale stesso.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.81858in,height=3.88542in,alt={P4293\#yIS1}]{media/18_PTM/image460.pdf}\caption{Figura .: Probabilità di fuga in funzione della profondità di fuga}
+\end{figure}
+
+Il \emph{Secondary Emission Ratio}, conseguentemente anche la probabilità di fuga, dipende anche dall'energia dell'elettrone primario incidente. In quest'ottica, è importante selezionare la giusta differenza di potenziale tra due dinodi così che gli elettroni acquisiscano la giusta energia in eV.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.64583in,height=2.63037in,alt={P4296\#yIS1}]{media/18_PTM/image461.pdf}\caption{Figura .: Andamento dell'emissione secondaria}
+\end{figure}
+
+La forma dei dinodi, della struttura acceleratrice e dell'intero fotomoltiplicatore sono parametri importanti da considerare in fase di progetto. Esistono, infatti, differenti modi in cui i dinido possono essere arrangiati nello spazio.
+
+Tuttavia, la configurazione geometrica deve essere tale che tra un dinodo e l'altro la dispersione elettronica sia minima, ovvero che la maggior parte degli elettroni emessi da un dinodo siano accettati dal dinodo successivo.
+
+Le diverse traiettorie compiute dagli elettroni, le diverse forme e posizioni spaziali dei dinodi determinano le classi dei fotomoltiplicatori.
+
+La struttura interna del tubo fotomoltiplicatore può essere arrangiata secondo diverse geometrie come la circolare, in cui i dinodi sono delle semicirconferenze e la differenza di potenziale è tale accelerare gli elettroni e condurli sul dinodo successivo con la minima dispersione possibile. Nella maggior parte dei casi pratici, si preferisce utilizzare delle strutture a tubo cilindrico con dinodi sempre di forma semicircolare.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.71875in,height=3.24896in,alt={P4302\#yIS1}]{media/18_PTM/image462.pdf}\caption{Figura .: Struttura circolare di un PMT}
+\end{figure}
+
+\subsection{Ottica elettronica}\label{ottica-elettronica}
+
+La geometria del fotocatodo ha un impatto fondamentale sulla tempistica poiché i fotoni estraggono elettroni lungo tutto la sua superficie. Gli elettroni estratti seguiranno percorsi diversi per arrivare al primo dinodo in base alla posizione in cui sono stati estratti. In altre parole, se il fotoelettrone è emesso in corrispondenza dei bordi, per raggiungere il centro deve percorrere un tragitto più lungo rispetto a un altro fotoelettrone emesso direttamente al centro. La posizione di estrazione dell'elettrone primario influenza, in definitiva, il tempo con cui arriva sul primo dinodo.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.5625in,height=2.4083in,alt={P4306\#yIS1}]{media/18_PTM/image463.pdf}\caption{Figura .: Diverso cammino compiuto dagli elettroni}
+\end{figure}
+
+Una possibile soluzione a questo inconveniente consiste nell'utilizzare uno schermo di ingresso ricurvo verso l'esterno così che i fotoelettroni percorrono sempre lo stesso cammino, uguale al raggio della circonferenza del fotocatodo.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.76042in,height=3.94392in,alt={P4309\#yIS1}]{media/18_PTM/image464.pdf}\caption{Figura .: Cristallo scintillatore curvo}
+\end{figure}
+
+La tempistica del cammino è dell'ordine di 0.1ns e se varia in base alla pozione, varia anche il tempo di percorrenza dal fotocatodo all'anodo. Il tempo complessivo medio tra l'arrivo di un fotone al fotocatodo e l'acquisizione dell'impulso all'anodo è detto \emph{Electron Transit Time}. Questo tempo è dell'ordine di 20-80ns e dipende molto dal tempo di percorrenza del fotoelettrone emesso dal fotocatodo sul primo dinodo, poiché risulta essere quello più variabile. Il tempo di percorrenza influenza la durata temporale dell'impulso e la sua ampiezza poiché introduce un ritardo fisso e, dunque, non un rumore casuale dannoso. In realtà, si assiste a una distribuzione dei tempi di arrivo all'anodo che causa uno \emph{Spread} intorno al valor medio, poiché esistono comunque delle fluttuazioni del tempo di transito.
+
+Si suppone che gli elettroni arrivino in determinati istanti di tempo. All'inizio vi è una certa quantità di elettroni che arriva sull'anodo quasi contemporaneamente e altri con un ritardo maggiore poiché possiedono tempi di transito più lunghi. Si vorrebbe, in generale, che tutti gli elettroni arrivassero nello stesso istante poiché si genererebbe un impulso di corrente con durata e ampiezza dipendente dalla quantità di carica depositata sull'anodo. Siccome la corrente è la derivata della carica, quando arrivano i primi impulsi molto ravvicinati tra loro, la corrente aumenta rapidamente per poi decrescere. Il tempo di salita della corrente è un parametro fondamentale per la scelta del fotomoltiplicatore ed è riportato nei dati tecnici. Sia i tempi di salita che di discesa della corrente sono legati all'\emph{Electron Transit Time}.
+
+A causa degli elettroni con tempo di transito più lunghi, la forma d'onda, oltre al picco principale, presenta una serie di picchi di intensità minore in corrispondenza dell'arrivo dell'elettrone sull'anodo.
+
+L'impulso di corrente così misurato non comprenderebbe tutte le cariche giunte sull'anodo. Per risolvere la problematica dei picchi spuri si preferisce prelevare una tensione ottenuta integrando la corrente, cosa che avviene mediante un condensatore.
+
+\begin{figure}
+\centering
+\includegraphics[width=5.4375in,height=3.4834in,alt={P4315\#yIS1}]{media/18_PTM/image465.pdf}\caption{Figura .: Corrente discreta, corrente e tensione}
+\end{figure}
+
+La misura così ottenuta è meno soggetta alla presenza dell'\emph{Electron Transit Time}. Si osserva, infatti, che la tensione, dopo un certo periodo di tempo, raggiunge un valore di regime proporzionale alla quantità di carica complessivamente accumulata sull'anodo. Quest'ultima quantità è proporzionale alla radiazione luminosa in entrata al fotomoltiplicatore che a sua volta dipende dall'energia del fotone \(\gamma\) incidente. In definitiva, la tensione misurata è legata all'energia del fotone incidente. Da questa conoscenza è possibile discriminare se il fotone rilevato sia proveniente da un evento di annichilazione o da un effetto di \emph{Scattering}.
+
+Per limitare il più possibile il fenomeno del diverso percorso di transito, si progetta il PMT in modo che la distanza tra fotocatodo e il primo anodo sia grande rispetto le distanze inter-dinodo successive. Ciò garantisce maggiore uniformità nei cammini seguiti dai vari elettroni. Inoltre, la curvatura del fotocatodo minimizza la dispersione dei tempi di percorrenza dei vari elettroni.
+
+Si vede che le velocità iniziali degli elettroni si distribuisce secondo una statistica ben determinata. Questo effetto può essere compensato aumentando la tensione di accelerazione tra i vari dinodi.
+
+La distribuzione dei tempi dipende dal numero iniziale di fotoelettroni per impulso ed è legata inversamente con il quadrato del numero dei fotoelettroni.
+
+Per valutare la tempistica del processo è fondamentale avere informazioni sull'\emph{High Light Output} dello scintillatore.
+
+\subsection{Alimentazione del PMT}\label{alimentazione-del-pmt}
+
+L'alimentazione del tubo fotomoltiplicatore è fondamentale poiché i dinodi devono essere posti al giusto potenziale. Subito dopo il fotocatodo vi è anche una griglia di accelerazione che convoglia tutti gli elettroni prodotti sul primo dinodo.
+
+I potenziali di accelerazione sono creati ponendo i dinodi come nodi di un partitore resistivo con resistenze tutte uguali. La tensione che complessivamente cade su ogni resistenza è, quindi, la stessa. Tra due dinodi si assiste a una differenza di potenziale sempre uguale e, di solito, posta a 100V. In presenza di 10 dinodi l'alimentazione complessiva deve essere di 1kV in modo da ripartire 100V su ogni resistenza del partitore collegate ai dinodi. Con questa scelta, l'energia che acquisiscono gli elettroni nel inter-distanza tra due dinodi è di 100eV.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.89583in,height=1.56575in,alt={P4326\#yIS1}]{media/18_PTM/image466.pdf}\caption{Figura .: Schema di alimentazione dei Dinodi}
+\end{figure}
+
+Oltre alle problematiche di sicurezza legate alla gestione di tensioni così elevate, esistono dei limiti tecnici legati alla diversa corrente che scorre nei vari stadi. Nei primi stadi, la corrente ha intensità molto limitata poiché è basso il numero degli elettroni coinvolti. All'aumentare degli stadi, si ha un'amplificazione elettronica di tipo esponenziale. L'elevato numero di elettroni produce una corrente sufficientemente intensa che si manifesta tra un dinodo e il successivo.
+
+Se esiste una corrente nel dinodo, allora la corrente circolante nel ramo che lo congiunge con il partitore è non nulla. Per la legge di Kirchhoff ai nodi deve necessariamente accadere che la corrente che scorre nel partitore sia ridotta. Si perde così l'ipotesi di partitore resistivo, in favore di una configurazione più complessa che prevede la verifica delle ipotesi di corrente trascurabile solo tra i dinodi del primo tratto del fotomoltiplicatore.
+
+Nell'ultimo tratto la corrente tra due dinodi è tale da ridurre la differenza di potenziale tra i due elementi. Gli elettroni non acquisiscono più un'energia di 100eV ma inferiore, riducendo, di conseguenza, il numero di elettroni secondari estratti.
+
+Per bilanciare le correnti inverse tra gli ultimi dinodi, sono inseriti dei condensatori in parallelo alle resistenze con lo scopo di mantenere costante la tensione anche in presenza di rapide variazioni dovute all'arrivo degli elettroni.
+
+Le capacità di stabilizzazione forniscono ai dinodi la carica persa durante l'impulso ed è poi ricaricato dal partitore nel periodo tra due impulsi, in modo che il successivo fascio elettronico veda una differenza di potenziale di 100V. La carica della capacità deve essere circa 100 volte la carica emessa da dinodo, così da avere una variazione dell'1\% della tensione sul dinodo.
+
+La corrente circolante nel tubo fotomoltiplicatore dovrebbe essere mantenuta piccola così da limitare le dissipazioni di calore e i costi dell'intera struttura. Si suppone, ad esempio di avere 1000 fotoelettroni prodotti dal fotocatodo, un guadagno sia di 10\textsuperscript{6} e un numero di impulsi al secondo di 10\textsuperscript{6}. Il valor medio della corrente all'anodo è:
+
+\[10^{3} \cdot 10^{6} \cdot 10^{5} \cdot 1.6 \cdot 10^{- 19} = 16nA\]
+
+Si usa stabilizzare la tensione di alimentazione dell'intero sistema con dei diodi Zener o transistor. È, infatti, importante mantenere basso il valore del \emph{Ripple} per evitare variazioni del guadagno col tempo. Inoltre, conviene mantenere il fotocatodo al potenziale di riferimento dato che è in contatto col cristallo mentre l'anodo è posto al potenziale positivo.
+
+L'anodo è, quindi, sottoposto a una tensione elevata e, per passare l'impulso di corrente agli stadi successivi, bisogna posizionare un condensatore di accoppiamento per limitare la tensione, ponendo la resistenza di carico a terra. La struttura si comporta come un filtro passa-alto che blocca la tensione di alimentazione in DC e lascia passare solamente l'impulso di corrente, della durata di qualche ns, al carico.
+
+Un'altra soluzione per l'alimentazione consiste nel porre l'anodo a massa e il fotocatodo al potenziale negativo.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.25in,height=1.98108in,alt={P4338\#yIS1}]{media/18_PTM/image467.pdf}\caption{Figura .: Schema di alimentazione alternativo}
+\end{figure}
+
+Questa soluzione porta l'anodo a una tensione nulla senza avere la necessità della capacità di accoppiamento, ma il fotocatodo è in contatto diretto col cristallo scintillatore, che, dunque, potrebbe portarsi in tensione. In questo caso, è necessario isolare opportunamente i due componenti per evitare problemi di sicurezza ed elevate \emph{Dark Current}.
+
+\subsection{Forma dell'impulso}\label{forma-dellimpulso}
+
+L'amplificatore a valle dell'anodo possiede un'impedenza in ingresso che può essere schematizzata come un cappio RC.
+
+Il circuito di ingresso presenta a sua volta una costante di tempo \(\tau\) che deve essere opportunamente dimensionata per essere accoppiata con le tempistiche di ritardo all'interno del fotomoltiplicatore.
+
+La forma dell'impulso di corrente in uscita dal PMT dipende dalla costante di tempo del circuito anodico secondo una forma d'onda che ricalca quella di emissione del cristallo.
+
+Nello specifico, la corrente è caratterizzata da una costante primaria di decadimento del cristallo \(\lambda\), secondo la relazione:
+
+\[i(t) = i_{0}e^{- \lambda t}\]
+
+Questa relazione è sempre più verificata quanto più lo \emph{Spread} del tempo di emissione è piccolo rispetto alla costante di decadimento.
+
+Sia \(Q\) la carica raccolta nell'intero impulso, risulta che:
+
+\[Q = \int_{0}^{\infty}{i(t)dt} = i_{0}\int_{0}^{\infty}{e^{- \lambda t}dt} = \frac{i_{0}}{\lambda} \Leftrightarrow i_{0} = Q\lambda\]
+
+La corrente nel dispositivo di misura può essere scritta come:
+
+\[i(t) = Q\lambda e^{- \lambda t}\]
+
+Per risolvere la rete e determinare la tensione in uscita, si passa nel dominio dei fasori. La corrente si ripartisce nelle due impedenze che rappresentano, quindi, un partitore di corrente:
+
+\includegraphics[width=3.97639in,height=3.77639in,alt={P4353\#y1}]{media/18_PTM/image468.pdf}
+\[{\dot{I}}_{C} = \frac{{\dot{Y}}_{C}}{G + {\dot{Y}}_{C}}\dot{I} = \frac{j\omega C}{\frac{1}{R} + j\omega C}\dot{I}\]
+
+\[\frac{j\omega C}{\frac{1}{R} + j\omega C} = \frac{j\omega CR}{1 + j\omega CR}\]
+
+La tensione indotta sulla capacità è data da:
+
+\[{\dot{V}}_{C} = {\dot{Z}}_{C}{\dot{I}}_{C}\]
+
+Da cui:
+
+\[{\dot{V}}_{C} = \frac{1}{j\omega C}\frac{j\omega CR}{1 + j\omega CR}\dot{I} = \frac{R}{1 + j\omega CR}\dot{I}\]
+
+\[R\dot{I} = {\dot{V}}_{C} + j\omega CR{\dot{V}}_{C}\]
+
+Passando nel dominio del tempo si ottiene la relazione ingresso-uscita della rete elettrica:
+
+Figura .: Imprendenza di ingresso degli stadi di prelievo
+
+\[Ri(t) = v_{C} + RC\frac{dv_{C}}{dt}\]
+
+Particolarizzando al caso in esame, è noto il forzamento di tipo esponenziale:
+
+\[RQ\lambda e^{- \lambda t} = v_{C} + RC\frac{dv_{C}}{dt}\]
+
+Si pone \(\theta = \frac{1}{RC}\) reciproco della costante di tempo del circuito RC di prelievo del segnale, l'equazione della rete può essere scritta come:
+
+\[Q\lambda e^{- \lambda t} = \frac{1}{R}v_{C} + \frac{1}{\theta R}\frac{dv_{C}}{dt}\]
+
+Si passa all'omogenea associata:
+
+\[\frac{1}{R}v_{C} + \frac{1}{\theta R}\frac{dv_{C}}{dt} = 0\]
+
+La cui soluzione è semplice:
+
+\[{v_{C}}_{0} = ke^{- \theta t}\]
+
+Una soluzione particolare dell'equazione differenziale è un esponenziale con stesso tempo di decadimento \(\lambda\):
+
+\[u(t) = Fe^{- \lambda t}\]
+
+Sostituendo nell'equazione differenziale si ottiene:
+
+\[Q\lambda e^{- \lambda t} = \frac{1}{R}Fe^{- \lambda t} - \frac{\lambda}{\theta R}Fe^{- \lambda t}\]
+
+\[Q\lambda = \frac{F}{R}\left( 1 - \frac{\lambda}{\theta} \right) \Leftrightarrow F = \frac{RQ\lambda}{\left( 1 - \frac{\lambda}{\theta} \right)} = \frac{RQ\lambda}{(\theta - \lambda)}\theta = \frac{RQ\lambda}{(\theta - \lambda)}\frac{1}{RC} = \frac{1}{(\theta - \lambda)}\frac{Q\lambda}{C}\]
+
+La soluzione particolare è, dunque:
+
+\[u(t) = \frac{1}{(\theta - \lambda)}\frac{Q\lambda}{C}\ e^{- \lambda t} = - \frac{1}{(\lambda - \theta)}\frac{Q\lambda}{C}e^{- \lambda t}\ \]
+
+L'integrale generale dell'equazione differenziale è, quindi, del tipo:
+
+\[v_{C}(t) = ke^{- \theta t} - \frac{1}{(\lambda - \theta)}\frac{Q\lambda}{C}e^{- \lambda t}\]
+
+Se si pone la condizione iniziale che \(v_{C}(0) = 0\) dovuta all'assenza di corrente nella resistenza all'avvio del circuito, si ottiene:
+
+\[k = \frac{1}{(\lambda - \theta)}\frac{Q\lambda}{C}\]
+
+La soluzione della rete elettrica è stata determinata
+
+\[v_{C}(t) = \frac{1}{(\lambda - \theta)}\frac{Q\lambda}{C}\left( e^{- \theta t} - e^{- \lambda t} \right)\]
+
+A seconda della costante di tempo RC l'equazione ottenuta per la tensione sul cappio RC può essere approssimata in diversi modi.
+
+Se il circuito di ingresso dell'elettronica è un \emph{Large RC}, rispetta la condizione:
+
+\[\frac{1}{\lambda} \ll \frac{1}{\theta}\]
+
+La tensione sulla capacità può essere espressa come:
+
+\[v_{C}(t) \simeq \frac{Q}{C}\left( e^{- \theta t} - e^{- \lambda t} \right)\]
+
+Nella condizione iniziale, ovvero per:
+
+\[t \ll \frac{1}{\theta}\]
+
+È possibile approssimare \(e^{- \theta t}\) con l'unità:
+
+\[v_{C}(t) \simeq \frac{Q}{C}\left( 1 - e^{- \lambda t} \right)\]
+
+Nella condizione opposta, invece, in cui:
+
+\[t \gg \frac{1}{\lambda}\]
+
+Risulta che \(e^{- \theta t} \gg e^{- \lambda t}\), la tensione può essere scritta come:
+
+\[v_{C}(t) \simeq \frac{Q}{C}e^{- \theta t}\]
+
+Da queste approssimazioni è possibile ricavare la forma della tensione sulla capacità: crescente con costante di tempo \(\lambda\) nel tratto iniziale e decresce con costante di tempo \(\theta\) per tempi lunghi. L'ampiezza massima dell'impulso è nota ed è data dalla quantità di carica che genera l'impulso sulla capacità. Questa capacità deve essere scelta piccola così da massimizzare il valore del picco.
+
+Questa soluzione offre il vantaggio di essere poco influenzata dal rumore elettronico di fondo.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.73454in,height=1.41042in,alt={P4399\#yIS1}]{media/18_PTM/image469.pdf}\caption{Figura .: Tensione per Large RC}
+\end{figure}
+
+È possibile progettare la rete RC in modo che la sua evoluzione temporale sia piccola, ottenendo così uno \emph{Small RC}, nel senso che:
+
+\[\frac{1}{\lambda} \gg \frac{1}{\theta}\]
+
+La tensione può essere scritta come:
+
+\[v_{C}(t) \simeq \frac{Q}{C}\frac{\lambda}{\theta}\left( e^{- \theta t} - e^{- \lambda t} \right)\]
+
+Nei primi istanti dell'evoluzione, ovvero per:
+
+\[t \ll \frac{1}{\lambda}\]
+
+Si ottiene l'andamento
+
+\[v_{C}(t) \simeq \frac{Q}{C}\frac{\lambda}{\theta}\left( 1 - e^{- \lambda t} \right)\]
+
+Nel caso opposto, invece, per
+
+\[t \gg \frac{1}{\theta}\]
+
+Si ha:
+
+\[v_{C}(t) \simeq \frac{Q}{C}\frac{\lambda}{\theta}e^{- \theta t}\]
+
+La curva risulta essere abbastanza limitata nel tempo e, quindi, riesce a seguire l'impulso di corrente così come si verifica. Per costanti di tempo RC grandi invece, l'impulso è slargato nel tempo, quindi, non si riesce a seguire correttamente l'evoluzione temporale degli impulsi di corrente.
+
+Per costanti RC piccole, l'ampiezza del picco dipende da \(\frac{Q}{C}\frac{\lambda}{\theta}\), ovvero è proporzionale alla carica che a sua volta dipende dell'energia del fotone \(\gamma\) incidente. Tuttavia, essendo \(\frac{1}{\lambda} \gg \frac{1}{\theta}\), allora \(1 \gg \frac{\lambda}{\theta}\). L'impulso di tensione possiede un'ampiezza molto minore rispetto ai circuiti \emph{Large RC}.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.00544in,height=2.12174in,alt={P4415\#yIS1}]{media/18_PTM/image470.pdf}\caption{Figura .: Tensione per Small RC}
+\end{figure}
+
+La corrente anodica discreta non è visibile nei circuiti con grandi RC per l'effetto dell'integrazione che essi compiono sul segnale in ingresso, mentre per piccoli RC si ha un'influenza dell'impulso di corrente legate a fluttuazioni statistiche del tempo di percorrenza degli elettroni all'interno del fotomoltiplicatore. Con i circuiti di ingresso ad ampia costante RC si produce un segnale con un rapporto segnale/rumore molto più alto ma, tuttavia, si perde l'informazione sulla durata temporale degli impulsi. Gli \emph{Small RC}, al contrario, seguono fedelmente le tempistiche degli impulsi di corrente ma sono soggetti alle fluttuazioni della corrente anodica discreta. I piccoli \emph{Spike} di corrente costituiscono un disturbo per gli stati elettronici di prelievo e misura a valle.

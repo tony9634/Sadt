@@ -1,0 +1,1369 @@
+\begin{center}
+\vfill
+    \chapter{Rapporto segnale/rumore in MRI}
+    \label{blx:refsection\therefsection}
+\vfill
+
+\minitoc
+\newpage
+\end{center}
+\justify
+
+
+\section{SNR in RMI}\label{snr-in-rmi}
+
+Tutte le misure fisicamente realizzate sono caratterizzate da una certa quota di rumore, ovvero un segnale di disturbo con andamento casuale. Il rumore può rendere difficoltoso o, alle volte, impossibile la lettura e l'interpretazione dei dati misurati.
+
+Il parametro con cui si valuta la corruzione della misura a causa del rumore è dato dal rapporto segnale/rumore o SNR (Signal-Noise Ratio), che per definizione è dato da:
+
+\[SNR = \frac{s}{\sigma}\]
+
+Dove \(s\) è il valore del segnale mentre \(\sigma\) è la deviazione standard del rumore nel voxel.
+
+In risonanza magnetica il rapporto segnale/rumore è un parametro fondamentale per valutare l'efficacia di una sequenza o un esperimento, al fine di ottenere un'immagine. Ovviamente, se il rapporto segnale/rumore non è sufficientemente alto, diventa complesso distinguere i vari tessuti o un tessuto dallo sfondo a causa del rumore sovrapposto.
+
+\subsection{Valutazione del segnale del voxel in RMI}\label{valutazione-del-segnale-del-voxel-in-rmi}
+
+Il segnale ricevuto dalle antenne, dovuto al ritorno all'equilibrio del vettore magnetizzazione nel voxel, è legato alla densità protonica efficace mediante trasformata di Fourier:
+
+\[s\left( \overset{\underline{}}{k} \right) = \int_{V}^{}{\rho\left( \overset{\underline{}}{r} \right)\exp\left( - j2\pi\overset{\underline{}}{k} \cdot \overset{\underline{}}{r} \right)d^{(3)}\overset{\underline{}}{r}}\]
+
+Il segnale registrato non è continuo nel tempo ma campionato lungo i tre assi ortogonali del \(k\)-spazio con passi di campionamento, rispettivamente, \(\Delta k_{x}\), \(\Delta k_{y}\) e \(\Delta k_{z}\). L'immagine ricostruita nel dominio dello spazio è, quindi, legata al segnale nel \(k\)-spaio da una trasformata inversa di Fourier discreta:
+
+\[{\widehat{\rho}}_{m}(p\Delta x,q\Delta y,r\Delta z) = \frac{1}{N_{x}N_{y}N_{z}}\sum_{p' = - N_{x}}^{N_{x}}{\sum_{q' = - N_{y}}^{N_{y}}{\sum_{r' = - N_{z}}^{N_{z}}{s\left( p'\Delta k_{x},q'\Delta k_{y},r'\Delta k_{z} \right)\exp\left( j2\pi\left( \frac{pp'}{N_{x}} + \frac{qq'}{N_{y}} + \frac{rr'}{N_{z}} \right) \right)}}}\]
+
+È possibile compattare la notazione unendo le tre sommatorie:
+
+\[{\widehat{\rho}}_{m}(p\Delta x,q\Delta y,r\Delta z) = \frac{1}{N_{x}N_{y}N_{z}}\sum_{p',q',r'}^{}{s\left( p'\Delta k_{x},q'\Delta k_{y},r'\Delta k_{z} \right)\exp\left( j2\pi\left( \frac{pp'}{N_{x}} + \frac{qq'}{N_{y}} + \frac{rr'}{N_{z}} \right) \right)}\]
+
+La densità protonica effettiva misurata \({\widehat{\rho}}_{m}\) è anche detta voxel signal poiché è il segnale rappresentato nel volume elementare \(\Delta x\Delta y\Delta z\) posizionato nel punto \((p\Delta x,q\Delta y,r\Delta z)\) dell'immagine ricostruita.
+
+Il segnale nel voxel spesso non dipende solamente dalla magnetizzazione trasversale all'interno del voxel ma contiene informazioni, anche blande, sui tempi di rilassamento.
+
+Dalla risoluzione spaziale è noto che la dimensione del voxel è rappresentata dall'area sottesa alla PSF normalizzata rispetto al suo valore nell'origine. In particolare, se si riducono le dimensioni del voxel, \(\Delta x\Delta y\Delta z\), la risoluzione spaziale migliora, tuttavia, nello stesso tempo, il segnale del voxel si riduce proporzionalmente, per la diretta proporzionalità tra densità protonica e volume:
+
+\[{\widehat{\rho}}_{m}(p\Delta x,q\Delta y,r\Delta z) \propto \Delta x\Delta y\Delta z\]
+
+Dato che il voxel contiene un certo numero di protoni, la densità protonica \(\rho\) è legata anche alla magnetizzazione all'equilibrio.
+
+Scegliendo un voxel piccolo a sufficienza, tale fa poter considerare il suo contenuto omogeneo e, in ipotesi di comportamento ideale delle antenne riceventi, il segnale può essere scritto come:
+
+\[\widehat{\rho}(p\Delta x,q\Delta y,r\Delta z) \propto \frac{{\overline{\gamma}}^{3}\hslash^{2}}{4k_{B}T}B_{0}^{2}B_{\bot}(p\Delta x,q\Delta y,r\Delta z)\Delta x\Delta y\Delta z\]
+
+Dove \(B_{0}\) è il campo magnetico principale applicato. Da questa relazione si evince che il voxel signal dipende dalla componente trasversa del campo magnetico.
+
+\subsection{Valutazione del rumore del voxel in RMI}\label{valutazione-del-rumore-del-voxel-in-rmi}
+
+Noto il segnale è necessario valutare il rumore sovrapposto, al fine di ottenere un'espressione per il rapporto segnale/rumore. Generalmente, il rumore deriva dalle fluttuazioni casuali degli elettroni contenuti nel metallo dell'antenna e dal campionamento del segnale. In linea teorica sono presenti altre fonti di rumore come quello di quantizzazione, legato alla digitalizzazione del segnale, e i ghosting, legati al movimento degli spin, tuttavia, i loro effetti sono minimi almeno in un esperimento ideale.
+
+La varianza delle fluttuazioni elettroniche o di Nyquist-Johnson è data dalla relazione:
+
+\[\sigma^{2} = 4k_{B}TRBW\]
+
+Dove \(R\) è la resistenza offerta dall'antenna in ricezione, posizionata sul corpo del paziente e \(BW\) la lunghezza della banda del rumore sovrapposto allo spettro del segnale utile. Questo rumore è legato, essenzialmente, alla temperatura \(T\) diversa da quella assoluta dei portatori di carica. Gli elettroni si muovono nel materiale conduttore in modo casuale per agitazione termica e ciò determina la presenza del rumore.
+
+Il rumore di Nyquist-Johnson, avendo un'ampiezza costante nella banda del segnale utile, può essere considerato come un rumore gaussiano bianco a media nulla e varianza \(\sigma^{2}\). La gaussianità del rumore deriva dal teorema del limite centrale, il quale afferma che la somma di aventi indipendenti tende a una gaussiana.
+
+Nel \(k\).spazio il segnale misurato può essere modellato come la somma del segnale ideale e del rumore \(\varepsilon\) incorrelato col segnale utile:
+
+\[s_{m}(k) = s(k) + \varepsilon(k)\]
+
+SI suppone, inoltre, che i campioni del rumore siano incorrelati tra loro. In questa ipotesi, la media statistica tra due campioni del rumore è data da:
+
+\[E\left\lbrack \varepsilon\left( k_{p} \right)\varepsilon^{*}\left( k_{q} \right) \right\rbrack = \overline{\varepsilon\left( k_{p} \right)\varepsilon^{*}\left( k_{q} \right)} = \sigma_{m}^{2}\delta\left( k_{p} - k_{q} \right) = \sigma_{m}^{2}\delta_{pq}\]
+
+La media statistica tra due campioni diversi è nulla mentre se i campioni coincidono si ottiene la varianza del rumore di misura in quel campione.
+
+Per l'ipotesi di guassianità e media nulla, il rumore è distribuito come una campana di Gauss con media nulla e varianza \(\sigma_{m}^{2}\):
+
+\[\varepsilon\sim N\left( 0,\sigma_{m} \right)\]
+
+La trasformata inversa di Fourier del segnale misurato nel \(k\)-spazio, \(s_{m}(k)\), restituisce la densità protonica, ovvero il segnale del voxel considerato:
+
+\[{\widehat{\rho}}_{m}(x) = \rho(x) + \eta(x)\]
+
+Per effetto del campionamento e troncamento, la relazione si scrive considerando i campioni \(p\Delta x\):
+
+\[{\widehat{\rho}}_{m}(p\Delta x) = \rho(p\Delta x) + \eta(p\Delta x)\]
+
+Il voxel signal è la trasformata inversa di Fourier del segnale campionato nel \(k\)-spazio:
+
+\[\rho(p\Delta x) = \frac{1}{N}\sum_{q = - \frac{N}{2}}^{\frac{N}{2} - 1}{s(q\Delta k)\exp(j2\pi pq\Delta k\Delta x)}\]
+
+Mentre \(\eta\) è la trasformata inversa del rumore additivo \(\varepsilon\) nel \(k\)-spazio:
+
+\[\eta(p\Delta x) = \frac{1}{N}\sum_{q = - \frac{N}{2}}^{\frac{N}{2} - 1}{\varepsilon(q\Delta k)\exp(j2\pi pq\Delta k\Delta x)}\]
+
+È possibile caratterizzare il rumore dal punto di vista statistico nel dominio dello spazio-immagine. Si inizia determinando la media statistica del rumore \(\eta\) nello spazio-immagine. Per linearità è possibile scrivere:
+
+\[E\left\lbrack \eta(p\Delta x) \right\rbrack = \frac{1}{N}\sum_{q = - \frac{N}{2}}^{\frac{N}{2} - 1}{E\left\lbrack \varepsilon(q\Delta k) \right\rbrack\exp(j2\pi pq\Delta k\Delta x)}\]
+
+Per l'ipotesi iniziale di rumore \(\varepsilon\) a media nulla, anche la media della sua antitrasformata \(\eta\) è a media nulla:
+
+\[E\left\lbrack \varepsilon(q\Delta k) \right\rbrack = 0 \Rightarrow \ E\left\lbrack \eta(p\Delta x) \right\rbrack = 0\]
+
+Di maggior interesse è la varianza del rumore \(\eta\) nel dominio dello spazio-immagine, per definizione data da:
+
+\[VAR\lbrack\eta\rbrack = E\left\lbrack \eta(r\Delta x)\eta^{*}(s\Delta x) \right\rbrack\]
+
+Applicando la relazione di inversa trasformata tra il \(k\)-spazio e lo spazio immagine si scrive:
+
+\[\eta(r\Delta x)\eta^{*}(s\Delta x) = \left( \frac{1}{N}\sum_{r = - \frac{N}{2}}^{\frac{N}{2} - 1}{\varepsilon(r\Delta k)\exp(j2\pi rq\Delta k\Delta x)} \right)\left( \frac{1}{N}\sum_{s = - \frac{N}{2}}^{\frac{N}{2} - 1}{\varepsilon(s\Delta k)\exp(j2\pi sp\Delta k\Delta x)} \right)^{*}\]
+
+Che può essere scritta come:
+
+\[\eta(r\Delta x)\eta^{*}(s\Delta x) = \frac{1}{N^{2}}\sum_{r = - \frac{N}{2}}^{\frac{N}{2} - 1}{\sum_{s = - \frac{N}{2}}^{\frac{N}{2} - 1}{\varepsilon(r\Delta k)\varepsilon^{*}(r\Delta k)\exp\left( j2\pi p(r - s)\Delta k\Delta x \right)}}\]
+
+Applicando l'operatore media statistica e la proprietà di linearità si ottiene:
+
+\[E\left\lbrack \eta(r\Delta x)\eta^{*}(s\Delta x) \right\rbrack = \frac{1}{N^{2}}\sum_{r = - \frac{N}{2}}^{\frac{N}{2} - 1}{\sum_{s = - \frac{N}{2}}^{\frac{N}{2} - 1}{E\left\lbrack \varepsilon(p\Delta k)\varepsilon^{*}(p\Delta k) \right\rbrack\exp\left( j2\pi p(r - s)\Delta k\Delta x \right)}}\]
+
+Per la proprietà di media nulla, \(E\left\lbrack \varepsilon(r\Delta k)\varepsilon^{*}(s\Delta k) \right\rbrack = \sigma_{m}^{2}\delta_{rs}\). Ne discende che la sommatoria è non nulla solo se \(r = s\), per cui:
+
+\[E\left\lbrack \eta(r\Delta x)\eta^{*}(s\Delta x) \right\rbrack = \frac{1}{N^{2}}\sigma_{m}^{2}\sum_{r = s}^{}\delta_{rs} = \frac{1}{N^{2}}\sigma_{m}^{2}N = \frac{\sigma_{m}^{2}}{N}\]
+
+Si pone \(\sigma_{o}^{2}\) come:
+
+\[\sigma_{o}^{2} = E\left\lbrack \eta(r\Delta x)\eta^{*}(s\Delta x) \right\rbrack = \frac{\sigma_{m}^{2}}{N}\]
+
+Si osservi che \(\sigma_{m}^{2}\) è la varianza misurata in ogni punto del \(k\)-spazio, mentre \(\sigma_{0}^{2}\) è la varianza del rumore nello spazio-immagine. Dalla relazione ricavata, la varianza misurata in ogni voxel è ridotta di un fattore \(N\) rispetto al valore che assume nello spazio \(k\) e, inoltre, il rumore presenta le stesse proprietà statistiche per ogni voxel.
+
+In conclusione, ogni voxel è corrotto da un rumore a media nulla e varianza \(\sigma_{m}^{2}/N\). Il rumore è, quindi, equamente distribuito in tutto lo spazio-immagine, ovvero su ogni voxel dell'immagine.
+
+È possibile estendere i ragionamenti fatto nello spazio monodimensionale a uno spazio a più dimensioni. In particolare, nel caso bidimensionale la varianza del rumore nello spazio-immagine su ogni voxel è:
+
+\[VAR\left\lbrack \eta(p,q) \right\rbrack \propto \frac{\sigma_{m}^{2}}{N_{x}N_{y}}\]
+
+Dove nella relazione non è esplicitata la dipendenza dalla temperatura o dalla resistenza \(R\) offerta dall'antenna poiché sono parametri fissi o non possono essere modificati con le sequenze di acquisizione.
+
+Nel caso tridimensionale si ha:
+
+\[VAR\left\lbrack \eta(p,q,r) \right\rbrack \propto \frac{\sigma_{m}^{2}}{N_{x}N_{y}N_{z}}\]
+
+Con \(\sigma^{2} = 4k_{B}TRBW\).
+
+Applicando una sequenza di acquisizione è possibile controllare diversi parametri, tra cui il numero di volte con cui si acquisisce una data slice del corpo umano. In particolare, ripetendo l'esperimento un numero \(N_{acq}\) di volte ed eseguendo una media dei segnali ricevuti, è possibile aumentare il rapporto segnale/rumore. Il segnale misurato all'\(i\)-esima acquisizione può essere scritto come:
+
+\[s_{m.i}(k) = s(k) + \varepsilon_{i}(k)\]
+
+Applicando l'operazione di media su \(N_{acq}\) ripetizioni dell'esperimento, si ha:
+
+\[s_{m,av}(k) = \frac{1}{N_{acq}}\sum_{i = 1}^{N_{acq}}\left( s(k) + \varepsilon_{i}(k) \right)\]
+
+Si suppone che, in ogni misura, il segnale utile \(s(k)\) non vari, ovvero eccitando il materiale allo stesso modo, il segnale prelevato presenta variazioni solamente legati al rumore.
+
+Per la linearità dell'operatore di somma, si scrive:
+
+\[s_{m,av}(k) = \frac{1}{N_{acq}}\sum_{i = 1}^{N_{acq}}{s(k)} + \frac{1}{N_{acq}}\sum_{i = 1}^{N_{acq}}{\varepsilon_{i}(k)}\]
+
+Dato che il segnale utile non aria con la misura, si ha:
+
+\[s_{m,av}(k) = \frac{s(k)}{N_{acq}}\sum_{i = 1}^{N_{acq}}1 + \frac{1}{N_{acq}}\sum_{i = 1}^{N_{acq}}{\varepsilon_{i}(k)} = \frac{s(k)}{N_{acq}}N_{acq} + \frac{1}{N_{acq}}\sum_{i = 1}^{N_{acq}}{\varepsilon_{i}(k)}\]
+
+Dunque:
+
+\[s_{m,av}(k) = s(k) + \frac{1}{N_{acq}}\sum_{i = 1}^{N_{acq}}{\varepsilon_{i}(k)}\]
+
+In ipotesi di rumore a media nulla, se il numero delle ripetizioni è sufficientemente alto, è possibile ritenere la sommatoria al secondo membro tendente a \(0\):
+
+\[\frac{1}{N_{acq}}\sum_{i = 1}^{N_{acq}}{\varepsilon_{i}(k)} \simeq 0\]
+
+Da cui si ottiene:
+
+\[s_{m,av}(k) \simeq s(k)\]
+
+Operando la media su un numero di ripetizioni della sequenza \(N_{acq}\) opportunamente scelto, è possibile aumentare il rapporto segnale/rumore. Nel dettaglio, maggiore è il numero di acquisizioni, a parità di \(k\)-spazio acquisito, e migliore è la riduzione del rumore sovrapposto alla misura.
+
+La varianza del rumore mediato è data da:
+
+\[\sigma_{m,av}^{2} = VAR\left\lbrack s_{m,av}(k) \right\rbrack = \frac{1}{N_{acq}^{2}}\sum_{i = 1}^{N_{acq}}{VAR\left\lbrack s_{m.i}(k) \right\rbrack} = \frac{\sigma_{m}^{2}}{N_{acq}}\]
+
+La deviazione standard, di conseguenza, è data da:
+
+\[\sigma_{m,av} = \frac{\sigma_{m}}{\sqrt{N_{acq}}}\]
+
+Con l'operazione di media, il rapporto segnale/rumore di un qualunque voxel può essere espresso, \(k\)-spazio, come il rapporto tra la media del segnale misurato e la deviazione standard:
+
+\[SNR = \frac{\overline{s_{m,av}(k)}}{\sigma_{m,av}} = \sqrt{N_{acq}}\frac{s(k)}{\sigma_{m}}\]
+
+Nel dominio dello spazio-immagine il segnale del pixel dipende dal volume del voxel e da altri parametri sui quali non è possibile agire come la temperatura, il campo megnatico esterno applicato, l'antenna ricevente e così via:
+
+\[{\widehat{\rho}}_{m} \propto \Delta x\Delta y\Delta z\]
+
+La varianza del rumore dipende dal numero di acquisizioni \(N_{acq}\), dalla banda del segnale acquisito variabile in base alla sequenza utilizzata e al numero di campioni col quale si ricostruisce l'immagine:
+
+\[\sigma_{0}^{2} \propto \frac{BW}{N_{x}N_{y}N_{z}}\frac{1}{N_{acq}}\]
+
+\subsection{Valutazione del rapporto segnale/rumore}\label{valutazione-del-rapporto-segnalerumore}
+
+Il rapporto segnale/rumore in un voxel \(\Delta x\Delta y\Delta z\), nel caso più generale possibile, può essere espresso come:
+
+\[\left. \ SNR \right|_{\Delta x\Delta y\Delta z} = \frac{s}{\sigma_{0}} \propto \frac{\Delta x\Delta y\Delta z}{\sqrt{\frac{BW}{N_{x}N_{y}N_{z}}}}\sqrt{N_{acq}}\]
+
+Il rapporto segnale/rumore di un voxel dipende dalle sue dimensioni \(\Delta x\Delta y\Delta z\), dal numero di campioni acquisiti per ricostruire il voxel \(N_{x}N_{y}N_{z}\), dal numero di ripetizioni della sequenza \(N_{acq}\) e dalla banda del segnale considerato \(BW\). È noto che la banda di lettura, ovvero la banda del segnale acquisito durante il gradiente di lettura, è legata all'intervallo di campionamento temporale \(\Delta t\) dalla relazione:
+
+\[{BW}_{R} = \frac{1}{\Delta t}\]
+
+Con questa considerazione, il rapporto segnale/rumore può essere espresso come:
+
+\[\left. \ SNR \right|_{\Delta x\Delta y\Delta z} = \frac{s}{\sigma_{0}} \propto \frac{\Delta x\Delta y\Delta z}{\sqrt{\frac{BW}{N_{x}N_{y}N_{z}}}}\sqrt{N_{acq}} = \Delta x\Delta y\Delta z\sqrt{N_{acq}}\sqrt{N_{x}N_{y}N_{z}\Delta t}\]
+
+L'intervallo di acquisizione \(T_{S}\) è dato dal periodo di campionamento sull'asse di lettura, \(\Delta t\), e il numero di campioni acquisiti. Generalmente risulta che l'asse di lettura coincide con l'asse \(x\), per cui:
+
+\[T_{S} = N_{x}\Delta t\]
+
+Con questa definizione, il rapporto segnale/rumore di un generico voxel può essere espresso come:
+
+\[\left. \ SNR \right|_{\Delta x\Delta y\Delta z} \propto \Delta x\Delta y\Delta z\sqrt{N_{acq}}\sqrt{N_{y}N_{z}T_{S}}\]
+
+Da questa relazione il rapporto segnale/rumore può essere scritto in funzione dei parametri con i quali si vuole caratterizzare l'immagine o la sequenza di acquisizione.
+
+Va considerato che i parametri del rapporto segnale/rumore non sono scollegati tra loro tramite il FOV:
+
+\[L_{x} = N_{x}\Delta x,L_{y} = N_{y}\Delta y,\ L_{z} = N_{z}\Delta z\]
+
+Inoltre, il FOV lungo la direzione di lettura è legato alla banda di lettura mediante il rapporto giromagnetico e il gradiente di lettura:
+
+\[{BW}_{R} = \overline{\gamma}G_{x}L_{x}\]
+
+Si definisce banda per voxel, nell'ipotesi che l'asse \(x\) coincida con quello di lettura, come:
+
+\[BW/voxel = \frac{{BW}_{R}}{N_{x}} = \frac{\overline{\gamma}G_{x}L_{x}}{N_{x}}\]
+
+Il rapporto segnale/rumore (\textbf{SNR}) è una misura fondamentale per valutare la qualità di un segnale in relazione al rumore presente. Le espressioni matematiche che descrivono l'SNR contengono una rete di \textbf{interdipendenze} tra vari parametri.
+
+Quando si modifica uno di questi parametri, non si può considerare tale cambiamento in modo isolato: esso provoca inevitabilmente variazioni anche negli altri parametri dell'equazione. Questo implica la necessità di \textbf{valutare attentamente le conseguenze complessive} di ogni variazione.
+
+Inoltre, le relazioni tra i parametri permettono di derivare formule alternative per l'SNR, ciascuna mirata a mettere in evidenza gli effetti prodotti dalla variazione di uno specifico gruppo di parametri. Queste formulazioni, tuttavia, sono spesso soggette a \textbf{condizioni di costanza}: determinate grandezze devono rimanere invariate, e questo vincola le possibilità di modifica degli altri fattori.
+
+Oltre ai parametri puramente matematici, il valore dell'SNR dipende anche da \textbf{fattori pratici} come le modalità di acquisizione dei dati e le caratteristiche fisiche o biologiche dei tessuti analizzati. Questi aspetti aggiuntivi richiedono un'analisi separata, approfondita in altre sezioni del documento originale.
+
+In sintesi, lo studio dell'SNR non può essere affrontato modificando un singolo parametro senza considerare l'effetto complessivo sul sistema. Serve un approccio sistematico, in cui i vincoli, le interrelazioni e le condizioni reali di acquisizione siano sempre presi in considerazione.
+
+\subsection{Dipendenza del SNR dall'asse di lettura}\label{dipendenza-del-snr-dallasse-di-lettura}
+
+Si restringe l'analisi del rapporto segnale/rumore al solo asse di lettura, supposto essere uguale all'asse \(x\). Le altre quantità lungo \(y\) e \(z\) possono essere trascurati nei ragionamenti successivi, poiché non influenzano i segnali lungo l'asse considerato. In questo caso, il rapporto segnale/rumore è dato da:
+
+\[\left. \ SNR \right|_{\Delta x} \propto \Delta x\sqrt{T_{S}}\]
+
+\(\Delta x\) è il Fourier pixel size, connesso alla risoluzione spaziale, mentre \(T_{S}\) è l'ampiezza della finestra di acquisizione.
+
+Si vuole capire come si comporta il rapporto segnale/rumore al variare dei parametri nella direzione di lettura:
+
+\begin{itemize}
+\item
+  Ampiezza del gradiente \(G_{x}\);
+\item
+  Fourier pixel size, \(\Delta x\);
+\item
+  FOV, \(L_{x}\);
+\item
+  Numero di campioni acquisiti, \(N_{x}\);
+\item
+  Ampiezza temporale della finestra di acquisizione, \(T_{S}\).
+\end{itemize}
+
+Si suppone che tutti i parametri siano fissati in modo che il rapporto segnale/rumore sia unitario:
+
+\[G_{x},\Delta x,L_{x},N_{x},T_{S}:SNR = 1\]
+
+Si raddoppia il FOV, \(L_{x}' = 2L_{x}\), acquisendo il doppio dei punti all'interno della finestra di acquisizione, \(N_{x}' = 2N_{x}\). Dalla relazione che lega il FOV con il numero di campioni acquisiti e il la risoluzione, risulta che il Fourier pixel size resta costante:
+
+\[L_{x}' = N_{x}'\Delta x' \Longleftrightarrow 2L_{x} = 2N_{x}\Delta x' \Leftrightarrow \Delta x' = \frac{L_{x}}{N_{x}} = \Delta x = cost\]
+
+Questa soluzione non modifica, quindi, la risoluzione spaziale.
+
+Dalla relazione che lega l'ampiezza della finestra di acquisizione con il campionamento temporale, \(\Delta t\):
+
+\[T_{S}' = N_{x}'\Delta t'\]
+
+Mantenendo anche l'ampiezza della finestra di acquisizione, \(T_{S}' = T_{S}\), con il nuovo numero di campioni, il passo di campionamento viene dimezzato:
+
+\[T_{S} = 2N_{x}\Delta t' \Leftrightarrow \Delta t = \frac{1}{2}\frac{T_{S}}{N_{x}} = \frac{\Delta t}{2}\]
+
+Da questo risultato discende che la banda di ricezione raddoppia, infatti:
+
+\[{BW}_{R}' = \frac{1}{\Delta t'} = \frac{2}{\Delta t} = 2BW\]
+
+La banda di ricezione è legata al gradiente di lettura applicato \(G_{x}\) tramite il rapporto giromagnetico e il FOV. Nella nuova sequenza con \(N_{x}\) e \(L_{x}\) raddoppiati, il gradiente resta invariato:
+
+\[{BW}_{R}' = \overline{\gamma}G_{x}'L_{x}' \Leftrightarrow 2BW = 2\overline{\gamma}G_{x}'L_{x} \Leftrightarrow G_{x}' = \frac{BW}{\overline{\gamma}L_{x}} = G_{x}\]
+
+Nella condizione con \(N_{x}\) e \(L_{x}\) raddoppiati \(\Delta x\) resta invariato così come \(T_{S}\), per cui il rapporto segnale/rumore non varia. In definitiva, mantenendo costante il rapporto segnale/rumore è possibile avere un raddoppio del FOV e, quindi, dimensioni osservabili nell'immagine maggiori, mantenendo invariata anche la risoluzione spaziale, a patto di dimezzare l'intervallo di campionamento temporale.
+
+Si vuole, ora, raddoppiare la risoluzione spaziale, \(\Delta x' = \Delta x\), ovvero rendere il voxel più grande accettando un degrado della risoluzione. Si sceglie di lasciare inalterato il FOV, \(L_{x}' = L_{x}\). Con questa scelta, il numero dei punti è dato da:
+
+\[L_{x}' = N_{x}'\Delta x' \Leftrightarrow L_{x} = N_{x}'2\Delta x \Leftrightarrow N_{x}' = \frac{1}{2}\frac{L_{x}}{\Delta x} = \frac{N_{x}}{2}\]
+
+Per mantenere costante il FOV, è necessario dimezzare il numero dei campioni acquisiti durante la finestra di acquisizione.
+
+Lasciando inalterato l'intervallo di campionamento \(T_{S}' = T_{S}\) per non prolungare i tempi di acquisizione, l'intervallo di campionamento \(\Delta t\) deve raddoppiare:
+
+\[T_{S}' = N_{x}'\Delta t' \Leftrightarrow T_{S} = \frac{N_{x}}{2}\Delta t' \Leftrightarrow \Delta t' = 2\frac{T_{S}}{N_{x}} = 2\Delta t\]
+
+Nella nuova sequenza, il gradiente di lettura deve anch'esso dimezzarsi, infatti:
+
+\[\frac{1}{\Delta t'} = \overline{\gamma}G_{x}'L_{x}' \Leftrightarrow \frac{1}{2\Delta t} = \overline{\gamma}G_{x}'L_{x} \Leftrightarrow G_{x}' = \frac{\overline{\gamma}L_{x}}{2\Delta t} = \frac{1}{2}G_{x}\]
+
+Con queste scelte progettuali, il rapporto segnale rumore raddoppia:
+
+\[SNR \propto \Delta x'\sqrt{T_{S}'} = 2\Delta x\sqrt{T_{S}}\]
+
+Questo incremento del rapporto segnale/rumore determina una risoluzione spaziale ridotta, a parità di FOV. La risoluzione spaziale è degradata a causa della maggiore dimensione del voxel, tuttavia, il segnale nel voxel ha una potenza maggiore rispetto al rumore.
+
+Si suppone, infine, di dimezzare la risoluzione spaziale, ovvero si dimezza la dimensione del voxel lungo l'asse di lettura, \(\Delta x' = \Delta x/2\). Lasciando invariati il FOV \(L_{x}' = L_{x}\), e il tempo di acquisizione \(T_{S}' = T_{S}\), risulta che il numero di campioni da acquisire per ricostruire l'immagine deve essere il doppio:
+
+\[L_{x}' = N_{x}'\Delta x' \Leftrightarrow L_{x} = N_{x}'\frac{\Delta x}{2} \Leftrightarrow N_{x}' = 2\frac{L_{x}}{\Delta x} = 2N_{x}\]
+
+Mentre l'intervallo di campionamento temporale deve dimezzarsi:
+
+\[T_{S}' = N_{x}'\Delta t' \Leftrightarrow T_{S} = 2N_{x}\Delta t' \Leftrightarrow \Delta t' = \frac{1}{2}\frac{T_{S}}{N_{x}} = \frac{\Delta t}{2}\]
+
+Da questo risultato si evince anche che l'ampiezza del gradiente deve raddoppiarsi:
+
+\[\frac{1}{\Delta t'} = \overline{\gamma}G_{x}'L_{x}' \Leftrightarrow \frac{2}{\Delta t} = \overline{\gamma}G_{x}'L_{x} \Leftrightarrow G_{x}' = 2\frac{\overline{\gamma}L_{x}}{\Delta t} = 2G_{x}\]
+
+Con questa scelta di parametri il rapporto segnale/rumore si dimezza:
+
+\[{SNR}' \propto \Delta x'\sqrt{T_{S}'} = \frac{\Delta x}{2}\sqrt{T_{S}}\]
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.4081}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0788}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0978}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0862}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0968}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0748}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0736}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0838}}@{}}
+\caption{Tabella 11.1: Schema riassuntivo dei diversi esperimenti con parametri variati}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Caso
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\[\Delta x'\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\[N_{x}'\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\[L_{x}'\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\[G_{x}'\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\[\Delta t'\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\[T_{S}'\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+SNR
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Caso
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\[\Delta x'\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\[N_{x}'\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\[L_{x}'\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\[G_{x}'\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\[\Delta t'\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\[T_{S}'\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+SNR
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Aumento FOV (risol. costante) & \(\Delta x\) & \(2N_{x}\) & \(2L_{x}\) & \(G_{x}\) & \(\Delta t/2\) & \(T_{S}\) & \(1\) \\
+Aumento voxel (risol. ↓) & \(2\Delta x\) & \(N_{x}/2\) & \(L_{x}\) & \(G_{x}/2\) & \(2\Delta t\) & \(T_{S}\) & \(2\) \\
+Riduzione voxel (risol. ↑) & \(\Delta x/2\) & \(2N_{x}\) & \(L_{x}\) & \(2G_{x}\) & \(\Delta t/2\) & \(T_{S}\) & \(1/2\) \\
+\end{longtable}
+
+Da questi esperimenti si osserva che il rapporto segnale/rumore non può essere aumentato a piacere, poiché l'incremento di questa quantità causa l'allargamento del voxel, perdendo in risoluzione spaziale. Viceversa, la risoluzione spaziale non può essere ridotta a piacere poiché ciò determina un aumento della quota di rumore nel voxel, riducendo il rapporto segnale/rumore e un'immagine maggiormente degradata.
+
+In base all'applicazione richiesta si sceglie il giusto compromesso tra rapporto segnale/rumore e risoluzione.
+
+Va osservato, inoltre, che la riduzione della risoluzione spaziale determina un aumento dei gradenti di campo applicati; dunque, anche la tecnologia di imaging tramite risonanza magnetica deve essere maggiormente performante.
+
+\subsection{Dipendenza del SNR dall'asse di phase encoding}\label{dipendenza-del-snr-dallasse-di-phase-encoding}
+
+Il rapporto segnale/rumore, in genere, dipende dai parametri che caratterizzano l'immagine e la sequenza di acquisizione, secondo la relazione:
+
+\[SNR/voxel \propto \Delta x\Delta y\Delta z\sqrt{N_{y}N_{z}T_{S}}\sqrt{N_{acq}}\]
+
+Si suppone di acquisire una sola sequenza, dunque \(N_{acq} = 1\). Generalmente, la dimensione di \emph{slice selection}, \(\Delta z\), è indicato con \emph{slice thickness,} \(TH\). Trascurando i parametri legati alla direzione di lettura, si ottiene la dipendenza del segnale/rumore dai parametri relativi alle direzioni di codifica di fase e selezione della slice:
+
+\[SNR/voxel \propto \Delta y\Delta z\sqrt{N_{y}N_{z}}\sqrt{N_{acq}}\]
+
+I parametri nella relazione precedente sono legati tra loro mediante il FOV:
+
+\[\left\{ \begin{matrix}
+L_{y} = N_{y}\Delta y \\
+L_{z} = N_{z}\Delta z
+\end{matrix} \right.\ \]
+
+L'ultima relazione può essere scritta anche usano la notazione \(\Delta z = TH\):
+
+\[L_{z} = N_{z}TH\]
+
+In questo contesto, ci sono solamente due modi per aumentare la risoluzione spaziale nella direzione di codifica di fase: mantenere costante il FOV o il numero di campioni.
+
+Con la prima soluzione, il FOV viene mantenuto costante, mentre le risoluzioni spaziali \(\Delta y\) e \(\Delta z\) sono ridotte. Con questa scelta, il numero di campioni lungo la direzione di codifica di fase deve aumentare conseguentemente alla risoluzione spaziale:
+
+\[N_{y} = \frac{L_{y}}{\Delta y}\]
+
+Se, ad esempio, la risoluzione spaziale viene dimezzata, \(\Delta y' = \Delta y/2\), il numero dei punti raddoppia:
+
+\[N_{y}' = \frac{L_{y}}{\Delta y'} = 2\frac{L_{y}}{\Delta y} = 2N_{y}\]
+
+Il secondo metodo consiste nel diminuire le risoluzioni spaziali, \(\Delta y\) e \(\Delta z\), e mantenere costante il numero di punti su cui ricostruire l'immagine. Il FOV, di conseguenza, deve ridursi proporzionalmente alla risoluzione spaziale:
+
+\[L_{y} = N_{y}\Delta y\]
+
+Ad esempio, dimezzando la risoluzione spaziale, \(\Delta y' = \Delta y/2\), il FOV viene dimezzato:
+
+\[L_{y}' = N_{y}\Delta y' = N_{y}\frac{\Delta y}{2} = \frac{L_{y}}{2}\]
+
+Il rapporto segnale/rumore, mantenendo il FOV costante (\(L_{x}' = L_{x}\)) e dimezzando la risoluzione spaziale (\(\Delta y' = \Delta y/2\)), si riduce di un fattore \(\sqrt{2}\):
+
+\[{SNR}'/voxel \propto \Delta y'\Delta z\sqrt{N_{y}'N_{z}} = \frac{\Delta y}{2}\sqrt{2N_{y}N_{z}} = \frac{\Delta y}{\sqrt{2}}\sqrt{N_{y}N_{z}} = \frac{1}{\sqrt{2}}SNR/voxel\]
+
+Mantenendo costante il numero di punti e dimezzando la risoluzione spaziale, il rapporto segnale/rumore si dimezza anch'esso:
+
+\[{SNR}'/voxel \propto \Delta y'\Delta z\sqrt{N_{y}N_{z}} = \frac{\Delta y}{2}\sqrt{N_{y}N_{z}} = \frac{1}{2}SNR/voxel\]
+
+Si conclude che, per migliorare la risoluzione spaziale, è conveniente mantenere costante il FOV lungo la direzione di codifica di fase. Il rapporto segnale/rumore, in questa condizione, decresce come la radice della variazione introdotta sulla risoluzione. Ancora, se si desidera un rapporto segnale/rumore migliore è necessario aumentare la dimensione del voxel, \(\Delta y\Delta z\).
+
+Si osservi, in fine, che un aumento del numero di punti determina un amento della complessità computazionale degli algoritmi di elaborazione dei dati. Ciò porta a un tempo di risposta maggiore da parte dell'elaboratore digitale a causa del maggior numero di dati da elaborare da parte dell'algoritmo di ricostruzione.
+
+\subsection{Dipendenza del SNR nello spazio}\label{dipendenza-del-snr-nello-spazio}
+
+Si considera l'espressione per il rapporto segnale/rumore nelle tre dimensioni spaziali:
+
+\[SNR/voxel \propto \Delta x\Delta y\Delta z\sqrt{N_{y}N_{z}T_{S}}\sqrt{N_{acq}}\]
+
+Il rapporto segnale/rumore può essere molto spunto lungo l'asse di lettura, supposto coincidente con \(x\), poiché è possibile agire più facilmente sui parametri che caratterizzano questa direzione. Viceversa, lungo l'asse di codifica di fase e selezione della slice, è necessario rispettare il criterio di Nyquist, al fine di non introdurre dei ghost nell'immagine. Ciò determina un minor margine di manovra sulla variazione della risoluzione spaziale e del FOV.
+
+L'asse di selezione della fetta, supposto coincidente con \(z\), è legato anche alla durata complessiva dell'esame; infatti, maggiore è il numero delle slice acquisite e maggiore è il tempo necessario al fine di acquisire i dati necessari per la ricostruzione volumetrica dell'intero distretto di interessa.
+
+Sulla base delle esigenze legate all'esame diagnostico, che richiede un certo FOV nelle direzioni spaziali \(x\), \(y\) e \(z\), si fissano le risoluzioni spaziali \(\Delta x\) e \(\Delta y\) nelle direzioni di codifica di fase e \emph{slice selection}, mentre si varia la risoluzione spaziale \(\Delta x\) e/o il tempo di acquisizione \(T_{S}\) in base alla richiesta di elevata risoluzione (primo caso) o alto rapporto segnale/rumore. In genere, si cerca sempre un compromesso tra ottima risoluzione spaziale e alto rapporto segnale/rumore.
+
+\subsection{Rapporto contrasto/rumore}\label{rapporto-contrastorumore}
+
+Anche il rapporto segnale/rumore più elevato non garantisce la possibilità di distinguere due oggetti diversi ma posti molto vicini tra loro.
+
+In un'immagine diagnostica, l'SNR è un parametro importante, ma non l'unico: altrettanto fondamentale è il contrasto, definito come la differenza tra i segnali provenienti da due tessuti, indicati con \(A\) e \(B\):
+
+\[C_{AB} = s_{A} - s_{B}\]
+
+Dove \(s_{A}\) è il segnale del voxel del tessuto \(A\) e \(s_{B}\) del tessuto \(B\)-
+
+\begin{figure}
+\centering
+\includegraphics[width=4.00903in,height=2.74013in]{media/11_SNR/image304.pdf}\caption{Tabella 11.2: Schema contrasto}
+\end{figure}
+
+Tuttavia, anche se il contrasto tra due tessuti è sufficientemente grande da distinguere i due tessuti nell'immagine, il rumore sovrapposto nel voxel può essere tale che l'occhio umano non riesca a quantificare i due tessuti come diversi.
+
+Il parametro più accurato per quantificare quanto i tessuti siano distinguibili è il rapporto contrasto/rumore (\emph{contrast to noise ratio} o CNR), definito come il rapporto tra il contrasto tra due tessuti e il rumore che corrompe il segnale del voxel:
+
+\[{CNR}_{AB} = \frac{C_{AB}}{\sigma_{m}} = \frac{s_{A} - s_{B}}{\sigma_{m}} = {SNR}_{A} - {SNR}_{B}\]
+
+In definitiva, il rapporto contrasto/rumore è dato dalla differenza dei rapporti segnale/rumore del due tessuti.
+
+Nella pratica, è possibile avere un rapporto segnale/rumore elevato nei due tessuti ma, se la differenza tra i due SNR è tale che il CNR sia molto basso, i due tessuti sono difficilmente distinguibili.
+
+Per distinguere bene i due tessuti è necessario avere un alto valore del rapporto contrasto/rumore. Si suppone che il segnale del voxel dei due tessuti, \(s_{A}\) e \(s_{B}\), il CNR è ottenuto come distanza sull'asse \(s\) del segnale dei due tessuti, rapportati alla deviazione standard \(\sigma\), caratterizzante il rumore.
+
+Il rumore è modellabile come una gaussiana di varianza \(\sigma\) e valor meglio \(s_{A}\) o \(s_{B}\). Dal punto di vista geometrico, quindi, dire che il CNR è abbastanza elevato da poter distinguere i due tessuti equivale ad avere due gaussiane, centrate su \(s_{A}\) e \(s_{B}\), sufficientemente separate, così da non interferire tra loro.
+
+Se le gaussiane hanno una varianza \(\sigma\) elevata, ovvero la potenza del rumore è sufficientemente alta, le due campane interferiscono tra loro, rendendo difficile la discriminazione dei due tessuti, in quanto la differenza tra i due rapporti segnale/rumore sono molto bassi.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68542in,height=3.22222in]{media/11_SNR/image305.pdf}\caption{Tabella 11.3: Rappresentazione grafica del CNR}
+\end{figure}
+
+Eseguendo un numero \(N_{acq}\) di misure e applicando l'operazione di media statistica nello spazio-immagine, la deviazione standard è scalata di un fattore \(\sqrt{N_{acq}}\):
+
+\[\sigma_{0} = \frac{\sigma_{m}}{\sqrt{N_{acq}}}\]
+
+Ne discende che il rapporto contrasto/rumore aumenta di una quantità \(\sqrt{N_{acq}}\):
+
+\[CNR = \frac{s_{A} - s_{B}}{\sigma_{0}} = \ \sqrt{N_{acq}}C_{AB}\]
+
+\subsection{Differenza di contrasto nei vari tessuti}\label{differenza-di-contrasto-nei-vari-tessuti}
+
+La risonanza magnetica presenta una grande flessibilità nel manipolare i segnali provenienti dai tessuti, mediante varie metodiche che portano all'ottenimento di immagini a diverso contrasto.
+
+Il metodo fondamentale per discriminare i vari tessuti in base al contrasto è quello di sfruttare le differenze nelle loro caratteristiche chimico-fisiche, in particolare la densità protonica (\(\rho\)), il tempo di rilassamento longitudinale (\(T_{1}\)) e il tempo di rilassamento trasversale (\(T_{2}\)). A seconda dei parametri della sequenza di acquisizione scelti, è possibile ottenere immagini il cui contrasto è prevalentemente determinato da uno di questi parametri. Di conseguenza, si ottengono immagini pesate in densità protonica (PD), pesate in \(T_{1}\) o pesate in \(T_{2}\) o \(T_{2}^{*}\).
+
+\subsubsection{Pesatura dell'immagine}\label{pesatura-dellimmagine}
+
+La densità protonica è legata al segnale misurato nel \(k\)-spazio mediante una trasformata inversa di Fourier:
+
+\[\widehat{\rho}(x) = \int_{}^{}{s(k)\exp(j2\pi kx)dk}\]
+
+Il segnale registrato nel \(k\)-spazio è proporzionale alla magnetizzazione trasversa \(M_{\bot}\left( t,\overset{\underline{}}{r} \right)\), ottenuto dopo un impulso di perturbazione. La componente trasversa è, poi, misurata delle antenne. In altre parole, la densità protonica, punto per punto, è proporzionale alla magnetizzazione trasversa:
+
+\[\widehat{\rho}(x) \propto M_{\bot}\]
+
+Si considera un volume di materia al quale applicare una sequenza del tipo gradient-echo, composta da un impulso a radiofrequenza che ribalta la magnetizzazione di \(\pi/2\), un gradiente di selezione della fetta, un gradiente di phase encoding e, in fine, un gradiente di lettura sulla quale è applicata un gradient-echo.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=6.32083in,alt={Immagine che contiene testo, diagramma, linea, Disegno tecnico Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/11_SNR/image306.pdf}\caption{Figura .: Sequenza gradient-echo bidimensionale}
+\end{figure}
+
+Il tempo di echo, \(T_{E}\), è ottenuto quando l'area del gradiente di rifasamento uguaglia quella di defasamento. Generalmente, la finestra di acquisizione, con tempo \(T_{S}\), è centrata sul tempo di echo.
+
+Il segnale del voxel \(\rho\) è proporzionale alla magnetizzazione trasversa che, al tempo \(t = 0\ s\), coincide con il valore di equilibrio \(M_{0}\), dato che la magnetizzazione longitudinale è ribaltata di \(\pi/2\) per l'applicazione dell'impulso a radiofrequenza. Successivamente, la magnetizzazione trasversa decade come \(T_{2}\), sebbene il segnale decada come \(T_{2}^{*}\) per le disomogeneità di campo. Al tempo d'echo, si verifica un primo fronte di rifasamento e, successivamente, un defasamento con inviluppo che decade con \(T_{2}^{*}\).A centro della finestra di acquisizione.
+
+Il tempo di eco, \(T_{E}\), si ottiene quando l'area del gradiente di rifasamento uguaglia quella di defasamento. Generalmente, la finestra di acquisizione, di durata \(T_{S}\), è centrata sul tempo di eco.
+
+Il segnale del voxel \(\rho\) è proporzionale alla magnetizzazione trasversa che, al tempo \(t\  = \ 0\ s\), coincide con il valore di equilibrio \(M_{0}\), poiché la magnetizzazione longitudinale è stata ribaltata di \(\pi/2\) dall'applicazione dell'impulso a radiofrequenza. Successivamente, la magnetizzazione trasversa decade con una costante di tempo \(T_{2}\), sebbene il segnale decada con \(T_{2}^{*}\) a causa delle disomogeneità di campo.
+
+Al tempo di eco si verifica un primo fronte di rifasamento, seguito da un defasamento con un inviluppo che decade secondo \(T_{2}^{*}\), centrato nella finestra di acquisizione.
+
+Il segnale osservato è solamente una piccola porzione interno al tempo d'echo, tale da non avvertire gli effetti dei tempi di rilassamento \(T_{1}\), \(T_{2}\) e \(T_{2}^{*}\).
+
+Si suppone di ripetere la sequenza di eccitazione una seconda volta dopo un tempo \(T_{R}\). Si ritiene, inoltre, che il tempo di ripetizioni tra una sequenza e la successiva sia tale che gli effetti del tempo di rilassamento trasversale siano esauriti:
+
+\[T_{R} \gg T_{2}\]
+
+In questo modo la magnetizzazione trasversa, quando la sequenza gradient-echo è ripetuta, è nulla. Tuttavia, la magnetizzazione non recupera il valore all'equilibrio poiché il tempo di rilassamento longitudinale è maggiore di quello trasversale, \(T_{1} > T_{2}\); di conseguenza, il valore di magnetizzazione longitudinale, all'inizio della nuova sequenza è:
+
+\[M_{z}\left( T_{R} \right) = M_{0}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1}} \right) \right)\]
+
+Nell'istante di ripetizione, \(t = T_{R}\), si applica l'impulso a \(\pi/2\) che ribalta la magnetizzazione longitudinale nel piano ortogonale. Ne discende che tra il primo impulso e il secondo non si registra un segnale con la stessa ampiezza ma una sua versione attenuata di un fattore dipendente da \(T_{R}\) e \(T_{1}\).
+
+Al secondo echo, si misura, appunto, un valore di ampiezza minore della magnetizzazione trasversa di un fattore:
+
+\[M_{\bot}\left( T_{E},T_{R} \right) = M_{0}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1}} \right) \right)\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+Dunque, il segnale presente nel voxel è proporzionale a questa quantità. Dalla seconda applicazione della sequenza in poi, il segnale registrato resta praticamente uguale. Ovviamente, questi ragionamenti valgono anche per la spin-echo.
+
+In definitiva, ogni tessuto contenuto nel voxel presenta un segnale proporzionale a:
+
+\[s\left( \rho,T_{1},T_{2} \right) \propto \rho(x,y,z) \propto M_{0}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1}} \right) \right)\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+Scegliendo opportunamente i tempi \(T_{R}\) e \(T_{E}\) è possibile controllare il livello del segnale del voxel, quindi la sua pesatura.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=5in,alt={Immagine che contiene testo, diagramma, linea, Parallelo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/11_SNR/image307.pdf}\caption{Figura .: Segnale registrato tra una sequenza di acquisizione e la successiva}
+\end{figure}
+
+\subsubsection{Pesatura in densità protonica}\label{pesatura-in-densituxe0-protonica}
+
+È possibile realizzare una sequenza di acquisizione tale per cui il tempo di ripetizione sia sufficientemente lungo da rendere trascurabili gli effetti del rilassamento \(T_{1}\) e \(T_{2}\); inoltre, il tempo di echo deve essere abbastanza breve da poter minimizzare gli effetti del tempo di rilassamento trasversale \(T_{2}\):
+
+\[\left\{ \begin{matrix}
+T_{R} \rightarrow \infty \\
+T_{E} \rightarrow 0
+\end{matrix} \right.\ \]
+
+Nella pratica, queste condizioni si traducono in:
+
+\[\left\{ \begin{matrix}
+T_{R} \gg T_{1} \\
+T_{E} \ll T_{2}^{*}
+\end{matrix} \right.\ \]
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68958in,height=5.04514in]{media/11_SNR/image308.pdf}\caption{Figura .: Sequenza per ottenere immagini pesate in densità protonica}
+\end{figure}
+
+Con questa scelta gli esponenziali presenti nella relazione del segnale nel voxel:
+
+\[s_{0} \propto M_{0}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1}} \right) \right)\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+Tendono rispettivamente a:
+
+\[\exp\left( - \frac{T_{R}}{T_{1}} \right) \ll 1,\ T_{R} \gg T_{1}\]
+
+\[\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right) \simeq 1,\ T_{E} \ll T_{2}^{*}\]
+
+Il segnale, in queste condizioni, dipende essenzialmente dal valore della magnetizzazione all'equilibrio termodinamico \(M_{0}\), la quale a sua volta dipende dalla densità protonica:
+
+\[s\left( T_{1},T_{2} \right) \propto M_{0} \propto \rho\]
+
+\paragraph{Contrasto con immagini pesate in densità protonica}\label{contrasto-con-immagini-pesate-in-densituxe0-protonica}
+
+Si considerano due tessuti \(A\) e \(B\), a cui corrispondono, rispettivamente, i segnali \(s_{A}\) e \(s_{B}\). Il contrasto tra i due tessuti è, per definizione, dato dalla differenza dei due segnali:
+
+\[C_{AB} = s_{A} - s_{B}\]
+
+Si sostituiscono le espressioni dei due segnali:
+
+\[C_{AB} = M_{0,A}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1,A}} \right) \right)\exp\left( - \frac{T_{E}}{T_{2,A}^{*}} \right) - M_{0,B}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1,B}} \right) \right)\exp\left( - \frac{T_{E}}{T_{2,B}^{*}} \right)\]
+
+Siccome \(T_{E} \ll T_{2}^{*}\) allora \(T_{E}/T_{2}^{*} \ll 1\), è possibile sviluppare in serie di Taylor \(\exp\left( - T_{E}/T_{2}^{*} \right)\):
+
+\[\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right) \simeq 1 - \frac{T_{E}}{T_{2}^{*}}\]
+
+Il contrasto può essere scritto come:
+
+\[C_{AB} \simeq M_{0,A}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1,A}} \right) \right)\left( 1 - \frac{T_{E}}{T_{2,A}^{*}} \right) - M_{0,B}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1,B}} \right) \right)\left( 1 - \frac{T_{E}}{T_{2,B}^{*}} \right)\]
+
+Si svolgono i prodotti:
+
+\[= M_{0,A}\left( 1 - \frac{T_{E}}{T_{2,A}^{*}} - \left( 1 - \frac{T_{E}}{T_{2,A}^{*}} \right)\exp\left( - \frac{T_{R}}{T_{1,A}} \right) \right) - M_{0,B}\left( 1 - \frac{T_{E}}{T_{2,B}^{*}} - \left( 1 - \frac{T_{E}}{T_{2,B}} \right)\exp\left( - \frac{T_{R}}{T_{1,B}} \right) \right) = M_{0,A}\left( 1 - \frac{T_{E}}{T_{2,A}^{*}} - \exp\left( - \frac{T_{R}}{T_{1,A}} \right) + \frac{T_{E}}{T_{2,A}^{*}}\exp\left( - \frac{T_{R}}{T_{1,A}} \right) \right) - M_{0,B}\left( 1 - \frac{T_{E}}{T_{2,B}^{*}} - \exp\left( - \frac{T_{R}}{T_{1,B}} \right) + \frac{T_{E}}{T_{2,B}^{*}}\exp\left( - \frac{T_{R}}{T_{1,B}} \right) \right) = M_{0,A} - M_{0,A}\frac{T_{E}}{T_{2,A}^{*}} - M_{0,A}\exp\left( - \frac{T_{R}}{T_{1,A}} \right) + M_{0,A}\frac{T_{E}}{T_{2,A}^{*}}\exp\left( - \frac{T_{R}}{T_{1,A}} \right) - \left( M_{0,B} - M_{0,B}\frac{T_{E}}{T_{2,B}^{*}} - M_{0,B}\exp\left( - \frac{T_{R}}{T_{1,B}} \right) + M_{0,B}\frac{T_{E}}{T_{2,B}^{*}}\exp\left( - \frac{T_{R}}{T_{1,B}} \right) \right) = M_{0,A} - M_{0,A}\frac{T_{E}}{T_{2,A}^{*}} - M_{0,A}\exp\left( - \frac{T_{R}}{T_{1,A}} \right) + M_{0,A}\frac{T_{E}}{T_{2,A}^{*}}\exp\left( - \frac{T_{R}}{T_{1,A}} \right) - M_{0,B} + M_{0,B}\frac{T_{E}}{T_{2,B}^{*}} + M_{0,B}\exp\left( - \frac{T_{R}}{T_{1,B}} \right) - M_{0,B}\frac{T_{E}}{T_{2,B}^{*}}\exp\left( - \frac{T_{R}}{T_{1,B}} \right)\]
+
+Si riorganizza i termini del contrasto:
+
+\[C_{AB} \simeq \left( M_{0,A} - M_{0,B} \right) - M_{0,A}\left( \frac{T_{E}}{T_{2,A}^{*}} + \exp\left( - \frac{T_{R}}{T_{1,A}} \right) \right) + M_{0,B}\left( \frac{T_{E}}{T_{2,B}^{*}} + \exp\left( - \frac{T_{R}}{T_{1,B}} \right) \right)\]
+
+Nell'ipotesi in cui \(T_{E} \ll T_{2,A}^{*}\), \(T_{E} \ll T_{2,B}^{*}\), \(T_{R} \gg T_{1,A}\) e \(T_{R} \gg T_{1,B}\) è possibile trascurare i termini tra parantesi:
+
+\[\frac{T_{E}}{T_{2,A}^{*}} \ll 1,\ \frac{T_{E}}{T_{2,B}^{*}} \ll 1,\ \exp\left( - \frac{T_{R}}{T_{1,A}} \right) \ll 1,\ \exp\left( - \frac{T_{R}}{T_{1,B}} \right) \ll 1\]
+
+Di conseguenza, questi termini tendono a zero, per cui il contrasto può essere approssimato come:
+
+\[C_{AB} \simeq M_{0,A} - M_{0,B}\]
+
+La differenza dei segnali nei due tessuti dipende, all'incirca, dalla differenza delle due magnetizzazioni all'equilibrio nei due voxel. Siccome, la magnetizzazione dipende essenzialmente dalla densità protonica nei due voxel, il contrasto è legato alla differenza tra le densità protoniche dei due tessuti:
+
+\[C_{AB} \propto \rho_{0,A} - \rho_{0,B}\]
+
+La relazione \(C_{AB} \simeq M_{0,A} - M_{0,B}\) è rigorosamente valida solo nel limite \(T_{E} \rightarrow 0\) e \(T_{R} \rightarrow \infty\). In condizioni reali, il contrasto dipende anche dai tempi di rilassamento \(T_{1}\) e \(T_{2}\) dei voxel, quindi, la dipendenza dalla densità protonica non è così spiccata. La dipendenza dai tempi di rilassamento può essere controllata entro certi limiti, legati ai tempi dell'esperimento.
+
+Le immagini ottenute con le condizioni \(T_{E} \ll T_{2}\) e \(T_{R} \gg T_{1}\), sono dette pesate in densità protonica (\emph{proton density weighted}), in quanto il contributo dominante al segnale deriva dalla densità protonica, sebbene vi sia anche la dipendenza dai tempi di rilassamento longitudinale \(T_{1}\) e trasversale \(T_{2}\).
+
+In base all'approssimazione usata per il contrasto \(C_{AB}\) si ottengono valori diversi, anche di molti punti percentuali, quindi, nelle analisi di risonanza magnetica si utilizza la relazione non sviluppata al primo ordine di Taylor.
+
+Le differenze tra le varie approssimazioni sono legate alle iterazioni tra i parametri tempo di ripetizione, \(T_{R}\), tempo d'echo, \(T_{E}\), tempo di rilassamento trasversale, \(T_{2}\), e longitudinale,\(T_{1}\). Per tempi di echo crescenti, il contrasto si riduce mentre al crescere del tempo di ripetizioni il contrasto aumenta. Infatti, il segnale rilevato in un voxel è descritto dall'equazione:
+
+\[s_{0} \propto M_{0}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1}} \right) \right)\exp\left( - \frac{T_{E}}{T_{2}} \right)\]
+
+Il termine \(\exp\left( - T_{E}/T_{2} \right)\) descrive lo smorzamento della magnetizzazione trasversale. All'aumentare di \(T_{E}\), l'argomento dell'esponenziale si riduce, per cui il segnale complessivo si riduce, così come la differenza tra i segnali dei tessuti \(A\) e \(B\). Di conseguenza, \textbf{un tempo di eco più lungo riduce il contrasto}.
+
+Il termine \(1 - \exp\left( - T_{R}/T_{1} \right)\) descrive il recupero della magnetizzazione longitudinale. Con \(T_{R}\) piccolo, il recupero non è completo, e il segnale risulta ridotto. All'aumentare di \(T_{R}\), invece, il termine \(1 - \exp\left( - T_{R}/T_{1} \right)\) tende a \(1\) e il segnale tende al massimo valore possibile \(M_{0}\). La differenza tra i segnali dei tessuti aumenta. In altre parole, \textbf{un tempo di ripetizione più lungo incrementa il contrasto}.
+
+Questa relazione evidenzia come la scelta dei parametri sperimentali influisca sul contrasto tra tessuti e consente di ottenere immagini pesate in densità protonica, in \(T_{1}\) o in \(T_{2}\) a seconda delle esigenze diagnostiche.
+
+Sulla base dei parametri della sequenza di ripetizione, è possibile evidenziare una caratteristica biochimica (densità protonica, tempo di rilassamento longitudinale o trasversale) dei tessuti.
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3334}}@{}}
+\caption{Tabella 11.4: Scelta dei diversi parametri della sequenza per ottenere una specifica pesatura}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Tipo di contrasto
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\[T_{R}\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\[T_{E}\]
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Tipo di contrasto
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\[T_{R}\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\[T_{E}\]
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Spin density & Più lungo possibile & Più breve possibile \\
+\(T_{1}\)-pesato & Dello stesso ordine di \(T_{1}\) & Più breve possibile \\
+\(T_{2}\)-pasato & Più lungo possibile & Dello stesso ordine di \(T_{2}\) \\
+\end{longtable}
+
+\subsubsection{Pesatura in tempo di rilassamento longitudinale}\label{pesatura-in-tempo-di-rilassamento-longitudinale}
+
+È possibile realizzare una sequenza di acquisizione spin-echo o gradient-echo con tempo di echo tale da non sentire gli effetti del rilassamento trasversale, \(T_{2}\), e un tempo di ripetizione \(T_{R}\) dello stesso ordine di grandezza del tempo di rilassamento longitudinale:
+
+\[\left\{ \begin{matrix}
+T_{R} \sim T_{1} \\
+T_{E} \rightarrow 0
+\end{matrix} \right.\ \]
+
+Queste condizioni, all'atto pratico, si traducono in:
+
+\[\left\{ \begin{matrix}
+T_{R} \sim T_{1} \\
+T_{E} \ll T_{2}^{*}
+\end{matrix} \right.\ \]
+
+In queste ipotesi, il segnale del voxel è:
+
+\[s_{0} \propto M_{0}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1}} \right) \right)\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+Nell'ipotesi \(T_{E} \ll T_{2}^{*}\), il termine esponenziale tende all'unità:
+
+\[\exp\left( - \frac{T_{E}}{T_{2}} \right) \sim 1\]
+
+Per cui il segnale dipende solamente da \(M_{0}\) e \(T_{1}\):
+
+\[s_{0} \propto M_{0}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1}} \right) \right)\]
+
+Se il tempo \(T_{R} \ll T_{1}\) i segnali dei voxel, il termine esponenziale \(\exp\left( - T_{R}/T_{1} \right)\) tende a zero, mentre, se \(T_{1}\) è paragonabile a \(T_{R}\), l'esponenziale assume un valore minore. Di conseguenza tessuti con minor tempo di rilassamento longitudinale presentano un \emph{voxel signal} di ampiezza maggiore.
+
+\paragraph{\texorpdfstring{Contrasto in immagini pesate in \(\mathbf{T}_{\mathbf{1}}\)}{Contrasto in immagini pesate in \textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{1\}\}}}\label{contrasto-in-immagini-pesate-in-mathbft_mathbf1}
+
+Il contrasto tra due tessuti può essere scritto come:
+
+\[C_{AB} = s_{0,A} - s_{0,B} \simeq M_{0,A}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1,A}} \right) \right) - M_{0,B}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1,B}} \right) \right)\]
+
+Dall'espressione appena individuata si evince che Il termine \(1 - \exp\left( - T_{R}/T_{1} \right)\) descrive il recupero della magnetizzazione lungo l'asse longitudinale
+
+\begin{itemize}
+\item
+  Se \(T_{1}\) è lungo rispetto a \(T_{R}\), il recupero non è completo e il segnale rilevato è ridotto;
+\item
+  Se \(T_{1}\) è breve rispetto a \(T_{R}\), la magnetizzazione si recupera rapidamente e il segnale risulta maggiore.
+\end{itemize}
+
+In altre parole, tessuti con \(T_{1}\) \textbf{breve} producono segnale più intenso a \(T_{R}\) breve, mentre tessuti con \(T_{1}\) \textbf{lungo} producono segnale più debole se \(T_{R}\) non è sufficientemente lungo.
+
+Esiste un unico valore del tempo di ripetizione, che, fissato i tessuti, permette di ottenere il miglior contrasto possibile per le immagini \(T_{1}\) pesate. Il valore ottimo del tempo di ripetizione è ottenuto utilizzato l'operazione di derivata:
+
+\[\frac{\partial C_{AB}}{\partial T_{R}} = \frac{\partial}{\partial T_{R}}\left\lbrack M_{0,A}\left( 1 - \exp\left( - \frac{T_{R,opt}}{T_{1,A}} \right) \right) - M_{0,B}\left( 1 - \exp\left( - \frac{T_{R,opt}}{T_{1,B}} \right) \right) \right\rbrack = 0\]
+
+Applicando le proprietà dell'operazione di derivata, si ottiene:
+
+\[\frac{M_{0,A}}{T_{1,A}}\exp\left( - \frac{T_{R,opt}}{T_{1,A}} \right) - \frac{M_{0,B}}{T_{1,B}}\exp\left( - \frac{T_{R,opt}}{T_{1,B}} \right) = 0\]
+
+Si portano i termini dipendenti dal tessuto \(B\) al secondo membro:
+
+\[\frac{M_{0,A}}{T_{1,A}}\exp\left( - \frac{T_{R,opt}}{T_{1,A}} \right) = \frac{M_{0,B}}{T_{1,B}}\exp\left( - \frac{T_{R,opt}}{T_{1,B}} \right)\]
+
+Si portano i termini esponenziali al primo membro e i termini lineari al secondo:
+
+\[\exp\left( - \frac{T_{R,opt}}{T_{1,A}} \right)\exp\left( \frac{T_{R,opt}}{T_{1,B}} \right) = \frac{M_{0,B}}{T_{1,B}}\frac{T_{1,A}}{M_{0,A}}\]
+
+Per le proprietà degli esponenziali risulta:
+
+\[\exp\left( \frac{T_{R,opt}}{T_{1,B}} - \frac{T_{R,opt}}{T_{1,A}} \right) = \frac{M_{0,B}}{T_{1,B}}\frac{T_{1,A}}{M_{0,A}}\]
+
+Per isolare il tempo di ripetizione \(T_{R}\) si applica il logaritmo ambo i membri:
+
+\[\frac{T_{R,opt}}{T_{1,B}} - \frac{T_{R,opt}}{T_{1,A}} = \log\left( \frac{M_{0,B}}{T_{1,B}}\frac{T_{1,A}}{M_{0,A}} \right)\]
+
+Per le proprietà dei logaritmi si ha:
+
+\[\frac{T_{R,opt}}{T_{1,B}} - \frac{T_{R,opt}}{T_{1,A}} = \log\left( \frac{M_{0,B}}{T_{1,B}} \right) + \log\left( \frac{T_{1,A}}{M_{0,A}} \right) = \log\left( \frac{M_{0,B}}{T_{1,B}} \right) - \log\left( \frac{M_{0,A}}{T_{1,A}} \right)\]
+
+Il tempo di ripetizione ottimale per ottenere il miglior contrasto tra i tessuti \(A\) e \(B\) è:
+
+\[T_{R,opt} = \frac{\log\left( \frac{M_{0,B}}{T_{1,B}} \right) - \log\left( \frac{M_{0,A}}{T_{1,A}} \right)}{\frac{1}{T_{1,B}} - \frac{1}{T_{1,A}}}\]
+
+La conoscenza a priori delle proprietà dei tessuti da visualizzare è fondamentale per poter selezionare il tempo di ripetizione tra una sequenza e la successiva. Scegliendo il valore ottimo del tempo di ripetizione si ottiene il valore massimo del contrasto tra i due tessuti.
+
+Il massimo della funzione contrasto può essere ricavato anche analizzando l'andamento stesso di \(C_{AB}\left( T_{R} \right)\) al variare del tempo di ripetizione.
+
+Si osservi che esiste un valore del tempo di ripetizione \(T_{R}\) in cui il contrasto è nullo.
+
+\[C_{AB}\left( T_{R} \right) = s_{0,A} - s_{0,B} \simeq M_{0,A}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1,A}} \right) \right) - M_{0,B}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1,B}} \right) \right) = 0\]
+
+Si svolgono i prodotti:
+
+\[M_{0,A} - M_{0,A}\exp\left( - \frac{T_{R}}{T_{1,A}} \right) - M_{0,B} + M_{0,B}\exp\left( - \frac{T_{R}}{T_{1,B}} \right) = 0\]
+
+Si portano al secondo membro i termini non dipendenti da \(T_{R}\):
+
+\[M_{0,B}\exp\left( - \frac{T_{R}}{T_{1,B}} \right) - M_{0,A}\exp\left( - \frac{T_{R}}{T_{1,A}} \right) = M_{0,B} - M_{0,A}\]
+
+L'equazione trascendentale e non può essere risolta per \(T_{R}\) in termini di funzioni elementari. Questo accade perché l'equazione contiene \(T_{R}\) all'interno di più esponenti con basi diverse, il che la rende intrinsecamente complessa da manipolare in modo algebrico.
+
+Per risolvere questa equazione, sarebbe necessario utilizzare un metodo numerico (come il metodo di Newton-Raphson) per trovare un valore approssimato di \(T_{R}\).
+
+Nel punto in cui il contrasto si annulla, anche in presenza di un elevato rapporto segnale/rumore, i due tessuti non sono distinguibili nell'immagine.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.67569in,height=1.82431in]{media/11_SNR/image309.pdf}\caption{Figura .: Andamento del contrasto tra materia grigia e materia bianca, materia grigia e liquido spinale, e tra materia grigia sana e lesionata}
+\end{figure}
+
+\paragraph{Esempio di segnali provenienti dai tessuti cerebrali}\label{esempio-di-segnali-provenienti-dai-tessuti-cerebrali}
+
+Si considera, a titolo d'esempio, la materia grigia (\emph{gray matter} o GM) e la materia bianca (\emph{white matter} o WM) contenute nel cervello. La materia grigia (\emph{gray matter} o GM), essendo maggiormente acquosa, presenta una densità protonica relativa maggiore rispetto alla materia bianca. I suoi parametri tipici sono una densità protonica relativa di circa \(0.8\) e un tempo di rilassamento longitudinale (\(T_{1}\)) di circa \(0.950\ s\). La materia bianca (\emph{white matter} o WM), invece, ha un minor contenuto di liquidi, per cui la sua densità protonica è inferiore (circa \(0.65\)) e il suo tempo di rilassamento longitudinale (\(T_{1}\)) è più breve (circa \(0.600\ s\)).
+
+In una sequenza \(T_{1}\)-pesata, caratterizzata da un tempo di ripetizione \(T_{R}\) breve, il segnale di risonanza magnetica dipende principalmente dai tempi di rilassamento \(T_{1}\) dei tessuti. Poiché la materia bianca ha un \(T_{1}\) più breve rispetto alla materia grigia, la sua magnetizzazione longitudinale recupera più rapidamente e, per valori di \(T_{R}\) brevi, il segnale emesso risulta essere maggiore. In altre parole, la materia bianca appare più "brillante" (più intensa) della materia grigia nelle immagini \(T_{1}\)-pesate.
+
+Esiste un valore specifico del tempo di ripetizione \(T_{R}\) in cui le curve di recupero della magnetizzazione longitudinale dei due tessuti si intersecano. A questo punto di crossover, i segnali emessi dalla materia grigia e dalla materia bianca hanno la stessa intensità. Di conseguenza, in tale condizione, il contrasto tra i due tessuti è nullo, poiché la loro differenza di segnale è pari a zero.
+
+Se il tempo di ripetizione (\(T_{R}\)) supera il punto di crossover, le curve di segnale si invertono. La materia grigia, con la sua maggiore densità protonica, recupera sufficientemente la magnetizzazione per superare il segnale della materia bianca. Di conseguenza, il contrasto cambia segno e la materia grigia apparirà più ``brillante'' rispetto alla materia bianca. Questo fenomeno dimostra come, per \(T_{R}\) lunghi, il segnale diventi sempre più dipendente dalla densità protonica del tessuto piuttosto che dal suo tempo di rilassamento \(T_{1}\).
+
+\begin{figure}
+\centering
+\includegraphics[width=4.96296in,height=3.88306in]{media/11_SNR/image310.pdf}\caption{Figura .: Segnale proveniente dalla materia grigia e materia bianca}
+\end{figure}
+
+\paragraph{Tempo di ripetizione ottimo per tessuti con proprietà simili}\label{tempo-di-ripetizione-ottimo-per-tessuti-con-proprietuxe0-simili}
+
+Si suppone che i due tessuti presentino una densità protonica simile (assunzione valida per molti tessuti cerebrali) e dei tempi di rilassamento longitudinale \(T_{1}\) che differiscono per una quantità \(\delta \ll 1\):
+
+\[\left\{ \begin{matrix}
+M_{0,A} \sim M_{0,B} \equiv M_{0} \\
+T_{1,B} = T_{1,A}(1 + \delta)
+\end{matrix} \right.\ \]
+
+L'espressione del contrasto tra i due tessuti si esprime, in queste ipotesi, come:
+
+\[C_{AB}\left( T_{R} \right) = s_{0,A} - s_{0,B} \simeq M_{0,A}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1,A}} \right) \right) - M_{0,B}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1,B}} \right) \right) \simeq M_{0}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1,A}} \right) - \left( 1 - \exp\left( - \frac{T_{R}}{T_{1,A}(1 + \delta)} \right) \right) \right) = M_{0}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1,A}} \right) - 1 + \exp\left( - \frac{T_{R}}{T_{1,A}(1 + \delta)} \right) \right)\]
+
+Svolgendo le opportune somme, il contrasto è:
+
+\[C_{AB}\left( T_{R} \right) \simeq M_{0}\left( \exp\left( - \frac{T_{R}}{T_{1,A}(1 + \delta)} \right) - \exp\left( - \frac{T_{R}}{T_{1,A}} \right) \right)\]
+
+Si raccoglie \(\exp\left( - T_{R}/T_{1,A} \right)\), ottenendo:
+
+\[C_{AB}\left( T_{R} \right) \simeq M_{0}\exp\left( - \frac{T_{R}}{T_{1,A}} \right)\left( \frac{\exp\left( - \frac{T_{R}}{T_{1,A}(1 + \delta)} \right)}{\exp\left( - \frac{T_{R}}{T_{1,A}} \right)} - 1 \right) = M_{0}\exp\left( - \frac{T_{R}}{T_{1,A}} \right)\left( \exp\left( - \frac{T_{R}}{T_{1,A}(1 + \delta)} + \frac{T_{R}}{T_{1,A}} \right) - 1 \right)\]
+
+Si considera l'argomento dell'esponenziale e si esegue il minimo comune multiplo:
+
+\[- \frac{T_{R}}{T_{1,A}(1 + \delta)} + \frac{T_{R}}{T_{1,A}} = T_{R}\left( \frac{- 1 + 1 + \delta}{T_{1,A}(1 + \delta)} \right) = T_{R}\left( \frac{\delta}{T_{1,A}(1 + \delta)} \right)\]
+
+Per cui il contrasto è:
+
+\[C_{AB}\left( T_{R} \right) \simeq M_{0}\exp\left( - \frac{T_{R}}{T_{1,A}} \right)\left( \exp\left( T_{R}\left( \frac{\delta}{T_{1,A}(1 + \delta)} \right) \right) - 1 \right)\]
+
+Dato che \(\delta \ll 1\), allora \(T_{R}\delta \ll T_{1,A}(1 + \delta)\). Per tale motivo è possibile sviluppare in serie di Taylor l'esponenziale nell'espressione del contrasto, arrestando al primo ordine:
+
+\[\exp\left( T_{R}\left( \frac{\delta}{T_{1,A}(1 + \delta)} \right) \right) \simeq T_{R}\left( \frac{\delta}{T_{1,A}(1 + \delta)} \right)\]
+
+Poiché \(\delta \ll 1\), allora;
+
+\[T_{R}\left( \frac{\delta}{T_{1,A}(1 + \delta)} \right) \simeq 1 + \left( \frac{T_{R}}{T_{1,A}} \right)\delta\]
+
+Il contrasto si scrive, quindi:
+
+\[C_{AB}\left( T_{R} \right) \simeq M_{0}\exp\left( - \frac{T_{R}}{T_{1,A}} \right)\left( \exp\left( T_{R}\left( \frac{\delta}{T_{1,A}(1 + \delta)} \right) \right) - 1 \right) \simeq M_{0}\exp\left( - \frac{T_{R}}{T_{1,A}} \right)\left( 1 + \left( \frac{T_{R}}{T_{1,A}} \right)\delta - 1 \right)\]
+
+Semplificando i termini \(\pm 1\), si ottiene:
+
+\[C_{AB}\left( T_{R} \right) \simeq M_{0}\delta\left( \frac{T_{R}}{T_{1,A}} \right)\exp\left( - \frac{T_{R}}{T_{1,A}} \right)\]
+
+Il contrasto tra due tessuti è una funzione del tempo di ripetizione \(T_{R}\). Si vuole terminare \(T_{R,opt}\) tale per cui il contrasto, in caso di tessuti con proprietà simili, sia massimo. Per determinare tale valore si impone che la derivata del contrasto deve essere nulla:
+
+\[\frac{\partial C_{AB}}{\partial T_{R}} = 0 \Leftrightarrow M_{0}\delta\frac{\partial}{\partial T_{R}}\left( \left( \frac{T_{R}}{T_{1,A}} \right)\exp\left( - \frac{T_{R}}{T_{1,A}} \right) \right) = 0\]
+
+Svolgendo le derivate e semplificando \(M_{0}\delta\), si ha:
+
+\[\frac{1}{T_{1,A}}\exp\left( - \frac{T_{R,opt}}{T_{1,A}} \right) + \left( \frac{T_{R,opt}}{T_{1,A}} \right)\left( - \frac{1}{T_{1,A}} \right)\exp\left( - \frac{T_{R,opt}}{T_{1,A}} \right) = 0\]
+
+Semplificando \(T_{1,A}^{- 1}\) ed \(\exp\left( - T_{R,opt}/T_{1,A} \right)\) si ottiene:
+
+\[1 - \frac{T_{R,opt}}{T_{1,A}} = 0\]
+
+Per cui:
+
+\[T_{R,opt} = T_{1,A}\]
+
+Per i tessuti con densità protonica \(\rho_{0}\) simile e tempi di rilassamento prossimi tra loro, il valore ottimo del tempo di ripetizione tra due sequenze \(T_{R}\) per massimizzare il contrasto di un'immagine \(T_{1}\) pesata è uguale al tempo di rilassamento longitudinale minore tra i due tessuto.
+
+\subsubsection{\texorpdfstring{Pesatura in \(\mathbf{T}_{\mathbf{2}}^{\mathbf{*}}\)}{Pesatura in \textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{2\}\}\^{}\{\textbackslash mathbf\{*\}\}}}\label{pesatura-in-mathbft_mathbf2mathbf}
+
+Le immagini di risonanza magnetica possono mostrare un tessuto con maggiore contrasto rispetto a un altro sulla base dei tempi di rilassamento trasversali \(T_{2}\), caratteristici dei diversi tessuti.
+
+Poiché i valori dei tempi di rilassamento trasversale \(T_{2}\) sono in genere dell'ordine delle decine di millisecondi, mentre quelli del tempo di rilassamento longitudinale \(T_{1}\) sono dell'ordine del secondo, una variazione del tempo \(T_{2}\) produce un effetto più marcato sull'intensità del segnale rispetto a una variazione equivalente di \(T_{1}\).Per questo motivo, un'alterazione del tempo \(T_{2}\) risulta più facilmente correlabile ad alcune patologie.
+
+La pesatura in \(T_{2}\) può essere ottenuta usando una sequenza spin-echo. Tuttavia, quando i tessuti rispondono in modo inatteso al campo magnetico applicato a causa di perturbazioni, si ottengono immagini pesate in \(T_{2}^{*}\). In particolare, se le variazioni del campo avvengono in modo sufficientemente rapido tra i vari voxel, si verifica un'ulteriore perdita di segnale anche quando si usa la sequenza spin-echo. Per questo motivo, la pesatura in \(T_{2}^{*}\) è particolarmente utile per lo studio dell'attività cerebrale, dove tali effetti sono rilevanti.
+
+Al fine di ottenere una pesatura in \(T_{2}^{*}\), la sequenza gradient-echo applicata deve essere disegnata in modo che il tempo di ripetizione sia tale da non avvertire gli effetti del rilassamento trasversale, ovvero:
+
+\[T_{R} \gg T_{1}\]
+
+Al limite, \(T_{R} \rightarrow \infty\). In questa condizione, il termine \(\exp\left( - T_{R}/T_{1} \right)\) nella relazione del segnale del voxel è trascurabile:
+
+\[s_{0} \propto M_{0}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1}} \right) \right)\exp\left( - \frac{T_{E}}{T_{2}} \right) \simeq M_{0}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+
+Con questa scelta il contrasto tra due tessuti può essere scritto:
+
+\[C_{AB} = s_{0,A} - s_{0,B} \simeq M_{0,A}\exp\left( - \frac{T_{E}}{T_{2,A}^{*}} \right) - M_{0,B}\exp\left( - \frac{T_{E}}{T_{2,B}^{*}} \right)\]
+
+Con l'ipotesi sul tempo di ripetizione \(T_{R} \gg T_{1}\), il contrasto è una funzione del tempo di echo, \(T_{E}\), intorno al quale il segnale registrato presenta il massimo valore. Il contrasto è quindi legato all'area deli gradienti della sequenza gradient-echo sull'asse di lettura al fine di formare al tempo desiderato l'echo.
+
+La sequenza gradient-echo non produce una pesatura in \(T_{2}\) perché non usa l'impulso a \(\pi\) al fine di correggere le disomogeneità del campo. Pertanto, le immagini ottenute sono intrinsecamente pesate in \(T_{2}^{*}\). Utilizzando una sequenza spin-echo si ottengono delle relazioni simili, dipendenti dal tempo \(T_{2}\).
+
+Per una spin-echo, noto il valore del tempo \(T_{2}\) è possibile diagrammare l'andamento del contrasto \(C_{AB}\) in funzione del tempo d'echo.
+
+Si considera, come ad esempio, il contrasto tra materia bianca (\(\rho_{0,WM} = 0.8\), \(T_{2.WM} = 0.1\ s\)) e il liquido cerebrospinale (\(\rho_{0,CSF} = 1\), \(T_{2.WM} = 2\ s\)).
+
+Poiché la materia bianca, essendo più solida, presenta un tempo di rilassamento trasversale molto più breve, il contrasto WM--CSF risulta massimo per tempi di echo \(T_{E}\) superiori al tempo di rilassamento trasversale della materia bianca.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.27564in,height=2.96504in]{media/11_SNR/image311.pdf}\caption{Figura .: Contrasto pesato \(T_{2}\) tra liquido cerebrospinale e materia bianca}
+\end{figure}
+
+Nel caso della \textbf{materia grigia} (\(\rho_{0} = 0.65\), \(T_{2} = 0.08\, s\)) rispetto alla materia bianca, le differenze nei tempi \(T_{2}\) sono minime. In questo caso, la pesatura in \(T_{2}\) non garantisce un buon contrasto, mentre il miglior contrasto WM--GM si ottiene a bassi valori del tempo di echo, in condizioni vicine alla pesatura in \textbf{densità protonica}.
+
+\begin{figure}
+\centering
+\includegraphics[width=4.71154in,height=3.20426in]{media/11_SNR/image312.pdf}\caption{Figura .: Contrasto tra materia grigia e bianca}
+\end{figure}
+
+Da questo esempio si evince che il contrasto dipende dal tempo \(T_{2}\) caratteristico di un tessuto e il contrasto ottimo tra due tessuti non è detto che sia ottenibile nel limite delle immagini \(T_{2}\)-pesate.
+
+\paragraph{Tempo di echo ottimo}\label{tempo-di-echo-ottimo}
+
+Per le immagini \(T_{2}^{*}\)-pesate, ottenute mediante una sequenza gradient-echo, il contrasto massimo tra due tessuti lo si ottiene quando la derivata della funzione contrasto \(C_{AB}\left( T_{E} \right)\) è nulla:
+
+\[\frac{\partial C_{AB}}{\partial T_{E}} = 0 \Leftrightarrow \frac{\partial}{\partial T_{E}}\left( M_{0,A}\exp\left( - \frac{T_{E}}{T_{2,A}^{*}} \right) - M_{0,B}\exp\left( - \frac{T_{E}}{T_{2,B}^{*}} \right) \right) = 0\]
+
+Si esegue il calcolo della derivata:
+
+\[- \frac{M_{0,A}}{T_{2,A}^{*}}\exp\left( - \frac{T_{E,opt}}{T_{2,A}^{*}} \right) + \frac{M_{0,B}}{T_{2,B}^{*}}\exp\left( - \frac{T_{E,opt}}{T_{2,B}^{*}} \right) = 0\]
+
+Si portano i termini dipendenti dal tessuto \(B\) al secondo membro;
+
+\[\frac{M_{0,A}}{T_{2,A}^{*}}\exp\left( - \frac{T_{E,opt}}{T_{2,A}^{*}} \right) = \frac{M_{0,B}}{T_{2,B}^{*}}\exp\left( - \frac{T_{E,opt}}{T_{2,B}^{*}} \right)\]
+
+Si divide ambo i membri per \(\exp\left( - T_{E,opt}/T_{2,B}^{*} \right)\) al fine di portare la dipendenza da \(T_{E,opt}\) solo al primo membro:
+
+\[\frac{M_{0,A}}{T_{2,A}^{*}}\exp\left( - \frac{T_{E,opt}}{T_{2,A}^{*}} \right)\exp\left( \frac{T_{E,opt}}{T_{2,B}^{*}} \right) = \frac{M_{0,B}}{T_{2,B}^{*}}\]
+
+Si isolano i termini dipendenti da \(T_{E,opt}\):
+
+\[\exp\left( - \frac{T_{E,opt}}{T_{2,A}^{*}} \right)\exp\left( \frac{T_{E,opt}}{T_{2,B}^{*}} \right) = \frac{M_{0,B}}{T_{2,B}^{*}}\frac{T_{2,A}^{*}}{M_{0,A}}\]
+
+Per le proprietà degli esponenziali, risulta:
+
+\[\exp\left( T_{E,opt}\left( \frac{1}{T_{2,B}^{*}} - \frac{1}{T_{2,A}^{*}} \right) \right) = \frac{M_{0,B}}{T_{2,B}^{*}}\frac{T_{2,A}^{*}}{M_{0,A}}\]
+
+Si applica il logaritmo ambo i membri dell'equazione al fine di isolare \(T_{E,opt}\):
+
+\[T_{E,opt}\left( \frac{1}{T_{2,B}^{*}} - \frac{1}{T_{2,A}^{*}} \right) = \log\left( \frac{M_{0,B}}{T_{2,B}^{*}}\frac{T_{2,A}^{*}}{M_{0,A}} \right)\]
+
+Per le proprietà dei logaritmi è possibile riscrivere il secondo membro come:
+
+\[T_{E,opt}\left( \frac{1}{T_{2,B}^{*}} - \frac{1}{T_{2,A}^{*}} \right) = \log\left( \frac{M_{0,B}}{T_{2,B}^{*}} \right) - \log\left( \frac{M_{0,A}}{T_{2,A}^{*}} \right)\]
+
+Isolando \(T_{E,opt}\) si ottiene il tempo di echo tale da massimizzare il contrasto tra due tessuti:
+
+\[T_{E,opt} = \frac{\log\left( \frac{M_{0,B}}{T_{2,B}^{*}} \right) - \log\left( \frac{M_{0,A}}{T_{2,A}^{*}} \right)}{\frac{1}{T_{2,B}^{*}} - \frac{1}{T_{2,A}^{*}}}\]
+
+Questa relazione è valida sia per la sequenza gradient-echo sia per la spin-echo, a parte di sostituire \(T_{2,A}^{*}\) con \(T_{2,A}\) e \(T_{2,B}^{*}\) con \(T_{2,B}\).
+
+Scegliendo un tempo di echo uguale a \(T_{E,opt}\) si ottiene il massimo contrasto tra due tessuti di cui sono note le proprietà biochimiche, quantificate dal tempo di rilassamento trasversale \(T_{2}\).
+
+\paragraph{Tempo di echo ottimo per tessuti con proprietà simili}\label{tempo-di-echo-ottimo-per-tessuti-con-proprietuxe0-simili}
+
+Si suppone che le densità protoniche di due tessuti \(A\) e \(B\) siano molto simili tra loro:
+
+\[\rho_{0,A} \sim \rho_{0,B}\]
+
+Siccome la densità protonica è legata alla magnetizzazione da una relazione lineare, allora le magnetizzazioni dei due tessuto sono simili:
+
+\[M_{0,A} \sim M_{0,B} \equiv M_{0}\]
+
+Inoltre, si suppone che i due tessuti presentano un tempo di rilassamento trasversale simile, che differiscono di una quantità \(\delta \ll 1\)
+
+\[T_{2,B}^{*} = T_{2,A}^{*}(1 + \delta)\]
+
+Il contrasto tra questi due tessuti, si esprime come:
+
+\[C_{AB} = s_{0,A} - s_{0,B} \simeq M_{0,A}\exp\left( - \frac{T_{E}}{T_{2,A}^{*}} \right) - M_{0,B}\exp\left( - \frac{T_{E}}{T_{2,B}^{*}} \right) \simeq M_{0}\exp\left( - \frac{T_{E}}{T_{2,A}^{*}} \right) - M_{0}\exp\left( - \frac{T_{E}}{T_{2,A}^{*}(1 + \delta)} \right)\]
+
+Si raccoglie il termine \(M_{0}\exp\left( - T_{E}/T_{2,A}^{*} \right)\):
+
+\[C_{AB} \simeq M_{0}\exp\left( - \frac{T_{E}}{T_{2,A}^{*}} \right)\left( 1 - \frac{\exp\left( - \frac{T_{E}}{T_{2,A}^{*}(1 + \delta)} \right)}{\exp\left( - \frac{T_{E}}{T_{2,A}^{*}} \right)} \right) = M_{0}\exp\left( - \frac{T_{E}}{T_{2,A}^{*}} \right)\left( 1 - \exp\left( - \frac{T_{E}}{T_{2,A}^{*}(1 + \delta)} + \frac{T_{E}}{T_{2,A}^{*}} \right) \right)\]
+
+Si esegue il minimo comune multiplo nell'argomento dell'esponenziale:
+
+\[- \frac{T_{E}}{T_{2,A}^{*}(1 + \delta)} + \frac{T_{E}}{T_{2,A}^{*}} = T_{E}\frac{1 + \delta - 1}{T_{2,A}^{*}(1 + \delta)} = \frac{\delta T_{E}}{T_{2,A}^{*}(1 + \delta)}\]
+
+Si ottiene:
+
+\[C_{AB} \simeq M_{0}\exp\left( - \frac{T_{E}}{T_{2,A}^{*}} \right)\left( 1 - \exp\left( \frac{\delta T_{E}}{T_{2,A}^{*}(1 + \delta)} \right) \right)\]
+
+Siccome \(\delta \ll 1\), è possibile sviluppare in serie di Taylor il termine esponenziale presente nell'espressione del contrasto:
+
+\[\exp\left( \frac{\delta T_{E}}{T_{2,A}^{*}(1 + \delta)} \right) \simeq 1 + \frac{\delta T_{E}}{T_{2,A}^{*}(1 + \delta)}\]
+
+Da cui si ottiene:
+
+\[C_{AB} \simeq M_{0}\exp\left( - \frac{T_{E}}{T_{2,A}^{*}} \right)\left( 1 - 1 - \frac{\delta T_{E}}{T_{2,A}^{*}(1 + \delta)} \right) = - M_{0}\frac{\delta T_{E}}{T_{2,A}^{*}(1 + \delta)}\exp\left( - \frac{T_{E}}{T_{2,A}^{*}} \right)\]
+
+Il segno negativo indica semplicemente che il tessuto \(B\) appare \textbf{più brillante} del tessuto \(A\) nella tecnica di MRI, poiché possiede un tempo \(T_{2}^{*}\) maggiore.
+
+Nelle immagini MRI, di solito si visualizza il modulo del segnale, quindi, il contrasto è sempre visualizzato come un valore positivo. Tuttavia, nel calcolo matematico, il segno è importante e ha il significato fisico di maggiore intensità del tessuto \(B\).
+
+Il contrasto massimo tra i due tessuti con caratteristiche simili tra loro è ottenuto derivando rispetto al tempo di echo \(T_{E}\) la relazione approssimata appena individuata e ponendo il risultato uguale a \(0\):
+
+\[\frac{\partial C_{AB}}{\partial T_{E}} = 0 \Leftrightarrow \frac{\partial}{\partial T_{E}}\left( M_{0}\frac{\delta T_{E}}{T_{2,A}^{*}(1 + \delta)}\exp\left( - \frac{T_{E}}{T_{2,A}^{*}} \right) \right) = 0\]
+
+Si svolge la derivata:
+
+\[M_{0}\frac{\delta}{T_{2,A}^{*}(1 + \delta)}\exp\left( - \frac{T_{E,opt}}{T_{2,A}^{*}} \right) + M_{0}\frac{\delta T_{E,opt}}{T_{2,A}^{*}(1 + \delta)}\left( - \frac{1}{T_{2,A}^{*}} \right)\exp\left( - \frac{T_{E,opt}}{T_{2,A}^{*}} \right) = 0\]
+
+Si mettono in evidenza le quantità in comune tra i due termini (\(M_{0}\), \(\delta\), \(1 + \delta\) e \(T_{2,A}^{*}\)) e gli esponenziali:
+
+\[M_{0}\frac{\delta}{T_{2,A}^{*}(1 + \delta)}\exp\left( - \frac{T_{E,opt}}{T_{2,A}^{*}} \right)\left( 1 - \frac{T_{E,opt}}{T_{2,A}^{*}} \right) = 0\]
+
+L'equazione è soddisfatta se risulta:
+
+\[1 - \frac{T_{E,opt}}{T_{2,A}^{*}} = 0 \Leftrightarrow T_{E,opt} = T_{2,A}^{*}\]
+
+Nel caso della sequenza spin-echo si ottiene:
+
+\[T_{E,opt} = T_{2,A}\]
+
+Quando due tessuti presentano caratteristiche biochimiche simili, il tempo di echo da selezionare affinché il contrasto sia massimo deve essere uguale al tempo di rilassamento trasversale minore. Da esperimenti empirici sono noti i tempi di rilassamento dei vari tessuti umani. Grazie a queste informazioni è possibile ottenere il massimo contrasto al fine di visualizzare al meglio i due tessuti.
+
+Affinché i tessuti risultino ben visibili nell'immagine, oltre ad avere un contrasto massimo, è necessario che il rapporto contrasto/rumore sia sufficientemente elevato. Ciò equivale ad acquisire il segnale nei voxel con un soddisfacente rapporto segnale/rumore.
+
+\subsubsection{\texorpdfstring{Pesatura in \(\mathbf{T}_{\mathbf{1}}\) mediante inversion recovery}{Pesatura in \textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{1\}\} mediante inversion recovery}}\label{pesatura-in-mathbft_mathbf1-mediante-inversion-recovery}
+
+La sequenza di \emph{inversion recovery} permette di ottenere un contrasto dipendente dal tempo di rilassamento longitudinale \(T_{1}\)e di sopprimere il segnale di tessuti specifici.
+
+Questa sequenza si compone di un impulso a radiofrequenza a \(\pi\) che ribalta la magnetizzazione longitudinale, che all'equilibrio termodinamico è \(M_{0}\). Dopo un tempo di inversione, indicato con \(T_{I}\), si applica una sequenza del tipo spin-echo, caratterizzata da un impulso di eccitazione a \(\pi/2\) e uno di rifasamento a \(\pi\), dopo il quale, all'istante \(T_{E}\), si forma l'echo. L'impulso a \(\pi/2\) viene applicato dopo il tempo di inversione \(T_{I}\) per convertire la magnetizzazione longitudinale residua in segnale trasversale.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69167in,height=5.225in]{media/11_SNR/image313.pdf}\caption{Tabella 11.5: Sequenza inversion recovery con spin-echo al fine di ottenere immagini \(T_{1}\)-pesate}
+\end{figure}
+
+In questo contesto, il segnale registrato si esprime come:
+
+\[s\left( T_{R},T_{I},T_{E} \right) = M_{0}\left( 1 - 2\exp\left( - \frac{T_{I}}{T_{1}} \right) + \exp\left( - \frac{T_{R}}{T_{1}} \right) \right)\exp\left( - \frac{T_{E}}{T_{2}} \right)\]
+
+\(T_{R}\) è il tempo che intercorre tra l'inizio di una sequenza (impulso a\(\pi\)) e l'inizio della successiva. Il segnale a radiofrequenza a \(\pi\) è un impulso di \emph{inversione}, non di eccitazione, che è invece il ruolo dell'impulso a \(\pi/2\). Il termine dipendente da \(T_{R}/T_{1}\) è legato al ritorno all'equilibrio della magnetizzazione longitudinale con costante di tempo uguale a \(T_{1}\).
+
+Se i tessuti hanno diverso tempo di rilassamento longitudinale, deve esistere un istante temporale in cui la differenza tra i segnali è massima. In questa condizione il contrasto assume il suo valore massimo.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68333in,height=4.3in]{media/11_SNR/image314.pdf}\caption{Figura .: Massima differenza dai segnali ricevuti da materia grigia e materia bianca}
+\end{figure}
+
+Il contrasto tra due tessuti con densità protonica e tempi di rilassamento longitudinale diversi tra loro è:
+
+\[C_{AB} = M_{0,A}\left( 1 - 2\exp\left( - \frac{T_{I}}{T_{1,A}} \right) + \exp\left( - \frac{T_{R}}{T_{1,A}} \right) \right)\exp\left( - \frac{T_{E}}{T_{2,A}} \right) - M_{0,B}\left( 1 - 2\exp\left( - \frac{T_{I}}{T_{1,B}} \right) + \exp\left( - \frac{T_{R}}{T_{1,B}} \right) \right)\exp\left( - \frac{T_{E}}{T_{2,B}} \right)\]
+
+Al fine di avere una pesatura in \(T_{1}\) con una sequenza del tipo \emph{inversion recovery}, il tempo di ripetizione deve essere molto maggiore del tempo di rilassamento longitudinale \(T_{1}\). Il tempo di echo, inoltre, deve essere tale da non avvertire gli effetti del rilassamento trasversale:
+
+\[\left\{ \begin{matrix}
+T_{E} \ll T_{2} \\
+T_{R} \gg T_{1}
+\end{matrix} \right.\ \]
+
+Con queste ipotesi è possibile trascurare il termine esponenziale \(\exp\left( - T_{R}/T_{1} \right)\), in quanto molto minore dell'unità;
+
+\[\exp\left( - \frac{T_{R}}{T_{1}} \right) \ll 1\]
+
+Inoltre, per l'ipotesi \(T_{E} \ll T_{2}\), il termine esponenziale \(\exp\left( T_{E}/T_{2} \right)\) tende all'unità:
+
+\[\exp\left( \frac{T_{E}}{T_{2}} \right) \simeq 1\]
+
+Il contrasto, con queste approssimazioni, può essere scritto come:
+
+\[C_{AB} = M_{0,A}\left( 1 - 2\exp\left( - \frac{T_{I}}{T_{1,A}} \right) + \exp\left( - \frac{T_{R}}{T_{1,A}} \right) \right)\exp\left( - \frac{T_{E}}{T_{2,A}} \right) - M_{0,B}\left( 1 - 2\exp\left( - \frac{T_{I}}{T_{1,B}} \right) + \exp\left( - \frac{T_{R}}{T_{1,B}} \right) \right)\exp\left( - \frac{T_{E}}{T_{2,B}} \right) \simeq M_{0,A}\left( 1 - 2\exp\left( - \frac{T_{I}}{T_{1,A}} \right) \right) - M_{0,B}\left( 1 - 2\exp\left( - \frac{T_{I}}{T_{1,B}} \right) \right)\]
+
+Al fine di identificare il tempo di inversione ottimo che massimizza il contrasto, si applica l'operazione di derivata rispetto a \(T_{I}\) e si pone il risultato uguale a \(0\):
+
+\[\frac{\partial C_{AB}}{\partial T_{I}} = 0 \Leftrightarrow \frac{\partial}{\partial T_{I}}\left( M_{0,A}\left( 1 - 2\exp\left( - \frac{T_{I}}{T_{1,A}} \right) \right) - M_{0,B}\left( 1 - 2\exp\left( - \frac{T_{I}}{T_{1,B}} \right) \right) \right) = 0\]
+
+Svolgendo l'operazione di derivazione, si ottiene:
+
+\[2M_{0,A}\left( - \frac{1}{T_{1,A}} \right)\exp\left( - \frac{T_{I,opt}}{T_{1,A}} \right) + 2M_{0,B}\frac{1}{T_{1,B}}\exp\left( - \frac{T_{I,opt}}{T_{1,B}} \right) = 0\]
+
+Si isolano i termini \(T_{I,opt}\):
+
+\[2M_{0,A}\frac{1}{T_{1,A}}\exp\left( - \frac{T_{I,opt}}{T_{1,A}} \right) = 2M_{0,B}\frac{1}{T_{1,B}}\exp\left( - \frac{T_{I,opt}}{T_{1,B}} \right)\]
+
+Si divide per \(\exp\left( T_{I,opt}/T_{1,B} \right)\) ambo i membri:
+
+\[2M_{0,A}\frac{1}{T_{1,A}}\exp\left( - \frac{T_{I,opt}}{T_{1,A}} \right)\exp\left( \frac{T_{I,opt}}{T_{1,B}} \right) = 2M_{0,B}\frac{1}{T_{1,B}}\]
+
+Si isola il tempo \(T_{I}\) dividendo per il reciproco del termine moltiplicativo il primo membro. Inoltre, per le proprietà degli esponenziali si ottiene:
+
+\[\exp\left( - \frac{T_{I,opt}}{T_{1,A}} + \frac{T_{I,opt}}{T_{1,B}} \right) = \frac{M_{0,B}}{T_{1,B}}\frac{T_{1,A}}{M_{0,A}}\]
+
+Si applica il logaritmo ambo i membri, si ha:
+
+\[T_{I,opt}\left( \frac{1}{T_{1,B}} - \frac{1}{T_{1,A}} \right) = \log\left( \frac{M_{0,B}}{T_{1,B}}\frac{T_{1,A}}{M_{0,A}} \right)\]
+
+Applicando le proprietà dei logaritmi e isolando il termine \(T_{I,opt}\), si ha:
+
+\[T_{I,opt} = \frac{\log\left( \frac{M_{0,B}}{T_{1,B}} \right) - \log\left( \frac{M_{0,A}}{T_{1,A}} \right)}{\frac{1}{T_{1,B}} - \frac{1}{T_{1,A}}}\]
+
+Il risultato ottenuto coincide con il tempo di ripetizione ottimo nella pesatura per \(T_{1}\) con sequenza gradient-echo.
+
+In conclusione, a parità di tempo \(T_{R}\) per una sequenza spin-echo o gradient-echo, l'inversion recovery presenta un segnale circa doppio rispetto alle altre due citate. Se su pesano due tessuti in \(T_{1}\) con una sequenza di inversion recovery si ottiene un contrasto doppio a parità di altri parametri.
+
+La sequenza di \emph{inversion recovery} permette di annullare il segnale proveniente da un tessuto \(A\), noto che sia il suo tempo di rilassamento longitudinale \(T_{1}\). È possibile scegliere di applicare l'impulso a \(\pi/2\) in corrispondenza dell'istante temporale in cui il segnale proveniente dal tessuto di interesse è nullo, poiché nulla la sua magnetizzazione longitudinale. Viceversa, il segnale proveniente dal tessuto \(B\) è diverso da zero poiché, avendo un tempo di rilassamento longitudinale diverso, allo stesso istante temporale presenta una magnetizzazione longitudinale non nulla da ribaltare mediante l'impulso a \(\pi/2\).
+
+\begin{figure}
+\centering
+\includegraphics[width=6.68333in,height=4.3in]{media/11_SNR/image315.pdf}\caption{Figura .: Punto in cui il segnale del tessuto \(A\) (materia bianca) si annulla}
+\end{figure}
+
+Questa tecnica è spesso molto applicata per la rimozione del grasso. In mammografia, ad esempio, si sopprime il grasso al fine di visualizzare al meglio il tessuto mammario, mediante un'immagine \(T_{1}\)-pesata. L'imaging, ovviamente, interessa solamente i tessuti non eliminati dall'inversion recovery.
+
+Per poter applicare la metodica di cancellazione del segnale proveniente da un tessuto è necessario avere una conoscenza a priori dei tempi di rilassamento dei tessuti di interesse. Le lesioni tumorali, ad esempio, risultano enfatizzate mediante immagini \(T_{2}\)-pesate con soppressione del grasso con mezzo di contrasto.
+
+\subsection{Mezzo di contrasto in risonanza magnetica}\label{mezzo-di-contrasto-in-risonanza-magnetica}
+
+Le lesioni tumorali, se sviluppate, presentano un loro microambiente, definito stroma reattivo, caratterizzato da propri tempi di rilassamento \(T_{1}\) e \(T_{2}\). Solitamente, per una buona visualizzazione del tumore si utilizza una sequenza con pesatura in \(T_{2}\).
+
+Lo studio dei vari tessuti passa, quindi, per l'esperienza del radiologo che, in base alla struttura anatomica da visualizzare, seleziona i giusti parametri della sequenza più opportuna, sulla base delle conoscenze e studi pregressi.
+
+Esistono casi in cui il tessuto che si vuole visualizzare non è sufficientemente in contrasto rispetto i tessuti che lo circondano. In questa evenienza si ricorre a un imaging \(T_{1}\)-pesatp con l'uso di un mezzo di contrasto che altera localmente le iterazioni magnetiche degli spin, modificando i tempi di rilassamento. In altre parole, il mezzo di contrasto introduce delle disomogeneità di campo magnetico che alterano le iterazioni tre gli spin nel tessuto, in modo da ridurre il tempo di rilassamento longitudinale di una quantità dipendente dalla sua concentrazione,
+
+Eseguendo un imaging \(T_{1}\)-pesato è possibile risalire alla distribuzione del tracciante nel corpo, evidenziando così i tessuti con maggior concentrazione di mezzo di contrasto.
+
+In pratica, la concentrazione \(c\) del liquido tracciante è misurata in \(mmol/L\), dove una mole è un numero di Avogadro di particelle. Quindi, iniettando un mezzo di contrasto con una certa molarità si può dimostrare che la rilassività longitudinale aumenta proporzionalmente, secondo la relazione:
+
+\[R_{1}(c) = R_{1.0} + \alpha_{1}c\]
+
+Con \(\alpha_{1}\) parametro dipendente dal particolare mezzo di contrasto scelto. Per definizione, \(R_{1}\) è l'inverso del tempo di rilassamento longitudinale:
+
+\[R_{1} = \frac{1}{T_{1}}\]
+
+La relazione per la rilassività può essere scritta in termini di \(T_{1}\):
+
+\[\frac{1}{T_{1}(c)} = \frac{1}{T_{1,0}} + \alpha_{1}c\]
+
+Dove \(T_{1}(c)\) è il tempo di rilassamento longitudinale del tessuto, dopo l'introduzione del mezzo di contrasto, e \(T_{1,0}\) il tempo prima dell'iniezione, caratteristico del tessuto,
+
+La maggior parte dei mezzi di contrasto per risonanza magmatica sono basati sull'elemento chimico gadolinio (\(Gd\)). Questa sostanza, essendo tossica per l'organismo, non è inserita all'interno del corpo pura ma legata a delle macromolecole, come l'albumina, che eliminano l'effetto tossico. La molecola più utilizzata nella pratica clinica è detta DOTA (sale megluminico dell'acido gadoterico).
+
+Il gadolinio presenta un comportamento paramagnetico, quindi, altera localmente il campo magnetico visto dagli spin. Ciò provoca un cambiamento del tempo di rilassamento longitudinale.
+
+L'effetto del mezzo di contrasto si ripercuote anche sul tempo di rilassamento trasversale \(T_{2}\), secondo una relazione perfettamente analoga a quella del tempo di rilassamento longitudinale:
+
+\[R_{2}(c) = R_{2,0} + \alpha_{2}c\]
+
+Oppure, utilizzando i tempi di rilassamento:
+
+\[\frac{1}{T_{2}(c)} = \frac{1}{T_{2,0}} + \alpha_{2}c\]
+
+Dove \(T_{2,0}\) è il tempo di rilassamento trasversale caratteristico del tessuto, prima dell'introduzione del mezzo di contrasto con concentrazione \(c\).
+
+Le due equazioni per \(R_{1}(c)\) e \(R_{2}(c)\) sono dette come relazioni di Solomon-Bloembergen (S-B). Questa teoria fornisce un quadro teorico dettagliato per spiegare e quantificare come gli ioni metallici paramagnetici (come quelli usati negli agenti di contrasto per la risonanza magnetica) influenzano i tassi di rilassamento nucleare dei nuclei circostanti, in particolare i protoni delle molecole d'acqua.
+
+L'approssimazione lineare è valida in condizione di \emph{fast exchange limit}, il quale prevede che il tempo in cui una molecola di acqua (o un altro nucleo) interagisce con l'agente di contrasto paramagnetico è molto più breve rispetto ai tempi di rilassamento \(T_{1}\) e \(T_{2}\).
+
+In queste condizioni:
+
+\begin{itemize}
+\item
+  Le molecole d'acqua si muovono e cambiano la loro posizione tra la vicinanza dell'agente di contrasto e il resto del tessuto molto rapidamente;
+\item
+  L'interazione con l'agente di contrasto è di breve durata e le fluttuazioni del campo magnetico locale sono molto veloci.
+\item
+  I dettagli specifici dell'interazione (che sono il fulcro della teoria S-B), come il tempo di permanenza e la distanza esatta, diventano meno rilevanti.
+\end{itemize}
+
+Le costanti \(\alpha_{1}\) e \(\alpha_{2}\) sono dette, rispettivamente, rilassività o relaxivity longitudinale e trasversale del contrasto. Questi parametri dipendono direttamente dal materiale utilizzato come liquido di contrasto e sono riportati sul flaconcino del contenitore, La loro unità di misura è, nella pratica, espressa in:
+
+\[\lbrack\alpha\rbrack = \left\lbrack \left( m\frac{mol}{L}s \right)^{- 1} \right\rbrack\]
+
+Valori tipici di questi coefficienti sono di \(4 \div 5\ L/mmol\ s\). Per molti liquidi di contrasto, che tendono a ridurre il tempo di rilassamento longitudinale \(T_{1}\), i coefficienti di rilassività hanno generalmente la stessa ampiezza \(\alpha_{1} \sim \alpha_{2}\).
+
+Inoltre, siccome \(T_{1} > T_{2} \Leftrightarrow R_{1} < R_{2}\), un aumento della concentrazione del liquido di contrasto produce un cambiamento maggiore nel tempo \(T_{1}\), quindi, il segnale ricevuto dovuto a questa riduzione ha un effetto maggiore di quella dovuta alla riduzione di \(T_{2}\). Quando il termine \(\alpha_{2}c\) diventa comparabile con la rilassività trasversale del tessuto \(R_{2,0}\), le perdite del segnale ricevuto dovute alla riduzione di \(T_{2}\) diventano importanti. In questa situazione si perdono i vantaggi del contrasto \(T_{1}\)-pesato con mezzo di contrasto.
+
+Il punto di crossover tra le perdite di segnali dovuti alla riduzione di \(T_{2}\) e gli incrementi del segnale dovuti alla riduzione di \(T_{1}\) definisce il contrasto ottimo. Ciò permette di scegliere il valore di concentrazione del mezzo di contrasto da iniettare.
+
+Per ottenere l'imaging con mezzo di contrasto, si acquisisce dapprima un'immagine della sezione anatomica di interesse priva del liquido di contrasto e, in seguito, si inietta il mezzo di contrasto e si esegue nuovamente l'imaging. La prima immagine permette di ottenere informazioni sui tempi di rilassamento caratteristici dei tessuti, \(T_{1,0}\) e \(T_{2,0}\).
+
+L'introduzione del mezzo di contrasto modifica le caratteristiche di rilassamento del tessuto che si lega alla molecola biologica (come l'albumina) contenente il gadolinio. I tessuti non legati al mezzo di contrasto, invece, non modificano le proprie caratteristiche magnetiche in modo apprezzabile, per cui possiedono pressocché lo stesso segnale sia prima che dopo l'iniezione.
+
+Eseguendo una semplice sottrazione tra l'immagine senza mezzo di contrasto e quella acquisita a valle dell'iniezione, si ottiene un'immagine contenente solamente le strutture legate al mezzo di contrasto, in cui le proprietà magnetiche sono modificate in modo apprezzabile, mentre le altre regioni sono rimosse.
+
+In particolare, noto il tempo di rilassamento longitudinale caratteristico del tessuto, \(T_{1,0}\), e quello alterato dall'iniezione del mezzo di contrasto \(T_{1}\), è possibile ricavare la concentrazione locale del tracciante.
+
+Questo procedimento permette di ottenere immagini funzionali ed è molto sfruttato nel campo dell'oncologia: i tumori, per accrescersi rapidamente, promuovono l'angiogenesi, ovvero la formazione di nuovi vasi sanguigni. Iniettando un mezzo di contrasto nel sangue, la zona che presenta una maggiore concentrazione del mezzo di contrasto è riccamente vascolarizzata, dunque, sede di una neoplasia.
+
+Nella pratica, la dose del mezzo di contrasto è di \(0.1\ mmol/L\ kg\), dove l'unità di messa è riferito al quantitativo di sostanza del paziente. Ad esempio, per un paziente di \(50\ kg\)la dose di farmaco con concentrazione di:
+
+\[0.1\frac{mmol}{L\ kg}50\ kg = 5mmol/L\]
+
+Questa contrazione si distribuisce in tutto il corpo del paziente, soprattutto nelle zone che sfruttano la macromolecola contenente il gadolinio.
+
+\subsection{Effetto di volume parziale}\label{effetto-di-volume-parziale}
+
+Nella pratica, a causa delle dimensioni finite del volumetto elementare in cui è diviso il paziente, non è detto che un voxel contenga solamente un tessuto. Si suppone che il tessuto \(A\) sia più piccolo del voxel, il quale, di conseguenza, contiene due tipi di tessuti. Il tessuto \(A\), in altre parole, occupa sola parzialmente il volume del voxel.
+
+\begin{figure}
+\centering
+\includegraphics[width=3.49167in,height=1.75664in]{media/11_SNR/image316.pdf}\caption{Figura .: Voxel contenente due tessuti diversi}
+\end{figure}
+
+Se gli effetti della sfocatura dei due tessuti a causa della PSF sono trascurabili, un semplice modello per descrivere questa situazione prevede di considerare il segnale ricevuto dal voxel come la somma dei segnali delle frazioni di tessuto contenuti nel volumetto elementare. Sia \(\alpha_{A}\) la frazione volumetrica del tessuto \(A\) nel voxel considerato:
+
+\[\alpha_{A} = \frac{V_{A}}{V_{tot}}\]
+
+Il segnale del voxel può essere scritto come:
+
+\[s_{voxel,1} = \alpha_{A}s_{A} + \left( 1 - \alpha_{A} \right)\ s_{B}\]
+
+In altre parole, il segnale risultante del voxel è una media pesata del segnale proveniente dai due tessuti. Questo primo modello, noto come \emph{Partial Volume Effect} (effetto del volume parziale).
+
+Si suppone che il voxel adiacente a quello considerato contenga solamente il tessuto \(B\). Il contrasto tra i due voxel si esprime come:
+
+\[C_{AB} = s_{voxel,2} - s_{voxel,1} = s_{B} - \left( \alpha_{A}s_{A} + \left( 1 - \alpha_{A} \right)\ s_{B} \right)\]
+
+Si svolgono i prodotti:
+
+\[C_{AB} = s_{B} - \alpha_{A}s_{A} - s_{B} + \alpha_{A}s_{B} = \alpha_{A}\left( s_{B} - s_{A} \right)\]
+
+Il contrasto tra i due tessuti è una percentuale \(\alpha_{A}\) del contrasto che si avrebbe in assenza del riempimento parziale del voxel col tessuto \(A\).
+
+\begin{figure}
+\centering
+\includegraphics[width=6.42556in,height=1.39179in,alt={Immagine che contiene testo, linea, schermata, Carattere Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/11_SNR/image317.pdf}\caption{Figura .: Il voxel contenente entrambi i tessuti è posto vicino a voxel contenenti solo il tessuto \(B\)}
+\end{figure}
+
+Per migliorare il contrasto si riduce la dimensione di voxel si una quantità \(\beta < 1\).
+
+\begin{figure}
+\centering
+\includegraphics[width=6.62593in,height=1.56272in,alt={Immagine che contiene testo, schermata, Carattere, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/11_SNR/image318.pdf}\caption{Figura .: Riduzione dei voxel di un fattore \(\beta\)}
+\end{figure}
+
+Con la riduzione del voxel, il tessuto \(A\) occupa una porzione volumetrica di:
+
+\[\alpha_{A}' = \frac{V_{A}}{\beta V_{tot}} = \frac{\alpha_{A}}{\beta}\]
+
+Affinché il modello sia valido, \(\alpha_{A}/\beta < 1\), ovvero \(\alpha_{A} < \beta\). Se \(\alpha_{A}'\) supera l'unita, il voxel ridotto è completamente riempito dal tessuto \(A\), e la formula diventa non applicabile.
+
+La restante parte del voxel (\(1 - \alpha_{A}/\beta\)) è occupato dal tessuto \(B\). Il segnale nel voxel è, quindi, dato da:
+
+\[s_{voxel,1}' = \frac{\alpha_{A}}{\beta}\left( s_{A}' \right) + \left( 1 - \frac{\alpha_{A}}{\beta} \right)\ \left( s_{B}' \right)\]
+
+Dove \(s_{A}'\) e \(s_{B}'\) sono i segnali totali che si otterrebbe da un voxel interamente riempito, rispettivamente, dal tessuto \(A\) e \(B\).
+
+Il segnale del voxel adiacente, avendo ridotto il suo volume, è scalato di un fattore \(\beta\) a causa della riduzione del voxel:
+
+\[s_{voxel,2}' = \beta s_{B}\]
+
+A causa della riduzione delle dimensioni del volume elementare, i segnali totali che si otterrebbero da un voxel interamente riempito da uno solo di quei tessuti, contenuti nel voxel con riempimento parziale del tessuto \(A\), sono ridotti di una quantità \(\beta\):
+
+\[s_{A}' = \beta s_{A},s_{B}' = \beta s_{B}\]
+
+Il segnale nel voxel considerato è:
+
+\[s_{voxel,1}' = \frac{\alpha_{A}}{\beta}\left( \beta s_{A} \right) + \left( 1 - \frac{\alpha_{A}}{\beta} \right)\ \left( \beta s_{B} \right)\]
+
+Il contrasto tra i due tessuti contenuti nei voxel adiacenti è, a valle della riduzione, è:
+
+\[C_{AB} = s_{voxel,2}' - s_{voxel,1}' = \beta s_{B} - \left( \frac{\alpha_{A}}{\beta}\left( \beta s_{A} \right) + \left( 1 - \frac{\alpha_{A}}{\beta} \right)\ \left( \beta s_{B} \right) \right)\]
+
+Svolendo i prodotti si ottiene:
+
+\[C_{AB} = \ \beta s_{B} - \alpha_{A}s_{A} - \ \beta s_{B} + \alpha_{A}s_{B}\]
+
+Eliminando i termini con segno opposto e raccogliendo \(\alpha_{A}\), si ottiene:
+
+\[C_{AB} = \alpha_{A}\left( s_{B} - s_{A} \right)\]
+
+Pur riducendo il volume del voxel di una quantità \(\beta < 1\), il contrasto tra i due tessuti non varia se la percentuale \(\alpha_{A}\) del tessuto \(A\) nel primo voxel non varia.
+
+La visibilità dei tessuti in un'immagine non dipende solo dal contrasto, ma dal \textbf{rapporto contrasto/rumore (CNR)}, definito come il rapporto tra il contrasto e la deviazione standard del rumore (\(\sigma\)) distribuito sui voxel:
+
+\[CNR = \frac{C_{AB}}{\sigma}\]
+
+Sebbene nel modello di volume parziale il contrasto assoluto \(C_{AB}\) non cambi con la riduzione del voxel, il rapporto segnale/rumore (SNR) è direttamente influenzato. Il segnale totale raccolto da un voxel è proporzionale al suo volume. Il rumore, invece, è approssimativamente costante e non dipende dalla dimensione del voxel.
+
+Pertanto, il rapporto segnale/rumore (SNR), che è proporzionale al segnale, è anche proporzionale al volume del voxel. Nel caso monodimensionale si ha:
+
+\[SNR \propto \Delta x\sqrt{T_{S}}\]
+
+La riduzione del Fourier pixel size di \(\beta\) (\(\Delta x' = \beta\Delta x\)), determina una variazione della durata della finestra di acquisizione, secondo le relazioni:
+
+\[\left\{ \begin{matrix}
+L_{x}' = N_{x}'\Delta x' \\
+T_{S}' = N_{x}'\Delta t'
+\end{matrix} \right.\ \]
+
+Da cui:
+
+\[T_{S}' = \frac{L_{x}'}{\Delta x'}\ \Delta t'\]
+
+Mantenendo costante il FOV e l'intervallo di campionamento costante, la durata della finestra di acquisizione aumenta di un fattore \(\beta^{- 1}\):
+
+\[T_{S}' = \frac{L_{x}'}{\Delta x'}\ \Delta t' = \frac{L_{x}}{\beta\Delta x}\Delta t = \frac{T_{S}}{\beta}\]
+
+Con questa scelta il rapporto segnale/rumore viene ridotto di una quantità \(\sqrt{\beta}\):
+
+\[SNR' \propto \Delta x'\sqrt{T_{S}'} = \ \beta\Delta x\sqrt{\frac{T_{S}}{\beta}} = \sqrt{\beta}\ \Delta x\sqrt{T_{S}}\]
+
+Mantenendo costante la finestra di acquisizione, il numero dei campioni viene scalato di un fattore \(\beta^{- 1}\):
+
+\[L_{x}' = N_{x}'\Delta x' \Leftrightarrow N_{x}' = \frac{L_{x}'}{\Delta x'} = \frac{L_{x}}{\beta\Delta x} = \frac{N_{x}}{\beta}\]
+
+Con questa scelta il rapporto segnale/rumore viene ridotto di una quantità \(\sqrt{\beta}\):
+
+\[SNR' \propto \Delta x'\sqrt{N_{x}'\Delta t'} = \ \beta\Delta x\sqrt{\frac{N_{x}}{\beta}\Delta t} = \sqrt{\beta}\ \Delta x\sqrt{N_{x}\Delta t}\]
+
+Si suppone, ora, di mantenere costante il numero di campioni acquisiti. Il FOV deve ridursi di una quantità \(\beta\):
+
+\[L_{x}' = N_{x}'\Delta x' = N_{x}\beta\Delta x = \beta L_{x}\]
+
+La durata della finestra di acquisizione resta invariata, in quanto:
+
+\[T_{S}' = \frac{L_{x}'}{\Delta x'}\ \Delta t' = \frac{\beta L_{x}}{\beta\Delta x}\Delta t = T_{S}\]
+
+Con questa scelta il rapporto segnale/rumore viene ridotto di una quantità \(\beta\):
+
+\[SNR' \propto \Delta x'\sqrt{N_{x}'\Delta t'} = \ \beta\Delta x\sqrt{T_{S}}\]
+
+Il rumore con cui è acquisito il segnale del voxel si distribuisce su tutta l'immagine con uguale intensità:
+
+\[\sigma_{0}^{2} = \frac{\sigma_{m}^{2}}{N_{x}}\]
+
+Dove \(\sigma_{m}^{2}\) dipende dal sistema di acquisizione, dunque, non varia tra i vari esperimenti. Scalando il numero di campioni acquisiti per un fattore \(\beta^{- 1}\) si ottiene una riduzione della varianza del rumore che insiste sul voxel:
+
+\[\sigma_{0}^{2} = \beta\frac{\sigma_{m}^{2}}{N_{x}}\]
+
+Ne discende che il rapporto contrasto/rumore aumenta di un fattore \(\sqrt{\beta^{- 1}}\):
+
+\[CNR = \frac{C_{AB}}{\sigma_{0}} = \frac{C_{AB}}{\sqrt{\beta^{- 1}}\sigma_{0}}\]
+
+Con questa scelta di parametri è possibile risolvere tessuti più piccoli (tessuto \(A\)) immersi nel background (tessuto \(B\)).
+
+La riduzione della risoluzione, ovvero la riduzione del Fourier pixel size di una quantità \(\beta\), porta a una riduzione del rapporto segnale/rumore; tuttavia, se questo parametro è sufficientemente elevato da poter subire un incremento, si migliora allo stesso tempo la visibilità dei tessuti anche in presenza di effetto di volume parziale.
+
+\subsection{Region of intereset}\label{region-of-intereset}
+
+Si suppone che il rumore sovrapposto all'immagine sia di tipo bianco, additivo e gaussiano, caratterizzato da una media nulla e varianza \(\sigma\). A causa delle non idealità del sistema di acquisizione, le immagini ricostruite sono generalmente complesse, per cui si preferisce visualizzare le solo immagini del modulo. Le immagini di fase sono utili per ridurre la disomogeneità di campo mediante uno \emph{shamming} attivo.
+
+Nel processo di modulo, il rumore perde la proprietà di meda nulla poiché si perde l'alternanza casuale tra valori positivi e negativi.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.69306in,height=5.17222in,alt={Immagine che contiene testo, schermata, Carattere, Diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/11_SNR/image319.pdf}\caption{Figura .: Rumore gaussiano bianco a media nulla e modulo del rumore}
+\end{figure}
+
+Inoltre, a valle dell'operazione di modulo, cadono l'ipotesi di rumore gaussiano. Si può dimostrare che la distribuzione del rumore a valle dell'operazione di modulo è:
+
+\[f(z) = \frac{z}{\sigma^{2}}\exp\left( - \frac{z^{2}}{2\sigma^{2}} \right)\]
+
+Dove \(Z\) è la variabile aleatoria, ottenuta come:
+
+\[Z = \sqrt{X^{2} + Y^{2}}\]
+
+Con \(X\) e \(Y\) variabili aleatorie di tipo gaussiane e media nulla e varianza \(\sigma^{2}\):
+
+\[X,Y \sim N\left( 0,\sigma^{2} \right)\]
+
+Questo risultato discende dal fatto che il modulo è la radice quadrata della somma dei quadrati della parte reale e di quella immaginaria dell'immagine. Il rumore, quindi, si distribuzione secondo il modello di Rice (o di Rayleigh se il segnale utile è nullo).
+
+Sull'immagine, per misurare il rumore, si traccia una ROI (\emph{region of interest}) all'interno della quale, mediante software dedicati, si valuta il valor medio e la deviazione standard dei livelli di grigio relativi al distretto anatomico di interesse.
+
+Per valutare il rumore si sceglie una ROI esterna all'immagine anatomica. In questa regione le informazioni contenute nella ROI sono legate solamente al rumore, in quanto il segnale dei tessuti è supposto essere nullo.
+
+Note le informazioni relative alle due ROI è semplice ricavare le informazioni sul segnale e sul rumore, valutando così il rapporto segnale/rumore:
+
+\[SNR = \frac{s}{\sigma}\]
+
+Se nel backgroud si stima, ad esempio, \(\sigma = 3\), mentre il segnale nel tessuto è \(90\), il rapporto segnale/rumore valutato è:
+
+\[SNR = \frac{s}{\sigma} = \frac{90}{3} = 30\]
