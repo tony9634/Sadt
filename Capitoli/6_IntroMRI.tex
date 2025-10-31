@@ -74,7 +74,7 @@ dove \(M\) è il momento magnetico per unità di volume, il quale contiene \(N\)
 Dalla legge i Curie si evince che la magnetizzazione dipende dal campo magnetico applicato, dalla temperatura, dal rapporto giromagnetico e dal numero di spin presenti nel volume elementare sotto analisi. Ne discende che per aumentare il valore della magnetizzazione è possibile:
 
 \begin{itemize}
-\item \textbf{Aumentare il campo magnetico} \(B_0\): tipicamente si utilizzano campi da \(1.5\,\text{T}\), valore regolato da normative internazionali;
+\item \textbf{Aumentare il campo magnetico} \(B_0\): tipicamente si utilizzano campi da \(1.5\,T\), valore regolato da normative internazionali;
 \item \textbf{Ridurre la temperatura}: non è praticabile in ambito clinico, poiché il paziente non può essere raffreddato eccessivamente. Nella sala della risonanza magnetica la temperatura è mantenuta costante, intorno ai \(25\ {^\circ}C\), al fine di evitare fluttuazioni della magnetizzazione;
 \item
   \textbf{Scegliere sostanze con \(\gamma\) maggiore}: In linea di principio è possibile determinare immagini di risonanza magnetica anche degli elettroni, che presentano un rapporto giromagnetico \(\gamma_{e} = - 1.76 \cdot 10^{11}\ rad/Ts\), mentre quello del protone è \(\gamma_{p} = 2.68 \cdot 10^{8}\ rad/Ts\). Il rapporto di \(\gamma_{e}\) e \(\gamma_{p}\) è:
@@ -335,16 +335,16 @@ Si risolve l'equazione differenziale per il momento magnetico. A tale scopo si s
 
 \[
 \vec{\mu} \times \vec{B} = \left| \begin{matrix}
-{\hat{i}}_{x} & {\hat{i}}_{y} & {\hat{i}}_{z} \\
+{\hat{\imath}}_{x} & {\hat{\imath}}_{y} & {\hat{\imath}}_{z} \\
 \mu_{x} & \mu_{y} & \mu_{z} \\
 0 & 0 & B_{0}
-\end{matrix} \right| = B_{0}\left( \mu_{y}{\hat{i}}_{x} - \mu_{x}{\hat{i}}_{y} \right)
+\end{matrix} \right| = B_{0}\left( \mu_{y}{\hat{\imath}}_{x} - \mu_{x}{\hat{\imath}}_{y} \right)
 \]
 
 L'equazione differenziale scomposta lungo gli assi, si scrive come:
 
 \[
-\dfrac{d\vec{\mu}}{dt} = \gamma B_{0}\left( \mu_{y}{\hat{i}}_{x} - \mu_{x}{\hat{i}}_{y} \right)
+\dfrac{d\vec{\mu}}{dt} = \gamma B_{0}\left( \mu_{y}{\hat{\imath}}_{x} - \mu_{x}{\hat{\imath}}_{y} \right)
 \]
 
 Proiettando l'equazione differenziale lungo gli assi, si ottiene:
@@ -410,11 +410,11 @@ Al fine di ricavare le due costanti di integrazione \(A\) e \(B\), si usano le p
 
 \[
 \begin{cases}
-\left\lbrack A\cos\left( \omega_{0}t \right) + B\sin\left( \omega_{0}t \right) \right\rbrack_{t = 0} = \mu_{x}(0) \\
-\left\lbrack - A\sin\left( \omega_{0}t \right) + B\cos\left( \omega_{0}t \right) \right\rbrack_{t = 0} = \mu_{y}(0)
+\left. A\cos\left( \omega_{0}t \right) + B\sin\left( \omega_{0}t \right) \right|{t = 0} = \mu_{x}\left(0\right) \\
+\left\lbrack - A\sin\left( \omega_{0}t \right) + B\cos\left( \omega_{0}t \right) \right\rbrack_{t = 0} = \mu_{y}\left(0\right)
 \end{cases} \Leftrightarrow \begin{cases}
-A = \mu_{x}(0) \\
-B = \mu_{y}(0)
+A = \mu_{x}\left(0\right) \\
+B = \mu_{y}\left(0\right)
 \end{cases}
 \]
 
@@ -422,9 +422,9 @@ La soluzione dell'equazione differenziale è, dunque:
 
 \[
 \begin{cases}
-\mu_{x}\left(t\right) = \mu_{x}(0)\cos\left( \omega_{0}t \right) + \mu_{y}(0)\sin\left( \omega_{0}t \right) \\
-\mu_{y}\left(t\right) = - \mu_{x}(0)\sin\left( \omega_{0}t \right) + \mu_{y}(0)\cos\left( \omega_{0}t \right) \\
-\mu_{z}\left(t\right) = \mu_{z}(0)
+\mu_{x}\left(t\right) = \mu_{x}\left(0\right)\cos\left( \omega_{0}t \right) + \mu_{y}\left(0\right)\sin\left( \omega_{0}t \right) \\
+\mu_{y}\left(t\right) = - \mu_{x}\left(0\right)\sin\left( \omega_{0}t \right) + \mu_{y}\left(0\right)\cos\left( \omega_{0}t \right) \\
+\mu_{z}\left(t\right) = \mu_{z}\left(0\right)
 \end{cases}
 \]
 
@@ -437,7 +437,7 @@ La soluzione dell'equazione differenziale è, dunque:
 in forma compatta introducendo la matrice di rotazione intorno all'asse \(z\):
 
 \[
-{\textbf{R}}_{z}\left( \omega_{0}t \right) = \begin{pmatrix}
+{\mathbf{R}}_{z}\left( \omega_{0}t \right) = \begin{pmatrix}
 \cos\left( \omega_{0}t \right) & \sin\left( \omega_{0}t \right) & 0 \\
  - \sin\left( \omega_{0}t \right) & \cos\left( \omega_{0}t \right) & 0 \\
 0 & 0 & 1
@@ -446,7 +446,7 @@ in forma compatta introducendo la matrice di rotazione intorno all'asse \(z\):
 
 Con questa posizione, il momento magnetico \(\vec{\mu}\) in funzione del tempo è dato da:
 
-\[\vec{\mu}\left(t\right) = {\textbf{R}}_{z}\left( \omega_{0}t \right)\vec{\mu}(0)\]
+\[\vec{\mu}\left(t\right) = {\mathbf{R}}_{z}\left( \omega_{0}t \right)\vec{\mu}\left(0\right)\]
 
 \subsection{Rappresentazione complessa}\label{rappresentazione-complessa}
 
@@ -493,7 +493,7 @@ La notazione fasoriale semplifica la descrizione del moto rispetto al sistema di
 Da cui si ottiene:
 
 \[
-\mu_{\perp}\left(t\right) = \mu_{\perp}(0)\exp\left( - j\omega_{0}t \right)
+\mu_{\perp}\left(t\right) = \mu_{\perp}\left(0\right)\exp\left( - j\omega_{0}t \right)
 \]
 
 Questa soluzione coincide con quella del vettore momento magnetico, ristretto al piano \(xy\), nel dominio del tempo. Il termine esponenziale, \(\exp\left( - j\omega_{0}t \right)\), rappresenta una rotazione in senso orario nel piano complesso o, equivalentemente, intorno all'asse \(z\) individuato dal campo principale. La rotazione nel piano \(xy\) è dovuto alla rotazione del momento magnetico intrinseco dello spin sul piano trasverso al campo applicato.
@@ -515,13 +515,13 @@ Il modulo del fasore è costante nel tempo, infatti, nel dominio del tempo si è
 La fase, invece, è data da:
 
 \[
-\angle\mu_{\perp} = \varphi\left(t\right) + \angle\mu(0) = - j\omega_{0}t + \varphi_{0}
+\angle\mu_{\perp} = \varphi\left(t\right) + \angle\mu\left(0\right) = - j\omega_{0}t + \varphi_{0}
 \]
 
-Dove \(\varphi_0 = \angle \mu_{\perp}(0)\) è la fase iniziale. L'evoluzione del fasore \(\mu_{\perp}\) può essere scritto come:
+Dove \(\varphi_0 = \angle \mu_{\perp}\left(0\right)\) è la fase iniziale. L'evoluzione del fasore \(\mu_{\perp}\) può essere scritto come:
 
 \[
-\mu_{\perp}\left(t\right) = \left| \mu_{\perp}(0) \right|\exp\left( - j\left( \omega_{0}t + \varphi_{0} \right) \right)
+\mu_{\perp}\left(t\right) = \left| \mu_{\perp}\left(0\right)\right| \exp\left( - j\left( \omega_{0}t + \varphi_{0} \right) \right)  
 \]
 
 Conoscendo la fase iniziale \(\varphi_0\) e la pulsazione di Larmor \(\omega_0 = \gamma B_0\), è possibile determinare l’evoluzione della posizione dello spin nel piano trasverso.
@@ -573,7 +573,7 @@ dove \(\left( d\vec{c}/dt \right)'\) indica la derivata del vettore \(\vec{c}\) 
 Nel sistema di riferimento fisso, il vettore \(\vec{c}\left(t\right)\) ha componenti:
 
 \[
-\vec{c}\left(t\right) = c_{x}\left(t\right){\hat{i}}_{x} + c_{y}\left(t\right){\hat{i}}_{y} + c_{z}\left(t\right){\hat{i}}_{z}
+\vec{c}\left(t\right) = c_{x}\left(t\right){\hat{\imath}}_{x} + c_{y}\left(t\right){\hat{\imath}}_{y} + c_{z}\left(t\right){\hat{\imath}}_{z}
 \]
 
 Il tempo è considerato invariante nei due sistemi di riferimento, poiché le velocità considerate sono molto inferiori alla velocità della luce. 
@@ -581,13 +581,13 @@ Il tempo è considerato invariante nei due sistemi di riferimento, poiché le ve
 Nel sistema rotante, invece, il vettore \(\vec{c}\) possiede componenti diverse:
 
 \[
-{\vec{c}}'\left(t\right) = c_{x'}\left(t\right){\hat{i}}_{x'} + c_{y'}\left(t\right){\hat{i}}_{y'} + c_{z'}\left(t\right){\hat{i}}_{z'}
+{\vec{c}}'\left(t\right) = c_{x'}\left(t\right){\hat{\imath}}_{x'} + c_{y'}\left(t\right){\hat{\imath}}_{y'} + c_{z'}\left(t\right){\hat{\imath}}_{z'}
 \]
 
-Dato che i due sistemi possiedono l'asse \(z\) in comune, deve risultare \({\hat{i}}_{z} \equiv {\hat{i}}_{z'}\), per cui:
+Dato che i due sistemi possiedono l'asse \(z\) in comune, deve risultare \({\hat{\imath}}_{z} \equiv {\hat{\imath}}_{z'}\), per cui:
 
 \[
-{\vec{c}}'\left(t\right) = c_{x'}\left(t\right){\hat{i}}_{x'} + c_{y'}\left(t\right){\hat{i}}_{y'} + c_{z}\left(t\right){\hat{i}}_{z}
+{\vec{c}}'\left(t\right) = c_{x'}\left(t\right){\hat{\imath}}_{x'} + c_{y'}\left(t\right){\hat{\imath}}_{y'} + c_{z}\left(t\right){\hat{\imath}}_{z}
 \]
 
 Si osserva che non è necessario distinguere \(\vec{c}\left(t\right)\) nel sistema fisso e \({\vec{c}}'\left(t\right)\) nel sistema rotante in quanto il vettore è lo stesso per entrambi i sistemi di riferimento.
@@ -595,49 +595,49 @@ Si osserva che non è necessario distinguere \(\vec{c}\left(t\right)\) nel siste
 Le componenti del vettore nel sistema fisso dipendono da quelle nel sistema rotante e viceversa. Si calcola la derivata rispetto al tempo del vettore \(\vec{c}\left(t\right)\) nel sistema fisso di riferimento:
 
 \[
-\dfrac{d\vec{c}}{dt} = \dfrac{d}{dt}\left( c_{x}\left(t\right){\hat{i}}_{x} + c_{y}\left(t\right){\hat{i}}_{y} + c_{z}\left(t\right){\hat{i}}_{z} \right) = \dfrac{dc_{x}}{dt}{\hat{i}}_{x} + c_{x}\dfrac{d{\hat{i}}_{x}}{dt} + \dfrac{dc_{y}}{dt}{\hat{i}}_{y} + c_{y}\dfrac{d{\hat{i}}_{y}}{dt} + \dfrac{dc_{z}}{dt}{\hat{i}}_{z} + c_{z}\dfrac{d{\hat{i}}_{z}}{dt}
+\dfrac{d\vec{c}}{dt} = \dfrac{d}{dt}\left( c_{x}\left(t\right){\hat{\imath}}_{x} + c_{y}\left(t\right){\hat{\imath}}_{y} + c_{z}\left(t\right){\hat{\imath}}_{z} \right) = \dfrac{dc_{x}}{dt}{\hat{\imath}}_{x} + c_{x}\dfrac{d{\hat{\imath}}_{x}}{dt} + \dfrac{dc_{y}}{dt}{\hat{\imath}}_{y} + c_{y}\dfrac{d{\hat{\imath}}_{y}}{dt} + \dfrac{dc_{z}}{dt}{\hat{\imath}}_{z} + c_{z}\dfrac{d{\hat{\imath}}_{z}}{dt}
 \]
 
 Poiché il sistema di riferimento è fisso, le derivate dei suoi versori sono nulle:
 
 \[
-\dfrac{d{\hat{i}}_{x}}{dt} = 0,\ \ \dfrac{d{\hat{i}}_{y}}{dt} = 0,\ \ \dfrac{d{\hat{i}}_{z}}{dt} = 0
+\dfrac{d{\hat{\imath}}_{x}}{dt} = 0,\ \ \dfrac{d{\hat{\imath}}_{y}}{dt} = 0,\ \ \dfrac{d{\hat{\imath}}_{z}}{dt} = 0
 \]
 
 Si ottiene:
 
 \[
-\dfrac{d\vec{c}}{dt} = \dfrac{dc_{x}}{dt}{\hat{i}}_{x} + \dfrac{dc_{y}}{dt}{\hat{i}}_{y} + \dfrac{dc_{z}}{dt}{\hat{i}}_{z}
+\dfrac{d\vec{c}}{dt} = \dfrac{dc_{x}}{dt}{\hat{\imath}}_{x} + \dfrac{dc_{y}}{dt}{\hat{\imath}}_{y} + \dfrac{dc_{z}}{dt}{\hat{\imath}}_{z}
 \]
 
 Nel sistema rotante, invece, la derivata è:
 
 \[
-\dfrac{d\vec{c}}{dt} = \dfrac{dc_{x'}}{dt}{\hat{i}}_{x'} + c_{x'}\dfrac{d{\hat{i}}_{x'}}{dt} + \dfrac{dc_{y'}}{dt}{\hat{i}}_{y'} + c_{y'}\dfrac{d{\hat{i}}_{y'}}{dt} + \dfrac{dc_{z'}}{dt}{\hat{i}}_{z'} + c_{z'}\dfrac{d{\hat{i}}_{z'}}{dt}
+\dfrac{d\vec{c}}{dt} = \dfrac{dc_{x'}}{dt}{\hat{\imath}}_{x'} + c_{x'}\dfrac{d{\hat{\imath}}_{x'}}{dt} + \dfrac{dc_{y'}}{dt}{\hat{\imath}}_{y'} + c_{y'}\dfrac{d{\hat{\imath}}_{y'}}{dt} + \dfrac{dc_{z'}}{dt}{\hat{\imath}}_{z'} + c_{z'}\dfrac{d{\hat{\imath}}_{z'}}{dt}
 \]
 
 La relazione \(d\vec{c}/dt = \vec{\Omega} \times \vec{c}\) è valida per un generico vettore \(\vec{c}\), dunque, è valida anche per i versori degli assi coordinati:
 
 \[
-\dfrac{d{\hat{i}}_{x'}}{dt} = \vec{\Omega} \times {\hat{i}}_{x'},\ \ \dfrac{d{\hat{i}}_{y'}}{dt} = \vec{\Omega} \times {\hat{i}}_{y'},\ \ \dfrac{d{\hat{i}}_{z'}}{dt} = \vec{\Omega} \times {\hat{i}}_{z'}
+\dfrac{d{\hat{\imath}}_{x'}}{dt} = \vec{\Omega} \times {\hat{\imath}}_{x'},\ \ \dfrac{d{\hat{\imath}}_{y'}}{dt} = \vec{\Omega} \times {\hat{\imath}}_{y'},\ \ \dfrac{d{\hat{\imath}}_{z'}}{dt} = \vec{\Omega} \times {\hat{\imath}}_{z'}
 \]
 
 Sostituendo queste relazioni, la derivata nel sistema rotante diventa:
 
 \begin{align}
 \dfrac{d\vec{c}}{dt} &=
-\dfrac{dc_{x'}}{dt}{\hat{i}}_{x'} + c_{x'}\vec{\Omega} \times {\hat{i}}_{x'}
- + \dfrac{dc_{y'}}{dt}{\hat{i}}_{y'} + c_{y'}\vec{\Omega} \times {\hat{i}}_{y'}  + \dfrac{dc_{z'}}{dt}{\hat{i}}_{z'} + c_{z'}\vec{\Omega} \times {\hat{i}}_{z'} \nonumber\\[6pt]
-&= \dfrac{dc_{x'}}{dt}{\hat{i}}_{x'} +
-\dfrac{dc_{y'}}{dt}{\hat{i}}_{y'} +
-\dfrac{dc_{z'}}{dt}{\hat{i}}_{z'} +  \vec{\Omega} \times
-\left(c_{x'}{\hat{i}}_{x'} + c_{y'}{\hat{i}}_{y'} + c_{z'}{\hat{i}}_{z'}\right)
+\dfrac{dc_{x'}}{dt}{\hat{\imath}}_{x'} + c_{x'}\vec{\Omega} \times {\hat{\imath}}_{x'}
+ + \dfrac{dc_{y'}}{dt}{\hat{\imath}}_{y'} + c_{y'}\vec{\Omega} \times {\hat{\imath}}_{y'}  + \dfrac{dc_{z'}}{dt}{\hat{\imath}}_{z'} + c_{z'}\vec{\Omega} \times {\hat{\imath}}_{z'} \nonumber\\[6pt]
+&= \dfrac{dc_{x'}}{dt}{\hat{\imath}}_{x'} +
+\dfrac{dc_{y'}}{dt}{\hat{\imath}}_{y'} +
+\dfrac{dc_{z'}}{dt}{\hat{\imath}}_{z'} +  \vec{\Omega} \times
+\left(c_{x'}{\hat{\imath}}_{x'} + c_{y'}{\hat{\imath}}_{y'} + c_{z'}{\hat{\imath}}_{z'}\right)
 \end{align}
 
-dove \({\vec{c}}' = c_{x'}{\hat{i}}_{x'} + c_{y'}{\hat{i}}_{y'} + c_{z'}{\hat{i}}_{z'}\) è il vettore nel sistema di riferimento fisso. Si indica con:
+dove \({\vec{c}}' = c_{x'}{\hat{\imath}}_{x'} + c_{y'}{\hat{\imath}}_{y'} + c_{z'}{\hat{\imath}}_{z'}\) è il vettore nel sistema di riferimento fisso. Si indica con:
 
 \[
-\left( \dfrac{d\vec{c}}{dt} \right)' = \dfrac{dc_{x'}}{dt}{\hat{i}}_{x'} + \dfrac{dc_{y'}}{dt}{\hat{i}}_{y'} + \dfrac{dc_{z'}}{dt}{\hat{i}}_{z'}
+\left( \dfrac{d\vec{c}}{dt} \right)' = \dfrac{dc_{x'}}{dt}{\hat{\imath}}_{x'} + \dfrac{dc_{y'}}{dt}{\hat{\imath}}_{y'} + \dfrac{dc_{z'}}{dt}{\hat{\imath}}_{z'}
 \]
 
 La derivata del vettore \(\vec{c}\) nel sistema di riferimento rotante, i cui versori sono fissi. La derivata nel sistema di riferimento rotante può essere scritta come:
@@ -695,19 +695,19 @@ Si ottiene la stessa forma dell'equazione nel sistema fisso, a patto di sostitui
 Si suppone che il sistema ruoti intorno all'asse \(z\) in senso orario con velocità angolare \(\omega\):
 
 \[
-\vec{\Omega} = - \omega{\hat{i}}_{z}
+\vec{\Omega} = - \omega{\hat{\imath}}_{z}
 \]
 
 In queste condizioni, il campo efficace è:
 
 \[
-{\vec{B}_{\text{eff}}} = B_{0}{\hat{i}}_{z} - \dfrac{1}{\gamma}\omega{\hat{i}}_{z}
+{\vec{B}_{\text{eff}}} = B_{0}{\hat{\imath}}_{z} - \dfrac{1}{\gamma}\omega{\hat{\imath}}_{z}
 \]
 
 Se la frequenza con cui ruota il sistema coincide con quella di Larmor, ovvero \(\omega = \omega_{0} = \gamma B_{0}\), allora:
 
 \[
-{\vec{B}_{\text{eff}}} = B_{0}{\hat{i}}_{z} - \dfrac{1}{\gamma}\omega_{0}{\hat{i}}_{z} = B_{0}{\hat{i}}_{z} - \dfrac{1}{\gamma}\gamma B_{0}{\hat{i}}_{z} = \vec{0}
+{\vec{B}_{\text{eff}}} = B_{0}{\hat{\imath}}_{z} - \dfrac{1}{\gamma}\omega_{0}{\hat{\imath}}_{z} = B_{0}{\hat{\imath}}_{z} - \dfrac{1}{\gamma}\gamma B_{0}{\hat{\imath}}_{z} = \vec{0}
 \]
 
 
@@ -715,383 +715,518 @@ In questo caso, il momento magnetico \(\vec{\mu}\) appare fisso nel sistema di r
 
 L'introduzione del sistema rotante permette di descrivere in modo semplice il segnale registrato. Nella pratica, tuttavia, non è semplice produrre un campo con la stessa frequenza con cui risuonano i protoni, quindi il campo efficace non è mai nullo.
 
-\subsubsection{Rotazione del sistema di riferimento per un campo a radiofrequenza}\label{rotazione-del-sistema-di-riferimento-per-un-campo-a-radiofrequenza}
+\subsection{Rotazione del sistema di riferimento per un campo a radiofrequenza}\label{rotazione-del-sistema-di-riferimento-per-un-campo-a-radiofrequenza}
 
-Si considera un protone allineato al campo magnetico esterno, diretto lungo l'asse \(z\). Il protone risuona o precede alla frequenza di Larmor nel piano trasverso. Al fine di eccitare lo spin per eseguire la misura, bisogna stimarlo mediante un campo elettromagnetico alla frequenza di Larmor. Questo campo magnetico, essendo oscillante, possiede una polarizzazione.
+Si considera un protone allineato al campo magnetico esterno, diretto lungo l'asse \(z\). Il protone risuona, ovvero compie un moto di precessione alla frequenza di Larmor nel piano trasverso. Per eccitare lo spin e poter effettuare una misura, è necessario stimolarlo mediante un campo elettromagnetico alla frequenza di Larmor. Questo campo magnetico, essendo oscillante, possiede una polarizzazione.
 
-Si suppone che la polarizzazione del campo eccitante sia lineare, ovvero che il campo sia diretto solamente lungo un asse, ad esempio \(x\). Il campo possiede, dunque, un andamento del tipo:
+Si suppone che la polarizzazione del campo eccitante sia lineare, ovvero che il campo sia diretto solamente lungo un asse, ad esempio \(x\). Il campo ha quindi un andamento del tipo:
 
-\[{\vec{B}}_{x}\left(t\right) = b_{x}\left(t\right)\cos\left( \omega_{0}t \right){\hat{i}}_{x}\]
 
-Nell'espressione vi è la dipendenza addizionale dell'addizionale dell'ampiezza delle oscillazioni \(b_{x}\left(t\right)\), poiché il segnale emanato è, solitamente, un pacchetto di sinusoidi.
+\[
+{\vec{B}}_{x}\left(t\right) = b_{x}\left(t\right)\cos\left( \omega_{0}t \right){\hat{\imath}}_{x}
+\]
 
-L'uso del sistema rotante rende la descrizione del campo magnetico a cui è soggetto lo spin più semplice. Infatti, in questo sistema il campo può essere descritto semplicemente osservando che i versori del sistema rotante sono legati a quelli del sistema fisso dalle relazioni:
+In questa espressione, \(b_{x}\left(t\right)\) rappresenta l'ampiezza modulata del segnale, che solitamente è un pacchetto di sinusoidi.
 
-\[\left\{ \begin{matrix}
-{\hat{i}}_{x'} = {\hat{i}}_{x}\cos\left( \omega_{0}t \right) - {\hat{i}}_{y}\sin\left( \omega_{0}t \right) \\
-{\hat{i}}_{y'} = {\hat{i}}_{x}\sin\left( \omega_{0}t \right) + {\hat{i}}_{y}\cos\left( \omega_{0}t \right)
-\end{matrix} \right.\ \]
+L'uso del sistema rotante semplifica la descrizione del campo magnetico percepito dallo spin. In questo sistema, i versori sono legati a quelli del sistema fisso dalle relazioni:
+
+\[
+\begin{cases}
+{\hat{\imath}}_{x'} = {\hat{\imath}}_{x}\cos\left( \omega_{0}t \right) - {\hat{\imath}}_{y}\sin\left( \omega_{0}t \right) \\
+{\hat{\imath}}_{y'} = {\hat{\imath}}_{x}\sin\left( \omega_{0}t \right) + {\hat{\imath}}_{y}\cos\left( \omega_{0}t \right)
+\end{cases} 
+\]
 
 Si scrive il sistema in forma matriciale, in modo poter ricavare i versori del sistema fisso in funzione di quelli del sistema rotante.
 
 \[\begin{pmatrix}
-{\hat{i}}_{x'} \\
-{\hat{i}}_{y'}
+{\hat{\imath}}_{x'} \\
+{\hat{\imath}}_{y'}
 \end{pmatrix} = \begin{pmatrix}
 \cos\left( \omega_{0}t \right) & - \sin\left( \omega_{0}t \right) \\
 \sin\left( \omega_{0}t \right) & \cos\left( \omega_{0}t \right)
 \end{pmatrix}\begin{pmatrix}
-{\hat{i}}_{x} \\
-{\hat{i}}_{y}
+{\hat{\imath}}_{x} \\
+{\hat{\imath}}_{y}
 \end{pmatrix}\]
 
-Dove:
+dove \(\mathbf{R}_{z}\) è la matrice di rotazione intorno all'asse \(z\):
 
-\[R_{z}(\omega t) = \begin{pmatrix}
+\[
+\mathbf{R}_{z}\left( \omega_{0}t \right) = \begin{pmatrix}
 \cos\left( \omega_{0}t \right) & - \sin\left( \omega_{0}t \right) \\
 \sin\left( \omega_{0}t \right) & \cos\left( \omega_{0}t \right)
-\end{pmatrix}\]
+\end{pmatrix}
+\]
 
-È la matrice di rotazione intorno all'asse \(z\). Il suo determinante è unitario:
+Il suo determinante è unitario:
 
-\[\det{R_{z}\left( \omega_{0}t \right)} = \left| \begin{matrix}
+\[
+\mathbf{R}_{z}\left( \omega_{0}t \right) = \left| \begin{matrix}
 \cos\left( \omega_{0}t \right) & - \sin\left( \omega_{0}t \right) \\
 \sin\left( \omega_{0}t \right) & \cos\left( \omega_{0}t \right)
-\end{matrix} \right| = \cos^{2}\left( \omega_{0}t \right) + \sin^{2}\left( \omega_{0}t \right) = 1\]
+\end{matrix} \right| = \cos^{2}\left( \omega_{0}t \right) + \sin^{2}\left( \omega_{0}t \right) = 1
+\]
 
-\(R_{z}\left( \omega_{0}t \right)\) è invertibile:
+La matrice \(\mathbf{R}_{z}\left( \omega_{0}t \right)\) è invertibile, con inversa:
 
-\[R_{z}^{- 1}\left( \omega_{0}t \right) = \begin{pmatrix}
+\[
+\mathbf{R}_{z}^{- 1}\left( \omega_{0}t \right) = \begin{pmatrix}
 \cos\left( \omega_{0}t \right) & \sin\left( \omega_{0}t \right) \\
  - \sin\left( \omega_{0}t \right) & \cos\left( \omega_{0}t \right)
-\end{pmatrix}\]
+\end{pmatrix}
+\]
 
-Per cui la relazione matriciale invertite è:
+La relazione inversa tra i versori è quindi:
 
-\[\begin{pmatrix}
-{\hat{i}}_{x} \\
-{\hat{i}}_{y}
+\[
+\begin{pmatrix}
+{\hat{\imath}}_{x} \\
+{\hat{\imath}}_{y}
 \end{pmatrix} = \begin{pmatrix}
 \cos\left( \omega_{0}t \right) & \sin\left( \omega_{0}t \right) \\
  - \sin\left( \omega_{0}t \right) & \cos\left( \omega_{0}t \right)
 \end{pmatrix}\begin{pmatrix}
-{\hat{i}}_{x'} \\
-{\hat{i}}_{y'}
-\end{pmatrix}\]
+{\hat{\imath}}_{x'} \\
+{\hat{\imath}}_{y'}
+\end{pmatrix}
+\]
 
 Il versore relativo all'asse \(x\) del sistema fisso, in funzione dei versori del sistema rotante, è:
 
-\[{\hat{i}}_{x} = {\hat{i}}_{x'}\cos\left( \omega_{0}t \right) + {\hat{i}}_{y'}\sin\left( \omega_{0}t \right)\]
+\[{
+\hat{\imath}}_{x} = {\hat{\imath}}_{x'}\cos\left( \omega_{0}t \right) + {\hat{\imath}}_{y'}\sin\left( \omega_{0}t \right)
+\]
 
-Il campo magnetico polarizzato linearmente nel sistema rotante può essere scritto come:
+Il campo magnetico polarizzato linearmente, nel sistema rotante, può essere scritto come:
 
-\[{\vec{B}}_{x}\left(t\right) = b_{x}\left(t\right)\cos\left( \omega_{0}t \right){\hat{i}}_{x} = b_{x}\left(t\right)\cos\left( \omega_{0}t \right)\left\lbrack {\hat{i}}_{x'}\cos\left( \omega_{0}t \right) + {\hat{i}}_{y'}\sin\left( \omega_{0}t \right) \right\rbrack = b_{x}\left(t\right)\cos^{2}\left( \omega_{0}t \right){\hat{i}}_{x'} + b_{x}\left(t\right)\cos\left( \omega_{0}t \right)\sin\left( \omega_{0}t \right){\hat{i}}_{y'}\]
+\[
+\begin{aligned}
+\vec{B}_{x}\!\left(t\right) 
+&= b_{x}\!\left(t\right)\cos\!\left(\omega_{0}t\right)\,\hat{\imath}_{x} \\
+&= b_{x}\!\left(t\right)\cos\!\left(\omega_{0}t\right)
+\left[\hat{\imath}_{x'}\cos\!\left(\omega_{0}t\right)+ \hat{\imath}_{y'}\sin\!\left(\omega_{0}t\right)\right] \\
+&= b_{x}\!\left(t\right)\cos^{2}\!\left(\omega_{0}t\right)\,\hat{\imath}_{x'}+b_{x}\!\left(t\right)\cos\!\left(\omega_{0}t\right)\sin\!\left(\omega_{0}t\right)\,\hat{\imath}_{y'}
+\end{aligned}
+\]
 
-Per le formule di duplicazione e addizione, si ottiene:
+Utilizzando le formule di duplicazione, si ottiene:
 
-\[{\vec{B}}_{x}\left(t\right) = b_{x}\left(t\right)\left\lbrack \dfrac{1}{2}\cos\left( 2\omega_{0}t \right) + \dfrac{1}{2} \right\rbrack{\hat{i}}_{x'} + \dfrac{1}{2}b_{x}\left(t\right)\sin\left( 2\omega_{0}t \right){\hat{i}}_{y'}\]
+\[
+{\vec{B}}_{x}\left(t\right) = b_{x}\left(t\right)\left\lbrack \dfrac{1}{2}\cos\left( 2\omega_{0}t \right) + \dfrac{1}{2} \right\rbrack{\hat{\imath}}_{x'} + \dfrac{1}{2}b_{x}\left(t\right)\sin\left( 2\omega_{0}t \right){\hat{\imath}}_{y'}
+\]
 
-Nel sistema rotante il campo magnetico lineare può essere scritto come somma di una costante con due campi a frequenza doppia di quella impostata:
+Nel sistema rotante, il campo magnetico lineare può essere visto come somma di una componente costante e due componenti oscillanti a frequenza doppia:
 
-\[{\vec{B}}_{x}\left(t\right) = \dfrac{1}{2}b_{x}\left(t\right){\hat{i}}_{x'} + b_{x}\left(t\right)\left\lbrack \dfrac{1}{2}\cos\left( 2\omega_{0}t \right){\hat{i}}_{x'} + \dfrac{1}{2}\sin\left( 2\omega_{0}t \right){\hat{i}}_{y'} \right\rbrack\]
+\[
+{\vec{B}}_{x}\left(t\right) = \dfrac{1}{2}b_{x}\left(t\right){\hat{\imath}}_{x'} + b_{x}\left(t\right)\left\lbrack \dfrac{1}{2}\cos\left( 2\omega_{0}t \right){\hat{\imath}}_{x'} + \dfrac{1}{2}\sin\left( 2\omega_{0}t \right){\hat{\imath}}_{y'} \right\rbrack
+\]
 
-Si calcola il valor medio del campo magnetico su un intervallo di tempo sufficientemente lungo, come un periodo dell'onda a radiofrequenza \(T\):
+Si calcola il valor medio del campo magnetico su un intervallo di tempo sufficientemente lungo, come un periodo dell'onda a radiofrequenza, \(T\):
 
-\[\left\langle {\vec{B}}_{x}\left(t\right) \right\rangle = \dfrac{1}{T}\int_{T}^{}{{\vec{B}}_{x}\left(t\right)dt} = \dfrac{1}{2T}\int_{T}^{}{\left| \left\{ b_{x}\left(t\right){\hat{i}}_{x'} + b_{x}\left(t\right)\left\lbrack \cos\left( 2\omega_{0}t \right){\hat{i}}_{x'} + \sin\left( 2\omega_{0}t \right){\hat{i}}_{y'} \right\rbrack \right\} \right|dt} = \dfrac{1}{2}\left\langle b_{x}\left(t\right) \right\rangle\]
+\[
+\left\langle {\vec{B}}_{x}\left(t\right) \right\rangle = \dfrac{1}{T}\int_{T}^{}{{\vec{B}}_{x}\left(t\right)dt} = \dfrac{1}{2T}\int_{T}^{}{\left| \left\{ b_{x}\left(t\right){\hat{\imath}}_{x'} + b_{x}\left(t\right)\left\lbrack \cos\left( 2\omega_{0}t \right){\hat{\imath}}_{x'} + \sin\left( 2\omega_{0}t \right){\hat{\imath}}_{y'} \right\rbrack \right\} \right|dt} = \dfrac{1}{2}\left\langle b_{x}\left(t\right) \right\rangle
+\]
 
 Gli altri termini sono nulli poiché termini sinusoidali integrati su un intervallo temporale uguale al doppio del periodo di oscillazione. L'applicazione del valor medio implica che solo metà della polarizzazione lineare è utilizzata per ruotare gli spin intorno all'asse \(x\). Per un tempo sufficientemente lungo il campo può essere considerato a media costante.
 
-In molte applicazioni, per rendere più precisa la ricostruzione delle immagini, si instaura un campo magnetico con polarizzazione circolare, ottenuto sovrapponendo due campi lineari di ugual intensità, in quadratura e diretti lungo due assi ortogonali.
+In molte applicazioni, per migliorare la precisione nella ricostruzione delle immagini, si utilizza un campo magnetico con polarizzazione circolare, ottenuto sovrapponendo due campi lineari di uguale intensità, in quadratura e diretti lungo assi ortogonali.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=2.96296in,height=1.78624in,alt={P3006\#yIS1}]{media/6_IntroMRI/image63.pdf}\caption{Sovrapposizione di onde ortogonali}
 \end{figure}
 
-A tale scopo si posizionano due antenne ortogonali tra loro, ognuna delle quali eroga un campo magnetico lineare. Affinché la polarizzazione sia circolare è necessario che i due campi siano in quadratura tra loro. Il campo totale, polarizzato circolarmente, è espresso, nel sistema di riferimento fisso, come:
 
-\[\vec{B}\left(t\right) = B_{1}\left\lbrack \cos\left( \omega_{0}t \right){\hat{i}}_{x} - \sin\left( \omega_{0}t \right){\hat{i}}_{x} \right\rbrack\]
+A tale scopo si posizionano due antenne ortogonali tra loro, ciascuna delle quali genera un campo magnetico lineare. Affinché la polarizzazione risultante sia circolare, è necessario che i due campi siano in quadratura tra loro. Il campo totale, polarizzato circolarmente, è espresso nel sistema di riferimento fisso come:
 
-Si ricava l'espressione del campo magnetico polarizzato circolarmente nel sistema di riferimento rotante alla frequenza di Larmor. A tale scopo, si considerano le relazioni tra i versori dei due sistemi di riferimento:
+\[
+\vec{B}\left(t\right) = B_{1}\left\lbrack \cos\left( \omega_{0}t \right){\hat{\imath}}_{x} - \sin\left( \omega_{0}t \right){\hat{\imath}}_{y} \right\rbrack
+\]
+
+Si ricava ora l'espressione del campo magnetico polarizzato circolarmente nel sistema di riferimento rotante alla frequenza di Larmor. A tale scopo, si considerano le relazioni tra i versori dei due sistemi:
 
 \[\begin{pmatrix}
-{\hat{i}}_{x} \\
-{\hat{i}}_{y}
+{\hat{\imath}}_{x} \\
+{\hat{\imath}}_{y}
 \end{pmatrix} = \begin{pmatrix}
 \cos\left( \omega_{0}t \right) & \sin\left( \omega_{0}t \right) \\
  - \sin\left( \omega_{0}t \right) & \cos\left( \omega_{0}t \right)
 \end{pmatrix}\begin{pmatrix}
-{\hat{i}}_{x'} \\
-{\hat{i}}_{y'}
-\end{pmatrix} \Leftrightarrow \left\{ \begin{matrix}
-{\hat{i}}_{x} = \cos\left( \omega_{0}t \right){\hat{i}}_{x'} + \sin\left( \omega_{0}t \right){\hat{i}}_{y'} \\
-{\hat{i}}_{y} = - \sin\left( \omega_{0}t \right){\hat{i}}_{x'} + \cos\left( \omega_{0}t \right){\hat{i}}_{y'}
-\end{matrix} \right.\ \]
+{\hat{\imath}}_{x'} \\
+{\hat{\imath}}_{y'}
+\end{pmatrix} \Leftrightarrow \begin{cases}
+{\hat{\imath}}_{x} = \cos\left( \omega_{0}t \right){\hat{\imath}}_{x'} + \sin\left( \omega_{0}t \right){\hat{\imath}}_{y'} \\
+{\hat{\imath}}_{y} = - \sin\left( \omega_{0}t \right){\hat{\imath}}_{x'} + \cos\left( \omega_{0}t \right){\hat{\imath}}_{y'}
+\end{cases} 
+\]
 
 Sostituendo queste relazioni nell'espressione del campo magnetico circolare si ha:
 
-\[\vec{B}\left(t\right) = B_{1}\left\lbrack \cos\left( \omega_{0}t \right){\hat{i}}_{x} - \sin\left( \omega_{0}t \right){\hat{i}}_{x} \right\rbrack = B_{1}\left\{ \cos\left( \omega_{0}t \right)\left\lbrack \cos\left( \omega_{0}t \right){\hat{i}}_{x'} + \sin\left( \omega_{0}t \right){\hat{i}}_{y'} \right\rbrack - \sin\left( \omega_{0}t \right)\left\lbrack - \sin\left( \omega_{0}t \right){\hat{i}}_{x'} + \cos\left( \omega_{0}t \right){\hat{i}}_{y'} \right\rbrack \right\} = B_{1}\left\{ \cos^{2}\left( \omega_{0}t \right){\hat{i}}_{x'} + \cos\left( \omega_{0}t \right)\sin\left( \omega_{0}t \right){\hat{i}}_{y'} + \sin^{2}\left( \omega_{0}t \right){\hat{i}}_{x'} - \sin\left( \omega_{0}t \right)\cos\left( \omega_{0}t \right){\hat{i}}_{y'} \right\} = B_{1}\left\lbrack \cos^{2}\left( \omega_{0}t \right){\hat{i}}_{x'} + \sin^{2}\left( \omega_{0}t \right){\hat{i}}_{x'} \right\rbrack = B_{1}{\hat{i}}_{x'}\]
+\[
+\begin{aligned}
+\vec{B}\!\left(t\right)
+&= B_{1}\!\left[\cos\!\left(\omega_{0}t\right)\hat{\imath}_{x}
+- \sin\!\left(\omega_{0}t\right)\hat{\imath}_{y}
+\right] \\
+&= B_{1}\!\left\{\cos\!\left(\omega_{0}t\right)\left[ \cos\!\left(\omega_{0}t\right)\hat{\imath}_{x'} + \sin\!\left(\omega_{0}t\right)\hat{\imath}_{y'}\right] - \sin\!\left(\omega_{0}t\right)\left[-\sin\!\left(\omega_{0}t\right)\hat{\imath}_{x'}+ \cos\!\left(\omega_{0}t\right)\hat{\imath}_{y'} \right] \right\} \\[6pt]
+&= B_{1}\!\left\{
+\cos^{2}\!\left(\omega_{0}t\right)\hat{\imath}_{x'} + \cos\!\left(\omega_{0}t\right)\sin\!\left(\omega_{0}t\right)\hat{\imath}_{y'} + \sin^{2}\!\left(\omega_{0}t\right)\hat{\imath}_{x'} - \sin\!\left(\omega_{0}t\right)\cos\!\left(\omega_{0}t\right)\hat{\imath}_{y'}\right\} \\
+&= B_{1}\!\left[\cos^{2}\!\left(\omega_{0}t\right)\hat{\imath}_{x'}+ \sin^{2}\!\left(\omega_{0}t\right)\hat{\imath}_{x'}\right] \\
+&= B_{1}\,\hat{\imath}_{x'}
+\end{aligned}
+\]
 
-Per ogni istante temporale, il campo magnetico a polarizzazione circolare con frequenza uguale a quella del sistema rotante è orientato lungo l'asse \(x'\); inoltre, a differenza del caso lineare, la relazione è valida per ogni istante di tempo poiché non è ottenuta mediante operazione di media.
+Per ogni istante temporale, il campo magnetico a polarizzazione circolare con frequenza uguale a quella del sistema rotante è orientato lungo l'asse \(x'\). A differenza del caso lineare, questa relazione è valida per ogni istante di tempo, poiché non è ottenuta mediante operazione di media.
 
-Riassumendo, quando si applica l'impulso a radiofrequenza con polarizzazione circolare, gli spin ruotano intorno all'asse \(x'\), lungo cui iniziano un moto di precessione.
+Riassumendo, quando si applica un impulso a radiofrequenza con polarizzazione circolare, gli spin ruotano intorno all'asse \(x'\), lungo il quale iniziano un moto di precessione.
 
-È possibile dimostrare che si ha un minor dispendio energetico per generare un campo a polarizzazione circolare. A causa di ciò, corredati ad altri fattori riguardanti il rapporto segnale/rumore e la necessità di omogeneizzare il campo a radiofrequenza, i campi rotanti a polarizzazione circolare sono molto usati in risonanza magnetica.
+È possibile dimostrare che la generazione di un campo a polarizzazione circolare comporta un minor dispendio energetico. Per questo motivo, insieme ad altri fattori come il rapporto segnale/rumore e la necessità di omogeneizzare il campo a radiofrequenza, i campi rotanti a polarizzazione circolare sono ampiamente utilizzati in risonanza magnetica.
 
-\paragraph{Condizione di risonanza}\label{condizione-di-risonanza}
+\subsection{Condizione di risonanza}\label{condizione-di-risonanza}
 
-Si applica un campo a radiofrequenza con polarizzazione lineare o circolare; nel primo caso bisogna considerare quantità medie, mentre nel secondo si hanno relazioni esatte dal punto di vista teorico. Nel sistema rotante il campo magnetico subito da uno spin è detto campo effettivo.
+Si applica un campo a radiofrequenza con polarizzazione lineare o circolare; nel primo caso è necessario considerare quantità medie, mentre nel secondo si ottengono relazioni esatte dal punto di vista teorico. Nel sistema rotante, il campo magnetico percepito dallo spin è detto \textbf{campo effettivo}.
 
 Prima dell'applicazione dell'impulso, l'equazione che descrive il comportamento dello spin, dal punto di vista classico, nel sistema rotante è:
 
-\[\left( \dfrac{d\vec{\mu}}{dt} \right)' = \gamma\vec{\mu} \times {\vec{B}_{\text{eff}}}\]
+\[
+\left( \dfrac{d\vec{\mu}}{dt} \right)' = \gamma\vec{\mu} \times {\vec{B}_{\text{eff}}}
+\]
 
-Dove:
+dove:
 
-\[{\vec{B}_{\text{eff}}} = B_{0}{\hat{i}}_{z} - \dfrac{1}{\gamma}\omega{\hat{i}}_{z}\]
+\[
+{\vec{B}_{\text{eff}}} = B_{0}{\hat{\imath}}_{z} - \dfrac{1}{\gamma}\omega{\hat{\imath}}_{z}
+\]
 
-\(B_{0}{\hat{i}}_{z}\) è il campo statico esterno o principale applicato.
+Il termine \(B_0 \hat{\mathbf{z}}\) rappresenta il campo statico esterno o principale applicato.
 
-Si applica, ora, un campo a radiofrequenza. Se il sistema di riferimento ruota con la stessa pulsazione \(\omega_{0}\) del campo magnetico applicato, al campo effettivo, \({\vec{B}_{\text{eff}}}\), va aggiunto un termine costante, diretto lungo \({\hat{i}}_{x'}\):
+Si applica ora un campo a radiofrequenza. Se il sistema di riferimento ruota con la stessa pulsazione \(\omega_0\) del campo magnetico applicato, al campo effettivo \(\vec{B}_{\text{eff}}\) va aggiunto un termine costante diretto lungo \(\hat{\mathbf{x}}'\):
 
-\[\left( \dfrac{d\vec{\mu}}{dt} \right)' = \gamma\vec{\mu} \times \left( B_{0}{\hat{i}}_{z} - \dfrac{1}{\gamma}\omega{\hat{i}}_{z} + B_{1}{\hat{i}}_{x'} \right)\]
+\[
+\left( \dfrac{d\vec{\mu}}{dt} \right)' = \gamma\vec{\mu} \times \left( B_{0}{\hat{\imath}}_{z} - \dfrac{1}{\gamma}\omega{\hat{\imath}}_{z} + B_{1}{\hat{\imath}}_{x'} \right)
+\]
 
-I due sistemi di riferimento possiedono gli assi \(z\) paralleli, per cui \({\hat{i}}_{z} = {\hat{i}}_{z'}\).
+Poiché i due sistemi di riferimento condividono l'asse \(z\), si ha \(\hat{\mathbf{z}} = \hat{\mathbf{z}}'\).
 
-Si dice condizione di risonanza se la frequenza dell'impulso a radiofrequenza è uguale alla frequenza di Larmor degli spin contenuti in uno strato di tessuto:
+Si parla di \textbf{condizione di risonanza} quando la frequenza dell'impulso a radiofrequenza è uguale alla frequenza di Larmor degli spin contenuti in uno strato di tessuto:
 
-\[\omega = \omega_{0} = \gamma B_{0}\]
+\[
+\omega = \omega_{0} = \gamma B_{0}
+\]
 
-In questo caso, risulta:
+In tal caso, l'equazione diventa:
 
-\[\left( \dfrac{d\vec{\mu}}{dt} \right)' = \gamma B_{1}\vec{\mu} \times {\hat{i}}_{x'}\]
+\[
+\left( \dfrac{d\vec{\mu}}{dt} \right)' = \gamma B_{1}\vec{\mu} \times {\hat{\imath}}_{x'}
+\]
 
-Si assiste, dunque, a una processione degli spin intorno all'asse \({\hat{i}}_{x}'\)
+Si osserva quindi una precessione degli spin intorno all'asse \(\hat{\mathbf{x}}'\).
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=4.4166in,height=3.61111in,alt={P3032\#yIS1}]{media/6_IntroMRI/image64.pdf}\caption{Precessione nel sistema rotante in condizione di risonanza}
 \end{figure}
 
-Il termine risonanza, in questa tecnica di imaging, è legato al fatto che, per ottenere l'immagine, il campo magnetico applicato è sintonizzato con la frequenza degli spin in moto di precessione intorno al campo magnetico applicato.
+Il termine \textbf{risonanza}, in questa tecnica di imaging, si riferisce al fatto che, per ottenere l'immagine, il campo magnetico applicato è sintonizzato con la frequenza di precessione degli spin dei tessuti di interesse.
 
-L'introduzione del sistema rotante consente di descrivere in modo semplice il comportamento degli spin, mediante un moto di precessione intorno all'asse \(x'\). Nel sistema di riferimento fisso del laboratorio, invece, il contributo del campo a radiofrequenza si somma a quello stato e omogeneo, diretto lungo \({\hat{i}}_{z}\). Si dimostra che la combinazione dei due campi produce un modo elicoidale, il cui raggio aumento all'avvicinarsi del piano \(xy\).
+L'introduzione del sistema rotante consente di descrivere in modo semplice il comportamento degli spin, mediante un moto di precessione intorno all'asse \(x'\). Nel sistema di riferimento fisso del laboratorio, invece, il contributo del campo a radiofrequenza si somma a quello statico e omogeneo, diretto lungo \(\hat{\mathbf{z}}\). Si dimostra che la combinazione dei due campi produce un moto elicoidale, il cui raggio aumenta all'avvicinarsi al piano \(xy\).
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=4.13528in,height=2.63095in,alt={P3036\#yIS1}]{media/6_IntroMRI/image65.pdf}\caption{Moto elicoidale nel sistema fisso}
 \end{figure}
 
-Nel sistema rotante con pulsazione \(\omega\), è possibile scrivere il campo efficace come:
+Nel sistema rotante con pulsazione \(\omega\), il campo efficace può essere scritto come:
 
-\[{\vec{B}_{\text{eff}}} = B_{0}{\hat{i}}_{z} - \dfrac{1}{\gamma}\omega{\hat{i}}_{z} + B_{1}{\hat{i}}_{x'}\]
+\[
+{\vec{B}_{\text{eff}}} = B_{0}{\hat{\imath}}_{z} - \dfrac{1}{\gamma}\omega{\hat{\imath}}_{z} + B_{1}{\hat{\imath}}_{x'}
+\]
 
 Con pulsazione di Larmor:
 
-\[\omega = \gamma B_{0} \Leftrightarrow B_{0} = \dfrac{1}{\gamma}\omega_{0}\]
+\[
+\omega = \gamma B_{0} \Leftrightarrow B_{0} = \dfrac{1}{\gamma}\omega_{0}
+\]
 
-La pulsazione del campo a radiofrequenza applicato è data da:
+La pulsazione del campo a radiofrequenza applicato è:
 
-\[\omega_{1} = \gamma B_{1} \Leftrightarrow B_{1} = \dfrac{1}{\gamma}\omega_{1}\]
+\[
+\omega_{1} = \gamma B_{1} \Leftrightarrow B_{1} = \dfrac{1}{\gamma}\omega_{1}
+\]
 
-Per cui è possibile scrivere:
+Pertanto, il campo efficace può essere espresso come:
 
-\[{\vec{B}_{\text{eff}}} = \dfrac{1}{\gamma}\left\lbrack \left( \omega_{0} - \omega \right){\hat{i}}_{z} + \omega_{1}{\hat{i}}_{x'} \right\rbrack\]
+\[
+{\vec{B}_{\text{eff}}} = \dfrac{1}{\gamma}\left( \left( \omega_{0} - \omega \right){\hat{\imath}}_{z} + \omega_{1}{\hat{\imath}}_{x'} \right)
+\]
 
-In generale, avere un campo a radiofrequenza con stessa frequenza di Larmor, con cui precedono gli spin, è abbastanza complesso per la schermatura che alcune molecole compiono nei confronti dei campi magnetici. Inoltre, in linea di principio la frequenza con cui ruota il sistema rotante, in senso orario, è scelta arbitrariamente rispetto sia al campo a radiofrequenza che alla frequenza di precessione degli spin. Nel caso generale, si ha la stessa complessità della descrizione del sistema fisso. I vantaggi del sistema rotante si mostrano quando \(\omega_{1} = \omega_{0} = \omega\), poiché il vettore momento magnetico ruota intorno all'asse \(x'\).
+In generale, ottenere un campo a radiofrequenza con frequenza esattamente pari a quella di Larmor è complesso, a causa della schermatura che alcune molecole esercitano sui campi magnetici. Inoltre, la frequenza di rotazione del sistema rotante può essere scelta arbitrariamente rispetto sia al campo a radiofrequenza che alla frequenza di precessione degli spin. In tal caso, la descrizione del sistema rotante è altrettanto complessa quanto quella del sistema fisso. I vantaggi del sistema rotante si manifestano quando \(\omega_1 = \omega_0 = \omega\), poiché il vettore momento magnetico ruota intorno all'asse \(x'\).
 
-Generalmente gli impulsi a radiofrequenza hanno ampiezza di qualche \(mT\) o \(\mu T\). Si suppone, infatti, di applicare un impulso a radiofrequenza per un tempo \(\tau = 1\ ms\), così da far ruotare di \(\pi/2\) il campo momento magnetico. L'ampiezza del campo a radiofrequenza necessaria a tale scopo è data da:
+Generalmente, gli impulsi a radiofrequenza hanno ampiezza dell'ordine di qualche \(mT\) o \(\mu T\). Si suppone, ad esempio, di applicare un impulso a radiofrequenza per un tempo \(\tau = 1\ ms\), tale da ruotare il momento magnetico di un angolo \(\pi/2\). L'ampiezza del campo a radiofrequenza necessaria è data da:
 
-\[\mathrm{\Delta}\vartheta = \gamma B_{1}\tau\]
 
-Dove \(\gamma = 42.6\ MHz/T\); si ottiene:
+\[
+\Delta \vartheta = \gamma B_{1}\tau
+\]
 
-\[B_{1} = \dfrac{\mathrm{\Delta}\vartheta}{\gamma\tau} = \dfrac{\dfrac{\pi}{2}}{42.6\ \dfrac{MHz}{T}1\ ms} \simeq 5.9\ \mu T\]
+dove \(\gamma = 42.6\ MHz/T\). Si ottiene:
 
-Il ribaltamento degli spin a opera del campo magnetico a radiofrequenza è detto in gergo to flip.
+\[
+B_{1} = \dfrac{\Delta \vartheta}{\gamma\tau} = \dfrac{\dfrac{\pi}{2}}{42.6\ \dfrac{MHz}{T}1\ ms} \simeq 5.9\ \mu T
+\]
 
-La maggior difficoltà pratica e tecnica della risonanza magnetica consiste nella produzione del campo magnetico principale, costante nel tempo ed omogeno nello spazio.
+Il ribaltamento degli spin a opera del campo magnetico a radiofrequenza è detto in gergo \textit{to flip}.
 
-I campi a radiofrequenza con frequenza di Larmor riescono a flippare gli spin anche avendo un intensità molto minore del campo principale; tuttavia, più i campo a radiofrequenza si allontana dalla frequenza di precessione di Larmor e più il campo effettivo nel sistema rotante tende a quello stato, ovvero, è minore il numero degli spin ruotati di \(\mathrm{\Delta}\vartheta\). Le frequenze degli impulsi devono essere compatibili con i tempi di rilassamento del corpo in esame.
+La principale difficoltà tecnica della risonanza magnetica consiste nella produzione del campo magnetico principale, costante nel tempo e omogeneo nello spazio.
 
-\paragraph{Calcolo del campo magnetico a radiofrequenza}\label{calcolo-del-campo-magnetico-a-radiofrequenza}
+I campi a radiofrequenza con frequenza di Larmor riescono a flippare gli spin anche con intensità molto minore rispetto al campo principale. Tuttavia, quanto più la frequenza del campo a radiofrequenza si discosta dalla frequenza di Larmor, tanto più il campo efficace nel sistema rotante tende a quello statico, e minore è il numero di spin ruotati di \(\Delta \vartheta\). Le frequenze degli impulsi devono essere compatibili con i tempi di rilassamento del corpo in esame.
 
-L'uso del sistema rotante intorno all'asse \({\hat{i}}_{z}\) permette di descrivere un campo a polarizzazione circolare in modo molto semplice. Inoltre, se la frequenza del campo a radiofrequenza e quella del sistema rotante sono uguali a quella di Larmor, è possibile scrivere la relazione:
+\subsection{Calcolo del campo magnetico a radiofrequenza}\label{calcolo-del-campo-magnetico-a-radiofrequenza}
 
-\[\left( \dfrac{d\vec{\mu}}{dt} \right)' = \gamma B_{1}\vec{\mu} \times {\hat{i}}_{x'}\]
+L'uso del sistema rotante intorno all'asse \(\hat{\mathbf{z}}\) permette di descrivere un campo a polarizzazione circolare in modo molto semplice. Inoltre, se la frequenza del campo a radiofrequenza e quella del sistema rotante coincidono con la frequenza di Larmor, è possibile scrivere la relazione:
 
-Dove \({\vec{B}}_{1} = B_{1}{\hat{i}}_{x'}\) è il campo magnetico polarizzato circolarmente visto nel sistema rotante. La rotazione intorno all'asse \({\hat{i}}_{z}\), nel sistema fisso, si scrive come:
+\[
+\left( \dfrac{d\vec{\mu}}{dt} \right)' = \gamma B_{1}\vec{\mu} \times {\hat{\imath}}_{x'}
+\]
 
-\[\vec{\mu}\left(t\right) = {\textbf{R}}_{z}(\omega t)\vec{\mu}(0)\]
+dove \(\vec{B}_1 = B_1 \hat{\mathbf{x}}'\) è il campo magnetico polarizzato circolarmente visto nel sistema rotante.
 
-Dove \({\textbf{R}}_{z}\) è la matrice di rotazione intorno all'asse \({\hat{i}}_{z}\):
+La rotazione intorno all'asse \(\hat{\mathbf{z}}\), nel sistema fisso, si scrive come:
 
-\[{\textbf{R}}_{z} = \begin{pmatrix}
-\cos\left( \omega_{0}t \right) & - \sin\left( \omega_{0}t \right) & 0 \\
-\sin\left( \omega_{0}t \right) & \cos\left( \omega_{0}t \right) & 0 \\
+\[
+\vec{\mu}\left(t\right) = {\mathbf{R}}_{z}\left(\omega t\right)\vec{\mu}\left(0\right)
+\]
+
+dove \(\mathbf{R}_z\) è la matrice di rotazione intorno all'asse \(\hat{\mathbf{z}}\):
+
+\[
+\mathbf{R}_{z} = 
+\begin{pmatrix}
+\cos\!\left(\omega_{0}t\right) & -\sin\!\left(\omega_{0}t\right) & 0 \\[4pt]
+\sin\!\left(\omega_{0}t\right) & \cos\!\left(\omega_{0}t\right) & 0 \\[4pt]
 0 & 0 & 1
-\end{pmatrix}\]
+\end{pmatrix}
+\]
 
-Invece di ruotare il sistema lungo l'asse \({\hat{i}}_{z}\), si suppone che la rotazione avvenga intorno all'asse \({\hat{i}}_{y}\). In questo caso, la soluzione si scrive come:
+Se invece la rotazione avviene intorno all'asse \(\hat{\mathbf{y}}\), la soluzione è:
 
-\[\vec{\mu}\left(t\right) = {\textbf{R}}_{y}(\omega t)\vec{\mu}(0)\]
+\[
+\vec{\mu}\left(t\right) = {\mathbf{R}}_{y}\left(\omega t\right)\vec{\mu}\left(0\right)
+\]
 
-Dove:
+con:
 
-\[{\textbf{R}}_{y} = \begin{pmatrix}
+\[
+{\mathbf{R}}_{y} = \begin{pmatrix}
 \cos\left( \omega_{0}t \right) & 0 & - \sin\left( \omega_{0}t \right) \\
 0 & 1 & 0 \\
 \sin\left( \omega_{0}t \right) & 0 & \cos\left( \omega_{0}t \right)
-\end{pmatrix}\]
+\end{pmatrix}
+\]
 
-Con rotazione del sistema attorno all'asse \({\hat{i}}_{x}\), la soluzione è:
+Nel caso di rotazione attorno all'asse \(\hat{\mathbf{x}}\), la soluzione è:
 
-\[\vec{\mu}\left(t\right) = {\textbf{R}}_{x}(\omega t)\vec{\mu}(0)\]
+\[
+\vec{\mu}\left(t\right) = {\mathbf{R}}_{x}\left(\omega t\right)\vec{\mu}\left(0\right)
+\]
 
 Con:
 
-\[{\textbf{R}}_{z} = \begin{pmatrix}
+\[
+{\mathbf{R}}_{x} = \begin{pmatrix}
 1 & 0 & 0 \\
 0 & \cos\left( \omega_{0}t \right) & - \sin\left( \omega_{0}t \right) \\
 0 & \sin\left( \omega_{0}t \right) & \cos\left( \omega_{0}t \right)
-\end{pmatrix}\]
+\end{pmatrix}
+\]
 
-L'angolo di cui ruota il sistema di riferimento rotante rispetto a quello fisso, fissato un istante temporale \(\tau\), è dato da:
+L'angolo di rotazione del sistema di riferimento rotante rispetto a quello fisso, fissato un istante temporale \(\tau\), è dato da:
 
-\[\phi = \omega_{1}\tau\]
+\[
+\phi = \omega_{1}\tau
+\]
 
-\(\omega_{1}\) è legato al campo a radiofrequenza applicato dalla relazione:
+dove \(\omega_1\) è legato al campo a radiofrequenza applicato dalla relazione:
 
-\[\omega_{1} = \gamma B_{1}\]
+\[
+\omega_{1} = \gamma B_{1}
+\]
 
-Con \(B_{1}\) costante. L'angolo di cui ruota il sistema può essere scritto come:
+Questa relazione è valida se \(B_{1}\) è costante. L'angolo di cui ruota il sistema può essere scritto come:
 
-\[\phi = \gamma B_{1}\tau\]
+\[
+\phi = \gamma B_{1}\tau
+\]
 
-Nel caso generale, in cui l'ampiezza del campo a radiofrequenza cambia nel tempo, ovvero \(B_{1} = B_{1}\left(t\right)\), la fase all'istante fissato \(\tau\), è ottenuto come integrale temporale, infatti:
+Nel caso generale in cui l'ampiezza del campo a radiofrequenza varia nel tempo, ovvero \(B_1 = B_1\left(t\right)\), la fase all'istante \(\tau\) è ottenuta come integrale temporale:
 
-\[\dfrac{d\phi}{dt} = \omega_{1} \Leftrightarrow \phi = \int_{t_{0}}^{\tau}{\omega_{1}dt}\]
+\[
+\dfrac{d\phi}{dt} = \omega_{1} \Leftrightarrow \phi = \int_{t_{0}}^{\tau}{\omega_{1}dt}
+\]
 
 Per il legame tra pulsazione del sistema rotante e campo a radiofrequenza applicato, si ha:
 
-\[\phi = \int_{t_{0}}^{\tau}{\gamma B_{1}dt}\]
+\[
+\phi = \int_{t_{0}}^{\tau}{\gamma B_{1}dt}
+\]
 
-Questa generalizzazione è necessaria nel caso in cui il campo polarizzato circolarmente sia applicato per un intervallo temporale finito e abbia ampiezza variabile nel tempo. L'uso dell'integrale, quindi, permette di ottenere una descrizione più generale, applicabile anche a campi di ampiezza variabile nel tempo.
 
-Si suppone di applicare un campo a radiofrequenza \(B_{1}\), diretto lungo \({\hat{i}}_{x'}\), tale da far ruotare gli spin di un angolo \(\vartheta\) rispetto all'asse \({\hat{i}}_{x'}\). Si applica, non appena viene interrotta la trasmissione del primo campo, un secondo impulso a radiofrequenza, diretto lungo l'asse \({\hat{i}}_{y'}\). La descrizione del moto di precessione, nel sistema di riferimento fisso, in questo scenario, è dato da:
+Questa generalizzazione è necessaria quando il campo polarizzato circolarmente è applicato per un intervallo temporale finito e ha ampiezza variabile. L'uso dell'integrale consente una descrizione più generale, applicabile anche a campi non costanti.
 
-\[\vec{\mu}\left(t\right) = {\textbf{R}}_{y}{\textbf{R}}_{x}(\omega t)\vec{\mu}(0)\]
 
-\subsection{Vettore di magnetizzazione}\label{vettore-di-magnetizzazione}
+Si suppone di applicare un campo a radiofrequenza \(B_1\), diretto lungo \(\hat{\mathbf{x}}'\), tale da far ruotare gli spin di un angolo \(\vartheta\) rispetto a \(\hat{\mathbf{x}}'\). Successivamente, si applica un secondo impulso a radiofrequenza, diretto lungo \(\hat{\mathbf{y}}'\), che ruota gli spin di un angolo \(\varphi\). La descrizione del vettore di magnetizzazione nel sistema rotante, dopo i due impulsi, è data dalla composizione delle due rotazioni:
 
-Per ottenere un'immagine di una sezione del corpo umano mediante il fenomeno della risonanza magnetica, si suddivide il corpo del paziente in volumetti elementi contenenti un numero di Avogadro di protoni che precedono alla frequenza di Larmor.
+\[
+\vec{\mu}\left(t\right) = {\mathbf{R}}_{y}\left(\varphi\right){\mathbf{R}}_{x}(\vartheta)\vec{\mu}\left(0\right)
+\]
 
-Dato l'elevato numero di spin si introduce il vettore di magnetizzazione su unità di volume \(\vec{M}\).
+Per descrivere il moto di precessione nel sistema fisso, dopo un tempo \(t\) di precessione libera, si moltiplica per la matrice di rotazione lungo \(z\):
 
-Si posiziona un volumetto elementare contenente un numero di Avogadro \(N_{A}\) di protoni, in un campo magnetico diretto lungo \({\hat{i}}_{z}\). Gli spin nel volumetto si allineano rispetto all'asse del campo magnetico esterno.
+\[
+\vec{\mu}\left(t\right) = \mathbf{R}_{z}\left(\omega_0 t\right)\left({\mathbf{R}}_{y}\left(\varphi\right){\mathbf{R}}_{x}(\vartheta)\vec{\mu}\left(0\right)\right)
+\]
+
+\section{Vettore di magnetizzazione}\label{vettore-di-magnetizzazione}
+
+Per ottenere un'immagine di una sezione del corpo umano mediante il fenomeno della risonanza magnetica, si suddivide il corpo del paziente in volumetti elementari contenenti un numero di Avogadro di protoni che precessano alla frequenza di Larmor. Dato l'elevato numero di spin, si introduce il vettore di magnetizzazione per unità di volume \(\vec{M}\).
+
+Si considera un volumetto elementare contenente un numero di Avogadro \(N_A\) di protoni, immerso in un campo magnetico diretto lungo \(\hat{\mathbf{z}}\). Gli spin nel volumetto si allineano rispetto all'asse del campo magnetico esterno.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=2.89286in,height=2.63294in,alt={P3086\#yIS1}]{media/6_IntroMRI/image66.pdf}\caption{Volumetto elementare di \(N_{A}\) di protoni in un campo magnetico diretto lungo \({\hat{i}}_{z}\)}
+\includegraphics[width=2.89286in,height=2.63294in,alt={P3086\#yIS1}]{media/6_IntroMRI/image66.pdf}\caption{Volumetto elementare di \(N_{A}\) di protoni in un campo magnetico diretto lungo \({\hat{\imath}}_{z}\)}
 \end{figure}
 
-Secondo la meccanica quantistica, in realtà, gli spin saltano su due livelli energetici: \(\left\langle - \right|\), di energia \(+ \hslash/2\) e \(\left| + \right\rangle\), di energia \(- \hslash/2\). Dal punto di vista macroscopico, ogni volumetto elementare presenta un vettore di magnetizzazione \(\vec{M}\), dato dalla somma dei singoli momenti magnetici associati ai protoni, normalizzato il volume elementare:
+Secondo la meccanica quantistica, gli spin occupano due livelli energetici: \( \left| - \right\rangle\), di energia \(+\hslash\omega_0/2\), e \( \left| + \right\rangle \), di energia \(-\hslash\omega_0/2\). Dal punto di vista macroscopico, ogni volumetto elementare presenta un vettore di magnetizzazione \(\vec{M}\), dato dalla somma dei singoli momenti magnetici dei protoni, normalizzata per il volume:
 
-\[\vec{M} = \dfrac{1}{V}\sum_{i = 1}^{N_{A}}{\vec{\mu}}_{i}\]
+\[
+\vec{M} = \dfrac{1}{V}\sum_{i = 1}^{N_{A}}{\vec{\mu}}_{\imath}
+\]
 
-L'insieme degli spin nel volumetto elementare, dato che risuonano alla stessa frequenza, è chiamato spin \emph{isochromat} poiché può essere considerato come un insieme o un dominio di spin con stessa frequenza.
+L'insieme degli spin nel volumetto, che precessano alla stessa frequenza, è detto \textit{isochromat} o \textbf{isocromati}, poiché può essere considerato come un dominio (o insieme) di spin con frequenza uniforme.
 
-Trascurando le iterazioni dei protoni con il loro ambiente, è possibile supporre che ogni spin precede intorno al campo applicato secondo l'equazione:
+Trascurando le interazioni tra i protoni e l'ambiente, ogni spin precessa intorno al campo applicato secondo:
 
-\[\dfrac{d{\vec{\mu}}_{i}}{dt} = \gamma{\vec{\mu}}_{i} \times {\vec{B}}_{0}\]
+\[
+\dfrac{d{\vec{\mu}}_{\imath}}{dt} = \gamma{\vec{\mu}}_{\imath} \times {\vec{B}}_{0}
+\]
 
-Sommando i vari contributi di ogni spin del volumetto e dividendo per il volume elementare si ha:
+Sommando i contributi di tutti gli spin e dividendo per il volume si ottiene:
 
-\[\dfrac{1}{V}\sum_{i = 1}^{N_{A}}\dfrac{d{\vec{\mu}}_{i}}{dt} = \dfrac{1}{V}\sum_{i = 1}^{N_{A}}{\gamma{\vec{\mu}}_{i} \times {\vec{B}}_{0}}\]
+\[
+\dfrac{1}{V}\sum_{i = 1}^{N_{A}}\dfrac{d{\vec{\mu}}_{\imath}}{dt} = \dfrac{1}{V}\sum_{i = 1}^{N_{A}}{\gamma{\vec{\mu}}_{\imath} \times {\vec{B}}_{0}}
+\]
 
 Per la linearità dell'operatore somma e derivata è possibile scrivere:
 
-\[\sum_{i = 1}^{N_{A}}{\dfrac{d}{dt}\left( \dfrac{1}{V}{\vec{\mu}}_{i} \right)} = \sum_{i = 1}^{N_{A}}{\gamma\dfrac{1}{V}{\vec{\mu}}_{i} \times {\vec{B}}_{0}} \Leftrightarrow \dfrac{d}{dt}\left( \sum_{i = 1}^{N_{A}}{\dfrac{1}{V}{\vec{\mu}}_{i}} \right) = \gamma\left( \sum_{i = 1}^{N_{A}}{\dfrac{1}{V}{\vec{\mu}}_{i}} \right) \times {\vec{B}}_{0}\]
+\[
+\sum_{i = 1}^{N_{A}}{\dfrac{d}{dt}\left( \dfrac{1}{V}{\vec{\mu}}_{\imath} \right)} = \sum_{i = 1}^{N_{A}}{\gamma\dfrac{1}{V}{\vec{\mu}}_{\imath} \times {\vec{B}}_{0}} \Leftrightarrow \dfrac{d}{dt}\left( \sum_{i = 1}^{N_{A}}{\dfrac{1}{V}{\vec{\mu}}_{\imath}} \right) = \gamma\left( \sum_{i = 1}^{N_{A}}{\dfrac{1}{V}{\vec{\mu}}_{\imath}} \right) \times {\vec{B}}_{0}
+\]
 
 Per definizione del vettore di magnetizzazione per unità di volume è possibile scrivere:
 
-\[\dfrac{d\vec{M}}{dt} = \gamma\vec{M} \times {\vec{B}}_{0}\]
+\[
+\dfrac{d\vec{M}}{dt} = \gamma\vec{M} \times {\vec{B}}_{0}
+\]
 
-È molto conveniente analizzare la magnetizzazione del volumetto e, quindi, l'equazione differenziale, in termini del vettore di magnetizzazione parallelo all'asse individuato dal campo magnetico principale e la componente trasversale. In altre parole, si indica:
+È utile analizzare la magnetizzazione scomponendola in una componente parallela all'asse del campo magnetico principale e una componente trasversale:
 
-\[\vec{M} = {\vec{M}}_{\parallel} + {\vec{M}}_{\perp}\]
+\[
+\vec{M} = {\vec{M}}_{\parallel} + {\vec{M}}_{\perp}
+\]
 
-Dove, in coordinate cartesiane e con un campo magnetico esterno diretto lungo \({\hat{i}}_{z}\):
+Dove, in coordinate cartesiane e con un campo magnetico esterno diretto lungo \({\hat{\imath}}_{z}\):
 
-\[{\vec{M}}_{\parallel} = M_{z}{\hat{i}}_{z}\]
-
-\[{\vec{M}}_{\perp} = M_{x}{\hat{i}}_{x} + = M_{y}{\hat{i}}_{y}\]
+\[
+\vec{M}_{\parallel} = M_z \hat{\imath}_{z}, \quad \vec{M}_{\perp} = M_x \hat{\imath}_{x} + M_y \hat{\imath}_{y}
+\]
 
 L'equazione differenziale può essere scritta scomponendo il vettore di magnetizzazione:
 
-\[\dfrac{d}{dt}\left( {\vec{M}}_{\parallel} + {\vec{M}}_{\perp} \right) = \gamma\left( {\vec{M}}_{\parallel} + {\vec{M}}_{\perp} \right) \times B_{0}{\hat{i}}_{Z}\]
+\[
+\dfrac{d}{dt}\left( {\vec{M}}_{\parallel} + {\vec{M}}_{\perp} \right) = \gamma\left( {\vec{M}}_{\parallel} + {\vec{M}}_{\perp} \right) \times B_{0}{\hat{\imath}}_{z}
+\]
 
 Per linearità:
 
-\[\dfrac{d{\vec{M}}_{\parallel}}{dt} + \dfrac{d{\vec{M}}_{\perp}}{dt} = \gamma B_{0}{\vec{M}}_{\parallel} \times {\hat{i}}_{Z} + \gamma B_{0}{\vec{M}}_{\perp} \times {\hat{i}}_{Z}\]
+\[
+\dfrac{d{\vec{M}}_{\parallel}}{dt} + \dfrac{d{\vec{M}}_{\perp}}{dt} = \gamma B_{0}{\vec{M}}_{\parallel} \times {\hat{\imath}}_{z} + \gamma B_{0}{\vec{M}}_{\perp} \times {\hat{\imath}}_{z}
+\]
 
-Per definizione di componente parallela del vettore di magnetizzazione, il termine \({\vec{M}}_{\parallel} \times {\hat{i}}_{Z}\) si annulla:
+Per definizione di componente parallela del vettore di magnetizzazione, il termine \({\vec{M}}_{\parallel} \times {\hat{\imath}}_{z}\) si annulla:
 
-\[{\vec{M}}_{\parallel} \times {\hat{i}}_{Z} = M_{z}{\hat{i}}_{Z} \times {\hat{i}}_{Z} = 0\]
+\[
+{\vec{M}}_{\parallel} \times {\hat{\imath}}_{z} = M_{z}{\hat{\imath}}_{z} \times {\hat{\imath}}_{z} = 0
+\]
 
 Per cui:
 
-\[\dfrac{d{\vec{M}}_{\parallel}}{dt} + \dfrac{d{\vec{M}}_{\perp}}{dt} = \gamma B_{0}{\vec{M}}_{\perp} \times {\hat{i}}_{Z}\]
+\[
+\dfrac{d{\vec{M}}_{\parallel}}{dt} + \dfrac{d{\vec{M}}_{\perp}}{dt} = \gamma B_{0}{\vec{M}}_{\perp} \times {\hat{\imath}}_{z}
+\]
 
 Scrivendo le due equazioni per le proiezioni si ha:
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 \dfrac{dM_{\parallel}}{dt} = 0 \\
-\dfrac{d{\vec{M}}_{\perp}}{dt} = \gamma B_{0}{\vec{M}}_{\perp} \times {\hat{i}}_{Z}
-\end{matrix} \right.\ \]
+\dfrac{d{\vec{M}}_{\perp}}{dt} = \gamma B_{0}{\vec{M}}_{\perp} \times {\hat{\imath}}_{z}
+\end{cases}
+\]
 
-Questa modellazione non considera i fenomeni di interazione tra gli spin e il reticolo o tra i veri spin del volumetto. In particolare, delle equazioni risulta che la dinamica longitudinale, evolve in maniera indipendente da quella trasversale. La prima è descritta dal tempo di rilassamento longitudinale \(T_{1}\) mentre la seconda dal tempo di rilassamento trasversale \(T_{2}\). Come risultato delle due evoluzioni, il modulo del vettore magnetizzazione non è costante nel tempo.
+Questa modellazione non considera le interazioni tra spin e ambiente (reticolo) o tra spin stessi. In particolare, delle equazioni risulta che la dinamica longitudinale, evolve in maniera indipendente da quella trasversale. La prima è descritta dal tempo di rilassamento longitudinale \(T_{1}\) mentre la seconda dal tempo di rilassamento trasversale \(T_{2}\). Come risultato delle due evoluzioni, il modulo del vettore magnetizzazione non è costante nel tempo.
 
-Per comprendere tale concetto si suppone di porre un volumetto elementare in un campo magnetico diretto lungo l'asse \({\hat{i}}_{z}\). Raggiunto l'equilibrio termodinamico, il vettore di magnetizzazione si raggiunge il regime, con modulo \(M_{0}\) e diretto come il campo magnetico esterno. Si suppone di applicare un impulso elettromagnetico tale da far ruotare il vettore di magnetizzazione. Durante il ritorno alle condizioni di equilibrio termodinamico, la componente longitudinali del vettore di magnetizzazione è più lenta nel raggiungere il valore di regime \(M_{0}\), rispetto alla componente trasversale, che deve raggiungere il valore iniziale, ovvero nullo.
+Per chiarire questo concetto, si consideri un volumetto in un campo magnetico lungo \(\hat{\mathbf{z}}\). All'equilibrio termodinamico, il vettore di magnetizzazione ha modulo \(M_0\) ed è diretto lungo il campo. Se si applica un impulso elettromagnetico che ruota \(\vec{M}\), durante il ritorno all'equilibrio la componente longitudinale \(M_z\) cresce lentamente verso \(M_0\), mentre la componente trasversale \(M_{\perp}\) decade rapidamente verso zero.
 
-Questo comportamento è descritto dalle equazioni di Bloch, basate su una descrizione classica della materia. La complessità del moto del vettore di magnetizzazione è dovuta al fatto che tale vettore è composto da circa \(10^{23}\) momenti magnetici, ognuno dei quali con una proprio andamento, influenzato dall'ambiente.
+Questo comportamento è descritto dalle \textbf{equazioni di Bloch}, basate su una descrizione classica della materia. La complessità del moto di \(\vec{M}\) deriva dal fatto che esso rappresenta la somma di circa \(10^{23}\) momenti magnetici, ciascuno con un'evoluzione influenzata dall'ambiente.
 
-Si osservi che a temperature ambiente, il vettore di magnetizzazione è dato dalla legge di Curie:
+A temperature ambiente, il vettore di magnetizzazione è dato dalla legge di Curie:
 
-\[M_{0} \simeq \dfrac{\gamma^{2}\hslash^{2}}{4k_{B}T}B_{0}\dfrac{N_{A}}{V}\]
+\[
+M_{0} \simeq \dfrac{\gamma^{2}\hslash^{2}}{4k_{B}T}B_{0}\dfrac{N_{A}}{V}
+\]
 
-Il rapporto tra numero di spin, uguale al numero di Avogadro per un volumetto elementare, e il volume del corpo è detto densità protonica ed è indicato con \(\rho\):
+Il rapporto tra il numero di spin (pari a \(N_A\) per volumetto) e il volume del corpo è detto \textbf{densità protonica} \(\rho\):
 
-\[\rho = \dfrac{N_{A}}{V}\]
+\[
+\rho = \dfrac{N_{A}}{V}
+\]
 
 Per cui:
 
-\[M_{0} \simeq \dfrac{\gamma^{2}\hslash^{2}}{4k_{B}T}B_{0}\rho\]
+\[
+M_{0} \simeq \dfrac{\gamma^{2}\hslash^{2}}{4k_{B}T}B_{0}\rho
+\]
 
-Le iterazioni degli spin con l'ambiente dipendono dal tessuto analizzato e dal suo stato di salute. Note le tempistiche con cui evolve il vettore di magnetizzazione macroscopico, nel ritorno alla condizione di regime, è possibile ricostruire l'immagine del tessuto.
+Le interazioni degli spin con l'ambiente dipendono dal tipo di tessuto e dal suo stato fisiologico. Conoscendo le tempistiche con cui evolve il vettore di magnetizzazione durante il ritorno all'equilibrio, è possibile ricostruire l'immagine del tessuto.
 
-\subsubsection{Iterazione spin-reticolo}\label{iterazione-spin-reticolo}
+\subsection{Iterazione spin-reticolo}\label{iterazione-spin-reticolo}
 
-In normali condizioni, gli spin non sono indipendenti tra loro ma interagiscono sia con il materiale in cui sono contenuti sia, nello stesso istante, con gli altri spin del reticolo. Ciò determina che l'equazione per la componente longitudinale:
+In condizioni normali, gli spin non sono indipendenti tra loro, ma interagiscono sia con il materiale in cui sono contenuti, sia simultaneamente con gli altri spin del reticolo. Di conseguenza, l'equazione per la componente longitudinale:
 
-\[\dfrac{dM_{\parallel}}{dt} = 0\]
+\[
+\dfrac{dM_{\parallel}}{dt} = 0
+\]
 
-è errata poiché non tiene conto di tali fenomeni; infatti, momenti magnetici dei protoni tendono ad allinearsi col campo esterno, tuttavia, le iterazioni con l'ambiente circostante non consentono al vettore magnetizzazione di essere diretto esattamente lungo l'asse del campo principale, \({\hat{i}}_{z}\).
+risulta errata, poiché non tiene conto di tali fenomeni. Infatti, i momenti magnetici dei protoni tendono ad allinearsi con il campo esterno; tuttavia, le interazioni con l'ambiente circostante impediscono al vettore di magnetizzazione di essere diretto esattamente lungo l'asse del campo principale, \({\hat{\imath}}_{z}\).
 
-Ogni spin è inclinato rispetto l'asse verticale di un angolo \(\vartheta\), inoltre, ogni spin interagisce con gli altri prossimi. Nello specifico, l'angolo \(\vartheta\) è l'inclinazione del vettore che congiunge il centro del sistema di riferimento con lo spin rispetto l'asse individuato dal campo magnetico esterno.
+Ogni spin è inclinato rispetto all'asse verticale di un angolo \(\vartheta\) e interagisce con gli spin vicini. In particolare, l'angolo \(\vartheta\) rappresenta l'inclinazione del vettore che congiunge il centro del sistema di riferimento con lo spin, rispetto all'asse individuato dal campo magnetico esterno.
 
-Nell'analisi della componente longitudinale è possibile trascurare gli effetti di repulsione dei protoni dovute alle interazioni coulombiane. In altre parole, si ritiene che la distanza tra due protoni, detta distanza internucleare, sia molto maggiore del raggio gi azione delle forze elettriche.
+Nell'analisi della componente longitudinale è possibile trascurare gli effetti di repulsione tra protoni dovuti alle interazioni coulombiane. In altre parole, si assume che la distanza tra due protoni, detta distanza internucleare, sia molto maggiore del raggio d'azione delle forze elettriche.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=5.08796in,height=4.76042in,alt={P3130\#yIS1}]{media/6_IntroMRI/image67.pdf}\caption{Spin con diverse inclinazioni}
 \end{figure}
 
-Ogni singolo spin può essere descritto come un dipolo magnetico elementare, il cui potenziale vettore si dimostra essere:
+Ogni singolo spin può essere descritto come un dipolo magnetico elementare, il cui potenziale vettore è dato da:
 
-\[\vec{A} = \dfrac{1}{\left| \vec{r} \right|}\vec{\mu} \times \vec{r}\]
+\[
+\vec{A} = \dfrac{1}{\left| \vec{r} \right|}\vec{\mu} \times \vec{r}
+\]
 
-Dove \(\vec{r}\) è il vettore che congiunge due spin.
+dove \(\vec{r}\) è il vettore che congiunge due spin.
 
 \begin{figure}[ht]
 \centering
@@ -1100,59 +1235,63 @@ Dove \(\vec{r}\) è il vettore che congiunge due spin.
 
 Dal punto di vista classico, il campo prodotto da uno spin è dato da:
 
-\[\vec{B} = \vec{\nabla} \times \vec{A} = \dfrac{1}{\left| \vec{r} \right|}\vec{\nabla} \times \left( \vec{\mu} \times \vec{r} \right)\]
+\[
+\vec{B} = \vec{\nabla} \times \vec{A} = \dfrac{1}{\left| \vec{r} \right|}\vec{\nabla} \times \left( \vec{\mu} \times \vec{r} \right)
+\]
 
 Si dimostra che la soluzione a tale equazione è data da:
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 B_{x} = 3\mu\dfrac{\sin\vartheta\cos\vartheta}{r^{3}} \\
 B_{y} = 0 \\
 B_{z} = \mu\dfrac{3\cos^{2}\vartheta - 1}{r^{3}}
-\end{matrix} \right.\ \]
+\end{cases} 
+\]
 
-La componente lungo \({\hat{i}}_{y}\) è nulla poiché l'andamento delle linee di campo magnetico di uno spin hanno simmetria cilindrica.
+La componente lungo \({\hat{\imath}}_{y}\) è nulla, poiché le linee di campo magnetico di uno spin presentano simmetria cilindrica.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=2.20513in,height=2.44444in,alt={P3142\#yIS1}]{media/6_IntroMRI/image69.pdf}\caption{Simmetria cilindrica del campo prodotto da uno spin}
 \end{figure}
 
-Per il principio di sovrapposizione è possibile che uno spin influenzi quelli vicini e viceversa, uno spin è influenzato da quelli vicini.
+Per il principio di sovrapposizione, uno spin può influenzare quelli vicini e, viceversa, essere influenzato da essi. La componente lungo \({\hat{\imath}}_{z}\) è legata all'energia del sistema. In meccanica classica, l'energia di un momento magnetico \(\vec{\mu}\) immerso in un campo magnetico \({\vec{B}}_{0}\) è data da:
 
-La componente lungo \({\hat{i}}_{z}\) è legata all'energia del sistema, infatti, in meccanica classica, si prova che l'energia di un momento magnetico \(\vec{\mu}\) immerso in un campo magnetico \({\vec{B}}_{0}\) è data da:
+\[
+U = - \vec{\mu} \cdot {\vec{B}}_{0}
+\]
 
-\[U = - \vec{\mu} \cdot {\vec{B}}_{0}\]
+Con un campo avente solo componente verticale, ovvero \({\vec{B}}_{0} = B_{0}{\hat{\imath}}_{z}\), si ha:
 
-Con un campo con solo componente verticale ovvero \({\vec{B}}_{0} = B_{0}{\hat{i}}_{z}\), si ha:
+\[
+U = - \mu_{z}B_{0}
+\]
 
-\[U = - \mu_{z}B_{0}\]
+Ne consegue che la componente verticale, lungo \({\hat{\imath}}_{z}\), è coinvolta negli scambi energetici tra dipoli elementari.
 
-Ne discende che la componente verticale, lungo \({\hat{i}}_{z}\), è coinvolta negli scambi energetici tra dipoli elementari.
+L'interpretazione della componente lungo \({\hat{\imath}}_{x}\) del campo prodotto da uno spin, \(B_{x}\), è più complessa, poiché bisogna considerare che i dipoli non sono fermi nello spazio, ma precessano attorno all'asse individuato dal campo esterno, influenzando tale componente. In particolare, a causa dell'agitazione termica, i dipoli sono in moto casuale. L'agitazione termica è molto intensa nei liquidi, come quelli che compongono prevalentemente il corpo umano, e nei gas.
 
-L'interpretazione della componente lungo \({\hat{i}}_{x}\) del campo prodotto da uno spin \(B_{x}\), è più complessa in quanto bisogna tener conto che i dipoli non sono fermi nello spazio ma precedono intorno all'asse individuato dal campo esterno, uno ente a influenzare questa componente.
+A causa di tale agitazione, i dipoli si muovono reciprocamente in modo continuo. Le interazioni reciproche tra i campi magnetici degli spin sono molto complesse da descrivere; infatti, la teoria del rilassamento è altamente sofisticata e può essere affrontata solo mediante la meccanica quantistica. In letteratura esistono trattazioni relative esclusivamente a sostanze pure. Attualmente, non esistono modelli quantistici in grado di descrivere il rilassamento nel corpo umano, a causa dell'elevato numero di molecole coinvolte, come acqua, sali disciolti, proteine, lipidi, ecc.
 
-Nello specifico, a causa dell'agitazione termica, i dipoli non sono fissi nello spazio ma in moto casuale. L'agitazione termica è molto forte nei liquidi, di cui è prevalentemente composto il corpo umano, e nei gas.
+Nell'analisi della risonanza magnetica, si adottano leggi che descrivono in modo approssimativo, ma sufficientemente fedele, i meccanismi di rilassamento nei tessuti umani.
 
-A causa dell'agitazione termica, i dipoli si muovono reciprocamente tra loro in modo continuo. Le iterazioni reciproche dei campo magnetici degli spin sono molto complesse da descrivere; infatti, la teoria del rilassamento è molto sofistica e può essere affrontata solamente adoperando la meccanica quantistica. In letteratura, esistono delle trattazioni riguardati solamente le sostanze pure. A oggi, non esistono analisi basate sulla meccanica quantistica in grado di descrivere il fenomeno del rilassamento nel corpo umano per l'elevato numero di molecole di cui è composto, come acqua, sali disciolti, proteine, lipidi ed ecc.
+A causa delle interazioni tra i vari spin, un protone non è soggetto a un campo magnetico identico a quello statico applicato, ma a uno prossimo. Ogni spin, influenzato dagli altri, ruota attorno all'asse individuato dal campo magnetico principale con una propria frequenza di Larmor.
 
-Nell'analisi della risonanza magnetica, si forniscono delle leggi che descrivono in modo approssimativo, ma allo stesso modo abbastanza fedelmente, i meccanismi di rilassamento all'interno dei tessi umani,
-
-A causa delle iterazioni tra i vari spin, un protone non è soggetto a un campo magnetico uguale a quello statico applicato, ma prossimo a esso. Ogni spin, per le influenze degli altri, ruoterà attorno all'asse individuato dal campo magnetico principale con propria frequenza di Larmor.
-
-Quando è applicato un campo magnetico a frequenza \(\omega_{0} = \gamma B_{0}\), è probabile che avvengano delle transizioni degli spin dallo stato \(\left| + \right\rangle\) allo stato \(\left| - \right\rangle\) e viceversa. Dunque, un dipolo magnetico, soggetto a una radiazione elettromagnetica a frequenza \(\omega_{0}\), prossima a quella con cui precede, può essere indotto a una transizione verso l'alto o verso il basso:
+Quando viene applicato un campo magnetico a frequenza \(\omega_{0} = \gamma B_{0}\), possono avvenire transizioni degli spin dallo stato \(\left| + \right\rangle\) allo stato \(\left| - \right\rangle\) e viceversa. Un dipolo magnetico, soggetto a una radiazione elettromagnetica a frequenza \(\omega_{0}\), prossima a quella di precessione, può essere indotto a una transizione verso l'alto o verso il basso:
 
 \begin{itemize}
 \item
-  Nella transizione dal livello energetico \(\left| + \right\rangle\) a \(\left| - \right\rangle\), il protone emette un fotone di energia \(\hslash\gamma B_{0} = \hslash\omega_{0}\). Tale fenomeno è noto come emissione stimolata;
+  Nella transizione dal livello energetico \(\left| + \right\rangle\) a \(\left| - \right\rangle\), il protone emette un fotone di energia \(\hslash\gamma B_{0} = \hslash\omega_{0}\). Questo fenomeno è noto come \textit{emissione stimolata};
 \item
-  Nella transizione dal livello energetico \(\left| - \right\rangle\) a \(\left| + \right\rangle\), protone assorbe un foto di energia \(\hslash\omega_{0}\).
+  Nella transizione dal livello energetico \(\left| - \right\rangle\) a \(\left| + \right\rangle\), il protone assorbe un fotone di energia \(\hslash\omega_{0}\).
 \end{itemize}
 
-Il passaggio dallo stato \(\left| + \right\rangle\) a \(\left| - \right\rangle\) produce l'emissione di un fotone che può stimolare un altro spin vicino, il quale transita a sua volta da \(\left| - \right\rangle\) a \(\left| + \right\rangle\). Le iterazioni energetiche a livello microscopico sono, quindi, molto complesse a causa dell'elevato numero di spin contenuti in un volumetto elementare.
+Il passaggio dallo stato \(\left| + \right\rangle\) a \(\left| - \right\rangle\) produce l'emissione di un fotone che può stimolare un altro spin vicino, inducendolo a sua volta a transitare da \(\left| - \right\rangle\) a \(\left| + \right\rangle\). Le interazioni energetiche a livello microscopico sono quindi molto complesse, a causa dell'elevato numero di spin contenuti in un volumetto elementare.
 
-Per analizzare il comportamento di un singolo spin con l'intera massa che lo circonda, è possibile ricorrere alla statistica di Boltzmann, considerando lo spin a contatto con il reticolo, o \emph{lattice}, come un piccolo sistema a contatto con un altro avente un numero di spin molto maggiore.
+Per analizzare il comportamento di un singolo spin rispetto alla massa circostante, è possibile ricorrere alla statistica di Boltzmann, considerando lo spin a contatto con il reticolo, o \textit{lattice}, come un piccolo sistema in interazione con un altro contenente un numero di spin molto maggiore.
 
-Sia \(N^{+}\) il numero di protoni nel livello energetico \(E^{+} = \hslash\gamma B_{0}/2\) e \(N^{-}\) il numero di protoni nel livello energetico \(E^{+} = - \hslash\gamma B_{0}/2\). Sia \(W_{+ \rightarrow -}\) la probabilità di transizione di uno spin dallo stato \(\left| + \right\rangle\) a \(\left| - \right\rangle\), mentre \(W_{- \rightarrow +}\) la probabilità opposta, ovvero che uno spin transiti da uno stato \(\left| - \right\rangle\) a \(\left| + \right\rangle\).
+Sia \(N^{+}\) il numero di protoni nel livello energetico \(E^{+} = \hslash\gamma B_{0}/2\) e \(N^{-}\) il numero di protoni nel livello energetico \(E^{-} = - \hslash\gamma B_{0}/2\). Sia \(W_{+ \rightarrow -}\) la probabilità di transizione dallo stato \(\left| + \right\rangle\) a \(\left| - \right\rangle\), e \(W_{- \rightarrow +}\) la probabilità opposta.
 
 \begin{figure}[ht]
 \centering
@@ -1161,216 +1300,300 @@ Sia \(N^{+}\) il numero di protoni nel livello energetico \(E^{+} = \hslash\gamm
 
 In meccanica quantistica, le due probabilità si esprimono come:
 
-\[W_{+ \rightarrow -} = \left\langle + \right|\hat{\mu}\left| - \right\rangle\]
+\[
+\begin{cases}
+W_{+ \rightarrow -} = \left\langle + \right|\hat{\mu}\left| - \right\rangle \\
+W_{- \rightarrow +} = \left\langle - \right|\hat{\mu}\left| + \right\rangle
+\end{cases}
+\]
 
-\[W_{- \rightarrow +} = \left\langle - \right|\hat{\mu}\left| + \right\rangle\]
-
-Queste quantità possono essere stimate a patto di conoscere l'hamiltoniano \(\hat{H}\) del sistema. Dato il gran numero di particelle presente nel volumetto elementare, la trattazione con la meccanica quantistica, attraverso l'operatore hamiltoniano, è molto complessa. Per tale ragione si ricorre alla statistica di Boltzmann.
+Queste quantità possono essere stimate conoscendo l'hamiltoniano \(\hat{H}\) del sistema. Tuttavia, data la complessità dovuta al gran numero di particelle nel volumetto elementare, si preferisce ricorrere alla statistica di Boltzmann.
 
 All'equilibrio termodinamico, il numero delle transizioni dallo stato \(\left| + \right\rangle\) allo stato \(\left| - \right\rangle\) deve essere uguale al numero delle transizioni da \(\left| - \right\rangle\) a \(\left| + \right\rangle\), in quanto l'energia del sistema si conserva. Si instaura così un equilibrio dinamico nel sistema. Per tale motivo è possibile scrivere l'uguaglianza:
 
-\[N^{+}W_{+ \rightarrow -} = N^{-}W_{- \rightarrow +}\]
+\[
+N^{+}W_{+ \rightarrow -} = N^{-}W_{- \rightarrow +}
+\]
 
-Dove \(N^{+}W_{+ \rightarrow -}\) è il numero dei protoni che dallo stato \(\left| + \right\rangle\) transitano allo stato \(\left| - \right\rangle\) e \(N^{-}W_{- \rightarrow +}\) è il numero dei protoni che eseguono la transizione opposta. Le transizioni devono essere tali da mantenere la popolazione degli spin costante.
+dove \(N^{+}W_{+ \rightarrow -}\) è il numero dei protoni che dallo stato \(\left| + \right\rangle\) transitano allo stato \(\left| - \right\rangle\) e \(N^{-}W_{- \rightarrow +}\) è il numero dei protoni che eseguono la transizione opposta. Le transizioni devono essere tali da mantenere la popolazione degli spin costante.
 
 Si scrive l'equazione all'equilibrio termodinamico come:
 
-\[N^{+}W_{+ \rightarrow -} = N^{-}W_{- \rightarrow +} \Leftrightarrow \dfrac{W_{+ \rightarrow -}}{W_{- \rightarrow +}} = \dfrac{N^{-}}{N^{+}}\]
+\[
+N^{+}W_{+ \rightarrow -} = N^{-}W_{- \rightarrow +} \Leftrightarrow \dfrac{W_{+ \rightarrow -}}{W_{- \rightarrow +}} = \dfrac{N^{-}}{N^{+}}
+\]
 
 Per la statistica di Boltzmann, il rapporto tra le due probabilità è dato dal rapporto degli esponenziali:
 
-\[\dfrac{W_{+ \rightarrow -}}{W_{- \rightarrow +}} = \dfrac{\exp\left( \dfrac{E^{+}}{k_{B}T} \right)}{\exp\left( \dfrac{E^{-}}{k_{B}T} \right)} = \exp\left( \dfrac{E^{+} - E^{-}}{k_{B}T} \right)\]
+\[
+\dfrac{W_{+ \rightarrow -}}{W_{- \rightarrow +}} = \dfrac{\exp\left( \dfrac{E^{+}}{k_{B}T} \right)}{\exp\left( \dfrac{E^{-}}{k_{B}T} \right)} = \exp\left( \dfrac{E^{+} - E^{-}}{k_{B}T} \right)
+\]
 
 Sebbene non sia possibile valutare numericamente le due probabilità, è possibile valutarne il rapporto mediante la meccanica statistica.
 
 Si scrive l'equazione differenziale che collega l'evoluzione temporale del numero di protoni che si trovano nello stato \(\left| + \right\rangle\). La variazione nel tempo del numero di spin nello stato energetico \(\left| + \right\rangle\) dipende dal numero di protoni che dallo stato \(\left| - \right\rangle\) passano allo stato \(\left| + \right\rangle\), a cui va sottratto il numero di protoni che transitano dallo stato \(\left| + \right\rangle\) a quello \(\left| - \right\rangle\) nell'intervallo temporale infinitesimo \(dt\):
 
-\[\dfrac{dN^{+}}{dt} = N^{-}W_{- \rightarrow +} - N^{+}W_{+ \rightarrow -}\]
+\[
+\dfrac{dN^{+}}{dt} = N^{-}W_{- \rightarrow +} - N^{+}W_{+ \rightarrow -}
+\]
 
 Da questa espressione si evince che le quantità \(W_{- \rightarrow +}\) e \(W_{+ \rightarrow -}\) sono dimensionalmente omogenee con l'inverso di un tempo:
 
-\[\left\lbrack W_{- \rightarrow +} \right\rbrack = \left\lbrack \dfrac{1}{s} \right\rbrack\]
+\[
+\left\lbrack W_{- \rightarrow +} \right\rbrack = \left\lbrack \dfrac{1}{s} \right\rbrack
+\]
 
 In altre parole, \(W_{- \rightarrow +}\) e \(W_{+ \rightarrow -}\) sono delle probabilità per unità di tempo.
 
 Analogamente per la popolazione di spin nello stato \(\left| - \right\rangle\): la variazione del numero di spin nell'unità di tempo è data dalla popolazione di spin nello stato \(\left| + \right\rangle\) che transita nello stato \(\left| - \right\rangle\) a cui va sottratto il numero di spin che esegue la transizione opposta:
 
-\[\dfrac{dN^{-}}{dt} = N^{+}W_{+ \rightarrow -} - N^{-}W_{- \rightarrow +}\]
+\[
+\dfrac{dN^{-}}{dt} = N^{+}W_{+ \rightarrow -} - N^{-}W_{- \rightarrow +}
+\]
 
-Si scrivono le equazioni in termini di differenza di popolazioni \(\mathrm{\Delta}N\):
+Si scrivono le equazioni in termini di differenza di popolazioni \(\Delta N\):
 
-\[\mathrm{\Delta}N = N^{+} - N^{-}\]
+\[
+\Delta N = N^{+} - N^{-}
+\]
 
-Il parametro \(\mathrm{\Delta}N\) è fondamentale poiché la magnetizzazione macroscopica del volumetto elementare \(\vec{M}\) è proporzionale alla differenza di popolazione di spin nello stato \(\left| + \right\rangle\) rispetto a quelle nello stato \(\left| - \right\rangle\):
+Il parametro \(\Delta N\) è fondamentale poiché la magnetizzazione macroscopica del volumetto elementare \(\vec{M}\) è proporzionale alla differenza di popolazione di spin nello stato \textit{up} (o \(\left| + \right\rangle\)) rispetto a quelle nello stato \textit{down} (o \(\left| - \right\rangle\)):
 
-\[\left| \vec{M} \right| \propto \mathrm{\Delta}N = N^{+} - N^{-}\]
+\[
+\left| \vec{M} \right| \propto \Delta N = N^{+} - N^{-}
+\]
 
-La magnetizzazione è, in ultima analisi, legata al netto di spin paralleli al campo magnetico principale, rispetto a quelli antiparalleli. Da ciò si evince la convenienza nel ragionare in termini di evoluzione della differenza di popolazione, piuttosto che mediante la variazione delle singole popolazioni.
+La magnetizzazione è, in ultima analisi, legata al netto di spin paralleli al campo magnetico principale, rispetto a quelli antiparalleli. Per tale motivo è conveniente ragionare in termini di evoluzione della differenza di popolazione, piuttosto che mediante la variazione delle singole popolazioni.
 
-Dalle due equazioni differenziali, che descrivono l'evoluzione temporale di una sola popolazione, sottraendo membro a membro si ha:
+Dalle due equazioni differenziali, che descrivono l'evoluzione temporale di una sola popolazione:
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 \dfrac{dN^{+}}{dt} = N^{-}W_{- \rightarrow +} - N^{+}W_{+ \rightarrow -} \\
 \dfrac{dN^{-}}{dt} = N^{+}W_{+ \rightarrow -} - N^{-}W_{- \rightarrow +}
-\end{matrix} \right.\ \]
+\end{cases} 
+\]
 
-\[\dfrac{d}{dt}\left( N^{+} - N^{-} \right) = N^{-}W_{- \rightarrow +} - N^{+}W_{+ \rightarrow -} - N^{+}W_{+ \rightarrow -} + N^{-}W_{- \rightarrow +}\]
+sottraendo membro a membro si ha:
+
+\[
+\dfrac{d}{dt}\left( N^{+} - N^{-} \right) = N^{-}W_{- \rightarrow +} - N^{+}W_{+ \rightarrow -} - N^{+}W_{+ \rightarrow -} + N^{-}W_{- \rightarrow +}
+\]
 
 Da cui:
 
-\[\dfrac{d\mathrm{\Delta}N}{dt} = 2N^{-}W_{- \rightarrow +} - 2N^{+}W_{+ \rightarrow -}\]
+\[
+\dfrac{d\Delta N}{dt} = 2N^{-}W_{- \rightarrow +} - 2N^{+}W_{+ \rightarrow -}
+\]
 
 Sia \(N\) il numero totale degli spin contenuto nel volumetto elementare. Siccome il volume non scambia materia con l'esterno, il numero degli spin è costante:
 
-\[N = N^{+} + N^{-} = const\]
+\[
+N = N^{+} + N^{-} = const
+\]
 
 Per definizione:
 
-\[\mathrm{\Delta}N = N^{+} - N^{-}\]
+\[
+\Delta N = N^{+} - N^{-}
+\]
 
 Sommando membro a membro sia ha:
 
-\[N + \mathrm{\Delta}N = 2N^{+} \Leftrightarrow N^{+} = \dfrac{1}{2}(N + \mathrm{\Delta}N)\]
+\[
+N + \Delta N = 2N^{+} \Leftrightarrow N^{+} = \dfrac{1}{2}(N + \Delta N)
+\]
 
 Invece, sottraendo membro a membro, si ha:
 
-\[N - \mathrm{\Delta}N = 2N^{+} \Leftrightarrow N^{-} = \dfrac{1}{2}(N - \mathrm{\Delta}N)\]
+\[
+N - \Delta N = 2N^{+} \Leftrightarrow N^{-} = \dfrac{1}{2}(N - \Delta N)
+\]
 
 L'equazione differenziale:
 
-\[\dfrac{d}{dt}\left( N^{+} - N^{-} \right) = 2N^{-}W_{- \rightarrow +} - 2N^{+}W_{+ \rightarrow -}\]
+\[
+\dfrac{d}{dt}\left( N^{+} - N^{-} \right) = 2N^{-}W_{- \rightarrow +} - 2N^{+}W_{+ \rightarrow -}
+\]
 
 Può essere scritta come:
 
-\[\dfrac{d\mathrm{\Delta}N}{dt} = 2\dfrac{1}{2}(N - \mathrm{\Delta}N)W_{- \rightarrow +} - 2\dfrac{1}{2}(N + \mathrm{\Delta}N)W_{+ \rightarrow -} = (N - \mathrm{\Delta}N)W_{- \rightarrow +} - (N + \mathrm{\Delta}N)W_{+ \rightarrow -}\]
+\[
+\dfrac{d\Delta N}{dt} = 2\dfrac{1}{2}(N - \Delta N)W_{- \rightarrow +} - 2\dfrac{1}{2}(N + \Delta N)W_{+ \rightarrow -} = (N - \Delta N)W_{- \rightarrow +} - (N + \Delta N)W_{+ \rightarrow -}
+\]
 
-Raccogliendo \(N\) e \(\mathrm{\Delta}N\) al secondo membro si ha:
+Raccogliendo \(N\) e \(\Delta N\) al secondo membro si ha:
 
-\[\dfrac{d\mathrm{\Delta}N}{dt} = N\left( W_{- \rightarrow +} - W_{+ \rightarrow -} \right) - \mathrm{\Delta}N\left( W_{- \rightarrow +} + W_{+ \rightarrow -} \right)\]
+\[
+\dfrac{d\Delta N}{dt} = N\left( W_{- \rightarrow +} - W_{+ \rightarrow -} \right) - \Delta N\left( W_{- \rightarrow +} + W_{+ \rightarrow -} \right)
+\]
 
-Queste equazioni devono essere sempre valide poiché non sono state proposte ipotesi particolari semplificative. Se le equazioni sono sempre valide, lo sono anche all'equilibrio termodinamico, condizione in cui non vi è nessuna variazione di \(\mathrm{\Delta}N\) dato che le due popolazioni presentano lo stesso numero di spin, nonostante la variazione della configurazione del sistema.
+Queste equazioni devono essere sempre valide poiché non sono state proposte ipotesi particolari semplificative. Se le equazioni sono sempre valide, lo sono anche all'equilibrio termodinamico, condizione in cui non vi è nessuna variazione di \(\Delta N\) dato che le due popolazioni presentano lo stesso numero di spin, nonostante la variazione della configurazione del sistema.Dal punto di vista matematico, all'equilibrio termodinamico si ha:
 
-Dal punto di vista matematico, all'equilibrio termodinamico, risulta:
+\[
+\dfrac{d\Delta N}{dt} = 0
+\]
 
-\[\dfrac{d\mathrm{\Delta}N}{dt} = 0\]
+Dunque, \(\Delta N = \Delta N_{0} = const\). 
 
-Dunque, \(\mathrm{\Delta}N = \mathrm{\Delta}N_{0} = const\). Siano \(N_{0}^{+}\) il numero di spin nello stato \(\left| + \right\rangle\) e \(N_{0}^{-}\) il numero di spin nello stato \(\left| - \right\rangle\) all'equilibrio termodinamico, risulta:
+Siano \(N_{0}^{+}\) e \(N_{0}^{-}\) rispettivamente il numero di spin nello stato \(\left| + \right\rangle\) e nello stato \(\left| - \right\rangle\) all'equilibrio termodinamico. Allora:
 
-\[\mathrm{\Delta}N_{0} = N_{0}^{+} - N_{0}^{-}\]
+\[
+\Delta N_{0} = N_{0}^{+} - N_{0}^{-}
+\]
 
-\(\mathrm{\Delta}N_{0}\) è la differenza di spin nello stato \(\left| + \right\rangle\) rispetto a quelli nello stato \(\left| - \right\rangle\) all'equilibrio termodinamico; ciò produce la magnetizzazione macroscopica \(\vec{M}\).
+La quantità \(\Delta N_{0}\) è la differenza di spin nello stato \(\left| + \right\rangle\) rispetto a quelli nello stato \(\left| - \right\rangle\) all'equilibrio termodinamico; ciò produce la magnetizzazione macroscopica \(\vec{M}\).
 
-All'equilibrio termodinamico, l'equazione:
+All'equilibrio, l'equazione differenziale:
 
-\[\dfrac{d\mathrm{\Delta}N}{dt} = N\left( W_{- \rightarrow +} - W_{+ \rightarrow -} \right) - \mathrm{\Delta}N\left( W_{- \rightarrow +} + W_{+ \rightarrow -} \right)\]
+\[
+\dfrac{d\Delta N}{dt} = N\left( W_{- \rightarrow +} - W_{+ \rightarrow -} \right) - \Delta N\left( W_{- \rightarrow +} + W_{+ \rightarrow -} \right)
+\]
 
 Diventa:
 
-\[N\left( W_{- \rightarrow +} - W_{+ \rightarrow -} \right) - \mathrm{\Delta}N_{0}\left( W_{- \rightarrow +} + W_{+ \rightarrow -} \right) = 0\]
+\[
+N\left( W_{- \rightarrow +} - W_{+ \rightarrow -} \right) - \Delta N_{0}\left( W_{- \rightarrow +} + W_{+ \rightarrow -} \right) = 0
+\]
 
-Si ricava \(\mathrm{\Delta}N_{0}\):
+Si ricava \(\Delta N_{0}\):
 
-\[\mathrm{\Delta}N_{0} = N\dfrac{W_{- \rightarrow +} - W_{+ \rightarrow -}}{W_{- \rightarrow +} + W_{+ \rightarrow -}}\]
+\[
+\Delta N_{0} = N\dfrac{W_{- \rightarrow +} - W_{+ \rightarrow -}}{W_{- \rightarrow +} + W_{+ \rightarrow -}}
+\]
 
-Sapendo che il valore all'equilibrio termodinamico del netto di spin è \(\mathrm{\Delta}N_{0}\), è possibile ricavare l'andamento temporale di \(\mathrm{\Delta}N\). Infatti, siccome \(\mathrm{\Delta}N_{0}\) è costante, è possibile sottrarre la sua derivata al primo membro dell'equazione:
+Sapendo che il valore all'equilibrio termodinamico del netto di spin è \(\Delta N_{0}\), è possibile ricavare l'andamento temporale di \(\Delta N\). Poiché \(\Delta N_{0}\) è costante, è possibile sottrarre la sua derivata al primo membro dell'equazione:
 
-\[\dfrac{d\mathrm{\Delta}N}{dt} = N\left( W_{- \rightarrow +} - W_{+ \rightarrow -} \right) - \mathrm{\Delta}N\left( W_{- \rightarrow +} + W_{+ \rightarrow -} \right)\]
+\[
+\dfrac{d\Delta N}{dt} = N\left( W_{- \rightarrow +} - W_{+ \rightarrow -} \right) - \Delta N\left( W_{- \rightarrow +} + W_{+ \rightarrow -} \right)
+\]
 
 Ottenendo:
 
-\[\dfrac{d}{dt}\left( \mathrm{\Delta}N - \mathrm{\Delta}N_{0} \right) = N\left( W_{- \rightarrow +} - W_{+ \rightarrow -} \right) - \mathrm{\Delta}N\left( W_{- \rightarrow +} + W_{+ \rightarrow -} \right)\]
+\[
+\dfrac{d}{dt}\left( \Delta N - \Delta N_{0} \right) = N\left( W_{- \rightarrow +} - W_{+ \rightarrow -} \right) - \Delta N\left( W_{- \rightarrow +} + W_{+ \rightarrow -} \right)
+\]
 
 Al secondo membro si raccoglie il termine \(\left( W_{- \rightarrow +} + W_{+ \rightarrow -} \right)\), ottenendo:
 
-\[\dfrac{d}{dt}\left( \mathrm{\Delta}N - \mathrm{\Delta}N_{0} \right) = \left( N\dfrac{W_{- \rightarrow +} - W_{+ \rightarrow -}}{W_{- \rightarrow +} + W_{+ \rightarrow -}} - \mathrm{\Delta}N \right)\left( W_{- \rightarrow +} + W_{+ \rightarrow -} \right)\]
+\[
+\dfrac{d}{dt}\left( \Delta N - \Delta N_{0} \right) = \left( N\dfrac{W_{- \rightarrow +} - W_{+ \rightarrow -}}{W_{- \rightarrow +} + W_{+ \rightarrow -}} - \Delta N \right)\left( W_{- \rightarrow +} + W_{+ \rightarrow -} \right)
+\]
 
 All'equilibrio termodinamico, si ha:
 
-\[\mathrm{\Delta}N_{0} = N\dfrac{W_{- \rightarrow +} - W_{+ \rightarrow -}}{W_{- \rightarrow +} + W_{+ \rightarrow -}}\]
+\[
+\Delta N_{0} = N\dfrac{W_{- \rightarrow +} - W_{+ \rightarrow -}}{W_{- \rightarrow +} + W_{+ \rightarrow -}}
+\]
 
 Per cui, l'equazione differenziale può essere scritta come:
 
-\[\dfrac{d}{dt}\left( \mathrm{\Delta}N - \mathrm{\Delta}N_{0} \right) = \left( \mathrm{\Delta}N_{0} - \mathrm{\Delta}N \right)\left( W_{- \rightarrow +} + W_{+ \rightarrow -} \right)\]
+\[
+\dfrac{d}{dt}\left( \Delta N - \Delta N_{0} \right) = \left( \Delta N_{0} - \Delta N \right)\left( W_{- \rightarrow +} + W_{+ \rightarrow -} \right)
+\]
 
-Dato che \(W_{- \rightarrow +}\) e \(W_{+ \rightarrow -}\) sono omogenee con l'inverso di un tempo, si pone:
+Poiché \(W_{- \rightarrow +}\) e \(W_{+ \rightarrow -}\) sono probabilità per unità di tempo, si definisce:
 
-\[\dfrac{1}{T_{1}} = W_{- \rightarrow +} + W_{+ \rightarrow -}\]
+\[
+\dfrac{1}{T_{1}} = W_{- \rightarrow +} + W_{+ \rightarrow -}
+\]
 
 Con questa posizione, l'equazione differenziale si può scrivere:
 
-\[\dfrac{d}{dt}\left( \mathrm{\Delta}N - \mathrm{\Delta}N_{0} \right) = \dfrac{1}{T_{1}}\left( \mathrm{\Delta}N_{0} - \mathrm{\Delta}N \right)\]
+\[
+\dfrac{d}{dt}\left( \Delta N - \Delta N_{0} \right) = \dfrac{1}{T_{1}}\left( \Delta N_{0} - \Delta N \right)
+\]
 
 Al fine di avere la stessa quantità, si raccoglie un segno meno al secondo membro:
 
-\[\dfrac{d}{dt}\left( \mathrm{\Delta}N - \mathrm{\Delta}N_{0} \right) = - \dfrac{1}{T_{1}}\left( \mathrm{\Delta}N - \mathrm{\Delta}N_{0} \right)\]
+\[
+\dfrac{d}{dt}\left( \Delta N - \Delta N_{0} \right) = - \dfrac{1}{T_{1}}\left( \Delta N - \Delta N_{0} \right)
+\]
 
-L'evoluzione temporale di \(\mathrm{\Delta}N\) dipende dalla costante di tempo \(T_{1}\), data dalla somma delle probabilità di transizione da uno stato all'altro.
+L'evoluzione temporale di \(\Delta N\) è quindi governata dalla costante di tempo \(T_{1}\), detta tempo di rilassamento longitudinale o \textbf{spin-reticolo} (\textit{spin-lattice}).
 
-La relazione individuata è molto approssimata, poiché le probabilità non sono note a priori, ma permette di descrivere l'evoluzione temporale del netto degli spin nello stato parallelo nel tempo. Si osserva che la soluzione dell'equazione è di tipo esponenziale crescente, con costante di tempo \(T_{1}\), il valore di regime è \(\mathrm{\Delta}N_{0}\).
+La relazione individuata è molto approssimata, poiché le probabilità non sono note a priori, ma permette di descrivere l'evoluzione temporale del netto degli spin \textit{up} nel tempo. La soluzione dell'equazione è di tipo esponenziale crescente verso il valore di regime \(\Delta N_{0}\), con costante di tempo \(T_{1}\).
 
-Generalizzando, in un sistema di spin immerso in un campo magnetico, la componente longitudinale del vettore di magnetizzazione tende a raggiungere il valore di regime, dato dalla legge di Curie, con una costante di tempo \(\tau = T_{1}\).
+Generalizzando, in un sistema di spin immerso in un campo magnetico, la componente longitudinale del vettore di magnetizzazione tende a raggiungere il valore di equilibrio, dato dalla legge di Curie, con costante di tempo \(\tau = T_{1}\).
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=2.2315in,height=1.68519in,alt={P3237\#yIS1}]{media/6_IntroMRI/image71.pdf}\caption{Evoluzione temporale del netto di vettore di magnetizzazione per effetto del campo principale}
 \end{figure}
 
-Disattivando il campo magnetico principale dopo che il sistema ha raggiuto l'equilibrio termodinamico, la componente longitudinale del vettore di magnetizzazione si annulla. Il decadimento è di tipo esponenziale con costante di tempo sempre uguale a \(T_{1}\).
+Se il campo magnetico principale viene disattivato dopo il raggiungimento dell'equilibrio termodinamico, la componente longitudinale del vettore di magnetizzazione si annulla. Il decadimento è esponenziale con costante di tempo \(T_{1}\).
+
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=3.31667in,height=2.56742in,alt={P3240\#yIS1}]{media/6_IntroMRI/image72.pdf}\caption{Evoluzione del vettore di magnetizzazione alla rimozione del campo principale}
 \end{figure}
 
-Il tempo \(T_{1}\) interessa gli scambi tra i vari spin contenuti nel materiale ed è legato alla componente longitudinale, lungo \({\hat{i}}_{z}\). L'equazione di Bloch \(dM_{z}/dt = 0\) viene corretta introducendo l'andamento temporale, dettato dalla costante di tempo \(T_{1}\):
+Il tempo \(T_{1}\) riguarda gli scambi energetici tra gli spin e il reticolo, ed è associato alla componente lungo \({\hat{\imath}}_{z}\). L'equazione di Bloch \(dM_{z}/dt = 0\) viene corretta introducendo l'andamento temporale, dettato dalla costante di tempo \(T_{1}\):
 
-\[\dfrac{dM_{z}}{dt} = \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right)\]
+\[
+\dfrac{dM_{z}}{dt} = \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right)
+\]
 
-Tale equazione è detta I equazione di Bloch. Inoltre, il tempo \(T_{1}\) è detto tempo di rilassamento longitudinale o spin-reticolo o, in letteratura anglosassone, \emph{spin-lattice}. Dal nome si evince che il tempo \(T_{1}\) tiene conto delle iterazioni di uno spin a contatto con l'intero reticolo, visto come un serbatoio termico, in cui è inserito. Generalmente, \(T_{1}\) è maggiore nei liquidi rispetto ai solidi.
+Questa è detta \textbf{prima equazione di Bloch}. Il tempo \(T_{1}\), o tempo di rilassamento longitudinale, riflette le interazioni tra uno spin e il reticolo, considerato come un serbatoio termico. In generale, \(T_{1}\) è maggiore nei liquidi rispetto ai solidi.
 
 La soluzione della prima equazione di Bloch è del tipo:
 
-\[M_{z}\left(t\right) = M_{z}(0)\exp\left( - \dfrac{t}{T_{1}} \right) + M_{0}\left\lbrack 1 - \exp\left( - \dfrac{t}{T_{1}} \right) \right\rbrack\]
+\[
+M_{z}\left(t\right) = M_{z}\left(0\right)\exp\left( - \dfrac{t}{T_{1}} \right) + M_{0}\left( 1 - \exp\left( - \dfrac{t}{T_{1}} \right) \right)
+\]
 
-L'equazione di Bloch è fondamentale per studiare come il vettore di magnetizzazione raggiunga nuovamente l'equilibrio termodinamico, a valle di una perturbazione.
+Questa equazione è fondamentale per descrivere come il vettore di magnetizzazione ritorni all'equilibrio dopo una perturbazione.
 
-La costante di tempo \(T_{1}\) è un parametro essenziale per la caratterizzazione dei tessuti, così da eseguire l'\emph{imaging}. Tessuti diversi sono caratterizzati da un tempo di rilassamento longitudinale specifico.
+Il parametro \(T_{1}\) è essenziale per la caratterizzazione dei tessuti, e quindi per l'\textit{imaging} in risonanza magnetica. Tessuti diversi presentano valori specifici di tempo di rilassamento longitudinale.
 
-\subsubsection{Iterazioni spin-spin}\label{iterazioni-spin-spin}
+\subsection{Iterazioni spin-spin}\label{iterazioni-spin-spin}
 
-Un importante meccanismo, che determina il decadimento delle componenti trasversali della magnetizzazione, è la generazioni di campi locali prodotti dagli spin. Questi campi si combinano col campo principale applicando, modificando localmente il campo in cui sono immersi i campi vicini.
+Un importante meccanismo che determina il decadimento delle componenti trasversali della magnetizzazione è la generazione di campi locali prodotti dagli spin. Questi campi si combinano con il campo principale applicato, modificando localmente il campo in cui sono immersi gli spin vicini.
 
-Si considera un singolo spin, il campo prodotto da questo spin è indicato con \({\vec{B}}_{loc}\). Gli altri spin genereranno dei campi diversi. Tutte le componenti verticali possiedono intensità diverse, non predicibili in quanto non è possibile ricostruire il moto di ogni singolo spin del volumetto considerato.
+Si considera un singolo spin.  il campo prodotto da esso è indicato con \({\vec{B}}_{loc}\). Gli altri spin generano campi differenti. Le componenti verticali di questi campi hanno intensità diverse e non predicibili, poiché non è possibile ricostruire il moto di ogni singolo spin nel volumetto considerato.
 
-Per studiare il campo locale visto da uno spin si utilizza il valor quadratico medio:
+Per studiare il campo locale percepito da uno spin, si utilizza il valor quadratico medio:
 
-\[B_{RMS} = \sqrt{\left\langle \left| {\vec{B}}_{loc} \right| \right\rangle^{2}}\]
+\[
+B_{RMS} = \sqrt{\left\langle \left| {\vec{B}}_{loc} \right|^{2} \right\rangle}
+\]
 
-Dunque, vi è una componente magnetica del campo valor quadratico medio lungo \({\hat{i}}_{z}\). Questa componente si sovrappone al campo magnetico principale \(B_{0}{\hat{i}}_{z}\), applicato dall'esterno; ciò determina una variazione della frequenza con cui i singoli spin precedono intorno all'asse \({\hat{i}}_{z}\).
+Esiste quindi una componente magnetica media lungo \({\hat{\imath}}_{z}\), che si sovrappone al campo magnetico principale \(B_{0}{\hat{\imath}}_{z}\), determinando una variazione della frequenza di precessione degli spin attorno all'asse \({\hat{\imath}}_{z}\).
 
-Data l'agitazione termina, gli spin sono in moto relativo, quindi, la loro posizione non è statica ma dinamica. Ne consegue che il campo locale prodotto da uno spin varia nel tempo, poiché, appunto, varia la distribuzione locale degli spin. Per tale motivo il campo valor quadratico medio è una funzione del tempo:
+A causa dell'agitazione termica, gli spin sono in moto relativo, quindi la loro posizione è dinamica. Ne consegue che il campo locale prodotto da uno spin varia nel tempo, e il valor quadratico medio diventa funzione del tempo:
 
-\[B_{RMS}\left(t\right) = \sqrt{\left\langle \left| {\vec{B}}_{loc}\left(t\right) \right| \right\rangle^{2}}\]
+\[
+B_{RMS}\left(t\right)  = \sqrt{\left\langle \left| {\vec{B}}_{loc}\left(t\right)  \right|^{2} \right\rangle}
+\]
 
-Sia \(t_{1}\) un primo istante di osservazione; il campo locale di uno spin vale \({\vec{B}}_{loc}\left( t_{1} \right)\). In un secondo istante temporale \(t_{2}\), successivo al primo, il campo locale sarà diverso, a causa del modi termici, per cui:
+Sia \(t_{1}\) un primo istante di osservazione: il campo locale prodotto da uno spin vale \({\vec{B}}_{loc}(t_{1})\). In un istante successivo \(t_{2}\), il campo, a causa dei moti termici, sarà diverso:
 
-\[{\vec{B}}_{loc}\left( t_{1} \right) \neq {\vec{B}}_{loc}\left( t_{2} \right)\]
+\[
+{\vec{B}}_{loc}\left( t_{1} \right) \neq {\vec{B}}_{loc}\left( t_{2} \right)
+\]
 
 Questo risultato è dovuto alla diversa configurazione degli spin tra gli istanti \(t_{1}\) e \(t_{2}\).
 
-Per ogni spin, la frequenza di precessione intorno all'asse \({\hat{i}}_{z}\) è diversa dagli altri ed è data da:
+a frequenza di precessione intorno all'asse \({\hat{\imath}}_{z}\) di ciascuno spin è quindi diversa e data da:
 
-\[\mathrm{\Delta}\omega\left(t\right) = \gamma{\vec{B}}_{loc}\left(t\right)\]
+\[
+\Delta \omega\left(t\right) = \gamma{\vec{B}}_{loc}\left(t\right)
+\]
 
-Dove \(\mathrm{\Delta}\omega = \omega_{0} - \omega_{loc}\left(t\right)\). La differenza tra le frequenze di precessione è, dunque, una funzione del tempo. Dati due istanti temporale, risulta:
+Dove \(\Delta \omega = \omega_{0} - \omega_{loc}\left(t\right)\). La differenza tra le frequenze di precessione è, dunque, una funzione del tempo. Dati due istanti temporale, risulta:
 
-\[\mathrm{\Delta}\omega\left( t_{1} \right) = \gamma{\vec{B}}_{loc}\left( t_{1} \right) \neq \mathrm{\Delta}\omega\left( t_{2} \right) = \gamma{\vec{B}}_{loc}\left( t_{2} \right)\]
+\[\
+Delta \omega\left( t_{1} \right) = \gamma{\vec{B}}_{loc}\left( t_{1} \right) \neq \Delta \omega\left( t_{2} \right) = \gamma{\vec{B}}_{loc}\left( t_{2} \right)
+\]
 
-Ovviamente \(\mathrm{\Delta}\omega\left( t_{1} \right) \neq \mathrm{\Delta}\omega\left( t_{2} \right)\) poiché i campi locali nei due istanti temporali sono diversi.
+Ovviamente \(\Delta \omega\left( t_{1} \right) \neq \Delta \omega\left( t_{2} \right)\) poiché i campi locali nei due istanti temporali sono diversi.
 
-Si vuole studiare il fenomeno del campo locale nel sistema di riferimento locale. Tralasciando la frequenza principale \(\omega_{0}\), restano solamente le variazioni \(\mathrm{\Delta}\omega\) dovute alle iterazioni tra uno spin e i protoni locali. Queste variazioni, nel sistema rotante danno luogo a delle variazioni di fase:
+Si vuole studiare il fenomeno del campo locale nel sistema di riferimento locale. Trascurando la frequenza principale \(\omega_{0}\), restano solamente le variazioni \(\Delta \omega\) dovute alle iterazioni tra uno spin e i protoni locali. Queste variazioni, nel sistema rotante danno luogo a delle variazioni di fase:
 
-\[\vartheta = \int_{t_{0}}^{t_{1}}{\mathrm{\Delta}\omega\left( t' \right)dt'}\]
+\[
+\vartheta = \int_{t_{0}}^{t_{1}}{\Delta \omega\left( t' \right)dt'}
+\]
 
 Può capitare che in un istante la fase cresca più rapidamente, altre volte meno rapidamente. In ogni caso la rotazione degli spin avviene sempre, complessivamente, in senso orario. Nel sistema rotante, in particolare, le variazioni di fase possono essere sia positive che negative; di conseguenza, la proiezione dello spin sul piano \(x' - y'\) non è fissa ma varia nel tempo, secondo la sua variazione di fase legate al campo locale.
 
@@ -1379,102 +1602,125 @@ Può capitare che in un istante la fase cresca più rapidamente, altre volte men
 \includegraphics[width=4.22917in,height=1.49311in,alt={P3268\#yIS1}]{media/6_IntroMRI/image73.pdf}\caption{Variazione della fase a causa del campo locale}
 \end{figure}
 
-La proiezione di tutti gli spine nel piano \(x' - y'\) è del tutto casuale, poiché casuale è il campo locale che ogni spin percepisce. È possibile, quindi, concludere che le proiezioni degli spin sono tutte distribuite uniformemente nel piano \(x' - y'\). Di conseguenza, l'effetto medio, percepito a livello macroscopico nel volumetto contenente un numero di Avogadro di particelle, è l'annullamento delle componenti trasverse del vettore di magnetizzazione. Infatti, le componente trasversa, essendo casuali, si elidono a vicenda; ovvero, la risultate media della componente trasversa del vettore di magnetizzazione è nulla, dato l'elevato numero di spin considerato.
+La proiezione di tutti gli spine nel piano \(x' - y'\) è casuale, poiché  il campo locale che ogni spin percepisce è  aleatorio. È possibile, quindi, concludere che le proiezioni degli spin sono tutte distribuite uniformemente nel piano \(x' - y'\). Di conseguenza, l'effetto medio, percepito a livello macroscopico nel volumetto contenente un numero di Avogadro di particelle, è l'annullamento delle componenti trasverse del vettore di magnetizzazione. Infatti, le componenti trasversali dei singoli spin, essendo casuali, si elidono a vicenda; ovvero, la risultate media della componente trasversa del vettore di magnetizzazione è nulla, dato l'elevato numero di spin considerato:
+
+\[
+\vec{M}_{\perp} \rightarrow 0
+\]
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=4.40341in,height=3.58333in,alt={P3271\#yIS1}]{media/6_IntroMRI/image74.pdf}\caption{Eliminazione delle componenti trasverse degli spin causa distribuzione uniforme}
 \end{figure}
 
-Le componenti longitudinali del campo magnetico prodotto da uno spin induce uno sfasamento e defasamento degli spin vicini, poiché procedono con frequenze diverse e casuali. Ne discende che la somma delle componenti trasversali degli spin mediamente è nulla. Da notare che lo sfasamento è legato alla fase diversa per ogni singolo spin.
+Le componenti longitudinali del campo magnetico prodotto da uno spin inducono sfasamenti e defasamenti degli spin vicini, che precessano con frequenze diverse e casuali. Ne discende che la somma delle componenti trasversali degli spin mediamente è nulla. Da notare che lo sfasamento è legato alla fase diversa per ogni singolo spin.
 
-Il tempo con cui la componente trasversale media va zero può essere stimato, studiando le iterazioni tra due spin. Si suppone che a un certo instante di tempo le fasi dei due spin siano le stesse.
+Il tempo con cui la componente trasversale media va zero può essere stimato, studiando le iterazioni tra due spin. Si suppone che a un certo instante di tempo le fasi dei due spin siano le stesse. In generale, la differenza di fase è data da:
 
-In generale, la differenza di fase è data da:
+\[
+\Delta \phi = \phi_{1} - \phi_{2} = \left( \phi_{0}^{1} - \Delta \omega_{{loc}_{1}}t \right) - \left( \phi_{0}^{2} - \Delta \omega_{{loc}_{2}}t \right)
+\]
 
-\[\mathrm{\Delta}\phi = \phi_{1} - \phi_{2} = \left( \phi_{0}^{1} - \mathrm{\Delta}\omega_{{loc}_{1}}t \right) - \left( \phi_{0}^{2} - \mathrm{\Delta}\omega_{{loc}_{2}}t \right)\]
+dove \(\Delta \omega_{{loc}_{1}}\) e \(\Delta \omega_{{loc}_{2}}\) sono le frequenze di precessione relative dei campi magnetici locali rispetto al campo magnetico principale. Se le fasi inziali dei due spin sono le stesse, ovvero \(\phi_{0}^{1} = \phi_{0}^{2}\), la differenza di fase si scrive come:
 
-Dove \(\mathrm{\Delta}\omega_{{loc}_{1}}\) e \(\mathrm{\Delta}\omega_{{loc}_{2}}\) sono le frequenze di precessione relative rispetto a quelle del campo magnetico principale, legati ai campi locali, rispettivamente del primo spin, \(B_{{loc}_{1}}\) e del secondo spin \(B_{{loc}_{2}}\).
-
-Se le fasi inziali dei due spin sono le stesse, ovvero \(\phi_{0}^{1} = \phi_{0}^{2}\), la differenza di fase si scrive come:
-
-\[\mathrm{\Delta}\phi = - \left( \mathrm{\Delta}\omega_{{loc}_{1}} - \mathrm{\Delta}\omega_{{loc}_{2}} \right)t\]
+\[
+\Delta \phi = - \left( \Delta \omega_{{loc}_{1}} - \Delta \omega_{{loc}_{2}} \right)
+\]
 
 Le frequenze di precessione relative rispetto a quelle del campo magnetico principale possono essere scritte in funzione del campo locale:
 
-\[\mathrm{\Delta}\omega_{{loc}_{i}} = \gamma B_{{loc}_{i}},\ \ i = 1,2\]
+\[
+\Delta \omega_{{loc}_{\imath}} = \gamma B_{{loc}_{\imath}},\ \ i = 1,2
+\]
 
 Per cui la differenza di fase può essere scritta come:
 
-\[\mathrm{\Delta}\phi = - \left( \gamma B_{{loc}_{1}} - \gamma B_{{loc}_{2}} \right)t\]
+\[
+\Delta \phi = - \left( \gamma B_{{loc}_{1}} - \gamma B_{{loc}_{2}} \right)t
+\]
 
 Si indica la differenza di campi locali come:
 
-\[\mathrm{\Delta}B_{loc} = B_{{loc}_{1}} - B_{{loc}_{2}}\]
+\[
+\Delta B_{loc} = B_{{loc}_{1}} - B_{{loc}_{2}}
+\]
 
 Si ottiene:
 
-\[\mathrm{\Delta}\phi = - \gamma\mathrm{\Delta}B_{loc}t\]
+\[
+\Delta \phi = - \gamma\Delta B_{loc}t
+\]
 
-Per avere una risultate netta nulla nel piano trasverso, le due proiezioni sul piano \(x' - y'\) devono essere uguali e oppure, dunque, la differenza di fase deve essere \(\mathrm{\Delta}\phi = \pi\). È, ora, possibile ottenere il tempo con cui due spin annullano le proprie componenti trasversali. Si indica tale tempo con \(\tau\):
+Per avere una risultate netta nulla nel piano trasverso, le due proiezioni sul piano \(x' - y'\) devono essere uguali e oppure la differenza di fase deve essere \(\Delta \phi = \pi\). È, ora, possibile ottenere il tempo con cui due spin annullano le proprie componenti trasversali. Si indica tale tempo con \(\tau\):
 
-\[\mathrm{\Delta}\phi = \pi = - \gamma\mathrm{\Delta}B_{loc}\tau\]
+\[
+\Delta \phi = \pi = - \gamma\Delta B_{loc}\tau
+\]
 
 Da cui:
 
-\[\tau = - \dfrac{\pi}{\gamma\mathrm{\Delta}B_{loc}}\]
+\[
+\tau = - \dfrac{\pi}{\gamma\Delta B_{loc}}
+\]
 
 Le differenze dei campi indotti hanno un'intensità proporzionale al fattore \(3\mu/r^{3}\):
 
-\[B_{loc} \propto \dfrac{3\mu}{r^{3}}\]
+\[
+B_{loc} \propto \dfrac{3\mu}{r^{3}}
+\]
 
 Il tempo di defasamento, al limite (ignorando le costanti), è dato da:
 
-\[\tau\sim\dfrac{\pi}{\gamma\dfrac{\mu}{r^{3}}} = \dfrac{\pi r^{3}}{\mu\gamma}\]
+\[
+\tau\sim\dfrac{\pi}{\gamma\dfrac{\mu}{r^{3}}} = \dfrac{\pi r^{3}}{\mu\gamma}
+\]
 
-Da questa relazione, noti i valori medi del momento magnetico e della distanza interatomica, è possibile ottenere una stima del tempo di defasamento più o meno concorde ai dati sperimentali. La stima di basa su una descrizione non esatta del fenomeno, in quanto fondata della meccanica classica; tuttavia, è usata poiché permette di ottenere una buona stima dei risultati sperimentali.
+Questa stima, sebbene basata su meccanica classica, è coerente con i dati sperimentali. Da questa relazione, noti i valori medi del momento magnetico e della distanza interatomica, è possibile ottenere una stima del tempo di defasamento più o meno concorde ai dati sperimentali. La stima di basa su una descrizione non esatta del fenomeno, in quanto fondata della meccanica classica; tuttavia, fornisce dei risultati vicini ai dati empirici.
 
-Il tempo di defasamento \(\tau\) è indicato con \(T_{2}\) ed è detto tempo di rilassamento traversarsele. \(T_{2}\) rappresenta la costante di tempo con cui la componente trasversale del vettore di magnetizzazione, \({\vec{M}}_{\perp}\), tende a zero:
+Il tempo di defasamento \(\tau\) è indicato con \(T_{2}\) ed è detto tempo di \textbf{rilassamento traversarsele}. Questo tempo rappresenta la costante di tempo con cui la componente trasversale del vettore di magnetizzazione, \({\vec{M}}_{\perp}\), tende a zero:
 
-\[M_{x} \rightarrow 0,\ \ M_{y} \rightarrow 0\]
+\[
+M_{x} \rightarrow 0,\ \ M_{y} \rightarrow 0
+\]
 
-\(T_{2}\) è generalmente minore nei solidi rispetto ai liquidi.
+Generalmente, \(T_{2}\) è minore nei solidi rispetto ai liquidi.
 
-\subsection{Equazioni di Bloch}\label{equazioni-di-bloch}
+\section{Equazioni di Bloch}\label{equazioni-di-bloch}
 
-All'equazione che descrive la magnetizzazione macroscopica di un volumetto elementare:
+L'equazione che descrive la magnetizzazione macroscopica di un volumetto elementare è:
 
 \[\dfrac{d\vec{M}}{dt} = \gamma\vec{M} \times {\vec{B}}_{0}\]
 
-vanno aggiunti due termini che tengono conto dei fenomeni di rilassamento. Il primo termine è legato agli scambi energetici tra uno spin e il reticolo, visto come un serbatoio termico, il secondo legato alle iterazioni locali tra spin:
+A questa vanno aggiunti due termini che tengono conto dei fenomeni di rilassamento: il primo è legato agli scambi energetici tra uno spin e il reticolo (visto come un serbatoio termico), il secondo alle interazioni locali tra spin:
 
-\[\dfrac{d\vec{M}}{dt} = \gamma\vec{M} \times {\vec{B}}_{0} + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{i}}_{z} - \dfrac{1}{T_{2}}{\vec{M}}_{\perp}\]
+\[
+\dfrac{d\vec{M}}{dt} = \gamma\vec{M} \times {\vec{B}}_{0} + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{\imath}}_{z} - \dfrac{1}{T_{2}}{\vec{M}}_{\perp}
+\]
 
-La precedente equazione è detta di Bloch. Il segno meno nel termine \({\vec{M}}_{\perp}/T_{2}\) è dovuto al tendere a zero della componente traversale del vettore di magnetizzazione con un tempo \(T_{2}\).
+La precedente relazione è detta \textbf{equazione di Bloch}. Il segno meno nel termine \({\vec{M}}_{\perp}/T_{2}\) riflette il decadimento verso lo zero della componente trasversale della magnetizzazione con tempo caratteristico \(T_{2}\).
 
-Le equazioni di Bloch forniscono una descrizione fenomenologica del vettore di magnetizzazione, poiché non descrive i fenomeni fisici ma forniscono dei risultati concordi alle osservazioni sperimentali. Inoltre, le equazioni di Bloch non possono essere dedotte utilizzando la meccanica quantistica.
+Le equazioni di Bloch forniscono una descrizione fenomenologica del comportamento del vettore di magnetizzazione, poiché non derivano dalla meccanica quantistica, ma sono coerenti con le osservazioni sperimentali. Inoltre, le equazioni di Bloch non possono essere dedotte utilizzando la meccanica quantistica.
 
-In letteratura anglosassone si definisce rilassività o relaxivity longitudinale e trasversale come:
+In letteratura anglosassone si definiscono le rilassività (o \textit{relaxivity}) longitudinale e trasversale come:
 
-\[R_{1} = \dfrac{1}{T_{1}},\ \ R_{2} = \dfrac{1}{T_{2}}\]
+\[
+R_{1} = \dfrac{1}{T_{1}},\ \ R_{2} = \dfrac{1}{T_{2}}
+\]
 
 L'equazione vettoriale di Bloch può essere anche scritta in termini di relaxivity
 
-\[\dfrac{d\vec{M}}{dt} = \gamma\vec{M} \times {\vec{B}}_{0} + R_{1}\left( M_{0} - M_{z}\  \right){\hat{i}}_{z} - R_{2}{\vec{M}}_{\perp}\]
+\[
+\dfrac{d\vec{M}}{dt} = \gamma\vec{M} \times {\vec{B}}_{0} + R_{1}\left( M_{0} - M_{z}\  \right){\hat{\imath}}_{z} - R_{2}{\vec{M}}_{\perp}
+\]
 
-I tempi di rilassamento permettono di caratterizzare tessuti diversi e di identificare lo stato di salute di un tessuto stesso.
-
-I tempi di rilassamento sono abbastanza variabili a seconda del tessuto; in particolare, tra i vari tessuti molli vi è una grande variabilità dei tempi di rilassamento. Ciò consente di discriminare con gradi di grigio diversi i tempi di rilassamento i diversi tessuti.
+I tempi di rilassamento permettono di caratterizzare i tessuti e di identificare lo stato di salute. Essi variano significativamente tra i diversi tessuti molli, consentendo di discriminare i tessuti mediante diverse intensità di segnale (gradi di grigio) nelle immagini.
 
 Le differenze di tempo di rilassamento longitudinale \(T_{1}\) non possono essere determinate sulla base della teoria quantistica, a causa dell'elevata complessità biochimiche dei tessuti umani.
 
-In media, la composizione dei vari tessuti è simile tra i diversi individui, quindi, in un paziente i tempo di rilassamento sono grossomodo simili a quelli medi. Mediante delle opportune sequenze di acquisizione è possibile ottenere informazioni sui tempi di rilassamento, caratterizzando così il tessuto.
+In media, la composizione dei tessuti è simile tra individui, quindi i tempi di rilassamento di un paziente sono generalmente confrontabili con quelli medi. Mediante opportune sequenze di acquisizione, è possibile stimare i tempi di rilassamento e caratterizzare i tessuti.
 
-\begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{0.33\linewidth}
-  >{\centering\arraybackslash}p{0.33\linewidth}
-  >{\centering\arraybackslash}p{0.33\linewidth}@{}}
-\caption{Tabella 6.1: Tempi di rilassamento di vari tessuti molli con campo principale di \(1.5\ \mathrm{T}\) e temperatura di \(37\,^{\circ}\mathrm{C}\)}\tabularnewline
+\begin{longtable}{@{}>{\centering\arraybackslash}p{0.33\linewidth} >{\centering\arraybackslash}p{0.33\linewidth} >{\centering\arraybackslash}p{0.33\linewidth}@{}}
+\caption{Tempi di rilassamento di vari tessuti molli con campo principale di \(1.5\ \mathrm{T}\) e temperatura di \(37\,^{\circ}\mathrm{C}\)}\tabularnewline
 \toprule
 \textbf{Tessuto} & \textbf{Tempo di rilassamento longitudinale \(T_{1}\)} & \textbf{Tempo di rilassamento trasversale \(T_{2}\)} \\
 \midrule
@@ -1497,38 +1743,39 @@ Fluido cerebrospinale (CSF) & \(\sim 4500\,\mathrm{ms}\) & \(\sim 2200\,\mathrm{
 
 \end{longtable}
 
+Generalmente, il tempo di rilassamento longitudinale è maggiore di quello trasversale, ovvero \(T_{1} > T_{2}\). Di conseguenza, l'evoluzione longitudinale è più lenta rispetto a quella trasversale. Analogamente, per le rilassività si ha \(R_{2} > R_{1}\).
 
-Generalmente risulta che il tempo di rilassamento longitudinale è maggiore di quello trasversale, \(T_{1} > T_{2}\), quindi, l'evoluzione longitudinale evolve più lentamente di quella trasversale. Analogamente per le relaxivity risulta \(R_{2} > R_{1}\).
-
-\subsubsection{Risoluzione dell'equazione di Bloch}\label{risoluzione-dellequazione-di-bloch}
+\subsection{Risoluzione dell'equazione di Bloch}\label{risoluzione-dellequazione-di-bloch}
 
 Si è visto che l'equazione vettoriale di Bloch, comprendente i tempi di rilassamento longitudinale e traversale è:
 
-\[\dfrac{d\vec{M}}{dt} = \gamma\vec{M} \times {\vec{B}}_{0} + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{i}}_{z} - \dfrac{1}{T_{2}}{\vec{M}}_{\perp}\]
+\[\dfrac{d\vec{M}}{dt} = \gamma\vec{M} \times {\vec{B}}_{0} + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{\imath}}_{z} - \dfrac{1}{T_{2}}{\vec{M}}_{\perp}\]
 
 Questa equazione descrive da un punto di vista classico l'andamento del vettore di magnetizzazione \(\vec{M}\) nel tempo.
 
-Si suppone di forzare il sistema di spin mediante un campo magnetico principale \(B_{0}\) diretto lungo \({\hat{i}}_{z}\). Si scrive il prodotto vettorale tra il vettore di magnetizzazione e il campo esterno applicato:
+Si suppone di forzare il sistema di spin mediante un campo magnetico principale \(B_{0}\) diretto lungo \({\hat{\imath}}_{z}\). Si scrive il prodotto vettorale tra il vettore di magnetizzazione e il campo esterno applicato:
 
 \[\vec{M} \times {\vec{B}}_{0} = \left| \begin{matrix}
-{\hat{i}}_{x} & {\hat{i}}_{y} & {\hat{i}}_{z} \\
+{\hat{\imath}}_{x} & {\hat{\imath}}_{y} & {\hat{\imath}}_{z} \\
 M_{x} & M_{y} & M_{z} \\
 0 & 0 & B_{0}
-\end{matrix} \right| = B_{0}\left( M_{y}{\hat{i}}_{x} - M_{x}{\hat{i}}_{y} \right)\]
+\end{matrix} \right| = B_{0}\left( M_{y}{\hat{\imath}}_{x} - M_{x}{\hat{\imath}}_{y} \right)\]
 
 Si scrive l'equazione di Bloch esplicitando le componenti dei vettori coinvolti:
 
-\[\dfrac{d}{dt}\left( M_{x}{\hat{i}}_{x} + M_{y}{\hat{i}}_{y} + M_{z}{\hat{i}}_{z} \right) = \gamma B_{0}\left( M_{y}{\hat{i}}_{x} - M_{x}{\hat{i}}_{y} \right) + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{i}}_{z} - \dfrac{1}{T_{2}}\left( M_{x}{\hat{i}}_{x} + M_{y}{\hat{i}}_{y} \right)\]
+\[\dfrac{d}{dt}\left( M_{x}{\hat{\imath}}_{x} + M_{y}{\hat{\imath}}_{y} + M_{z}{\hat{\imath}}_{z} \right) = \gamma B_{0}\left( M_{y}{\hat{\imath}}_{x} - M_{x}{\hat{\imath}}_{y} \right) + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{\imath}}_{z} - \dfrac{1}{T_{2}}\left( M_{x}{\hat{\imath}}_{x} + M_{y}{\hat{\imath}}_{y} \right)\]
 
 Per effetto del campo magnetico principale, il vettore di magnetizzazione si sposta da una configurazione iniziale \(\vec{M}\left( t_{0} \right)\) a quella finale, descritta dall'equazione di Bloch.
 
 Si proietta quest'ultima lungo gli assi:
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 \dfrac{dM_{x}}{dt} = \gamma B_{0}M_{y} - \dfrac{1}{T_{2}}M_{x} \\
 \dfrac{dM_{y}}{dt} = - \gamma B_{0}M_{x} - \dfrac{1}{T_{2}}M_{y} \\
 \dfrac{dM_{z}}{dt} = \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right)
-\end{matrix} \right.\ \]
+\end{cases} 
+\]
 
 Com'è facile osservare, l'evoluzione della componente longitudinale, \(M_{z}\), è indipendente da quelle trasversali \(M_{x}\) e \(M_{y}\); infatti, le relative equazioni non sono accoppiate dopo la proiezione sugli assi. Le componenti trasversa sono, invece, legate tra loro.
 
@@ -1580,7 +1827,7 @@ Ovviamente, per tempi sufficientemente lunghi:
 
 Se \(t_{0} = 0\), risulta:
 
-\[M_{z}\left(t\right) = M_{0}\left\lbrack 1 - \exp\left( - \dfrac{t}{T_{1}} \right) \right\rbrack + M_{z}(0)\exp\left( - \dfrac{t}{T_{1}} \right)\]
+\[M_{z}\left(t\right) = M_{0}\left\lbrack 1 - \exp\left( - \dfrac{t}{T_{1}} \right) \right\rbrack + M_{z}\left(0\right)\exp\left( - \dfrac{t}{T_{1}} \right)\]
 
 Supponendo che il valore iniziale della magnetizzazione sia nullo, la soluzione diventa:
 
@@ -1601,17 +1848,21 @@ Nella pratica, una volta immesso il paziente nel gantry della risonanza magnetic
 
 Per quanto riguarda le componenti trasversali, le equazioni che descrivono la loro evoluzione sono:
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 \dfrac{dM_{x}}{dt} = \gamma B_{0}M_{y} - \dfrac{1}{T_{2}}M_{x} \\
 \dfrac{dM_{y}}{dt} = - \gamma B_{0}M_{x} - \dfrac{1}{T_{2}}M_{y}
-\end{matrix} \right.\ \]
+\end{cases}
+\]
 
 Dove \(\omega_{0} = \ \gamma B_{0}\); per cui il sistema può essere scritto come:
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 \dfrac{dM_{x}}{dt} = \omega_{0}M_{y} - \dfrac{1}{T_{2}}M_{x} \\
 \dfrac{dM_{y}}{dt} = - \omega_{0}M_{x} - \dfrac{1}{T_{2}}M_{y}
-\end{matrix} \right.\ \]
+\end{cases}
+\]
 
 Si pone il sistema in forma matriciale:
 
@@ -1628,27 +1879,27 @@ M_{y}
 
 La soluzione di questa equazione è del tipo:
 
-\[{\vec{M}}_{\perp} = \vec{k}\exp\left( \lambda\textbf{I}t \right)\]
+\[{\vec{M}}_{\perp} = \vec{k}\exp\left( \lambda\mathbf{I}t \right)\]
 
 Sostituendo tale equazione nell'equazione differenziale si ha:
 
-\[\dfrac{d}{dt}\left\lbrack \vec{k}\exp\left( \lambda\textbf{I}t \right) \right\rbrack = \begin{pmatrix}
+\[\dfrac{d}{dt}\left\lbrack \vec{k}\exp\left( \lambda\mathbf{I}t \right) \right\rbrack = \begin{pmatrix}
  - \dfrac{1}{T_{2}} & \omega_{0} \\
  - \omega_{0} & - \dfrac{1}{T_{2}}
-\end{pmatrix}\vec{k}\exp\left( \lambda\textbf{I}t \right) \Leftrightarrow \lambda\textbf{I}\vec{k}\exp\left( \lambda\textbf{I}t \right) = \begin{pmatrix}
+\end{pmatrix}\vec{k}\exp\left( \lambda\mathbf{I}t \right) \Leftrightarrow \lambda\mathbf{I}\vec{k}\exp\left( \lambda\mathbf{I}t \right) = \begin{pmatrix}
  - \dfrac{1}{T_{2}} & \omega_{0} \\
  - \omega_{0} & - \dfrac{1}{T_{2}}
-\end{pmatrix}\vec{k}\exp\left( \lambda\textbf{I}t \right)\]
+\end{pmatrix}\vec{k}\exp\left( \lambda\mathbf{I}t \right)\]
 
-Moltiplicando per la matrice inversa a \(\vec{k}\exp\left( \lambda\textbf{I}t \right)\) si ottiene:
+Moltiplicando per la matrice inversa a \(\vec{k}\exp\left( \lambda\mathbf{I}t \right)\) si ottiene:
 
-\[\lambda\textbf{I} = \begin{pmatrix}
+\[\lambda\mathbf{I} = \begin{pmatrix}
  - \dfrac{1}{T_{2}} & \omega_{0} \\
  - \omega_{0} & - \dfrac{1}{T_{2}}
 \end{pmatrix} \Leftrightarrow \begin{pmatrix}
  - \dfrac{1}{T_{2}} - \lambda & \omega_{0} \\
  - \omega_{0} & - \dfrac{1}{T_{2}} - \lambda
-\end{pmatrix} = \textbf{0}\]
+\end{pmatrix} = \mathbf{0}\]
 
 Si pone il determinate della matrice individuata a zero, al fine di identificare i suoi autovettori. Conoscendo gli autovalori è possibile individuare anche il tipo di moto a cui sono soggette le componenti trasverse:
 
@@ -1673,24 +1924,30 @@ Gli autovalori della matrice dei coefficienti sono:
 
 Le soluzioni delle componenti trasverse sono del tipo:
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 M_{x}\left(t\right) = k_{1,x}\exp\left\lbrack \left( - \dfrac{1}{T_{2}} - j\omega_{0} \right)t \right\rbrack + k_{2,x}\exp\left\lbrack \left( - \dfrac{1}{T_{2}} + j\omega_{0} \right)t \right\rbrack \\
 M_{y}\left(t\right) = k_{1,y}\exp\left\lbrack \left( - \dfrac{1}{T_{2}} - j\omega_{0} \right)t \right\rbrack + k_{2,y}\exp\left\lbrack \left( - \dfrac{1}{T_{2}} + j\omega_{0} \right)t \right\rbrack
-\end{matrix} \right.\ \]
+\end{cases}
+\]
 
 Per le proprietà degli esponenziali, è possibile scrivere:
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 M_{x}\left(t\right) = k_{1,x}\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left( - j\omega_{0}t \right) + k_{2,x}\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left( j\omega_{0}t \right) \\
 M_{y}\left(t\right) = k_{1,y}\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left( - j\omega_{0}t \right) + k_{2,y}\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left( j\omega_{0}t \right)
-\end{matrix} \right.\ \]
+\end{cases}
+\]
 
 Raccogliendo il termine dipendente da \(T_{2}\), si ottiene:
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 M_{x}\left(t\right) = \left\lbrack k_{1,x}\exp\left( - j\omega_{0}t \right) + k_{2,x}\exp\left( j\omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}} \right) \\
 M_{y}\left(t\right) = \left\lbrack k_{1,y}\exp\left( - j\omega_{0}t \right) + k_{2,y}\exp\left( j\omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}} \right)
-\end{matrix} \right.\ \]
+\end{cases}
+\]
 
 Per individuare le costanti di integrazione bisognerebbe sostituire le equazioni individuate nel sistema di equazioni differenziali per le componenti trasverse e applicare le condizioni al contorno.
 
@@ -1700,27 +1957,33 @@ Per semplificare la trattazione si nota che la dipendenza da \(T_{2}\) è espres
 
 Le due equazioni differenziali si scrivono come:
 
-\[\left\{ \begin{matrix}
+\[\
+\begin{cases}
 \dfrac{dM_{x}}{dt} = \omega_{0}M_{y} - \dfrac{1}{T_{2}}M_{x} \\
 \dfrac{dM_{y}}{dt} = - \omega_{0}M_{x} - \dfrac{1}{T_{2}}M_{y}
-\end{matrix} \right.\  \Leftrightarrow \left\{ \begin{matrix}
+\end{cases} \  \Leftrightarrow \begin{cases}
 \dfrac{d}{dt}\left\lbrack m_{x}\exp\left( - \dfrac{t}{T_{2}} \right) \right\rbrack = \omega_{0}m_{y}\exp\left( - \dfrac{t}{T_{2}} \right) - \dfrac{1}{T_{2}}m_{x}\exp\left( - \dfrac{t}{T_{2}} \right) \\
 \dfrac{d}{dt}\left\lbrack m_{y}\exp\left( - \dfrac{t}{T_{2}} \right) \right\rbrack = - \omega_{0}m_{x}\exp\left( - \dfrac{t}{T_{2}} \right) - \dfrac{1}{T_{2}}m_{y}\exp\left( - \dfrac{t}{T_{2}} \right)
-\end{matrix} \right.\ \]
+\end{cases}
+\]
 
 Svolgendo le derivate, si ha:
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 \dfrac{dm_{x}}{dt}\exp\left( - \dfrac{t}{T_{2}} \right) - \dfrac{1}{T_{2}}m_{x}\exp\left( - \dfrac{t}{T_{2}} \right) = \omega_{0}m_{y}\exp\left( - \dfrac{t}{T_{2}} \right) - \dfrac{1}{T_{2}}m_{x}\exp\left( - \dfrac{t}{T_{2}} \right) \\
 \dfrac{dm_{y}}{dt}\exp\left( - \dfrac{t}{T_{2}} \right) - \dfrac{1}{T_{2}}m_{y}\exp\left( - \dfrac{t}{T_{2}} \right) = - \omega_{0}m_{x}\exp\left( - \dfrac{t}{T_{2}} \right) - \dfrac{1}{T_{2}}m_{y}\exp\left( - \dfrac{t}{T_{2}} \right)
-\end{matrix} \right.\ \]
+\end{cases}
+ \]
 
 Semplificando i termini comuni al primo e al secondo membro e il termine esponenziale dipendente da \(T_{2}\), si ottiene un semplice sistema di equazioni differenziali, la cui soluzione è nota:
 
-\[\left\{ \begin{matrix}
+\[
+begin{cases}
 \dfrac{dm_{x}}{dt} = \omega_{0}m_{y} \\
 \dfrac{dm_{y}}{dt} = - \omega_{0}m_{x}
-\end{matrix} \right.\ \]
+end{cases}
+\]
 
 Si deriva la prima equazione rispetto al tempo:
 
@@ -1744,38 +2007,46 @@ Svolgendo l'operazione di derivata si ottiene:
 
 In definitiva, si è ottenuto:
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 m_{x} = C_{1}\exp\left( - j\omega_{0}t \right) + C_{2}\exp\left( j\omega_{0}t \right) \\
 m_{y} = - jC_{1}\exp\left( - j\omega_{0}t \right) + jC_{2}\exp\left( j\omega_{0}t \right)
-\end{matrix} \right.\ \]
+\end{cases} 
+\]
 
 Tornando alle componenti trasverse si ha:
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 M_{x}\left(t\right) = \left\lbrack C_{1}\exp\left( - j\omega_{0}t \right) + C_{2}\exp\left( j\omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}} \right) \\
 M_{y}\left(t\right) = \left\lbrack - jC_{1}\exp\left( - j\omega_{0}t \right) + jC_{2}\exp\left( j\omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}} \right)
-\end{matrix} \right.\ \]
+\end{cases}
+\]
 
 Si suppone che il vettore di magnetizzazione sia noto all'istante \(t_{0}\). In questo modo è possibile individuare le costanti di integrazione:
 
-\[\left\{ \begin{matrix}
+\[\begin{cases}
 M_{x}\left( t_{0} \right) = \left\lbrack C_{1}\exp\left( - j\omega_{0}t_{0} \right) + C_{2}\exp\left( j\omega_{0}t_{0} \right) \right\rbrack\exp\left( - \dfrac{t_{0}}{T_{2}} \right) \\
 M_{y}\left( t_{0} \right) = \left\lbrack - jC_{1}\exp\left( - j\omega_{0}t_{0} \right) + jC_{2}\exp\left( j\omega_{0}t_{0} \right) \right\rbrack\exp\left( - \dfrac{t_{0}}{T_{2}} \right)
-\end{matrix} \right.\ \]
+\end{cases} 
+\]
 
 Si divide per il termine esponenziale per entrambe le equazioni:
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) = C_{1}\exp\left( - j\omega_{0}t_{0} \right) + C_{2}\exp\left( j\omega_{0}t_{0} \right) \\
 M_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) = - jC_{1}\exp\left( - j\omega_{0}t_{0} \right) + jC_{2}\exp\left( j\omega_{0}t_{0} \right)
-\end{matrix} \right.\ \]
+\end{cases}
+\]
 
 Si divide per l'unità immaginaria nella seconda equazione:
 
-\[\left\{ \begin{matrix}
+\[\begin{cases}
 M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) = C_{1}\exp\left( - j\omega_{0}t_{0} \right) + C_{2}\exp\left( j\omega_{0}t_{0} \right) \\
  - jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) = - C_{1}\exp\left( - j\omega_{0}t_{0} \right) + C_{2}\exp\left( j\omega_{0}t_{0} \right)
-\end{matrix} \right.\ \]
+\end{cases}
+\]
 
 Sommando membro a membro si ottiene:
 
@@ -1791,7 +2062,7 @@ Sottraendo membro a membro si ricava \(C_{1}\):
 
 \[C_{1} = \dfrac{1}{2}\left\lbrack M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) + jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right\rbrack\exp\left( j\omega_{0}t_{0} \right)\]
 
-La soluzione lungo \({\hat{i}}_{x}\) è:
+La soluzione lungo \({\hat{\imath}}_{x}\) è:
 
 \[M_{x}\left(t\right) = \left\lbrack C_{1}\exp\left( - j\omega_{0}t \right) + C_{2}\exp\left( j\omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}} \right)\]
 
@@ -1803,7 +2074,7 @@ Dove:
 
 \[C_{2}\exp\left( j\omega_{0}t \right) = \dfrac{1}{2}\left\lbrack M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) - jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right\rbrack\exp\left( - j\omega_{0}t_{0} \right)\exp\left( j\omega_{0}t \right) = \left\lbrack \dfrac{1}{2}M_{x}\left( t_{0} \right) - j\dfrac{1}{2}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( - j\omega_{0}t_{0} \right)\exp\left\lbrack j\omega_{0}\left( t - t_{0} \right) \right\rbrack = \left\lbrack \dfrac{1}{2}M_{x}\left( t_{0} \right) + \dfrac{1}{2j}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( - j\omega_{0}t_{0} \right)\exp\left\lbrack j\omega_{0}\left( t - t_{0} \right) \right\rbrack\]
 
-Quindi, la soluzione lungo \({\hat{i}}_{x}\) si scrive come:
+Quindi, la soluzione lungo \({\hat{\imath}}_{x}\) si scrive come:
 
 \[M_{x}\left(t\right) = \left\{ \left\lbrack \dfrac{1}{2}M_{x}\left( t_{0} \right) - \dfrac{1}{2j}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left\lbrack - j\omega_{0}\left( t - t_{0} \right) \right\rbrack + \left\lbrack \dfrac{1}{2}M_{x}\left( t_{0} \right) - j\dfrac{1}{2}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( - j\omega_{0}t_{0} \right)\exp\left\lbrack j\omega_{0}\left( t - t_{0} \right) \right\rbrack \right\}\exp\left( - \dfrac{t}{T_{2}} \right)\]
 
@@ -1815,7 +2086,7 @@ Per le relazioni di Eulero, risulta:
 
 \[M_{x}\left(t\right) = \left\{ M_{x}\left( t_{0} \right)\cos\left\lbrack \omega_{0}\left( t - t_{0} \right) \right\rbrack + M_{y}\left( t_{0} \right)\sin{\cos\left\lbrack \omega_{0}\left( t - t_{0} \right) \right\rbrack} \right\}\exp\left( - \dfrac{t - t_{0}}{T_{2}} \right)\]
 
-Analogamente, per la componente lungo \({\hat{i}}_{y}\) si ha:
+Analogamente, per la componente lungo \({\hat{\imath}}_{y}\) si ha:
 
 \[M_{y}\left(t\right) = \left\lbrack - jC_{1}\exp\left( - j\omega_{0}t \right) + jC_{2}\exp\left( j\omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}} \right)\]
 
@@ -1827,7 +2098,7 @@ Dove:
 
 \[= \left\lbrack - \dfrac{1}{2j}M_{x}\left( t_{0} \right) + \dfrac{1}{2}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left\lbrack j\omega_{0}\left( t - t_{0} \right) \right\rbrack\]
 
-Quindi, la soluzione lungo \({\hat{i}}_{y}\) si scrive come:
+Quindi, la soluzione lungo \({\hat{\imath}}_{y}\) si scrive come:
 
 \[M_{y}\left(t\right) = \left\{ \left\lbrack \dfrac{1}{2j}M_{x}\left( t_{0} \right) + \dfrac{1}{2}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left\lbrack - j\omega_{0}\left( t - t_{0} \right) \right\rbrack + \left\lbrack - \dfrac{1}{2j}M_{x}\left( t_{0} \right) + \dfrac{1}{2}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left\lbrack j\omega_{0}\left( t - t_{0} \right) \right\rbrack \right\}\exp\left( - \dfrac{t}{T_{2}} \right)\]
 
@@ -1841,17 +2112,20 @@ Per l'equivalenza di Eulero risulta:
 
 In definitiva, le componenti trasverse evolvono secondo le seguenti equazioni:
 
-\[\left\{ \begin{matrix}
+\[\begin{cases}
 M_{x}\left(t\right) = \left\{ M_{x}\left( t_{0} \right)\cos\left\lbrack \omega_{0}\left( t - t_{0} \right) \right\rbrack + M_{y}\left( t_{0} \right)\sin\left\lbrack \omega_{0}\left( t - t_{0} \right) \right\rbrack \right\}\exp\left( - \dfrac{t - t_{0}}{T_{2}} \right) \\
 M_{y}\left(t\right) = \left\{ - M_{x}\left( t_{0} \right)\sin\left\lbrack \omega_{0}\left( t - t_{0} \right) \right\rbrack + M_{y}\left( t_{0} \right)\cos\left\lbrack \omega_{0}\left( t - t_{0} \right) \right\rbrack \right\}\exp\left( - \dfrac{t - t_{0}}{T_{2}} \right)
-\end{matrix} \right.\ \]
+\end{cases}
+\]
 
 Se l'istante iniziale coincide con l'origine dei tempi, \(t_{0} = 0\), risulta:
 
-\[\left\{ \begin{matrix}
-M_{x}\left(t\right) = \left\lbrack M_{x}(0)\cos\left( \omega_{0}t \right) + M_{y}(0)\sin\left( \omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}} \right) \\
-M_{y}\left(t\right) = \left\lbrack - M_{x}(0)\sin\left( \omega_{0}t \right) + M_{y}(0)\cos\left( \omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t - t_{0}}{T_{2}} \right)
-\end{matrix} \right.\ \]
+\[
+\begin{cases}
+M_{x}\left(t\right) = \left\lbrack M_{x}\left(0\right)\cos\left( \omega_{0}t \right) + M_{y}\left(0\right)\sin\left( \omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}} \right) \\
+M_{y}\left(t\right) = \left\lbrack - M_{x}\left(0\right)\sin\left( \omega_{0}t \right) + M_{y}\left(0\right)\cos\left( \omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t - t_{0}}{T_{2}} \right)
+\end{cases}
+\]
 
 Per un tempo sufficientemente lungo, circa \(4 \div 5\) volte \(T_{2}\) è possibile ritenere la risposta transitoria esaurita, per cui le componenti trasversali sono nulle:
 
@@ -1863,15 +2137,15 @@ Siccome il tempo di rilassamento trasversale è dell'ordine di \(100\ ms\), il t
 
 È possibile scrivere la soluzione delle componenti trasversali in forma complessa, introducendo il fasore \(M_{+}\), definito come:
 
-\[M_{+}\left(t\right) = M_{x}\left(t\right) + jM_{y}\left(t\right) = \left\lbrack M_{x}(0)\cos\left( \omega_{0}t \right) + M_{y}(0)\sin\left( \omega_{0}t \right) - jM_{x}(0)\sin\left( \omega_{0}t \right) + jM_{y}(0)\cos\left( \omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}} \right)\]
+\[M_{+}\left(t\right) = M_{x}\left(t\right) + jM_{y}\left(t\right) = \left\lbrack M_{x}\left(0\right)\cos\left( \omega_{0}t \right) + M_{y}\left(0\right)\sin\left( \omega_{0}t \right) - jM_{x}\left(0\right)\sin\left( \omega_{0}t \right) + jM_{y}\left(0\right)\cos\left( \omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}} \right)\]
 
 Raccogliendo si ottiene:
 
-\[M_{+}\left(t\right) = \left\{ M_{x}(0)\left\lbrack \cos\left( \omega_{0}t \right) - j\sin\left( \omega_{0}t \right) \right\rbrack + jM_{y}(0)\left\lbrack \cos\left( \omega_{0}t \right) - j\sin\left( \omega_{0}t \right) \right\rbrack \right\}\exp\left( - \dfrac{t}{T_{2}} \right) = \left\{ \left\lbrack \cos\left( \omega_{0}t \right) - j\sin\left( \omega_{0}t \right) \right\rbrack\left\lbrack M_{x}(0) + jM_{y}(0) \right\rbrack \right\}\exp\left( - \dfrac{t}{T_{2}} \right)\]
+\[M_{+}\left(t\right) = \left\{ M_{x}\left(0\right)\left\lbrack \cos\left( \omega_{0}t \right) - j\sin\left( \omega_{0}t \right) \right\rbrack + jM_{y}\left(0\right)\left\lbrack \cos\left( \omega_{0}t \right) - j\sin\left( \omega_{0}t \right) \right\rbrack \right\}\exp\left( - \dfrac{t}{T_{2}} \right) = \left\{ \left\lbrack \cos\left( \omega_{0}t \right) - j\sin\left( \omega_{0}t \right) \right\rbrack\left\lbrack M_{x}\left(0\right) + jM_{y}\left(0\right) \right\rbrack \right\}\exp\left( - \dfrac{t}{T_{2}} \right)\]
 
 Dove:
 
-\[M_{+}(0) = M_{x}(0) + jM_{y}(0)\]
+\[M_{+}\left(0\right) = M_{x}\left(0\right) + jM_{y}\left(0\right)\]
 
 Inoltre, per l'identità di Eulero e le proprietà delle funzioni trigonometriche:
 
@@ -1879,7 +2153,7 @@ Inoltre, per l'identità di Eulero e le proprietà delle funzioni trigonometrich
 
 Per cui il fasore si scrive come:
 
-\[M_{+}\left(t\right) = M_{+}(0)\exp\left( - j\omega_{0}t \right)\exp\left( - \dfrac{t}{T_{2}} \right) = M_{+}(0)\exp\left\lbrack - \left( j\omega_{0}t + \dfrac{t}{T_{2}} \right) \right\rbrack\ \]
+\[M_{+}\left(t\right) = M_{+}\left(0\right)\exp\left( - j\omega_{0}t \right)\exp\left( - \dfrac{t}{T_{2}} \right) = M_{+}\left(0\right)\exp\left\lbrack - \left( j\omega_{0}t + \dfrac{t}{T_{2}} \right) \right\rbrack\ \]
 
 Tale relazione fornisce l'evoluzione temporale del vettore di magnetizzazione nel piano complesso. Il moto nel piano trasverso avviene con pulsazione \(\omega_{0}\) e con ampiezza che decade esponenzialmente con constante ti tempo \(T_{2}\). In circa \(500\ ms\) la componente trasversa del vettore di magnetizzazione si annulla.
 
@@ -1890,78 +2164,83 @@ Tale relazione fornisce l'evoluzione temporale del vettore di magnetizzazione ne
 
 Il vettore di magnetizzazione \(\vec{M}\), in definitiva, evolve secondo un movimento rotatorio decrescente nel piano trasverso con constante di tempo \(T_{2}\) e con andamento esponenziale crescente, e costante di tempo \(T_{1}\), lungo la direzione longitudinale. Le componenti del vettore di magnetizzazione sono:
 
-\[\left\{ \begin{matrix}
-M_{x}\left(t\right) = \left\lbrack M_{x}(0)\cos\left( \omega_{0}t \right) + M_{y}(0)\sin\left( \omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}} \right) \\
-M_{y}\left(t\right) = \left\lbrack - M_{x}(0)\sin\left( \omega_{0}t \right) + M_{y}(0)\cos\left( \omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t - t_{0}}{T_{2}} \right) \\
+\[
+ \begin{cases}
+M_{x}\left(t\right) = \left\lbrack M_{x}\left(0\right)\cos\left( \omega_{0}t \right) + M_{y}\left(0\right)\sin\left( \omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}} \right) \\
+M_{y}\left(t\right) = \left\lbrack - M_{x}\left(0\right)\sin\left( \omega_{0}t \right) + M_{y}\left(0\right)\cos\left( \omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t - t_{0}}{T_{2}} \right) \\
 M_{z}\left(t\right) = M_{0}\left\lbrack 1 - \exp\left( - \dfrac{t}{T_{1}} \right) \right\rbrack
-\end{matrix} \right.\ \]
+\end{cases} 
+\]
 
 La composizione dei due moti determina che il vettore di magnetizzazione ha un modulo variabile nel tempo.
 
 Si considera come condizione iniziale il vettore di magnetizzazione a valle di un ribaltamento nel piano trasverso a opera di un impulso a radiofrequenza. Al tempo \(t = 0\), il vettore di magnetizzazione è:
 
-\[\vec{M}(0) = M_{x}(0){\hat{i}}_{x} + M_{y}(0){\hat{i}}_{y}\]
+\[\vec{M}\left(0\right) = M_{x}\left(0\right){\hat{\imath}}_{x} + M_{y}\left(0\right){\hat{\imath}}_{y}\]
 
-La componente lungo \({\hat{i}}_{z}\) parte dal valore nullo e si porta al valore di regime in un tempo di \(5 \div 10\ s\), mentre quelle trasversali vanno a zero in un tempo di \(0.5 \div 1\ s\).
+La componente lungo \({\hat{\imath}}_{z}\) parte dal valore nullo e si porta al valore di regime in un tempo di \(5 \div 10\ s\), mentre quelle trasversali vanno a zero in un tempo di \(0.5 \div 1\ s\).
 
-La curva descritta dal vettore di magnetizzazione tende a raggiungere il valore di regime \(M_{0}\) sull'asse delle \({\hat{i}}_{z}\) mediante un andamento a spirale, convergente sull'asse del campo principale. Il modo elicoidale a raggio variabile lo si ritrova dopo una perturbazione ed è il moto in cui il vettore \(\vec{M}\) torna all'equilibrio termodinamico per effetto del campo principale \(B_{0}\). I tempi di rilassamento, quindi, interessano il ritorno all'equilibrio.
+La curva descritta dal vettore di magnetizzazione tende a raggiungere il valore di regime \(M_{0}\) sull'asse delle \({\hat{\imath}}_{z}\) mediante un andamento a spirale, convergente sull'asse del campo principale. Il modo elicoidale a raggio variabile lo si ritrova dopo una perturbazione ed è il moto in cui il vettore \(\vec{M}\) torna all'equilibrio termodinamico per effetto del campo principale \(B_{0}\). I tempi di rilassamento, quindi, interessano il ritorno all'equilibrio.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=3.1141in,height=2.12733in,alt={P3505\#yIS1}]{media/6_IntroMRI/image77.pdf}\caption{Evoluzione temporale del vettore di magnetizzazione a valle di un ribaltamento sul piano trasverso}
 \end{figure}
 
-\subsubsection{Vettore magnetizzazione durante una perturbazione}\label{vettore-magnetizzazione-durante-una-perturbazione}
+\subsection{Vettore magnetizzazione durante una perturbazione}\label{vettore-magnetizzazione-durante-una-perturbazione}
 
 Si vuole analizzare l'evoluzione temporale del vettore di magnetizzazione durante l'applicazione di un impulso a radiofrequenza, che perturba l'equilibrio del sistema. La trattazione viene eseguita nel sistema rotante in modo da poter essere facilmente comprensibile.
 
-Il campo efficace, visto da uno spin nel sistema di riferimento rotante al quale è applicato un impulso a radiofrequenza diretto lungo l'asse \({\hat{i}}_{x'}\), è:
+Il campo efficace, visto da uno spin nel sistema di riferimento rotante al quale è applicato un impulso a radiofrequenza diretto lungo l'asse \({\hat{\imath}}_{x'}\), è:
 
-\[{\vec{B}_{\text{eff}}} = \left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{i}}_{z} + B_{1}{\hat{i}}_{x'}\]
+\[{\vec{B}_{\text{eff}}} = \left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{z} + B_{1}{\hat{\imath}}_{x'}\]
 
 Dove \(\omega\) è la velocità di rotazione del sistema.
 
 L'equazione di Bloch, scritte nel sistema di riferimento rotante, è analoga a quella scritta nel sistema fisso del laboratorio:
 
-\[\left( \dfrac{d\vec{M}}{dt} \right)' = \gamma\vec{M} \times {\vec{B}_{\text{eff}}} + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{i}}_{z} - \dfrac{1}{T_{2}}{\vec{M}}_{\perp}\]
+\[\left( \dfrac{d\vec{M}}{dt} \right)' = \gamma\vec{M} \times {\vec{B}_{\text{eff}}} + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{\imath}}_{z} - \dfrac{1}{T_{2}}{\vec{M}}_{\perp}\]
 
-Questa equazione è stata ottenuta senza applicare nessuna ipotesi sul sistema di riferimento, quindi, è valida sia in sistemi inerziali che non inerziali. In particolare, la componente longitudinale del vettore di magnetizzazione evolve in maniera indipendente da quelle trasversali, quindi, il modo lungo l'asse \({\hat{i}}_{z}\) si conserva.
+Questa equazione è stata ottenuta senza applicare nessuna ipotesi sul sistema di riferimento, quindi, è valida sia in sistemi inerziali che non inerziali. In particolare, la componente longitudinale del vettore di magnetizzazione evolve in maniera indipendente da quelle trasversali, quindi, il modo lungo l'asse \({\hat{\imath}}_{z}\) si conserva.
 
 Si proietta l'equazione vettoriale di Bloch lungo gli assi, svolgendo il prodotto vettoriale:
 
 \[\vec{M} \times {\vec{B}_{\text{eff}}} = \left| \begin{matrix}
-{\hat{i}}_{x'} & {\hat{i}}_{y'} & {\hat{i}}_{z}\  \\
+{\hat{\imath}}_{x'} & {\hat{\imath}}_{y'} & {\hat{\imath}}_{z}\  \\
 M_{x'} & M_{y'} & M_{z} \\
 B_{1} & 0 & B_{0} - \dfrac{\omega}{\gamma}
-\end{matrix} \right| = M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{i}}_{x'} + M_{z}B_{1}{\hat{i}}_{y'} - M_{y'}B_{1}{\hat{i}}_{z} - M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{i}}_{y'}\]
+\end{matrix} \right| = M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{x'} + M_{z}B_{1}{\hat{\imath}}_{y'} - M_{y'}B_{1}{\hat{\imath}}_{z} - M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{y'}\]
 
 Raccogliendo i termini, si ottiene:
 
-\[\vec{M} \times {\vec{B}_{\text{eff}}} = M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{i}}_{x'} + M_{z}B_{1}{\hat{i}}_{y'} - M_{y'}B_{1}{\hat{i}}_{z} - M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{i}}_{y'} = M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{i}}_{x'} - \left\lbrack M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right) - M_{z}B_{1} \right\rbrack{\hat{i}}_{y'} - M_{y'}B_{1}{\hat{i}}_{z}\]
+\[\vec{M} \times {\vec{B}_{\text{eff}}} = M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{x'} + M_{z}B_{1}{\hat{\imath}}_{y'} - M_{y'}B_{1}{\hat{\imath}}_{z} - M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{y'} = M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{x'} - \left\lbrack M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right) - M_{z}B_{1} \right\rbrack{\hat{\imath}}_{y'} - M_{y'}B_{1}{\hat{\imath}}_{z}\]
 
 L'equazione vettoriale di Bloch si scrive:
 
-\[\left( \dfrac{d\vec{M}}{dt} \right)' = \gamma\vec{M} \times {\vec{B}_{\text{eff}}} + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{i}}_{z} - \dfrac{1}{T_{2}}{\vec{M}}_{\perp} = \gamma\left\{ M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{i}}_{x'} - \left\lbrack M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right) - M_{z}B_{1} \right\rbrack{\hat{i}}_{y'} - M_{y'}B_{1}{\hat{i}}_{z} \right\} + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{i}}_{z} - \dfrac{1}{T_{2}}\left( M_{x'}{\hat{i}}_{x'} + M_{y'}{\hat{i}}_{y'} \right)\]
+\[\left( \dfrac{d\vec{M}}{dt} \right)' = \gamma\vec{M} \times {\vec{B}_{\text{eff}}} + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{\imath}}_{z} - \dfrac{1}{T_{2}}{\vec{M}}_{\perp} = \gamma\left\{ M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{x'} - \left\lbrack M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right) - M_{z}B_{1} \right\rbrack{\hat{\imath}}_{y'} - M_{y'}B_{1}{\hat{\imath}}_{z} \right\} + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{\imath}}_{z} - \dfrac{1}{T_{2}}\left( M_{x'}{\hat{\imath}}_{x'} + M_{y'}{\hat{\imath}}_{y'} \right)\]
 
 Scomponendo lungo gli assi del sistema rotante si ottiene:
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 \left( \dfrac{dM_{x'}}{dt} \right)' = \gamma M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right) - \dfrac{1}{T_{2}}M_{x'} \\
 \left( \dfrac{dM_{y'}}{dt} \right)' = \gamma M_{z}B_{1} - \gamma M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right) - \dfrac{1}{T_{2}}M_{y'} \\
 \left( \dfrac{dM_{z}}{dt} \right)' = \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right) - \gamma M_{y'}B_{1}
-\end{matrix} \right.\ \]
+\end{cases} 
+\]
 
 Dove \(\omega_{1} = \gamma B_{1}\) e \(\omega_{0} = \gamma B_{0}\):
 
-\[\left\{ \begin{matrix}
+\[\begin{cases}
 \left( \dfrac{dM_{x'}}{dt} \right)' = \left( \omega_{0} - \omega \right)M_{y'} - \dfrac{1}{T_{2}}M_{x'} \\
 \left( \dfrac{dM_{y'}}{dt} \right)' = \omega_{1}M_{z} - \left( \omega_{0} - \omega \right)M_{x'} - \dfrac{1}{T_{2}}M_{y'} \\
 \left( \dfrac{dM_{z}}{dt} \right)' = \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right) - \omega_{1}M_{y'}
-\end{matrix} \right.\ \]
+\end{cases}
+\]
 
 Nelle equazioni \(\omega_{0}\) è la frequenza di Larmor, \(\omega_{1}\) è la frequenza del campo a radiofrequenza, mentre \(\omega\) è la frequenza con cui ruota il sistema di riferimento.
 
-Si definisce \(\mathrm{\Delta}\omega = \omega_{0} - \omega\) e rappresenta la deviazione dalla condizione ideale. Questa deviazione è legata alle disomogeneità del campo o alla variazioni delle frequenze dell'impulso utilizzato. Affinché il vettore di magnetizzazione ruoti dell'angolo desiderato, è necessario che l'impulso a radiofrequenza abbia una durata di qualche \(ms\). Nel dettaglio, il periodo di applicazione del campo a radiofrequenza, che genera la processione intorno a \({\hat{i}}_{x'}\), è di qualche millisecondo ed è legato alla pulsazione \(\omega_{1}\) dalla relazione:
+Si definisce \(\Delta \omega = \omega_{0} - \omega\) e rappresenta la deviazione dalla condizione ideale. Questa deviazione è legata alle disomogeneità del campo o alla variazioni delle frequenze dell'impulso utilizzato. Affinché il vettore di magnetizzazione ruoti dell'angolo desiderato, è necessario che l'impulso a radiofrequenza abbia una durata di qualche \(ms\). Nel dettaglio, il periodo di applicazione del campo a radiofrequenza, che genera la processione intorno a \({\hat{\imath}}_{x'}\), è di qualche millisecondo ed è legato alla pulsazione \(\omega_{1}\) dalla relazione:
 
 \[\omega_{1} = \dfrac{2\pi}{T}\]
 
@@ -1975,25 +2254,29 @@ A meno di un fattore \(2\pi\), risulta:
 
 Analogo discorso vale per il tempo di rilassamento trasversale \(T_{2}\), dell'ordine dei \(500\ ms\). Rispetto alla pulsazione \(\omega_{1}\), i termini che evolvono con costanti di tempo \(T_{1}\) e \(T_{2}\) possono essere trascurati, in quanto molto più lenti. L'evoluzione del vettore di magnetizzazione, in ultima analisi, non dipende dai tempi di rilassamento:
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 \left( \dfrac{dM_{x'}}{dt} \right)' = \left( \omega_{0} - \omega \right)M_{y'} \\
 \left( \dfrac{dM_{y'}}{dt} \right)' = \omega_{1}M_{z} - \left( \omega_{0} - \omega \right)M_{x'} \\
 \left( \dfrac{dM_{z}}{dt} \right)' = - \omega_{1}M_{y'}
-\end{matrix} \right.\ \]
+\end{cases}
+\]
 
 Se il sistema ruota con una pulsazione angolare molto prossima a quella di Larmor risulta:
 
-\[\omega_{0} \simeq \omega \Leftrightarrow \mathrm{\Delta}\omega = \omega_{0} - \omega \simeq 0\]
+\[\omega_{0} \simeq \omega \Leftrightarrow \Delta \omega = \omega_{0} - \omega \simeq 0\]
 
-È possibile, quindi, trascurare i termini contenenti \(\mathrm{\Delta}\omega\):
+È possibile, quindi, trascurare i termini contenenti \(\Delta \omega\):
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 \left( \dfrac{dM_{x'}}{dt} \right)' = 0 \\
 \left( \dfrac{dM_{y'}}{dt} \right)' = \omega_{1}M_{z} \\
 \left( \dfrac{dM_{z}}{dt} \right)' = - \omega_{1}M_{y'}
-\end{matrix} \right.\ \]
+\end{cases}
+\]
 
-Le equazioni individuate suggeriscono un moto di precessione intorno l'asse \({\hat{i}}_{x'}\).
+Le equazioni individuate suggeriscono un moto di precessione intorno l'asse \({\hat{\imath}}_{x'}\).
 
 Per le sequenze applicate normalmente nella pratica, in definitiva, si ritiene che la rotazione del vettore di magnetizzazione avvenga senza l'influenza dei tempi di rilassamento, poiché l'evoluzione temporale legata all'impulso a radiofrequenza è molto più veloce di quella legata ai fenomeni di rilassamento. Si approssima, inoltre, la frequenza di risonanza con quella del campo a radiofrequenza. Anche in presenza di tali approssimazioni, i risultati ottenuti sono attendibili, nel senso che concordi ai risultati sperimentali. Il ritorno all'equilibrio è, invece, caratterizzato dai tempi di rilassamento del tessuto.
 
@@ -2027,7 +2310,7 @@ L'evoluzione del vettore di magnetizzazione, legato all'applicazione dell'impuls
   Il fenomeno di recupero della magnetizzazione è caratterizzato dal ritorno all'equilibrio della magnetizzazione e avviene con costante di tempo \(T_{1}\), tempo di rilassamento per la componente longitudinale e costante di tempo \(T_{2}\) per la componente trasversale. I tempi di evoluzione del vettore di magnetizzazione dono paragonabili a quelli di rilassamento per cui non possono essere trascurati.
 \end{itemize}
 
-\subsubsection{Sequenza FID}\label{sequenza-fid}
+\subsection{Sequenza FID}\label{sequenza-fid}
 
 Per ottenere una misura del vettore di magnetizzazione, è necessario perturbare l'equilibrio raggiunto dagli spin contenuti nei tessuti del paziente. Dal segnale registrato è possibile, in seguito, ricavare le informazioni sui tempi di rilassamento \emph{spin-lattice}, \(T_{1}\), e spin-spin \(T_{2}\), così da caratterizzare completamente il tessuto. 
 
@@ -2037,9 +2320,9 @@ Successivamente, si registra il segnale \(s\) dovuto al ritorno all'equilibrio d
 
 Il segnale registrato è proporzionale alla componente trasversa del campo, dunque, le antenne ricevono una sinusoide, a frequenza \(\omega_{0}\) smorzata con un decadimento di tipo esponenziale e costante di tempo \(T_{2}\). Adoperando la notazione complessa, il segnale registrato dall'antenna è proporzionale al fasore \(M_{+}\left(t\right)\):
 
-\[M_{+}\left(t\right) = M_{+}(0)\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left( - j\omega_{0}t \right)\]
+\[M_{+}\left(t\right) = M_{+}\left(0\right)\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left( - j\omega_{0}t \right)\]
 
-Dove \(M_{+}(0)\) è proporzionale al vettore di magnetizzazione all'equilibrio termodinamico \(M_{0}\), che a sua volta dipende dalla densità protonica \(\rho\), indicante il numero di protoni nel volumetto \(V\).
+Dove \(M_{+}\left(0\right)\) è proporzionale al vettore di magnetizzazione all'equilibrio termodinamico \(M_{0}\), che a sua volta dipende dalla densità protonica \(\rho\), indicante il numero di protoni nel volumetto \(V\).
 
 Siccome non vi è nessun gradiente di campo, ogni spin all'interno del volume del paziente precede alla frequenza di Larmor \(\omega_{0}\), dunque, l'applicazione del campo rotante a frequenza prossima a quella di Larmor eccita tutti gli spin nel corpo del paziente. In questo caso, il volume-paziente non è considerato in tanti volumetti elementari ma è assunto essere un unico volume.
 
