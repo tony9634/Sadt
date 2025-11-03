@@ -1747,27 +1747,41 @@ Generalmente, il tempo di rilassamento longitudinale è maggiore di quello trasv
 
 \subsection{Risoluzione dell'equazione di Bloch}\label{risoluzione-dellequazione-di-bloch}
 
-Si è visto che l'equazione vettoriale di Bloch, comprendente i tempi di rilassamento longitudinale e traversale è:
+L'equazione vettoriale di Bloch, che include i termini di rilassamento longitudinale e trasversale, è:
+
 
 \[\dfrac{d\vec{M}}{dt} = \gamma\vec{M} \times {\vec{B}}_{0} + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{\imath}}_{z} - \dfrac{1}{T_{2}}{\vec{M}}_{\perp}\]
+
+dove:
+\begin{itemize}
+\item \(\vec{M}\) è il vettore di magnetizzazione;
+\item \(\vec{B}_0\) è il campo magnetico principale;
+\item \(T_1\) e \(T_2\) sono i tempi di rilassamento longitudinale e trasversale.
+\end{itemize}
 
 Questa equazione descrive da un punto di vista classico l'andamento del vettore di magnetizzazione \(\vec{M}\) nel tempo.
 
 Si suppone di forzare il sistema di spin mediante un campo magnetico principale \(B_{0}\) diretto lungo \({\hat{\imath}}_{z}\). Si scrive il prodotto vettorale tra il vettore di magnetizzazione e il campo esterno applicato:
 
-\[\vec{M} \times {\vec{B}}_{0} = \left| \begin{matrix}
-{\hat{\imath}}_{x} & {\hat{\imath}}_{y} & {\hat{\imath}}_{z} \\
-M_{x} & M_{y} & M_{z} \\
-0 & 0 & B_{0}
-\end{matrix} \right| = B_{0}\left( M_{y}{\hat{\imath}}_{x} - M_{x}{\hat{\imath}}_{y} \right)\]
+\[
+\vec{M} \times \vec{B}_0 =
+\begin{vmatrix}
+\hat{\imath}_x & \hat{\imath}_y & \hat{\imath}_z \\
+M_x & M_y & M_z \\
+0 & 0 & B_0
+\end{vmatrix}
+= B_0 (M_y \hat{\imath}_x - M_x \hat{\imath}_y)
+\]
 
-Si scrive l'equazione di Bloch esplicitando le componenti dei vettori coinvolti:
+Esplicitando le componenti, l'equazione di Bloch diventa:
 
-\[\dfrac{d}{dt}\left( M_{x}{\hat{\imath}}_{x} + M_{y}{\hat{\imath}}_{y} + M_{z}{\hat{\imath}}_{z} \right) = \gamma B_{0}\left( M_{y}{\hat{\imath}}_{x} - M_{x}{\hat{\imath}}_{y} \right) + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{\imath}}_{z} - \dfrac{1}{T_{2}}\left( M_{x}{\hat{\imath}}_{x} + M_{y}{\hat{\imath}}_{y} \right)\]
+\[
+\dfrac{d}{dt}\left( M_{x}{\hat{\imath}}_{x} + M_{y}{\hat{\imath}}_{y} + M_{z}{\hat{\imath}}_{z} \right) = \gamma B_{0}\left( M_{y}{\hat{\imath}}_{x} - M_{x}{\hat{\imath}}_{y} \right) + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{\imath}}_{z} - \dfrac{1}{T_{2}}\left( M_{x}{\hat{\imath}}_{x} + M_{y}{\hat{\imath}}_{y} \right)
+\]
 
-Per effetto del campo magnetico principale, il vettore di magnetizzazione si sposta da una configurazione iniziale \(\vec{M}\left( t_{0} \right)\) a quella finale, descritta dall'equazione di Bloch.
+Per effetto del campo magnetico principale, il vettore di magnetizzazione si sposta da una configurazione iniziale \(\vec{M}\left( t_{0} \right)\) a quella finale, descritta dall'equazione di Bloch. 
 
-Si proietta quest'ultima lungo gli assi:
+Si proietta l'ultima lungo gli assi:
 
 \[
 \begin{cases}
@@ -1777,74 +1791,102 @@ Si proietta quest'ultima lungo gli assi:
 \end{cases} 
 \]
 
-Com'è facile osservare, l'evoluzione della componente longitudinale, \(M_{z}\), è indipendente da quelle trasversali \(M_{x}\) e \(M_{y}\); infatti, le relative equazioni non sono accoppiate dopo la proiezione sugli assi. Le componenti trasversa sono, invece, legate tra loro.
+Com'è facile osservare, la componente longitudinale \(M_z\left(t\right)\) evolve indipendentemente dalle componenti trasversali \(M_{x}\) e \(M_{y}\); infatti, le relative equazioni non sono accoppiate dopo la proiezione sugli assi. Le componenti trasversa sono, invece, legate tra loro.
 
 Si risolve l'equazione relativa alla componente longitudinale del vettore \(\vec{M}\):
 
-\[\dfrac{dM_{z}}{dt} = \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right)\]
+\[
+\dfrac{dM_{z}}{dt} = \dfrac{1}{T_{1}}\left( M_{0} - M_{z} \right)
+\]
 
 Si passa all'equazione omogenea associata:
 
-\[\dfrac{dM_{z}}{dt} = \dfrac{1}{T_{1}}M_{z}\]
+\[
+\dfrac{dM_{z}}{dt} = \dfrac{1}{T_{1}}M_{z}
+\]
 
 La soluzione di questa equazione è del tipo:
 
-\[M_{z}\left(t\right) = k\exp\left( - \dfrac{t}{T_{1}} \right)\]
+\[
+M_{z}\left(t\right) = k\exp\left( - \dfrac{t}{T_{1}} \right)
+\]
 
 Dove \(k\) è una costante dipendente dalle condizioni iniziali del sistema.
 
 Alla soluzione dell'omogenea, va associata una soluzione particolare. Siccome il forzamento è costante una possibile soluzione particolare è del tipo:
 
-\[M_{z}\left(t\right) = c = const\]
+\[
+M_{z}\left(t\right) = c = \text{const}
+\]
 
 Si sostituisce tale soluzione nell'equazione differenziale:
 
-\[\left. \ \dfrac{dM_{z}}{dt} \right|_{M_{z} = c} = \dfrac{1}{T_{1}}\left. \ \left( M_{0} - M_{z}\  \right) \right|_{M_{z} = c} \Leftrightarrow \dfrac{dc}{dt} = \dfrac{1}{T_{1}}\left( M_{0} - c \right)\]
+\[
+\left. \ \dfrac{dM_{z}}{dt} \right|_{M_{z} = c} = \dfrac{1}{T_{1}}\left. \ \left( M_{0} - M_{z}\  \right) \right|_{M_{z} = c} \Leftrightarrow \dfrac{dc}{dt} = \dfrac{1}{T_{1}}\left( M_{0} - c \right)
+\]
 
 La derivata di una costante è nulla, per cui:
 
-\[\dfrac{1}{T_{1}}\left( M_{0} - c \right) = 0 \Leftrightarrow c = M_{0}\]
+\[
+\dfrac{1}{T_{1}}\left( M_{0} - c \right) = 0 \Leftrightarrow c = M_{0}
+\]
 
 L'integrale generale dell'equazione differenziale per la componente longitudinale è:
 
-\[M_{z}\left(t\right) = k\exp\left( - \dfrac{t}{T_{1}} \right) + M_{0}\]
+\[
+M_{z}\left(t\right) = k\exp\left( - \dfrac{t}{T_{1}} \right) + M_{0}
+\]
 
 Si suppone che il vettore di magnetizzazione sia noto all'istante \(t = t_{0}\). Applicando la condizione iniziale è possibile determinare il valore di \(k\):
 
-\[M_{z}\left( t_{0} \right) = k\exp\left( - \dfrac{t_{0}}{T_{1}} \right) + M_{0} \Leftrightarrow k = \left\lbrack M_{z}\left( t_{0} \right) - M_{0} \right\rbrack\exp\left( \dfrac{t_{0}}{T_{1}} \right)\]
+\[
+M_{z}\left( t_{0} \right) = k\exp\left( - \dfrac{t_{0}}{T_{1}} \right) + M_{0} \Leftrightarrow k = \left\lbrack M_{z}\left( t_{0} \right) - M_{0} \right\rbrack\exp\left( \dfrac{t_{0}}{T_{1}} \right)
+\]
 
 La soluzione è, dunque:
 
-\[M_{z}\left(t\right) = \left\lbrack M_{z}\left( t_{0} \right) - M_{0} \right\rbrack\exp\left( \dfrac{t_{0}}{T_{1}} \right)\exp\left( - \dfrac{t}{T_{1}} \right) + M_{0}\]
+\[
+M_{z}\left(t\right) = \left\lbrack M_{z}\left( t_{0} \right) - M_{0} \right\rbrack\exp\left( \dfrac{t_{0}}{T_{1}} \right)\exp\left( - \dfrac{t}{T_{1}} \right) + M_{0}
+\]
 
 Esplicitando la componente transitoria e quella di regime, si ha:
 
-\[M_{z}\left(t\right) = M_{0}\left\lbrack 1 - \exp\left( \dfrac{t_{0} - t}{T_{1}} \right) \right\rbrack + M_{z}\left( t_{0} \right)\exp\left( \dfrac{t_{0} - t}{T_{1}} \right)\]
+\[
+M_{z}\left(t\right) = M_{0}\left\lbrack 1 - \exp\left( \dfrac{t_{0} - t}{T_{1}} \right) \right\rbrack + M_{z}\left( t_{0} \right)\exp\left( \dfrac{t_{0} - t}{T_{1}} \right)
+\]
 
 Ovviamente, per tempi sufficientemente lunghi:
 
-\[M_{z}\left( t_{0} \right)\exp\left( \dfrac{t_{0} - t}{T_{1}} \right) \rightarrow 0,\ \ t \rightarrow \infty\]
+\[
+M_{z}\left( t_{0} \right)\exp\left( \dfrac{t_{0} - t}{T_{1}} \right) \rightarrow 0,\ \ t \rightarrow \infty
+\]
 
 Se \(t_{0} = 0\), risulta:
 
-\[M_{z}\left(t\right) = M_{0}\left\lbrack 1 - \exp\left( - \dfrac{t}{T_{1}} \right) \right\rbrack + M_{z}\left(0\right)\exp\left( - \dfrac{t}{T_{1}} \right)\]
+\[
+M_{z}\left(t\right) = M_{0}\left\lbrack 1 - \exp\left( - \dfrac{t}{T_{1}} \right) \right\rbrack + M_{z}\left(0\right)\exp\left( - \dfrac{t}{T_{1}} \right)
+\]
 
 Supponendo che il valore iniziale della magnetizzazione sia nullo, la soluzione diventa:
 
-\[M_{z}\left(t\right) = M_{0}\left\lbrack 1 - \exp\left( - \dfrac{t}{T_{1}} \right) \right\rbrack\]
+\[
+M_{z}\left(t\right) = M_{0}\left\lbrack 1 - \exp\left( - \dfrac{t}{T_{1}} \right) \right\rbrack
+\]
 
-Applicando il campo magnetico principale, da una condizione di equilibrio termodinamico, la componente longitudinale tende al valore di regime con andamento esponenziale e costante di tempo \(T_{1}\). Il valore di regime è dato dall'equazione di Curie:
+Applicando il campo magnetico principale, da una condizione di equilibrio termodinamico, la componente longitudinale tende al valore di regime \(M_0\) con andamento esponenziale e costante di tempo \(T_{1}\). Il valore di regime è dato dall'equazione di Curie:
 
-\[M_{0} \simeq \ \dfrac{N}{V}\dfrac{\gamma^{2}\hslash^{2}}{4k_{B}T}B_{0}\]
+\[
+M_{0} \simeq \ \dfrac{N}{V}\dfrac{\gamma^{2}\hslash^{2}}{4k_{B}T}B_{0}
+\]
 
-\begin{figure}
+\begin{figure}[ht]
 \centering
-\includegraphics[width=4.32769in,height=3.10307in,alt={P3386\#yIS1}]{media/6_IntroMRI/image75.pdf}\caption{Tabella 6.2: Andamento della soluzione longitudinale dell'equazione di Bloch}
+\includegraphics[width=4.32769in,height=3.10307in,alt={P3386\#yIS1}]{media/6_IntroMRI/image75.pdf}\caption{Andamento della soluzione longitudinale dell'equazione di Bloch}
 \end{figure}
 
 È possibile ritenere che la componente longitudinale raggiunga il regime dopo un tempo uguale a \(4 \div 5\) volte la costante di tempo \(T_{1}\). Generalmente il tempo di rilassamento longitudinale è dell'ordine del secondo, per cui si ritiene che il transitorio abbia una durata di circa \(5\ s\).
 
-Nella pratica, una volta immesso il paziente nel gantry della risonanza magnetica è necessario aspettare un giusto tempo prima di eseguire l'imaging, affinché gli spin dei protoni contenuti nel corpo del paziente raggiungano l'equilibrio termodinamico. L'esame, quindi, non può iniziale istantaneamente ma è necessario che il vettore di magnetizzazione del paziente raggiunga l'equilibrio termodinamico col campo. In caso contrario, si ottengono delle immagini con risultati falsati. In un tempo di \(5 \div 10\ s\) il tecnico radiologo entra nella sala di comando.
+In pratica, una volta posizionato il paziente nel gantry della risonanza magnetica, è necessario attendere affinché gli spin raggiungano l'equilibrio termodinamico. L'imaging non può iniziare istantaneamente: in caso contrario, si otterrebbero immagini falsate. Generalmente, si attende un tempo di \(5 \div 10\,\text{s}\) prima di iniziare l'esame.
 
 Per quanto riguarda le componenti trasversali, le equazioni che descrivono la loro evoluzione sono:
 
@@ -1855,7 +1897,7 @@ Per quanto riguarda le componenti trasversali, le equazioni che descrivono la lo
 \end{cases}
 \]
 
-Dove \(\omega_{0} = \ \gamma B_{0}\); per cui il sistema può essere scritto come:
+Dove \(\omega_{0} = \ \gamma B_{0}\). Il sistema può essere scritto come:
 
 \[
 \begin{cases}
@@ -1866,61 +1908,81 @@ Dove \(\omega_{0} = \ \gamma B_{0}\); per cui il sistema può essere scritto com
 
 Si pone il sistema in forma matriciale:
 
-\[\dfrac{d}{dt}\left( \begin{array}{r}
-M_{x} \\
-M_{y}
-\end{array} \right) = \begin{pmatrix}
- - \dfrac{1}{T_{2}} & \omega_{0} \\
- - \omega_{0} & - \dfrac{1}{T_{2}}
-\end{pmatrix}\left( \begin{array}{r}
-M_{x} \\
-M_{y}
-\end{array} \right)\]
+\[
+\dfrac{d}{dt}
+\begin{pmatrix}
+M_x \\
+M_y
+\end{pmatrix}
+=
+\begin{pmatrix}
+-\dfrac{1}{T_2} & \omega_0 \\
+-\omega_0 & -\dfrac{1}{T_2}
+\end{pmatrix}
+\begin{pmatrix}
+M_x \\
+M_y
+\end{pmatrix}
+\]
 
 La soluzione di questa equazione è del tipo:
 
-\[{\vec{M}}_{\perp} = \vec{k}\exp\left( \lambda\mathbf{I}t \right)\]
+\[
+{\vec{M}}_{\perp} = \vec{k}\exp\left( \lambda\mathbf{I}t \right)
+\]
 
 Sostituendo tale equazione nell'equazione differenziale si ha:
 
-\[\dfrac{d}{dt}\left\lbrack \vec{k}\exp\left( \lambda\mathbf{I}t \right) \right\rbrack = \begin{pmatrix}
+\[
+\dfrac{d}{dt}\left\lbrack \vec{k}\exp\left( \lambda\mathbf{I}t \right) \right\rbrack = \begin{pmatrix}
  - \dfrac{1}{T_{2}} & \omega_{0} \\
  - \omega_{0} & - \dfrac{1}{T_{2}}
 \end{pmatrix}\vec{k}\exp\left( \lambda\mathbf{I}t \right) \Leftrightarrow \lambda\mathbf{I}\vec{k}\exp\left( \lambda\mathbf{I}t \right) = \begin{pmatrix}
  - \dfrac{1}{T_{2}} & \omega_{0} \\
  - \omega_{0} & - \dfrac{1}{T_{2}}
-\end{pmatrix}\vec{k}\exp\left( \lambda\mathbf{I}t \right)\]
+\end{pmatrix}\vec{k}\exp\left( \lambda\mathbf{I}t \right)
+\]
 
 Moltiplicando per la matrice inversa a \(\vec{k}\exp\left( \lambda\mathbf{I}t \right)\) si ottiene:
 
-\[\lambda\mathbf{I} = \begin{pmatrix}
+\[
+\lambda\mathbf{I} = \begin{pmatrix}
  - \dfrac{1}{T_{2}} & \omega_{0} \\
  - \omega_{0} & - \dfrac{1}{T_{2}}
 \end{pmatrix} \Leftrightarrow \begin{pmatrix}
  - \dfrac{1}{T_{2}} - \lambda & \omega_{0} \\
  - \omega_{0} & - \dfrac{1}{T_{2}} - \lambda
-\end{pmatrix} = \mathbf{0}\]
+\end{pmatrix} = \mathbf{0}
+\]
 
 Si pone il determinate della matrice individuata a zero, al fine di identificare i suoi autovettori. Conoscendo gli autovalori è possibile individuare anche il tipo di moto a cui sono soggette le componenti trasverse:
 
-\[\det\begin{pmatrix}
+\[
+\det\begin{pmatrix}
  - \dfrac{1}{T_{2}} - \lambda & \omega_{0} \\
  - \omega_{0} & - \dfrac{1}{T_{2}} - \lambda
-\end{pmatrix} = 0 \Leftrightarrow \left( - \dfrac{1}{T_{2}} - \lambda \right)\left( - \dfrac{1}{T_{2}} - \lambda \right) + \omega_{0}^{2} = 0 \Leftrightarrow \left( \dfrac{1}{T_{2}} + \lambda \right)^{2} + \omega_{0}^{2} = 0\]
+\end{pmatrix} = 0 \Leftrightarrow \left( - \dfrac{1}{T_{2}} - \lambda \right)\left( - \dfrac{1}{T_{2}} - \lambda \right) + \omega_{0}^{2} = 0 \Leftrightarrow \left( \dfrac{1}{T_{2}} + \lambda \right)^{2} + \omega_{0}^{2} = 0
+\]
 
 Svolgendo i prodotti si ha:
 
-\[\dfrac{1}{T_{2}^{2}} + \dfrac{2\lambda}{T_{2}} + \lambda^{2} + \omega_{0}^{2} = 0 \Leftrightarrow \lambda^{2} + \dfrac{2\lambda}{T_{2}} + \omega_{0}^{2} + \dfrac{1}{T_{2}^{2}} = 0\]
+\[
+\dfrac{1}{T_{2}^{2}} + \dfrac{2\lambda}{T_{2}} + \lambda^{2} + \omega_{0}^{2} = 0 \Leftrightarrow \lambda^{2} + \dfrac{2\lambda}{T_{2}} + \omega_{0}^{2} + \dfrac{1}{T_{2}^{2}} = 0
+\]
 
 Si valuta il delta dell'equazione:
 
-\[\dfrac{\Delta}{4} = \dfrac{1}{T_{2}^{2}} - \left( \omega_{0}^{2} + \dfrac{1}{T_{2}^{2}} \right) = \dfrac{1}{T_{2}^{2}} - \omega_{0}^{2} - \dfrac{1}{T_{2}^{2}} = - \omega_{0}^{2}\]
+\[
+\dfrac{\Delta}{4} = \dfrac{1}{T_{2}^{2}} - \left( \omega_{0}^{2} + \dfrac{1}{T_{2}^{2}} \right) = \dfrac{1}{T_{2}^{2}} - \omega_{0}^{2} - \dfrac{1}{T_{2}^{2}} = - \omega_{0}^{2}
+\]
 
 Il determinate è negativo per cui l'equazione non ammette soluzioni reali. Ne consegue che l'evoluzione delle componenti trasverse sono di tipo oscillanti smorzate.
 
 Gli autovalori della matrice dei coefficienti sono:
 
-\[\lambda_{1,2} = - \dfrac{1}{T_{2}} \pm j\omega_{0} \Leftrightarrow \lambda_{1} = - \dfrac{1}{T_{2}} - j\omega_{0},\ \ \lambda_{2} = - \dfrac{1}{T_{2}} + j\omega_{0}\]
+\[
+\lambda_{1,2} = - \dfrac{1}{T_{2}} \pm j\omega_{0} \Leftrightarrow \lambda_{1} = - \dfrac{1}{T_{2}} - j\omega_{0},\ \ \lambda_{2} = - \dfrac{1}{T_{2}} + j\omega_{0}
+\]
 
 Le soluzioni delle componenti trasverse sono del tipo:
 
@@ -1940,7 +2002,7 @@ M_{y}\left(t\right) = k_{1,y}\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left( - j
 \end{cases}
 \]
 
-Raccogliendo il termine dipendente da \(T_{2}\), si ottiene:
+Raccogliendo i termini dipendenti da \(T_{2}\), si ottiene:
 
 \[
 \begin{cases}
@@ -1953,7 +2015,9 @@ Per individuare le costanti di integrazione bisognerebbe sostituire le equazioni
 
 Per semplificare la trattazione si nota che la dipendenza da \(T_{2}\) è espressa mediante un fattore esponenziale moltiplicativo, quindi, è possibile scrivere le soluzioni delle componenti trasversali come:
 
-\[M_{x}\left(t\right) = m_{x}\left(t\right)\exp\left( - \dfrac{t}{T_{2}} \right),\ \ M_{y}\left(t\right) = m_{y}\left(t\right)\exp\left( - \dfrac{t}{T_{2}} \right)\]
+\[
+M_{x}\left(t\right) = m_{x}\left(t\right)\exp\left( - \dfrac{t}{T_{2}} \right),\ \ M_{y}\left(t\right) = m_{y}\left(t\right)\exp\left( - \dfrac{t}{T_{2}} \right)
+\]
 
 Le due equazioni differenziali si scrivono come:
 
@@ -1979,31 +2043,41 @@ Svolgendo le derivate, si ha:
 Semplificando i termini comuni al primo e al secondo membro e il termine esponenziale dipendente da \(T_{2}\), si ottiene un semplice sistema di equazioni differenziali, la cui soluzione è nota:
 
 \[
-begin{cases}
+\begin{cases}
 \dfrac{dm_{x}}{dt} = \omega_{0}m_{y} \\
 \dfrac{dm_{y}}{dt} = - \omega_{0}m_{x}
-end{cases}
+\end{cases}
 \]
 
 Si deriva la prima equazione rispetto al tempo:
 
-\[\dfrac{d^{2}m_{x}}{dt} = \omega_{0}\dfrac{dm_{y}}{dt}\]
+\[
+\dfrac{d^{2}m_{x}}{dt} = \omega_{0}\dfrac{dm_{y}}{dt}
+\]
 
 Sostituendo la seconda equazione, si ottiene:
 
-\[\dfrac{d^{2}m_{x}}{dt} = - \omega_{0}^{2}m_{x}\]
+\[
+\dfrac{d^{2}m_{x}}{dt} = - \omega_{0}^{2}m_{x}
+\]
 
 L'equazione differenziale ha come soluzione:
 
-\[m_{x} = C_{1}\exp\left( \lambda_{1}t \right) + C_{2}\exp\left( \lambda_{2}t \right) = C_{1}\exp\left( - j\omega_{0}t \right) + C_{2}\exp\left( j\omega_{0}t \right)\]
+\[
+m_{x} = C_{1}\exp\left( \lambda_{1}t \right) + C_{2}\exp\left( \lambda_{2}t \right) = C_{1}\exp\left( - j\omega_{0}t \right) + C_{2}\exp\left( j\omega_{0}t \right)
+\]
 
 Nota \(m_{x}\) è possibile ricavare l'equazione per \(m_{y}\) dalla prima relazione del sistema:
 
-\[\dfrac{dm_{x}}{dt} = \omega_{0}m_{y} \Leftrightarrow m_{y} = \dfrac{1}{\omega_{0}}\dfrac{dm_{x}}{dt} = \dfrac{1}{\omega_{0}}\dfrac{d}{dt}\left\lbrack C_{1}\exp\left( - j\omega_{0}t \right) + C_{2}\exp\left( j\omega_{0}t \right) \right\rbrack\]
+\[
+\dfrac{dm_{x}}{dt} = \omega_{0}m_{y} \Leftrightarrow m_{y} = \dfrac{1}{\omega_{0}}\dfrac{dm_{x}}{dt} = \dfrac{1}{\omega_{0}}\dfrac{d}{dt}\left\lbrack C_{1}\exp\left( - j\omega_{0}t \right) + C_{2}\exp\left( j\omega_{0}t \right) \right\rbrack
+\]
 
 Svolgendo l'operazione di derivata si ottiene:
 
-\[m_{y} = \dfrac{1}{\omega_{0}}\left\lbrack - j\omega_{0}C_{1}\exp\left( - j\omega_{0}t \right) + j\omega_{0}C_{2}\exp\left( j\omega_{0}t \right) \right\rbrack = - jC_{1}\exp\left( - j\omega_{0}t \right) + jC_{2}\exp\left( j\omega_{0}t \right)\]
+\[
+m_{y} = \dfrac{1}{\omega_{0}}\left\lbrack - j\omega_{0}C_{1}\exp\left( - j\omega_{0}t \right) + j\omega_{0}C_{2}\exp\left( j\omega_{0}t \right) \right\rbrack = - jC_{1}\exp\left( - j\omega_{0}t \right) + jC_{2}\exp\left( j\omega_{0}t \right)
+\]
 
 In definitiva, si è ottenuto:
 
@@ -2025,7 +2099,8 @@ M_{y}\left(t\right) = \left\lbrack - jC_{1}\exp\left( - j\omega_{0}t \right) + j
 
 Si suppone che il vettore di magnetizzazione sia noto all'istante \(t_{0}\). In questo modo è possibile individuare le costanti di integrazione:
 
-\[\begin{cases}
+\[
+\begin{cases}
 M_{x}\left( t_{0} \right) = \left\lbrack C_{1}\exp\left( - j\omega_{0}t_{0} \right) + C_{2}\exp\left( j\omega_{0}t_{0} \right) \right\rbrack\exp\left( - \dfrac{t_{0}}{T_{2}} \right) \\
 M_{y}\left( t_{0} \right) = \left\lbrack - jC_{1}\exp\left( - j\omega_{0}t_{0} \right) + jC_{2}\exp\left( j\omega_{0}t_{0} \right) \right\rbrack\exp\left( - \dfrac{t_{0}}{T_{2}} \right)
 \end{cases} 
@@ -2042,7 +2117,8 @@ M_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) = - jC_{1}\exp\
 
 Si divide per l'unità immaginaria nella seconda equazione:
 
-\[\begin{cases}
+\[
+\begin{cases}
 M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) = C_{1}\exp\left( - j\omega_{0}t_{0} \right) + C_{2}\exp\left( j\omega_{0}t_{0} \right) \\
  - jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) = - C_{1}\exp\left( - j\omega_{0}t_{0} \right) + C_{2}\exp\left( j\omega_{0}t_{0} \right)
 \end{cases}
@@ -2050,37 +2126,88 @@ M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) = C_{1}\exp\lef
 
 Sommando membro a membro si ottiene:
 
-\[M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) - jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) = 2C_{2}\exp\left( j\omega_{0}t_{0} \right)\]
+\[
+M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) - jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) = 2C_{2}\exp\left( j\omega_{0}t_{0} \right)
+\]
 
 Da cui si ricava \(C_{2}\)
 
-\[C_{2} = \dfrac{1}{2}\left\lbrack M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) - jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right\rbrack\exp\left( - j\omega_{0}t_{0} \right)\]
+\[
+C_{2} = \dfrac{1}{2}\left\lbrack M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) - jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right\rbrack\exp\left( - j\omega_{0}t_{0} \right)
+\]
 
 Sottraendo membro a membro si ricava \(C_{1}\):
 
-\[M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) + jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) = 2C_{1}\exp\left( - j\omega_{0}t_{0} \right)\]
+\[
+M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) + jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) = 2C_{1}\exp\left( - j\omega_{0}t_{0} \right)
+\]
 
-\[C_{1} = \dfrac{1}{2}\left\lbrack M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) + jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right\rbrack\exp\left( j\omega_{0}t_{0} \right)\]
+Infatti, risulta:
+
+\[
+C_{1} = \dfrac{1}{2}\left\lbrack M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) + jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right\rbrack\exp\left( j\omega_{0}t_{0} \right)
+\]
 
 La soluzione lungo \({\hat{\imath}}_{x}\) è:
 
-\[M_{x}\left(t\right) = \left\lbrack C_{1}\exp\left( - j\omega_{0}t \right) + C_{2}\exp\left( j\omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}} \right)\]
+\[
+M_{x}\left(t\right) = \left\lbrack C_{1}\exp\left( - j\omega_{0}t \right) + C_{2}\exp\left( j\omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}} \right)
+\]
 
-Dove:
+Dove per \(C_1\) risulta:
 
-\[C_{1}\exp\left( - j\omega_{0}t \right) = \dfrac{1}{2}\left\lbrack M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) + jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right\rbrack\exp\left( j\omega_{0}t_{0} \right)\exp\left( - j\omega_{0}t \right) =\]
+\begin{align*}
+C_{1}\exp\left( - j\omega_{0}t \right) &= 
+\dfrac{1}{2}\left[ M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) 
++ jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right] \exp\left( j\omega_{0}t_{0} \right)\exp\left( - j\omega_{0}t \right) = \\
+&= \left[ \dfrac{1}{2}M_{x}\left( t_{0} \right) + j\dfrac{1}{2}M_{y}\left( t_{0} \right) \right]
+\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left[ - j\omega_{0}\left( t - t_{0} \right) \right] = \\
+&= \left[ \dfrac{1}{2}M_{x}\left( t_{0} \right) - \dfrac{1}{2j}M_{y}\left( t_{0} \right) \right]
+\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left[ - j\omega_{0}\left( t - t_{0} \right) \right]
+\end{align*}
 
-\[= \left\lbrack \dfrac{1}{2}M_{x}\left( t_{0} \right) + j\dfrac{1}{2}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left\lbrack - j\omega_{0}\left( t - t_{0} \right) \right\rbrack = \left\lbrack \dfrac{1}{2}M_{x}\left( t_{0} \right) - \dfrac{1}{2j}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left\lbrack - j\omega_{0}\left( t - t_{0} \right) \right\rbrack\]
 
-\[C_{2}\exp\left( j\omega_{0}t \right) = \dfrac{1}{2}\left\lbrack M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) - jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right\rbrack\exp\left( - j\omega_{0}t_{0} \right)\exp\left( j\omega_{0}t \right) = \left\lbrack \dfrac{1}{2}M_{x}\left( t_{0} \right) - j\dfrac{1}{2}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( - j\omega_{0}t_{0} \right)\exp\left\lbrack j\omega_{0}\left( t - t_{0} \right) \right\rbrack = \left\lbrack \dfrac{1}{2}M_{x}\left( t_{0} \right) + \dfrac{1}{2j}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( - j\omega_{0}t_{0} \right)\exp\left\lbrack j\omega_{0}\left( t - t_{0} \right) \right\rbrack\]
+mentre per \(C_2\):
+
+\begin{align*}
+C_{2}\exp\left( j\omega_{0}t \right) &= 
+\dfrac{1}{2}\left[ M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) 
+- jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right] \exp\left( - j\omega_{0}t_{0} \right)\exp\left( j\omega_{0}t \right) = \\
+&= \left[ \dfrac{1}{2}M_{x}\left( t_{0} \right) - j\dfrac{1}{2}M_{y}\left( t_{0} \right) \right]
+\exp\left( - j\omega_{0}t_{0} \right)\exp\left[ j\omega_{0}\left( t - t_{0} \right) \right] = \\
+&= \left[ \dfrac{1}{2}M_{x}\left( t_{0} \right) + \dfrac{1}{2j}M_{y}\left( t_{0} \right) \right]
+\exp\left( - j\omega_{0}t_{0} \right)\exp\left[ j\omega_{0}\left( t - t_{0} \right) \right]
+\end{align*}
 
 Quindi, la soluzione lungo \({\hat{\imath}}_{x}\) si scrive come:
 
-\[M_{x}\left(t\right) = \left\{ \left\lbrack \dfrac{1}{2}M_{x}\left( t_{0} \right) - \dfrac{1}{2j}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left\lbrack - j\omega_{0}\left( t - t_{0} \right) \right\rbrack + \left\lbrack \dfrac{1}{2}M_{x}\left( t_{0} \right) - j\dfrac{1}{2}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( - j\omega_{0}t_{0} \right)\exp\left\lbrack j\omega_{0}\left( t - t_{0} \right) \right\rbrack \right\}\exp\left( - \dfrac{t}{T_{2}} \right)\]
+\begin{align*}
+M_{x}(t) &= \left\{ 
+\left[ \dfrac{1}{2}M_{x}(t_{0}) - \dfrac{1}{2j}M_{y}(t_{0}) \right]
+\exp\left( \dfrac{t_{0}}{T_{2}} \right)
+\exp\left[ -j\omega_{0}(t - t_{0}) \right] \right.+ \\
+&\quad + \left. 
+\left[ \dfrac{1}{2}M_{x}(t_{0}) - j\dfrac{1}{2}M_{y}(t_{0}) \right]
+\exp\left( -j\omega_{0}t_{0} \right)
+\exp\left[ j\omega_{0}(t - t_{0}) \right] 
+\right\} \exp\left( -\dfrac{t}{T_{2}} \right)
+\end{align*}
 
 Raccogliendo opportunamente si ha:
 
-\[M_{x}\left(t\right) = \left\{ M_{x}\left( t_{0} \right)\dfrac{\exp\left\lbrack j\omega_{0}\left( t - t_{0} \right) \right\rbrack + \exp\left\lbrack - j\omega_{0}\left( t - t_{0} \right) \right\rbrack}{2} + M_{y}\left( t_{0} \right)\dfrac{\exp\left\lbrack j\omega_{0}\left( t - t_{0} \right) \right\rbrack - \exp\left\lbrack - j\omega_{0}\left( t - t_{0} \right) \right\rbrack}{2j} \right\}\exp\left( - \dfrac{t - t_{0}}{T_{2}} \right)\]
+\begin{align*}
+M_{x}(t) &= \left\{ 
+M_{x}(t_{0}) \dfrac{
+\exp\left[ j\omega_{0}(t - t_{0}) \right] + 
+\exp\left[ -j\omega_{0}(t - t_{0}) \right]
+}{2} \right. +\\
+&\quad + \left.
+M_{y}(t_{0}) \dfrac{
+\exp\left[ j\omega_{0}(t - t_{0}) \right] - 
+\exp\left[ -j\omega_{0}(t - t_{0}) \right]
+}{2j}
+\right\} \exp\left( -\dfrac{t - t_{0}}{T_{2}} \right)
+\end{align*}
 
 Per le relazioni di Eulero, risulta:
 
@@ -2090,33 +2217,76 @@ Analogamente, per la componente lungo \({\hat{\imath}}_{y}\) si ha:
 
 \[M_{y}\left(t\right) = \left\lbrack - jC_{1}\exp\left( - j\omega_{0}t \right) + jC_{2}\exp\left( j\omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}} \right)\]
 
-Dove:
+Svolgendo i calcoli per \(C_1\):
 
-\[- jC_{1}\exp\left( - j\omega_{0}t \right) = - j\dfrac{1}{2}\left\lbrack M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) + jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right\rbrack\exp\left( j\omega_{0}t_{0} \right)\exp\left( - j\omega_{0}t \right) = \left\lbrack - j\dfrac{1}{2}M_{x}\left( t_{0} \right) + \dfrac{1}{2}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left\lbrack - j\omega_{0}\left( t - t_{0} \right) \right\rbrack = \left\lbrack \dfrac{1}{2j}M_{x}\left( t_{0} \right) + \dfrac{1}{2}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left\lbrack - j\omega_{0}\left( t - t_{0} \right) \right\rbrack\]
+\begin{align*}
+- jC_{1}\exp\left( - j\omega_{0}t \right) &= 
+- j\dfrac{1}{2}\left[ M_{x}(t_{0})\exp\left( \dfrac{t_{0}}{T_{2}} \right) 
++ jM_{y}(t_{0})\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right]  \exp\left( j\omega_{0}t_{0} \right)\exp\left( - j\omega_{0}t \right) =  \\
+&= \left[ - j\dfrac{1}{2}M_{x}(t_{0}) + \dfrac{1}{2}M_{y}(t_{0}) \right]
+\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left[ - j\omega_{0}(t - t_{0}) \right] =\\
+&= \left[ \dfrac{1}{2j}M_{x}(t_{0}) + \dfrac{1}{2}M_{y}(t_{0}) \right]
+\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left[ - j\omega_{0}(t - t_{0}) \right]
+\end{align*}
 
-\[jC_{2}\exp\left( j\omega_{0}t \right) = j\dfrac{1}{2}\left\lbrack M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) - jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right\rbrack\exp\left( - j\omega_{0}t_{0} \right)\exp\left( j\omega_{0}t \right) = = \left\lbrack j\dfrac{1}{2}M_{x}\left( t_{0} \right) + \dfrac{1}{2}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left\lbrack j\omega_{0}\left( t - t_{0} \right) \right\rbrack =\]
+mentre per \(C_2\)
 
-\[= \left\lbrack - \dfrac{1}{2j}M_{x}\left( t_{0} \right) + \dfrac{1}{2}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left\lbrack j\omega_{0}\left( t - t_{0} \right) \right\rbrack\]
+\begin{align*}
+jC_{2}\exp\left( j\omega_{0}t \right) &= 
+j\dfrac{1}{2}\left[ M_{x}(t_{0})\exp\left( \dfrac{t_{0}}{T_{2}} \right) 
+- jM_{y}(t_{0})\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right] \exp\left( - j\omega_{0}t_{0} \right)\exp\left( j\omega_{0}t \right) = \\
+&= \left[ j\dfrac{1}{2}M_{x}(t_{0}) + \dfrac{1}{2}M_{y}(t_{0}) \right]
+\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left[ j\omega_{0}(t - t_{0}) \right] = \\
+&= \left[ -\dfrac{1}{2j}M_{x}(t_{0}) + \dfrac{1}{2}M_{y}(t_{0}) \right]
+\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left[ j\omega_{0}(t - t_{0}) \right]
+\end{align*}
 
 Quindi, la soluzione lungo \({\hat{\imath}}_{y}\) si scrive come:
 
-\[M_{y}\left(t\right) = \left\{ \left\lbrack \dfrac{1}{2j}M_{x}\left( t_{0} \right) + \dfrac{1}{2}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left\lbrack - j\omega_{0}\left( t - t_{0} \right) \right\rbrack + \left\lbrack - \dfrac{1}{2j}M_{x}\left( t_{0} \right) + \dfrac{1}{2}M_{y}\left( t_{0} \right) \right\rbrack\exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left\lbrack j\omega_{0}\left( t - t_{0} \right) \right\rbrack \right\}\exp\left( - \dfrac{t}{T_{2}} \right)\]
+\begin{align*}
+M_{y}(t) &= \left\{ 
+\left[ \dfrac{1}{2j}M_{x}(t_{0}) + \dfrac{1}{2}M_{y}(t_{0}) \right]
+\exp\left( \dfrac{t_{0}}{T_{2}} \right)
+\exp\left[ -j\omega_{0}(t - t_{0}) \right] \right. +\\
+&\quad + \left. 
+\left[ -\dfrac{1}{2j}M_{x}(t_{0}) + \dfrac{1}{2}M_{y}(t_{0}) \right]
+\exp\left( \dfrac{t_{0}}{T_{2}} \right)
+\exp\left[ j\omega_{0}(t - t_{0}) \right]
+\right\} \exp\left( -\dfrac{t}{T_{2}} \right)
+\end{align*}
 
 Raccogliendo opportunamente si ha:
 
-\[M_{y}\left(t\right) = \left\{ - M_{x}\left( t_{0} \right)\dfrac{\exp\left\lbrack j\omega_{0}\left( t - t_{0} \right) \right\rbrack - \exp\left\lbrack - j\omega_{0}\left( t - t_{0} \right) \right\rbrack}{2j} + M_{y}\left( t_{0} \right)\dfrac{\exp\left\lbrack j\omega_{0}\left( t - t_{0} \right) \right\rbrack + \exp\left\lbrack - j\omega_{0}\left( t - t_{0} \right) \right\rbrack}{2} \right\}\exp\left( - \dfrac{t - t_{0}}{T_{2}} \right)\]
+\begin{align*}
+M_{y}(t) &= \left\{ 
+- M_{x}(t_{0}) \dfrac{
+\exp\left[ j\omega_{0}(t - t_{0}) \right] - 
+\exp\left[ -j\omega_{0}(t - t_{0}) \right]
+}{2j} \right. \\
+&\qquad + \left.
+M_{y}(t_{0}) \dfrac{
+\exp\left[ j\omega_{0}(t - t_{0}) \right] + 
+\exp\left[ -j\omega_{0}(t - t_{0}) \right]
+}{2}
+\right\} \exp\left( -\dfrac{t - t_{0}}{T_{2}} \right)
+\end{align*}
 
 Per l'equivalenza di Eulero risulta:
 
-\[M_{y}\left(t\right) = \left\{ - M_{x}\left( t_{0} \right)\sin\left\lbrack \omega_{0}\left( t - t_{0} \right) \right\rbrack + M_{y}\left( t_{0} \right)\cos\left\lbrack \omega_{0}\left( t - t_{0} \right) \right\rbrack \right\}\exp\left( - \dfrac{t - t_{0}}{T_{2}} \right)\]
+\[
+M_{y}\left(t\right) = \left\{ - M_{x}\left( t_{0} \right)\sin\left\lbrack \omega_{0}\left( t - t_{0} \right) \right\rbrack + M_{y}\left( t_{0} \right)\cos\left\lbrack \omega_{0}\left( t - t_{0} \right) \right\rbrack \right\}\exp\left( - \dfrac{t - t_{0}}{T_{2}} \right)
+\]
 
 In definitiva, le componenti trasverse evolvono secondo le seguenti equazioni:
 
-\[\begin{cases}
+\[
+\begin{cases}
 M_{x}\left(t\right) = \left\{ M_{x}\left( t_{0} \right)\cos\left\lbrack \omega_{0}\left( t - t_{0} \right) \right\rbrack + M_{y}\left( t_{0} \right)\sin\left\lbrack \omega_{0}\left( t - t_{0} \right) \right\rbrack \right\}\exp\left( - \dfrac{t - t_{0}}{T_{2}} \right) \\
 M_{y}\left(t\right) = \left\{ - M_{x}\left( t_{0} \right)\sin\left\lbrack \omega_{0}\left( t - t_{0} \right) \right\rbrack + M_{y}\left( t_{0} \right)\cos\left\lbrack \omega_{0}\left( t - t_{0} \right) \right\rbrack \right\}\exp\left( - \dfrac{t - t_{0}}{T_{2}} \right)
 \end{cases}
 \]
+
+Queste equazioni esprimono un moto di \textbf{precessione smorzata} attorno all'asse \(z\), con frequenza angolare \(\omega_0\) e tempo di decadimento \(T_2\), a partire dalle condizioni iniziali \(M_x(t_0)\) e \(M_y(t_0)\).
 
 Se l'istante iniziale coincide con l'origine dei tempi, \(t_{0} = 0\), risulta:
 
@@ -2129,19 +2299,37 @@ M_{y}\left(t\right) = \left\lbrack - M_{x}\left(0\right)\sin\left( \omega_{0}t \
 
 Per un tempo sufficientemente lungo, circa \(4 \div 5\) volte \(T_{2}\) è possibile ritenere la risposta transitoria esaurita, per cui le componenti trasversali sono nulle:
 
-\[M_{x}\left(t\right) \rightarrow 0,\ \ t \rightarrow \infty\]
-
-\[M_{y}\left(t\right) \rightarrow 0,\ \ t \rightarrow \infty\]
+\[
+\begin{cases}
+    M_{x}\left(t\right) \rightarrow 0, & t \rightarrow \infty \\
+    M_{y}\left(t\right) \rightarrow 0, & t \rightarrow \infty
+\end{cases}
+\]
 
 Siccome il tempo di rilassamento trasversale è dell'ordine di \(100\ ms\), il tempo necessario affinché le componenti trasversali del vettore di magnetizzazione si annullino è dell'ordine di \(500\ ms\), ovvero un ordine di grandezza inferiore rispetto al tempo che la componente longitudinale impiega per raggiungere il regime.
 
 È possibile scrivere la soluzione delle componenti trasversali in forma complessa, introducendo il fasore \(M_{+}\), definito come:
 
-\[M_{+}\left(t\right) = M_{x}\left(t\right) + jM_{y}\left(t\right) = \left\lbrack M_{x}\left(0\right)\cos\left( \omega_{0}t \right) + M_{y}\left(0\right)\sin\left( \omega_{0}t \right) - jM_{x}\left(0\right)\sin\left( \omega_{0}t \right) + jM_{y}\left(0\right)\cos\left( \omega_{0}t \right) \right\rbrack\exp\left( - \dfrac{t}{T_{2}} \right)\]
+\begin{align*}
+M_{+}(t) &= M_{x}(t) + jM_{y}(t) =\\
+&= \left[
+M_{x}(0)\cos(\omega_{0}t) + M_{y}(0)\sin(\omega_{0}t)
+- jM_{x}(0)\sin(\omega_{0}t) + jM_{y}(0)\cos(\omega_{0}t)
+\right] \exp\left( -\dfrac{t}{T_{2}} \right)
+\end{align*}
 
 Raccogliendo si ottiene:
 
-\[M_{+}\left(t\right) = \left\{ M_{x}\left(0\right)\left\lbrack \cos\left( \omega_{0}t \right) - j\sin\left( \omega_{0}t \right) \right\rbrack + jM_{y}\left(0\right)\left\lbrack \cos\left( \omega_{0}t \right) - j\sin\left( \omega_{0}t \right) \right\rbrack \right\}\exp\left( - \dfrac{t}{T_{2}} \right) = \left\{ \left\lbrack \cos\left( \omega_{0}t \right) - j\sin\left( \omega_{0}t \right) \right\rbrack\left\lbrack M_{x}\left(0\right) + jM_{y}\left(0\right) \right\rbrack \right\}\exp\left( - \dfrac{t}{T_{2}} \right)\]
+\begin{align*}
+M_{+}(t) &= \left\{
+M_{x}(0)\left[ \cos(\omega_{0}t) - j\sin(\omega_{0}t) \right]
++ jM_{y}(0)\left[ \cos(\omega_{0}t) - j\sin(\omega_{0}t) \right]
+\right\} \exp\left( -\dfrac{t}{T_{2}} \right) \\
+&= \left\{
+\left[ \cos(\omega_{0}t) - j\sin(\omega_{0}t) \right]
+\left[ M_{x}(0) + jM_{y}(0) \right]
+\right\} \exp\left( -\dfrac{t}{T_{2}} \right)
+\end{align*}
 
 Dove:
 
@@ -2189,35 +2377,62 @@ La curva descritta dal vettore di magnetizzazione tende a raggiungere il valore 
 
 \subsection{Vettore magnetizzazione durante una perturbazione}\label{vettore-magnetizzazione-durante-una-perturbazione}
 
-Si vuole analizzare l'evoluzione temporale del vettore di magnetizzazione durante l'applicazione di un impulso a radiofrequenza, che perturba l'equilibrio del sistema. La trattazione viene eseguita nel sistema rotante in modo da poter essere facilmente comprensibile.
+Si analizza l'evoluzione temporale del vettore di magnetizzazione durante l'applicazione di un impulso a radiofrequenza, che perturba l'equilibrio del sistema. La trattazione è condotta nel sistema di riferimento rotante, per una maggiore semplicità interpretativa.
 
-Il campo efficace, visto da uno spin nel sistema di riferimento rotante al quale è applicato un impulso a radiofrequenza diretto lungo l'asse \({\hat{\imath}}_{x'}\), è:
+Il campo magnetico efficace visto da uno spin nel sistema rotante, con impulso a radiofrequenza diretto lungo l'asse \({\hat{\imath}}_{x'}\), è:
 
-\[{\vec{B}_{\text{eff}}} = \left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{z} + B_{1}{\hat{\imath}}_{x'}\]
+\[
+{\vec{B}_{\text{eff}}} = \left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{z} + B_{1}{\hat{\imath}}_{x'}
+\]
 
-Dove \(\omega\) è la velocità di rotazione del sistema.
+dove \(\omega\) è la velocità angolare del sistema rotante.
 
-L'equazione di Bloch, scritte nel sistema di riferimento rotante, è analoga a quella scritta nel sistema fisso del laboratorio:
+L'equazione di Bloch nel sistema rotante è formalmente analoga a quella nel sistema del laboratorio:
 
-\[\left( \dfrac{d\vec{M}}{dt} \right)' = \gamma\vec{M} \times {\vec{B}_{\text{eff}}} + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{\imath}}_{z} - \dfrac{1}{T_{2}}{\vec{M}}_{\perp}\]
+\[
+\left( \dfrac{d\vec{M}}{dt} \right)' = \gamma\vec{M} \times {\vec{B}_{\text{eff}}} + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{\imath}}_{z} - \dfrac{1}{T_{2}}{\vec{M}}_{\perp}
+\]
 
 Questa equazione è stata ottenuta senza applicare nessuna ipotesi sul sistema di riferimento, quindi, è valida sia in sistemi inerziali che non inerziali. In particolare, la componente longitudinale del vettore di magnetizzazione evolve in maniera indipendente da quelle trasversali, quindi, il modo lungo l'asse \({\hat{\imath}}_{z}\) si conserva.
 
 Si proietta l'equazione vettoriale di Bloch lungo gli assi, svolgendo il prodotto vettoriale:
 
-\[\vec{M} \times {\vec{B}_{\text{eff}}} = \left| \begin{matrix}
+\[
+\vec{M} \times {\vec{B}_{\text{eff}}} =  \begin{vmatrix}
 {\hat{\imath}}_{x'} & {\hat{\imath}}_{y'} & {\hat{\imath}}_{z}\  \\
 M_{x'} & M_{y'} & M_{z} \\
 B_{1} & 0 & B_{0} - \dfrac{\omega}{\gamma}
-\end{matrix} \right| = M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{x'} + M_{z}B_{1}{\hat{\imath}}_{y'} - M_{y'}B_{1}{\hat{\imath}}_{z} - M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{y'}\]
+\end{vmatrix}  = M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{x'} + M_{z}B_{1}{\hat{\imath}}_{y'} - M_{y'}B_{1}{\hat{\imath}}_{z} - M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{y'}
+\]
 
 Raccogliendo i termini, si ottiene:
 
-\[\vec{M} \times {\vec{B}_{\text{eff}}} = M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{x'} + M_{z}B_{1}{\hat{\imath}}_{y'} - M_{y'}B_{1}{\hat{\imath}}_{z} - M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{y'} = M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{x'} - \left\lbrack M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right) - M_{z}B_{1} \right\rbrack{\hat{\imath}}_{y'} - M_{y'}B_{1}{\hat{\imath}}_{z}\]
+\begin{align*}
+\vec{M} \times \vec{B}_{\text{eff}} &= 
+M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right)\hat{\imath}_{x'} 
++ M_{z}B_{1}\hat{\imath}_{y'} 
+- M_{y'}B_{1}\hat{\imath}_{z} 
+- M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right)\hat{\imath}_{y'} = \\
+&= M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right)\hat{\imath}_{x'} 
+- \left[ M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right) - M_{z}B_{1} \right]\hat{\imath}_{y'} 
+- M_{y'}B_{1}\hat{\imath}_{z}
+\end{align*}
 
 L'equazione vettoriale di Bloch si scrive:
 
-\[\left( \dfrac{d\vec{M}}{dt} \right)' = \gamma\vec{M} \times {\vec{B}_{\text{eff}}} + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{\imath}}_{z} - \dfrac{1}{T_{2}}{\vec{M}}_{\perp} = \gamma\left\{ M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right){\hat{\imath}}_{x'} - \left\lbrack M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right) - M_{z}B_{1} \right\rbrack{\hat{\imath}}_{y'} - M_{y'}B_{1}{\hat{\imath}}_{z} \right\} + \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right){\hat{\imath}}_{z} - \dfrac{1}{T_{2}}\left( M_{x'}{\hat{\imath}}_{x'} + M_{y'}{\hat{\imath}}_{y'} \right)\]
+\begin{align*}
+\left( \dfrac{d\vec{M}}{dt} \right)' &= 
+\gamma \vec{M} \times \vec{B}_{\text{eff}} 
++ \dfrac{1}{T_{1}}\left( M_{0} - M_{z} \right)\hat{\imath}_{z} 
+- \dfrac{1}{T_{2}} \vec{M}_{\perp} = \\
+&= \gamma \left\{
+M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right)\hat{\imath}_{x'} 
+- \left[ M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right) - M_{z}B_{1} \right]\hat{\imath}_{y'} 
+- M_{y'}B_{1}\hat{\imath}_{z}
+\right\} + \\
+&\quad + \dfrac{1}{T_{1}}\left( M_{0} - M_{z} \right)\hat{\imath}_{z} 
+- \dfrac{1}{T_{2}}\left( M_{x'}\hat{\imath}_{x'} + M_{y'}\hat{\imath}_{y'} \right)
+\end{align*}
 
 Scomponendo lungo gli assi del sistema rotante si ottiene:
 
@@ -2229,9 +2444,10 @@ Scomponendo lungo gli assi del sistema rotante si ottiene:
 \end{cases} 
 \]
 
-Dove \(\omega_{1} = \gamma B_{1}\) e \(\omega_{0} = \gamma B_{0}\):
+Definendo \(\omega_0 = \gamma B_0\), \(\omega_1 = \gamma B_1\), e \(\Delta \omega = \omega_0 - \omega\), si ha:
 
-\[\begin{cases}
+\[
+\begin{cases}
 \left( \dfrac{dM_{x'}}{dt} \right)' = \left( \omega_{0} - \omega \right)M_{y'} - \dfrac{1}{T_{2}}M_{x'} \\
 \left( \dfrac{dM_{y'}}{dt} \right)' = \omega_{1}M_{z} - \left( \omega_{0} - \omega \right)M_{x'} - \dfrac{1}{T_{2}}M_{y'} \\
 \left( \dfrac{dM_{z}}{dt} \right)' = \dfrac{1}{T_{1}}\left( M_{0} - M_{z}\  \right) - \omega_{1}M_{y'}
@@ -2240,9 +2456,11 @@ Dove \(\omega_{1} = \gamma B_{1}\) e \(\omega_{0} = \gamma B_{0}\):
 
 Nelle equazioni \(\omega_{0}\) è la frequenza di Larmor, \(\omega_{1}\) è la frequenza del campo a radiofrequenza, mentre \(\omega\) è la frequenza con cui ruota il sistema di riferimento.
 
-Si definisce \(\Delta \omega = \omega_{0} - \omega\) e rappresenta la deviazione dalla condizione ideale. Questa deviazione è legata alle disomogeneità del campo o alla variazioni delle frequenze dell'impulso utilizzato. Affinché il vettore di magnetizzazione ruoti dell'angolo desiderato, è necessario che l'impulso a radiofrequenza abbia una durata di qualche \(ms\). Nel dettaglio, il periodo di applicazione del campo a radiofrequenza, che genera la processione intorno a \({\hat{\imath}}_{x'}\), è di qualche millisecondo ed è legato alla pulsazione \(\omega_{1}\) dalla relazione:
+Si definisce \(\Delta \omega = \omega_{0} - \omega\) la deviazione dalla condizione ideale in cui \(\omega_{0} = \omega\). Questa deviazione è legata alle disomogeneità del campo o alla variazioni delle frequenze dell'impulso utilizzato. Affinché il vettore di magnetizzazione ruoti dell'angolo desiderato, è necessario che l'impulso a radiofrequenza abbia una durata di qualche \(ms\). Nel dettaglio, il periodo di applicazione del campo a radiofrequenza, che genera la processione intorno a \({\hat{\imath}}_{x'}\), è di qualche millisecondo ed è legato alla pulsazione \(\omega_{1}\) dalla relazione:
 
-\[\omega_{1} = \dfrac{2\pi}{T}\]
+\[
+\omega_{1} = \dfrac{2\pi}{T}
+\]
 
 Dato che il tempo di rilassamento longitudinale \(T_{1}\) è dell'ordine dei secondi, risulta che:
 
@@ -2262,11 +2480,13 @@ Analogo discorso vale per il tempo di rilassamento trasversale \(T_{2}\), dell'o
 \end{cases}
 \]
 
-Se il sistema ruota con una pulsazione angolare molto prossima a quella di Larmor risulta:
+Se il sistema ruota con una pulsazione angolare molto prossima a quella di Larmor, ovvero in condizione di risonanza, risulta:
 
-\[\omega_{0} \simeq \omega \Leftrightarrow \Delta \omega = \omega_{0} - \omega \simeq 0\]
+\[
+\omega_{0} \simeq \omega \Leftrightarrow \Delta \omega = \omega_{0} - \omega \simeq 0
+\]
 
-È possibile, quindi, trascurare i termini contenenti \(\Delta \omega\):
+È possibile, quindi, trascurare i termini contenenti \(\Delta \omega\), semplificando il sistema:
 
 \[
 \begin{cases}
@@ -2276,73 +2496,80 @@ Se il sistema ruota con una pulsazione angolare molto prossima a quella di Larmo
 \end{cases}
 \]
 
-Le equazioni individuate suggeriscono un moto di precessione intorno l'asse \({\hat{\imath}}_{x'}\).
+Questo sistema descrive una \textbf{precessione del vettore di magnetizzazione attorno all'asse} \({\hat{\imath}}_{x'}\), indotta dall'impulso a radiofrequenza.
 
-Per le sequenze applicate normalmente nella pratica, in definitiva, si ritiene che la rotazione del vettore di magnetizzazione avvenga senza l'influenza dei tempi di rilassamento, poiché l'evoluzione temporale legata all'impulso a radiofrequenza è molto più veloce di quella legata ai fenomeni di rilassamento. Si approssima, inoltre, la frequenza di risonanza con quella del campo a radiofrequenza. Anche in presenza di tali approssimazioni, i risultati ottenuti sono attendibili, nel senso che concordi ai risultati sperimentali. Il ritorno all'equilibrio è, invece, caratterizzato dai tempi di rilassamento del tessuto.
+Per le sequenze applicate normalmente nella pratica, in definitiva, si ritiene che la rotazione del vettore di magnetizzazione avvenga senza l'influenza dei tempi di rilassamento, poiché l'evoluzione temporale legata all'impulso a radiofrequenza è molto più veloce di quella relativa ai fenomeni di rilassamento. Si approssima, inoltre, la frequenza di risonanza con quella del campo a radiofrequenza. Anche in presenza di tali approssimazioni, i risultati ottenuti sono attendibili, nel senso che concordi ai dati sperimentali. Il ritorno all'equilibrio è, invece, caratterizzato dai tempi di rilassamento del tessuto.
 
 L'evoluzione del vettore di magnetizzazione, legato all'applicazione dell'impulso a radiofrequenza, si compone di due fasi:
 
 \begin{itemize}
-\item
-  Raggiunto l'equilibrio termodinamico, il vettore di magnetizzazione è ribaltato lungo uno degli assi \(x'\) o \(y'\), utilizzando un impulso a radiofrequenza a polarizzazione lineare o circolare. Come detto precedentemente, il ribaltamento è descritto trascurando gli effetti del rilassamento, poiché i tempi \(T_{1}\) e \(T_{2}\) sono molto più lunghi della durata dell'impulso a radiofrequenza;
+    \item \textbf{Ribaltamento}: Il vettore di magnetizzazione, inizialmente all'equilibrio lungo \(\hat{\imath}_z\), viene ruotato nel piano trasverso (\(x'y'\)) tramite un impulso a radiofrequenza a polarizzazione lineare o circolare. Questo processo è molto rapido rispetto ai tempi di rilassamento, per cui si trascurano \(T_1\) e \(T_2\).
 \end{itemize}
-
 
 \begin{figure}[ht]
   \centering
   \begin{minipage}[b]{0.45\textwidth}
     \centering
-    \includegraphics[width=3.17495in,height=3.19514in,alt={P3542C1T5\#yIS1}]{media/6_IntroMRI/image78.pdf}
-    \label{fig:img1}
+    \includegraphics[width=3.17in,height=3.20in]{media/6_IntroMRI/image78.pdf}
+    \caption*{(a)}
   \end{minipage}
   \hfill
   \begin{minipage}[b]{0.45\textwidth}
     \centering
-    \includegraphics[width=2.90572in,height=3.19514in,alt={P3543C2T5\#yIS1}]{media/6_IntroMRI/image79.pdf}
-    \label{fig:img2}
+    \includegraphics[width=2.91in,height=3.20in]{media/6_IntroMRI/image79.pdf}
+    \caption*{(b)}
   \end{minipage}
-  \caption{L'applicazione dell'impulso RF porta a una precessione intorno all'asse \(y'\)}
+  \caption{L'applicazione dell'impulso RF porta a una precessione intorno all'asse \(y'\). 
+  (a) e (b) mostrano due fasi della rotazione.}
+  \label{fig:rf_precession}
 \end{figure}
 
-
 \begin{itemize}
-\item
-  Il fenomeno di recupero della magnetizzazione è caratterizzato dal ritorno all'equilibrio della magnetizzazione e avviene con costante di tempo \(T_{1}\), tempo di rilassamento per la componente longitudinale e costante di tempo \(T_{2}\) per la componente trasversale. I tempi di evoluzione del vettore di magnetizzazione dono paragonabili a quelli di rilassamento per cui non possono essere trascurati.
+    \item \textbf{Recupero}: Dopo la perturbazione, il vettore di magnetizzazione torna all'equilibrio termodinamico. La componente longitudinale \(M_z\) cresce esponenzialmente con costante di tempo \(T_1\), mentre le componenti trasversali \(M_{x'}, M_{y'}\) decadono con costante \(T_2\).
 \end{itemize}
 
 \subsection{Sequenza FID}\label{sequenza-fid}
 
-Per ottenere una misura del vettore di magnetizzazione, è necessario perturbare l'equilibrio raggiunto dagli spin contenuti nei tessuti del paziente. Dal segnale registrato è possibile, in seguito, ricavare le informazioni sui tempi di rilassamento \emph{spin-lattice}, \(T_{1}\), e spin-spin \(T_{2}\), così da caratterizzare completamente il tessuto. 
+Per ottenere una misura del vettore di magnetizzazione, è necessario perturbare l'equilibrio raggiunto dagli spin nei tessuti del paziente. Dal segnale registrato è possibile ricavare informazioni sui tempi di rilassamento \textit{spin-lattice} (\(T_1\)) e \textit{spin-spin} (\(T_2\)), così da caratterizzare il tessuto \cite{BrownMRI}.
 
-La sequenza più semplice da applicare per perturbare il sistema è detta FID (\emph{Free Induction Decay}) in cui si applica una radiazione a radiofrequenza, indicata nei diagrammi con una \(rect\) o con un pacchetto di onde sinusoidali, a frequenza \(\omega \simeq \omega_{0}\).
+La sequenza più semplice per perturbare il sistema è detta FID (\textit{Free Induction Decay}). In essa si applica una radiazione a radiofrequenza, rappresentata nei diagrammi con un impulso rettangolare (\(\text{rect}\left(t\right)\)) o con un pacchetto di onde sinusoidali, a frequenza \(\omega \simeq \omega_0\).
 
-Successivamente, si registra il segnale \(s\) dovuto al ritorno all'equilibrio del vettore magnetizzazione. Le antenne in ricezione iniziano ad acquisire il segnale subito dopo la fine dell'impulso.
+Successivamente, si registra il segnale \(s\left(t\right)\) dovuto al ritorno all'equilibrio del vettore di magnetizzazione. Le antenne in ricezione iniziano ad acquisire il segnale subito dopo la fine dell'impulso.
 
-Il segnale registrato è proporzionale alla componente trasversa del campo, dunque, le antenne ricevono una sinusoide, a frequenza \(\omega_{0}\) smorzata con un decadimento di tipo esponenziale e costante di tempo \(T_{2}\). Adoperando la notazione complessa, il segnale registrato dall'antenna è proporzionale al fasore \(M_{+}\left(t\right)\):
+Il segnale registrato è proporzionale alla componente trasversa del vettore di magnetizzazione. Le antenne ricevono una sinusoide a frequenza \(\omega_0\), smorzata esponenzialmente con costante di tempo \(T_2\). In notazione complessa, il segnale è proporzionale al fasore \(M_+(t)\):
 
-\[M_{+}\left(t\right) = M_{+}\left(0\right)\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left( - j\omega_{0}t \right)\]
 
-Dove \(M_{+}\left(0\right)\) è proporzionale al vettore di magnetizzazione all'equilibrio termodinamico \(M_{0}\), che a sua volta dipende dalla densità protonica \(\rho\), indicante il numero di protoni nel volumetto \(V\).
+\[
+M_{+}\left(t\right) = M_{+}\left(0\right)\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left( - j\omega_{0}t \right)
+\]
 
-Siccome non vi è nessun gradiente di campo, ogni spin all'interno del volume del paziente precede alla frequenza di Larmor \(\omega_{0}\), dunque, l'applicazione del campo rotante a frequenza prossima a quella di Larmor eccita tutti gli spin nel corpo del paziente. In questo caso, il volume-paziente non è considerato in tanti volumetti elementari ma è assunto essere un unico volume.
 
-La sequenza FID non fornisce informazioni sulla composizione chimica dei tessuti, ovvero non fornisce i tempi di rilassamento di ogni singolo volumetto. In altre parole, la sequenza FID non fornire informazioni utili all'\emph{imaging} ma permette di correggere degli errori introdotti dalle disomogeneità del campo magnetico principale. Infatti, le misure eseguite con la sequenza FID possono fornire un'idea su quanto il campo magnetico principale si discosta dall'andamento ideale, ovvero uniforme in tutto lo spazio contenente il paziente.
+dove \(M_{+}\left(0\right)\) è proporzionale al valore iniziale del vettore di magnetizzazione \(M_0\), che dipende dalla densità protonica \(\rho\), indicante il numero di protoni nel volumetto \(V\).
 
-Il tempo di rilassamento trasversale \(T_{2}\) è determinato dall'iterazioni spin-spin, che ha l'effetto di alterare localmente il campo magnetico visto da uno spin. Se il campo magnetico esterno è disomogeneo, il campo locale visto dagli spin varia con la posizione, dunque, si aggiunge un ulteriore fonte di disturbo.
+Poiché non è presente alcun gradiente di campo, ogni spin nel volume del paziente precessa alla stessa frequenza di Larmor \(\omega_0\). L'applicazione del campo rotante a frequenza prossima a \(\omega_0\) eccita tutti gli spin nel corpo del paziente. In questo caso, il volume del paziente è considerato come un unico blocco, non suddiviso in volumetti elementari.
 
-In generale, i fornitori di risonanze magnetiche garantiscono che l'omogeneità del campo nel gantry abbia una valore nominale variabile di una parte per milione (ppm), all'interno di una sfera centrata nel gantry e raggio dell'ordine dei \(20\ cm\).
+La sequenza FID non fornisce informazioni sulla composizione chimica dei tessuti, ovvero non permette di determinare i tempi di rilassamento di ciascun volumetto. In altre parole, la sequenza FID non è utile per l'\textit{imaging}, ma consente di correggere errori introdotti dalle disomogeneità del campo magnetico principale. Le misure FID possono fornire un'indicazione su quanto il campo magnetico principale si discosta dall'ideale, cioè uniforme nello spazio occupato dal paziente.
 
-\begin{figure}
+Il tempo di rilassamento trasversale \(T_2\) è determinato dalle interazioni spin-spin, che alterano localmente il campo magnetico percepito da ciascuno spin. Se il campo magnetico esterno è disomogeneo, il campo locale varia con la posizione, introducendo un'ulteriore fonte di disturbo.
+
+In generale, i produttori di apparecchiature per risonanza magnetica garantiscono un'omogeneità del campo nel gantry dell'ordine di una parte per milione (ppm), all'interno di una sfera centrata nel gantry con raggio di circa \(20\,\text{cm}\).
+
+
+\begin{figure}[ht]
 \centering
-\includegraphics[width=3.73125in,height=2.04747in,alt={P3558\#yIS1}]{media/6_IntroMRI/image80.pdf}\caption{Figura .: Regione di spazio del gantry in cui il campo è omogeneo}
+\includegraphics[width=3.73125in,height=2.04747in,alt={P3558\#yIS1}]{media/6_IntroMRI/image80.pdf}\caption{Regione di spazio del gantry in cui il campo è omogeneo}
 \end{figure}
 
-Se il valore nominale del campo è di \(1.5\ T\), la variazione di campo all'interno della sfera è dell'ordine di \(10^{- 6}\ \), ovvero una variazione massima di \(1.5\ \mu T\). Queste disomogeneità di campo si aggiungono ai campi locali visti dai singoli spin. Ciò porta a un'ulteriore riduzione del tempo di rilassamento trasversale \(T_{2}\).
+Se il valore nominale del campo è \(1.5\,\text{T}\), la variazione all'interno della sfera è dell'ordine di \(10^{-6}\), ovvero una variazione massima di circa \(1.5\,\mu\text{T}\). Queste disomogeneità si sommano ai campi locali percepiti dai singoli spin, contribuendo a una riduzione del tempo di rilassamento trasversale \(T_2\).
 
-Si introduce il tempo \(T_{2}^{*}\) legato sia alla disomogeneità del campo principale, sia all'interazione spin-spin. Il primo fenomeno è quantificato da un tempo \(T_{2}'\), legato alla tecnologia costruttiva con cui si produce il campo magnetico, che, fondamentalmente, definisce le disomogeneità di \(B_{0}\).
+Si introduce quindi il tempo \(T_2^*\), che tiene conto sia delle disomogeneità del campo principale sia delle interazioni spin-spin. Il primo fenomeno è quantificato da un tempo \(T_2'\), legato alla tecnologia costruttiva del magnete e alla qualità del campo \(B_0\).
+
 
 Il tempo \(T_{2}^{*}\) è definito come:
 
-\[\dfrac{1}{T_{2}^{*}} = \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'}\]
+\[
+\dfrac{1}{T_{2}^{*}} = \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'}
+\]
 
-Con la sequenza FID è possibile ottenere delle informazioni su \(T_{2}^{*}\) e, di conseguenza, su quanto il campo magnetico principale varia nello spazio. Noto il tempo \(T_{2}^{*}\), mediante appositi algoritmi, è possibile correggere le immagini, le quali mostrano una maggiore affidabilità nella stima dei tempi di rilassamento \(T_{1}\) e \(T_{2}\).
+
+Con la sequenza FID è possibile stimare \(T_2^*\) e, di conseguenza, valutare quanto il campo magnetico principale varia nello spazio. Conoscendo \(T_2^*\), è possibile applicare algoritmi di correzione alle immagini, migliorando l'affidabilità nella stima dei tempi di rilassamento \(T_1\) e \(T_2\).
