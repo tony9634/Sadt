@@ -1,7 +1,8 @@
 %!TEX bibfile = bibliografia.bib
 
 %Questo è il preambolo, dove si inseriscono i pacchetti e le impostazioni che servono per compilare il documento. Quanto scritto dopo il simbolo '%' è solo un commento e serve a fini dimostrativi.
-\documentclass[a4paper, 13, oneside]{report}
+\documentclass[a4paper, 12, oneside]{report}
+%\usepackage[13pt]{extsizes}
 \linespread{1.5} %interlinea
 \setlength{\parindent}{0pt} % niente rientro dopo punto a capo
 \setlength{\parskip}{0.75em}
@@ -37,7 +38,6 @@
 \usepackage{caption}
 \usepackage{pdfpages}
 \usepackage{csquotes}
-\usepackage{subfigure}
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{amssymb}
@@ -57,12 +57,12 @@
 \addto{\captionsitalian}{% Making babel aware of special titles
   \renewcommand{\mtctitle}{Sommario}
 }
-\setcounter{secnumdepth}{5}
-\usepackage[sorting=none,backend=biber]{biblatex}%bibliografia
+\setcounter{secnumdepth}{3}
+\usepackage[sorting=none,backend=biber,refsection=chapter]{biblatex} %bibliografia
 \defbibheading{bibbysubsect}{}
 \addbibresource{bibliografia.bib}
 
-
+\usepackage{hyperref}
 \usepackage{comment}
 \usepackage{xpatch}
 \usepackage{blindtext}
@@ -87,34 +87,34 @@
 \usepackage{fancyhdr}
 \usepackage[export]{adjustbox}
 
-\usepackage[version=4]{mhchem}
-\usepackage{hyperref} %hyperlink
-\hypersetup{
-    colorlinks=true,
-    citecolor=cyan,
-    linkcolor=black,
-    urlcolor=black,
-    pdftitle=Appunti del Corso Di Strumentazione Avanzata per La Diagnosi e Terapia,
-    pdfauthor=Antonio Ausilio,
-    }
-
 \usepackage{booktabs} %per le tabelle
 \usepackage{multirow}
 %\usepackage[table,xcdraw]{xcolor}
-\usepackage{graphicx}
 
 \usepackage{lscape}
-\usepackage{float}
 \usepackage{wrapfig}
-\usepackage{listings}
+\usepackage{pgffor}
+\usepackage{subcaption}
 
+\usepackage[version=4]{mhchem}
+%\usepackage{chemfig}
+\usepackage{calc} % per calcoli sulle lunghezze
+
+\usepackage{chemfig}
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{enumitem}
+\usepackage{supertabular}
 
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
-%\renewcommand{\arraystretch}{1.25} % <-- Aggiunge spazio tra le righe
+%\renewcommand{\arraystretch}{1.4} % <-- Aggiunge spazio tra le righe
+
 \newcommand{\gbar}{\mathrlap{\raisebox{0.5ex}{\rule{0.5em}{0.1pt}}}\gamma}
+
+% --- definizioni personalizzate ---
+\newcommand{\imagesperrow}{3} % immagini per riga
+\newcommand{\imgwidth}{0.3\textwidth} % larghezza di ciascuna immagine
+\newcounter{imgcount}
 
 
 %Da qui in poi inizia il documento.

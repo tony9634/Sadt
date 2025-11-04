@@ -508,7 +508,8 @@ L'esperimento FID permette di effettuare lo \emph{shimming} del capo magnetico, 
 
 Un campo principale non omogeneo porta a una serie di problematiche nella valutazione dei tempi di rilassamento, ciò determina una forte incertezza durante l'imaging sulla localizzazione dei volumetti. Il posizionamento dei volumetti è legato ai gradienti di campo.
 
-\subsubsection{\texorpdfstring{Origine del tempo \(\mathbf{T}_{\mathbf{2}}^{\mathbf{*}}\)}{Origine del tempo \textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{2\}\}\^{}\{\textbackslash mathbf\{*\}\}}}\label{origine-del-tempo-mathbft_mathbf2mathbf}
+\subsubsection[Origine del tempo T2*]{Origine del tempo $\mathbf{T}_{\mathbf{2}}^{\mathbf{*}}$}
+\label{origine-del-tempo-mathbft_mathbf2mathbf}
 
 Si vuole determinare l'origine della relazione tra il tempo di rilassamento traversale \(T_{2}\) e quello \(T_{2}^{*}\) legato alle disomogeneità di campo.
 
@@ -687,28 +688,7 @@ Applicando un impulso a \(\pi/2\) si ha un primo sfasamento. Dopo un tempo \(\ta
 \includegraphics[width=4.81835in,height=3.11733in,alt={Immagine che contiene schizzo, diagramma, disegno, linea Descrizione generata automaticamente}]{media/7_MRISignal/image104.pdf}\caption{Figura .: Sequenza spin-echo e segnale registrato}
 \end{figure}
 
-\begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
-  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
-  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
-\caption{Figura .: Andamento degli spin nella sequenza spin-echo}\tabularnewline
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\centering
-\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene orologio, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image105.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene orologio, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image106.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene orologio, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image107.pdf}\end{minipage} \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\centering
-\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene orologio, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image105.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene orologio, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image106.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene orologio, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image107.pdf}\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene orologio, schermata Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image108.pdf}\includegraphics[width=1.5in,height=1.28in]{media/7_MRISignal/image111.pdf}\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene schermata, aeromobile, aeroplano Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image114.pdf}\includegraphics[width=1.5in,height=1.28in,alt={Immagine che contiene aeromobile Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image117.pdf}\includegraphics[width=1.5in,height=1.28in]{media/7_MRISignal/image120.pdf}\includegraphics[width=1.5in,height=1.28in]{media/7_MRISignal/image123.pdf}\end{longtable}
+\input{Data/7_MRISignal_SpinEcho}
 
 Il punto in cui si ha il recupero della magnetizzazione, ovvero dove il segnale misurato è massimo, si trova in corrispondenza del tempo di echo, \(T_{E} = 2\tau\).
 
@@ -782,7 +762,8 @@ Storicamente le prime misure biologiche del tempo \(T_{2}\) sui tessuti umani sf
 
 La stima del tempo \(T_{2}\) presenta un errore che dipende dall'errore commesso sulla valutazione dei segnali ai tempi di echo \(T_{E_{1}}\) e \(T_{E_{2}}\). Tale errore può essere anche molto importante. Inoltre, l'ipotesi fondamentale, su cui si basa la valutazione di \(T_{2}\) con questa tecnica è che la magnetizzazione iniziale delle due sequenze spin-echo sia la stessa. Affinché questa ipotesi sia verificata, tra una sequenza spin-echo e la successiva deve passare un tempo almeno pari a \(5T_{1}\), in modo che la magnetizzazione raggiunga l'equilibrio.
 
-\subsubsection{\texorpdfstring{Applicazione multipla dei gradienti a \(\mathbf{\pi}\)}{Applicazione multipla dei gradienti a \textbackslash mathbf\{\textbackslash pi\}}}\label{applicazione-multipla-dei-gradienti-a-mathbfpi}
+\subsubsection[Applicazione multipla dei gradienti a pi]{Applicazione multipla dei gradienti a $\mathbf{\pi}$}
+\label{applicazione-gradienti-pi}
 
 Una soluzione per stimare il tempo di rilassamento trasversale \(T_{2}\) con maggiore precisione prevede l'acquisizione di più echi, mediante una sequenza nota come multiple echo. Si applica, cioè, un primo impulso a \(\pi/2\), il quale perturba l'equilibrio del campione. In seguito, si applica una serie di impulsi a \(\pi\) distanziati da un tempo \(\tau = T_{E}/2\).
 
@@ -803,31 +784,7 @@ Appena gli spin sono abbastanza defocalizzati, si applica un secondo impulso a \
 
 Analogamente, se gli impulsi a \(\pi\) sono applicati lungo \(y'\), gli spin si focalizzano alternativamente su \(x'\) e \(- x'\).
 
-\begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
-\caption{Figura .: Movimento degli spin nella sequenza multiple spin-echo}\tabularnewline
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\centering
-\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, linea, design, testo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image129.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, linea, design, testo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image129.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, schermata, diagramma, testo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image130.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene linea, schermata, diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image131.pdf}\end{minipage} \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\centering
-\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, linea, design, testo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image129.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, linea, design, testo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image129.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, schermata, diagramma, testo Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image130.pdf}\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene linea, schermata, diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image131.pdf}\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, design, arte Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image132.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image136.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image140.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, design, arte Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image144.pdf}\includegraphics[width=1.5in,height=1.69243in]{media/7_MRISignal/image148.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, diagramma, linea, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image152.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene linea, schizzo, diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image156.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, linea, diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image160.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, linea, diagramma, disegno Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image164.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, linea, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image168.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, design, arte Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image172.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image176.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, diagramma, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image180.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, design, disegno, diagramma Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image184.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, diagramma, disegno, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image188.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, diagramma, design Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image192.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, design, arte Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image196.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, diagramma, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image200.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, linea, diagramma, disegno Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image204.pdf}\includegraphics[width=1.5in,height=1.69243in,alt={Immagine che contiene schizzo, disegno, diagramma, linea Il contenuto generato dall\textquotesingle IA potrebbe non essere corretto.}]{media/7_MRISignal/image208.pdf}\end{longtable}
+\input{Data/7_MRISignal_Rifoc}
 
 Gli impulsi di focalizzazione permettono di misurare un valore del segnale proporzionale alla magnetizzazione, in corrispondenza dei tempi di echo. Tutte le misure condividono lo stesso valore iniziale.
 
@@ -835,7 +792,8 @@ In definitiva, il processo di misura equivale a un campionamento del segnale \(M
 
 In particolare, il tempo di rilassamento \(T_{2}\) è dell'ordine delle centinaia di \(ms\), per cui, affinché il segnale \(\exp\left( - t/T_{2} \right)\) possa considerarsi estinto, è necessario aspettare un intervallo temporale di \(5T_{2}\sim 500\ ms\). Scegliendo un tempo di echo di \(10\ ms\), è possibile eseguire circa \(50\) misurazioni per ricostruire l'evoluzione temporale della magnetizzazione trasversale \(M_{\bot} \propto \exp\left( - t/T_{2} \right)\).
 
-\paragraph{\texorpdfstring{Stima del tempo \(\mathbf{T}_{\mathbf{2}}\) da \(\mathbf{n}\) misurazioni}{Stima del tempo \textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{2\}\} da \textbackslash mathbf\{n\} misurazioni}}\label{stima-del-tempo-mathbft_mathbf2-da-mathbfn-misurazioni}
+\paragraph[Stima del tempo T2 da n misurazioni]{Stima del tempo $\mathbf{T}_{\mathbf{2}}$ da $\mathbf{n}$ misurazioni}
+\label{stima-tempo-T2-n-misurazioni}
 
 Si suppone di applicare una sequenza multiple spin-echo. Il segnale misurato, a causa delle disomogeneità di campo, decresce con costante di tempo \(T_{2}^{*}\). Per l'applicazione degli impulsi a \(\pi\) ripetuti, l'ampiezza del picco massimo dell'echo si riduce come \(\exp\left( - t/T_{2} \right)\). Al tempo \(t_{n} = nT_{E}\) gli isocromi sono focalizzati sull'asse \(x'\) o su \(y'\). In questa condizione il segnale registrato ha un massimo, legati a \(\exp\left( - nT_{E}/T_{2} \right)\). Valutando i segnali registrati ai tempi di echo, si ottengono dei campioni del segnale \(\exp\left( - t/T_{2} \right)\), da cui è possibile ricavare il tempo di rilassamento trasversale \(T_{2}\).
 

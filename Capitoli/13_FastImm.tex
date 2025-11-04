@@ -155,7 +155,8 @@ La densità protonica ottenuta, ovvero l'immagine, non ha una pesatura semplice 
 
 La sequenza appena introdotta è nota come short \(T_{R}\) steady state incoherent o SSI, dove il termine incoherent si riferisce alla presenza del gradiente di spoiling che sfasa tutti gli isocromati per annullare la componente trasversa prima di ogni ripetizione. In assenza dei gradienti di spoling si ottiene una sequenza short-\(T_{R}\) steady state coherent.
 
-\subsection{\texorpdfstring{Pesatura in \(\mathbf{T}_{\mathbf{1}}\) con sequenza short-\(\mathbf{T}_{\mathbf{R}}\) steady state}{Pesatura in \textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{1\}\} con sequenza short-\textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{R\}\} steady state}}\label{pesatura-in-mathbft_mathbf1-con-sequenza-short-mathbft_mathbfr-steady-state}
+\subsection[Pesatura in T1 con sequenza short-TR steady state]{Pesatura in $\mathbf{T}_{\mathbf{1}}$ con sequenza short-$\mathbf{T}_{\mathbf{R}}$ steady state}
+\label{pesatura-in-T1-short-TR-steady-state}
 
 Dalla relazione individuata per \(\widehat{\rho}\left( \vartheta,T_{E} \right)\) si evince che la pesatura dipende sia dal tempo d'echo che dal flip angle \(\vartheta\) dell'impulso a radiofrequenza. Si vuole determinare l'angono in corrispondenza del quale il segnale assume il suo valore massimo. A tale scopo si deriva rispetto \(\vartheta\) e si pone a zero la derivata
 
@@ -323,7 +324,8 @@ Poiché si è visto che:
 
 La magnetizzazione trasversale, nel punto di massimo \(\vartheta_{E}\) e per tempi di ripetizioni molto minori del tempo di rilassamento longitudinale, è proporzionale a metà dell'angolo di Ernst, espresso in radianti, tramite la costante \(M_{0}\).
 
-\subsection{\texorpdfstring{Pesatura in densità protonica con sequenza short-\(\mathbf{T}_{\mathbf{R}}\) steady state}{Pesatura in densità protonica con sequenza short-\textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{R\}\} steady state}}\label{pesatura-in-densituxe0-protonica-con-sequenza-short-mathbft_mathbfr-steady-state}
+\subsection[Pesatura in densità protonica con sequenza short-TR steady state]{Pesatura in densità protonica con sequenza short-$\mathbf{T}_{\mathbf{R}}$ steady state}
+\label{pesatura-in-densita-protonica-short-TR}
 
 La relazione generale della magnetizzazione trasversa, in funzione del flip angle, è data da:
 
@@ -528,7 +530,8 @@ In definitiva, se si vuole un'ottima approssimazione è necessario applicare un 
 
 Generalmente, il prodotto \(n_{\alpha}T_{R} \simeq T_{1}\), se \(\alpha\) è dell'ordine del \(10\%\). Di conseguenza, per avere un errore percentuale \(\alpha\) è necessario applicare un numero di sequenze \(n_{\alpha}\), che occupano un intervallo temporale dello stesso ordine di grandezza di \(T_{1}\) quindi dell'ordine del secondo. Successivamente, l'acquisizione risulta essere più rapida rispetto a una classica sequenza di acquisizione.
 
-\subsection{\texorpdfstring{Vantaggi e svantaggi della sequenza short-\(\mathbf{T}_{\mathbf{R}}\) steady state}{Vantaggi e svantaggi della sequenza short-\textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{R\}\} steady state}}\label{vantaggi-e-svantaggi-della-sequenza-short-mathbft_mathbfr-steady-state}
+\subsection[Vantaggi e svantaggi della sequenza short-TR steady state]{Vantaggi e svantaggi della sequenza short-$\mathbf{T}_{\mathbf{R}}$ steady state}
+\label{vantaggi-e-svantaggi-short-TR}
 
 Lo svantaggio della sequenza risiede nel dover aspettare un tempo dato da un multiplo di \(T_{1}\), in base all'approssimazione desiderata, prima di eseguire l'imaging.
 
@@ -544,7 +547,8 @@ Il vantaggio principale della sequenza è strettamente legato al tempo di ripeti
 
 Questa sequenza è molto utilizzata nella pratica poiché permette di ottenere un elevato contrasto tra i tessuti con un tempo ridotto.
 
-\subsection{\texorpdfstring{Applicazione della short-\(\mathbf{T}_{\mathbf{R}}\) inchoerent gradient-echo}{Applicazione della short-\textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{R\}\} inchoerent gradient-echo}}\label{applicazione-della-short-mathbft_mathbfr-inchoerent-gradient-echo}
+\subsection[Applicazione della short-TR incoherent gradient-echo]{Applicazione della short-$\mathbf{T}_{\mathbf{R}}$ incoherent gradient-echo}
+\label{applicazione-short-TR-incoherent-gradient-echo}
 
 La risonanza magnetica può essere utilizzata anche per eseguire la mammografia. In questo contesto, si orienta la paziente in modo che le mammelle siano posizionate all'interno delle antenne di ricezione, dette bobine bilaterali. La paziente è posta in posizione prona all'interno del gantry. Di solito l'imaging è tridimensionale e sfrutta una sequenza di tipo short-\(T_{R}\) inchoerent gradient-echo in cui le mammelle sono sezionate secondo piani coronarici.
 
@@ -556,7 +560,8 @@ Il tessuto fibroghiandolare è più liquido del tessuto circostante, quindi, pre
 
 La pesatura, a parità di rapporto segnale/rumore influenza l'imaging, quindi, modifica il rapporto contrasto/rumore, poiché cambia la visibilità nei tessuti.
 
-\subsection{\texorpdfstring{Stima del tempo \(\mathbf{T}_{\mathbf{1}}\) mediante variazioni del flip angle}{Stima del tempo \textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{1\}\} mediante variazioni del flip angle}}\label{stima-del-tempo-mathbft_mathbf1-mediante-variazioni-del-flip-angle}
+\subsection[Stima del tempo T1 mediante variazioni del flip angle]{Stima del tempo $\mathbf{T}_{\mathbf{1}}$ mediante variazioni del flip angle}
+\label{stima-tempo-T1-flip-angle}
 
 L'intensità del segnale del pixel dipende dal flip angle, \(s(\vartheta)\). IN una sequenza basata su short-\(T_{R}\) incoherent gradient-echo, il segnale del voxel è data dalla relazione:
 
@@ -774,7 +779,8 @@ Al termine del processo iterativo si ottiene una stima \({\overset{\underline{}}
 
 In ambito clinico è spesso necessario avere solamente un'informazione qualitativa del tempo \(T_{1}\), ottenuta mediante pesatura in questo parametro. In altri contesti, è necessario valutare quantitativamente il tempo di rilassamento longitudinale. Solo in queste situazioni si procede con la risoluzione del problema non-linear least square e con la successiva generazione della mappa \(T_{1}\).
 
-\subsubsection{\texorpdfstring{Linearizzazione del problema NLS per stima di \(\mathbf{\rho}_{\mathbf{0}}\) e \(\mathbf{T}_{\mathbf{1}}\)}{Linearizzazione del problema NLS per stima di \textbackslash mathbf\{\textbackslash rho\}\_\{\textbackslash mathbf\{0\}\} e \textbackslash mathbf\{T\}\_\{\textbackslash mathbf\{1\}\}}}\label{linearizzazione-del-problema-nls-per-stima-di-mathbfrho_mathbf0-e-mathbft_mathbf1}
+\subsubsection[Linearizzazione del problema NLS per stima di rho0 e T1]{Linearizzazione del problema NLS per stima di $\mathbf{\rho}_{\mathbf{0}}$ e $\mathbf{T}_{\mathbf{1}}$}
+\label{linearizzazione-NLS-stima-rho0-T1}
 
 In alcuni casi è possibile linearizzare la minimizzazione degli scarti quadratici al fine di ridurre un problema NLS in OLS.
 

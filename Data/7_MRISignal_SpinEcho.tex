@@ -1,0 +1,22 @@
+% lista delle immagini (senza virgole!)
+\def\imagelist{
+image105, image106, image107, image108, image109, image110, image111, image112,
+image113, image114, image115, image116, image117, image118, image119, image120,
+image121, image122, image123, image124, image125}
+
+% --- corpo principale ---
+\setcounter{imgcount}{0}
+
+\begin{center}
+\foreach \image in \imagelist {%
+    \includegraphics[width=\imgwidth]{media/7_MRISignal/\image.pdf}%
+    \stepcounter{imgcount}%
+    \ifnum\value{imgcount}<\imagesperrow
+        \hspace{0.02\textwidth}% piccolo spazio tra immagini
+    \else
+        \par\vspace{0cm}% fine riga
+        \setcounter{imgcount}{0}% reset del contatore
+    \fi
+}
+\captionof{figure}{Andamento degli spin nella sequenza spin-echo}
+\end{center}
