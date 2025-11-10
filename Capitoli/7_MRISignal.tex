@@ -407,7 +407,7 @@ In ipotesi di volumetto costante nel tempo, è possibile scrivere:
 
 
 \begin{align*}
-\text{emf}(t) \propto \int_{V'} \frac{\partial}{\partial t} \Bigg\{ 
+\text{emf}\left( t \right) \propto \int_{V'} \frac{\partial}{\partial t} \Bigg\{ 
 & \left| M_{+}\left(\vec{r}, 0\right) \right| \exp\left( -\frac{t}{T_{2}\left(\vec{r}\right)} \right) \ \left[ \vec{B}_{\text{ric}}\left(\vec{r}\right) \cos\left( \omega_{0}\left(\vec{r}\right) t - \phi_{0}\left(\vec{r}\right) \right) \right. + \\
 & \left.- B_{\text{ric},y}\left(\vec{r}\right) \sin\left( \omega_{0}\left(\vec{r}\right) t - \phi_{0}\left(\vec{r}\right) \right)\right]\Bigg\} \, dV' =
 \end{align*}
@@ -525,7 +525,7 @@ Affinché la frequenza di precessione sia costante, è necessario che il campo p
 Le costanti di fase sono estremamente importanti per il confronto tra segnali provenienti da sorgenti di magnetizzazione diverse, in cui è necessario che si verifichino abbattimenti tra le varie fasi dei segnali. Le quantità \(\omega_0\), \(|M_+|\) e \(B_\perp\) sono imposte dall'esterno dall'operatore.
 
 
-Per un campione omogeneo è semplice ottenere informazioni sulla fase. In particolare, avendo un segnale sinusoidale a frequenza \(\omega_0\) nota, il processo più semplice da utilizzare è la \emph{demodulazione coerente}, ovvero una demodulazione in cui si estraggono le informazioni di fase della sinusoide.
+Per un campione omogeneo è semplice ottenere informazioni sulla fase. In particolare, avendo un segnale sinusoidale a frequenza \(\omega_0\) nota, il processo più semplice da utilizzare è la \textit{demodulazione coerente}, ovvero una demodulazione in cui si estraggono le informazioni di fase della sinusoide.
 
 \subsection{Demodulazione del segnale registrato}\label{demodulazione-del-segnale-registrato}
 
@@ -552,46 +552,53 @@ Se il segnale proviene da un piccolo campione omogeneo, lo spettro è composto d
 \includegraphics[width=3.87452in,height=3.425in]{media/7_MRISignal/image86.pdf}\caption{Spettro di materiale omogeneo}
 \end{figure}
 
-In questo caso, la frequenza a cui risuonano gli spin del campione, in generale, può risulta diversa dall'oscillazione che produce il sistema di demodulazione. La frequenza del segnale \(s(t)\) registrato può essere espressa come:
+In questo caso, la frequenza a cui risuonano gli spin del campione, in generale, può risulta diversa dall'oscillazione che produce il sistema di demodulazione. La frequenza del segnale \(s\left( t \right)\) registrato può essere espressa come:
 
-\[\omega = \omega_{0} + \delta\omega_{0}\]
+\[
+\omega = \omega_{0} + \delta\omega_{0}
+\]
 
-Dal punto di vista dello spettro, gli impulsi non sono centrati a \(\omega_{0}\), ma piuttosto dove a:
+dove \(\delta\omega_0\) è la frequenza di offset rispetto a \(\omega_0\). Dal punto di vista dello spettro, gli impulsi non sono centrati a \(\omega_{0}\), ma piuttosto a \(\omega\)
 
-\[\omega = \omega_{0} + \delta\omega_{0}\]
+Trascurando la dipendenza da \(\exp\left( - t/T_{2} \right)\), il segnale registrato \(s\left( t \right)\) dipende solo dalla sinusoide:
 
-Dove \(\delta\omega_{0}\) è nota come frequenza di offset rispetto la frequenza di Larmor \(\omega_{0}\).
 
-Trascurando la dipendenza da \(\exp\left( - t/T_{2} \right)\), il seganale registrato \(s(t)\) dipende solo dalla sinusoide:
-
-\[s(t) \propto \sin\left( \omega_{0}t + \delta\omega_{0}t + \vartheta - \phi_{0} \right)\]
+\[
+s\left( t \right) \propto \sin\left( \omega_{0}t + \delta\omega_{0}t + \vartheta - \phi_{0} \right)
+\]
 
 In uscita al moltiplicatore, si ottiene un segnale proporzionale a:
 
-\[s(t)\sin\left( \omega_{0}t \right) \propto \sin\left( \omega_{0}t + \delta\omega_{0}t + \vartheta - \phi_{0} \right)\sin\left( \omega_{0}t \right)\]
+\[
+s\left( t \right)\sin\left( \omega_{0}t \right) \propto \sin\left( \omega_{0}t + \delta\omega_{0}t + \vartheta - \phi_{0} \right)\sin\left( \omega_{0}t \right)
+\]
 
 Per le formule di prostaferesi, il segnale in uscita è proporzionale, a meno di un fattore \(1/2\), a:
 
-\[s(t)\sin\left( \omega_{0}t \right) \propto \cos\left( 2\omega_{o}t + \delta\omega_{0}t + \vartheta - \phi_{0} \right) - \cos\left( \delta\omega_{0}t + \vartheta - \phi_{0} \right)\]
+\[
+s\left( t \right)\sin\left( \omega_{0}t \right) \propto \cos\left( 2\omega_{0}t + \delta\omega_{0}t + \vartheta - \phi_{0} \right) - \cos\left( \delta\omega_{0}t + \vartheta - \phi_{0} \right)
+\]
 
-Ovvero il segnale in uscita dal moltiplicatore è dato dalla somma di un termine a frequenza \(2\omega_{o} + \delta\omega_{0}\) e un termine a frequenza \(\delta\omega_{0}\), differenza tra la frequenza di risonanza di Larmor e dell'oscillatore.
+Ovvero il segnale in uscita dal moltiplicatore è dato dalla somma di un termine a frequenza \(2\omega_{0} + \delta\omega_{0}\) e un termine a frequenza \(\delta\omega_{0}\), differenza tra la frequenza di risonanza di Larmor e dell'oscillatore.
 
 Generalmente, risulta:
 
-\[2f_{o} + \delta f_{0} \gg \ \delta f_{0}\]
+\[
+2f_{0} + \delta f_{0} \gg \ \delta f_{0}
+\]
 
 Infatti, \(f_{0} \simeq 64\ MHz\), mentre \(\delta f_{0}\) è dell'ordine di qualche \(kHz\).
 
-È possibile eseguire un processo di filtraggio, attraverso il quale il termine a frequenza \(2f_{o} + \delta f_{0}\) è completamente rimosso, mentre il termine a bassa frequenza è lasciato inalterato.
+È possibile eseguire un processo di filtraggio, attraverso il quale il termine a frequenza \(2f_{0} + \delta f_{0}\) è completamente rimosso, mentre il termine a bassa frequenza è lasciato inalterato.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=4.225in,height=1.9202in]{media/7_MRISignal/image87.pdf}\caption{Filtraggio a valle del moltiplicatore}
 \end{figure}
 
-Nel momento in cui si considera il tempo di rilassamento \(T_{2}\), lo spettro non è più di tipo impulsivo ma è slargato e centrato sulle frequenze \(\delta f_{0}\) e \(2f_{0} + \delta f_{0}\). Mediante il processo di filtraggio, si conserva solamente il termine in bassa frequenza, centrato su \(\delta f_{0}\).
+Per la presenza del tempo di rilassamento \(T_{2}\), lo spettro non è più di tipo impulsivo ma è slargato e centrato sulle frequenze \(\delta f_{0}\) e \(2f_{0} + \delta f_{0}\). Mediante il processo di filtraggio, si conserva solamente il termine in bassa frequenza, centrato su \(\delta f_{0}\).
 
-Nel dominio del tempo, il segnale registrato dalle antenne è un'oscillazione ad alta frequenza, con ampiezza modulata dal termine \(\exp\left( - t/T_{2} \right)\).
+Nel dominio del tempo, il segnale registrato è una sinusoide ad alta frequenza modulata in ampiezza da \(\exp(-t/T_2)\). Dopo la demodulazione, la frequenza risultante è \(\delta f_0\), con ampiezza modulata da \(T_2\).
 
 \begin{figure}[ht]
 \centering
@@ -605,13 +612,11 @@ Dopo la demodulazione del segnale registrato, la frequenza della sinusoide modul
 \includegraphics[width=6.69306in,height=3.69861in,alt={Immagine che contiene diagramma, linea, Diagramma Descrizione generata automaticamente}]{media/7_MRISignal/image89.pdf}\caption{Segnale a valle della modulazione}
 \end{figure}
 
-Nella pratica, si realizza una demodulazione su due canali:
+La demodulazione viene effettuata su due canali:
 
 \begin{itemize}
-\item
-  Su un canale il segnale registrato dalle antenne \(s(t)\) viene moltiplicato per un'oscillazione sinusoidale a frequenza \(\omega_{0}\);
-\item
-  Sul secondo canale, lo stesso segnale è moltiplicato per un'oscillazione cosinusoidale, in quadratura col seno, alla stessa frequenza \(\omega_{0}\).
+\item Il primo canale moltiplica \(s\left( t \right)\) per \(\sin\left(\omega_0 t\right)\), ottenendo la parte reale del fasore \(M_+\).
+\item Il secondo canale moltiplica \(s\left( t \right)\) per un'oscillazione in quadratura al primo, ovvero \(\cos\left(\omega_0 t\right)\), ottenendo la parte immaginaria.
 \end{itemize}
 
 Questo tipo di modulazione è detta coerente.
@@ -625,17 +630,21 @@ Il segnale in uscita dal primo canale è proporzionale al \(\cos\left( \delta\om
 
 Il secondo canale è detto immaginario ed è ottenuto moltiplicando il segnale registrato dalle antenne per una cosinusoide a frequenza \(\omega_{0}\). Il segnale a valle del moltiplicatore è, quindi, proporzionale a:
 
-\[s(t)\cos\left( \omega_{o}t \right) \propto \sin\left( \omega_{0}t + \delta\omega_{0}t + \vartheta - \phi_{0} \right)\cos\left( \omega_{0}t \right)\]
+\[
+s\left( t \right)\cos\left( \omega_{0}t \right) \propto \sin\left( \omega_{0}t + \delta\omega_{0}t + \vartheta - \phi_{0} \right)\cos\left( \omega_{0}t \right)
+\]
 
 Per le formule di prostaferesi, a meno di un fattore moltiplicativo \(1/2\), si ha:
 
-\[s(t)\cos\left( \omega_{o}t \right) \propto \sin\left( \delta\omega_{0}t + \vartheta - \phi_{0} \right) - \sin\left( 2\omega_{0}t + \delta\omega_{0}t + \vartheta - \phi_{0} \right)\]
+\[
+s\left( t \right)\cos\left( \omega_{0}t \right) \propto \sin\left( \delta\omega_{0}t + \vartheta - \phi_{0} \right) - \sin\left( 2\omega_{0}t + \delta\omega_{0}t + \vartheta - \phi_{0} \right)
+\]
 
-Il segnale in uscita dal canale immaginario è la parte immaginaria della quantità \(M_{+} = \exp\left( j\omega_{0}t \right)\exp\left\lbrack j\left( \vartheta - \phi_{0} \right) \right\rbrack\).
+Il segnale in uscita dal canale immaginario è la parte immaginaria della quantità \(M_{+} = \exp\left( j\omega_{0}t \right)\exp\left\lbrack j\left( \vartheta - \phi_{0} \right) \right\rbrack\). Anche qui, il filtro passa-basso elimina il termine ad alta frequenza, lasciando la parte immaginaria del fasore.
 
-Mediante la demodulazione a due canali si riesce a ricostruire l'evoluzione sia della parte immaginaria che della parte immaginaria del segnale \(M_{+}\), ovvero le componenti longitudinali e trasversali del vettore di magnetizzazione \(\vec{M}\).
+La demodulazione a due canali consente di ricostruire l'evoluzione sia della parte immaginaria che della parte immaginaria del segnale \(M_{+}\), ovvero le componenti longitudinali e trasversali del vettore di magnetizzazione \(\vec{M}\).
 
-Siccome il segnale in ingresso ai due canali è lo stesso e poiché i due canali sono posti in parallelo, il rumore sovrapposto al segnale parte reale e parte immaginaria è correlato. In generale, si sfruttano altri schemi che sfruttano delle antenne poste in quadratura, ovvero orientate in maniera ortogonale tra loro, rispetto al campione di cui si vuole eseguire l'imaging.
+Poiché il segnale in ingresso ai due canali è lo stesso e poiché i due canali sono posti in parallelo, il rumore sovrapposto al segnale parte reale e parte immaginaria è correlato. In generale, si sfruttano altri schemi che sfruttano delle antenne poste in quadratura, ovvero orientate in maniera ortogonale tra loro, rispetto al campione di cui si vuole eseguire l'\textit{imaging}.
 
 \begin{figure}[ht]
 \centering
@@ -644,29 +653,29 @@ Siccome il segnale in ingresso ai due canali è lo stesso e poiché i due canali
 
 Il segnale registrato da una delle due antenne è in quadratura col segnale registrato dalla seconda, quindi, è possibile ricavare la parte reale e immaginaria del fasore \(M_{+}\) ma con rumore incorrelato. Con questa soluzione è possibile aumentare il rapporto segnale/rumore.
 
-\subsection{Acquisizione con sequenza Free Induction Dacay}\label{acquisizione-con-sequenza-free-induction-dacay}
+\section{Acquisizione con sequenza Free Induction Dacay}\label{acquisizione-con-sequenza-free-induction-dacay}
 
-Il segnale ricevuto dall'antenna, usata come detettore, \(s(t)\) non dipende semplicemente dai parametri del tessuto ma anche da come sono applicati i campo magnetici al corpo in esame, secondo una precisa sequenza di applicazione.
+Il segnale ricevuto dall'antenna, usata come detettore, \(s\left( t \right)\), non dipende solamente dai parametri del tessuto, ma anche da come vengono applicati i campi magnetici al corpo in esame, secondo una precisa sequenza.
 
-La sequenza più semplice da applicare consiste nell'esperimento \emph{Free Induction Dacay} (decadimento libero dell'induzione) o FID, in cui si irradia il campione con un singolo impulso a radiofrequenza.
+La sequenza più semplice è l'esperimento di decadimento libero dell'induzione o \textit{Free Induction Decay} (FID), in cui si irradia il campione con un singolo impulso a radiofrequenza.
 
-Si suppone di avere un campione di un materiale omogeneo, contenente un numero di Avogadro di spin. Immediatamente dopo l'impulso a radiofrequenza \({\vec{B}}_{1}\), la magnetizzazione, secondo l'equazione di Bloch, si porta dall'asse \({\hat{i}}_{x'}\) o \({\hat{i}}_{y'}\) al valore di equilibrio mediante una traiettoria ellittica.
+Si suppone di avere un campione omogeneo contenente un numero di Avogadro di spin. Immediatamente dopo l'impulso a radiofrequenza \(\vec{B}_1\), la magnetizzazione, secondo l'equazione di Bloch, si porta dall'asse \(\hat{x}'\) o \(\hat{y}'\) al valore di equilibrio mediante una traiettoria ellittica.
 
-Il segnale registrato dalle antenne non è altro che il decadimento delle componenti trasversali del vettore di magnetizzazione durante la fase di ritorno all'equilibrio. Il segnale registrato dalle antenne, quindi, decade con costante di tempo \(T_{2}\).
+Il segnale registrato dalle antenne è il decadimento delle componenti trasversali del vettore di magnetizzazione durante il ritorno all'equilibrio, con costante di tempo \(T_2\).
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=4.83512in,height=2.48333in]{media/7_MRISignal/image92.pdf}\caption{Sequenza FID nel sistema fisso del laboratorio}
 \end{figure}
 
-Nel sistema di riferimento rotante, il campo \({\vec{B}}_{1}\) appare come un impulso costante sull'asse \({\hat{i}}_{x'}\) o \({\hat{i}}_{y'}\). Subito dopo l'esaurimento dell'impulso a radiofrequenze la magnetizzazione trasversale si riduce, in modulo, con costante di tempo \(T_{2}\).
+Nel sistema rotante, il campo \(\vec{B}_1\) appare come un impulso costante lungo \(\hat{x}'\) o \(\hat{y}'\). Dopo l'esaurimento dell'impulso, la magnetizzazione trasversale si riduce in modulo con costante \(T_2\).
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=4.125in,height=2.07423in]{media/7_MRISignal/image93.pdf}\caption{Sequenza FID nel sistema rotante}
 \end{figure}
 
-Il segnale visto nel sistema rotante equivale al segnale acquisito nel sistema fisso dopo la demodulazione. Se la velocità di rotazione del sistema rotante, \(\omega\), è diversa dalla frequenza di Larmor \(\omega_{0}\), nel sistema rotante si osserva un'oscillazione a frequenza \(\delta\omega = \omega_{0} - \omega\).
+Il segnale visto nel sistema rotante equivale al segnale acquisito nel sistema fisso dopo la demodulazione. Se la velocità di rotazione del sistema rotante \(\omega\) è diversa dalla frequenza di Larmor \(\omega_0\), nel sistema rotante si osserva un'oscillazione a frequenza \(\delta\omega = \omega_0 - \omega\).
 
 \begin{figure}[ht]
 \centering
@@ -675,105 +684,146 @@ Il segnale visto nel sistema rotante equivale al segnale acquisito nel sistema f
 
 Si vuole studiare il comportamento della fase del segnale registrato. Il segnale di tensione indotto sull'antenna ricevente, in ipotesi di campione omogeneo, è proporzionale a:
 
-\[s(t) \propto \omega_{0}\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left\{ - j\left\lbrack \left( \omega_{0} - \omega \right)t + \phi_{0} - \vartheta_{B} \right\rbrack \right\}\int_{V}{{\vec{B}}_{\bot}\left( \vec{r} \right) \cdot {\vec{M}}_{\bot}\left( \vec{r} \right)dV}\]
 
-Per un campione omogeneo, è possibile trascurare il prodotto scalare tra le componenti traverse del vettore di magnetizzazione e del campo prodotto dall'antenna ricevente nel punto \(\vec{r} \in V\) se fosse percorsa da una corrente unitaria, in quanto si vuole studiare l'evoluzione della fase del segnale registrato. In altre parole, solamente l'argomento dell'esponenziale complesso è di interesse. Con un abuso di notazione si pone:
+\[
+s\left( t \right) \propto \omega_{0}\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left( - j\left( \left( \omega_{0} - \omega \right)t + \phi_{0} - \vartheta_{B} \right) \right)\int_{V}{{\vec{B}}_{\bot}\left( \vec{r} \right) \cdot {\vec{M}}_{\bot}\left( \vec{r} \right)dV}
+\]
 
-\[\phi_{0} = \phi_{0} - \vartheta_{B}\]
+Per un campione omogeneo, è possibile trascurare il prodotto scalare tra le componenti traverse del vettore di magnetizzazione e del campo prodotto dall'antenna ricevente nel punto \(\vec{r} \in V\) se fosse percorsa da una corrente unitaria, in quanto si vuole studiare l'evoluzione della fase del segnale registrato. In altre parole, solamente l'argomento dell'esponenziale complesso è di interesse.
 
-Dove \(\vartheta_{B}\) è la \emph{field angle}, ovvero l'angolo oltre il quale l'intensità della sorgente si riduce del \(10\%\).
+La fase totale accumulata è data dalla fase della magnetizzazione \( \phi_{0}\left( \vec{r}\right) \) a cui si sottrae la fase del campo ricevente \(\vartheta_{B}\left( \vec{r}\right) \). Quest'ultimo denota l'orientamento spaziale del campo ricevente nel piano trasversale. L'iterazione fisica fa sì che questi angoli si combinino nella fase netta, indicata con abuso di notazione \(\phi_{0}\) secondo la relazione:
+
+\[
+\phi_{0} = \phi_{0} - \vartheta_{B}
+\]
+
+Il termine \(\vartheta_{B}\) è la \textit{field angle}, ovvero l'angolo oltre il quale l'intensità della sorgente si riduce del \(10\%\).
 
 Con questa posizione la fase del segnale registrato è:
 
-\[\phi(t) = \left( \omega_{0} - \omega \right)t + \phi_{0}\]
+\[
+\phi\left( t \right) = \left( \omega_{0} - \omega \right)t + \phi_{0}
+\]
 
-Una volta che il segnale è stato demodulato, le componenti frequenziali a frequenza maggiore di \(\delta\omega_{0}\) sono eliminate dal filtraggio passabasso. A valle della demodulazione, la fase è:
+Dopo la demodulazione, le componenti ad alta frequenza, maggiori di \(\delta\omega_{0}\), sono eliminate, e la fase diventa:
 
-\[\phi(t) = \delta\omega_{0}t + \phi_{0}\]
 
-Si osservi che l'attenuazione del segnale avviene con constante di tempo \(T_{2}\), la quale varia anche in base alle disomogeneità di campo magnetico. Il tempo \(T_{2}\) è legato allo sfasamento degli spin nel campo trasverso al campo principale. Questo sfasamento dipende dalle iterazioni spin-spin le quali alterano localmente il campo magnetico percepito da uno spin.
+\[
+\phi\left( t \right) = \delta\omega_{0}t + \phi_{0}
+\]
 
-Il campo magnetico principale non è omogeneo in tutto lo spazio occupato dal paziente, ma presenta una certa variabilità dell'ordine di grandezza di \(1\ ppa\). Il campo magnetico avvertito da uno spin può, quindi, essere espresso come somma del campo magnetico principale e di un certo termine \(\mathrm{\Delta}B\) legato alle disomogeneità:
+Si osservi che l'attenuazione del segnale avviene con constante di tempo \(T_{2}\), la quale varia anche in base alle disomogeneità di campo magnetico.Il tempo \(T_2\) è legato allo sfasamento degli spin nel piano trasversale, causato da interazioni spin-spin e disomogeneità del campo magnetico.
 
-\[B\left( \vec{r} \right) = B_{0} + \mathrm{\Delta}B\left( \vec{r} \right)\]
+Il campo magnetico principale non è omogeneo in tutto lo spazio occupato dal paziente, ma presenta una certa variabilità dell'ordine di grandezza di \(1\ ppm\). Il campo magnetico avvertito da uno spin può, quindi, essere espresso come somma del campo magnetico principale e di un certo termine \(\Delta B\) legato alle disomogeneità:
+
+\[
+B\left( \vec{r} \right) = B_{0} + {\Delta}B\left( \vec{r} \right)
+\]
 
 Le differenze locali dei campi magnetici sono percepite dai vari spin e si traducono in differenti frequenze di precessione. Dati due spin, che precedono rispettivamente alle frequenze \(\omega_{1}\) e \(\omega_{2}\), le frequenze con cui gli spin precedono possono essere espresse come:
 
-\[\omega_{1} = \omega_{0} + \mathrm{\Delta}\omega_{1},\ \ \omega_{2} = \omega_{0} + \mathrm{\Delta}\omega_{2}\]
+\[
+\omega_1 = \omega_0 + \Delta\omega_1, \quad \omega_2 = \omega_0 + \Delta\omega_2
+\]
 
-Dunque, oltre alle iterazioni spin-spin, si ha un ulteriore effetto legato ai limiti costruttivi dei meccanismi di generazione del campo. All'interno del volumetto elementare di circa \(1\ mm\) di lato e contente un numero di Avogadro di protoni, gli effetti elle impurità del campo si traducono in una riduzione significativa del tempo di rilassamento traversale, poiché le fasi di distribuiscono ancor più casualmente. Mentre il tempo di rilassamento traversale \(T_{2}\) è legato alle interazioni spin-spin, il tempo di rilassamento \(T_{2}'\) è dovuto alle disomogeneità del campo principale.
+Dunque, oltre alle iterazioni spin-spin, si ha un ulteriore effetto legato ai limiti costruttivi dei meccanismi di generazione del campo. All'interno del volumetto elementare di circa \(1\ mm\) di lato e contente un numero di Avogadro di protoni, gli effetti elle impurità del campo si traducono in una riduzione significativa del tempo di rilassamento traversale, poiché le fasi si distribuiscono ancor più casualmente. Mentre il tempo di rilassamento traversale \(T_{2}\) è legato alle interazioni spin-spin, il tempo di rilassamento \(T_{2}'\) è dovuto alle disomogeneità del campo principale.
 
 Il tempo complessivo con cui la componente trasversale \({\vec{M}}_{\bot}\) si porta a zero è indicato con \(T_{2}^{*}\) ed è legato ai due tempi \(T_{2}\) e \(T_{2}'\) dalla relazione:
 
-\[\dfrac{1}{T_{2}^{*}} = \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'}\]
+\[
+\dfrac{1}{T_{2}^{*}} = \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'}
+\]
 
 La fase del segnale registrato dalle antenne in ricezione è:
 
-\[\phi(t) = \left( \omega_{0} - \omega \right)t + \phi_{0}\]
+\[
+\phi\left( t \right) = \left( \omega_{0} - \omega \right)t + \phi_{0}
+\]
 
-Dove \(\omega = \gamma B_{0} + \gamma\mathrm{\Delta}B\). In definitiva, la fase del segnale è proporzionale a:
 
-\[\phi(t) \propto \gamma\mathrm{\Delta}Bt\]
+dove \(\omega = \gamma B_{0} + \gamma \Delta B\) e $\Delta B=B_{\text{loc}} - B_{0}$. In definitiva, la fase del segnale è proporzionale a \(\gamma \Delta Bt\):
 
-\(\phi(t)\) tende rapidamente a zero, quando si considera un volumetto elementare del paziente. Ciò determina un decadimento molto più rapido del segnale registrato dalle antenne.
+\[
+\phi\left( t \right) \propto \gamma \Delta Bt\]
+
+Il termine \(\phi\left( t \right)\) tende rapidamente a zero, quando si considera un volumetto elementare del paziente. Ciò determina un decadimento molto più rapido del segnale registrato dalle antenne.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=4.85833in,height=2.57017in]{media/7_MRISignal/image95.pdf}\caption{Andamento dello sfasamento al variare del tempo di rilassamento}
 \end{figure}
 
-L'esperimento FID permette di effettuare lo \emph{shimming} del capo magnetico, ovvero la compensazione delle disomogeneità del campo principale mediante una serie di operazioni meccaniche ed elettriche, come la regolazione della corrente di alimentazione di apposite bobine dette, appunto, di \emph{shimming}. L'esperimento FID è effettuato a monte di altri al fine di omogeneizzare il campo principale.
+L'esperimento FID consente di effettuare lo \emph{shimming} del campo magnetico, ovvero la compensazione delle disomogeneità tramite regolazioni meccaniche ed elettriche (bobine di shimming).
 
-Un campo principale non omogeneo porta a una serie di problematiche nella valutazione dei tempi di rilassamento, ciò determina una forte incertezza durante l'imaging sulla localizzazione dei volumetti. Il posizionamento dei volumetti è legato ai gradienti di campo.
+
+
+L'esperimento FID permette di effettuare lo \textit{shimming} del capo magnetico, ovvero la compensazione delle disomogeneità del campo principale tramite una serie di operazioni meccaniche ed elettriche, come la regolazione della corrente di alimentazione di apposite bobine dette di \textit{shimming}. Questa regolazione è fondamentale per garantire precisione nell'\textit{imaging} e nella localizzazione dei volumetti, che dipende dai gradienti di campo. L'esperimento FID è effettuato a monte di altri al fine di omogeneizzare il campo principale.
+
+Un campo principale non omogeneo porta a una serie di problematiche nella valutazione dei tempi di rilassamento, ciò determina una forte incertezza durante l'\textit{imaging} sulla localizzazione dei volumetti. Il posizionamento dei volumetti è legato ai gradienti di campo.
 
 \subsubsection[Origine del tempo T2*]{Origine del tempo $\mathbf{T}_{\mathbf{2}}^{\mathbf{*}}$}
 \label{origine-del-tempo-mathbft_mathbf2mathbf}
 
-Si vuole determinare l'origine della relazione tra il tempo di rilassamento traversale \(T_{2}\) e quello \(T_{2}^{*}\) legato alle disomogeneità di campo.
+Si vuole determinare l'origine della relazione tra il tempo di rilassamento trasversale \(T_2\) e il tempo \(T_2^*\), legato alle disomogeneità del campo magnetico.
 
 Il segnale captato dalle antenne è del tipo:
 
-\[s(t) \propto \omega_{0}\int_{V}{\exp\left\lbrack - \dfrac{t}{T_{2}\left( \vec{r} \right)} \right\rbrack{\vec{B}}_{\bot}\left( \vec{r} \right) \cdot {\vec{M}}_{\bot}\left( \vec{r} \right)\sin\left\lbrack \omega_{0}\left( \vec{r} \right) \right\rbrack dV}\]
+\[
+s\left( t \right) \propto \omega_0 \int_V \exp\left( - \frac{t}{T_2(\vec{r})} \right) \vec{B}_\perp(\vec{r}) \cdot \vec{M}_\perp(\vec{r}) \sin\left( \omega_0(\vec{r}) t \right) dV
+\]
 
-In linea di principio, per un materiale generico, il tempo di rilassamento traversale, così come la frequenza di precessione di Larmor, dipende dalla posizione \(\vec{r}\) del volumetto elementare nel corpo, anche a causa delle disomogeneità del campo \(\mathrm{\Delta}\vec{B}\).
+In generale, per un materiale qualsiasi, sia il tempo di rilassamento traversale\(T_2\) che la frequenza di precessione di Larmor \(\omega_0\) dipendono dalla posizione \(\vec{r}\) del volumetto elementare nel corpo, anche a causa delle disomogeneità del campo \(\Delta \vec{B}\).
 
-Il processo di demodulazione coerente avviene a frequenza \(\omega\) generata dalla strumentazione di demodulazione e uguale alla velocità angolare del sistema rotante.
+Il processo di demodulazione coerente avviene a frequenza \(\omega\), generata dalla strumentazione e corrispondente alla velocità angolare del sistema rotante.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=4.14306in,height=3.19048in]{media/7_MRISignal/image96.pdf}\caption{Demodulazione coerente a frequenza \(\omega\)}
 \end{figure}
 
-Il segnale demodulato può essere scritto in forma complessa:
+Il segnale demodulato può essere espresso in forma complessa:
 
-\[s(t) = Re\left\{ s(t) \right\} + jIm\left\{ s(t) \right\}\]
+\[
+s\left( t \right) = \Re\left\{ s\left( t \right) \right\} + j\Im\left\{ s\left( t \right) \right\}
+\]
 
-Di pone \(s_{R}(t) = Re\left\{ s(t) \right\}\) e \(s_{I}(t) = Im\left\{ s(t) \right\}\), per cui:
+Si pone \(s_{R}\left( t \right) = \Re\left\{ s\left( t \right) \right\}\) e \(s_{I}\left( t \right) = \Im\left\{ s\left( t \right) \right\}\), per cui:
 
-\[s(t) = s_{R}(t) + js_{I}(t)\]
+\[
+s\left( t \right) = s_{R}\left( t \right) + js_{I}\left( t \right)
+\]
 
 Si è visto che, a valle del processo di demodulazione, il segnale registrato è dato da:
 
-\[s(t) \propto \omega_{0}\int_{V}{\exp\left\lbrack - \dfrac{t}{T_{2}\left( \vec{r} \right)} \right\rbrack{\vec{B}}_{\bot}\left( \vec{r} \right) \cdot {\vec{M}}_{\bot}\left( \vec{r},0 \right)\exp\left\{ - j\left\lbrack \left( \omega - \omega_{0} \right)t + \phi_{o}\left( \vec{r} \right) \right\rbrack \right\} dV}\]
+\[
+s\left( t \right) \propto \omega_{0}\int_{V}{\exp\left( - \dfrac{t}{T_{2}\left( \vec{r} \right)} \right){\vec{B}}_{\bot}\left( \vec{r} \right) \cdot {\vec{M}}_{\bot}\left( \vec{r},0 \right)\exp\left( - j\left( \left( \omega - \omega_{0} \right)t + \phi_{0}\left( \vec{r} \right) \right) \right) dV}
+\]
 
-Il segnale \(s(t)\) è proporzionale a un'oscillazione complessa \(\exp(j\mathrm{\Delta}\omega t)\). Si suppone che la fase iniziale dell'oscillazione sia nulla, ovvero \(\phi_{o}\left( \vec{r} \right) = 0\). Si considera, inoltre, un campione di materiale omogeneo come un bicchiere d'acqua. In questo caso, il tempo di rilassamento trasversale \(T_{2}\) non dipende dalla posizione. Si ritiene, infine, che l'antenna sia ideale, ovvero che il campo irradiato non dipende dalla posizione \(\vec{r}\). Il segnale registrato, sotto queste ipotesi, è proporzionala a:
+Il segnale \(s\left( t \right)\) è proporzionale a un'oscillazione complessa \(\exp(j\Delta\omega t)\). Si suppone che la fase iniziale dell'oscillazione sia nulla, ovvero \(\phi_{0}\left( \vec{r} \right) = 0\). Si considera, inoltre, un campione di materiale omogeneo come un bicchiere d'acqua. In questo caso, il tempo di rilassamento trasversale \(T_{2}\) non dipende dalla posizione. Si ritiene, infine, che l'antenna sia ideale, ovvero che il campo irradiato non dipende dalla posizione \(\vec{r}\). Il segnale registrato, sotto queste ipotesi, è proporzionala a:
 
-\[s(t) \propto \omega_{0}\exp\left( - \dfrac{t}{T_{2}} \right)B_{\bot}\int_{V}{M_{\bot}\left( \vec{r},0 \right)\exp(j\mathrm{\Delta}\omega t)dV}\]
+\[
+s\left( t \right) \propto \omega_{0}\exp\left( - \dfrac{t}{T_{2}} \right)B_{\bot}\int_{V}{M_{\bot}\left( \vec{r},0 \right)\exp(j{\Delta}\omega t)dV}
+\]
 
-Le disomogeneità di campo principale \(\mathrm{\Delta}B\) introducono delle variazioni della frequenza di precessione dei vari isocromi, dell'ordine della decina di \(kHz\). La variazione della differenze tra le frequenze di oscillazione del sistema e di precessione degli spin può essere descritta mediante una distribuzione gaussiana o lorentziana.
+Le disomogeneità del campo introducono variazioni nella frequenza di precessione , dell'ordine di decine di kHz. La distribuzione di \(\Delta \omega\) può essere modellata come gaussiana o lorentziana.
 
-La distribuzione guassiana che meglio descrive le variazioni di frequenza \(\mathrm{\Delta}\omega\) presenta una media nulla e una varianza dipendente dalla disomogeneità del campo magnetico. Gli spin che presentano una differenza di frequenza positiva, ovvero \(\mathrm{\Delta}\omega > 0 \Leftrightarrow \omega_{0} - \omega > 0\), presentano una velocità maggiore rispetto al sistema di riferimento; mentre quelli per cui la differenza di frequenza è negativa, ovvero \(\mathrm{\Delta}\omega < 0 \Leftrightarrow \omega_{0} - \omega < 0\), presentano una velocità inferiore dell'oscillatore.
+
+Le disomogeneità di campo principale \(\Delta B\) introducono delle variazioni della frequenza di precessione dei vari isocromi \(\Delta \omega\), dell'ordine della decina di \(kHz\). La distribuzione della variazione della differenze tra le frequenze di oscillazione del sistema e di precessione degli spin può essere modellata come una distribuzione gaussiana o lorentziana.
+
+La distribuzione guassiana che meglio descrive le variazioni di frequenza \({\Delta}\omega\) presenta una media nulla e una varianza dipendente dalla disomogeneità del campo magnetico. Gli spin che presentano una differenza di frequenza positiva, ovvero \(\Delta\omega > 0 \Leftrightarrow \omega_{0} - \omega > 0\), presentano una velocità maggiore rispetto al sistema di riferimento; mentre quelli per cui la differenza di frequenza è negativa, ovvero \(\Delta\omega < 0 \Leftrightarrow \omega_{0} - \omega < 0\), presentano una velocità inferiore dell'oscillatore.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=3.22727in,height=2.60327in]{media/7_MRISignal/image97.pdf}\caption{Distribuzione gaussiana}
 \end{figure}
 
-Un'altra possibile distribuzione che può essere attribuita alla variazione della frequenza di precessione è la lorentziana, descritta dalla \(pdf\):
+Un'altra possibile distribuzione, che può essere attribuita alla variazione della frequenza di precessione, è la lorentziana, descritta dalla \(pdf\):
 
-\[p(\mathrm{\Delta}\omega) = \dfrac{2T_{2}'}{1 + (2\pi\mathrm{\Delta}f)^{2}{T_{2}'}^{2}}\]
+\[
+p(\Delta\omega) = \dfrac{2T_{2}'}{1 + (2\pi{\Delta}f)^{2}{T_{2}'}^{2}}
+\]
 
-Dove \(T_{2}'\) è un parametro della lorentziana che, in questo caso, descrive le disomogeneità di campo magnetico, sorgenti della distribuzione stessa.
+dove \(T_{2}'\) è un parametro della lorentziana che, in questo caso, descrive le disomogeneità di campo magnetico, sorgenti della distribuzione stessa.
 
 \begin{figure}[ht]
 \centering
@@ -784,201 +834,274 @@ Prove sperimentali hanno dimostrato che la reale distribuzione delle frequenze d
 
 Il segnale prelevato, a seguito della demodulazione, ricorrendo alla \(pdf\) lorentziana, può essere espresso come:
 
-\[s(t) \propto \omega_{0}\exp\left( - \dfrac{t}{T_{2}} \right)B_{\bot}\int_{- \infty}^{+ \infty}{p(\mathrm{\Delta}\omega)\exp(j\mathrm{\Delta}\omega t)d\omega}\]
+\[
+s\left( t \right) \propto \omega_{0}\exp\left( - \dfrac{t}{T_{2}} \right)B_{\bot}\int_{- \infty}^{+ \infty}{p({\Delta}\omega)\exp(j{\Delta}\omega t)d\omega}
+\]
 
 La percentuale degli isocromati è espressa dalla \(pdf\) lorentziana, ovvero:
 
-\[s(t) \propto \omega_{0}\exp\left( - \dfrac{t}{T_{2}} \right)B_{\bot}\int_{- \infty}^{+ \infty}{\dfrac{2T_{2}'}{1 + (2\pi\mathrm{\Delta}f)^{2}{T_{2}'}^{2}}\exp(j2\pi\mathrm{\Delta}ft)df}\]
+\[
+s\left( t \right) \propto \omega_{0}\exp\left( - \dfrac{t}{T_{2}} \right)B_{\bot}\int_{- \infty}^{+ \infty}{\dfrac{2T_{2}'}{1 + (2\pi{\Delta}f)^{2}{T_{2}'}^{2}}\exp(j2\pi{\Delta}ft)df}
+\]
 
-La percentuale degli isocromati è massima per \(\mathrm{\Delta}f = 0\), ed è uguale a \(2T_{2}'\); mentre tende a zero per \(\mathrm{\Delta}f \rightarrow \pm \infty\).
+La percentuale degli isocromati è massima per \(\Delta f = 0\), ed è uguale a \(2T_{2}'\); mentre tende a zero per \(\Delta f \rightarrow \pm \infty\).
 
 L'integrale rappresenta l'antitrasformata di Fourier della \(pdf\) della lorentziana. È noto che:
 
-\[\int_{- \infty}^{+ \infty}{\dfrac{2T_{2}'}{1 + (2\pi\mathrm{\Delta}f)^{2}{T_{2}'}^{2}}\exp(j2\pi\mathrm{\Delta}ft)df} = \exp\left( - \dfrac{|t|}{T_{2}'} \right)\]
+\[
+\int_{- \infty}^{+ \infty}{\dfrac{2T_{2}'}{1 + (2\pi{\Delta}f)^{2}{T_{2}'}^{2}}\exp(j2\pi{\Delta}ft)df} = \exp\left( - \dfrac{|t|}{T_{2}'} \right)
+\]
 
-Siccome si considerano tempi positivi, \(t > 0\), il segnale registrato è proporzionale a:
+Poiché si considerano tempi positivi, \(t > 0\), il segnale registrato è proporzionale a:
 
-\[s(t) \propto \omega_{0}\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left( - \dfrac{t}{T_{2}'} \right) = \omega_{0}\exp\left\lbrack - t\left( \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} \right) \right\rbrack\]
+\[
+s\left( t \right) \propto \omega_{0}\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left( - \dfrac{t}{T_{2}'} \right) = \omega_{0}\exp\left( - t\left( \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} \right) \right)
+\]
 
 Si definisce:
 
-\[\dfrac{1}{T_{2}^{*}} = \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'}\]
+\[
+\dfrac{1}{T_{2}^{*}} = \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'}
+\]
 
-Il tempo \(T_{2}^{*}\) dipende dalla distribuzione della frequenza di precessione dei singoli isocromi, dovuta alle disomogeneità di campo quest'ultimo parametro quantificato da \(T_{2}'\) nella distribuzione di lorentziana, e dal tempo \(T_{2}\), legato alle caratteristiche del materiale in esame.
+Il tempo \(T_2^*\) dipende dalla distribuzione delle frequenze di precessione degli isocromi, dovuta alle disomogeneità del campo (quantificate da \(T_2'\)) e dalle proprietà intrinseche del materiale (quantificate da \(T_2\)).
 
 L'uso della distribuzione di Lorentz rende l'analisi del tempo di rilassamento \(T_{2}^{*}\) molto semplice dal punto di vista analitico, ma non descrive in modo molto accurato i fenomeni reali. Al contrario, la distribuzione gaussiana rende l'analisi più complessa, poiché non esiste una primitiva della \(pdf\). Nei modelli simulati si preferisce utilizzare la distribuzione gaussiana in quanto di più semplice implementazione.
 
-\subsection{Sequenza spin-echo}\label{sequenza-spin-echo}
+\section{Sequenza spin-echo}\label{sequenza-spin-echo}
 
-Anche in presenza di opportune compensazioni, il campo magnetico principale presente una disomogeneità dell'ordine di \(1\ ppm\), ovvero:
+Anche in presenza di opportune compensazioni, il campo magnetico principale presenta una disomogeneità dell'ordine di \(1\ ppm\), ovvero:
 
-\[\mathrm{\Delta}B \simeq 10^{- 6}B_{0}\]
+\[
+\Delta B \simeq 10^{-6} B_0
+\]
 
-Se, \(B_{0} = 1.5\ T\), la disomogeneità di campo è dell'ordine di \(1.5\ \mu T\). Sebbene tale variazione sia molto bassa, la disomogeneità di campo non può essere trascurata, poiché confrontabile con le variazioni locali del campo, a opera degli spin.
+Se \(B_0 = 1.5\, T\), la disomogeneità è dell'ordine di \(1.5\,\mu T\). Sebbene tale variazione sia molto bassa, non può essere trascurata, poiché è confrontabile con le variazioni locali del campo causate dagli spin.
 
-Il tempo di rilassamento \(T_{2}^{*}\) è strettamente legato alle disomogeneità di campo, infatti, per un \(\mathrm{\Delta}B = 1\ ppm\), il tempo \(T_{2}\) di un tessuto passa da \(100\ ms\) a \(5\ ms\) o minore. Inoltre, le disomogeneità di campo possono ridurre fortemente il segnale ottenuto. Per evitare ciò sono state proposte delle sequenze di impulsi per attenuare gli effetti della disomogeneità di campo. La prima proposta è la sequenza spin-echo, composta da due impulsi: il primo su un asse trasversale come \({\hat{i}}_{x'}\) che fa ruotare la magnetizzazione sul piano trasverso, allineandolo all'asse lungo cui è diretto l'impulso. Se, ad esempio, l'asse di rotazione è \(x'\), l'impulso è indicato con \((\pi/2)_{x'}\), in quanto ruota il vettore di magnetizzazione di un angolo pari a \(\pi/2\), così da precedere intorno all'asse \(x'\).
+Il tempo di rilassamento \(T_2^*\) è strettamente legato alle disomogeneità di campo. Infatti, per \(\Delta B = 1 \ ppm\), il tempo \(T_2\) di un tessuto può passare da \(100\ ms\) a \(5 \ ms\) o meno. Inoltre, le disomogeneità possono ridurre fortemente il segnale misurato. Per attenuare questi effetti, sono state proposte sequenze di impulsi, tra cui la sequenza \textit{spin-echo}, composta da due impulsi:
 
-Il secondo impulso può essere diretto sia lungo \({\hat{i}}_{x'}\) sia lungo \({\hat{i}}_{y'}\) ed è di tipo \(\pi\), ovvero ruota la magnetizzazione nel piano trasverso di un angolo pari a \(\pi\)
+\begin{itemize}
+    \item Il primo impulso a radiofrequenza ruota la magnetizzazione sul piano trasverso,  allineandola all'asse lungo cui è diretto l'impulso.  Se, ad esempio, l'asse di rotazione è \(x'\), l'impulso è indicato con \((\pi/2)_{x'}\), in quanto ruota il vettore di magnetizzazione di un angolo pari a \(\pi/2\), procedendo intorno all'asse \(x'\);
+    \item Il secondo impulso può essere diretto sia lungo \({\hat{i}}_{x'}\) sia lungo \({\hat{i}}_{y'}\) ed è di tipo \(\pi\), ovvero ruota la magnetizzazione nel piano trasverso di un angolo pari a \(\pi\). Nel primo caso l'impulso è indicato con $\pi_{x'}$ e $\pi_{y'}$ nell'altro.
+\end{itemize}
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=5.43021in,height=1.3332in,alt={Immagine che contiene linea, diagramma, bianco Descrizione generata automaticamente}]{media/7_MRISignal/image99.pdf}\caption{Sequenza spin-echo}
 \end{figure}
 
-Al termine del primo impulso a \(\pi/2\) lungo l'asse \(x'\), si registra il segnale \(s(t)\), dato da un'oscillazione a elevata frequenza, nello spettro delle radio-onde, con un'ampiezza che decade con costante di tempo \(T_{2}^{*}\).
+Dopo il primo impulso a $\pi/2$, si registra un segnale \(s\left(t\right)\) ad alta frequenza (nella banda delle onde radio), la cui ampiezza decresce con costante di tempo $T_2^*$.  
 
-Nel sistema di riferimento rotante, i vari spin del volumetto elementare si sfasano tra loro molto rapidamente; per cui, in poco tempo, si orientano in modo casuale, ottenendo così una risultate nulla nel piano trasverso. Il tempo necessario per l'azzeramento della componente trasversa del vettore di magnetizzazione è di circa \(5\ ms\).
 
-Si applica un secondo impulso di \(\pi\) sull'asse \(x'\). Si considera uno spin generico. Esso si trova nel piano trasverso al campo principale \(B_{0}\) e precede interno all'asse \(x'\). Applicato l'impulso a \(\pi\), lo spin percorre metà circonferenza intorno all'asse \(x'\), trovandosi così nel lato opposto, rispetto all'asse \(x'\), alla posizione che occupava prima dell'applicazione dell'impulso a \(\pi\). Generalizzando, dopo l'applicazione dell'impulso a \(\pi\), ogni spin si trova in una posizione speculare alla precedente, rispetto all'asse su cui è applicato l'impulso.
+Nel sistema di riferimento rotante, gli spin del volumetto elementare si sfasano rapidamente a causa delle disomogeneità del campo magnetico principale, e la componente trasversale della magnetizzazione si annulla in un tempo dell’ordine di pochi millisecondi (circa $5\ ms$).
 
-Si osservi che ogni spin possiede una propria frequenza di precessione a causa delle disomogeneità di campo, esprimibile come \(\omega = \omega_{0} + \mathrm{\Delta}\omega\). Gli spin che presentano una frequenza di precessione maggiore ovvero \(\mathrm{\Delta}\omega < 0\), si trovano a destra dell'asse \(x'\), ovvero per \(y' > 0\). Questi spin si allontanano dall'asse \(x'\) poiché la loro fase è negativa nel sistema di riferimento rotante e il loro moto avviene in senso antiorario. Viceversa, gli spin con una frequenza di precessione maggiore della velocità di rotazione del sistema di riferimento rotante, si trovano alla sinistra dell'asse \(x'\), ovvero nella regione di spazio \(y' < 0\). Questi spin, avendo \(\mathrm{\Delta}\omega > 0\), si allontanano dall'asse \(x'\) in senso orario. Infine, gli spin che presentano una \(\mathrm{\Delta}\omega = 0\) precedono alla frequenza \(\omega_{0}\), quindi, sono fermi nel sistema di riferimento rotante.
+Si applica quindi un secondo impulso di ampiezza $\pi$ lungo l’asse $x'$. Si consideri uno spin generico: esso si trova nel piano trasverso rispetto al campo principale $B_0$ e precessa attorno all’asse $x'$ con frequenza:
 
-Dopo l'applicazione dell'impulso a \(\pi\) intorno all'asse \(x'\), gli spin sono ruotati in modo a occupare una posizione speculare rispetto all'asse lungo cui è applicato l'impulso. Di conseguenza, gli spin che precedono con frequenza minore (\(\mathrm{\Delta}\omega > 0\)) si trovano nella regione di spazio che era occupata dagli spin con frequenza di precessione maggiore del sistema di riferimento rotante (\(y' < 0\)) e viceversa.
+\[
+\omega = \omega_0 + \Delta \omega,
+\]
 
-La frequenza con cui gli spin precedono non cambia con l'applicazione degli impulsi a radiofrequenza, poiché \(\mathrm{\Delta}\omega\) dipende solo dalla disomogeneità del campo principale, non modificata dagli impulsi.
+dove $\omega_0$ è la frequenza di Larmor media e $\Delta \omega$ rappresenta la deviazione dovuta alle disomogeneità di campo.
 
-Gli spin lenti, cioè con \(\mathrm{\Delta}\omega < 0\), tendono ad avvicinarsi all'asse \(x'\) in senso antiorario, mentre gli spin veloci, con \(\mathrm{\Delta}\omega > 0\), si muovono verso l'asse \(x'\) in senso orario. Si osservi, tuttavia, che nel sistema fisso del laboratorio tutti gli spin si muovono in senso orario.
+Nel sistema rotante, gli spin con $\Delta \omega > 0$ (più veloci) precessano in senso antiorario rispetto al sistema (trovandosi a sinistra di $x^{'}$) mentre quelli con $\Delta \omega < 0$ (più lenti) precessano in senso orario (trovandosi a destra dell’asse \(x'\)).  Infine, gli spin con \(\Delta \omega = 0\) precessano alla frequenza \(\omega_{0}\) e risultano quindi stazionari nel sistema di riferimento rotante.
 
-Dopo l'applicazione dell'impulso a \(\pi\), gli spin tendono a rioccupare le posizioni che occupavano prima della radioonda. In questo caso si parla di rifocalizzazione, in quanto, dopo un certo tempo, tutti gli spin sanno allineati nuovamente lungo l'asse \(x'\).
+Dopo un certo intervallo di tempo $\tau$, gli spin risultano sfasati tra loro nel piano $x'y'$, e la magnetizzazione trasversa totale si riduce quasi a zero.
+
+L’applicazione dell’impulso a $\pi$ intorno all’asse \(x'\) provoca una rotazione di mezzo giro (pari a una semicirconferenza) attorno all’asse di applicazione, portando ciascuno spin di magnetizzazione nella posizione diametralmente opposta rispetto a tale asse. In tal modo, il segno della deviazione di fase di ciascuno spin viene invertito: gli spin che erano in ritardo di fase diventano in anticipo e viceversa.  
+
+La frequenza di precessione di ciascuno spin non cambia, poiché $\Delta \omega$ dipende unicamente dalle disomogeneità statiche di $B_0$ e non dagli impulsi di radiofrequenza.
+
+Dopo l’impulso a $\pi$, gli spin continuano a precessare con la stessa distribuzione di frequenze ma con le fasi invertite.  Di conseguenza, gli spin che prima precessavano più lentamente tendono a recuperare la posizione iniziale, procedendo in senso antiorario. Analogamente, gli spin che prima precessavano più velocemente si muovo in modo da ritornare nella situazione di partenza, procedendo in senso orario. Trascorso un intervallo di tempo pari a $\tau$ dall’impulso a $\pi$, le differenze di fase accumulate prima dell’impulso vengono compensate, e tutti gli spin risultano nuovamente in fase lungo l’asse $x'$. Questo fenomeno è noto come \textbf{rifocalizzazione} e dà origine al segnale di \textbf{spin-echo}, che si osserva al tempo $t = 2\tau$ dall’applicazione del primo impulso.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=4.62912in,height=4.42403in,alt={Immagine che contiene diagramma, disegno, schizzo, Disegno tecnico Descrizione generata automaticamente}]{media/7_MRISignal/image100.pdf}\caption{Movimento degli spin nella sequenza spin-echo}
 \end{figure}
 
-Nel sistema di riferimento fisso, le varie componenti trasversali degli spin si sommano, producendo un progressivo aumento della componente trasversale, poiché i vari spin si stanno rifocalizzando, portando la somma delle loro componenti trasversali a un valore abbastanza significativo. Dunque, la magnetizzazione trasversale diventa sempre più intensa. Dopo che la magnetizzazione raggiunge il massimo, si ha lo stesso comportamento dopo l'applicazione dell'impulso a \(\pi/2\). Infatti, spin lenti e veloci nel sistema di riferimento rotante tendono a raggiungere il comportamento all'equilibrio termodinamico, mediante un defasamento degli spin, il quale tende ad annullare la componente trasversale della magnetizzazione.
+Nel sistema di riferimento fisso, le componenti trasversali dei vari spin si sommano producendo un progressivo aumento della magnetizzazione trasversa.  
+Questo avviene perché, dopo l’impulso a $\pi$, gli spin si stanno gradualmente rifocalizzando: le loro fasi tendono nuovamente ad allinearsi, e la somma vettoriale delle componenti trasversali assume valori via via più elevati.  
+La magnetizzazione trasversa diventa quindi sempre più intensa fino a raggiungere un massimo, corrispondente al tempo di eco.  
+Successivamente, si osserva un comportamento analogo a quello che segue l’impulso a $\pi/2$: gli spin veloci e lenti nel sistema rotante tendono nuovamente a sfasarsi, e la magnetizzazione trasversa decresce progressivamente verso zero, ristabilendo la condizione di equilibrio termodinamico.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=3.00295in,height=0.95921in,alt={Immagine che contiene schizzo, disegno, linea, arte Descrizione generata automaticamente}]{media/7_MRISignal/image101.pdf}\caption{Segnale registrato dopo l'applicazione dell'impulso a \(\pi\)}
 \end{figure}
 
-Questo processo avviene poiché gli spin conservano la loro frequenza di precessione, dunque, ci sarà un istante in cui gli spin attraversano l'asse \(x'\); dopodiché la magnetizzazione si rilasserà con una costante di tempo \(T_{2}^{*}\). Si noti, inoltre, che anche la rifocalizzazione avviene con costante di tempo \(T_{2}^{*}\), poiché dipendente dalle disomogeneità di campo.
+Questo processo avviene poiché ciascuno spin mantiene invariata la propria frequenza di precessione. Pertanto, esiste un istante in cui tutti gli spin attraversano simultaneamente l’asse $x'$, determinando il massimo della magnetizzazione trasversale. Dopo tale istante, la magnetizzazione si riduce con costante di tempo $T_2^*$, poiché le disomogeneità del campo magnetico causano nuovamente uno sfasamento tra gli spin. Si noti che anche il processo di rifocalizzazione avviene con la stessa costante di tempo apparente $T_2^*$, essendo determinato proprio dalle disomogeneità di campo.
 
-La sequenza spin-echo, composta dai due impulsi, sfrutta la rifocalizzazione della magnetizzazione per stimare il tempo \(T_{2}\).
+La sequenza \textit{spin-echo}, composta dai due impulsi di ampiezza $\pi/2$ e $\pi$, sfrutta la rifocalizzazione della magnetizzazione per stimare sperimentalmente il tempo di rilassamento trasversale $T_2$.
 
-Analiticamente, è possibile determinare l'instante di tempo in cui la magnetizzazione si rifocalizzata sull'asse \(x'\). La fase dei vari spin è legata alla disomogeneità di campo principale, nel sistema di riferimento rotante, dalla relazione:
+Analiticamente, è possibile determinare l’istante in cui la magnetizzazione si rifocalizza lungo l’asse $x'$.  La fase di ciascuno spin nel sistema di riferimento rotante è legata alla disomogeneità del campo magnetico principale dalla relazione:
+\[
+\phi\left(t\right) = -\gamma \Delta B\, t,
+\]
+dove $\gamma$ è il rapporto giromagnetico e $\Delta B$ rappresenta la variazione locale del campo magnetico rispetto al valore medio $B_0$.
 
-\[\phi(t) = - \gamma\mathrm{\Delta}Bt\]
+Nel tempo, la fase decresce finché non si applica il secondo impulso. In altre parole, dopo l'applicazione del primo impulso a \(\pi/2\), per un certo spin, la fase decresce con legge lineare nel tempo.
 
-Nel tempo, la fase decresce finché non si applica il secondo impulso. In altre parole, dopo l'applicazione del primo impulso a \(\pi\), per un certo spin, la fase decresce con legge lineare nel tempo.
-
-Sia \(t = 0\ s\) il tempo di fine dell'impulso a \(\pi/2\); dopo un tempo \(\tau\) si applica l'impulso a \(\pi\). La fase dello spin dopo quest'ultimo sarà opposta a quella che lo spin possedeva all'istante di tempo appena precedente a \(\tau\). Ciò è dovuto al fatto che gli spin sono ribaltati rispetto all'asse su cui è applicativo l'impulso a \(\pi\).
+Sia $t = 0\ \text{s}$ il tempo di fine dell’impulso a $\pi/2$; dopo un intervallo $\tau$ si applica l’impulso a $\pi$. La fase dello spin immediatamente dopo quest'ultimo impulso sarà opposta a quella che lo spin possedeva all'istante di tempo appena precedente a \(\tau\). Ciò è dovuto al fatto che gli spin sono ribaltati rispetto all'asse su cui è applicativo l'impulso a \(\pi\).
 
 Analiticamente, sia \(\phi\left( \tau^{-} \right)\) la fase un istante prima dell'applicazione dell'impulso a \(\pi\):
 
-\[\phi\left( \tau^{-} \right) = - \gamma\mathrm{\Delta}B\tau\]
+\[
+\phi(\tau^-) = -\gamma \Delta B\, \tau.
+\]
 
-La fase subito dopo l'interruzione del secondo impulso nel sistema rotante è:
+Poiché l’impulso a $\pi$ ribalta la magnetizzazione rispetto all’asse $x'$, la fase subito dopo l’impulso risulta opposta:
 
-\[.\phi\left( \tau^{+} \right) = - \ \phi\left( \tau^{-} \right) = \ \gamma\mathrm{\Delta}B\tau\]
+\[
+\phi\left(\tau^+\right) = -\phi\left(\tau^-\right) = \gamma \Delta B\, \tau.
+\]
 
-Esaurito l'impulso a \(\pi\), l'andamento della fase continua a decrescere linearmente, con una fase iniziale \(\phi_{0} = \ \gamma\mathrm{\Delta}B\tau\):
+Terminato l’impulso, l’evoluzione della fase prosegue linearmente nel tempo, mantenendo la stessa pendenza (poiché $\Delta B$ è costante), ma con la nuova condizione iniziale $\phi_0 = \gamma \Delta B\, \tau$:
 
-\[\phi(t) = - \gamma\mathrm{\Delta}B(t - \tau) + \ \gamma\mathrm{\Delta}B\tau = \gamma\mathrm{\Delta}B(2\tau - t)\]
+\[
+\phi\left( t \right) = -\gamma \Delta B \left(t - \tau\right) + \gamma \Delta B\, \tau = \gamma \Delta B \left(2\tau - t\right).
+\]
 
 Ciò accade poiché l'applicazione degli impulsi non provoca una variazione nella disomogeneità del campo principale, dunque, la frequenza di precessione degli spin non varia a causa degli impulsi a radiofrequenze.
 
-Nel diagramma delle fasi si hanno due tratti paralleli: il primo parte da una condizione di equilibrio, quindi, evolve dallo zero fino a raggiungere la fase \(\phi\left( \tau^{-} \right) = - \gamma\mathrm{\Delta}B\tau\) a causa dell'applicazione del primo impulso. Il secondo tratto ha la stessa pendenza, poiché \(\mathrm{\Delta}B\) è costante, ed ha come condizione iniziale \(\phi_{0} = \ \gamma\mathrm{\Delta}B\tau\).
+Nel diagramma delle fasi, si distinguono due tratti rettilinei e paralleli: 
+\begin{itemize}
+    \item il primo, da $t=0$ a $t=\tau$, mostra l’evoluzione della fase dallo zero a $\phi(\tau^-) = -\gamma \Delta B \tau$, legata all'applicazione dell'impulso a \(\pi/2\);  
+    \item il secondo, da $t=\tau$ a $t=2\tau$, rappresenta l’evoluzione dopo l’impulso a $\pi$, con pendenza invariata ma fase iniziale $\phi_0 = \gamma \Delta B \tau$.
+\end{itemize}
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=5.13386in,height=3.25197in]{media/7_MRISignal/image102.pdf}\caption{Diagrammi della fase dopo l'applicazione dell'impulso a \(\pi/2\)}
 \end{figure}
 
-Ogni spin vede una disomogeneità di campo principale \(\mathrm{\Delta}B\) diversa, dunque, la rispettiva fase evolve con una pendenza diversa. In ogni caso, tutte le fasi degli spin convergono alla fase nulla nello stesso istante, per il parallelismo tra l'andamento dell'andamento della fase prima e dopo l'applicazione dell'impulso a \(\pi\).
+Ogni spin percepisce una disomogeneità del campo magnetico principale $\Delta B$ diversa, e di conseguenza la propria fase evolve con una pendenza differente.  
+Nonostante ciò, tutte le fasi degli spin convergono a un valore nullo nello stesso istante, in virtù del parallelismo tra l’andamento della fase prima e dopo l’applicazione dell’impulso a $\pi$.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=5.12992in,height=3.25197in]{media/7_MRISignal/image103.pdf}\caption{Per tutte gli spin le fasi si annullano nello stesso istante}
 \end{figure}
 
-Il tempo in cui la fase di tutti gli spin è nulla è data dall'equazione:
+L’istante in cui la fase di ciascuno spin si annulla è determinato dalla condizione:
 
-\[\phi(t) = 0 \Leftrightarrow \mathrm{\Delta}B(2\tau - t) = 0 \Leftrightarrow t = 2\tau\]
+\[
+\phi\left( t \right) = 0 \Leftrightarrow \Delta B(2\tau - t) = 0 \Leftrightarrow t = 2\tau
+\]
 
-Il tempo necessario affinché la fase si annulla, dopo l'applicazione dell'impulso a \(\pi\), è esattamente \(2\tau\), dove \(\tau\) è l'intervallo di tempo tra i due impulsi. Nell'istante \(t = 2\tau\), il segnale di magnetizzazione è il più alto possibile.
+Il tempo necessario affinché la fase complessiva si annulli, dopo l’applicazione dell’impulso a $\pi$, è dunque esattamente $2\tau$, dove $\tau$ rappresenta l’intervallo di tempo tra i due impulsi.  
+All’istante $t = 2\tau$, tutte le componenti di magnetizzazione trasversa sono nuovamente in fase e il segnale di echo raggiunge la sua massima ampiezza.
 
-Applicando un impulso a \(\pi/2\) si ha un primo sfasamento. Dopo un tempo \(\tau\) si applica il secondo impulso a \(\pi\). La magnetizzazione presenta, quindi, una prima fase di rifasamento e una seconda di defasamento. Per entrambi gli impulsi, per ogni step, gli inviluppo presentano un andamento con costante di tempo \(T_{2}^{*}\).
+In sintesi, applicando un impulso a $\pi/2$ si genera un primo sfasamento della magnetizzazione.  
+Dopo un intervallo $\tau$, l’impulso a $\pi$ inverte le fasi dei singoli spin, dando origine a una fase di rifocalizzazione seguita da un nuovo defasamento.  
+In entrambe le fasi, gli inviluppi del segnale presentano un andamento esponenziale caratterizzato dalla costante di tempo apparente $T_2^*$, dovuta alle disomogeneità del campo magnetico principale.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=4.81835in,height=3.11733in,alt={Immagine che contiene schizzo, diagramma, disegno, linea Descrizione generata automaticamente}]{media/7_MRISignal/image104.pdf}\caption{Sequenza spin-echo e segnale registrato}
 \end{figure}
 
-%\input{Data/7_MRISignal_SpinEcho}
+\input{Data/7_MRISignal_SpinEcho}
 
-Il punto in cui si ha il recupero della magnetizzazione, ovvero dove il segnale misurato è massimo, si trova in corrispondenza del tempo di echo, \(T_{E} = 2\tau\).
+Il punto in cui si ha il recupero della magnetizzazione trasversa, ovvero dove il segnale misurato raggiunge il valore massimo, corrisponde al \textbf{tempo di echo}:
 
-Durante il processo, gli inviluppo vanno come \(T_{2}^{*}\), poiché legati alle disomogeneità di campo ma, tuttavia, questo è un tempo fittizio, poiché l'unico vero tempo è quello di rilassamento trasversale \(T_{2}\). L'iterazione spin-spin, quantificata appunto dal tempo \(T_{2}\), per com'è stata modellata non dipende dalle variazioni del campo principale, quindi, il suo effetto continua ad agire durante tutta la sequenza di applicazione degli impulsi.
+\[
+T_E = 2\tau.
+\]
 
-L'ampiezza degli impulsi registrati dalle antenne è modulata anche dalla costante di tempo \(T_{2}\). In altre parole, il primo decadimento e il successivo rifasamento-defasamento presentano delle ampiezze pesate da un termine \(\exp\left( - t/T_{2} \right)\), con cui la magnetizzazione si rilassa nel piano trasversale:
+Durante l’evoluzione libera, l’inviluppo del segnale decresce con costante di tempo apparente $T_2^*$, poiché risente delle disomogeneità del campo magnetico principale $B_0$.  Tuttavia, tale tempo $T_2^*$ è un parametro \textbf{effettivo}, non un vero tempo di rilassamento, in quanto include effetti di dephasing dovuti a variazioni spaziali del campo.  L’unico vero tempo caratteristico del rilassamento trasversale è $T_2$, che dipende esclusivamente dalle interazioni spin-spin.
 
-\[M_{\bot} \propto \exp\left( - \dfrac{t}{T_{2}} \right)\]
+Poiché l’interazione spin-spin non è influenzata dalle disomogeneità di campo, il processo di rilassamento trasversale con costante $T_2$ continua ad agire durante tutta la sequenza, sia nella fase di sfasamento sia in quella di rifocalizzazione.  Di conseguenza, anche l’ampiezza dell’echo risulta modulata da un termine esponenziale di decadimento con costante di tempo $T_2$:
 
-In definitiva, la magnetizzazione al tempo di echo è ridotta di \(\exp\left( - T_{E}/T_{2} \right)\) rispetto alla magnetizzazione misurata in corrispondenza del primo impulso a \(\pi/2\).
+\[
+M_{\bot}(t) \propto \exp\!\left(-\frac{t}{T_2}\right).
+\]
 
-Un primo metodo per ottenere una stima del tempo \(T_{2}\) da una sequenza di impulsi spin-echo consiste nell'attivare una finestra di acquisizione dopo un tempo \(\tau\) dal primo impulso. Il segnale ricevuto riguarda la rifocalizzazione degli spin e il conseguente defasamento.
+In definitiva, la magnetizzazione trasversa al tempo di eco risulta ridotta di un fattore \(\exp\!\left(-{T_E}/{T_2}\right)\) rispetto alla magnetizzazione iniziale misurata subito dopo l’impulso a $\pi/2$.
 
-Il segnale ricevuto è registrato dalle antenne, demodulato e, in seguito, campionato così da poter eseguire delle elaborazioni digitali su di esso.
+In altre parole, mentre il processo di rifocalizzazione compensa gli effetti del dephasing dovuti alle disomogeneità statiche del campo (cioè a $T_2^*$), non può annullare il decadimento intrinseco dovuto alle interazioni spin-spin, per cui l’ampiezza degli echi successivi risulta progressivamente attenuata in base al tempo $T_2$.
+
+Un primo metodo per ottenere una stima sperimentale del tempo $T_2$ mediante una sequenza \textit{spin-echo} consiste nell’acquisire il segnale in corrispondenza di diversi tempi di eco $T_E = 2\tau$.  L’intensità del segnale di eco, registrata dalle antenne, segue infatti un andamento esponenziale decrescente con costante di tempo $T_2$.
+
+Il segnale ricevuto dalle bobine di risonanza viene demodulato e campionato, così da poter essere elaborato digitalmente.  
+Dall’analisi dell’ampiezza degli echi in funzione del tempo di eco si ricava sperimentalmente il valore del tempo di rilassamento trasversale $T_2$.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=2.68333in,height=2.01894in]{media/7_MRISignal/image126.pdf}\caption{Elaborazione del segnale registrato}
 \end{figure}
 
-È possibile misurare il picco dell'echo ricevuto, ricavando informazioni sulla magnetizzazione trasversale, che a sua volta dipende dal tempo \(T_{2}\):
+È possibile misurare il picco del segnale di echo ricevuto, ottenendo così informazioni sulla magnetizzazione trasversa, che a sua volta dipende dal tempo di rilassamento $T_2$:
 
-\[M_{\bot} \propto \exp\left( - \dfrac{T_{E}}{T_{2}} \right)\]
+\[
+M_{\bot} \propto \exp\!\left(-\frac{T_E}{T_2}\right).
+\]
 
-In questo modo si ottengono informazioni su \(T_{2}\), annullando gli effetti del tempo \(T_{2}^{*}\). Tuttavia, la misura di un solo segnale non è sufficiente a valutare il tempo di rilassamento trasversale con buona precessione.
+In questo modo si ricavano informazioni dirette su $T_2$, eliminando gli effetti dovuti al tempo apparente $T_2^*$.  Tuttavia, la misura di un singolo segnale di echo non è sufficiente per determinare con precisione il tempo di rilassamento trasversale: è necessario acquisire più echi a diversi tempi $T_E$ e analizzarne l’andamento esponenziale.
 
-La modulazione del segnale registrato come \(\exp\left( - t/T_{2} \right)\) è dovuto al fatto che il vettore di magnetizzazione \(\vec{M}\) evolve secondo le leggi di Bloch, mentre i vari spin con stessa frequenza (iscocromati) hanno una fase casuale. L'effetto risultante è un segnale trasversale che decresce come \(\exp\left( - t/T_{2}^{*} \right)\) per effetto delle disomogeneità del campo; ciò porta gli spin isocromati a sfasarsi rapidamente rispetti ad altri isocromati, quindi, la magnetizzazione trasversa decade velocemente a zero.
+La modulazione del segnale registrato secondo la legge \(\exp\left( - t/T_{2} \right)\) deriva dal fatto che il vettore di magnetizzazione $\vec{M}$ evolve nel tempo in accordo con le equazioni di Bloch.  All’interno del campione, gli spin che precessano alla stessa frequenza (\textbf{isocromati}) presentano fasi inizialmente casuali, legate a \(\Delta B\). Le disomogeneità statiche del campo magnetico principale $B_0$ fanno sì che differenti regioni del campione abbiano frequenze di precessione leggermente diverse, producendo un rapido sfasamento tra gli isocromati. L’effetto complessivo è una magnetizzazione trasversa che, in assenza di rifocalizzazione, decresce come:
 
-Il vettore di magnetizzazione, per le leggi di Bloch, ha un'ampiezza che decresce come \(\exp\left( - t/T_{2} \right)\). Grazie a questo fenomeno è possibile misurare il tempo di rilassamento trasversale.
+\[
+M_{\bot}(t) \propto \exp\!\left(-\frac{t}{T_2^*}\right),
+\]
+
+a causa delle disomogeneità di campo.
+
+Il vettore di magnetizzazione, secondo le equazioni di Bloch, subisce inoltre un decadimento intrinseco della sua componente trasversale con costante di tempo $T_2$:
+\[
+M_{\bot}(t) \propto \exp\!\left(-\frac{t}{T_2}\right).
+\]
+Questo fenomeno rappresenta il vero processo di rilassamento trasversale, dovuto alle interazioni spin-spin, e consente di misurare sperimentalmente il tempo $T_2$ mediante sequenze di tipo \textbf{spin-echo}.
 
 \subsection{Multiple spin-echo}\label{multiple-spin-echo}
 
-Esistono due principali soluzioni per stimare di rilassamento trasversale \(T_{2}\) mediante la sequenza spin-echo, entrambe basata sull'acquisizione di segnali con tempi di echo diversi.
+Esistono due principali strategie per la stima del tempo di rilassamento trasversale $T_{2}$ mediante la sequenza \textit{spin-echo}, entrambe basate sull’acquisizione di segnali con tempi di eco diversi.
 
-\subsubsection{Applicazione multipla della sequenza spin-echo}\label{applicazione-multipla-della-sequenza-spin-echo}
+\subsection{Applicazione multipla della sequenza spin-echo}\label{applicazione-multipla-della-sequenza-spin-echo}
 
-Una prima strategia per ottenere una misura del tempo di rilassamento trasversale \(T_{2}\) consiste nell'applicazione di due sequenze spin-echo con impulsi a \(\pi\) distanziati a tempi di echo diversi. In questa soluzione, la sequenza consiste nell'applicazione di due sequenze spin-echo, separate da un certo intervallo di tempo. La prima sequenza presenta un tempo di echo indicato con \(T_{E_{1}}\), mentre la seconda di \(T_{E_{2}}\). In altre parole, subito dopo il decadimento della componente trasversa a valle della prima applicazione della spin-echo, il segnale acquisito nella seconda applicazione della spin-echo, parte della stessa condizione iniziale della prima ed evolve con stessa dinamica del tipo \(\exp\left( - t/T_{2} \right)\).
+Una prima strategia per ottenere una misura del tempo di rilassamento trasversale \(T_{2}\) consiste nell'applicazione di più sequenze \textit{spin-echo}, caratterizzate da impulsi a \(\pi\) separati da differenti tempi di echo. In particolare, si considerino due sequenze: la prima con tempo di echo \(T_{E_{1}}\) e la seconda con tempo di echo \(T_{E_{2}}\).
+
+In questa configurazione, dopo il decadimento della componente trasversa della magnetizzazione a seguito della prima sequenza \textit{spin-echo}, la seconda sequenza viene applicata partendo dalle stesse condizioni iniziali della prima e segue la stessa legge di decadimento esponenziale \(\exp\left( - t/T_{2} \right)\).
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=5.52083in,height=2.62445in]{media/7_MRISignal/image127.pdf}\caption{Sequenze spin-echo con tempi di eco diversi}
 \end{figure}
 
-Successivamente, nelle finestre di acquisizione si registrano due echi, il primo con tempo \(T_{E_{1}}\) e il secondo con un tempo di echo \(T_{E_{2}}\) diversi tra loro. Dato il decadimento uguale per entrambe le sequenze spin-echo, acquisendo il segnale nella prima finestra si registra un segnale \(s\left( T_{E_{1}} \right)\) proporzionale al decadimento esponenziale delle componenti trasverse del vettore di magnetizzazione:
+Durante le finestre di acquisizione si registrano due echi: il primo al tempo \(T_{E_{1}}\) e il secondo al tempo \(T_{E_{2}}\), con \(T_{E_{2}} > T_{E_{1}}\). Poiché entrambe le sequenze presentano lo stesso andamento di decadimento, il segnale acquisito al tempo \(T_{E_{1}}\) risulta proporzionale alla componente trasversa della magnetizzazione:
 
-\[s\left( T_{E_{1}} \right) \propto M_{\bot} \propto \exp\left( - \dfrac{T_{E_{1}}}{T_{2}} \right)\]
+
+\[
+s\left( T_{E_{1}} \right) \propto M_{\bot} \propto \exp\left( - \dfrac{T_{E_{1}}}{T_{2}} \right)
+\]
 
 Nella seconda finestra di acquisizione si registra un segnale al tempo di echo \(T_{E_{2}}\), proporzionale alla magnetizzazione trasversa:
 
-\[s\left( T_{E_{2}} \right) \propto M_{\bot} \propto \exp\left( - \dfrac{T_{E_{2}}}{T_{2}} \right)\]
+\[
+s\left( T_{E_{2}} \right) \propto M_{\bot} \propto \exp\left( - \dfrac{T_{E_{2}}}{T_{2}} \right)
+\]
 
-I due segnali ottenuti sono correlati, poiché la magnetizzazione è forzata a evolvere con lo stesso valore iniziale, ovvero \(M_{\bot}\left( \vec{r},0 \right)\) è comune a entrambe le sequenze. Calcolando il rapporto tra i segnali ottenuti, i fattori di proporzionalità si semplificano, poiché uguali nei due termini, quindi si ottiene:
+I due segnali sono correlati, poiché la magnetizzazione iniziale \(M_{\bot}(\vec{r},0)\) è la stessa per entrambe le sequenze. Calcolando il rapporto tra i due segnali, i fattori di proporzionalità si semplificano:
 
-\[\dfrac{s\left( T_{E_{1}} \right)}{s\left( T_{E_{2}} \right)} = \dfrac{\exp\left( - \dfrac{T_{E_{1}}}{T_{2}} \right)}{\exp\left( - \dfrac{T_{E_{2}}}{T_{2}} \right)}\]
+\[
+\dfrac{s\left( T_{E_{1}} \right)}{s\left( T_{E_{2}} \right)} = \dfrac{\exp\left( - \dfrac{T_{E_{1}}}{T_{2}} \right)}{\exp\left( - \dfrac{T_{E_{2}}}{T_{2}} \right)}
+\]
 
-Per semplicità di notazione, si pone:
+Definendo per semplicità di notazione \(s_{1} = s\left(T_{E_{1}}\right)\) e \(s_{2} = s\left(T_{E_{2}}\right)\), si ottiene:
 
-\[s_{1} = s\left( T_{E_{1}} \right),\ \ s_{2} = s\left( T_{E_{2}} \right)\]
+\[
+\dfrac{s_{1}}{s_{2}} = \dfrac{\exp\left( - \dfrac{T_{E_{1}}}{T_{2}} \right)}{\exp\left( - \dfrac{T_{E_{2}}}{T_{2}} \right)} = \exp\left( - \dfrac{T_{E_{1}} - T_{E_{2}}}{T_{2}} \right)
+\]
 
-Per cui è possibile scrivere
+Da cui, invertendo la relazione, si ricava un’espressione per la stima del tempo di rilassamento trasversale \(T_{2}\):
 
-\[\dfrac{s_{1}}{s_{2}} = \dfrac{\exp\left( - \dfrac{T_{E_{1}}}{T_{2}} \right)}{\exp\left( - \dfrac{T_{E_{2}}}{T_{2}} \right)} = \exp\left( - \dfrac{T_{E_{1}} - T_{E_{2}}}{T_{2}} \right)\]
+\[
+T_{2} = \dfrac{T_{E_{2}} - T_{E_{1}}}{\log\left( \dfrac{s_{1}}{s_{2}} \right)} = \dfrac{T_{E_{2}} - T_{E_{1}}}{\log\left( s_{1} \right) - \log\left( s_{2} \right)}
+\]
 
-Invertendo quest'ultima relazione, è possibile ottenere un'espressione per la valutazione di \(T_{2}\):
+In questo modo si ottiene una misura sperimentale del tempo \(T_{2}\).
 
-\[T_{2} = \dfrac{T_{E_{2}} - T_{E_{1}}}{\log\left( \dfrac{s_{1}}{s_{2}} \right)} = \dfrac{T_{E_{2}} - T_{E_{1}}}{\log\left( s_{1} \right) - \log\left( s_{2} \right)}\]
+Storicamente, le prime misure del tempo di rilassamento trasversale nei tessuti biologici umani utilizzavano proprio questa metodica. Tuttavia, poiché i segnali \(s_{1}\) e \(s_{2}\) vengono acquisiti con un'incertezza sperimentale, anche la stima di \(T_{2}\) risulta affetta da errore per effetto della propagazione dell’incertezza.
 
-In questo modo si è ottenuta una misura del tempo \(T_{2}\).
-
-Storicamente le prime misure biologiche del tempo \(T_{2}\) sui tessuti umani sfruttavano la metodica appena descritta. Tuttavia, le misure del tempo \(T_{2}\) eseguite sfruttano il segnale registrato, ai tempi di echo, dalle antenne e demodulato è affetta da un errore; infatti, i valori di \(s_{1}\) e \(s_{2}\) sono misurati con una certa incertezza, dunque, per la propagazione dell'errore, anche la valutazione dell'errore \(T_{2}\) è affetta da errore.
-
-La stima del tempo \(T_{2}\) presenta un errore che dipende dall'errore commesso sulla valutazione dei segnali ai tempi di echo \(T_{E_{1}}\) e \(T_{E_{2}}\). Tale errore può essere anche molto importante. Inoltre, l'ipotesi fondamentale, su cui si basa la valutazione di \(T_{2}\) con questa tecnica è che la magnetizzazione iniziale delle due sequenze spin-echo sia la stessa. Affinché questa ipotesi sia verificata, tra una sequenza spin-echo e la successiva deve passare un tempo almeno pari a \(5T_{1}\), in modo che la magnetizzazione raggiunga l'equilibrio.
+L’accuratezza della stima di \(T_{2}\) dipende dunque dalla precisione con cui vengono misurati i segnali ai tempi di echo \(T_{E_{1}}\) e \(T_{E_{2}}\). Tale errore può risultare significativo, soprattutto se il rapporto segnale/rumore è basso. Inoltre, la tecnica si basa sull’ipotesi che la magnetizzazione iniziale delle due sequenze \textit{spin-echo} sia identica. Affinché tale condizione sia soddisfatta, tra una sequenza e la successiva deve trascorrere un intervallo temporale almeno pari a \(5T_{1}\), così da permettere alla magnetizzazione longitudinale di ritornare all’equilibrio.
 
 \subsection[Applicazione multipla dei gradienti a pi]{Applicazione multipla dei gradienti a $\mathbf{\pi}$}
 \label{applicazione-gradienti-pi}
