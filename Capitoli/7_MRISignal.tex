@@ -980,222 +980,318 @@ Storicamente le prime misure biologiche del tempo \(T_{2}\) sui tessuti umani sf
 
 La stima del tempo \(T_{2}\) presenta un errore che dipende dall'errore commesso sulla valutazione dei segnali ai tempi di echo \(T_{E_{1}}\) e \(T_{E_{2}}\). Tale errore può essere anche molto importante. Inoltre, l'ipotesi fondamentale, su cui si basa la valutazione di \(T_{2}\) con questa tecnica è che la magnetizzazione iniziale delle due sequenze spin-echo sia la stessa. Affinché questa ipotesi sia verificata, tra una sequenza spin-echo e la successiva deve passare un tempo almeno pari a \(5T_{1}\), in modo che la magnetizzazione raggiunga l'equilibrio.
 
-\subsubsection[Applicazione multipla dei gradienti a pi]{Applicazione multipla dei gradienti a $\mathbf{\pi}$}
+\subsection[Applicazione multipla dei gradienti a pi]{Applicazione multipla dei gradienti a $\mathbf{\pi}$}
 \label{applicazione-gradienti-pi}
 
-Una soluzione per stimare il tempo di rilassamento trasversale \(T_{2}\) con maggiore precisione prevede l'acquisizione di più echi, mediante una sequenza nota come multiple echo. Si applica, cioè, un primo impulso a \(\pi/2\), il quale perturba l'equilibrio del campione. In seguito, si applica una serie di impulsi a \(\pi\) distanziati da un tempo \(\tau = T_{E}/2\).
+Una soluzione per stimare il tempo di rilassamento trasversale $T_{2}$ con maggiore precisione prevede l’acquisizione di più echi mediante una sequenza nota come \textit{multiple spin-echo}. In questa configurazione, si applica un primo impulso a $\pi/2$ che perturba l’equilibrio del campione, seguito da una serie di impulsi a $\pi$ distanziati da un tempo $\tau = T_{E}/2$.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=4.64394in,height=2.92077in]{media/7_MRISignal/image128.pdf}\caption{Sequenza multiple spin-echo}
 \end{figure}
 
-Con questa soluzione, mediante un'unica stimolazione inziale a \(\pi/2\), si acquisiscono più misure della magnetizzazione, così da valutare al meglio il tempo \(T_{2}\).
+Con questa metodologia, mediante una sola eccitazione iniziale a $\pi/2$, si ottengono più misure della magnetizzazione trasversa, consentendo una valutazione più accurata del tempo di rilassamento $T_{2}$.
 
-Dal punto di vista del sistema rotante, il primo impulso a \(\pi/2\) ribalta la magnetizzazione sul piano trasverso, in modo che gli spin precedano su uno degli assi \(x'\) o \(y'\). Se l'impulso è applicato lungo l'asse \(y'\), ad esempio, la magnetizzazione si focalizza su questo asse. Gli spin si allontanano in senso orario dall'asse \(y'\) se precedono con una velocità maggiore della rotazione del sistema di riferimento, altrimenti in senso antiorario.
+Dal punto di vista del sistema di riferimento rotante, l’impulso a $\pi/2$ ribalta la magnetizzazione sul piano trasverso, ponendo gli spin in precessione attorno a uno degli assi $x'$ o $y'$.  
+Se, ad esempio, l’impulso è applicato lungo l’asse $y'$, la magnetizzazione si focalizza inizialmente su tale asse. Gli spin che precessano più velocemente della rotazione del sistema si muovono in senso orario rispetto a $y'$, mentre quelli più lenti in senso antiorario.
 
-Si applica l'impulso a \(\pi\), ad esempio, diretto lungo l'asse \(x'\). Gli spin sono così ribaltati in modo da occupare una posizione speculare rispetto all'asse su cui è applicato l'impulso, \(x'\), rispetto a quella che possedeva prima dell'impulso.
+Nella sequenza a treno di echi (\textit{echo train}), gli impulsi di rifocalizzazione ($\pi$) vengono applicati in serie. Poiché ciascun impulso $\pi$ inverte la fase accumulata e ribalta il vettore $M_{\perp}$ nel piano trasversale, gli echi successivi si formano alternativamente lungo le direzioni opposte (ad esempio lungo $\hat{\imath}_{y'}$ e $-\hat{\imath}_{y'}$), campionando in modo efficace il decadimento associato a $T_{2}$.
 
-Gli spin si rifocalizzano su \(- y'\), emettendo l'echo, e, in seguito, si defocalizzano a causa delle diverse velocità di precessione.
+Questo meccanismo è noto come sequenza di \textbf{Carr–Purcell–Meiboom–Gill (CPMG)} ed è progettato per minimizzare gli errori dovuti alle imperfezioni degli impulsi a $\pi$ e alle inhomogeneità residue del campo.
 
-Appena gli spin sono abbastanza defocalizzati, si applica un secondo impulso a \(\pi\) intorno all'asse \(x'\). Questa volta gli spin si focalizzano su \(y'\). Ripetendo la sequenza, gli spin si focalizzano alternativamente su \(y'\) e \(- y'\).
-
-Analogamente, se gli impulsi a \(\pi\) sono applicati lungo \(y'\), gli spin si focalizzano alternativamente su \(x'\) e \(- x'\).
+Analogamente, se gli impulsi a $\pi$ sono applicati lungo $y'$, la magnetizzazione trasversa si focalizza alternativamente su $x'$ e $-x'$ ad ogni echo.
 
 %\input{Data/7_MRISignal_Rifoc}
 
-Gli impulsi di focalizzazione permettono di misurare un valore del segnale proporzionale alla magnetizzazione, in corrispondenza dei tempi di echo. Tutte le misure condividono lo stesso valore iniziale.
+Gli impulsi di rifocalizzazione consentono di misurare un valore del segnale proporzionale alla magnetizzazione in corrispondenza dei tempi di echo. Tutte le misure condividono la stessa magnetizzazione iniziale, garantendo coerenza nella stima.
 
-In definitiva, il processo di misura equivale a un campionamento del segnale \(M_{\bot} \propto \exp\left( - t/T_{2} \right)\), con periodo di campionamento \(T_{E}\). Ciò permette una valutazione più accurata del tempo di rilassamento trasversale \(T_{2}\).
+In definitiva, il processo di misura equivale a un campionamento del segnale di magnetizzazione trasversale:
 
-In particolare, il tempo di rilassamento \(T_{2}\) è dell'ordine delle centinaia di \(ms\), per cui, affinché il segnale \(\exp\left( - t/T_{2} \right)\) possa considerarsi estinto, è necessario aspettare un intervallo temporale di \(5T_{2}\sim 500\ ms\). Scegliendo un tempo di echo di \(10\ ms\), è possibile eseguire circa \(50\) misurazioni per ricostruire l'evoluzione temporale della magnetizzazione trasversale \(M_{\bot} \propto \exp\left( - t/T_{2} \right)\).
+\[
+M_{\bot}(t) \propto \exp\!\left(-\frac{t}{T_{2}}\right),
+\]
 
-\paragraph[Stima del tempo T2 da n misurazioni]{Stima del tempo $\mathbf{T}_{\mathbf{2}}$ da $\mathbf{n}$ misurazioni}
+con periodo di campionamento pari a $T_{E}$.  Questo approccio consente una valutazione più robusta e precisa del tempo di rilassamento trasversale $T_{2}$.
+
+Tipicamente, $T_{2}$ è dell’ordine di alcune centinaia di millisecondi. Affinché il segnale $\exp\!\left(-t/T_{2}\right)$ possa considerarsi estinto, è necessario attendere un intervallo temporale di circa $5T_{2} \sim 500~\text{ms}$.  
+Scegliendo un tempo di eco di $T_{E} = 10~\text{ms}$, è possibile acquisire fino a 50 echi, ricostruendo così con buona risoluzione temporale l’evoluzione della magnetizzazione trasversale $M_{\bot}(t)$.
+
+\subsection[Stima del tempo T2 da n misurazioni]{Stima del tempo $\mathbf{T}_{\mathbf{2}}$ da $\mathbf{n}$ misurazioni}
 \label{stima-tempo-T2-n-misurazioni}
 
-Si suppone di applicare una sequenza multiple spin-echo. Il segnale misurato, a causa delle disomogeneità di campo, decresce con costante di tempo \(T_{2}^{*}\). Per l'applicazione degli impulsi a \(\pi\) ripetuti, l'ampiezza del picco massimo dell'echo si riduce come \(\exp\left( - t/T_{2} \right)\). Al tempo \(t_{n} = nT_{E}\) gli isocromi sono focalizzati sull'asse \(x'\) o su \(y'\). In questa condizione il segnale registrato ha un massimo, legati a \(\exp\left( - nT_{E}/T_{2} \right)\). Valutando i segnali registrati ai tempi di echo, si ottengono dei campioni del segnale \(\exp\left( - t/T_{2} \right)\), da cui è possibile ricavare il tempo di rilassamento trasversale \(T_{2}\).
+Si suppone di applicare una sequenza multiple spin-echo. Il segnale misurato, a causa delle disomogeneità di campo, decresce con costante di tempo \(T_2^*\). Per l'applicazione degli impulsi a \(\pi\) ripetuti, l'ampiezza del picco massimo dell'echo si riduce come \(\exp(-t/T_2)\). Al tempo \(t_n = nT_E\), gli isocromi sono rifocalizzati sull'asse \(x'\) o \(y'\), e il segnale registrato ha un massimo proporzionale a \(\exp\!\left(-nT_E/T_2\right)\).
 
-Il segnale \(s(t)\) misurato è uguale al modello scelto per descrivere il comportamento del vettore di magnetizzazione, a cui si somma un termine di errore \(\varepsilon\), supposto essere additivo:
+Valutando i segnali registrati ai tempi di echo, si ottengono dei campioni del segnale \(\exp\left( - t/T_{2} \right)\), da cui è possibile ricavare il tempo di rilassamento trasversale \(T_{2}\).
 
-\[s(t) = \exp\left( - \dfrac{t}{T_{2}} \right) + \varepsilon\]
+Il segnale \(s\left( t \right)\) misurato è uguale al modello scelto per descrivere il comportamento del vettore di magnetizzazione, a cui si somma un termine di errore \(\varepsilon\), supposto essere additivo:
 
-Il modello non corrisponde esattamente alle misure sperimentali.
+\[
+s\left( t \right) = \exp\left( - \dfrac{t}{T_{2}} \right) + \varepsilon
+\]
 
-Si valutano i campioni nei tempi di echi \(t_{n} = nT_{E}\):
+Il modello non corrisponde esattamente alle misure sperimentali. Si valutano i campioni nei tempi di echi \(t_{n} = nT_{E}\):
 
-\[s\left( nT_{E} \right) = s_{n} = \exp\left( - \dfrac{nT_{E}}{T_{2}} \right) + \varepsilon_{n}\]
+\[
+s\left( nT_{E} \right) = s_{n} = \exp\left( - \dfrac{nT_{E}}{T_{2}} \right) + \varepsilon_{n}
+\]
 
 Il termine di errore \(\varepsilon_{n}\) dipende dalla misura, in quanto ogni misura è affetta da un errore diverso dagli altri e statisticamente indipendenti.
 
-Per valutare il tempo \(T_{2}\) dalle \(n\) misurazioni si applica il metodo dei minimi quadrati o \emph{Least Squares} (LS) o \emph{Ordinary Least Squares} (OLS) ideato da Gauss. A tale scopo, per rendere la relazione tra la misura e la quantità da valutare lineare si applica il logaritmo a ambo i membri dell'equazione per \(s_{n}\):
+Per stimare \(T_2\) si applica il metodo dei minimi quadrati (\textbf{Least Squares}, LS). Si linearizza il modello applicando il logaritmo:
 
-\[\log\left( s_{n} \right) = - \dfrac{nT_{E}}{T_{2}} + \varepsilon_{n}'\]
 
-Dove \(\varepsilon_{n}'\) è un termine di errore additivo dipendente dal logaritmo dell'errore \(\varepsilon_{n}\). La relazione così scritta può essere scritta nella forma:
+Per stimare il tempo \(T_{2}\) dalle \(n\) misurazioni si applica il metodo dei minimi quadrati o \textit{Least Squares} (LS) o \textit{Ordinary Least Squares} (OLS) ideato da Gauss. A tale scopo, per rendere la relazione tra la misura e la quantità da valutare lineare, si applica il logaritmo a ambo i membri dell'equazione per \(s_{n}\):
 
-\[y = mx + q + \varepsilon\]
+\[
+\log\left( s_{n} \right) = - \dfrac{nT_{E}}{T_{2}} + \varepsilon_{n}'
+\]
 
-Dove \(y = \log\left( s_{n} \right)\), \(m = - nT_{E}/T_{2}\) e \(q \neq 0\) in generale.
+dove \(\varepsilon_{n}'\) è un termine di errore additivo dipendente dal logaritmo dell'errore \(\varepsilon_{n}\). Questa relazione è del tipo:
+
+\[
+y = mx + q + \varepsilon
+\]
+
+con \(y = \log\left( s_{n} \right)\), \(m = - nT_{E}/T_{2}\) e \(q \neq 0\) se non normalizzato.
 
 Mediante \(n\) misurazioni si ottiene una popolazione di \(n\) coppie \(\left( y_{i},x_{i} \right)\), legati dalla relazione:
-
-\[y_{i} = mx_{i} + q + \varepsilon_{i},\ \ i = 1,\ldots,n\]
+\[
+y_i = mx_i + q + \varepsilon_i, \quad i = 1, \ldots, n
+\]
 
 Per ogni campione si ottiene una relazione lineare tra \(y\) e i coefficienti \(m\) e \(q\) della regressione. Il sistema di equazioni può essere scritto in forma matriciale:
 
-\[\left\{ \begin{matrix}
+\[
+\begin{cases}
 y_{1} = mx_{1} + q + \varepsilon_{1} \\
-\ldots \\
+y_{2} = mx_{2} + q + \varepsilon_{2} \\
+\dots \\
 y_{n} = mx_{n} + q + \varepsilon_{n}
-\end{matrix} \right.\ \]
+\end{cases} 
+\]
 
 Si introduce il vettore delle misure:
 
-\[\vec{y} = \left( \begin{array}{r}
-y_{1} \\
-y_{2} \\
-\ldots \\
-y_{n}
-\end{array} \right)\]
+\[
+\vec{y} =
+\begin{pmatrix}
+y_1 \\
+y_2 \\
+\vdots \\
+y_n
+\end{pmatrix}
+\]
 
 Si introduce la matrice dei coefficienti o di design:
 
-\[\vec{\vec{X}} = \begin{pmatrix}
-x_{1} & 1 \\
-x_{2} & 1 \\
-\ldots & \ldots \\
-x_{n} & 1
-\end{pmatrix}\]
+\[
+\mathbf{X} =
+\begin{pmatrix}
+x_1 & 1 \\
+x_2 & 1 \\
+\vdots & \vdots \\
+x_n & 1
+\end{pmatrix}
+\]
 
-Infine, si definisce il vettore delle incognite, spesso indicato con il simbolo \(\vec{\vartheta}\), con due sole componenti:
+si definisce il vettore delle incognite, spesso indicato con il simbolo \(\vec{\vartheta}\), con due sole componenti:
 
-\[\vec{\vartheta} = \left( \begin{array}{r}
+\[
+\vec{\vartheta} =
+\begin{pmatrix}
 m \\
 q
-\end{array} \right)\]
+\end{pmatrix}
+\]
+
+Infine, si introduce il vettore degli errori:
+
+\[
+\vec{\varepsilon} =
+\begin{pmatrix}
+\varepsilon_1 \\
+\varepsilon_2 \\
+\vdots \\
+\varepsilon_n
+\end{pmatrix}
+\]
 
 La relazione di regressione può essere scritta come:
 
-\[\vec{y} = \vec{\vec{X}}\vec{\vartheta}\]
+\[
+\vec{y} = \mathbf{X} \vec{\vartheta} + \vec{\varepsilon}
+\]
 
 In generale, questa equazione è valida per ogni tipologia di regressione lineare e, dunque, anche il metodo proposto per valutare \(T_{2}\) è valido.
 
-Si osservi che \(\vec{\vec{X}}\) è una matrice \(2 \times n\), quindi, non può essere invertita per ottenere la soluzione. In generale, la matrice dei coefficienti nel metodo dei minimi quadrati è di \(m \times n\), dove \(m\) è il numero delle incognite.
+Si osservi che \(\mathbf{X}\) è una matrice \(2 \times n\), quindi, non può essere invertita per ottenere la soluzione. In generale, la matrice dei coefficienti nel metodo dei minimi quadrati è di \(m \times n\), dove \(m\) è il numero delle incognite ed \(n\) quello delle misure.
 
 Sia \({\vec{\vartheta}}^{*}\) il valore vero dei parametri incogniti; la seguente equazione:
 
-\[{\vec{y}}^{*} = \vec{\vec{X}}{\vec{\vartheta}}^{*}\]
+\[
+{\vec{y}}^{*} = \mathbf{X}{\vec{\vartheta}}^{*}
+\]
 
 rappresenta il valore vero delle osservazioni.
 
-I vari elementi del vettore delle misure \(\vec{y}\) sono affetti da rumore approssimabile come variabili aleatori \(\varepsilon_{i}\). Sia:
+I vari elementi del vettore delle misure \(\vec{y}\) sono affetti da rumore approssimabile come variabili aleatori \(\varepsilon_{i}\). Si vuole trovare il vettore \(\vec{\vartheta}\) tale da minimizzare l'errore quadratico medio, ovvero:
 
-\[\vec{\varepsilon} = \left( \begin{array}{r}
-\varepsilon_{1} \\
-\varepsilon_{2} \\
-\ldots \\
-\varepsilon_{n}
-\end{array} \right)\]
+\[
+\hat{\vec{\vartheta}} = {\arg{\min_{\vec{\vartheta}}\left\| \vec{\varepsilon} \right\|}}^{2} = \arg{\min_{\vec{\vartheta}}\left\| \vec{y} - \mathbf{X}\vec{\vartheta} \right\|^{2}}
+\]
 
-Si vuole trovare il vettore \(\vec{\vartheta}\) tale da minimizzare l'errore quadratico medio, ovvero:
+I parametri \(\vec{\vartheta}\) devono rendere minima la distanza tra le misure \(\vec{y}\) e le previsioni del modello \(\mathbf{X}\vec{\vartheta}\).
 
-\[\hat{\vec{\vartheta}} = {\arg{\min_{\vec{\vartheta}}\left\| \vec{\varepsilon} \right\|}}^{2} = \arg{\min_{\vec{\vartheta}}\left\| \vec{y} - \vec{\vec{X}}\vec{\vartheta} \right\|^{2}}\]
+La quantità \(\left\| \vec{y} - \mathbf{X}\vec{\vartheta} \right\|^{2}\) può essere scritta in forma matriciale come:
 
-I parametri \(\vec{\vartheta}\) devono rendere minima la distanza tra le misure \(\vec{y}\) e le previsioni del modello \(\vec{\vec{X}}\vec{\vartheta}\).
+\[
+\left\| \vec{y} - \mathbf{X}\vec{\vartheta} \right\|^{2} = \left( \vec{y} - \mathbf{X}\vec{\vartheta} \right)^{T}\left( \vec{y} - \mathbf{X}\vec{\vartheta} \right)
+\]
 
-La quantità \(\left\| \vec{y} - \vec{\vec{X}}\vec{\vartheta} \right\|^{2}\) può essere scritta in forma matriciale come:
+Si indica con \(S\left( \vec{\vartheta} \right) = \left\| \vec{y} - \mathbf{X}\vec{\vartheta} \right\|^{2}\), l'ultima relazione si scrive come:
 
-\[\left\| \vec{y} - \vec{\vec{X}}\vec{\vartheta} \right\|^{2} = \left( \vec{y} - \vec{\vec{X}}\vec{\vartheta} \right)^{T}\left( \vec{y} - \vec{\vec{X}}\vec{\vartheta} \right)\]
-
-Si indica con \(S\left( \vec{\vartheta} \right) = \left\| \vec{y} - \vec{\vec{X}}\vec{\vartheta} \right\|^{2}\), l'ultima relazione si scrive come:
-
-\[S\left( \vec{\vartheta} \right) = \left( \vec{y} - \vec{\vec{X}}\vec{\vartheta} \right)^{T}\left( \vec{y} - \vec{\vec{X}}\vec{\vartheta} \right)\]
+\[
+S\left( \vec{\vartheta} \right) = \left( \vec{y} - \mathbf{X}\vec{\vartheta} \right)^{T}\left( \vec{y} - \mathbf{X}\vec{\vartheta} \right)
+\]
 
 Svolgendo il trasposto e i prodotti si ha:
 
-\[S\left( \vec{\vartheta} \right) = \left( \vec{y} - \vec{\vec{X}}\vec{\vartheta} \right)^{T}\left( \vec{y} - \vec{\vec{X}}\vec{\vartheta} \right) = \left( {\vec{y}}^{T} - {\vec{\vartheta}}^{T}{\vec{\vec{X}}}^{T} \right)\left( \vec{y} - \vec{\vec{X}}\vec{\vartheta} \right) = {\vec{y}}^{T}\vec{y} - {\vec{y}}^{T}\vec{\vec{X}}\vec{\vartheta} - {\vec{\vartheta}}^{T}{\vec{\vec{X}}}^{T}\vec{y} + {\vec{\vartheta}}^{T}{\vec{\vec{X}}}^{T}\vec{\vec{X}}\vec{\vartheta}\]
+\[
+S\left( \vec{\vartheta} \right) = \left( \vec{y} - \mathbf{X}\vec{\vartheta} \right)^{T}\left( \vec{y} - \mathbf{X}\vec{\vartheta} \right) = \left( {\vec{y}}^{T} - {\vec{\vartheta}}^{T}{\mathbf{X}}^{T} \right)\left( \vec{y} - \mathbf{X}\vec{\vartheta} \right) = {\vec{y}}^{T}\vec{y} - {\vec{y}}^{T}\mathbf{X}\vec{\vartheta} - {\vec{\vartheta}}^{T}{\mathbf{X}}^{T}\vec{y} + {\vec{\vartheta}}^{T}{\mathbf{X}}^{T}\mathbf{X}\vec{\vartheta}
+\]
 
-Le quantità \({\vec{y}}^{T}\vec{\vec{X}}\vec{\vartheta}\) e \({\vec{\vartheta}}^{T}{\vec{\vec{X}}}^{T}\vec{y}\) sono degli scalari, quindi, possono essere sommati tra loro:
+Le quantità \({\vec{y}}^{T}\mathbf{X}\vec{\vartheta}\) e \({\vec{\vartheta}}^{T}{\mathbf{X}}^{T}\vec{y}\) sono degli scalari, quindi, possono essere sommati tra loro:
 
-\[S\left( \vec{\vartheta} \right) = {\vec{y}}^{T}\vec{y} + {\vec{\vec{X}}}^{T}\vec{\vec{X}}{\vec{\vartheta}}^{2} - 2{\vec{y}}^{T}\vec{\vec{X}}\vec{\vartheta}\]
+\[
+S\left( \vec{\vartheta} \right) = {\vec{y}}^{T}\vec{y} + {\mathbf{X}}^{T}\mathbf{X}{\vec{\vartheta}}^{2} - 2{\vec{y}}^{T}\mathbf{X}\vec{\vartheta}
+\]
 
-Minimizzare il valore quadratico medio equivale a uguagliare a zero la derivata della quantità \(S\left( \vec{\vartheta} \right)\):
+Minimizzare il valore quadratico medio equivale a uguagliare a zero la derivata della quantità \(S\!\left( \vec{\vartheta} \right)\):
 
-\[\dfrac{\partial S\left( \vec{\vartheta} \right)}{\partial\vec{\vartheta}} = 0 \Leftrightarrow 2{\vec{\vec{X}}}^{T}\vec{\vec{X}}\vec{\vartheta} - 2{\vec{y}}^{T}\vec{\vec{X}} = 0 \Leftrightarrow {\vec{\vec{X}}}^{T}\vec{\vec{X}}\vec{\vartheta} = {\vec{y}}^{T}\vec{\vec{X}}\]
+\[
+\dfrac{\partial S\left( \vec{\vartheta} \right)}{\partial\vec{\vartheta}} = 0 \Leftrightarrow 2{\mathbf{X}}^{T}\mathbf{X}\vec{\vartheta} - 2{\vec{y}}^{T}\mathbf{X} = 0 \Leftrightarrow {\mathbf{X}}^{T}\mathbf{X}\vec{\vartheta} = {\vec{y}}^{T}\mathbf{X}
+\]
 
 Risulta che:
 
-\[{\vec{y}}^{T}\vec{\vec{X}} = {\vec{\vec{X}}}^{T}\vec{y}\]
+\[
+{\vec{y}}^{T}\mathbf{X} = {\mathbf{X}}^{T}\vec{y}
+\]
 
 Per cui si ottiene:
 
-\[{\vec{\vec{X}}}^{T}\vec{\vec{X}}\vec{\vartheta} = {\vec{\vec{X}}}^{T}\vec{y}\]
+\[
+{\mathbf{X}}^{T}\mathbf{X}\vec{\vartheta} = {\mathbf{X}}^{T}\vec{y}
+\]
 
-Moltiplicando a destra e a sinistra per \(\left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}\), si ottiene l'equazione per la soluzione \emph{ordinary least squares}:
+Moltiplicando a destra e a sinistra per \(\left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}\), si ottiene l'equazione per la soluzione \textit{ordinary least squares}:
 
-\[\hat{\vec{\vartheta}} = \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\vec{y}\]
+\[
+\hat{\vec{\vartheta}} = \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}\vec{y}
+\]
 
 Si suppone che il rumore sia a media nulla, ovvero:
 
-\[E\left\lbrack \vec{\varepsilon} \right\rbrack = \vec{0}\]
+\[
+E\left[ \vec{\varepsilon} \right] = \vec{0}
+\]
 
 La matrice della covarianza è data da:
 
-\[E\left\lbrack \vec{\varepsilon}{\vec{\varepsilon}}^{T} \right\rbrack = \sigma^{2}\vec{\vec{I}}\]
+\[
+E\left[ \vec{\varepsilon}{\vec{\varepsilon}}^{T} \right] = \sigma^{2}\mathbf{I}
+\]
 
 Si dimostra che la media della soluzione OLS tende al valore vero dei parametri incogniti \({\vec{\vartheta}}^{*}\), infatti la media di \(\hat{\vec{\vartheta}}\) è data da:
 
-\[E\left\lbrack \hat{\vec{\vartheta}} \right\rbrack = E\left\lbrack \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\vec{y} \right\rbrack\]
+\[
+E\left[ \hat{\vec{\vartheta}} \right] = E\left[ \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}\vec{y} \right]
+\]
 
-Ma \(\vec{y} = \vec{\vec{X}}{\vec{\vartheta}}^{*} + \vec{\varepsilon}\); inoltre la matrice di design non contiene variabili aleatorie, quindi, può essere portato fuori dall'operazione di media statistica:
+Ma \(\vec{y} = \mathbf{X}{\vec{\vartheta}}^{*} + \vec{\varepsilon}\); inoltre la matrice di design non contiene variabili aleatorie, quindi, può essere portato fuori dall'operazione di media statistica:
 
-\[E\left\lbrack \hat{\vec{\vartheta}} \right\rbrack = E\left\lbrack \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\vec{y} \right\rbrack = \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}E\left\lbrack \vec{y} \right\rbrack = \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}E\left\lbrack \vec{\vec{X}}{\vec{\vartheta}}^{*} + \vec{\varepsilon} \right\rbrack =\]
+\[
+E\left[ \hat{\vec{\vartheta}} \right] = E\left[ \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}\vec{y} \right] = \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}E\left[ \vec{y} \right] = \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}E\left[ \mathbf{X}{\vec{\vartheta}}^{*} + \vec{\varepsilon} \right] =
+\]
 
 Per la linearità dell'operatore valor medio si ha:
 
-\[= \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\left( \vec{\vec{X}}E\left\lbrack {\vec{\vartheta}}^{*} \right\rbrack + E\left\lbrack \vec{\varepsilon} \right\rbrack \right)\]
+\[
+= \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}\left( \mathbf{X}E\left[ {\vec{\vartheta}}^{*} \right] + E\left[ \vec{\varepsilon} \right] \right)
+\]
 
 Per ipotesi il rumore è a media nulla, per cui:
 
-\[E\left\lbrack \hat{\vec{\vartheta}} \right\rbrack = \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\vec{\vec{X}}E\left\lbrack {\vec{\vartheta}}^{*} \right\rbrack\]
+\[
+E\left[ \hat{\vec{\vartheta}} \right] = \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}\mathbf{X}E\left[ {\vec{\vartheta}}^{*} \right]
+\]
 
 Per definizione di matrice inversa risulta:
 
-\[E\left\lbrack \hat{\vec{\vartheta}} \right\rbrack = E\left\lbrack {\vec{\vartheta}}^{*} \right\rbrack\]
+\[
+E\left[ \hat{\vec{\vartheta}} \right] = E\left[ {\vec{\vartheta}}^{*} \right]
+\]
 
-La stima di \(T_{2}\) con questo metodo è detto non polarizzata o \emph{unbiased}.
+La stima di \(T_{2}\) con questo metodo è detto non polarizzata o \textit{unbiased}.
 
 Si calcola, ora, la matrice di covarianza; secondo la definizione si ha:
 
-\[E\left\lbrack \left( \hat{\vec{\vartheta}} - {\vec{\vartheta}}^{*} \right)\left( \hat{\vec{\vartheta}} - {\vec{\vartheta}}^{*} \right)^{T} \right\rbrack = E\left\lbrack \left( \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\left( \vec{\vec{X}}{\vec{\vartheta}}^{*} + \vec{\varepsilon} \right) - {\vec{\vartheta}}^{*} \right)\left( \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\left( \vec{\vec{X}}{\vec{\vartheta}}^{*} + \vec{\varepsilon} \right) - {\vec{\vartheta}}^{*} \right)^{T} \right\rbrack =\]
+\[
+E\left[ \left( \hat{\vec{\vartheta}} - {\vec{\vartheta}}^{*} \right)\left( \hat{\vec{\vartheta}} - {\vec{\vartheta}}^{*} \right)^{T} \right] = E\left[ \left( \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}\left( \mathbf{X}{\vec{\vartheta}}^{*} + \vec{\varepsilon} \right) - {\vec{\vartheta}}^{*} \right)\left( \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}\left( \mathbf{X}{\vec{\vartheta}}^{*} + \vec{\varepsilon} \right) - {\vec{\vartheta}}^{*} \right)^{T} \right] =
+\]
 
 Svolgendo i prodotti si ha:
 
-\[= E\left\lbrack \left( \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\vec{\vec{X}}{\vec{\vartheta}}^{*} + \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\vec{\varepsilon} - {\vec{\vartheta}}^{*} \right)\left( \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\vec{\vec{X}}{\vec{\vartheta}}^{*} + \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\vec{\varepsilon} - {\vec{\vartheta}}^{*} \right)^{T} \right\rbrack =\]
+\[
+= E\left[ \left( \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}\mathbf{X}{\vec{\vartheta}}^{*} + \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}\vec{\varepsilon} - {\vec{\vartheta}}^{*} \right)\left( \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}\mathbf{X}{\vec{\vartheta}}^{*} + \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}\vec{\varepsilon} - {\vec{\vartheta}}^{*} \right)^{T} \right] =
+\]
 
 Per la proprietà della matrice inversa, si ha:
 
-\[= E\left\lbrack \left( {\vec{\vartheta}}^{*} + \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\vec{\varepsilon} - {\vec{\vartheta}}^{*} \right)\left( {\vec{\vartheta}}^{*} + \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\vec{\varepsilon} - {\vec{\vartheta}}^{*} \right)^{T} \right\rbrack\]
+\[
+= E\left[ \left( {\vec{\vartheta}}^{*} + \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}\vec{\varepsilon} - {\vec{\vartheta}}^{*} \right)\left( {\vec{\vartheta}}^{*} + \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}\vec{\varepsilon} - {\vec{\vartheta}}^{*} \right)^{T} \right]=
+\]
 
 Semplificando e svolgendo i prodotti si ha:
 
-\[= E\left\lbrack \left( \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\vec{\varepsilon} \right)\left( \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\vec{\varepsilon} \right)^{T} \right\rbrack = E\left\lbrack \left( \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\vec{\varepsilon} \right)\left( {\vec{\varepsilon}}^{T}\vec{\vec{X}}\left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- T} \right) \right\rbrack = \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}E\left\lbrack \vec{\varepsilon}{\vec{\varepsilon}}^{T} \right\rbrack\vec{\vec{X}}\left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- T}\]
+\begin{align*}
+&= E\left[ 
+  \left( (\mathbf{X}^{T}\mathbf{X})^{-1}\mathbf{X}^{T}\vec{\varepsilon} \right)
+  \left( (\mathbf{X}^{T}\mathbf{X})^{-1}\mathbf{X}^{T}\vec{\varepsilon} \right)^{T} 
+\right] = E\left[ 
+  \left( (\mathbf{X}^{T}\mathbf{X})^{-1}\mathbf{X}^{T}\vec{\varepsilon} \right)
+  \left( \vec{\varepsilon}^{T}\mathbf{X}(\mathbf{X}^{T}\mathbf{X})^{-T} \right)
+\right] \\
+&= 
+\left(\mathbf{X}^{T}\mathbf{X}\right)^{-1}\mathbf{X}^{T}
+E\!\left[ \vec{\varepsilon}\vec{\varepsilon}^{T} \right]
+\mathbf{X}(\mathbf{X}^{T}\mathbf{X})^{-T}
+\end{align*}
 
-Ma, per ipotesi \(E\left\lbrack \vec{\varepsilon}{\vec{\varepsilon}}^{T} \right\rbrack\vec{\vec{X}} = \sigma^{2}\vec{\vec{I}}\), per cui:
 
-\[E\left\lbrack \left( \hat{\vec{\vartheta}} - {\vec{\vartheta}}^{*} \right)\left( \hat{\vec{\vartheta}} - {\vec{\vartheta}}^{*} \right)^{T} \right\rbrack = \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\sigma^{2}\vec{\vec{I}}\vec{\vec{X}}\left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- T} = \sigma^{2}\left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\vec{\vec{X}}\left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- T}\]
+Ma, per ipotesi \(E\left[ \vec{\varepsilon}{\vec{\varepsilon}}^{T} \right]\mathbf{X} = \sigma^{2}\mathbf{I}\), per cui:
 
-Dove \({\vec{\vec{X}}}^{T}\vec{\vec{X}}\) è una matrice simmetrica, per cui l'inversa è anch'essa simmetrica, ovvero:
+\[
+E\left[ \left( \hat{\vec{\vartheta}} - {\vec{\vartheta}}^{*} \right)\left( \hat{\vec{\vartheta}} - {\vec{\vartheta}}^{*} \right)^{T} \right] = \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}\sigma^{2}\mathbf{I}\mathbf{X}\left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- T} = \sigma^{2}\left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}\mathbf{X}\left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- T}
+\]
 
-\[\left\lbrack \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1} \right\rbrack^{T} = \left\lbrack \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{T} \right\rbrack^{- 1} = \left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}\]
+Dove \({\mathbf{X}}^{T}\mathbf{X}\) è una matrice simmetrica, per cui l'inversa è anch'essa simmetrica, ovvero:
+
+\[
+\left[ \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1} \right]^{T} = \left[ \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{T} \right]^{- 1} = \left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}
+\]
 
 Per cui:
 
-\[\left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}{\vec{\vec{X}}}^{T}\vec{\vec{X}} = \vec{\vec{I}}\]
+\[
+\left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}{\mathbf{X}}^{T}\mathbf{X} = \mathbf{I}
+\]
 
 Di conseguenza:
 
-\[E\left\lbrack \left( \hat{\vec{\vartheta}} - {\vec{\vartheta}}^{*} \right)\left( \hat{\vec{\vartheta}} - {\vec{\vartheta}}^{*} \right)^{T} \right\rbrack = \sigma^{2}\left( {\vec{\vec{X}}}^{T}\vec{\vec{X}} \right)^{- 1}\]
+\[
+E\left[ \left( \hat{\vec{\vartheta}} - {\vec{\vartheta}}^{*} \right)\left( \hat{\vec{\vartheta}} - {\vec{\vartheta}}^{*} \right)^{T} \right] = \sigma^{2}\left( {\mathbf{X}}^{T}\mathbf{X} \right)^{- 1}
+\]
 
 La curva stimata per ricostruire le misure può differire da quella teorica sia per eccesso che per difetto; tuttavia, non vi è modo di prevedere né di conoscere esattamente il parametro stimato. Ovviamente, minore è l'errore additivo e più precisa sarà la stima di \(T_{2}\) mediante il metodo dei minimi quadrati.
 
@@ -1204,79 +1300,119 @@ La curva stimata per ricostruire le misure può differire da quella teorica sia 
 \includegraphics[width=3.78269in,height=3.17361in,alt={Exponential Fitting Using OriginLab 2021 \textbar{} \textbar{} Drawing/Graphing-27}]{media/7_MRISignal/image212.pdf}\caption{Fitting della curva esponenziale}
 \end{figure}
 
-\subsection{Inversion recovery}\label{inversion-recovery}
+\subsection{Inversion Recovery}\label{inversion-recovery}
 
-Le sequenze FID e spin-echo sono molto utili per determinare il tempo di rilassamento trasversale \(T_{2}\) e il tempo \(T_{2}^{*}\). Questi due esperimenti, tuttavia, non permettono di valutare il tempo di rilassamento longitudinale \(T_{1}\).
+Le sequenze FID e \textit{spin-echo} sono molto utili per determinare i tempi di rilassamento trasversale \(T_2\) e \(T_2^*\),
+ma non permettono di valutare il tempo di rilassamento longitudinale \(T_1\).
 
-Esiste un esperimento noto come \emph{inversion recovery} che permette di ottenere il tempo \(T_{1}\). Tale metodo può essere impiegato per ottenere una valutazione precisa del tempo di rilassamento longitudinale mediante una sola misura. Nello specifico, la sequenza \emph{inversion recovery} è simile alla spin-echo in cui l'impulso a \(\pi/2\) segue, dopo un opportuno intervallo temporale, un impulso a \(\pi\).
+L’esperimento noto come \textit{inversion recovery} consente di ottenere una misura precisa di \(T_1\) mediante una sola acquisizione.
+La sequenza è simile alla \textit{spin-echo}, ma l’impulso a \(\pi/2\) è preceduto da un impulso a \(\pi\),
+separato da un intervallo temporale \(T_I\).
 
-Nella misura di \(T_{1}\) attraverso l'\emph{inversion recovery} è necessario analizzare l'evoluzione temporale della componente longitudinale del vettore di magnetizzazione, regolata dall'equazione di Bloch:
+Nella misura di \(T_1\) attraverso l’\textit{inversion recovery} è necessario analizzare l’evoluzione della componente longitudinale
+del vettore di magnetizzazione, regolata dall’equazione di Bloch:
 
-\[\dfrac{dM_{z}}{dt} = \dfrac{1}{T_{1}}\left( M_{0} - M_{z} \right)\]
+\[
+\dfrac{dM_z}{dt} = \dfrac{1}{T_1}\left( M_0 - M_z \right)
+\]
 
-Dopo l'impulso a \(\pi\) la magnetizzazione è ruotata in modo da essere orientata lungo la direzione negativa dell'asse \(z\).
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=3.95833in,height=4.19583in]{media/7_MRISignal/image213.pdf}\caption{Inversione della magnetizzazione dopo l'impulso a \(\pi\)}
-\end{figure}
-
-Sia \(t = 0\) l'istante in cui l'impulso a \(\pi\) è interrotto. La magnetizzazione, in questo istante, è ribaltata di \(\pi\), per cui:
-
-\[M(0) = - M_{0}\]
-
-Dove \(M_{0}\) è il valore della magnetizzazione all'equilibrio termodinamico.
-
-Subito dopo l'applicazione dell'impulso a \(\pi\), il vettore di magnetizzazione evolve mediante un andamento esponenziale del tipo:
-
-\[M_{z}(t) = M_{0}\left\lbrack 1 - \exp\left( - \dfrac{t}{T_{1}} \right) \right\rbrack - M_{0}\exp\left( - \dfrac{t}{T_{1}} \right) = M_{0}\left\lbrack 1 - 2\exp\left( - \dfrac{t}{T_{1}} \right) \right\rbrack\]
-
-Al tempo \(t = T_{I}\) si applica l'impulso a \(\pi/2\) lungo uno degli assi trasversali, \(x'\) o \(y'\). A causa di ciò la magnetizzazione longitudinale è rovesciata nel piano trasversale tramite l'impulso a \(\pi/2\).
+Dopo l’impulso a \(\pi\), la magnetizzazione è ruotata in modo da essere orientata lungo la direzione negativa dell’asse \(z\).
 
 \begin{figure}[ht]
-\centering
-\includegraphics[width=5.65428in,height=3.825in]{media/7_MRISignal/image214.pdf}\caption{Andamento della componente longitudinale nel tempo}
+    \centering
+    \includegraphics[width=0.6\textwidth]{media/7_MRISignal/image213.pdf}
+    \caption{Inversione della magnetizzazione dopo l'impulso a \(\pi\).}
 \end{figure}
 
-Dall'equazione per \(M_{z}(t)\) si nota che esiste un certo istante temporale in cui la magnetizzazione longitudinale si annulla. Se si applica in questo istante l'impulso a \(\pi/2\) non si registrerebbe nessun segnale, in quanto il vettore di magnetizzazione è nullo, dunque, non può essere ribaltato.
+Sia \(t = 0~\text{s}\) l’istante in cui l’impulso a \(\pi\) è interrotto. 
+La magnetizzazione, in questo istante, è ribaltata di \(\pi\), per cui:
 
-Ogni tessuto presenta un tempo di rilassamento \(T_{1}\), quindi, applicando un impulso a \(\pi/2\) nel momento opportuno è possibile ottenere informazioni solamente da alcuni tessuti, mentre altri sono rimossi, in quanto non danno nessun contributo alla magnetizzazione longitudinale. In altre parole, i tessuti che presentano una magnetizzazione longitudinale nulla al tempo \(T_{I}\), \(M_{z}\left( T_{I} \right) = 0\), non contribuiscono all'immagine.
+\[
+M(0) = -M_0
+\]
 
-Questa tecnica è utilizzata per rimuovere il grasso, processo noto come \emph{fat suppression}. Noto il tempo \(T_{1}\) del grasso, si applica un impulso a \(\pi\) per ribaltare la magnetizzazione, mentre il secondo impulso a \(\pi/2\) è applicato quando la magnetizzazione del grasso è nulla, così che questo tessuto non contribuisce all'immagine.
+dove \(M_0\) è il valore della magnetizzazione all’equilibrio termodinamico.
 
-Per ottenere la misura di \(T_{1}\) attraverso la sequenza \emph{inversion recovery}, si osservi che al tempo \(t = 0^{+}\), a fine applicazione dell'impulso a \(\pi\), si ha una magnetizzazione orientata lungo \(- {\hat{i}}_{z}\):
+Subito dopo l’applicazione dell’impulso a \(\pi\), il vettore di magnetizzazione evolve secondo un andamento esponenziale del tipo:
 
-\[M\left( 0^{+} \right) = - M_{0}\]
+\[
+M_z(t) = M_0 \left[ 1 - 2\exp\left( -\dfrac{t}{T_1} \right) \right]
+\]
 
-Prima del tempo \(T_{I}\) di applicazione dell'impulso a \(\pi/2\), il vettore di magnetizzazione longitudinale, ritorna all'equilibrio mediante la l'equazione:
-
-\[M_{z}(t) = M_{0}\left\lbrack 1 - 2\exp\left( - \dfrac{t}{T_{1}} \right) \right\rbrack,\ \ 0 < t < T_{I}\]
-
-Al tempo di inversione, si applica l'impulso a \(\pi/2\) che ribalta la magnetizzazione nel piano trasverso. Al tempo \(T_{I}\), la magnetizzazione longitudinale ha ampiezza:
-
-\[M_{z}\left( T_{I} \right) = M_{0}\left\lbrack 1 - 2\exp\left( - \dfrac{T_{I}}{T_{1}} \right) \right\rbrack\]
-
-La componente trasversale evolve, di conseguenza, mediante la legge:
-
-\[M_{\bot}(t) = \left| M_{0}\left\lbrack 1 - 2\exp\left( - \dfrac{T_{I}}{T_{1}} \right) \right\rbrack \right|\exp\left( - \dfrac{t - T_{I}}{T_{2}^{*}} \right)\]
-
-L'ampiezza del segnale misurato è modulata da un fattore dipendente dal tempo di rilassamento longitudinale \(T_{1}\) tramite \(\left| M_{0}\left\lbrack 1 - 2\exp\left( - T_{I}/T_{1} \right) \right\rbrack \right|\). Il segnale registrato dalle antenne, posizionate in modo da acquisire la magnetizzazione trasversale, si annulla quando:
-
-\[\left| M_{0}\left\lbrack 1 - 2\exp\left( - \dfrac{T_{I}}{T_{1}} \right) \right\rbrack \right| = 0 \Leftrightarrow \exp\left( - \dfrac{T_{I}}{T_{1}} \right) = \dfrac{1}{2}\]
-
-Questa relazione permette di ricavare il tempo di applicazione dell'impulso a \(\pi/2\) in funzione del tempo di rilassamento longitudinale di un tessuto:
-
-\[- \dfrac{T_{I}}{T_{1}} = \log\left( \dfrac{1}{2} \right) \Leftrightarrow \dfrac{T_{I}}{T_{1}} = - \log\left( \dfrac{1}{2} \right) \Leftrightarrow \dfrac{T_{I}}{T_{1}} = \log(2)\]
-
-Da cui:
-
-\[T_{I} = T_{1}\log(2)\]
+Al tempo \(t = T_I\), si applica l’impulso a \(\pi/2\) lungo uno degli assi trasversali (\(x'\) o \(y'\)).
+In questo modo la magnetizzazione longitudinale è ribaltata nel piano trasversale.
 
 \begin{figure}[ht]
-\centering
-\includegraphics[width=4.41074in,height=3.03691in,alt={Immagine che contiene diagramma, linea, Diagramma Descrizione generata automaticamente}]{media/7_MRISignal/image215.pdf}\caption{Andamento della magnetizzazione trasversale nel tempo nell'inversion recovery}
+    \centering
+    \includegraphics[width=0.8\textwidth]{media/7_MRISignal/image214.pdf}
+    \caption{Andamento della componente longitudinale nel tempo.}
 \end{figure}
 
-Il segnale registrato \(s(t)\) è una funzione del tempo di rilassamento longitudinale \(T_{1}\) la cui valutazione richiede una scelta oculata del tempo di \emph{inversion recovery} \(T_{I}\), in quanto la magnetizzazione non deve essere nulla per il tessuto di interesse.
+Dall’equazione per \(M_z(t)\) si nota che esiste un certo istante temporale in cui la magnetizzazione longitudinale si annulla.
+Se si applica in questo istante l’impulso a \(\pi/2\), non si registrerebbe alcun segnale,
+poiché il vettore di magnetizzazione è nullo e quindi non può essere ribaltato.
 
-Noto il tessuto è possibile ricavare il valore \(T_{I}\) per annullare i suoi contributi alla magnetizzazione trasversale. Questo azzeramento permette di cancellare i contributi di un tessuti di interesse. Ad esempio, eccitando i tessuti di un paziente con la sequenza spin-echo, a valle di un \emph{inversion recovery}, è possibile scegliere il tempo di echo tale che la magnetizzazione trasversa del tessuto da sopprimere sia nulla.
+Ogni tessuto presenta un tempo di rilassamento \(T_1\) specifico.
+Applicando un impulso a \(\pi/2\) nel momento opportuno è possibile ottenere informazioni selettive:
+i tessuti che presentano una magnetizzazione longitudinale nulla al tempo \(T_I\) (\(M_z(T_I) = 0\)) non contribuiscono al segnale e risultano quindi soppressi. Questa tecnica è utilizzata, ad esempio, per la soppressione selettiva del grasso (\textit{fat suppression}).
+
+Conoscendo \(T_1\) del tessuto da sopprimere, si può scegliere \(T_I\) in modo che la magnetizzazione longitudinale sia nulla, escludendo così il contributo del tessuto all’immagine.
+
+Per ottenere la misura di \(T_1\) attraverso la sequenza \textit{inversion recovery}, si consideri che al tempo \(t = 0^{+}\) (fine dell’impulso a \(\pi\)) la magnetizzazione è orientata lungo \(-\hat{\mathbf{i}}_z\):
+
+\[
+M(0^{+}) = -M_0
+\]
+
+Prima del tempo \(T_I\) (istante dell’impulso a \(\pi/2\)), la magnetizzazione longitudinale ritorna all’equilibrio secondo:
+
+\[
+M_z(t) = M_0\left[ 1 - 2\exp\left( -\dfrac{t}{T_1} \right) \right], \quad 0 < t < T_I
+\]
+
+Al tempo di inversione, la magnetizzazione longitudinale ha ampiezza:
+
+\[
+M_z(T_I) = M_0\left[ 1 - 2\exp\left( -\dfrac{T_I}{T_1} \right) \right]
+\]
+
+La componente trasversale evolve di conseguenza come:
+
+\[
+M_{\bot}(t) =
+\left| M_0\left[ 1 - 2\exp\left( -\dfrac{T_I}{T_1} \right) \right] \right|
+\exp\left( -\dfrac{t - T_I}{T_2^*} \right)
+\]
+
+L’ampiezza del segnale misurato è modulata da un fattore dipendente dal tempo di rilassamento longitudinale \(T_1\), dato da \(\left| M_0\left[ 1 - 2\exp\left( -T_I/T_1 \right) \right] \right|\). Il segnale registrato si annulla quando:
+
+\[
+\left| M_0\left[ 1 - 2\exp\left( -\dfrac{T_I}{T_1} \right) \right] \right| = 0\Leftrightarrow 
+\exp\left( -\dfrac{T_I}{T_1} \right) = \dfrac{1}{2}
+\]
+
+Da cui si ricava il tempo di inversione in funzione del tempo di rilassamento longitudinale:
+
+\[
+-\dfrac{T_I}{T_1} = \log\!\left( \dfrac{1}{2} \right)
+\quad \Leftrightarrow \quad
+\dfrac{T_I}{T_1} = \log(2)
+\]
+
+e quindi:
+
+\[
+T_I = T_1 \log(2)
+\]
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{media/7_MRISignal/image215.pdf}
+    \caption{Andamento della magnetizzazione trasversale nel tempo nell’inversion recovery.}
+\end{figure}
+
+Il segnale registrato \(s(t)\) è funzione di \(T_1\),
+e la scelta del tempo \(T_I\) è cruciale per ottenere informazioni selettive. La sequenza \textit{inversion recovery}, seguita da una \textit{spin-echo}, consente di scegliere il tempo di eco in modo che la magnetizzazione trasversale del tessuto da sopprimere sia nulla.
+
+Conoscendo le caratteristiche del tessuto, è quindi possibile calcolare \(T_I\) per annullarne il contributo alla magnetizzazione trasversale,
+ottenendo così la soppressione selettiva del segnale indesiderato.
