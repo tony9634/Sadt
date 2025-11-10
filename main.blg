@@ -1,0 +1,95 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'main.blg'
+[222] biber-MSWIN64:340> INFO - === 
+[322] Biber.pm:419> INFO - Reading 'main.bcf'
+[553] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[553] Biber.pm:979> INFO - Found 0 citekeys in bib section 1
+[553] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[554] Biber.pm:979> INFO - Found 2 citekeys in bib section 2
+[554] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[554] Biber.pm:979> INFO - Found 4 citekeys in bib section 3
+[554] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[554] Biber.pm:979> INFO - Found 4 citekeys in bib section 4
+[554] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[555] Biber.pm:979> INFO - Found 5 citekeys in bib section 5
+[555] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[555] Biber.pm:979> INFO - Found 3 citekeys in bib section 6
+[555] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[555] Biber.pm:979> INFO - Found 1 citekeys in bib section 7
+[555] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[555] Biber.pm:979> INFO - Found 0 citekeys in bib section 8
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 9
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 10
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 11
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 12
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 13
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 14
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 15
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 16
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 17
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[556] Biber.pm:979> INFO - Found 0 citekeys in bib section 18
+[557] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[557] Biber.pm:979> INFO - Found 0 citekeys in bib section 19
+[557] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[557] Biber.pm:979> INFO - Found 0 citekeys in bib section 20
+[557] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[557] Biber.pm:979> INFO - Found 0 citekeys in bib section 21
+[557] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[557] Biber.pm:979> INFO - Found 0 citekeys in bib section 22
+[557] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[557] Biber.pm:979> INFO - Found 0 citekeys in bib section 23
+[557] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[557] Biber.pm:979> INFO - Found 0 citekeys in bib section 24
+[557] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[557] Biber.pm:979> INFO - Found 0 citekeys in bib section 25
+[557] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[766] Biber.pm:4419> INFO - Processing section 2
+[791] Biber.pm:4610> INFO - Looking for bibtex file 'bibliografia.bib' for section 2
+[856] bibtex.pm:1713> INFO - LaTeX decoding ...
+[911] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
+[978] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[978] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[978] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'it-IT'
+[978] Biber.pm:4245> INFO - No sort tailoring available for locale 'it-IT'
+[983] Biber.pm:4419> INFO - Processing section 3
+[983] Biber.pm:4610> INFO - Looking for bibtex file 'bibliografia.bib' for section 3
+[1083] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1083] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1083] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'it-IT'
+[1083] Biber.pm:4245> INFO - No sort tailoring available for locale 'it-IT'
+[1087] Biber.pm:4419> INFO - Processing section 4
+[1087] Biber.pm:4610> INFO - Looking for bibtex file 'bibliografia.bib' for section 4
+[1203] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1204] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1204] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'it-IT'
+[1204] Biber.pm:4245> INFO - No sort tailoring available for locale 'it-IT'
+[1215] Biber.pm:4419> INFO - Processing section 5
+[1216] Biber.pm:4610> INFO - Looking for bibtex file 'bibliografia.bib' for section 5
+[1316] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1316] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1316] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'it-IT'
+[1316] Biber.pm:4245> INFO - No sort tailoring available for locale 'it-IT'
+[1320] Biber.pm:4419> INFO - Processing section 6
+[1321] Biber.pm:4610> INFO - Looking for bibtex file 'bibliografia.bib' for section 6
+[1414] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1414] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1415] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'it-IT'
+[1415] Biber.pm:4245> INFO - No sort tailoring available for locale 'it-IT'
+[1420] Biber.pm:4419> INFO - Processing section 7
+[1421] Biber.pm:4610> INFO - Looking for bibtex file 'bibliografia.bib' for section 7
+[1495] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1495] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1495] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'it-IT'
+[1495] Biber.pm:4245> INFO - No sort tailoring available for locale 'it-IT'
+[1499] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[1520] bbl.pm:763> INFO - Output to main.bbl
