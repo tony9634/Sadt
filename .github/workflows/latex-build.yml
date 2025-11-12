@@ -2,15 +2,13 @@ name: Build LaTeX PDF
 
 on:
   push:
+    # Trigger solo quando vengono modificati file rilevanti per la compilazione LaTeX
     paths:
       - main.tex
       - "**/*.tex"
       - "**/*.bib"
       - "**/*.cls"
       - "**/*.sty"
-      - "**/*.idx"
-      - "**/*.ist"
-      - "**/*.bst"
       - "**/*.png"
       - "**/*.jpg"
       - "**/*.pdf"
@@ -27,30 +25,29 @@ jobs:
       - name: Set up TeX Live
         uses: teatimeguest/setup-texlive-action@v2
         with:
+          # Includi solo i pacchetti essenziali per il tuo comando latexmk
           packages: >-
             xetex latexmk biber makeindex
 
+      # 🧹 AGGIUNTA UTILE: Pulizia pre-build (se ci sono file residui da un'esecuzione precedente)
+      - name: Clean up previous builds
+        run: latexmk -C main.tex || true
+
       - name: Compile LaTeX document (main.tex)
+        # Usa il comando latexmk standard. Le opzioni per -bibtex e -pdflatex
+        # possono essere omesse se i pacchetti xetex, latexmk, biber sono installati,
+        # poiché latexmk li rileva automaticamente con l'opzione -pdfxe.
         run: |
           mkdir -p build
-          latexmk -pdfxe \
-            -bibtex \
-            -use-make \
-            -pdflatex="xelatex %O %S" \
-            -bibtex="biber %O %S" \
-            -makeindex="makeindex %O %S" \
-            -output-directory=build \
-            main.tex
-          # sometimes latexmk settings vary, here's the explicit build
-          # xelatex -output-directory=build main.tex
-          # biber build/main
-          # xelatex -output-directory=build main.tex
-          # makeindex build/main.idx
-          # biber build/main
-          # xelatex -output-directory=build main.tex
+          latexmk -pdfxe -output-directory=build main.tex
 
+      # 🔍 Passo utile per il debug
       - name: List output PDF
         run: ls -lh build/main.pdf
+
+      # 🗑️ AGGIUNTA UTILE: Pulizia dei file ausiliari dopo il build
+      - name: Clean up auxiliary files
+        run: latexmk -C -output-directory=build main.tex || true
 
       - name: Upload compiled PDF as artifact
         uses: actions/upload-artifact@v4
