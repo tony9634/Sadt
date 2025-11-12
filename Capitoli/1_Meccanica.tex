@@ -12,24 +12,19 @@
 \section{Cenni di meccanica classica}\label{cenni-di-meccanica-classica}
 
 La \textbf{meccanica} è la branca della fisica che studia il moto dei corpi materiali \cite{landau1994meccanica}. In base alle caratteristiche fisiche della materia considerata, sono state sviluppate diverse teorie meccaniche, suddivise principalmente in:
-
 \begin{itemize}
-\item
- \textbf{Meccanica classica}: descrive sistemi di dimensioni macroscopiche che si muovono a velocità molto inferiori rispetto a quella della luce;
-\item
- \textbf{Meccanica statistica}: applicabile a sistemi costituiti da un numero elevato di particelle, delle quali si analizzano le proprietà medie;
-\item
- \textbf{Meccanica relativistica}: tratta sistemi non quantistici che si muovono a velocità prossime a quella della luce;
-\item
- \textbf{Meccanica quantistica}: si occupa di sistemi su scala atomica e subatomica, dove gli effetti quantistici risultano predominanti.
+    \item \textbf{Meccanica classica}: descrive sistemi di dimensioni macroscopiche che si muovono a velocità molto inferiori rispetto a quella della luce;
+    \item \textbf{Meccanica statistica}: applicabile a sistemi costituiti da un numero elevato di particelle, delle quali si analizzano le proprietà medie;
+    \item \textbf{Meccanica relativistica}: tratta sistemi non quantistici che si muovono a velocità prossime a quella della luce;
+    \item \textbf{Meccanica quantistica}: si occupa di sistemi su scala atomica e subatomica, dove gli effetti quantistici risultano predominanti.
 \end{itemize}
 
 \section{Meccanica newtoniana}\label{meccanica-newtoniana}
-La \textbf{meccanica classica} si fonda sulla descrizione dei fenomeni fisici secondo l'approccio introdotto da Newton nel XVII secolo. Essa interpreta il moto della natura in termini di forze \(\vec{F}\) e accelerazioni \(\vec{a}\). Il punto di vista \textbf{newtoniano è di tipo locale}: conoscendo le forze agenti su una particella e il loro andamento temporale, è possibile determinare il moto di quest'ultima.
+La \textbf{meccanica classica} si fonda sulla descrizione dei fenomeni fisici secondo l'approccio introdotto da Newton nel XVII secolo. Essa interpreta il moto della natura in termini di forze $\vec{F}$ e accelerazioni $\vec{a}$. Il punto di vista \textbf{newtoniano} si basa sull'equazione fondamentale del moto:
 
-L'equazione fondamentale della meccanica newtoniana è:
-
-\[\vec{F} = m\vec{a}\]
+\[
+\vec{F} = m \vec{a}
+\]
 
 dove \(m\) è la massa della particella (assunta costante) e \(\vec{a}\) è la sua accelerazione. L'accelerazione è definita come la derivata della velocità rispetto al tempo:
 
@@ -51,7 +46,7 @@ L'equazione può essere estesa a un sistema di \(n\) particelle, con masse \(\{ 
 {\vec{F}}_{\text{tot}} = \sum_{k = 1}^{n}{\vec{f}}_{k} = \sum_{k = 1}^{n}\dfrac{d{\vec{p}}_{k}}{dt}
 \]
 
-Questa espressione rappresenta il teorema della \textbf{dinamica dei sistemi di particelle}, il quale afferma che la somma delle forze agenti su un sistema di particelle è uguale alla derivata temporale della somma delle quantità di moto delle singole particelle.
+Questa espressione rappresenta il teorema della \textbf{dinamica dei sistemi di particelle}, il quale afferma che la somma delle forze interne ed esterne agenti su un sistema di particelle è uguale alla derivata temporale della somma delle quantità di moto delle singole particelle. Poiché le forze interne si annullano reciprocamente in base al terzo principio della dinamica, \({\vec{F}}_{\text{tot}}\) coincide con la sommatoria delle forze esterne.
 
 \begin{figure}[ht]
 \centering
@@ -60,7 +55,9 @@ Questa espressione rappresenta il teorema della \textbf{dinamica dei sistemi di 
 
 Per una particella soggetta a una forza \(\vec{F}\), si definisce \textbf{momento torcente} (o \textbf{momento della forza}) \(\vec{N}\) (talvolta indicato anche con \(\vec{\tau}\)):
 
-\[\vec{N} = \vec{r} \times \vec{F}\]
+\[
+\vec{N} = \vec{r} \times \vec{F}
+\]
 
 dove \(\vec{r}\) è il vettore posizione della particella rispetto a un polo (origine del sistema di riferimento).
 
@@ -98,17 +95,25 @@ perché \(\vec{v}\) e \(\vec{p}\) sono paralleli. Resta quindi:
 
 Questa equazione prende il nome di \textbf{teorema del momento angolare}.
 
-Per un sistema di particelle, il momento torcente totale è:
+Per un sistema di $N$ particelle, il teorema del momento angolare totale $\vec{L}$ è dato da:
 
-\[{\vec{N}}_{\text{tot}} = \sum_{k = 1}^{n}{{\vec{r}}_{k} \times {\vec{f}}_{k}} = \sum_{k = 1}^{n}{{\vec{r}}_{k} \times \dfrac{d{\vec{p}}_{k}}{dt}} = \dfrac{d\vec{L}}{dt}\]
+\[
+{\vec{N}}_{\text{tot}} = \sum_{k = 1}^{n}{{\vec{r}}_{k} \times {\vec{f}}_{k}} = \sum_{k = 1}^{n}{{\vec{r}}_{k} \times \dfrac{d{\vec{p}}_{k}}{dt}} = \dfrac{d\vec{L}}{dt}
+\]
 
-Conoscendo le forze agenti, è possibile determinare il moto della particella integrando l'equazione fondamentale:
+dove ${\vec{N}}_{\text{tot}}$ è il momento torcente totale (esterno + interno) agente sul sistema. In presenza di sole forze interne centrali (ovvero, se il momento torcente interno si annulla), si ha $\frac{d\vec{L}}{dt} = {\vec{N}}_{\text{est}}$, cioè la derivata temporale del momento angolare totale è pari alla somma dei momenti torcenti esterni.
 
-\[\vec{F} = \dfrac{d\vec{p}}{dt}\]
+Conoscendo le forze esterne agenti, è possibile determinare il moto della particella. Integrando la Seconda Legge di Newton si ottiene l'impulso:
 
-Integrando nel tempo tra un istante iniziale \(t_{0}\) e un istante generico \(t\), si ottiene:
+\[
+\vec{F} = \dfrac{d\vec{p}}{dt}
+\]
 
-\[\int_{t_{0}}^{t}{\vec{F}\, dt} = \vec{p}(t) - \vec{p}(t_{0}) = m\lbrack\vec{v}(t) - \vec{v}(t_{0})\rbrack\]
+Per ottenere la posizione, si integra la velocità:
+
+\[
+\int_{t_{0}}^{t}{\vec{F}\, dt} = \vec{p}(t) - \vec{p}(t_{0}) = m\left[\vec{v}(t) - \vec{v}(t_{0})\right]
+\]
 
 Assumendo \(\vec{v}(t_{0}) = \vec{0}\), si ha:
 
@@ -116,9 +121,9 @@ Assumendo \(\vec{v}(t_{0}) = \vec{0}\), si ha:
 
 Integrando una seconda volta, si ottiene lo spostamento:
 
-\[\int_{t_{0}}^{t}{\left( \int_{t_{0}}^{t'}{\vec{F}\, dt''} \right)dt'} = m\lbrack\vec{s}(t) - \vec{s}(t_{0})\rbrack\]
+\[\int_{t_{0}}^{t}{\left( \int_{t_{0}}^{t'}{\vec{F}\, dt''} \right)dt'} = m\lbrack\vec{r}(t) - \vec{r}(t_{0})\rbrack\]
 
-dove \(\vec{s}(t)\) è il vettore spostamento.
+dove \(\vec{r}(t)\) è il vettore spostamento.
 
 Il modello newtoniano descrive accuratamente molti fenomeni osservati nella sua epoca, come il moto dei pianeti, il comportamento dei corpi sotto l'azione di forze, e le interazioni meccaniche quotidiane.
 
@@ -156,7 +161,7 @@ dove \(\lbrack L\rbrack\) indica le dimensioni fisiche della lagrangiana e \(\lb
 Per descrivere il moto di una particella o di un sistema di particelle, la lagrangiana deve soddisfare l'equazione di Eulero-Lagrange \cite{landau1994meccanica}:
 
 \begin{align*}
-\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot{q}_i}\right) - \dfrac{\partial L}{\partial q_i} &= 0, \ i=1,2,\dots,s
+\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot{q}_i}\right) - \dfrac{\partial L}{\partial q_i} &= 0, \quad \text{con } i=1,2,\dots,s
 \end{align*}
 
 Poiché l'azione \(S\) deve essere stazionaria, una sua variazione \(\delta S\), dovuta a una perturbazione dello spostamento \(\delta\vec{q}\) e della velocità \(\delta\dot{\vec{q}}\), è tale che:
@@ -165,10 +170,10 @@ Poiché l'azione \(S\) deve essere stazionaria, una sua variazione \(\delta S\),
 
 Dove \(\vec{q}\) è una traiettoria che rende stazionaria l'azione \(S\). Il Principio di Hamilton (o di Minima Azione) stabilisce che la traiettoria rende l'azione stazionaria o un estremo (ovvero $\delta S=0$). Non è garantito che sia un minimo poiché può essere un massimo o un punto di sella.
 
-Siccome le variazioni di spostamento e velocità sono molto minori delle rispettive qualità:
+Siccome le variazioni di spostamento e velocità sono molto minori delle rispettive \textbf{quantità}:
 
 \[
-\delta q \ll q,\ \delta\dot{q} \ll \dot{q}
+\delta q_{i} \ll q_{i} \quad \text{e} \quad \delta \dot{q}_{i} \ll \dot{q}_{i}
 \]
 
 è possibile sviluppare la lagrangiana in serie di Taylor, arrestando lo sviluppo al primo ordine, nell'intorno del punto \(\left( \vec{q},\dot{\vec{q}} \right)\):
@@ -181,9 +186,11 @@ Per definizione di gradiente si ha:
 
 Svolgendo l'operazione di prodotto scalare si ha:
 
-\[= L\left( \vec{q},\dot{\vec{q}} \right) + \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\ \delta\dot{\vec{q}}\]
+\[
+= L\left( \vec{q},\dot{\vec{q}} \right) + \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\ \delta\dot{\vec{q}}
+\]
 
-Dove il gradiente è un vettore colonna mentre le coordinate generalizzate dei vettori riga. Sostituendo nell'espressione della variazione dell'azione, si ottiene:
+Sostituendo nell'espressione della variazione dell'azione, si ottiene:
 
 \[S + \delta S = \int_{t_{0}}^{t_{1}}{\left\lbrack L\left( \vec{q},\dot{\vec{q}} \right) + \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\ \delta\dot{\vec{q}} \right\rbrack dt}\]
 
@@ -263,7 +270,7 @@ Dato che l'azione deve essere stazionaria, la sua variazione deve essere nulla \
 
 \[\int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q}dt} = 0\]
 
-Se l'integrale è nullo, allora la funzione integranda deve essere nulla:
+Per il Lemma Fondamentale del Calcolo delle Variazioni, la funzione integranda deve essere nulla:
 
 \[\left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q} = 0\]
 
@@ -292,7 +299,7 @@ Tuttavia, nella pratica non è sempre conveniente descrivere il moto in coordina
 Per un sistema di \(N\) particelle nelle coordinate generalizzate \(\vec{q}\) e \(\dot{\vec{q}}\), l'energia cinetica è:
 
 \[
-T = T\left( q_{i},{\dot{q}}_{i} \right),\ \ i = 1,\ \ldots,N
+T = T\left( q_{i},{\dot{q}}_{i} \right),\ \ i = 1,\ \ldots,s
 \]
 
 Ovvero l'energia cinetica è una funzione anche delle coordinate generalizzate \(q_{i}\) oltre che della velocità \({\dot{q}}_{i}\).
@@ -339,7 +346,7 @@ Dato che \(a_{kj}\) è un parametro dipendente dalla posizione generalizzata \(q
 
 \subsection{Lemma 4: energia potenziale in coordinate generalizzate}\label{lemma-4-energia-potenziale-in-coordinate-generalizzate}
 
-È conveniente esprimere anche l'energia potenziale in funzione delle coordinate generalizzate. Si considera un sistema di \(N\) particelle. L'energia di interazione tra le particelle è indicata con \(U\left( q_{i} \right),\ i = 1,2,\ldots,N\) ed è denotata come energia potenziale. In meccanica classica questa quantità dipende solamente dalla posizione.
+È conveniente esprimere anche l'energia potenziale in funzione delle coordinate generalizzate. Si considera un sistema di \(N\) particelle. L'energia di interazione tra le particelle è indicata con \(U\left( q_{i} \right),\ i = 1,2,\ldots,s\) e viene denotata come energia potenziale. In meccanica classica questa quantità dipende solamente dalla posizione.
 
 In particolare, se le coordinate generalizzate \(q_{i}\) descrivono completamente la configurazione del sistema, allora l'energia potenziale può essere scritta come:
 
@@ -354,27 +361,42 @@ La meccanica classica assume che le interazioni tra le particelle avvengano ista
 La lagrangiana può essere espressa come funzione dell'energia cinetica \(T\) e dell'energia potenziale \(U\), secondo la relazione \cite{arnold1992matematici, landau1994meccanica}:
 
 \[
-L\left( q_{i},{\dot{q}}_{i} \right) = T\left( q_{i},{\dot{q}}_{i} \right) - U\left( q_{i} \right),\quad i = 1,\ldots,N
+L\left( q_{i},{\dot{q}}_{i} \right) = T\left( q_{i},{\dot{q}}_{i} \right) - U\left( q_{i} \right),\quad i = 1,\ldots,s
 \]
 
-La lagrangiana \(L\left( q_{i},{\dot{q}}_{i} \right)\) è, dunque, una funzione delle coordinate generalizzate posizione e velocità, che a loro volta dipendono dal tempo:
+dove \(s\) è il numero di gradi di libertà del sistema.
 
-\[L : TQ \times \mathbb{R} \rightarrow \mathbb{R}\]
+La lagrangiana \(L\left( q_{i}\left(t\right),{\dot{q}}_{i}\left(t\right) \right)\) è, dunque, una funzione delle coordinate generalizzate posizione e velocità, che a loro volta dipendono dal tempo:
+
+\[
+L : TQ \times \mathbb{R} \rightarrow \mathbb{R}
+\]
 
 Dove \(TQ\) indica il \textbf{fibrato tangente} dello spazio delle configurazioni \(Q\), dove:
 
 \begin{itemize}
 \item Un elemento di \(Q\) è semplicemente una configurazione \(\vec{q}\);
-\item Un elemento di \(TQ\) è una coppia \(\left( \vec{q},\dot{\vec{q}} \right)\), ovvero traiettoria e velocità della particella.
+\item Un elemento di \(TQ\) è una coppia \(\left( \vec{q},\dot{\vec{q}} \right)\), ovvero $\vec{q}$ è posizione (o configurazione) e velocità della particella.
 \end{itemize}
+
+Se la lagrangiana non dipende esplicitamente dal tempo essa agisce sul fibrato tangente a valori in \(\mathbb{R}\):
+
+\[
+L : TQ \rightarrow \mathbb{R}
+\]
 
 Si considera l'azione \(S\), data per definizione da:
 
-\[S = \int_{t_{1}}^{t_{2}}{L\left( q_{i},{\dot{q}}_{i} \right)dt}\]
+\[
+S = \int_{t_{1}}^{t_{2}}{L\left( q_{i},{\dot{q}}_{i} \right)dt}
+\]
 
 L'azione dipende dalle coordinate generalizzate, funzioni del tempo, dunque, è un funzionale poiché associa a ogni funzione \(\vec{q}(t)\) un valore numerico. Dunque, l'azione è definita nello spazio vettoriale delle traiettorie generalizzate \(\mathbb{V =}\left\{ \vec{q}(t) \right\}\) a valori in \(\mathbb{R}\):
 
-\[S:\mathbb{V \rightarrow R}\]
+\[
+S:\mathbb{V \rightarrow R}
+\]
+
 \subsection{Lemma 6: legame tra lagrangiana ed equazioni di Newton}\label{lemma-6-legame-tra-lagrangiana-ed-equazioni-di-newton}
 
 Per individuare una correlazione tra la meccanica newtoniana e quella lagrangiana si scrive l'equazione di Eulero-Lagrange in coordinate cartesiane. In generale, l'equazione di Eulero-Lagrange può essere espressa come:
@@ -391,9 +413,18 @@ Per cui, è possibile scrivere:
 
 Passando alle coordinate cartesiane si ha:
 
-\[\dfrac{\partial}{\partial q_{i}} = \dfrac{\partial x_{i}}{\partial q_{i}}\dfrac{\partial}{\partial x_{i}} = \dfrac{\partial}{\partial x_{i}}\]
+\[
+\frac{\partial}{\partial q_i}
+= \sum_{j} \frac{\partial x_j}{\partial q_i}\,\frac{\partial}{\partial x_j}
+\]
 
-Questa semplificazione è vera solo se si assume che la $i$-esima coordinata generalizzata $q_i$ coincida con la $i$-esima coordinata cartesiana $x_i$. Analogo procedimento può essere eseguito per passare da \({\dot{q}}_{i}\) a \({\dot{x}}_{i}\).
+Nell'ipotesi che la $i$-esima coordinata generalizzata $q_i$ coincida con la $i$-esima coordinata cartesiana $x_i$ e  che $x_i$ non dipende da nessuna delle altre coordinate generalizzate $q_j$ (per $j \neq i$), è possibile semplificare la relazione precedente:
+
+\[
+\dfrac{\partial}{\partial q_{i}} = \dfrac{\partial x_{i}}{\partial q_{i}}\dfrac{\partial}{\partial x_{i}} = \dfrac{\partial}{\partial x_{i}}
+\]
+
+ Analogo procedimento può essere eseguito per passare da \({\dot{q}}_{i}\) a \({\dot{x}}_{i}\).
 
 In coordinate cartesiane, l'energia cinetica dipende solamente dalla velocità \({\dot{x}}_{i}\) mentre l'energia potenziale solamente dalla posizione \(x_{i}\). L'equazione di Eulero-Lagrange è:
 
@@ -409,7 +440,9 @@ Siccome l'energia cinetica dipende solo dalla velocità, risulta:
 
 È possibile scrivere:
 
-\[\dfrac{\partial}{\partial x_{i}}U\left( x_{i} \right) = \dfrac{\partial}{\partial x_{i}}\left\lbrack T\left( {\dot{x}}_{i} \right) - U\left( x_{i} \right) \right\rbrack = - \dfrac{\partial L}{\partial x_{i}}\]
+\[
+\dfrac{\partial}{\partial x_{i}}U\left( x_{i} \right) = \dfrac{\partial}{\partial x_{i}}\left\lbrack T\left( {\dot{x}}_{i} \right) - U\left( x_{i} \right) \right\rbrack = - \dfrac{\partial L}{\partial x_{i}}
+\]
 
 L'energia cinetica per un sistema di \(N\) particelle, in coordinate cartesiane, è:
 
@@ -442,7 +475,7 @@ Dalla relazione:
 Per cui si ottiene:
 
 \[
-m_{i}{\ddot{x}}_{i} = - \dfrac{\partial}{\partial x_{i}}U\left( x_{i} \right) = - \dfrac{\partial L}{\partial x_{i}}
+m_{i}{\ddot{x}}_{i} = - \dfrac{\partial}{\partial x_{i}}U\left( x_{i} \right) = \dfrac{\partial L}{\partial x_{i}}
 \]
 
 Dal secondo principio della dinamica è noto che:
@@ -458,11 +491,11 @@ Ne discende che la quantità di moto \(p_{i}\) e la forza \(f_{i}\) sono legate 
 \[
 \begin{cases}
 \displaystyle p_{i} = \dfrac{\partial L}{\partial{\dot{q}}_{i}} \\
-\displaystyle f_{i} = - \dfrac{\partial L}{\partial q_{i}}
+\displaystyle f_{i} = \dfrac{\partial L}{\partial q_{i}}
 \end{cases}
 \]
 
-Le due relazioni sono note come definizioni fondamentali della meccanica lagrangiana. La prima è detta momento coniugato o generalizzato, mentre la seconda forza generalizzata.
+Le due relazioni sono note come definizioni fondamentali della meccanica lagrangiana. La prima (\(p_{i}\)) è detta momento generalizzato coniugato, mentre la seconda forza generalizzata.
 
 Si considera l'equazione di Eulero-Lagrange e si sostituisce la relazione per il momento coniugato generalizzato:
 
@@ -470,7 +503,9 @@ Si considera l'equazione di Eulero-Lagrange e si sostituisce la relazione per il
 
 Da cui risulta:
 
-\[{\dot{p}}_{i} = \dfrac{\partial L}{\partial q_{i}}\]
+\[
+\dot{p}_{i} = \dfrac{\partial L}{\partial q_{i}}
+\]
 
 \subsection{Principio di conservazione}\label{principio-di-conservazione}
 
@@ -480,11 +515,11 @@ In particolare, queste leggi di conservazione sono connesse all'invarianza delle
 
 \begin{itemize}
 \item
-  Dall'omogeneità temporale discende la conservazione dell'energia. L'omogeneità temporale implica che le leggi fisiche non cambiano se un fenomeno viene traslato nel tempo;
+ Dall'omogeneità temporale discende la conservazione dell'energia. L'omogeneità temporale implica che le leggi fisiche non cambiano se un fenomeno viene traslato nel tempo;
 \item
-  Dall'omogeneità spaziale deriva la conservazione del momento lineare (o quantità di moto). L'omogeneità spaziale implica che le leggi fisiche non variano se il sistema viene traslato nello spazio;
+ Dall'omogeneità spaziale deriva la conservazione del momento lineare (o quantità di moto). L'omogeneità spaziale implica che le leggi fisiche non variano se il sistema viene traslato nello spazio;
 \item
-  Dall'isotropia dello spazio discende la conservazione del momento angolare. L'isotropia spaziale implica che le leggi fisiche non cambiano se il sistema viene ruotato nello spazio.
+ Dall'isotropia dello spazio discende la conservazione del momento angolare. L'isotropia spaziale implica che le leggi fisiche non cambiano se il sistema viene ruotato nello spazio.
 \end{itemize}
 
 \subsection{Lemma 7: conservazione dell'energia}\label{lemma-7-conservazione-dellenergia}
@@ -497,7 +532,7 @@ La derivata rispetto al tempo della lagrangiana, per la derivata delle funzioni 
 
 \[\dfrac{d}{dt}L\left( \vec{q},\dot{\vec{q}} \right) = \dfrac{\partial L}{\partial\vec{q}}\dfrac{d\vec{q}}{dt} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\dfrac{d\dot{\vec{q}}}{dt}\]
 
-Dove i prodotti tra vettori sono da intenderi come prodotti scalari. Dunque, ricorrendo alla simbologia sulle derivate temporali, si può scrivere:
+dove i prodotti tra vettori sono da intendersi come prodotti scalari. Dunque, ricorrendo alla simbologia sulle derivate temporali, si può scrivere:
 
 \[\dfrac{d}{dt}L\left( \vec{q},\dot{\vec{q}} \right) = \dfrac{\partial L}{\partial\vec{q}}\dot{\vec{q}} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\vec{\ddot{q}}\]
 
@@ -563,7 +598,7 @@ A meno di un segno, risulta:
 T + U = cost
 \]
 
-In definitiva, si è dimostrato che la conservazione dell'energia totale (T+U) è una diretta conseguenza della simmetria temporale delle leggi fisiche.
+In definitiva, si è dimostrato che la conservazione dell'energia totale (\(T+U\)) è una diretta conseguenza della simmetria temporale delle leggi fisiche. a conservazione dell'energia (il fatto che l'Hamiltoniana sia una costante del moto) si verifica solo se la Lagrangiana non dipende esplicitamente dal tempo.
 
 \subsection{Lemma 8: conservazione della quantità di moto}\label{lemma-8-conservazione-della-quantituxe0-di-moto}
 
@@ -920,7 +955,7 @@ Questa relazione è valida se:
 
 Privilegiando la quantità di moto e la posizione generalizzata della particella, l'approccio hamiltoniano permette di descrivere l'evoluzione del sistema nel tempo come una traiettoria nello spazio posizione-quantità di moto, detto spazio delle fasi.
 
-\subsection{Lemma 10: equazioni di Hamilton}\label{lemma-9-equazione-di-hamilton}
+\subsection{Lemma 10: equazioni di Hamilton}\label{lemma-10-equazioni-di-hamilton}
 
 Si considera il differenziale della funzione hamiltoniana:
 
@@ -1098,6 +1133,7 @@ Sostituendo la seconda equazione, si ottiene l'equazione dell'oscillatore armoni
 \]
 
 \section{Metodo di Eulero}\label{metodo-di-eulero}
+Il metodo di Eulero è un procedimento numerico per risolvere problemi con condizioni iniziali (IVP) che coinvolgono equazioni differenziali ordinarie.
 
 Si considera il sistema di equazioni differenziali del secondo ordine, nelle funzioni incognite \(y_{1}\) e \(y_{2}\):
 
@@ -1289,10 +1325,10 @@ Si definiscono i parametri del sistema. La matrice dei coefficienti è definita 
 
 \begin{lstlisting}
 global A
-A=[-5.5 1.1;1.1 -1.2]; %matrice dei coefficienti del sistema
+A=[-5.5 1.1;1.1 -1.2]; % matrice dei coefficienti del sistema
 Ts=0.001;
 t_span=0:Ts:200;
-y0 = {.5,.5,0,0}'; %si usa il trasposto perche' e' necessario avere un vettore colonna
+y0 = {.5,.5,0,0}'; % si usa il trasposto perche' e' necessario avere un vettore colonna
 \end{lstlisting}
 
 Si risolve il sistema mediante ode45, il risolutore di equazioni differenziali. Bisogna utilizzare una funzione che implementa il sistema di equazioni differenziali.
