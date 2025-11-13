@@ -305,141 +305,6 @@ Raccogliendo $\delta\mathbf{q}$ (che è una moltiplicazione scalare dei due vett
 Dato che l'azione deve essere stazionaria, la sua variazione deve essere nulla \(\delta S = 0\). Per cui si ha:
 
 \[
-\int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q}dt} = 0
-\]
-
-Poiché $\delta\mathbf{q}$ è una variazione arbitraria e non nulla all'interno dell'intervallo ($\left[t_0; \ t_1\right]$), il Lemma Fondamentale del Calcolo delle Variazioni stabilisce che il coefficiente di $\delta\mathbf{q}$ deve essere il vettore nullo:
-
-\subsection{Equazione di Eulero-Lagrange}\label{equazione-di-eulero-lagrange}
-
-Per descrivere il moto di una particella o di un sistema di particelle, la lagrangiana deve soddisfare l'equazione di Eulero-Lagrange, espressa per la coordinata generalizzata $i$-esima \cite{landau1994meccanica}:
-
-\[
-\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot{q}_i}\right) - \dfrac{\partial L}{\partial q_i} = 0, \text{con } i=1,2,\dots,s
-\]
-
-Poiché l'azione \(S\) deve essere stazionaria, la sua variazione \(\delta S\) deve essere nulla ($\delta S = 0$). Si considera una traiettoria perturbata $\mathbf{q} + \delta\mathbf{q}$ e la velocità perturbata $\mathbf{\dot{q}} + \delta\mathbf{\dot{q}}$:
-
-\[
-S + \delta S = \int_{t_{0}}^{t_{1}}{L\left( \mathbf{q} + \delta\mathbf{q},\mathbf{\dot{q}} + \delta\mathbf{\dot{q}}, t \right)dt}
-\]
-
-dove \(\mathbf{q}\) è la traiettoria fisica che rende stazionaria l'azione \(S\). Il Principio di Hamilton (o di Azione Stazionaria) stabilisce che la traiettoria rende l'azione stazionaria (ovvero $\delta S=0$). Non è garantito che sia un minimo poiché può coincidere un massimo o un punto di sella.
-
-\input{Image/1_Meccanica/1_TraiettoriaPertu}
-
-Siccome le variazioni di spostamento e velocità sono molto minori delle rispettive quantità (ovvero $\delta\mathbf{q}$ è una piccola variazione della traiettoria fisica):
-
-\[
-\delta q_{i} \ll q_{i} \quad \text{e} \quad \delta \dot{q}_{i} \ll \dot{q}_{i}
-\]
-
-è possibile sviluppare la lagrangiana $L$ in serie di Taylor, arrestando lo sviluppo al primo ordine, nell'intorno del punto \(\left( \mathbf{q},\mathbf{\dot{q}} \right)\). La variazione della Lagrangiana $\delta L$ è:
-
-\[
-L\left( \mathbf{q} + \delta\mathbf{q},\mathbf{\dot{q}} + \delta\mathbf{\dot{q}}, t \right) \simeq L\left( \mathbf{q},\mathbf{\dot{q}}, t \right) + \sum_{i=1}^s \left( \dfrac{\partial L}{\partial q_i}\delta q_i + \dfrac{\partial L}{\partial\dot{q}_i}\delta \dot{q}_i \right)
-\]
-
-Per comodità, si può esprimere la variazione $\delta L$ usando la notazione vettoriale (prodotto scalare generalizzato):
-
-\[
-L\left( \mathbf{q} + \delta\mathbf{q},\mathbf{\dot{q}} + \delta\mathbf{\dot{q}}, t \right) \simeq L\left( \mathbf{q},\mathbf{\dot{q}}, t \right) + \dfrac{\partial L}{\partial\mathbf{q}} \cdot \delta\mathbf{q} + \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\cdot \delta\mathbf{\dot{q}}
-\]
-
-Sostituendo nell'espressione della variazione dell'azione, si ottiene:
-
-\[
-S + \delta S = \int_{t_{0}}^{t_{1}}{\left\lbrack L\left( \mathbf{q},\mathbf{\dot{q}}, t \right) + \dfrac{\partial L}{\partial\mathbf{q}}\delta\mathbf{q} + \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\ \delta\mathbf{\dot{q}} \right\rbrack dt}
-\]
-
-Per la linearità dell'integrale si scrive:
-
-\[
-S + \delta S = \int_{t_{0}}^{t_{1}}{L\left( \mathbf{q},\mathbf{\dot{q}}, t \right)dt} + \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\mathbf{q}}\delta\mathbf{q} + \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\ \delta\mathbf{\dot{q}} \right)dt}
-\]
-
-Poiché:
-
-\[
-S = \int_{t_{0}}^{t_{1}}{L\left( \mathbf{q},\mathbf{\dot{q}}, t \right)dt}
-\]
-
-semplificando \(S\), si ottiene l'espressione per la variazione dell'azione \(\delta S\):
-
-\[
-\delta S = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\mathbf{q}}\delta\mathbf{q} + \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\ \delta\mathbf{\dot{q}} \right)dt}
-\]
-
-La traiettoria perturbata $\mathbf{q} + \delta\mathbf{q}$ ha in comune con la traiettoria fisica $\mathbf{q}$ i punti iniziali e finali:
-
-\[
-\begin{cases}
-\mathbf{q}\left( t_{0} \right) + \delta\mathbf{q}\left( t_{0} \right) = \mathbf{q}\left( t_{0} \right) \\
-\mathbf{q}\left( t_{1} \right) + \delta\mathbf{q}\left( t_{1} \right) = \mathbf{q}\left( t_{1} \right)
-\end{cases}
-\]
-
-Ne discende che la variazione deve essere nulla agli estremi temporali:
-
-\[
-\delta\mathbf{q}\left( t_{0} \right) = \mathbf{0},\quad\delta\mathbf{q}\left( t_{1} \right) = \mathbf{0}
-\]
-
-Poiché la variazione e la derivata temporale sono operazioni interscambiabili, risulta che:
-
-\[
-\delta\mathbf{\dot{q}} = \dfrac{d}{dt}\left( \delta\mathbf{q} \right)
-\]
-
-Dunque, la variazione di azione può essere espressa come:
-
-\[
-\delta S = \int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\mathbf{q}}\delta\mathbf{q}dt} + \int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\mathbf{\dot{q}}}\ \dfrac{d}{dt}\left( \delta\mathbf{q} \right)dt}
-\]
-
-Si integra per parti il secondo termine, del tipo:
-
-\[
-\int \mathbf{u} d\mathbf{v} = [\mathbf{uv}] - \int \mathbf{v} d\mathbf{u}
-\]
-
-Posto:
-
-\[
-\begin{cases}
-\mathbf{u} = \dfrac{\partial L}{\partial\mathbf{\dot{q}}} \\
-d\mathbf{v} = \dfrac{d}{dt}(\delta\mathbf{q}) dt
-\end{cases}
-\]
-
-si ottiene:
-
-\[
-\int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\mathbf{\dot{q}}}\ \dfrac{d}{dt}\left( \delta\mathbf{q} \right)dt} = \left\lbrack \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\delta\mathbf{q} \right\rbrack_{t_{0}}^{t_{1}} - \int_{t_{0}}^{t_{1}}{\left( \dfrac{d}{dt}\dfrac{\partial L}{\partial\mathbf{\dot{q}}} \right)\delta\mathbf{q}dt}
-\]
-
-
-Grazie alle condizioni al contorno nulle ($\delta\mathbf{q}\left( t_{0} \right) = \delta\mathbf{q}\left( t_{1} \right) = \mathbf{0}$), il termine integrato è nullo:
-
-\[
-\left[\dfrac{\partial L}{\partial\mathbf{\dot{q}}}\delta\mathbf{q} \right]_{t_{0}}^{t_{1}} = 0
-\]
-
-Sostituendo nel $\delta S$ si ottiene:
-
-\[
-\delta S = \int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\mathbf{q}}\delta\mathbf{q}dt} - \int_{t_{0}}^{t_{1}}{\left( \dfrac{d}{dt}\dfrac{\partial L}{\partial\mathbf{\dot{q}}} \right)\delta\mathbf{q}dt}
-\]
-
-Raccogliendo $\delta\mathbf{q}$ (che è una moltiplicazione scalare dei due vettori):
-
-\[
-\delta S = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\mathbf{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\mathbf{\dot{q}}} \right)\delta\mathbf{q}dt}
-\]
-
-Dato che l'azione deve essere stazionaria, la sua variazione deve essere nulla \(\delta S = 0\). Per cui si ha:
-
-\[
 \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\mathbf{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\mathbf{\dot{q}}} \right)\delta\mathbf{q}dt} = 0
 \]
 
@@ -687,8 +552,8 @@ Ne discende che la quantità di moto $p_{i}$ e la forza $F_{i}$ sono legate alla
 
 \[
 \begin{cases}
-\displaystyle p_{i} = \dfrac{\partial L}{\partial{\dot{q}}_{i}} & \quad (\text{Momento generalizzato coniugato}) \\
-\displaystyle Q_{i} = - \dfrac{\partial U}{\partial q_{i}} & \quad (\text{Forza generalizzata conservativa})
+p_{i} = \dfrac{\partial L}{\partial{\dot{q}}_{i}} & \quad (\text{Momento generalizzato coniugato}) \\
+Q_{i} = - \dfrac{\partial U}{\partial q_{i}} & \quad (\text{Forza generalizzata conservativa})
 \end{cases}
 \]
 
@@ -727,72 +592,70 @@ In particolare, queste leggi di conservazione sono connesse all'invarianza delle
  Dall'isotropia dello spazio discende la conservazione del momento angolare. L'isotropia spaziale implica che le leggi fisiche non cambiano se il sistema viene ruotato nello spazio.
 \end{itemize}
 
-\subsection{Lemma 7: conservazione dell'energia}\label{lemma-7-conservazione-dellenergia}
+\subsection{Conservazione dell'energia}\label{conservazione-dellenergia}
 
-L'energia totale \(E = T + U\) si conserva grazie alla proprietà di omogeneità temporale. Infatti, se il tempo è omogeneo e il sistema isolato, per definizione la lagrangiana non dipende esplicitamente dal tempo; invece, tale dipendenza è presente nelle coordinate generalizzate \cite{landau1994meccanica}:
-
-\[L = L\left( \vec{q},\dot{\vec{q}} \right),\quad \vec{q} = \vec{q}(t),\dot{\vec{q}} = \dot{\vec{q}}(t)\]
-
-La derivata rispetto al tempo della lagrangiana, per la derivata delle funzioni composte, può essere espressa come:
+L'energia totale $E=T+U$ si conserva grazie alla proprietà di omogeneità temporale. La conservazione dell'energia si verifica se la Lagrangiana non dipende esplicitamente dal tempo:
 
 \[
-\dfrac{d}{dt}L\left( \vec{q},\dot{\vec{q}} \right) = \dfrac{\partial L}{\partial\vec{q}}\dfrac{d\vec{q}}{dt} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\dfrac{d\dot{\vec{q}}}{dt}
+\dfrac{\partial L}{\partial t} = 0
 \]
 
-dove i prodotti tra vettori sono da intendersi come prodotti scalari. Dunque, ricorrendo alla simbologia sulle derivate temporali, si può scrivere:
+In questo caso, il sistema è isolato e scleronomo. La Lagrangiana dipende dal tempo solo attraverso le coordinate generalizzate \cite{landau1994meccanica}: 
 
 \[
-\dfrac{d}{dt}L\left( \vec{q},\dot{\vec{q}} \right) = \dfrac{\partial L}{\partial\vec{q}}\cdot\dot{\vec{q}} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\cdot\vec{\ddot{q}}
+L = L\left( \mathbf{q},\mathbf{\dot{q}} \right),\quad \mathbf{q} = \mathbf{q}\left(t\right),\mathbf{\dot{q}} = \mathbf{\dot{q}}\left(t\right)
+\] 
+
+La derivata totale rispetto al tempo della lagrangiana, per la derivata delle funzioni composte, è: 
+
+\[ 
+\dfrac{d L}{d t} = \sum_{i=1}^s \left( \dfrac{\partial L}{\partial q_i}\dfrac{d q_i}{d t} + \dfrac{\partial L}{\partial \dot{q}_i}\dfrac{d \dot{q}_i}{d t} \right) + \dfrac{\partial L}{\partial t} 
+\] 
+
+Poiché si assume che la lagrangiana non dipendente esplicitamente dal tempo la sua derivata rispetto a tale variabile è nulla. Utilizzando la notazione vettoriale, mediante il prodotto scalare generalizzato, è possibile scrivere: 
+
+\[ 
+\dfrac{d L}{d t} = \dfrac{\partial L}{\partial\mathbf{q}}\cdot\mathbf{\dot{q}} + \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\cdot\mathbf{\ddot{q}} 
+\] 
+
+Dalle equazioni di Eulero-Lagrange, si ha che:
+
+\[
+\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\mathbf{\dot{q}}} \right) - \dfrac{\partial L}{\partial\mathbf{q}} = 0 \Leftrightarrow \dfrac{\partial L}{\partial\mathbf{q}} = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\mathbf{\dot{q}}} \right)
 \]
 
-Si considera la quantità:
+Sostituendo nella derivata totale della Lagrangiana: 
 
-\[
-\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\cdot\dot{\vec{q}} \right)
+\[ 
+\dfrac{d L}{d t} = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\mathbf{\dot{q}}} \right)\cdot\mathbf{\dot{q}} + \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\cdot\mathbf{\ddot{q}} 
+\] 
+
+Si osserva che il secondo membro è esattamente la derivata totale rispetto al tempo del prodotto scalare (Regola di Leibniz per il prodotto scalare): 
+
+\[ 
+\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\cdot\mathbf{\dot{q}} \right) = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\mathbf{\dot{q}}} \right)\cdot\mathbf{\dot{q}} + \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\cdot\dfrac{d\mathbf{\dot{q}}}{dt} 
+\] 
+
+Dunque, si ottiene: 
+\[ 
+\dfrac{d L}{d t} = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\cdot\mathbf{\dot{q}} \right) 
+\] 
+
+Portando tutto a sinistra, si ha: 
+\[ 
+\dfrac{d}{dt}\left( L - \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\cdot\mathbf{\dot{q}} \right) = 0 
+\] 
+
+Si definisce l'Hamiltoniana o Energia del sistema $H$ come la quantità: 
+
+\[ 
+H = \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\cdot\mathbf{\dot{q}} - L 
 \]
 
-Svolgendo la derivata si ottiene:
-
-\[\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right) = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\dot{\vec{q}} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\dfrac{d\dot{\vec{q}}}{dt} = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\dot{\vec{q}} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\vec{\ddot{q}}\]
-
-Si isola il termine contenente \(\vec{\ddot{q}}\):
-
-\[\dfrac{\partial L}{\partial\dot{\vec{q}}}\vec{\ddot{q}} = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right) - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\dot{\vec{q}}\]
-
-Si sostituisce questo risultato nella derivata temporale della lagrangiana:
-
-\[\dfrac{dL}{dt} = \dfrac{\partial L}{\partial\vec{q}}\dot{\vec{q}} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\vec{\ddot{q}} = \dfrac{\partial L}{\partial\vec{q}}\dot{\vec{q}} + \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right) - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\dot{\vec{q}}\]
-
-Si porta il termine \(\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right)\) al primo membro:
-
-\[\dfrac{dL}{dt} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right) = \dfrac{\partial L}{\partial\vec{q}}\dot{\vec{q}} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\dot{\vec{q}} \Leftrightarrow \dfrac{d}{dt}\left( L - \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right) = \left\lbrack \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}} \right) \right\rbrack\dot{\vec{q}}\]
-
-Per l'equazione di Eulero-Lagrange, il secondo membro è nullo:
-
-\[\dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}} \right) = \vec{0}\]
-
-Dunque:
+Poiché la derivata temporale dell'Hamiltoniana è nulla, si conclude che $H$ è una costante del moto (conservata): 
 
 \[
-\dfrac{d}{dt}\left( L - \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right) = 0
-\]
-
-Si considera la quantità \(C\), definita come:
-
-\[
-C = dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} - L
-\]
-
-La relazione si può scrivere come:
-
-\[
-\dfrac{d}{dt}\left( -C \right) = 0 \Leftrightarrow \dfrac{dC}{dt} = 0
-\]
-
-Integrando rispetto al tempo si ottiene:
-
-\[
-\dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} - L= \text{cost}
+\dfrac{d H}{d t} = 0 \Leftrightarrow H = \text{cost} 
 \]
 
 Per definizione di lagrangiana, risulta che:
@@ -801,175 +664,288 @@ Per definizione di lagrangiana, risulta che:
 L = T - U
 \]
 
-Inoltre, l'energia potenziale non dipende dalla velocità, dunque:
-
-\[\dfrac{\partial L}{\partial\dot{\vec{q}}} = \dfrac{\partial}{\partial\dot{\vec{q}}}(T - U) = \dfrac{\partial L}{\partial\dot{\vec{q}}}\]
-
-Dalle relazioni tra meccanica lagrangiana e newtoniana è possibile scrivere:
-
-\[\dfrac{\partial L}{\partial\dot{\vec{q}}} = {\vec{p}}^{T} = m{\dot{\vec{q}}}^{T}\]
-
-Moltiplicando ambo i membri per \(\dot{\vec{q}}\), si ha:
-
-\[\dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} = m{\dot{\vec{q}}}^{T}\dot{\vec{q}} = m{\dot{q}}^{2}\]
-
-Per sistemi dove l'energia cinetica è una funzione omogenea di secondo grado rispetto alle velocità, è possibile affermare che:
-
-\[m{\dot{q}}^{2} = 2T\]
-
-Per cui:
+L'energia potenziale $U$ non dipende dalle velocità generalizzate $\mathbf{\dot{q}}$. Dunque,  risulta:
 
 \[
-\dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} -L = \text{cost} \Leftrightarrow -T + U + 2T = cost
+\dfrac{\partial L}{\partial \dot{q}_i} = \dfrac{\partial}{\partial \dot{q}_i}(T - U) = \dfrac{\partial T}{\partial \dot{q}_i}
 \]
 
-Da cui discende:
+Per i sistemi scleronomi (dove i vincoli non dipendono esplicitamente dal tempo), l'energia cinetica $T$ è una forma quadratica omogenea nelle velocità generalizzate $\mathbf{\dot{q}}$. Sfruttando la struttura di $T$:
+
+\[ 
+T = \dfrac{1}{2}\sum_{k, j} a_{kj}(\mathbf{q}){\dot{q}}_{k}{\dot{q}}_{j} 
+\]
+
+dove i coefficienti $a_{kj}(\mathbf{q})$ sono simmetrici, ovvero $a_{kj} = a_{jk}$. 
+
+Si deriva $T$ rispetto a una specifica velocità generalizzata $\dot{q}_i$. Nella doppia sommatoria, la derivata parziale è non nulla solo quando $i$ compare come indice $k$ o come indice $j$. 
+ 
+\[ 
+\dfrac{\partial T}{\partial \dot{q}_i} = \dfrac{1}{2} \sum_{k, j} a_{kj} \dfrac{\partial}{\partial \dot{q}_i} (\dot{q}_k \dot{q}_j) 
+\] 
+
+Usando la regola di derivazione e ricordando che:
 
 \[
-T + U = cost
+\dfrac{\partial \dot{q}_k}{\partial \dot{q}_i} = \delta_{ik} \quad \text{e} \quad \dfrac{\partial \dot{q}_j}{\partial \dot{q}_i} = \delta_{ij}
 \]
 
-In definitiva, si è dimostrato che la conservazione dell'energia totale (\(T+U\)) è una diretta conseguenza della simmetria temporale delle leggi fisiche. a conservazione dell'energia (il fatto che l'Hamiltoniana sia una costante del moto) si verifica solo se la Lagrangiana non dipende esplicitamente dal tempo.
+è possibile scrivere:
 
-\subsection{Lemma 8: conservazione della quantità di moto}\label{lemma-8-conservazione-della-quantituxe0-di-moto}
+\[ 
+\dfrac{\partial T}{\partial \dot{q}_i} = \dfrac{1}{2} \sum_{k, j} a_{kj} \left( \delta_{ik} \dot{q}_j + \dot{q}_k \delta_{ij} \right) 
+\]
 
-Il momento lineare:
+La presenza del $\delta_{ik}$ annulla la sommatoria su $k$ eccetto quando $k=i$; il $\delta_{ij}$ annulla la sommatoria su $j$ eccetto quando $j=i$:
 
-\[\vec{p} = \sum_{i = 1}^{N}{\vec{p}}_{i} = \sum_{i = 1}^{N}{m\vec{v}}_{i}\]
+\[ 
+\dfrac{\partial T}{\partial \dot{q}_i} = \dfrac{1}{2} \left[ \sum_{j} a_{ij} \dot{q}_j + \sum_{k} a_{ki} \dot{q}_k \right] 
+\]
 
-Si conserva lungo la direzione per cui l'energia potenziale resta invariata, quindi lungo traiettorie equipotenziali.
+Poiché i coefficienti sono simmetrici ($a_{ij} = a_{ji}$), le due sommatorie sono identiche. Dunque:
 
-Si suppone che lo spazio sia omogeneo, dunque, una qualsiasi traslazione \(\delta\vec{r}\) del sistema non deve cambiare la lagrangiana; in altre parole, deve risultare che \(\delta L = 0\).
+\[ 
+\dfrac{\partial T}{\partial \dot{q}_i} = \dfrac{1}{2} \left[ 2 \sum_{j=1}^{s} a_{ij} \dot{q}_j \right] = \sum_{j=1}^{s} a_{ij} \dot{q}_j 
+\] 
 
-La variazione della lagrangiana può essere espressa come:
+Moltiplichiamo il risultato della prima relazione per $\dot{q}_i$ e sommiamo su tutti gli indici $i$ (ottenendo il prodotto scalare $\dfrac{\partial T}{\partial\mathbf{\dot{q}}}\cdot\mathbf{\dot{q}}$): 
+ 
+\[ 
+\sum_{i=1}^{s} \dfrac{\partial T}{\partial \dot{q}_i} \dot{q}_i = \sum_{i=1}^{s} \dot{q}_i \left( \sum_{j=1}^{s} a_{ij} \dot{q}_j \right) 
+\]
 
-\[\delta L = \dfrac{\partial L}{\partial\vec{r}}\delta\vec{r}\]
+Riordinando la doppia sommatoria: 
+ 
+\[ 
+\sum_{i=1}^{s} \dfrac{\partial T}{\partial \dot{q}_i} \dot{q}_i = \sum_{i=1}^{s} \sum_{j=1}^{s} a_{ij} \dot{q}_i \dot{q}_j 
+\]
 
-Si considera l'equazione di Eulero-Lagrange \cite{landau1994meccanica}:
+Confrontando il risultato finale con la formula originale di $T$: 
+ 
+\[ 
+T = \dfrac{1}{2}\sum_{i=1}^{s}{\sum_{j = 1}^{s}a_{ij}{\dot{q}}_{i}{\dot{q}}_{j}} 
+\] 
+ 
+Si ottiene immediatamente la relazione cercata: 
+ 
+\[ 
+\dfrac{\partial T}{\partial\mathbf{\dot{q}}}\cdot\mathbf{\dot{q}} = \sum_{i=1}^{s} \dfrac{\partial T}{\partial \dot{q}_i} \dot{q}_i = 2 \left[ \dfrac{1}{2}\sum_{i=1}^{s} \sum_{j=1}^{s} a_{ij} \dot{q}_i \dot{q}_j \right] = 2T 
+\] 
 
-\[\dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}} \right) = \vec{0}\]
+Tale risultato è noto come \textbf{Teorema di Eulero}. Sostituendo nell'espressione per $H$: 
+ 
+\[ 
+H = \left(\dfrac{\partial T}{\partial\mathbf{\dot{q}}}\cdot\mathbf{\dot{q}}\right) - L = 2T - (T - U) = T + U 
+\] 
 
-Passando a coordinate cartesiane, \(\vec{q}\) coincide con la posizione \(\vec{r}\), mentre \(\dot{\vec{q}}\) con la velocità \(\vec{v}\). L'equazione di Eulero-Lagrange può essere scritta come:
+In definitiva, si è dimostrato che la conservazione dell'energia totale (\(E = T+U\)) è una diretta conseguenza della simmetria temporale (omogeneità temporale) delle leggi fisiche.
 
-\[\dfrac{\partial L}{\partial\vec{r}} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{v}} \right) = \vec{0} \Leftrightarrow \dfrac{\partial L}{\partial\vec{r}} = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{v}} \right)\]
+\subsection{Conservazione della quantità di moto}\label{conservazione-della-quantituxe0-di-moto}
 
-La condizione di omogeneità spaziale impone che la lagrangiana non dipenda esplicitamente dalla posizione ($\vec{r}$), il che significa che la forza generalizzata è nulla
+Il momento lineare totale del sistema è: 
+ 
+\[ 
+\mathbf{P} = \sum_{i = 1}^{N}{\mathbf{p}}_{i} = \sum_{i = 1}^{N}{m_i \mathbf{v}}_{i} 
+\]
 
+Esso si conserva grazie alla proprietà di \textbf{omogeneità spaziale}. L'omogeneità spaziale implica che le leggi fisiche del sistema non devono cambiare se il sistema viene traslato uniformemente nello spazio.
+
+Si considera una traslazione infinitesima e uniforme $\delta \mathbf{r}$ che agisce su tutte le coordinate cartesiane $\mathbf{r}_i$ delle $N$ particelle: 
+
+\[ 
+\mathbf{r}_i \to \mathbf{r}_i + \delta \mathbf{r} \quad (\text{dove } \delta \mathbf{r} \text{ è lo stesso per tutti gli } i) 
+\]
+
+La Lagrangiana $L(\mathbf{r}_i, \mathbf{v}_i)$ non deve cambiare per questa traslazione, per l'ipotesi di omogeneità spaziale, quindi $\delta L = 0$ \cite{landau1994meccanica}.
+
+\[ 
+\delta L = \sum_{i=1}^N \dfrac{\partial L}{\partial \mathbf{r}_i} \cdot \delta \mathbf{r}_i + \sum_{i=1}^N \dfrac{\partial L}{\partial \mathbf{v}_i} \cdot \delta \mathbf{v}_i 
+\]
+
+Poiché la traslazione è uniforme:
 \[
-\dfrac{\partial L}{\partial\vec{r}} = \vec{0}
+\delta \mathbf{v}_i = \dfrac{d}{dt}(\delta \mathbf{r}) = \mathbf{0}
 \]
 
-Per cui risulta che:
+Sostituendo $\delta \mathbf{r}_i = \delta \mathbf{r}$:
 
-\[\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{v}} \right) = \vec{0}\]
+\[ 
+\delta L = \left( \sum_{i=1}^N \dfrac{\partial L}{\partial \mathbf{r}_i} \right) \cdot \delta \mathbf{r} 
+\]
 
-Integrando rispetto al tempo si ottiene:
+L'omogeneità spaziale impone $\delta L = 0$ per una traslazione arbitraria $\delta \mathbf{r}$, il che implica che la somma delle derivate sia nulla: 
 
+\[ 
+\sum_{i=1}^N \dfrac{\partial L}{\partial \mathbf{r}_i} = \mathbf{0} 
+\]
+
+Applichiamo l'equazione di Eulero-Lagrange in coordinate cartesiane $\mathbf{r}_i$:
+
+\[ 
+\dfrac{\partial L}{\partial \mathbf{r}_i} = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial \mathbf{v}_i} \right) 
+\] 
+
+Sommando su tutte le particelle $i=1, \ldots, N$:
+
+\[ 
+\sum_{i=1}^N \dfrac{\partial L}{\partial \mathbf{r}_i} = \sum_{i=1}^N \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial \mathbf{v}_i} \right) 
+\]
+
+Sostituendo la condizione di omogeneità spaziale:
 \[
-\dfrac{\partial L}{\partial\vec{v}} = \vec{const}
+\sum_{i=1}^N \dfrac{\partial L}{\partial \mathbf{r}_i} = \mathbf{0}
 \]
+
+si ottiene:
+
+\[ 
+\sum_{i=1}^N \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial \mathbf{v}_i} \right) = \mathbf{0} 
+\]
+
+Per linearità è possibile commutare l'operatore di derivazione temporale con la sommatoria:
+
+\[ 
+\dfrac{d}{dt}\left( \sum_{i=1}^N \dfrac{\partial L}{\partial \mathbf{v}_i} \right) = \mathbf{0} 
+\] 
+ 
+Integrando rispetto al tempo si ottiene: 
+
+\[ 
+\sum_{i=1}^N \dfrac{\partial L}{\partial \mathbf{v}_i} = \mathbf{const} 
+\] 
 
 In altre parole, il gradiente della lagrangiana rispetto alla velocità è costante.
 
-In coordinate cartesiane, è possibile scrivere che:
+La Lagrangiana in coordinate cartesiane è: 
 
-\[L = \dfrac{1}{2}\sum_{i = 1}^{N}{m_{i}v_{i}^{2}} - U\left( x_{1},x_{2}\ldots,x_{N} \right) = \dfrac{1}{2}\sum_{i = 1}^{N}{m_{i}{\vec{v}}_{i} \cdot {\vec{v}}_{i}} - U\left( x_{1},x_{2}\ldots,x_{N} \right)\]
+\[ 
+L = \dfrac{1}{2}\sum_{i = 1}^{N}{m_{i} \mathbf{v}_{i} \cdot \mathbf{v}_{i}} - U\left( \mathbf{r}_{1}, \ldots, \mathbf{r}_{N} \right) 
+\] 
+ 
+Si calcola la derivata parziale rispetto alla velocità di una singola particella $\mathbf{v}_k$: 
 
-Derivando rispetto a \(\vec{v}\), si ottiene:
+\[ 
+\dfrac{\partial L}{\partial \mathbf{v}_k} = \dfrac{\partial}{\partial \mathbf{v}_k} \left( \dfrac{1}{2}\sum_{i}{m_{i} \mathbf{v}_{i}^2} \right) - \dfrac{\partial U}{\partial \mathbf{v}_k} 
+\] 
 
-\[
-\dfrac{\partial L}{\partial\vec{v}} = \dfrac{\partial}{\partial\vec{v}}\left( \dfrac{1}{2}\sum_{i = 1}^{N}{m_{i}v_{i}^{2}} - U\left( x_{1},x_{2}\ldots,x_{N} \right) \right) = \sum_{i = 1}^{N}{m_{i}{\vec{v}}_{i}} = \sum_{i = 1}^{N}{\vec{p}}_{i} = \vec{const}
+Poiché $U$ non dipende dalle velocità e la sommatoria è non nulla solo per $i=k$: 
+
+\[ 
+\dfrac{\partial L}{\partial \mathbf{v}_k} = m_k \mathbf{v}_k = \mathbf{p}_k 
 \]
 
-La quantità di moto o momento lineare, in definitiva, si conserva in ipotesi di omogeneità spaziale.
+Sostituendo questo risultato nell'equazione di conservazione: 
 
-\subsection{Lemma 9: conservazione del momento angolare}\label{lemma-9-conservazione-del-momento-angolare}
+\[ 
+\sum_{i=1}^N \dfrac{\partial L}{\partial \mathbf{v}_i} = \sum_{i=1}^N \mathbf{p}_i = \mathbf{P} = \mathbf{const} 
+\] 
+ 
+La \textbf{quantità di moto totale} $\mathbf{P}$ si conserva in ipotesi di omogeneità spaziale. 
 
-La proiezione del momento angolare \cite{landau1994meccanica}:
+\subsection{Conservazione del momento angolare}\label{conservazione-del-momento-angolare}
 
-\[\vec{L} = \sum_{i = 1}^{N}{{\vec{r}}_{i} \times {\vec{p}}_{i}}\]
+Il momento angolare totale del sistema è definito come \cite{landau1994meccanica}:
 
-si conserva lungo direzioni in cui il potenziale \(U\) presenta delle simmetrie. Ad esempio, se il potenziale ha simmetria cilindrica, la proiezione del momento angolare lungo quest'asse si conserva.
-
-Si suppone che lo spazio sia isotropo, dunque, una rotazione \(\delta\vec{r} = d\vec{\varphi} \times \vec{r}\) non deve modificare la lagrangiana. Il termine $\varphi$ rappresenta l'asse di una simmetria parziale del potenziale.
-
-Anche la velocità \(\vec{v}\) subisce una rotazione \(\delta\vec{v} = d\vec{\varphi} \times \vec{v}\) dovuta a \(d\vec{\varphi}\). La variazione \(\delta L\) della lagrangiana, dovuta alla rotazione \(d\vec{\varphi}\), può essere espressa come differenziale:
-
-\[\delta L = \dfrac{\partial L}{\partial\vec{v}} \cdot \delta\vec{v} + \dfrac{\partial L}{\partial\vec{r}} \cdot \delta\vec{r}\]
-
-Per l'ipotesi di isotropia, la variazione \(\delta L = 0\), per cui si ha:
-
-\[\dfrac{\partial L}{\partial\vec{v}} \cdot \delta\vec{v} + \dfrac{\partial L}{\partial\vec{r}} \cdot \delta\vec{r} = 0\]
-
-Si sostituiscono le relazioni per le variazioni di spostamento e velocità in termini di \(d\vec{\varphi} \times \vec{r}\):
-
-\[\delta\vec{r} = d\vec{\varphi} \times \vec{r},\quad \delta\vec{v} = d\vec{\varphi} \times \vec{v}\]
-
-Si ottiene:
-
-\[\dfrac{\partial L}{\partial\vec{v}} \cdot \left( d\vec{\varphi} \times \vec{v} \right) + \dfrac{\partial L}{\partial\vec{r}} \cdot \left( d\vec{\varphi} \times \vec{r} \right) = 0\]
-
-Esplicitando le derivate, si ha:
-
-\[\sum_{i = 1}^{N}\left\lbrack \dfrac{\partial L}{\partial{\vec{v}}_{i}} \cdot \left( d\vec{\varphi} \times {\vec{v}}_{i} \right) + \dfrac{\partial L}{\partial{\vec{r}}_{i}} \cdot \left( d\vec{\varphi} \times {\vec{r}}_{i} \right) \right\rbrack = 0\]
-
-Dati tre vettori generici \(\vec{a}\), \(\vec{b}\) e \(\vec{c}\), si dimostra:
-
-\[
-\left( \vec{a} \times \vec{b} \right) \cdot \vec{c} = \left( \vec{b} \times \vec{c} \right) \cdot \vec{a} = \left( \vec{c} \times \vec{a} \right) \cdot \vec{b}
+\[ 
+\mathbf{L} = \sum_{i = 1}^{N}{\mathbf{r}}_{i} \times {\mathbf{p}}_{i} 
 \]
 
-Applicando tale relazione, è possibile scrivere \(d\vec{\varphi}\) in prodotto scalare con l'operazione di prodotto vettoriale tra gli altri due vettori:
+esso si conserva lungo le direzioni corrispondenti all'isotropia spaziale o a simmetrie parziali del potenziale $U$. Ad esempio, se il potenziale ha simmetria cilindrica, la proiezione del momento angolare lungo quest'asse si conserva.
 
-\[\sum_{i = 1}^{N}\left\lbrack \dfrac{\partial L}{\partial{\vec{v}}_{i}} \cdot \left( d\vec{\varphi} \times {\vec{v}}_{i} \right) + \dfrac{\partial L}{\partial{\vec{r}}_{i}} \cdot \left( d\vec{\varphi} \times {\vec{r}}_{i} \right) \right\rbrack = \sum_{i = 1}^{N}\left\lbrack d\vec{\varphi} \cdot \left( {\vec{v}}_{i} \times \dfrac{\partial L}{\partial{\vec{v}}_{i}} \right) + d\vec{\varphi} \cdot \left( {\vec{r}}_{i} \times \dfrac{\partial L}{\partial{\vec{r}}_{i}} \right) \right\rbrack = 0\]
+Si suppone che lo spazio sia \textbf{isotropo} (o che il potenziale abbia simmetria rotazionale lungo un asse). Questo implica che una rotazione infinitesima $d\boldsymbol{\varphi}$ non deve modificare la Lagrangiana. La rotazione infinitesima induce variazioni sia nella posizione $\mathbf{r}_i$ sia nella velocità $\mathbf{v}_i$ di ciascuna particella $i$:
 
-Dall'equivalenza con la meccanica classica, è noto che:
-\[
-\begin{cases}
-\displaystyle \dfrac{\partial L}{\partial{\vec{v}}_{i}} = {\vec{p}}_{i} \\
-\displaystyle \dfrac{\partial L}{\partial{\vec{r}}_{i}} =  \displaystyle \dfrac{d{\vec{p}}_{i}}{dt}
-\end{cases}
+\[ 
+\delta\mathbf{r}_{i} = d\boldsymbol{\varphi} \times \mathbf{r}_{i},\quad \delta\mathbf{v}_{i} = d\boldsymbol{\varphi} \times \mathbf{v}_{i} 
 \]
 
-Dunque, si ha:
+La variazione totale $\delta L$ della Lagrangiana, per il caso di $N$ particelle, è data dal differenziale:
 
-\[\sum_{i = 1}^{N}\left( {\vec{v}}_{i} \times {\vec{p}}_{i} + {\vec{r}}_{i} \times \dfrac{d{\vec{p}}_{i}}{dt} \right) \cdot d\vec{\varphi} = 0\]
-
-Poiché \({\vec{p}}_{i} = m_{i}{\vec{v}}_{i}\), la quantità di moto è parallela alla velocità, dunque, il loro prodotto vettorale è nullo:
-
-\[{\vec{v}}_{i} \times {\vec{p}}_{i} = \vec{0}\]
-
-Resta, dunque:
-
-\[\sum_{i = 1}^{N}\left( {\vec{r}}_{i} \times \dfrac{d{\vec{p}}_{i}}{dt} \right) \cdot d\vec{\varphi} = 0\]
-
-Si considera la quantità:
-
-\[\dfrac{d}{dt}\left( {\vec{r}}_{i} \times {\vec{p}}_{i} \right)\]
-
-Applicando le proprietà delle derivate, si ha:
-
-\[\dfrac{d}{dt}\left( {\vec{r}}_{i} \times {\vec{p}}_{i} \right) = \dfrac{d{\vec{r}}_{i}}{dt} \times {\vec{p}}_{i} + {\vec{r}}_{i} \times \dfrac{d{\vec{p}}_{i}}{dt}\]
-
-La derivata temporale della posizione coincide con la velocità istantanea:
-
-\[\dfrac{d{\vec{r}}_{i}}{dt} = {\vec{v}}_{i}\]
-
-Siccome \({\vec{v}}_{i} \times {\vec{p}}_{i} = \vec{0}\), risulta:
-
-\[\dfrac{d}{dt}\left( {\vec{r}}_{i} \times {\vec{p}}_{i} \right) = {\vec{r}}_{i} \times \dfrac{d{\vec{p}}_{i}}{dt}\]
-
-Sostituendo questo risultato nella relazione:
-
-\[\sum_{i = 1}^{N}\left( {\vec{r}}_{i} \times \dfrac{d{\vec{p}}_{i}}{dt} \right) \cdot d\vec{\varphi} = 0\]
-
-Si ha:
-
-\[
-\sum_{i = 1}^{N}\left( {\vec{r}}_{i} \times \dfrac{d{\vec{p}}_{i}}{dt} \right) \cdot d\vec{\varphi} = \dfrac{d}{dt}\sum_{i = 1}^{N}\left( {\vec{r}}_{i} \times {\vec{p}}_{i} \right) \cdot d\vec{\varphi} = 0
+\[ 
+\delta L = \sum_{i = 1}^{N}\left( \dfrac{\partial L}{\partial\mathbf{v}_{i}} \cdot \delta\mathbf{v}_{i} + \dfrac{\partial L}{\partial\mathbf{r}_{i}} \cdot \delta\mathbf{r}_{i} \right) 
 \]
 
-Da questa relazione discende la conservazione del momento angolare lungo la direzione \(d\vec{\varphi}\) di simmetria del potenziale \(U\).
+Per l'ipotesi di isotropia, la variazione deve essere nulla ($\delta L = 0$): 
+ 
+\[ 
+\sum_{i = 1}^{N}\left( \dfrac{\partial L}{\partial\mathbf{v}_{i}} \cdot \delta\mathbf{v}_{i} + \dfrac{\partial L}{\partial\mathbf{r}_{i}} \cdot \delta\mathbf{r}_{i} \right) = 0 
+\] 
+
+Sostituendo le espressioni per $\delta\mathbf{r}_{i}$ e $\delta\mathbf{v}_{i}$, si ottiene: 
+ 
+\[ 
+\sum_{i = 1}^{N}\left\lbrack \dfrac{\partial L}{\partial\mathbf{v}_{i}} \cdot \left( d\boldsymbol{\varphi} \times \mathbf{v}_{i} \right) + \dfrac{\partial L}{\partial\mathbf{r}_{i}} \cdot \left( d\boldsymbol{\varphi} \times \mathbf{r}_{i} \right) \right\rbrack = 0 
+\]
+
+Dati tre vettori generici \(\mathbf{a}\), \(\mathbf{b}\) e \(\mathbf{c}\), è valida la proprietà del triplo prodotto scalare ciclico (o prodotto misto): 
+
+\[ 
+\left( \mathbf{a} \times \mathbf{b} \right) \cdot \mathbf{c} = \left( \mathbf{b} \times \mathbf{c} \right) \cdot \mathbf{a} 
+\]
+
+si può isolare l'elemento infinitesimo di rotazione $d\boldsymbol{\varphi}$:
+ 
+\[ 
+\sum_{i = 1}^{N}\left[ d\boldsymbol{\varphi} \cdot \left( \mathbf{v}_{i} \times \dfrac{\partial L}{\partial\mathbf{v}_{i}} \right) + d\boldsymbol{\varphi} \cdot \left( \mathbf{r}_{i} \times \dfrac{\partial L}{\partial\mathbf{r}_{i}} \right) \right] = d\boldsymbol{\varphi} \cdot \sum_{i = 1}^{N}\left( \mathbf{v}_{i} \times \dfrac{\partial L}{\partial\mathbf{v}_{i}} + \mathbf{r}_{i} \times \dfrac{\partial L}{\partial\mathbf{r}_{i}} \right) = 0 
+\]
+
+Poiché la Lagrangiana è equivalente alla Meccanica Newtoniana, si usano le relazioni fondamentali: 
+\[ 
+\begin{cases} 
+\dfrac{\partial L}{\partial\mathbf{v}_{i}} = \mathbf{p}_{i} \\ 
+\dfrac{\partial L}{\partial\mathbf{r}_{i}} = \mathbf{F}_i = \dfrac{d\mathbf{p}_{i}}{dt} 
+\end{cases} 
+\]
+
+Sostituendo nella condizione di simmetria: 
+ 
+\[ 
+d\boldsymbol{\varphi} \cdot \sum_{i = 1}^{N}\left( \mathbf{v}_{i} \times \mathbf{p}_{i} + \mathbf{r}_{i} \times \dfrac{d\mathbf{p}_{i}}{dt} \right) = 0 
+\]
+
+Poiché la quantità di moto è parallela alla velocità ($\mathbf{p}_{i} = m_{i}\mathbf{v}_{i}$), il loro prodotto vettoriale è nullo:
+
+\[ 
+\mathbf{v}_{i} \times \mathbf{p}_{i} = \mathbf{0} 
+\] 
+
+Resta, dunque: 
+ 
+\[ 
+d\boldsymbol{\varphi} \cdot \sum_{i = 1}^{N}\left( \mathbf{r}_{i} \times \dfrac{d\mathbf{p}_{i}}{dt} \right) = 0 
+\] 
+
+Si considera la derivata temporale del momento angolare della singola particella: 
+ 
+\[ 
+\dfrac{d}{dt}\left( \mathbf{r}_{i} \times \mathbf{p}_{i} \right) = \underbrace{\dfrac{d\mathbf{r}_{i}}{dt} \times \mathbf{p}_{i}}_{\mathbf{v}_i \times \mathbf{p}_i = \mathbf{0}} + \mathbf{r}_{i} \times \dfrac{d\mathbf{p}_{i}}{dt} = \mathbf{r}_{i} \times \dfrac{d\mathbf{p}_{i}}{dt} 
+\] 
+ 
+Sostituendo questo risultato nella relazione precedente: 
+ 
+\[ 
+d\boldsymbol{\varphi} \cdot \sum_{i = 1}^{N}\left( \mathbf{r}_{i} \times \dfrac{d\mathbf{p}_{i}}{dt} \right) = d\boldsymbol{\varphi} \cdot \sum_{i = 1}^{N}\dfrac{d}{dt}\left( \mathbf{r}_{i} \times \mathbf{p}_{i} \right) = 0 
+\] 
+ 
+
+È possibile commutare l'operatore di derivazione temporale con la sommatoria: 
+ 
+\[ 
+d\boldsymbol{\varphi} \cdot \dfrac{d}{dt}\left( \sum_{i = 1}^{N} \mathbf{r}_{i} \times \mathbf{p}_{i} \right) = d\boldsymbol{\varphi} \cdot \dfrac{d\mathbf{L}}{dt} = 0 
+\] 
+
+Dato che $d\boldsymbol{\varphi}$ è un vettore arbitrario (nel caso di isotropia completa), si conclude che:
+
+\[
+\dfrac{d\mathbf{L}}{dt} = \mathbf{0}
+\]
+
+Se $d\boldsymbol{\varphi}$ è solo l'asse di simmetria parziale, si conserva solo la proiezione lungo quell'asse. In entrambi i casi: 
+ 
+\[ 
+\dfrac{d}{dt}\left( \mathbf{L} \cdot \dfrac{d\boldsymbol{\varphi}}{|d\boldsymbol{\varphi}|} \right) = 0 
+\] 
+ 
+Da questa relazione discende la conservazione della componente del momento angolare lungo l'asse di rotazione, conseguenza dell'isotropia  ovvero la simmetria rotazionale. 
 
 \subsection{Lagrangiana per pendolo}\label{lagrangiana-per-pendolo}
 
@@ -1090,8 +1066,8 @@ La velocità al quadrato della massa \(m_{2}\) è data da:
 
 \begin{align*}
 v_{2}^{2} & = {\dot{x}}_{2}^{2} + {\dot{y}}_{2}^{2} = \left( l_{1}\cos\vartheta_{1}\,{\dot{\vartheta}}_{1} + l_{2}\cos\vartheta_{2}\,{\dot{\vartheta}}_{2} \right)^{2} + \left( l_{1}\sin\vartheta_{1}\,{\dot{\vartheta}}_{1} + l_{2}\sin\vartheta_{2}\,{\dot{\vartheta}}_{2} \right)^{2} \\
- & = l_{1}^{2}{\dot{\vartheta}}_{1}^{2}\left( \cos^{2}\vartheta_{1} + \sin^{2}\vartheta_{1} \right) + l_{2}^{2}{\dot{\vartheta}}_{2}^{2}\left( \cos^{2}\vartheta_{2} + \sin^{2}\vartheta_{2} \right) + 2l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\left( \cos\vartheta_{1}\cos\vartheta_{2} + sin\vartheta_{1}\sin\vartheta_{2} \right) \\
- & = l_{1}^{2}{\dot{\vartheta}}_{1}^{2} + l_{2}^{2}{\dot{\vartheta}}_{2}^{2} + 2l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}cos(\vartheta_{1} - \vartheta_{2})
+& = l_{1}^{2}{\dot{\vartheta}}_{1}^{2}\left( \cos^{2}\vartheta_{1} + \sin^{2}\vartheta_{1} \right) + l_{2}^{2}{\dot{\vartheta}}_{2}^{2}\left( \cos^{2}\vartheta_{2} + \sin^{2}\vartheta_{2} \right) + 2l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\left( \cos\vartheta_{1}\cos\vartheta_{2} + sin\vartheta_{1}\sin\vartheta_{2} \right) \\
+& = l_{1}^{2}{\dot{\vartheta}}_{1}^{2} + l_{2}^{2}{\dot{\vartheta}}_{2}^{2} + 2l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}cos(\vartheta_{1} - \vartheta_{2})
 \end{align*}
 
 Ricorrendo alle identità trigonometriche, è possibile scrivere:
@@ -1117,23 +1093,23 @@ Sostituendo, si ottiene:
 La lagrangiana per questo sistema è data da:
 
 \begin{align*}
-L\left( \vartheta_{1},\vartheta_{2},{\dot{\vartheta}}_{1},{\dot{\vartheta}}_{2} \right) 
-&= \dfrac{1}{2}m_{1}l_{1}^{2}{\dot{\vartheta}}_{1}^{2} 
+L\left( \vartheta_{1},\vartheta_{2},{\dot{\vartheta}}_{1},{\dot{\vartheta}}_{2} \right)
+&= \dfrac{1}{2}m_{1}l_{1}^{2}{\dot{\vartheta}}_{1}^{2}
 + \dfrac{1}{2}m_{2}\left( l_{1}^{2}{\dot{\vartheta}}_{1}^{2} + l_{2}^{2}{\dot{\vartheta}}_{2}^{2} + 2l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\cos\left( \vartheta_{1} - \vartheta_{2} \right) \right) +\\
-&\quad - m_{1}gl_{1}\left( 1 - \cos\vartheta_{1} \right) 
-- m_{2}gl_{1}\left( 1 - \cos\vartheta_{1} \right) 
+&\quad - m_{1}gl_{1}\left( 1 - \cos\vartheta_{1} \right)
+- m_{2}gl_{1}\left( 1 - \cos\vartheta_{1} \right)
 - m_{2}gl_{2}\left( 1 - \cos\vartheta_{2} \right)
 \end{align*}
 
 La funzione lagrangiana deve soddisfare l'equazione di Eulero-Lagrange:
 
-\[\dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{\vartheta}}} - \dfrac{\partial L}{\partial\vec{\vartheta}} = \vec{0}\]
+\[\dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\boldsymbol{\vartheta}}} - \dfrac{\partial L}{\partial\boldsymbol{\vartheta}} = \vec{0}\]
 
 L'equazione si traduce in due equazioni, relative a \(\vartheta_{1}\) e \(\vartheta_{2}\):
 
 \[ \begin{cases}
-\displaystyle \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial{\dot{\vartheta}}_{1}} \right) - \dfrac{\partial L}{\partial\vartheta_{1}} = 0 \\
-\displaystyle \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial{\dot{\vartheta}}_{2}} \right) - \dfrac{\partial L}{\partial\vartheta_{2}} = 0
+\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial{\dot{\vartheta}}_{1}} \right) - \dfrac{\partial L}{\partial\vartheta_{1}} = 0 \\
+\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial{\dot{\vartheta}}_{2}} \right) - \dfrac{\partial L}{\partial\vartheta_{2}} = 0
 \end{cases} \]
 
 Dove le derivate sono:
@@ -1156,9 +1132,13 @@ m_{2}l_{2}{\ddot{\vartheta}}_{2} + m_{2}l_{1}l_{2}{\ddot{\vartheta}}_{1}\cos\lef
 
 Risolte le due equazioni, si ottiene la traiettoria, descritta da \(\vartheta_{1}\) e \(\vartheta_{2}\), del doppio pendolo.
 
-\includegraphics[width=6.25in,height=2.38333in,alt={Sequenza temporale del moto del doppio pendolo in 10 istanti successivi.}]{media/1_Meccanica/image9.pdf}
+\begin{figure}[ht]
+\includegraphics[width=6.25in,height=2.38333in]{media/1_Meccanica/doppio_pendolo.eps}
+\caption{Sequenza temporale del moto del doppio pendolo in 10 istanti successivi}
+\label{fig:1_doppio_pendolo}
+\end{figure}
 
-La Figura 1.8 mostra una sequenza di fotogrammi che rappresentano l'evoluzione temporale del doppio pendolo. Ogni riquadro corrisponde a un istante successivo, e le posizioni delle due masse sono tracciate in base agli angoli \(\vartheta_{1}(t)\) e \(\vartheta_{2}(t)\).
+La \figurename~\ref{fig:1_doppio_pendolo} mostra una sequenza di fotogrammi che rappresentano l'evoluzione temporale del doppio pendolo. Ogni riquadro corrisponde a un istante successivo, e le posizioni delle due masse sono tracciate in base agli angoli \(\vartheta_{1}(t)\) e \(\vartheta_{2}(t)\).
 
 Il comportamento del sistema è altamente non lineare e sensibile alle condizioni iniziali: anche piccole variazioni iniziali possono produrre traiettorie molto diverse. Questo fenomeno è noto come \textbf{caos deterministico}.
 
@@ -1166,161 +1146,198 @@ La traiettoria delle masse non segue un percorso regolare, ma mostra oscillazion
 
 \section{Descrizione hamiltoniana}\label{descrizione-hamiltoniana}
 
-La descrizione hamiltoniana privilegia le variabili momento lineare o quantità di moto \(\vec{p}\) e la posizione generalizzata della particella \(\vec{q}\) \cite{landau1994meccanica}. Questa teoria sfrutta una funzione \(H\) detta hamiltonina, data da:
+La descrizione hamiltoniana privilegia le variabili momento generalizzato coniugato $\mathbf{p}$ e la posizione generalizzata $\mathbf{q}$ \cite{landau1994meccanica}. Questa teoria sfrutta una funzione \(H\) detta hamiltoniana, data da:
 
 \[
-H\left( \vec{p},\vec{q} \right) = E = T + U
+H\left( \mathbf{p},\mathbf{q}, t \right)
+\]
+
+In un sistema olonomo, scleronomo (Lagrangiana $L$ non dipende esplicitamente dal tempo $t$) e con potenziale $U$ statico (dipende solo da $\mathbf{q}$), l'Hamiltoniana \(H\) coincide con l'energia totale del sistema $E = T+U$:
+
+\[
+H\left( \mathbf{p},\mathbf{q} \right) = E = T + U
 \]
 
 Questa relazione è valida se:
 
 \begin{itemize}
-\item
- Nel sistema vi sono solo forze conservative;
-\item
- La Lagrangiana non dipende esplicitamente dal tempo, dunque, il sistema è isolato;
-\item
- L'energia cinetica è una funzione quadratica omogenea delle velocità generalizzate.
+\item Nel sistema vi sono solo forze conservative (o se le forze non conservative sono incluse nel potenziale generalizzato);
+\item La Lagrangiana non dipende esplicitamente dal tempo, dunque, il sistema è scleronomo e l'energia si conserva;
+\item L'energia cinetica è una funzione quadratica omogenea delle velocità generalizzate.
 \end{itemize}
 
-Privilegiando la quantità di moto e la posizione generalizzata della particella, l'approccio hamiltoniano permette di descrivere l'evoluzione del sistema nel tempo come una traiettoria nello spazio posizione-quantità di moto, detto spazio delle fasi.
+Privilegiando la quantità di moto e la posizione generalizzata della particella, l'approccio hamiltoniano permette di descrivere l'evoluzione del sistema nel tempo come una traiettoria nello spazio posizione-quantità di moto, detto \textbf{spazio delle fasi}.
 
-\subsection{Lemma 10: equazioni di Hamilton}\label{lemma-10-equazioni-di-hamilton}
+\subsection{Equazioni di Hamilton}\label{Equazioni-di-hamilton}
 
-Si considera il differenziale della funzione hamiltoniana:
+Si considera il differenziale totale della funzione hamiltoniana, $H(\mathbf{p},\mathbf{q})$, assumendo che $H$ sia indipendente dal tempo, almeno per ora:
 
-\[dH\left( \vec{p},\vec{q} \right) = \sum_{i = 1}^{N}\left( \dfrac{\partial H}{\partial p_{i}}dp_{i} + \dfrac{\partial H}{\partial q_{i}}dq_{i} \right)\]
+\[
+dH\left( \mathbf{p},\mathbf{q} \right) = \sum_{i = 1}^{s}\left( \dfrac{\partial H}{\partial p_{i}}dp_{i} + \dfrac{\partial H}{\partial q_{i}}dq_{i} \right)
+\]
 
-Si differenzia anche la lagrangiana:
+Si differenzia anche la lagrangiana $L(\mathbf{q},\mathbf{\dot{q}})$, anche in questo caso assumendo l'assenza di dipendenza esplicita dal tempo:
 
-\[dL\left( \vec{q},\dot{\vec{q}} \right) = \sum_{i = 1}^{N}\left( \dfrac{\partial L}{\partial q_{i}}dq_{i} + \dfrac{\partial L}{\partial{\dot{q}}_{i}}d{\dot{q}}_{i} \right)\]
+\[
+dL\left( \mathbf{q},\mathbf{\dot{q}} \right) = \sum_{i = 1}^{s}\left( \dfrac{\partial L}{\partial q_{i}}dq_{i} + \dfrac{\partial L}{\partial{\dot{q}}_{i}}d{\dot{q}}_{i} \right)
+\]
 
-Combinando l'equazione del momento coniugato generalizzato con quella di Eulero-Lagrange, si ottiene:
+Combinando le definizioni fondamentali della Lagrangiana (il momento coniugato generalizzato e l'Equazione di Eulero-Lagrange) si ha:
 
 \[
 \begin{cases}
-\displaystyle p_{i} = \dfrac{\partial L}{\partial{\dot{q}}_{i}} \\
-\displaystyle {\dot{p}}_{i} = \dfrac{\partial L}{\partial q_{i}}
+p_{i} = \dfrac{\partial L}{\partial{\dot{q}}_{i}} \\
+{\dot{p}}_{i} = \dfrac{\partial L}{\partial q_{i}}
 \end{cases}
 \]
 
-Sostituendo le relazioni precedenti, il differenziale della lagrangiana può essere scritto come:
-
-\[dL\left( \vec{q},\dot{\vec{q}} \right) = \sum_{i = 1}^{N}\left( {\dot{p}}_{i}dq_{i} + p_{i}d{\dot{q}}_{i} \right)\]
-
-Si considera la quantità:
-
-\[d\left( p_{i}{\dot{q}}_{i} \right) = p_{i}d{\dot{q}}_{i} + dp_{i}{\dot{q}}_{i}\]
-
-Da cui si ottiene:
-
-\[p_{i}d{\dot{q}}_{i} = d\left( p_{i}{\dot{q}}_{i} \right) - dp_{i}{\dot{q}}_{i}\]
-
-Si sostituisce questo risultato nel differenziale della lagrangiana:
-
-\[dL\left( \vec{q},\dot{\vec{q}} \right) = \sum_{i = 1}^{N}\left( {\dot{p}}_{i}dq_{i} + p_{i}d{\dot{q}}_{i} \right) = \sum_{i = 1}^{N}\left\lbrack {\dot{p}}_{i}dq_{i} + d\left( p_{i}{\dot{q}}_{i} \right) - {\dot{q}}_{i}dp_{i} \right\rbrack = \sum_{i = 1}^{N}\left( {\dot{p}}_{i}dq_{i} - {\dot{q}}_{i}dp_{i} \right) + \sum_{i = 1}^{N}{d\left( p_{i}{\dot{q}}_{i} \right)}\]
-
-Riordinando i termini, si scrive:
-
-\[dL - \sum_{i = 1}^{N}{d\left( p_{i}{\dot{q}}_{i} \right)} = \sum_{i = 1}^{N}\left( {\dot{p}}_{i}dq_{i} - {\dot{q}}_{i}dp_{i} \right)\]
-
-Grazie alla proprietà di linearità del differenziale, si può scrivere:
-
-\[d\left( L - \sum_{i = 1}^{N}{p_{i}{\dot{q}}_{i}} \right) = \sum_{i = 1}^{N}\left( {\dot{p}}_{i}dq_{i} - {\dot{q}}_{i}dp_{i} \right)\]
-
-Moltiplicando per \(- 1\), si ottiene:
-
-\[d\left( \sum_{i = 1}^{N}{p_{i}{\dot{q}}_{i}} - L \right) = \sum_{i = 1}^{N}\left( {\dot{q}}_{i}dp_{i} - {\dot{p}}_{i}dq_{i} \right)\]
-
-Risulta che:
-
-\[\sum_{i = 1}^{N}{p_{i}{\dot{q}}_{i}} = \sum_{i = 1}^{N}{m_{i}{\dot{q}}_{i}{\dot{q}}_{i}} = \sum_{i = 1}^{N}{m_{i}{\dot{q}}_{i}^{2}} = 2T\]
-
-Di conseguenza:
-
-\[\sum_{i = 1}^{N}{p_{i}{\dot{q}}_{i}} - L = 2T - T + U = E\]
-
-Con questo risultato, è possibile scrivere:
-
-\[dE = \sum_{i = 1}^{N}\left( {\dot{q}}_{i}dp_{i} - {\dot{p}}_{i}dq_{i} \right)\]
-
-Per definizione di hamiltoniana, è possibile scrivere:
-
-\[dE = dH = \sum_{i = 1}^{N}\left( {\dot{q}}_{i}dp_{i} - {\dot{p}}_{i}dq_{i} \right)\]
-
-Confrontando questo risultato con il differenziale dell'hamiltoniana:
-
-\[dH\left( \vec{p},\vec{q} \right) = \sum_{i = 1}^{N}\left( \dfrac{\partial H}{\partial p_{i}}dp_{i} + \dfrac{\partial H}{\partial q_{i}}dq_{i} \right)\]
-
-Si ottiene:
+Sostituendo queste relazioni nel differenziale della Lagrangiana, si ottiene:
 
 \[
-\sum_{i = 1}^{N}\left( {\dot{q}}_{i}dp_{i} - {\dot{p}}_{i}dq_{i} \right) = \sum_{i = 1}^{N}\left( \dfrac{\partial H}{\partial p_{i}}dp_{i} + \dfrac{\partial H}{\partial q_{i}}dq_{i} \right)
+dL\left( \mathbf{q},\mathbf{\dot{q}} \right) = \sum_{i = 1}^{s}\left( {\dot{p}}_{i}dq_{i} + p_{i}d{\dot{q}}_{i} \right)
 \]
 
-Confrontati i coefficienti dei due polinomi, si ottengono le equazioni, note come \textbf{equazioni canoniche di Hamilton} \cite{arnold1992matematici}:
+Si applica la regola del differenziale del prodotto a $d(p_i \dot{q}_i)$:
+
+\[
+d\left( p_{i}{\dot{q}}_{i} \right) = p_{i}d{\dot{q}}_{i} + {\dot{q}}_{i}dp_{i}
+\]
+
+Isolando $p_i d\dot{q}_i$, si ha:
+
+\[
+p_{i}d{\dot{q}}_{i} = d\left( p_{i}{\dot{q}}_{i} \right) - {\dot{q}}_{i}dp_{i}
+\]
+
+Sostituendo questo risultato nel differenziale della Lagrangiana:
+
+\[
+dL = \sum_{i = 1}^{s}\left[ {\dot{p}}_{i}dq_{i} + d\left( p_{i}{\dot{q}}_{i} \right) - {\dot{q}}_{i}dp_{i} \right]
+\]
+
+Riordinando i termini e usando la linearità del differenziale:
+
+\[
+d\left( L - \sum_{i = 1}^{s}{p_{i}{\dot{q}}_{i}} \right) = \sum_{i = 1}^{s}\left( {\dot{p}}_{i}dq_{i} - {\dot{q}}_{i}dp_{i} \right)
+\]
+
+Moltiplicando per \(- 1\), si ottiene la relazione per il differenziale della funzione definita tramite Trasformata di Legendre:
+
+\[
+d\left( \sum_{i = 1}^{s}{p_{i}{\dot{q}}_{i}} - L \right) = \sum_{i = 1}^{s}\left( {\dot{q}}_{i}dp_{i} - {\dot{p}}_{i}dq_{i} \right)
+\]
+
+L'Hamiltoniana è definita dalla Trasformata di Legendre della Lagrangiana: 
+
+\[
+H = \sum_{i=1}^{s} p_i \dot{q}_i - L
+\]
+
+Nel caso di sistemi scleronomi con potenziale statico (dove $T$ è forma quadratica omogenea nelle velocità), si ha che:
+
+\[
+\sum_{i = 1}^{s}{p_{i}{\dot{q}}_{i}} = 2T
+\]
+Dunque, in questo caso:
+
+\[
+H = \sum_{i = 1}^{s}{p_{i}{\dot{q}}_{i}} - L = 2T - (T - U) = T + U = E
+\]
+
+Con questo risultato, l'uguaglianza del differenziale diventa:
+
+\[
+d H = \sum_{i = 1}^{s}\left( {\dot{q}}_{i}dp_{i} - {\dot{p}}_{i}dq_{i} \right)
+\]
+
+Confrontando questo risultato con il differenziale totale dell'Hamiltoniana $H(\mathbf{p},\mathbf{q})$:
+
+\[
+\sum_{i = 1}^{s}\left( \dfrac{\partial H}{\partial p_{i}}dp_{i} + \dfrac{\partial H}{\partial q_{i}}dq_{i} \right) = \sum_{i = 1}^{s}\left( {\dot{q}}_{i}dp_{i} - {\dot{p}}_{i}dq_{i} \right)
+\]
+
+Confrontando i coefficienti dei differenziali indipendenti ($dp_i$ e $dq_i$), si ottengono le equazioni, note come \textbf{equazioni canoniche di Hamilton}:
 
 \[
 \begin{cases}
-\displaystyle {\dot{q}}_{i} = \dfrac{\partial H}{\partial p_{i}} \\
-\displaystyle {\dot{p}}_{i} = - \dfrac{\partial H}{\partial q_{i}}
+{\dot{q}}_{i} = \dfrac{\partial H}{\partial p_{i}} \\
+{\dot{p}}_{i} = - \dfrac{\partial H}{\partial q_{i}}
 \end{cases}
 \]
 
-A meno di un segno, queste equazioni sono simmetriche rispetto a quelle relative alla lagrangiana.
-
+A meno di un segno, queste equazioni sono simmetriche rispetto alle due relazioni della Lagrangiana da cui sono state originate.
 
 \subsection{Parentesi di Poisson}\label{parentesi-di-poisson}
-
-Si considera una qualunque grandezza \(f\), funzione delle coordinate generalizzate \(\vec{q}\) e del momento lineare \(\vec{p}\):
+Si considera una qualunque grandezza fisica \(f\), funzione delle coordinate generalizzate $\mathbf{q}$, del momento generalizzato coniugato $\mathbf{p}$ e, potenzialmente, del tempo $t$:
 
 \[
-f = f\left( \vec{q},\vec{p} \right)
+f = f\left( \mathbf{q},\mathbf{p}, t \right)
 \]
 
-La sua derivata temporale è valutata mediante la proprietà delle derivate dalle funzioni composte:
+La sua derivata temporale è valutata mediante la regola della derivata totale delle funzioni composte:
 
-\[\dfrac{df}{dt} = \sum_{i = 1}^{N}\left( \dfrac{\partial f}{\partial q_{i}}\dfrac{dq_{i}}{dt} + \dfrac{\partial f}{\partial p_{i}}\dfrac{dp_{i}}{dt} \right) = \sum_{i = 1}^{N}\left( \dfrac{\partial f}{\partial q_{i}}{\dot{q}}_{i} + \dfrac{\partial f}{\partial p_{i}}{\dot{p}}_{i} \right)\]
+\[
+\dfrac{df}{dt} = \sum_{i = 1}^{s}\left( \dfrac{\partial f}{\partial q_{i}}\dfrac{dq_{i}}{dt} + \dfrac{\partial f}{\partial p_{i}}\dfrac{dp_{i}}{dt} \right) + \dfrac{\partial f}{\partial t} = \sum_{i = 1}^{s}\left( \dfrac{\partial f}{\partial q_{i}}{\dot{q}}_{i} + \dfrac{\partial f}{\partial p_{i}}{\dot{p}}_{i} \right) + \dfrac{\partial f}{\partial t}
+\]
 
-Per le proprietà della funzione di Hamilton:
+Per le equazioni canoniche di Hamilton:
 
-\[\begin{cases}
-\displaystyle {\dot{q}}_{i} = \dfrac{\partial H}{\partial p_{i}} \\
-\displaystyle {\dot{p}}_{i} = - \dfrac{\partial H}{\partial q_{i}}
+\[
+\begin{cases}
+{\dot{q}}_{i} = \dfrac{\partial H}{\partial p_{i}} \\
+{\dot{p}}_{i} = - \dfrac{\partial H}{\partial q_{i}}
 \end{cases}
 \]
 
-La derivata temporale della funzione \(f\), può essere scritta come:
-
-\[\dfrac{df}{dt} = \sum_{i = 1}^{N}\left( \dfrac{\partial f}{\partial q_{i}}\dfrac{dq_{i}}{dt} + \dfrac{\partial f}{\partial p_{i}}\dfrac{dp_{i}}{dt} \right) = \sum_{i = 1}^{N}\left( \dfrac{\partial f}{\partial q_{i}}{\dot{q}}_{i} + \dfrac{\partial f}{\partial p_{i}}{\dot{p}}_{i} \right) = \sum_{i = 1}^{N}\left( \dfrac{\partial f}{\partial q_{i}}\dfrac{\partial H}{\partial p_{i}} - \dfrac{\partial f}{\partial p_{i}}\dfrac{\partial H}{\partial q_{i}} \right)\]
-
-Per semplificare la notazione si introduce la \textbf{parentesi di Poisson} \cite{arnold1992matematici}:
+La derivata temporale della funzione \(f\) può essere riscritta come:
 
 \[
-\left\{ f,H \right\} = \sum_{i = 1}^{N}\left( \dfrac{\partial f}{\partial q_{i}}\dfrac{\partial H}{\partial p_{i}} - \dfrac{\partial f}{\partial p_{i}}\dfrac{\partial H}{\partial q_{i}} \right)
+\dfrac{df}{dt} = \sum_{i = 1}^{s}\left( \dfrac{\partial f}{\partial q_{i}}\dfrac{\partial H}{\partial p_{i}} - \dfrac{\partial f}{\partial p_{i}}\dfrac{\partial H}{\partial q_{i}} \right) + \dfrac{\partial f}{\partial t}
+\]
+
+Per semplificare la notazione e per la sua importanza fondamentale, si introduce la \textbf{parentesi di Poisson} di due funzioni generiche $A$ e $B$:
+
+\[
+\left\{ A,B \right\} = \sum_{i = 1}^{s}\left( \dfrac{\partial A}{\partial q_{i}}\dfrac{\partial B}{\partial p_{i}} - \dfrac{\partial A}{\partial p_{i}}\dfrac{\partial B}{\partial q_{i}} \right)
+\]
+
+Sfruttando questa definizione, la derivata totale temporale della grandezza $f$ è data da \cite{arnold1992matematici}:
+
+\[
+\dfrac{df}{dt} = \left\{ f,H \right\} + \dfrac{\partial f}{\partial t}
 \]
 
 \subsection{Hamiltoniana per sistema con un grado di libertà}\label{hamiltoniana-per-sistema-con-un-grado-di-libertuxe0}
 
 Si vuole valutare la funzione di Hamilton per un sistema con un grado di libertà immerso in un potenziale quadratico, come la forza di richiamo elastica. Questa condizione si applica anche nei punti di minimo del potenziale \(U\), in cui vale un'approssimazione del secondo ordine. Per definizione, l'hamiltoniana è data da:
 
-\[H = E = T + U\]
+\[
+H = E = T + U
+\]
 
 Dove:
 
-\[T = \dfrac{1}{2}mv^{2}\]
+\[
+T = \dfrac{1}{2}mv^{2}
+\]
 
 Si scrive l'energia cinetica \(T\) in funzione della quantità di moto. Risulta:
 
-\[p = mv\]
+\[
+p = mv
+\]
 
 Elevando al quadrato, si ottiene:
 
-\[p^{2} = m^{2}v^{2}\]
+\[
+p^{2} = m^{2}v^{2}
+\]
 
 Isolando la velocità:
 
-\[v^{2} = \dfrac{p^{2}}{m^{2}}\]
+\[
+v^{2} = \dfrac{p^{2}}{m^{2}}
+\]
 
 Si sostituisce questo risultato nell'energia cinetica:
 
@@ -1344,17 +1361,19 @@ Si applicano le proprietà dell'hamiltoniana, dunque, si eseguono le derivate pa
 
 \[
 \begin{cases}
-\displaystyle {\dot{q}}_{i} = \dfrac{\partial H}{\partial p_{i}} \\
-\displaystyle {\dot{p}}_{i} = - \dfrac{\partial H}{\partial q_{i}}
+{\dot{q}}_{i} = \dfrac{\partial H}{\partial p_{i}} \\
+{\dot{p}}_{i} = - \dfrac{\partial H}{\partial q_{i}}
 \end{cases} \Leftrightarrow \begin{cases}
-\displaystyle \dot{q} = \dfrac{p}{m} \\
+\dot{q} = \dfrac{p}{m} \\
 \dot{p} = - kq
 \end{cases}
 \]
 
 Risolvendo il sistema, si ottiene l'andamento della traiettoria generalizzata \(q\). A tale scopo si deriva la prima equazione rispetto al tempo:
 
-\[\ddot{q} = \dfrac{\dot{p}}{m}\]
+\[
+\ddot{q} = \dfrac{\dot{p}}{m}
+\]
 
 Sostituendo la seconda equazione, si ottiene l'equazione dell'oscillatore armonico, la cui soluzione è nota:
 
@@ -1363,18 +1382,18 @@ Sostituendo la seconda equazione, si ottiene l'equazione dell'oscillatore armoni
 \]
 
 \section{Metodo di Eulero}\label{metodo-di-eulero}
-Il metodo di Eulero è un procedimento numerico per risolvere problemi con condizioni iniziali (IVP) che coinvolgono equazioni differenziali ordinarie.
+Il metodo di Eulero è un procedimento numerico per risolvere problemi con condizioni iniziali (IVP) che coinvolgono equazioni differenziali ordinarie (ODE).
 
-Si considera il sistema di equazioni differenziali del secondo ordine, nelle funzioni incognite \(y_{1}\) e \(y_{2}\):
+Si considera il sistema di equazioni differenziali del secondo ordine, nelle funzioni incognite \(y_{1}\left(t\right)\) e \(y_{2}\left(t\right)\):
 
 \[
 \begin{cases}
-{\ddot{y}}_{1} = f_{1}\left( {\dot{y}}_{i},{\dot{y}}_{2},y_{1},y_{2} \right) \\
-{\ddot{y}}_{2} = f_{2}\left( {\dot{y}}_{i},{\dot{y}}_{2},y_{1},y_{2} \right)
+{\ddot{y}}_{1} = f_{1}\left( {\dot{y}}_{1},{\dot{y}}_{2},y_{1},y_{2} \right) \\
+{\ddot{y}}_{2} = f_{2}\left( {\dot{y}}_{1},{\dot{y}}_{2},y_{1},y_{2} \right)
 \end{cases}
 \]
 
-Dove \(f_{1}\) e \(f_{2}\) sono due funzioni qualsiasi che legano la derivata seconda di una funzione incognite con le derivate prime e funzioni incognite stesse. Per rendere il sistema del primo ordine si considerano due variabili ausiliarie, \(A_{1}\) e \(A_{2}\), definite come:
+dove \(f_{1}\) e \(f_{2}\) sono due funzioni qualsiasi che legano la derivata seconda di una funzione incognita con le derivate prime e le funzioni incognite stesse. Per ridurre il sistema a un sistema di equazioni del primo ordine, si considerano le variabili ausiliarie di stato:
 
 \[
 \begin{cases}
@@ -1383,39 +1402,37 @@ A_{2} = {\dot{y}}_{2}
 \end{cases}
 \]
 
-Si ottiene così un sistema del primo ordine con quattro funzioni incognite, \(A_{1}\), \(A_{2}\), \(y_{1}\) e \(y_{2}\):
+Si ottiene così un sistema del primo ordine con quattro funzioni di stato incognite, indicate con il vettore $\mathbf{Y} = (y_1, y_2, A_1, A_2)^T$:
 
 \[
 \begin{cases}
-A_{1} = {\dot{y}}_{1} \\
-A_{2} = {\dot{y}}_{2} \\
+{\dot{y}}_{1} = A_{1} \\
+{\dot{y}}_{2} = A_{2} \\
 {\dot{A}}_{1} = f_{1}\left( A_{1},A_{2},y_{1},y_{2} \right) \\
 {\dot{A}}_{2} = f_{2}\left( A_{1},A_{2},y_{1},y_{2} \right)
 \end{cases}
 \]
 
-Il sistema può essere risolto mediante il metodo di Eulero degli elementi finiti. Si considera la prima equazione:
+Il sistema può essere risolto mediante il \textbf{Metodo di Eulero esplicito}. Quest'ultimo si basa sull'approssimazione della derivata $dY / dt \approx \Delta Y / \Delta t$.
 
-\[A_{1} = \dfrac{dy_{1}}{dt} \Leftrightarrow dy_{1} = A_{1}dt\]
+Si considera il generico passo temporale $t_k$. La soluzione al passo successivo $t_{k+1} = t_k + \Delta t$ è data da $Y_{k+1} = Y_k + \Delta Y$.
 
-Passando agli incrementi finiti, è possibile approssimare l'equazione:
-
+Per la prima equazione (ad esempio):
 \[
-\Delta y_{1} \simeq A_{1}\Delta t
+\dfrac{dy_{1}}{dt} \simeq A_{1}(t_k) \Rightarrow \dfrac{y_{1}^{k+1} - y_{1}^{k}}{\Delta t} \simeq A_{1}^{k}
 \]
 
-Per tutte le altre equazioni è possibile procedere allo stesso modo:
-
+Passando alla formulazione esplicita per il passo $k \rightarrow k+1$:
 \[
 \begin{cases}
-\Delta y_{1} \simeq A_{1}\Delta t \\
-\Delta y_{2} \simeq A_{2}\Delta t \\
-\Delta A_{1} \simeq f_{1}\left( A_{1},A_{2},y_{1},y_{2} \right)\Delta t \\
-\Delta A_{2} \simeq f_{2}\left( A_{1},A_{2},y_{1},y_{2} \right)\Delta t
+y_{1}^{k+1} = y_{1}^{k} + A_{1}^{k}\Delta t \\
+y_{2}^{k+1} = y_{2}^{k} + A_{2}^{k}\Delta t \\
+A_{1}^{k+1} = A_{1}^{k} + f_{1}\left( A_{1}^{k},A_{2}^{k},y_{1}^{k},y_{2}^{k} \right)\Delta t \\
+A_{2}^{k+1} = A_{2}^{k} + f_{2}\left( A_{1}^{k},A_{2}^{k},y_{1}^{k},y_{2}^{k} \right)\Delta t
 \end{cases}
 \]
 
-Dividendo l'intervallo temporale in intervalli sufficientemente piccoli è possibile determinare la soluzione approssimata del sistema. Tale metodo è in grado di fornire soluzioni valide solamente se le funzioni incognite non variano troppo rapidamente rispetto gli intervalli di tempo scelti per l'analisi \(\Delta t\). Con funzioni rapidamente variabili sono possibili anche errori importanti.
+Tale metodo è in grado di fornire soluzioni valide solamente se le funzioni incognite non variano troppo rapidamente rispetto gli intervalli di tempo scelti per l'analisi \(\Delta t\). Il metodo di Eulero (di ordine 1) è noto per introdurre un errore significativo se $\Delta t$ non è sufficientemente piccolo.
 
 \subsection{Risoluzione sistema con MatLab}\label{risoluzione-sistema-con-matlab}
 
