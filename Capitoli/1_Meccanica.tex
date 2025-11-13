@@ -465,96 +465,111 @@ Dove
 v^{2} = {\dot{x}}^{2} + {\dot{y}}^{2} + {\dot{z}}^{2}
 \]
 
-In altre parole, in questo caso la lagrangiana coincide con l'energia cinetica della particella. Inoltre, la descrizione lagrangiana si riduce alla modellazione newtoniana, dato che il sistema di riferimento corrisponde con quello cartesiano.
+In altre parole, in questo caso la lagrangiana coincide con l'energia cinetica della particella. Inoltre, la descrizione lagrangiana si riduce alla modellazione newtoniana, dato che il sistema di riferimento corrisponde con quello cartesiano. Tuttavia, nella pratica non è sempre conveniente descrivere il moto in coordinate cartesiane. In presenza di vincoli o geometrie particolari, è utile ricorrere alle coordinate generalizzate \(\mathbf{q}\) e \(\mathbf{\dot{q}}\). È quindi necessario esprimere l'energia del sistema in funzione di queste coordinate. Tuttavia, nella pratica non è sempre conveniente descrivere il moto in coordinate cartesiane. In presenza di vincoli o geometrie particolari, è utile ricorrere alle coordinate generalizzate \(\mathbf{q}\) e \(\mathbf{\dot{q}}\). È quindi necessario esprimere l'energia del sistema in funzione di queste coordinate.
 
-Tuttavia, nella pratica non è sempre conveniente descrivere il moto in coordinate cartesiane. In presenza di vincoli o geometrie particolari, è utile ricorrere alle coordinate generalizzate \(\vec{q}\) e \(\dot{\vec{q}}\). È quindi necessario esprimere l'energia del sistema in funzione di queste coordinate.
+\subsection{Energia cinetica in coordinate generalizzate}\label{energia-cinetica-in-generalizzate}
 
-\subsection{Lemma 3: energia cinetica in coordinate generalizzate}\label{lemma-3-energia-cinetica-in-generalizzate}
-
-Per un sistema di \(N\) particelle nelle coordinate generalizzate \(\vec{q}\) e \(\dot{\vec{q}}\), l'energia cinetica è:
+Per un sistema di \(N\) particelle nelle coordinate generalizzate \(\mathbf{q}\) e \(\mathbf{\dot{q}}\), l'energia cinetica $T$ è data da:
 
 \[
-T = T\left( q_{i},{\dot{q}}_{i} \right),\ i = 1,\ \ldots,\ s
+T = T\left( \mathbf{q},{\dot{\mathbf{q}}}, t \right)
 \]
 
-Ovvero l'energia cinetica è una funzione anche delle coordinate generalizzate \(q_{i}\) oltre che della velocità \({\dot{q}}_{i}\).
+In un sistema scleronomo (vincoli indipendenti dal tempo), l'energia cinetica è una forma quadratica omogenea nelle velocità generalizzate, e dunque è una funzione di \( \mathbf{q} \) e \( \mathbf{\dot{q}} \).
 
-Si considerano \(N\) funzioni \(f_{i}\) che legano le coordinate cartesiane \(\left( x_{i},y_{i},z_{i} \right)\) con le coordinate generalizzate \(\left( q_{1},q_{2},\ldots,q_{s} \right)\). Ad esempio, si considera:
+Si considerano le funzioni vettoriali $\mathbf{r}_{i}$ che legano le coordinate cartesiane di ciascuna particella $\mathbf{r}_{i} = (x_{i},y_{i},z_{i})$ con le coordinate generalizzate $ \mathbf{q} = (q_{1},q_{2},\ldots,q_{s}) $.
 
 \[
-x_{i} = f_{i}\left( q_{1},\ q_{2},\ \ldots,\ q_{s} \right),\quad i = 1,2,\ldots,N
+\mathbf{r}_{i} = \mathbf{r}_{i}\left( q_{1},\ q_{2},\ \ldots,\ q_{s}, t \right),\quad i = 1,2,\ldots,N
 \]
 
-Dove:
+Si deriva $\mathbf{r}_{i}$ rispetto al tempo per ottenere la velocità $\mathbf{\dot{r}}_{i}$:
 
-\[q_{k} = q_{k}(t),\ k = 1,2,\ldots,s\]
+\[
+\mathbf{\dot{r}}_{i} = \dfrac{d\mathbf{r}_{i}}{dt} = \sum_{k = 1}^{s}{\dfrac{\partial \mathbf{r}_{i}}{\partial q_{k}}\dfrac{dq_{k}}{dt}} + \dfrac{\partial \mathbf{r}_{i}}{\partial t} = \sum_{k = 1}^{s}{\dfrac{\partial \mathbf{r}_{i}}{\partial q_{k}}{\dot{q}}_{k}} + \dfrac{\partial \mathbf{r}_{i}}{\partial t}
+\]
 
-Si deriva \(x_{i}\) rispetto al tempo al fine da ottenere la velocità:
+Per semplicità, consideriamo il caso scleronomo, dove le variazioni temporali dei vincoli sono nulle:
 
-\[{\dot{x}}_{i} = \dfrac{d}{dt}f_{i}\left( q_{1},q_{2},\ldots,\ q_{s} \right),\quad i = 1,2,\ldots,N\]
+\[
+{\mathbf{\dot{r}}}_{i} = \sum_{k = 1}^{s}{\dfrac{\partial \mathbf{r}_{i}}{\partial q_{k}}{\dot{q}}_{k}}
+\]
 
-Per la derivata della funzione composta si ha:
+Si eleva al quadrato ${\mathbf{\dot{r}}}_{i}$, mediante prodotto scalare, ottenendo:
 
-\[{\dot{x}}_{i} = \dfrac{d}{dt}f_{i}\left( q_{1},\ q_{2},\ \ldots,\ q_{s} \right) = \sum_{k = 1}^{s}{\dfrac{\partial f_{i}}{\partial q_{k}}\dfrac{dq_{k}}{dt}} = \sum_{k = 1}^{s}{\dfrac{\partial f_{i}}{\partial q_{k}}{\dot{q}}_{k}}\]
-
-Si eleva al quadrato \({\dot{x}}_{i}\), ottenendo:
-
-\[{\dot{x}}_{i}^{2} = \left( \sum_{k = 1}^{s}{\dfrac{\partial f_{i}}{\partial q_{k}}{\dot{q}}_{k}} \right)^{2} = \sum_{k = 1}^{s}{\dfrac{\partial f_{i}}{\partial q_{k}}{\dot{q}}_{k}}\sum_{k = 1}^{s}{\dfrac{\partial f_{i}}{\partial q_{k}}{\dot{q}}_{k}}\]
-
+\[
+\dot{r}_{i}^{2} = {\mathbf{\dot{r}}}_{i} \cdot {\mathbf{\dot{r}}}_{i} = \left( \sum_{k = 1}^{s}{\dfrac{\partial \mathbf{r}_{i}}{\partial q_{k}}{\dot{q}}_{k}} \right) \cdot \left( \sum_{j = 1}^{s}{\dfrac{\partial \mathbf{r}_{i}}{\partial q_{j}}{\dot{q}}_{j}} \right)
+\]
 È possibile esprimere il secondo membro come doppia sommatoria sugli indici \(k\) e \(j\):
 
-\[{\dot{x}}_{i}^{2} = \sum_{k = 1}^{s}{\sum_{j = 1}^{s}{\dfrac{\partial f_{i}}{\partial q_{j}}{\dot{q}}_{j}\dfrac{\partial f_{i}}{\partial q_{k}}{\dot{q}}_{k}}} = \sum_{k = 1}^{s}{\sum_{j = 1}^{s}{\dfrac{\partial f_{i}}{\partial q_{j}}\dfrac{\partial f_{i}}{\partial q_{k}}{\dot{q}}_{j}}{\dot{q}}_{k}}\]
+\[
+\dot{r}_{i}^{2} = \sum_{k = 1}^{s}{\sum_{j = 1}^{s}{\left(\dfrac{\partial \mathbf{r}_{i}}{\partial q_{j}}\cdot \dfrac{\partial \mathbf{r}_{i}}{\partial q_{k}}\right){\dot{q}}_{j}}{\dot{q}}_{k}}
+\]
 
 L'energia cinetica totale del sistema è:
 
-\[T = \dfrac{1}{2}\sum_{i = 1}^{N}{m_{i}{\dot{x}}_{i}}^{2} = \dfrac{1}{2}\sum_{i = 1}^{N}m_{i}\sum_{k = 1}^{s}{\sum_{j = 1}^{s}{\dfrac{\partial f_{i}}{\partial q_{j}}\dfrac{\partial f_{i}}{\partial q_{k}}{\dot{q}}_{j}}{\dot{q}}_{k}}\]
+\[
+T = \dfrac{1}{2}\sum_{i = 1}^{N}{m_{i}{\dot{r}}}_{i}^{2}
+\]
 
-Si definiscono coefficienti metrici:
+Sostituendo in quest'ultima espressione ${\dot{r}}_{i}^{2}$:
 
-\[a_{kj}(q) = \sum_{i = 1}^{N}{m_{i}\dfrac{\partial f_{i}}{\partial q_{j}}\dfrac{\partial f_{i}}{\partial q_{k}}}\]
+\[
+T = \dfrac{1}{2}\sum_{k = 1}^{s}{\sum_{j = 1}^{s}\left(\sum_{i = 1}^{N}{m_{i}\dfrac{\partial \mathbf{r}_{i}}{\partial q_{j}}\cdot \dfrac{\partial \mathbf{r}_{i}}{\partial q_{k}}}\right){\dot{q}}_{k}{\dot{q}}_{j}}
+\]
+
+Si definiscono i coefficienti metrici della massa generalizzata:
+
+\[
+a_{kj}(\mathbf{q}) = \sum_{i = 1}^{N}{m_{i}\dfrac{\partial \mathbf{r}_{i}}{\partial q_{j}}\cdot \dfrac{\partial \mathbf{r}_{i}}{\partial q_{k}}}
+\]
 
 Allora l'energia cinetica può essere scritta come forma quadratica nelle velocità generalizzate:
 
-\[T = \dfrac{1}{2}\sum_{k = 1}^{s}{\sum_{j = 1}^{s}a_{kj}(q){\dot{q}}_{k}{\dot{q}}_{j}}\]
+\[T = \dfrac{1}{2}\sum_{k = 1}^{s}{\sum_{j = 1}^{s}a_{kj}(\mathbf{q}){\dot{q}}_{k}{\dot{q}}_{j}}\]
 
-Dato che \(a_{kj}\) è un parametro dipendente dalla posizione generalizzata \(q\), l'energia cinetica totale dipende dalla velocità e dalla posizione generalizzate.
+Dato che \(a_{kj}\) è un parametro dipendente dalla posizione generalizzata $\mathbf{q}$, l'energia cinetica totale dipende dalla velocità e dalla posizione generalizzate.
 
-\subsection{Lemma 4: energia potenziale in coordinate generalizzate}\label{lemma-4-energia-potenziale-in-coordinate-generalizzate}
+\subsection{Energia potenziale in coordinate generalizzate}\label{energia-potenziale-in-coordinate-generalizzate}
+È conveniente esprimere anche l'energia potenziale in funzione delle coordinate generalizzate. Si considera un sistema di \(N\) particelle. L'energia di interazione tra le particelle è indicata con \(U(\mathbf{q})\) e viene denotata come energia potenziale. In meccanica classica, per forze conservative, questa quantità dipende solamente dalla posizione generalizzata. In particolare, se le coordinate generalizzate $\mathbf{q}$ descrivono completamente la configurazione del sistema, allora l'energia potenziale può essere scritta come:
 
-È conveniente esprimere anche l'energia potenziale in funzione delle coordinate generalizzate. Si considera un sistema di \(N\) particelle. L'energia di interazione tra le particelle è indicata con \(U\left( q_{i} \right),\ i = 1,2,\ldots,s\) e viene denotata come energia potenziale. In meccanica classica questa quantità dipende solamente dalla posizione.
-
-In particolare, se le coordinate generalizzate \(q_{i}\) descrivono completamente la configurazione del sistema, allora l'energia potenziale può essere scritta come:
-
-\[U = U(q_{1},q_{2},\ldots,q_{s})\]
+\[
+U = U(q_{1},q_{2},\ldots,q_{s})
+\]
 
 dove \(s\) è il numero di coordinate generalizzate.
 
-La meccanica classica assume che le interazioni tra le particelle avvengano istantaneamente, ovvero non considera gli effetti di propagazione dei cambiamenti nei campi di forza. Tuttavia, secondo la teoria della relatività di Einstein, le interazioni si propagano attraverso campi con velocità finita, non superiore alla velocità della luce \(c\). Questo implica che la descrizione classica è un'approssimazione valida solo quando le velocità coinvolte sono molto inferiori a \(c\) e gli effetti di ritardo possono essere trascurati.
+La meccanica classica assume che le interazioni tra le particelle avvengano istantaneamente (ovvero che il potenziale sia indipendente dalla velocità), non considerando gli effetti di propagazione dei cambiamenti nei campi di forza. Tuttavia, secondo la teoria della relatività di Einstein, le interazioni si propagano attraverso campi con velocità finita, non superiore alla velocità della luce \(c\). Questo implica che la descrizione classica è un'approssimazione valida solo quando le velocità coinvolte sono molto inferiori a \(c\) e gli effetti di ritardo possono essere trascurati.
 
-\subsection{Lemma 5: forma della lagrangiana}\label{lemma-5-forma-della-lagrangiana}
-
-La lagrangiana può essere espressa come funzione dell'energia cinetica \(T\) e dell'energia potenziale \(U\), secondo la relazione \cite{arnold1992matematici, landau1994meccanica}:
+\subsection{Espressione della lagrangiana}\label{espressione-della-lagrangiana}
+La lagrangiana è la funzione scalare definita come la differenza tra l'energia cinetica \(T\) e l'energia potenziale \(U\), secondo la relazione \cite{arnold1992matematici, landau1994meccanica}:
 
 \[
-L\left( q_{i},{\dot{q}}_{i} \right) = T\left( q_{i},{\dot{q}}_{i} \right) - U\left( q_{i} \right),\quad i = 1,\ldots,s
+L\left( \mathbf{q},\mathbf{\dot{q}}, t \right) = T\left( \mathbf{q},\mathbf{\dot{q}}, t \right) - U\left( \mathbf{q}, t \right)
 \]
 
 dove \(s\) è il numero di gradi di libertà del sistema.
 
-La lagrangiana \(L\left( q_{i}\left(t\right),{\dot{q}}_{i}\left(t\right) \right)\) è, dunque, una funzione delle coordinate generalizzate posizione e velocità, che a loro volta dipendono dal tempo:
+In un sistema scleronomo (vincoli indipendenti dal tempo) e con potenziale indipendente dal tempo ($U=U(\mathbf{q})$), la Lagrangiana non dipende esplicitamente dal tempo $t$:
+
+\[
+L\left( \mathbf{q},\mathbf{\dot{q}} \right) = T\left( \mathbf{q},\mathbf{\dot{q}} \right) - U\left( \mathbf{q} \right)
+\]
+
+La lagrangiana \(L\) è, dunque, una funzione delle coordinate generalizzate di posizione e velocità, che a loro volta dipendono dal tempo:
 
 \[
 L : TQ \times \mathbb{R} \rightarrow \mathbb{R}
 \]
 
-Dove \(TQ\) indica il \textbf{fibrato tangente} dello spazio delle configurazioni \(Q\), dove:
+dove \(Q\) è lo \textbf{spazio delle configurazioni} e \(TQ\) indica il \textbf{fibrato tangente} dello spazio delle configurazioni, dove:
 
 \begin{itemize}
-\item Un elemento di \(Q\) è semplicemente una configurazione \(\vec{q}\);
-\item Un elemento di \(TQ\) è una coppia \(\left( \vec{q},\dot{\vec{q}} \right)\), ovvero $\vec{q}$ è posizione (o configurazione) e velocità della particella.
+\item Un elemento di \(Q\) è semplicemente una configurazione $\mathbf{q}$;
+\item Un elemento di \(TQ\) è una coppia \(\left( \mathbf{q},\mathbf{\dot{q}} \right)\), che rappresenta la posizione (o configurazione) e la velocità generalizzata del sistema.
 \end{itemize}
 
-Se la lagrangiana non dipende esplicitamente dal tempo essa agisce sul fibrato tangente a valori in \(\mathbb{R}\):
+Se la lagrangiana non dipende esplicitamente dal tempo (sistema olonomo e scleronomo con potenziale statico) essa agisce sul fibrato tangente a valori in \(\mathbb{R}\):
 
 \[
 L : TQ \rightarrow \mathbb{R}
@@ -563,124 +578,131 @@ L : TQ \rightarrow \mathbb{R}
 Si considera l'azione \(S\), data per definizione da:
 
 \[
-S = \int_{t_{1}}^{t_{2}}{L\left( q_{i},{\dot{q}}_{i} \right)dt}
+S = \int_{t_{1}}^{t_{2}}{L\left( \mathbf{q},\mathbf{\dot{q}}, t \right)dt}
 \]
 
-L'azione dipende dalle coordinate generalizzate, funzioni del tempo, dunque, è un funzionale poiché associa a ogni funzione \(\vec{q}(t)\) un valore numerico. Dunque, l'azione è definita nello spazio vettoriale delle traiettorie generalizzate \(\mathbb{V =}\left\{ \vec{q}(t) \right\}\) a valori in \(\mathbb{R}\):
+L'azione dipende dalle coordinate generalizzate, funzioni del tempo, dunque, è un funzionale poiché associa a ogni funzione $\mathbf{q}(t)$ un valore numerico. Dunque, l'azione è definita nello spazio vettoriale delle traiettorie generalizzate $\mathbb{V =}\left\{ \mathbf{q}(t) \right\}$ a valori in \(\mathbb{R}\):
 
 \[
-S:\mathbb{V \rightarrow R}
+S:\mathbb{V} \rightarrow \mathbb{R}
 \]
 
-\subsection{Lemma 6: legame tra lagrangiana ed equazioni di Newton}\label{lemma-6-legame-tra-lagrangiana-ed-equazioni-di-newton}
+\subsection{Legame tra lagrangiana ed equazioni di Newton}\label{legame-tra-lagrangiana-ed-equazioni-di-newton}
 
-Per individuare una correlazione tra la meccanica newtoniana e quella lagrangiana si scrive l'equazione di Eulero-Lagrange in coordinate cartesiane. In generale, l'equazione di Eulero-Lagrange può essere espressa come:
+Per individuare una correlazione tra la meccanica newtoniana e quella lagrangiana si scrive l'equazione di Eulero-Lagrange in coordinate cartesiane. In generale, l'equazione di Eulero-Lagrange per la $i$-esima coordinata generalizzata è:
 
-\[\dfrac{d}{dt}\dfrac{\partial L}{\partial{\dot{q}}_{i}} - \dfrac{\partial L}{\partial q_{i}} = 0\]
+\[
+\dfrac{d}{dt}\dfrac{\partial L}{\partial{\dot{q}}_{i}} - \dfrac{\partial L}{\partial q_{i}} = 0
+\]
 
 È noto che la lagrangiana è data da:
 
-\[L\left( q_{i},{\dot{q}}_{i} \right) = T\left( q_{i},{\dot{q}}_{i} \right) - U\left( q_{i} \right)\]
-
-Per cui, è possibile scrivere:
-
-\[\dfrac{d}{dt}\dfrac{\partial}{\partial{\dot{q}}_{i}}\left\lbrack T\left( q_{i},{\dot{q}}_{i} \right) - U\left( q_{i} \right) \right\rbrack - \dfrac{\partial}{\partial q_{i}}\left\lbrack T\left( q_{i},{\dot{q}}_{i} \right) - U\left( q_{i} \right) \right\rbrack = 0\]
-
-Passando alle coordinate cartesiane si ha:
-
 \[
-\frac{\partial}{\partial q_i}
-= \sum_{j} \frac{\partial x_j}{\partial q_i}\,\frac{\partial}{\partial x_j}
+L\left( \mathbf{q},\mathbf{\dot{q}}, t \right) = T\left( \mathbf{q},\mathbf{\dot{q}}, t \right) - U\left( \mathbf{q}, t \right)
 \]
 
-Nell'ipotesi che la $i$-esima coordinata generalizzata $q_i$ coincida con la $i$-esima coordinata cartesiana $x_i$ e  che $x_i$ non dipende da nessuna delle altre coordinate generalizzate $q_j$ (per $j \neq i$), è possibile semplificare la relazione precedente:
+Per cui, è possibile scrivere l'equazione in termini di energie:
 
 \[
-\dfrac{\partial}{\partial q_{i}} = \sum_{j} \dfrac{\partial x_{j}}{\partial q_{i}}\dfrac{\partial}{\partial x_{j}} = \sum_{j} \delta_{ij}\dfrac{\partial}{\partial x_{j}} = \dfrac{\partial}{\partial x_{i}}
+\dfrac{d}{dt}\dfrac{\partial}{\partial{\dot{q}}_{i}}\left[ T\left( \mathbf{q},\mathbf{\dot{q}} \right) - U\left( \mathbf{q} \right) \right] - \dfrac{\partial}{\partial q_{i}}\left[ T\left( \mathbf{q},\mathbf{\dot{q}} \right) - U\left( \mathbf{q} \right) \right] = 0
 \]
 
- Analogo procedimento può essere eseguito per passare da \({\dot{q}}_{i}\) a \({\dot{x}}_{i}\).
-
-In coordinate cartesiane, l'energia cinetica dipende solamente dalla velocità \({\dot{x}}_{i}\) mentre l'energia potenziale solamente dalla posizione \(x_{i}\). L'equazione di Eulero-Lagrange è:
-
-\[\dfrac{d}{dt}\dfrac{\partial}{\partial{\dot{x}}_{i}}\left\lbrack T\left( {\dot{x}}_{i} \right) - U\left( x_{i} \right) \right\rbrack - \dfrac{\partial}{\partial x_{i}}\left\lbrack T\left( {\dot{x}}_{i} \right) - U\left( x_{i} \right) \right\rbrack = 0 \Leftrightarrow \dfrac{d}{dt}\dfrac{\partial}{\partial{\dot{x}}_{i}}T\left( {\dot{x}}_{i} \right) + \dfrac{\partial}{\partial x_{i}}U\left( x_{i} \right) = 0\]
-
-Da cui si ottiene:
-
-\[\dfrac{d}{dt}\dfrac{\partial}{\partial{\dot{x}}_{i}}T\left( {\dot{x}}_{i} \right) = - \dfrac{\partial}{\partial x_{i}}U\left( x_{i} \right)\]
-
-Siccome l'energia cinetica dipende solo dalla velocità, risulta:
-
-\[\dfrac{\partial}{\partial x_{i}}T\left( {\dot{x}}_{i} \right) = 0\]
-
-È possibile scrivere:
+Si considera il caso in cui le coordinate generalizzate coincidano con le coordinate cartesiane di tutte le particelle, ovvero $q_i = x_i$. In questo caso, le coordinate sono indipendenti ($s=3N$). La Lagrangiana in coordinate cartesiane $\mathbf{x} = (x_1, \ldots, x_{3N})$ è:
 
 \[
-\dfrac{\partial}{\partial x_{i}}U\left( x_{i} \right) = \dfrac{\partial}{\partial x_{i}}\left\lbrack T\left( {\dot{x}}_{i} \right) - U\left( x_{i} \right) \right\rbrack = - \dfrac{\partial L}{\partial x_{i}}
+L\left( \mathbf{x},\mathbf{\dot{x}} \right) = T\left( \mathbf{\dot{x}} \right) - U\left( \mathbf{x} \right)
+\]
+
+dove l'energia cinetica $T$ dipende solo dalle velocità e l'energia potenziale $U$ dipende solo dalle posizioni.
+
+L'equazione di Eulero-Lagrange in coordinate cartesiane $x_i$ diventa:
+
+\[
+\dfrac{d}{dt}\dfrac{\partial}{\partial{\dot{x}}_{i}}\left[ T\left( \mathbf{\dot{x}} \right) - U\left( \mathbf{x} \right) \right] - \dfrac{\partial}{\partial x_{i}}\left[ T\left( \mathbf{\dot{x}} \right) - U\left( \mathbf{x} \right) \right] = 0
+\]
+
+Sfruttando le dipendenze dei termini energetici in coordinate cartesiane:
+
+\[
+\dfrac{\partial U}{\partial \dot{x}_i} = 0 \quad \text{e} \quad \dfrac{\partial T}{\partial x_i} = 0
+\]
+
+Si ottiene:
+
+\[
+\dfrac{d}{dt}\dfrac{\partial T}{\partial{\dot{x}}_{i}} - \left( - \dfrac{\partial U}{\partial x_{i}} \right) = 0 \Leftrightarrow \dfrac{d}{dt}\dfrac{\partial T}{\partial{\dot{x}}_{i}} = - \dfrac{\partial U}{\partial x_{i}}
 \]
 
 L'energia cinetica per un sistema di \(N\) particelle, in coordinate cartesiane, è:
 
-\[T = \dfrac{1}{2}\sum_{i = 1}^{N}{m_{i}{\dot{x}}_{i}^{2}}\]
+\[
+T = \dfrac{1}{2}\sum_{j = 1}^{3N}{m_{j}{\dot{x}}_{j}^{2}}
+\]
 
-Applicando la derivata rispetto a \({\dot{x}}_{i}\) si ottiene:
-
-\[\dfrac{\partial T}{\partial{\dot{x}}_{i}} = \dfrac{\partial T}{\partial{\dot{x}}_{i}}\left( \dfrac{1}{2}\sum_{i = 1}^{N}{m_{i}{\dot{x}}_{i}^{2}} \right) = \dfrac{1}{2}\dfrac{\partial T}{\partial{\dot{x}}_{i}}\left( m_{1}{\dot{x}}_{1}^{2} + m_{2}{\dot{x}}_{2}^{2} + \ldots + m_{i}{\dot{x}}_{i}^{2} + \ldots + m_{N}{\dot{x}}_{N}^{2} \right) = m_{i}{\dot{x}}_{i}\]
-
-Derivando tale quantità rispetto al tempo si ottiene il primo membro dell'equazione di Eulero-Lagrange in coordinate cartesiane:
-
-\[\dfrac{d}{dt}\dfrac{\partial T}{\partial{\dot{x}}_{i}} = \dfrac{d}{dt}\left( m_{i}{\dot{x}}_{i} \right) = m_{i}{\ddot{x}}_{i}\]
-
-Dunque, poiché:
-
-\[\dfrac{d}{dt}\dfrac{\partial}{\partial{\dot{x}}_{i}}T\left( {\dot{x}}_{i} \right) + \dfrac{\partial}{\partial x_{i}}U\left( x_{i} \right) = 0\]
-
-risulta:
-
-\[m_{i}{\ddot{x}}_{i} = - \dfrac{\partial}{\partial x_{i}}U\left( x_{i} \right)\]
-
-Dalla relazione:
-
-\[L\left( q_{i},{\dot{q}}_{i} \right) = T\left( q_{i},{\dot{q}}_{i} \right) - U\left( q_{i} \right)\]
-
-È possibile scrivere che:
-
-\[\dfrac{\partial}{\partial x_{i}}U\left( x_{i} \right) = \dfrac{\partial}{\partial x_{i}}\left\lbrack T\left( {\dot{x}}_{i} \right) - L\left( x_{i},{\dot{x}}_{i} \right) \right\rbrack = - \dfrac{\partial L}{\partial x_{i}}\]
-
-Per cui si ottiene:
+Applicando la derivata parziale rispetto a \({\dot{x}}_{i}\) si ottiene il momento coniugato cartesiano $p_i$:
 
 \[
-m_{i}{\ddot{x}}_{i} = - \dfrac{\partial}{\partial x_{i}}U\left( x_{i} \right) = \dfrac{\partial L}{\partial x_{i}}
+\dfrac{\partial T}{\partial{\dot{x}}_{i}} = \dfrac{\partial}{\partial{\dot{x}}_{i}}\left( \dfrac{1}{2}\sum_{j = 1}^{3N}{m_{j}{\dot{x}}_{j}^{2}} \right) = m_{i}{\dot{x}}_{i} = p_i
+\]
+
+Derivando quantità rispetto al tempo si ottiene il primo membro dell'equazione di Eulero-Lagrange in coordinate cartesiane:
+
+\[
+\dfrac{d}{dt}\dfrac{\partial T}{\partial{\dot{x}}_{i}} = \dfrac{d}{dt}\left( m_{i}{\dot{x}}_{i} \right) = m_{i}{\ddot{x}}_{i}
+\]
+
+Sostituendo nell'equazione di Eulero-Lagrange si ottiene l'Equazione di Newton per la coordinata $x_i$:
+
+\[
+\dfrac{d}{dt}\dfrac{\partial T}{\partial{\dot{x}}_{i}} = - \dfrac{\partial U}{\partial x_{i}} \Leftrightarrow m_{i}{\ddot{x}}_{i} = - \dfrac{\partial U}{\partial x_{i}}
 \]
 
 Dal secondo principio della dinamica è noto che:
 
 \[
-m_{i}{\ddot{x}}_{i} = f_{i} = \dfrac{dp_{i}}{dt}
+m_{i}{\ddot{x}}_{i} = F_{i}
 \]
 
-Dove \(f_{i}\) è la forza agente mentre \(p_{i}\) la quantità di moto.
+dove $F_{i}$ è la $i$-esima componente della forza conservativa agente sulla particella. Poiché la forza conservativa è data dal gradiente negativo dell'energia potenziale ($\mathbf{F} = -\mathbf{\nabla}U$):
 
-Ne discende che la quantità di moto \(p_{i}\) e la forza \(f_{i}\) sono legate all'energia potenziale \(U\) e alla lagrangiana \(L\) dalle relazioni \cite{arnold1992matematici, landau1994meccanica}:
+\[
+F_{i} = - \dfrac{\partial U}{\partial x_{i}}
+\]
+
+La Lagrangiana è quindi equivalente alle leggi di Newton (per sistemi conservativi). 
+
+Va notato che in coordinate cartesiane, l'energia potenziale non dipende dalla velocità, dunque:
+
+\[
+\dfrac{\partial T}{\partial{\dot{x}}_{i}} = \dfrac{\partial}{\partial{\dot{x}}_{i}}\left(L + U\right) = \dfrac{\partial L}{\partial{\dot{x}}_{i}}
+\]
+
+Si ottiene:
+
+\[
+\dfrac{\partial L}{\partial{\dot{x}}_{i}} = \dot{p}_i
+\]
+
+Ne discende che la quantità di moto $p_{i}$ e la forza $F_{i}$ sono legate alla Lagrangiana $L$ e all'energia potenziale $U$ dalle relazioni generali \cite{arnold1992matematici, landau1994meccanica}:
 
 \[
 \begin{cases}
-\displaystyle p_{i} = \dfrac{\partial L}{\partial{\dot{q}}_{i}} \\
-\displaystyle f_{i} = - \dfrac{\partial U}{\partial q_{i}}
+\displaystyle p_{i} = \dfrac{\partial L}{\partial{\dot{q}}_{i}} & \quad (\text{Momento generalizzato coniugato}) \\
+\displaystyle Q_{i} = - \dfrac{\partial U}{\partial q_{i}} & \quad (\text{Forza generalizzata conservativa})
 \end{cases}
 \]
 
-Le due relazioni sono note come definizioni fondamentali della meccanica lagrangiana. La prima (\(p_{i}\)) è detta \textbf{momento generalizzato coniugato}, mentre la seconda forza generalizzata. Più in generale, si definisce la \textbf{forza generalizzata} $Q_i$ come:
+Le due relazioni sono note come definizioni fondamentali della meccanica lagrangiana. La prima (\(p_{i}\)) è detta \textbf{momento generalizzato coniugato}, mentre la seconda forza generalizzata. 
+
+Più in generale, la \textbf{forza generalizzata} $Q_i$ è definita come il coefficiente del lavoro virtuale $\delta W = \sum_i Q_i \delta q_i$:
 
 \[
-Q_i = \sum_j \vec{F}_j \cdot \frac{\partial \vec{r}_j}{\partial q_i}
+Q_i = \sum_j \mathbf{F}_j \cdot \frac{\partial \mathbf{r}_j}{\partial q_i}
 \]
 
-Cioè, è la proiezione di tutte le forze effettive sulle direzioni di variazione delle coordinate generalizzate.
+Considerando l'equazione di Eulero-Lagrange e sostituendo la relazione per il momento coniugato generalizzato:
 
-Si considera l'equazione di Eulero-Lagrange e si sostituisce la relazione per il momento coniugato generalizzato:
-
-\[\dfrac{d}{dt}\dfrac{\partial L}{\partial{\dot{q}}_{i}} - \dfrac{\partial L}{\partial q_{i}} = 0 \Leftrightarrow \dfrac{d}{dt}p_{i} = \dfrac{\partial L}{\partial q_{i}}\]
+\[\dfrac{d}{dt}\dfrac{\partial L}{\partial{\dot{q}}_{i}} - \dfrac{\partial L}{\partial q_{i}} = 0 \quad \Leftrightarrow \quad \dfrac{d}{dt}p_{i} = \dfrac{\partial L}{\partial q_{i}}\]
 
 Da cui risulta:
 
@@ -688,7 +710,7 @@ Da cui risulta:
 \dot{p}_{i} = \dfrac{\partial L}{\partial q_{i}}
 \]
 
-questa relazione lega la derivata del momento generalizzato coniugato alla lagrangiana.
+Questa relazione lega la derivata del momento generalizzato coniugato alla Lagrangiana ed è centrale in Meccanica Hamiltoniana.
 
 \subsection{Principio di conservazione}\label{principio-di-conservazione}
 
