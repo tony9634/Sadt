@@ -1,0 +1,41 @@
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}[
+        particle/.style={circle, draw, fill=blue!20, minimum size=10pt, inner sep=0pt},
+        velocity/.style={-Latex, thick, red},
+        axis/.style={-Latex, thick},
+        origin/.style={circle, fill=black, inner sep=1.5pt},
+        scale=1.2
+    ]
+
+    % Sistema di riferimento tridimensionale
+    \coordinate (O) at (-1.5,-1.2);
+    \node[origin, label={[xshift=3pt, yshift=-4pt]below left:{$O$}}] at (O) {}; % origine evidenziata
+    \draw[axis] (O) -- ++(7,0) node[right] {$x$};
+    \draw[axis] (O) -- ++(0,5) node[above] {$y$};
+    \draw[axis] (O) -- ++(-1.8,-1.2) node[below left] {$z$};
+
+    % Particelle
+    \node[particle, label=left:{$m_1$}] (m1) at (0,0) {};
+    \node[particle, label=below:{$m_2$}] (m2) at (2,0.5) {};
+    \node[particle, label=right:{$m_3$}] (m3) at (4,0) {};
+    \node[particle, label=above:{$m_4$}] (m4) at (1.5,2) {};
+    \node[particle, label=above:{$m_5$}] (m5) at (3.5,1.8) {};
+
+    % Vettori velocità
+    \draw[velocity] (m1) -- ++(0.8,0.3) node[above right] {$\vec{v}_1$};
+    \draw[velocity] (m2) -- ++(0.4,0.7) node[above right] {$\vec{v}_2$};
+    \draw[velocity] (m3) -- ++(-0.7,0.2) node[above left] {$\vec{v}_3$};
+    \draw[velocity] (m4) -- ++(0.3,-0.6) node[below right] {$\vec{v}_4$};
+    \draw[velocity] (m5) -- ++(-0.5,-0.4) node[below left] {$\vec{v}_5$};
+
+    % Particella generica m_i (spostata in alto a destra per visibilità)
+    \node[particle, label=above right:{$m_i$}] (mi) at (4.8,2.4) {};
+    % Vettore velocità ruotato per evitare sovrapposizione
+    \draw[velocity] (mi) -- ++(-0.6,0.5) node[above left] {$\vec{v}_i$};
+
+    \end{tikzpicture}
+
+    \caption{Sistema di particelle in un sistema di riferimento tridimensionale}
+    \label{fig:1_sistPart}
+\end{figure}

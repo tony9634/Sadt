@@ -28,30 +28,37 @@ La \textbf{meccanica classica} si fonda sulla descrizione dei fenomeni fisici se
 
 dove \(m\) è la massa della particella (assunta costante) e \(\vec{a}\) è la sua accelerazione. L'accelerazione è definita come la derivata della velocità rispetto al tempo:
 
-\[\vec{a} = \dfrac{d\vec{v}}{dt}\]
+\[
+\vec{a} = \dfrac{d\vec{v}}{dt}
+\]
 
 Si definisce la \textbf{quantità di moto} (o \textbf{momento lineare}) \(\vec{p}\) come il prodotto tra la massa e la velocità della particella:
 
-\[\vec{p} = m\vec{v}\]
+\[
+\vec{p} = m\vec{v}
+\]
 
 Il vettore \(\vec{p}\) ha la stessa direzione e verso del vettore velocità \(\vec{v}\). L'equazione fondamentale della meccanica può essere riscritta in termini di quantità di moto:
 
-\[\vec{F} = m\vec{a} = m\dfrac{d\vec{v}}{dt} = \dfrac{d}{dt}(m\vec{v}) = \dfrac{d\vec{p}}{dt}\]
+\[
+\vec{F} = m\vec{a} = m\dfrac{d\vec{v}}{dt} = \dfrac{d}{dt}(m\vec{v}) = \dfrac{d\vec{p}}{dt}
+\]
 
-Questa forma è valida anche nel caso in cui la massa \(m\) non sia costante nel tempo, ad esempio, nel caso di corpi che perdono massa come una navetta spaziale.
+Questa relazione rappresenta la forma più generale della Seconda Legge di Newton. Essa è valida anche nel caso in cui la massa $m$ non sia costante nel tempo (ad esempio, per un razzo che espelle propellente), mentre la forma $\vec{F} = m\vec{a}$ è valida solo quando la massa è costante.
 
 L'equazione può essere estesa a un sistema di \(n\) particelle, con masse \(\{ m_{1},m_{2},\ldots,m_{n}\}\) e forze \(\{{\vec{f}}_{1},{\vec{f}}_{2},\ldots,{\vec{f}}_{n}\}\), ottenendo:
 
 \[
-{\vec{F}}_{\text{tot}} = \sum_{k = 1}^{n}{\vec{f}}_{k} = \sum_{k = 1}^{n}\dfrac{d{\vec{p}}_{k}}{dt}
+{\vec{F}}_{\text{tot}} = \sum_{k = 1}^{n}{\vec{f}}_{k} = \sum_{k = 1}^{n}\dfrac{d{\vec{p}}_{k}}{dt} = \dfrac{d\vec{P}}{dt}
 \]
 
-Questa espressione rappresenta il teorema della \textbf{dinamica dei sistemi di particelle}, il quale afferma che la somma delle forze interne ed esterne agenti su un sistema di particelle è uguale alla derivata temporale della somma delle quantità di moto delle singole particelle. Poiché le forze interne si annullano reciprocamente in base al terzo principio della dinamica, \({\vec{F}}_{\text{tot}}\) coincide con la sommatoria delle forze esterne.
+Questa espressione rappresenta il \textbf{Teorema della quantità di moto} (o \textbf{Teorema della dinamica}) per i sistemi di particelle. Poiché la somma di tutte le forze interne ($\vec{F}_{\text{int}}$) è nulla per il Terzo Principio della Dinamica (Principio di azione e reazione), la forza totale ($\vec{F}_{\text{tot}}$) coincide con la risultante delle sole forze esterne ($\vec{F}_{\text{est}}$). Il teorema si scrive quindi:
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=2.65748in,height=2.12598in,alt={Immagine che contiene linea Il contenuto generato dall'IA potrebbe non essere corretto.}]{media/1_Meccanica/image2.pdf}\caption{Sistema di particelle soggetto a forze esterne}
-\end{figure}
+\[
+{\vec{F}}_{\text{est}} = \dfrac{d\vec{P}}{dt} \quad \text{con } \vec{P} = \sum_{k=1}^n \vec{p}_k
+\]
+
+\input{Image/1_Meccanica/1_sistPart}
 
 Per una particella soggetta a una forza \(\vec{F}\), si definisce \textbf{momento torcente} (o \textbf{momento della forza}) \(\vec{N}\) (talvolta indicato anche con \(\vec{\tau}\)):
 
@@ -61,37 +68,39 @@ Per una particella soggetta a una forza \(\vec{F}\), si definisce \textbf{moment
 
 dove \(\vec{r}\) è il vettore posizione della particella rispetto a un polo (origine del sistema di riferimento).
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=2.62626in,height=1.47606in,alt={Immagine che contiene linea, schizzo, diagramma Il contenuto generato dall'IA potrebbe non essere corretto.}]{media/1_Meccanica/image3.pdf}\caption{Definizione del momento torcente rispetto a un punto fisso}
-\end{figure}
+\input{Image/1_Meccanica/1_momTorc}
 
 Analogamente, si definisce \textbf{momento angolare} (o \textbf{quantità di moto angolare}) \(\vec{L}\):
 
-\[\vec{L} = \vec{r} \times \vec{p}\]
+\[
+\vec{L} = \vec{r} \times \vec{p}
+\]
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=2.71741in,height=1.60327in,alt={Immagine che contiene testo, diagramma, design Il contenuto generato dall'IA potrebbe non essere corretto.}]{media/1_Meccanica/image4.pdf}\caption{Momento angolare di una particella rispetto a un'origine fissa}
-\end{figure}
+\input{Image/1_Meccanica/1_momAng}
 
 Sostituendo la definizione di quantità di moto:
 
-\[\vec{L} = \vec{r} \times (m\vec{v}) = m(\vec{r} \times \vec{v})\]
+\[
+\vec{L} = \vec{r} \times (m\vec{v}) = m(\vec{r} \times \vec{v})
+\]
 
 Applicando la derivata rispetto al tempo:
 
-\[\begin{aligned}
-\dfrac{d\vec{L}}{dt} & = \dfrac{d}{dt}(\vec{r} \times \vec{p}) = \dfrac{d\vec{r}}{dt} \times \vec{p} + \vec{r} \times \dfrac{d\vec{p}}{dt}
-\end{aligned}\]
+\[
+\dfrac{d\vec{L}}{dt} = \dfrac{d}{dt}(\vec{r} \times \vec{p}) = \dfrac{d\vec{r}}{dt} \times \vec{p} + \vec{r} \times \dfrac{d\vec{p}}{dt}
+\]
 
 Nel caso in cui il polo sia fisso:
 
-\[\dfrac{d\vec{r}}{dt} \times \vec{p} = \vec{v} \times \vec{p} = \vec{0}\]
+\[
+\dfrac{d\vec{r}}{dt} \times \vec{p} = \vec{v} \times \vec{p} = \vec{0}
+\]
 
 perché \(\vec{v}\) e \(\vec{p}\) sono paralleli. Resta quindi:
 
-\[\dfrac{d\vec{L}}{dt} = \vec{r} \times \dfrac{d\vec{p}}{dt} = \vec{r} \times \vec{F} = \vec{N}\]
+\[
+\dfrac{d\vec{L}}{dt} = \vec{r} \times \dfrac{d\vec{p}}{dt} = \vec{r} \times \vec{F} = \vec{N}
+\]
 
 Questa equazione prende il nome di \textbf{teorema del momento angolare}.
 
@@ -101,180 +110,346 @@ Per un sistema di $N$ particelle, il teorema del momento angolare totale $\vec{L
 {\vec{N}}_{\text{tot}} = \sum_{k = 1}^{n}{{\vec{r}}_{k} \times {\vec{f}}_{k}} = \sum_{k = 1}^{n}{{\vec{r}}_{k} \times \dfrac{d{\vec{p}}_{k}}{dt}} = \dfrac{d\vec{L}}{dt}
 \]
 
-dove ${\vec{N}}_{\text{tot}}$ è il momento torcente totale (esterno + interno) agente sul sistema. In presenza di sole forze interne centrali (ovvero, se il momento torcente interno si annulla), si ha $\frac{d\vec{L}}{dt} = {\vec{N}}_{\text{est}}$, cioè la derivata temporale del momento angolare totale è pari alla somma dei momenti torcenti esterni.
-
-Conoscendo le forze esterne agenti, è possibile determinare il moto della particella. Integrando la Seconda Legge di Newton si ottiene l'impulso:
+dove ${\vec{N}}_{\text{tot}}$ è il momento torcente totale (esterno + interno) agente sul sistema. In presenza di sole forze interne centrali (ovvero, se il momento torcente interno si annulla), si ha $\frac{d\vec{L}}{dt} = {\vec{N}}_{\text{est}}$, cioè la derivata temporale del momento angolare totale è pari alla somma dei momenti torcenti esterni:
 
 \[
-\vec{F} = \dfrac{d\vec{p}}{dt}
+{\vec{N}}_{\text{est}} = \dfrac{d\vec{L}}{dt}
 \]
 
-Per ottenere la posizione, si integra la velocità:
+Conoscendo le forze esterne agenti, è possibile determinare il moto della particella. Integrando la Seconda Legge di Newton rispetto al tempo si ottiene l'\textbf{impulso} $\vec{I}$, che per definizione è uguale alla variazione di quantità di moto ($\Delta \vec{p}$):
 
 \[
-\int_{t_{0}}^{t}{\vec{F}\, dt} = \vec{p}(t) - \vec{p}(t_{0}) = m\left[\vec{v}(t) - \vec{v}(t_{0})\right]
+\vec{I} = \int_{t_{0}}^{t}{\vec{F}\, dt} = \vec{p}(t) - \vec{p}(t_{0}) = m\left[\vec{v}(t) - \vec{v}(t_{0})\right] \Leftrightarrow \left[\vec{v}(t) - \vec{v}(t_{0})\right] = \dfrac{1}{m}\int_{t_{0}}^{t}{\vec{F}\, dt}
 \]
 
 Assumendo \(\vec{v}(t_{0}) = \vec{0}\), si ha:
 
-\[\int_{t_{0}}^{t}{\vec{F}\, dt} = m\vec{v}(t)\]
+\[
+\vec{v}(t) =\dfrac{1}{m} \int_{t_{0}}^{t}{\vec{F}\, dt}
+\]
 
 Integrando una seconda volta, si ottiene lo spostamento:
 
-\[\int_{t_{0}}^{t}{\left( \int_{t_{0}}^{t'}{\vec{F}\, dt''} \right)dt'} = m\lbrack\vec{r}(t) - \vec{r}(t_{0})\rbrack\]
+\[
+\int_{t_{0}}^{t}{\left(\dfrac{1}{m} \int_{t_{0}}^{t'}{\vec{F}\, dt''} \right)dt'} = \left(\vec{r}(t) - \vec{r}(t_{0})\right)
+\]
 
-dove \(\vec{r}(t)\) è il vettore spostamento.
+dove \(\vec{r}(t)\) è il vettore spostamento.  
+
+Nel caso generale, con velocità iniziale non nulla e tempo iniziale \(t=t_0\), l'equazione è:
+
+\[
+\vec{r}(t) = \vec{r}(t_0) + \vec{v}(t_0) (t-t_0) +\frac{1}{m} \int_{t_0}^t \left( \int_{t_0}^{t'} \vec{F}(\tau) d\tau \right) dt'
+\]
 
 Il modello newtoniano descrive accuratamente molti fenomeni osservati nella sua epoca, come il moto dei pianeti, il comportamento dei corpi sotto l'azione di forze, e le interazioni meccaniche quotidiane.
 
 \section{Meccanica lagrangiana}\label{meccanica-lagrangiana}
-La \textbf{meccanica lagrangiana} è una formulazione matematica della meccanica introdotta nel XVIII secolo da Joseph-Louis Lagrange, come riformulazione della meccanica newtoniana \cite{arnold1992matematici, landau1994meccanica}.
 
-Questa descrizione parte da un punto di vista globale e si propone di determinare il moto di un sistema minimizzando una funzione chiamata \emph{azione}, che dipende dall'intero percorso del sistema. Il modello lagrangiano è particolarmente utile, poiché consente di descrivere non solo fenomeni della meccanica classica, ma anche situazioni della \textbf{meccanica quantistica}.
+La \textbf{meccanica lagrangiana} è una formulazione della meccanica analitica introdotta nel XVIII secolo da Joseph-Louis Lagrange. Essa costituisce una riformulazione potente della meccanica newtoniana, spesso utilizzata come base concettuale per teorie più avanzate \cite{arnold1992matematici, landau1994meccanica}. Questa descrizione parte da un punto di vista globale e si propone di determinare il moto di un sistema basandosi sulla minimizzazione (o meglio, sulla stazionarietà) di una funzione scalare chiamata \textbf{azione}, che dipende dall'intero percorso del sistema. Il formalismo lagrangiano è fondamentale, in quanto il suo analogo variazionale è utilizzato come punto di partenza per la \textbf{teoria classica dei campi} e, tramite l'integrale sui cammini di Feynman, per la \textbf{meccanica quantistica}.
 
-Consideriamo un sistema composto da \(N\) particelle. La descrizione del loro moto secondo la meccanica newtoniana richiede l'uso di uno spazio tridimensionale cartesiano: a ciascuna particella \(m_{i}\) è associata una terna di coordinate \((x_{i},y_{i},z_{i})\), che variano nel tempo. Questo approccio porta alla necessità di risolvere \(3N\) equazioni differenziali per determinare il moto di tutte le particelle.
+Si considera un sistema composto da \(N\) particelle. La descrizione del loro moto secondo la meccanica newtoniana richiede l'uso di uno spazio tridimensionale cartesiano: a ciascuna particella \(m_{i}\) è associata una terna di coordinate \((x_{i},y_{i},z_{i})\), che variano nel tempo. Questo approccio porta alla necessità di risolvere \(3N\) equazioni differenziali per determinare il moto di tutte le particelle. Tuttavia, spesso le particelle sono soggette a vincoli che limitano il loro moto a determinate traiettorie o superfici. In questi casi, è possibile descrivere il sistema utilizzando \textbf{coordinate generalizzate} \(q_{i}\), con \(i = 1,2,\ldots,s\), dove \(s\) rappresenta il numero dei \textbf{gradi di libertà} del sistema. In generale, il moto del sistema è descritto mediante \(s\) equazioni differenziali del secondo ordine (le equazioni di Eulero-Lagrange).
 
-Tuttavia, spesso le particelle sono soggette a vincoli che limitano il loro moto a determinate traiettorie o superfici. In questi casi, è possibile descrivere il sistema utilizzando \emph{coordinate generalizzate} \(q_{i}\), con \(i = 1,2,\ldots,s\), dove \(s\) rappresenta il numero dei \emph{gradi di libertà} del sistema.
+Tra tutte le curve che collegano un punto (o configurazione) $\mathbf{q}\left(t_0\right)$ al tempo $t_{0}$ con un altro punto $\mathbf{q}\left(t_1\right)$ al tempo $t_{1}$, la traiettoria fisica $\mathbf{q}\left(t\right)$ è quella che rende stazionaria l'azione, ovvero l'integrale della funzione lagrangiana nel tempo.
 
-Tra tutte le curve che collegano un punto \(\vec{A}\) al tempo \(t_{0}\) con un altro punto \(\vec{B}\) al tempo \(t_{1}\), esiste una traiettoria unica che rende stazionaria l'azione, ovvero l'integrale della funzione lagrangiana nel tempo.
+In fisica teorica e meccanica analitica, quando si indica il vettore delle coordinate generalizzate $\mathbf{q} = (q_1, q_2, \ldots, q_s)$ nello spazio delle configurazioni, la convenzione più diffusa è usare il grassetto ($\mathbf{q}$) piuttosto che la freccia ($\vec{q}$).Questo perché la freccia ($\vec{q}$) è tradizionalmente riservata ai vettori nello spazio euclideo tridimensionale ($\mathbb{R}^3$), mentre $\mathbf{q}$ è un vettore in uno spazio $s$-dimensionale, dove $s$ non è necessariamente 3.
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=3.9759in,height=1.98795in,alt={Immagine che contiene calligrafia, linea Il contenuto generato dall'IA potrebbe non essere corretto.}]{media/1_Meccanica/image5.pdf}\caption{Esempio di moto su traiettoria a azione stazionaria tra due punti nel tempo.}
-\end{figure}
-\subsection{Lemma 1: Principio di Azione Stazionaria di Hamilton}\label{lemma-1-principio-di-minimizzazione}
+\input{Image/1_Meccanica/1_Traittoria.tex}
 
-Il moto della particella, ovvero la traiettoria \(q_{i}(t)\) e la velocità con cui essa viene percorsa \({\dot{q}}_{i}(t)\), deve rendere stazionario l'integrale \cite{arnold1992matematici}:
+\subsection{Principio di Azione Stazionaria di Hamilton}\label{principio-di-azione-stazionaria}
+Il moto del \textbf{sistema} (o della particella), ovvero la traiettoria \(\mathbf{q}(t)\) e la velocità con cui essa viene percorsa \({\mathbf{\dot{q}}}(t)\), deve rendere stazionario l'integrale \cite{arnold1992matematici}:
 
-\[S = \int_{t_{0}}^{t_{1}}{L\left( q_{i},{\dot{q}}_{i},t \right)\, dt}\]
+\[
+S = \int_{t_{0}}^{t_{1}}{L\left( \mathbf{q},{\dot{\mathbf{q}}},t \right)\, dt}
+\]
 
-L'integrale \(S\) è detto \emph{azione}, \(t\) è la variabile temporale, mentre \(L\) è la funzione \emph{lagrangiana}, o semplicemente \emph{lagrangiana}, del sistema di particelle. Dal punto di vista dimensionale, la lagrangiana è omogenea all'energia, e quindi ha le stesse dimensioni del joule:
+L'integrale \(S\) è detto \textbf{azione}, \(t\) è la variabile temporale, mentre \(L\) è la funzione \textbf{lagrangiana}, o semplicemente \textbf{lagrangiana}, del sistema di particelle. Dal punto di vista dimensionale, la lagrangiana è omogenea all'energia, e quindi ha le stesse dimensioni del joule:
 
-\[\lbrack L\rbrack = \lbrack J\rbrack\]
+\[
+\left[ L\right] = \left[ J \right]
+\]
 
-dove \(\lbrack L\rbrack\) indica le dimensioni fisiche della lagrangiana e \(\lbrack J\rbrack\) quelle dell'energia, ovvero:
+dove \(\left[ L\right]\) indica le dimensioni fisiche della lagrangiana e \(\left[ J\right]\) quelle dell'energia, ovvero:
 
-\[\lbrack J\rbrack = kg \cdot m^{2} \cdot s^{- 2}\]
+\[
+\left[ J\right] =\left[M L^{2} T^{- 2}\right]
+\]
 
-\subsection{Lemma 2: equazione di Eulero-Lagrange}\label{lemma-2-equazione-di-eulero-lagrange}
+\subsection{Equazione di Eulero-Lagrange}\label{equazione-di-eulero-lagrange}
 
-Per descrivere il moto di una particella o di un sistema di particelle, la lagrangiana deve soddisfare l'equazione di Eulero-Lagrange \cite{landau1994meccanica}:
+Per descrivere il moto di una particella o di un sistema di particelle, la lagrangiana deve soddisfare l'equazione di Eulero-Lagrange, espressa per la coordinata generalizzata $i$-esima \cite{landau1994meccanica}:
 
-\begin{align*}
-\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot{q}_i}\right) - \dfrac{\partial L}{\partial q_i} &= 0, \quad \text{con } i=1,2,\dots,s
-\end{align*}
+\[
+\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot{q}_i}\right) - \dfrac{\partial L}{\partial q_i} = 0, \text{con } i=1,2,\dots,s
+\]
 
-Poiché l'azione \(S\) deve essere stazionaria, una sua variazione \(\delta S\), dovuta a una perturbazione dello spostamento \(\delta\vec{q}\) e della velocità \(\delta\dot{\vec{q}}\), è tale che:
+Poiché l'azione \(S\) deve essere stazionaria, la sua variazione \(\delta S\) deve essere nulla ($\delta S = 0$). Si considera una traiettoria perturbata $\mathbf{q} + \delta\mathbf{q}$ e la velocità perturbata $\mathbf{\dot{q}} + \delta\mathbf{\dot{q}}$:
 
-\[S + \delta S = \int_{t_{0}}^{t_{1}}{L\left( \vec{q} + \delta\vec{q},\dot{\vec{q}} + \delta\dot{\vec{q}} \right)dt}\]
+\[
+S + \delta S = \int_{t_{0}}^{t_{1}}{L\left( \mathbf{q} + \delta\mathbf{q},\mathbf{\dot{q}} + \delta\mathbf{\dot{q}}, t \right)dt}
+\]
 
-Dove \(\vec{q}\) è una traiettoria che rende stazionaria l'azione \(S\). Il Principio di Hamilton (o di Minima Azione) stabilisce che la traiettoria rende l'azione stazionaria o un estremo (ovvero $\delta S=0$). Non è garantito che sia un minimo poiché può essere un massimo o un punto di sella.
+dove \(\mathbf{q}\) è la traiettoria fisica che rende stazionaria l'azione \(S\). Il Principio di Hamilton (o di Azione Stazionaria) stabilisce che la traiettoria rende l'azione stazionaria (ovvero $\delta S=0$). Non è garantito che sia un minimo poiché può coincidere un massimo o un punto di sella.
 
-Siccome le variazioni di spostamento e velocità sono molto minori delle rispettive \textbf{quantità}:
+\input{Image/1_Meccanica/1_TraiettoriaPertu}
+
+Siccome le variazioni di spostamento e velocità sono molto minori delle rispettive quantità (ovvero $\delta\mathbf{q}$ è una piccola variazione della traiettoria fisica):
 
 \[
 \delta q_{i} \ll q_{i} \quad \text{e} \quad \delta \dot{q}_{i} \ll \dot{q}_{i}
 \]
 
-è possibile sviluppare la lagrangiana in serie di Taylor, arrestando lo sviluppo al primo ordine, nell'intorno del punto \(\left( \vec{q},\dot{\vec{q}} \right)\):
-
-\[L\left( \vec{q} + \delta\vec{q},\dot{\vec{q}} + \delta\dot{\vec{q}} \right) \simeq L\left( \vec{q},\dot{\vec{q}} \right) + \vec{\nabla}L \cdot \left( \delta\vec{q},\delta\dot{\vec{q}} \right) =\]
-
-Per definizione di gradiente si ha:
-
-\[= L\left( \vec{q},\dot{\vec{q}} \right) + \left( \dfrac{\partial L}{\partial\vec{q}},\dfrac{\partial L}{\partial\dot{\vec{q}}} \right) \cdot \left( \delta\vec{q},\ \delta\dot{\vec{q}} \right) =\]
-
-Svolgendo l'operazione di prodotto scalare si ha:
+è possibile sviluppare la lagrangiana $L$ in serie di Taylor, arrestando lo sviluppo al primo ordine, nell'intorno del punto \(\left( \mathbf{q},\mathbf{\dot{q}} \right)\). La variazione della Lagrangiana $\delta L$ è:
 
 \[
-= L\left( \vec{q},\dot{\vec{q}} \right) + \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\ \delta\dot{\vec{q}}
+L\left( \mathbf{q} + \delta\mathbf{q},\mathbf{\dot{q}} + \delta\mathbf{\dot{q}}, t \right) \simeq L\left( \mathbf{q},\mathbf{\dot{q}}, t \right) + \sum_{i=1}^s \left( \dfrac{\partial L}{\partial q_i}\delta q_i + \dfrac{\partial L}{\partial\dot{q}_i}\delta \dot{q}_i \right)
+\]
+
+Per comodità, si può esprimere la variazione $\delta L$ usando la notazione vettoriale (prodotto scalare generalizzato):
+
+\[
+L\left( \mathbf{q} + \delta\mathbf{q},\mathbf{\dot{q}} + \delta\mathbf{\dot{q}}, t \right) \simeq L\left( \mathbf{q},\mathbf{\dot{q}}, t \right) + \dfrac{\partial L}{\partial\mathbf{q}} \cdot \delta\mathbf{q} + \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\cdot \delta\mathbf{\dot{q}}
 \]
 
 Sostituendo nell'espressione della variazione dell'azione, si ottiene:
 
-\[S + \delta S = \int_{t_{0}}^{t_{1}}{\left\lbrack L\left( \vec{q},\dot{\vec{q}} \right) + \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\ \delta\dot{\vec{q}} \right\rbrack dt}\]
+\[
+S + \delta S = \int_{t_{0}}^{t_{1}}{\left\lbrack L\left( \mathbf{q},\mathbf{\dot{q}}, t \right) + \dfrac{\partial L}{\partial\mathbf{q}}\delta\mathbf{q} + \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\ \delta\mathbf{\dot{q}} \right\rbrack dt}
+\]
 
 Per la linearità dell'integrale si scrive:
 
-\[S + \delta S = \int_{t_{0}}^{t_{1}}{L\left( \vec{q},\dot{\vec{q}} \right)dt} + \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\ \delta\dot{\vec{q}} \right)dt}\]
+\[
+S + \delta S = \int_{t_{0}}^{t_{1}}{L\left( \mathbf{q},\mathbf{\dot{q}}, t \right)dt} + \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\mathbf{q}}\delta\mathbf{q} + \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\ \delta\mathbf{\dot{q}} \right)dt}
+\]
 
-Dove:
+Poiché:
 
-\[S = \int_{t_{0}}^{t_{1}}{L\left( \vec{q},\dot{\vec{q}} \right)dt}\]
+\[
+S = \int_{t_{0}}^{t_{1}}{L\left( \mathbf{q},\mathbf{\dot{q}}, t \right)dt}
+\]
 
-Da cui si ottiene:
+semplificando \(S\), si ottiene l'espressione per la variazione dell'azione \(\delta S\):
 
-\[S + \delta S = S + \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\ \delta\dot{\vec{q}} \right)dt}\]
+\[
+\delta S = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\mathbf{q}}\delta\mathbf{q} + \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\ \delta\mathbf{\dot{q}} \right)dt}
+\]
 
-Semplificando \(S\), si ottiene un'espressione per la variazione dell'azione \(\delta S\):
+La traiettoria perturbata $\mathbf{q} + \delta\mathbf{q}$ ha in comune con la traiettoria fisica $\mathbf{q}$ i punti iniziali e finali:
 
-\[\delta S = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\ \delta\dot{\vec{q}} \right)dt}\]
+\[
+\begin{cases}
+\mathbf{q}\left( t_{0} \right) + \delta\mathbf{q}\left( t_{0} \right) = \mathbf{q}\left( t_{0} \right) \\
+\mathbf{q}\left( t_{1} \right) + \delta\mathbf{q}\left( t_{1} \right) = \mathbf{q}\left( t_{1} \right)
+\end{cases}
+\]
 
-La traiettoria perturbata \(\delta\vec{q}\) ha in comune con la traiettoria \(\vec{q}\) il punto iniziale \(\vec{A}\) all'istante \(t_{0}\) e il punto di fine \(\vec{B}\) all'istante \(t_{1}\), ne discende che:
+Ne discende che la variazione deve essere nulla agli estremi temporali:
 
-\[\begin{cases}
-\vec{q}\left( t_{0} \right) = \vec{q}\left( t_{0} \right) + \delta\vec{q}\left( t_{0} \right) = \vec{A} \\
-\vec{q}\left( t_{1} \right) = \vec{q}\left( t_{1} \right) + \delta\vec{q}\left( t_{1} \right) = \vec{B}
-\end{cases} \]
+\[
+\delta\mathbf{q}\left( t_{0} \right) = \mathbf{0},\quad\delta\mathbf{q}\left( t_{1} \right) = \mathbf{0}
+\]
 
-Non variando il punto iniziale, risulta che nei punti iniziali non vi sono perturbazioni:
+Poiché la variazione e la derivata temporale sono operazioni interscambiabili, risulta che:
 
-\[\delta\vec{q}\left( t_{0} \right) = \vec{0},\ \ \delta\vec{q}\left( t_{1} \right) = \vec{0}\]
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=5.17616in,height=2.58808in,alt={Immagine che contiene Carattere, linea, diagramma Il contenuto generato dall'IA potrebbe non essere corretto.}]{media/1_Meccanica/image6.pdf}\caption{Perturbazione della traiettoria}
-\end{figure}
-
-Se risulta che:
-
-\[\dot{\vec{q}} = \dfrac{d\vec{q}}{dt}\]
-
-Allora, deve accadere che:
-
-\[\delta\dot{\vec{q}} = \dfrac{d}{dt}\left( \delta\vec{q} \right)\]
+\[
+\delta\mathbf{\dot{q}} = \dfrac{d}{dt}\left( \delta\mathbf{q} \right)
+\]
 
 Dunque, la variazione di azione può essere espressa come:
 
-\[\delta S = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\ \delta\dot{\vec{q}} \right)dt} = \int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\vec{q}}\delta\vec{q}dt} + \int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\dot{\vec{q}}}\ \dfrac{d}{dt}\left( \delta\vec{q} \right)dt}\]
+\[
+\delta S = \int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\mathbf{q}}\delta\mathbf{q}dt} + \int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\mathbf{\dot{q}}}\ \dfrac{d}{dt}\left( \delta\mathbf{q} \right)dt}
+\]
 
-Si considera la quantità:
+Si integra per parti il secondo termine, del tipo:
 
-\[\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\delta\vec{q} \right)\]
+\[
+\int \mathbf{u} d\mathbf{v} = [\mathbf{uv}] - \int \mathbf{v} d\mathbf{u}
+\]
 
-Questa può essere riscritta ricorrendo alle proprietà del prodotto:
+Posto:
 
-\[\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\delta\vec{q} \right) = \left( \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\dfrac{d}{dt}\left( \delta\vec{q} \right)\]
+\[
+\begin{cases}
+\mathbf{u} = \dfrac{\partial L}{\partial\mathbf{\dot{q}}} \\
+d\mathbf{v} = \dfrac{d}{dt}(\delta\mathbf{q}) dt
+\end{cases}
+\]
 
-Da cui è possibile ricavare:
+si ottiene:
 
-\[\dfrac{\partial L}{\partial\dot{\vec{q}}}\dfrac{d}{dt}\left( \delta\vec{q} \right) = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\delta\vec{q} \right) - \left( \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q}\]
+\[
+\int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\mathbf{\dot{q}}}\ \dfrac{d}{dt}\left( \delta\mathbf{q} \right)dt} = \left\lbrack \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\delta\mathbf{q} \right\rbrack_{t_{0}}^{t_{1}} - \int_{t_{0}}^{t_{1}}{\left( \dfrac{d}{dt}\dfrac{\partial L}{\partial\mathbf{\dot{q}}} \right)\delta\mathbf{q}dt}
+\]
 
-Sostituendo nel secondo integrale della variazione dell'azione si ottiene:
 
-\[\delta S = \int_{t_{0}}^{t_{1}}{\left\lbrack \dfrac{\partial L}{\partial\vec{q}}\delta\vec{q} + \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\delta\vec{q} \right) - \left( \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q} \right\rbrack dt}\]
+Grazie alle condizioni al contorno nulle ($\delta\mathbf{q}\left( t_{0} \right) = \delta\mathbf{q}\left( t_{1} \right) = \mathbf{0}$), il termine integrato è nullo:
 
-Raccogliendo \(\delta\vec{q}\) tra il primo e l'ultimo termine, si ha:
+\[
+\left[\dfrac{\partial L}{\partial\mathbf{\dot{q}}}\delta\mathbf{q} \right]_{t_{0}}^{t_{1}} = 0
+\]
 
-\[\delta S = \int_{t_{0}}^{t_{1}}{\left\lbrack \left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q} + \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\delta\vec{q} \right) \right\rbrack dt} = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q}dt} + \int_{t_{0}}^{t_{1}}{\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\delta\vec{q} \right)dt}\]
+Sostituendo nel $\delta S$ si ottiene:
 
-Si considera l'ultimo integrale. Risulta che:
+\[
+\delta S = \int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\mathbf{q}}\delta\mathbf{q}dt} - \int_{t_{0}}^{t_{1}}{\left( \dfrac{d}{dt}\dfrac{\partial L}{\partial\mathbf{\dot{q}}} \right)\delta\mathbf{q}dt}
+\]
 
-\[\int_{t_{0}}^{t_{1}}{\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\delta\vec{q} \right)dt} = \left. \ \ \dfrac{\partial L}{\partial\dot{\vec{q}}}\delta\vec{q} \right|_{t_{0}}^{t_{1}}\ \]
+Raccogliendo $\delta\mathbf{q}$ (che è una moltiplicazione scalare dei due vettori):
 
-Ma, poiché \(\delta\vec{q}\left( t_{0} \right) = \delta\vec{q}\left( t_{1} \right) = \vec{0}\), l'integrale è nullo. In definitiva, si ottiene:
-
-\[\delta S = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q}dt}\]
+\[
+\delta S = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\mathbf{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\mathbf{\dot{q}}} \right)\delta\mathbf{q}dt}
+\]
 
 Dato che l'azione deve essere stazionaria, la sua variazione deve essere nulla \(\delta S = 0\). Per cui si ha:
 
-\[\int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q}dt} = 0\]
+\[
+\int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q}dt} = 0
+\]
 
-Per il Lemma Fondamentale del Calcolo delle Variazioni, la funzione integranda deve essere nulla:
+Poiché $\delta\mathbf{q}$ è una variazione arbitraria e non nulla all'interno dell'intervallo ($\left[t_0; \ t_1\right]$), il Lemma Fondamentale del Calcolo delle Variazioni stabilisce che il coefficiente di $\delta\mathbf{q}$ deve essere il vettore nullo:
 
-\[\left( \dfrac{\partial L}{\partial\vec{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\vec{q}}} \right)\delta\vec{q} = 0\]
+\subsection{Equazione di Eulero-Lagrange}\label{equazione-di-eulero-lagrange}
 
-Se la variazione della traiettoria, \(\delta\vec{q}\), è non nulla, si ritrova l'equazione di Eulero-Lagrange.
+Per descrivere il moto di una particella o di un sistema di particelle, la lagrangiana deve soddisfare l'equazione di Eulero-Lagrange, espressa per la coordinata generalizzata $i$-esima \cite{landau1994meccanica}:
+
+\[
+\dfrac{d}{dt}\left(\dfrac{\partial L}{\partial\dot{q}_i}\right) - \dfrac{\partial L}{\partial q_i} = 0, \text{con } i=1,2,\dots,s
+\]
+
+Poiché l'azione \(S\) deve essere stazionaria, la sua variazione \(\delta S\) deve essere nulla ($\delta S = 0$). Si considera una traiettoria perturbata $\mathbf{q} + \delta\mathbf{q}$ e la velocità perturbata $\mathbf{\dot{q}} + \delta\mathbf{\dot{q}}$:
+
+\[
+S + \delta S = \int_{t_{0}}^{t_{1}}{L\left( \mathbf{q} + \delta\mathbf{q},\mathbf{\dot{q}} + \delta\mathbf{\dot{q}}, t \right)dt}
+\]
+
+dove \(\mathbf{q}\) è la traiettoria fisica che rende stazionaria l'azione \(S\). Il Principio di Hamilton (o di Azione Stazionaria) stabilisce che la traiettoria rende l'azione stazionaria (ovvero $\delta S=0$). Non è garantito che sia un minimo poiché può coincidere un massimo o un punto di sella.
+
+\input{Image/1_Meccanica/1_TraiettoriaPertu}
+
+Siccome le variazioni di spostamento e velocità sono molto minori delle rispettive quantità (ovvero $\delta\mathbf{q}$ è una piccola variazione della traiettoria fisica):
+
+\[
+\delta q_{i} \ll q_{i} \quad \text{e} \quad \delta \dot{q}_{i} \ll \dot{q}_{i}
+\]
+
+è possibile sviluppare la lagrangiana $L$ in serie di Taylor, arrestando lo sviluppo al primo ordine, nell'intorno del punto \(\left( \mathbf{q},\mathbf{\dot{q}} \right)\). La variazione della Lagrangiana $\delta L$ è:
+
+\[
+L\left( \mathbf{q} + \delta\mathbf{q},\mathbf{\dot{q}} + \delta\mathbf{\dot{q}}, t \right) \simeq L\left( \mathbf{q},\mathbf{\dot{q}}, t \right) + \sum_{i=1}^s \left( \dfrac{\partial L}{\partial q_i}\delta q_i + \dfrac{\partial L}{\partial\dot{q}_i}\delta \dot{q}_i \right)
+\]
+
+Per comodità, si può esprimere la variazione $\delta L$ usando la notazione vettoriale (prodotto scalare generalizzato):
+
+\[
+L\left( \mathbf{q} + \delta\mathbf{q},\mathbf{\dot{q}} + \delta\mathbf{\dot{q}}, t \right) \simeq L\left( \mathbf{q},\mathbf{\dot{q}}, t \right) + \dfrac{\partial L}{\partial\mathbf{q}} \cdot \delta\mathbf{q} + \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\cdot \delta\mathbf{\dot{q}}
+\]
+
+Sostituendo nell'espressione della variazione dell'azione, si ottiene:
+
+\[
+S + \delta S = \int_{t_{0}}^{t_{1}}{\left\lbrack L\left( \mathbf{q},\mathbf{\dot{q}}, t \right) + \dfrac{\partial L}{\partial\mathbf{q}}\delta\mathbf{q} + \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\ \delta\mathbf{\dot{q}} \right\rbrack dt}
+\]
+
+Per la linearità dell'integrale si scrive:
+
+\[
+S + \delta S = \int_{t_{0}}^{t_{1}}{L\left( \mathbf{q},\mathbf{\dot{q}}, t \right)dt} + \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\mathbf{q}}\delta\mathbf{q} + \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\ \delta\mathbf{\dot{q}} \right)dt}
+\]
+
+Poiché:
+
+\[
+S = \int_{t_{0}}^{t_{1}}{L\left( \mathbf{q},\mathbf{\dot{q}}, t \right)dt}
+\]
+
+semplificando \(S\), si ottiene l'espressione per la variazione dell'azione \(\delta S\):
+
+\[
+\delta S = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\mathbf{q}}\delta\mathbf{q} + \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\ \delta\mathbf{\dot{q}} \right)dt}
+\]
+
+La traiettoria perturbata $\mathbf{q} + \delta\mathbf{q}$ ha in comune con la traiettoria fisica $\mathbf{q}$ i punti iniziali e finali:
+
+\[
+\begin{cases}
+\mathbf{q}\left( t_{0} \right) + \delta\mathbf{q}\left( t_{0} \right) = \mathbf{q}\left( t_{0} \right) \\
+\mathbf{q}\left( t_{1} \right) + \delta\mathbf{q}\left( t_{1} \right) = \mathbf{q}\left( t_{1} \right)
+\end{cases}
+\]
+
+Ne discende che la variazione deve essere nulla agli estremi temporali:
+
+\[
+\delta\mathbf{q}\left( t_{0} \right) = \mathbf{0},\quad\delta\mathbf{q}\left( t_{1} \right) = \mathbf{0}
+\]
+
+Poiché la variazione e la derivata temporale sono operazioni interscambiabili, risulta che:
+
+\[
+\delta\mathbf{\dot{q}} = \dfrac{d}{dt}\left( \delta\mathbf{q} \right)
+\]
+
+Dunque, la variazione di azione può essere espressa come:
+
+\[
+\delta S = \int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\mathbf{q}}\delta\mathbf{q}dt} + \int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\mathbf{\dot{q}}}\ \dfrac{d}{dt}\left( \delta\mathbf{q} \right)dt}
+\]
+
+Si integra per parti il secondo termine, del tipo:
+
+\[
+\int \mathbf{u} d\mathbf{v} = [\mathbf{uv}] - \int \mathbf{v} d\mathbf{u}
+\]
+
+Posto:
+
+\[
+\begin{cases}
+\mathbf{u} = \dfrac{\partial L}{\partial\mathbf{\dot{q}}} \\
+d\mathbf{v} = \dfrac{d}{dt}(\delta\mathbf{q}) dt
+\end{cases}
+\]
+
+si ottiene:
+
+\[
+\int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\mathbf{\dot{q}}}\ \dfrac{d}{dt}\left( \delta\mathbf{q} \right)dt} = \left\lbrack \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\delta\mathbf{q} \right\rbrack_{t_{0}}^{t_{1}} - \int_{t_{0}}^{t_{1}}{\left( \dfrac{d}{dt}\dfrac{\partial L}{\partial\mathbf{\dot{q}}} \right)\delta\mathbf{q}dt}
+\]
+
+
+Grazie alle condizioni al contorno nulle ($\delta\mathbf{q}\left( t_{0} \right) = \delta\mathbf{q}\left( t_{1} \right) = \mathbf{0}$), il termine integrato è nullo:
+
+\[
+\left[\dfrac{\partial L}{\partial\mathbf{\dot{q}}}\delta\mathbf{q} \right]_{t_{0}}^{t_{1}} = 0
+\]
+
+Sostituendo nel $\delta S$ si ottiene:
+
+\[
+\delta S = \int_{t_{0}}^{t_{1}}{\dfrac{\partial L}{\partial\mathbf{q}}\delta\mathbf{q}dt} - \int_{t_{0}}^{t_{1}}{\left( \dfrac{d}{dt}\dfrac{\partial L}{\partial\mathbf{\dot{q}}} \right)\delta\mathbf{q}dt}
+\]
+
+Raccogliendo $\delta\mathbf{q}$ (che è una moltiplicazione scalare dei due vettori):
+
+\[
+\delta S = \int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\mathbf{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\mathbf{\dot{q}}} \right)\delta\mathbf{q}dt}
+\]
+
+Dato che l'azione deve essere stazionaria, la sua variazione deve essere nulla \(\delta S = 0\). Per cui si ha:
+
+\[
+\int_{t_{0}}^{t_{1}}{\left( \dfrac{\partial L}{\partial\mathbf{q}} - \dfrac{d}{dt}\dfrac{\partial L}{\partial\mathbf{\dot{q}}} \right)\delta\mathbf{q}dt} = 0
+\]
+
+Poiché $\delta\mathbf{q}$ è una variazione arbitraria e non nulla all'interno dell'intervallo ($\left[t_0; \ t_1\right]$), il Lemma Fondamentale del Calcolo delle Variazioni stabilisce che il coefficiente di $\delta\mathbf{q}$ deve essere il vettore nullo:
+
+\[
+\dfrac{d}{dt}\dfrac{\partial L}{\partial\mathbf{\dot{q}}} - \dfrac{\partial L}{\partial\mathbf{q}} = \mathbf{0}
+\]
+
+Questa è l'Equazione di \textbf{Eulero-Lagrange in forma vettoriale}, che equivale a $s$ equazioni scalari differenziali del secondo ordine.
 
 \subsubsection{Particella in coordinate cartesiane}\label{particella-in-coordinate-cartesiane}
 
@@ -299,7 +474,7 @@ Tuttavia, nella pratica non è sempre conveniente descrivere il moto in coordina
 Per un sistema di \(N\) particelle nelle coordinate generalizzate \(\vec{q}\) e \(\dot{\vec{q}}\), l'energia cinetica è:
 
 \[
-T = T\left( q_{i},{\dot{q}}_{i} \right),\ \ i = 1,\ \ldots,s
+T = T\left( q_{i},{\dot{q}}_{i} \right),\ i = 1,\ \ldots,\ s
 \]
 
 Ovvero l'energia cinetica è una funzione anche delle coordinate generalizzate \(q_{i}\) oltre che della velocità \({\dot{q}}_{i}\).
@@ -307,7 +482,7 @@ Ovvero l'energia cinetica è una funzione anche delle coordinate generalizzate \
 Si considerano \(N\) funzioni \(f_{i}\) che legano le coordinate cartesiane \(\left( x_{i},y_{i},z_{i} \right)\) con le coordinate generalizzate \(\left( q_{1},q_{2},\ldots,q_{s} \right)\). Ad esempio, si considera:
 
 \[
-x_{i} = f_{i}\left( q_{1},\ q_{2},\ \ldots,\ q_{s} \right),\ \ i = 1,2,\ldots,N
+x_{i} = f_{i}\left( q_{1},\ q_{2},\ \ldots,\ q_{s} \right),\quad i = 1,2,\ldots,N
 \]
 
 Dove:
@@ -316,7 +491,7 @@ Dove:
 
 Si deriva \(x_{i}\) rispetto al tempo al fine da ottenere la velocità:
 
-\[{\dot{x}}_{i} = \dfrac{d}{dt}f_{i}\left( q_{1},q_{2},\ldots,\ q_{s} \right),\ \ i = 1,2,\ldots,N\]
+\[{\dot{x}}_{i} = \dfrac{d}{dt}f_{i}\left( q_{1},q_{2},\ldots,\ q_{s} \right),\quad i = 1,2,\ldots,N\]
 
 Per la derivata della funzione composta si ha:
 
@@ -421,7 +596,7 @@ Passando alle coordinate cartesiane si ha:
 Nell'ipotesi che la $i$-esima coordinata generalizzata $q_i$ coincida con la $i$-esima coordinata cartesiana $x_i$ e  che $x_i$ non dipende da nessuna delle altre coordinate generalizzate $q_j$ (per $j \neq i$), è possibile semplificare la relazione precedente:
 
 \[
-\dfrac{\partial}{\partial q_{i}} = \dfrac{\partial x_{i}}{\partial q_{i}}\dfrac{\partial}{\partial x_{i}} = \dfrac{\partial}{\partial x_{i}}
+\dfrac{\partial}{\partial q_{i}} = \sum_{j} \dfrac{\partial x_{j}}{\partial q_{i}}\dfrac{\partial}{\partial x_{j}} = \sum_{j} \delta_{ij}\dfrac{\partial}{\partial x_{j}} = \dfrac{\partial}{\partial x_{i}}
 \]
 
  Analogo procedimento può essere eseguito per passare da \({\dot{q}}_{i}\) a \({\dot{x}}_{i}\).
@@ -491,11 +666,17 @@ Ne discende che la quantità di moto \(p_{i}\) e la forza \(f_{i}\) sono legate 
 \[
 \begin{cases}
 \displaystyle p_{i} = \dfrac{\partial L}{\partial{\dot{q}}_{i}} \\
-\displaystyle f_{i} = \dfrac{\partial L}{\partial q_{i}}
+\displaystyle f_{i} = - \dfrac{\partial U}{\partial q_{i}}
 \end{cases}
 \]
 
-Le due relazioni sono note come definizioni fondamentali della meccanica lagrangiana. La prima (\(p_{i}\)) è detta momento generalizzato coniugato, mentre la seconda forza generalizzata.
+Le due relazioni sono note come definizioni fondamentali della meccanica lagrangiana. La prima (\(p_{i}\)) è detta \textbf{momento generalizzato coniugato}, mentre la seconda forza generalizzata. Più in generale, si definisce la \textbf{forza generalizzata} $Q_i$ come:
+
+\[
+Q_i = \sum_j \vec{F}_j \cdot \frac{\partial \vec{r}_j}{\partial q_i}
+\]
+
+Cioè, è la proiezione di tutte le forze effettive sulle direzioni di variazione delle coordinate generalizzate.
 
 Si considera l'equazione di Eulero-Lagrange e si sostituisce la relazione per il momento coniugato generalizzato:
 
@@ -506,6 +687,8 @@ Da cui risulta:
 \[
 \dot{p}_{i} = \dfrac{\partial L}{\partial q_{i}}
 \]
+
+questa relazione lega la derivata del momento generalizzato coniugato alla lagrangiana.
 
 \subsection{Principio di conservazione}\label{principio-di-conservazione}
 
@@ -526,19 +709,25 @@ In particolare, queste leggi di conservazione sono connesse all'invarianza delle
 
 L'energia totale \(E = T + U\) si conserva grazie alla proprietà di omogeneità temporale. Infatti, se il tempo è omogeneo e il sistema isolato, per definizione la lagrangiana non dipende esplicitamente dal tempo; invece, tale dipendenza è presente nelle coordinate generalizzate \cite{landau1994meccanica}:
 
-\[L = L\left( \vec{q},\dot{\vec{q}} \right),\ \ \vec{q} = \vec{q}(t),\dot{\vec{q}} = \dot{\vec{q}}(t)\]
+\[L = L\left( \vec{q},\dot{\vec{q}} \right),\quad \vec{q} = \vec{q}(t),\dot{\vec{q}} = \dot{\vec{q}}(t)\]
 
 La derivata rispetto al tempo della lagrangiana, per la derivata delle funzioni composte, può essere espressa come:
 
-\[\dfrac{d}{dt}L\left( \vec{q},\dot{\vec{q}} \right) = \dfrac{\partial L}{\partial\vec{q}}\dfrac{d\vec{q}}{dt} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\dfrac{d\dot{\vec{q}}}{dt}\]
+\[
+\dfrac{d}{dt}L\left( \vec{q},\dot{\vec{q}} \right) = \dfrac{\partial L}{\partial\vec{q}}\dfrac{d\vec{q}}{dt} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\dfrac{d\dot{\vec{q}}}{dt}
+\]
 
 dove i prodotti tra vettori sono da intendersi come prodotti scalari. Dunque, ricorrendo alla simbologia sulle derivate temporali, si può scrivere:
 
-\[\dfrac{d}{dt}L\left( \vec{q},\dot{\vec{q}} \right) = \dfrac{\partial L}{\partial\vec{q}}\dot{\vec{q}} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\vec{\ddot{q}}\]
+\[
+\dfrac{d}{dt}L\left( \vec{q},\dot{\vec{q}} \right) = \dfrac{\partial L}{\partial\vec{q}}\cdot\dot{\vec{q}} + \dfrac{\partial L}{\partial\dot{\vec{q}}}\cdot\vec{\ddot{q}}
+\]
 
 Si considera la quantità:
 
-\[\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right)\]
+\[
+\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\dot{\vec{q}}}\cdot\dot{\vec{q}} \right)
+\]
 
 Svolgendo la derivata si ottiene:
 
@@ -562,15 +751,33 @@ Per l'equazione di Eulero-Lagrange, il secondo membro è nullo:
 
 Dunque:
 
-\[\dfrac{d}{dt}\left( L - \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right) = 0\]
+\[
+\dfrac{d}{dt}\left( L - \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} \right) = 0
+\]
+
+Si considera la quantità \(C\), definita come:
+
+\[
+C = dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} - L
+\]
+
+La relazione si può scrivere come:
+
+\[
+\dfrac{d}{dt}\left( -C \right) = 0 \Leftrightarrow \dfrac{dC}{dt} = 0
+\]
 
 Integrando rispetto al tempo si ottiene:
 
-\[L - \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} = cost\]
+\[
+\dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} - L= \text{cost}
+\]
 
 Per definizione di lagrangiana, risulta che:
 
-\[L = T - U\]
+\[
+L = T - U
+\]
 
 Inoltre, l'energia potenziale non dipende dalla velocità, dunque:
 
@@ -590,9 +797,11 @@ Per sistemi dove l'energia cinetica è una funzione omogenea di secondo grado ri
 
 Per cui:
 
-\[L - \dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} = cost \Leftrightarrow T - U - 2T = cost\]
+\[
+\dfrac{\partial L}{\partial\dot{\vec{q}}}\dot{\vec{q}} -L = \text{cost} \Leftrightarrow -T + U + 2T = cost
+\]
 
-A meno di un segno, risulta:
+Da cui discende:
 
 \[
 T + U = cost
@@ -622,9 +831,11 @@ Passando a coordinate cartesiane, \(\vec{q}\) coincide con la posizione \(\vec{r
 
 \[\dfrac{\partial L}{\partial\vec{r}} - \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{v}} \right) = \vec{0} \Leftrightarrow \dfrac{\partial L}{\partial\vec{r}} = \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial\vec{v}} \right)\]
 
-Per la proprietà di omogeneità spaziale, la derivata rispetto alla posizione della lagrangiana è nulla:
+La condizione di omogeneità spaziale impone che la lagrangiana non dipenda esplicitamente dalla posizione ($\vec{r}$), il che significa che la forza generalizzata è nulla
 
-\[\dfrac{\partial L}{\partial\vec{r}} = \vec{0}\]
+\[
+\dfrac{\partial L}{\partial\vec{r}} = \vec{0}
+\]
 
 Per cui risulta che:
 
@@ -670,7 +881,7 @@ Per l'ipotesi di isotropia, la variazione \(\delta L = 0\), per cui si ha:
 
 Si sostituiscono le relazioni per le variazioni di spostamento e velocità in termini di \(d\vec{\varphi} \times \vec{r}\):
 
-\[\delta\vec{r} = d\vec{\varphi} \times \vec{r},\ \ \delta\vec{v} = d\vec{\varphi} \times \vec{v}\]
+\[\delta\vec{r} = d\vec{\varphi} \times \vec{r},\quad \delta\vec{v} = d\vec{\varphi} \times \vec{v}\]
 
 Si ottiene:
 
@@ -694,7 +905,7 @@ Dall'equivalenza con la meccanica classica, è noto che:
 \[
 \begin{cases}
 \displaystyle \dfrac{\partial L}{\partial{\vec{v}}_{i}} = {\vec{p}}_{i} \\
-\displaystyle \dfrac{\partial L}{\partial{\vec{r}}_{i}} = {\vec{f}}_{i} = \displaystyle \dfrac{d{\vec{p}}_{i}}{dt}
+\displaystyle \dfrac{\partial L}{\partial{\vec{r}}_{i}} =  \displaystyle \dfrac{d{\vec{p}}_{i}}{dt}
 \end{cases}
 \]
 
@@ -737,14 +948,12 @@ Si ha:
 \]
 
 Da questa relazione discende la conservazione del momento angolare lungo la direzione \(d\vec{\varphi}\) di simmetria del potenziale \(U\).
+
 \subsection{Lagrangiana per pendolo}\label{lagrangiana-per-pendolo}
 
 Si considera un corpo di massa \(m\) sospeso a un filo di lunghezza \(l\) nel campo gravitazionale con accelerazione \(g\).
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1.62881in,height=2.32892in,alt={Immagine che contiene schizzo, diagramma, linea, disegno Il contenuto generato dall'IA potrebbe non essere corretto.}]{media/1_Meccanica/image7.pdf}\caption{Pendolo semplice}
-\end{figure}
+\input{Image/1_Meccanica/1_Pendolo}
 
 Il pendolo possiede un solo grado di libertà, ovvero la rotazione intorno al proprio polo. Sia \(\vartheta\) l'angolo di cui la massa \(m\) è inclinata rispetto la verticale. La funzione lagrangiana data da:
 
@@ -768,7 +977,9 @@ Dunque, l'energia potenziale è data da:
 
 Esplicitando l'energia potenziale e cinetica, la lagrangiana è data da:
 
-\[L\left( \vartheta,\dot{\vartheta} \right) = T - U = \dfrac{1}{2}m\left( l\dot{\vartheta} \right)^{2} - mgl(1 - cos\vartheta)\]
+\[
+L\left( \vartheta,\dot{\vartheta} \right) = T - U = \dfrac{1}{2}m\left( l\dot{\vartheta} \right)^{2} - mgl(1 - cos\vartheta)
+\]
 
 La funzione lagrangiana deve soddisfare l'equazione di Eulero-Lagrange:
 
@@ -812,12 +1023,9 @@ In definitiva, si ottiene l'equazione dell'oscillatore armonico.
 
 \subsection{Lagrangiana per il doppio pendolo}\label{lagrangiana-per-il-doppio-pendolo}
 
-Si vuole scrivere la lagrangiana per un doppio pendolo, costituito da due masse, \(m_{1}\) e \(m_{2}\) connesse tra loro. La prima massa è collegata al fulcro mediante un cavo di lunghezza \(l_{1}\); la seconda è connessa a \(m_{1}\) mediante un cavo di lunghezza \(l_{2}\)
+Si vuole scrivere la lagrangiana per un doppio pendolo, costituito da due masse, \(m_{1}\) e \(m_{2}\) connesse tra loro. La prima massa è collegata al fulcro mediante un cavo di lunghezza \(l_{1}\); la seconda è connessa a \(m_{1}\) mediante un cavo di lunghezza \(l_{2}\).
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1.49765in,height=2.0292in,alt={Immagine che contiene diagramma, linea, design Il contenuto generato dall'IA potrebbe non essere corretto.}]{media/1_Meccanica/image8.pdf}\caption{Doppio pendolo}
-\end{figure}
+\input{Image/1_Meccanica/1_DoublePendolo}
 
 Si proiettano le componenti delle lunghezze \(l_{1}\) e \(l_{2}\) sugli assi cartesiani:
 
@@ -858,11 +1066,11 @@ v_{1}^{2} = {\dot{x}}_{1}^{2} + {\dot{y}}_{1}^{2} = \left( l_{1}\cos\vartheta_{1
 
 La velocità al quadrato della massa \(m_{2}\) è data da:
 
-\[\begin{aligned}
+\begin{align*}
 v_{2}^{2} & = {\dot{x}}_{2}^{2} + {\dot{y}}_{2}^{2} = \left( l_{1}\cos\vartheta_{1}\,{\dot{\vartheta}}_{1} + l_{2}\cos\vartheta_{2}\,{\dot{\vartheta}}_{2} \right)^{2} + \left( l_{1}\sin\vartheta_{1}\,{\dot{\vartheta}}_{1} + l_{2}\sin\vartheta_{2}\,{\dot{\vartheta}}_{2} \right)^{2} \\
  & = l_{1}^{2}{\dot{\vartheta}}_{1}^{2}\left( \cos^{2}\vartheta_{1} + \sin^{2}\vartheta_{1} \right) + l_{2}^{2}{\dot{\vartheta}}_{2}^{2}\left( \cos^{2}\vartheta_{2} + \sin^{2}\vartheta_{2} \right) + 2l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\left( \cos\vartheta_{1}\cos\vartheta_{2} + sin\vartheta_{1}\sin\vartheta_{2} \right) \\
  & = l_{1}^{2}{\dot{\vartheta}}_{1}^{2} + l_{2}^{2}{\dot{\vartheta}}_{2}^{2} + 2l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}cos(\vartheta_{1} - \vartheta_{2})
-\end{aligned}\]
+\end{align*}
 
 Ricorrendo alle identità trigonometriche, è possibile scrivere:
 
@@ -878,7 +1086,7 @@ Bisogna valutare anche l'energia potenziale. Quest'ultima è data dalla somma de
 
 Dove:
 
-\[\Delta h_{1} = l_{1} - l_{1}\cos\vartheta_{1} = l_{1}\left( 1 - cos\vartheta_{1} \right),\ \ \Delta h_{2} = l_{1} + l_{2} - l_{1}\cos\vartheta_{1} - l_{2}\cos\vartheta_{2} = l_{1}\left( 1 - cos\vartheta_{1} \right) + l_{2}\left( 1 - cos\vartheta_{2} \right)\]
+\[\Delta h_{1} = l_{1} - l_{1}\cos\vartheta_{1} = l_{1}\left( 1 - cos\vartheta_{1} \right),\quad\Delta h_{2} = l_{1} + l_{2} - l_{1}\cos\vartheta_{1} - l_{2}\cos\vartheta_{2} = l_{1}\left( 1 - cos\vartheta_{1} \right) + l_{2}\left( 1 - cos\vartheta_{2} \right)\]
 
 Sostituendo, si ottiene:
 
@@ -1064,7 +1272,7 @@ La derivata temporale della funzione \(f\), può essere scritta come:
 
 \[\dfrac{df}{dt} = \sum_{i = 1}^{N}\left( \dfrac{\partial f}{\partial q_{i}}\dfrac{dq_{i}}{dt} + \dfrac{\partial f}{\partial p_{i}}\dfrac{dp_{i}}{dt} \right) = \sum_{i = 1}^{N}\left( \dfrac{\partial f}{\partial q_{i}}{\dot{q}}_{i} + \dfrac{\partial f}{\partial p_{i}}{\dot{p}}_{i} \right) = \sum_{i = 1}^{N}\left( \dfrac{\partial f}{\partial q_{i}}\dfrac{\partial H}{\partial p_{i}} - \dfrac{\partial f}{\partial p_{i}}\dfrac{\partial H}{\partial q_{i}} \right)\]
 
-Per semplificare la notazione si introduce la **parentesi di Poisson** \cite{arnold1992matematici}:
+Per semplificare la notazione si introduce la \textbf{parentesi di Poisson} \cite{arnold1992matematici}:
 
 \[
 \left\{ f,H \right\} = \sum_{i = 1}^{N}\left( \dfrac{\partial f}{\partial q_{i}}\dfrac{\partial H}{\partial p_{i}} - \dfrac{\partial f}{\partial p_{i}}\dfrac{\partial H}{\partial q_{i}} \right)
@@ -1362,7 +1570,7 @@ set(gca,'xlim',[0 1])
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=4.93333in,height=3.95833in,alt={P754\#yIS1}]{media/1_Meccanica/image10.pdf}\caption{Andamento delle soluzioni e relativa risposta spettrale}
+\includegraphics[width=4.93333in,height=3.95833in,alt={P754\#yIS1}]{media/1_Meccanica/spettro_segnali.eps}\caption{Andamento delle soluzioni e relativa risposta spettrale}
 \end{figure}
 
 Come si vede dalla trasformata di Fourier, le soluzioni del sistema accoppiato contengono due frequenze di oscillazione ben distinte (\(\omega_{1}\) e \(\omega_{2}\)). A causa dell'interazione tra le due funzioni, entrambe le soluzioni \(y_{1}\) e \(y_{2}\) sono una combinazione di queste due frequenze, che sono differenti dal caso non interagente.

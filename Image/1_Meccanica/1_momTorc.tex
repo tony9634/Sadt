@@ -1,0 +1,22 @@
+\begin{figure}[h!]
+    \centering
+\begin{tikzpicture}[scale=2]
+    % Coordinate
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (2,0);
+    \coordinate (B) at (3,1);
+
+    % Vettori
+    \fill (O) circle (1pt);
+    \node[left] at (O) {$O$};
+    \draw[->, thick] (O) -- (A) node[midway, below] {$\vec{r}$};
+    \draw[->, thick] (A) -- (B) node[midway, above] {$\vec{F}$};
+
+    % Disegno dell'angolo tra i due vettori
+    \draw (A) -- ++(-0.5,0) coordinate (aux); % punto ausiliario per l'arco
+    \pic [draw, "$\theta$", angle radius=0.4cm] {angle = B--A--O};
+
+\end{tikzpicture}
+    \caption{Definizione del momento torcente rispetto a un punto fisso}
+    \label{fig:1_momTorc}
+\end{figure}

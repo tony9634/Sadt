@@ -1,0 +1,23 @@
+\begin{figure}[h!]
+    \centering
+\begin{tikzpicture}[>=stealth, thick]
+
+% Punti A e B
+\node[label=left:{$\left(\vec{A}, t_0\right)$}] (A) at (0,0) {};
+\node[label=right:{$\left(\vec{B}, t_1\right)$}] (B) at (6,2) {};
+
+% Prima curva (senza freccia)
+\draw[line width=1.2pt] (A) to[out=60, in=180] (2,0);
+
+% Seconda curva (con freccia verso B)
+\draw[->, line width=1.2pt] (2,0) to[out=0, in=150] (B);
+
+% Punti visibili
+\fill (A) circle (2pt);
+\fill (B) circle (2pt);
+
+\end{tikzpicture}
+
+    \caption{Esempio di moto su traiettoria a azione stazionaria tra due punti nel tempo}
+    \label{fig:1_Traiettoria}
+\end{figure}

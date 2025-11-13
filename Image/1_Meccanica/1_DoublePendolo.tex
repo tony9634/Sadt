@@ -1,0 +1,44 @@
+\begin{figure}[h!]
+    \centering
+
+\begin{tikzpicture}[scale=1.2]
+
+% Soffitto
+\draw[thick] (-2,0) -- (2,0);
+\foreach \x in {-2,-1.6,...,2}
+    \draw[thick] (\x,0) -- (\x+0.4,0.4);
+
+% Coordinate dei punti
+\coordinate (O) at (0,0);
+\coordinate (A) at (-1.2,-2); % massa m1 inclinata
+\coordinate (B) at (1.2,-3.8); % massa m2 inclinata
+
+% Aste
+\draw[thick] (O) -- (A);
+\draw[thick] (A) -- (B);
+
+% Masse (grigie)
+\filldraw[fill=gray!30] (A) circle (0.25) node[right=10pt] {$m_1$};
+\filldraw[fill=gray!30] (B) circle (0.25) node[right=10pt] {$m_2$};
+
+
+% Lunghezze (spostate lungo le aste)
+\node[above left,xshift=-4pt,yshift=-4pt] at ($(O)!0.55!(A)$) {\textit{$l_1$}};
+\node[above right,xshift=4pt,yshift=-4pt] at ($(A)!0.55!(B)$) {\textit{$l_2$}};
+
+% Linee verticali tratteggiate
+\draw[dashed] (O) -- (0,-4.2);
+\draw[dashed] (A) -- (-1.2,-4.2);
+
+% Angoli con frecce e label vicine
+\draw[-] (0,-0.6) arc (-90:-120:0.6);
+\node[left,xshift=25pt,yshift=-2pt] at (-0.7,-0.9) {\textit{$\theta_1$}};
+
+\draw[-] (-1.2,-2.6) arc (-90:-40:0.6);
+\node[right,xshift=-45pt,yshift=-2pt] at (0.3,-2.9) {\textit{$\theta_2$}};
+
+\end{tikzpicture}
+
+    \caption{Doppio pendolo}
+    \label{fig:1_DoublePendolo}
+\end{figure}
