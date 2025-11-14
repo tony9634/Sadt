@@ -9,48 +9,62 @@
 \end{center}
 \justify
 
-\section{Discordanza tra meccanica ed elettromagnetismo}\label{cenni-di-relativituxe0-ristretta}
+\section{Discordanza tra Meccanica ed Elettromagnetismo}\label{discordanza-meccanica-elettromagnetismo}
 
-Verso la fine del 1800, le previsioni della meccanica classica non erano in grado di spiegare i fenomeni rilevati sperimentalmente riguardanti la velocità della luce. In questo periodo storico, le equazioni di Maxwell indicavano che ogni radiazione elettromagnetica si propaga nello spazio con velocità costante \(c\).
+Verso la fine del 1800, emerse una profonda discordanza tra le leggi della \textbf{meccanica classica}, basate sulle trasformazioni di Galileo, e quelle dell'\textbf{elettromagnetismo}, descritte dalle equazioni di Maxwell. Le equazioni di Maxwell prevedevano che la luce, e più in generale ogni radiazione elettromagnetica, si propagasse nel vuoto con una velocità costante $c$, pari a circa $3 \times 10^8$ m/s. Tuttavia, se si applicavano le trasformazioni di Galileo, questa velocità avrebbe dovuto apparire diversa per osservatori in moto relativo, in contraddizione con la sua natura di costante universale.
 
-L'esperimento di Michelson-Morley del 1881 dimostrò che la velocità della luce \(c\) è la stessa in tutti i sistemi di riferimento inerziali, indipendentemente dal loro moto relativo. Questo risultato non era in accordo con le previsioni teoriche della meccanica classica, basata sul principio di relatività galileiana.
+L'\textbf{esperimento di Michelson-Morley}, condotto nel 1887, mirava originariamente a misurare la velocità della Terra rispetto al presunto \textbf{etere luminifero}, il mezzo attraverso cui si riteneva si propagasse la luce. Il celebre \textbf{risultato nullo} dell'esperimento dimostrò l'impossibilità di rilevare tale moto. Questa evidenza sperimentale supportò l'ipotesi che la velocità della luce $c$ è la stessa in tutti i sistemi di riferimento inerziali, indipendentemente dal moto della sorgente o dell'osservatore. Tale risultato sperimentale non era conciliabile con il Principio di Relatività galileiana applicato alle equazioni di Maxwell, rendendo necessaria la revisione delle fondamenta della fisica classica.
 
 \subsection{Trasformazioni galileiane}\label{trasformazioni-galileiane}
 
-Per comprendere le previsioni della meccanica classica si dati due sistemi di riferimento inerziali in moto relativo tra loro con velocità costante \(\vec{v}\). Si suppone che il movimento del sistema \(K'\) rispetto al sistema \(K\) avvenga solamente lungo \(x\). Con questa ipotesi la trattazione non perde di generalità, infatti, per i moti traslatori è sempre possibile definire un asse lungo cui avviene il moto. Gli altri assi restano paralleli.
+Per comprendere le previsioni della meccanica classica si considerino due sistemi di riferimento inerziali, $K$ e $K^'$, in moto relativo uniforme l'uno rispetto all'altro con velocità costante $\vec{v}$. Si assume che il moto del sistema $K'$ rispetto a $K$ avvenga unicamente lungo l'asse $x$, in modo che gli assi restino paralleli e che $K$ e $K'$ coincidano all'istante $t=t'=0$.
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=2.71102in,height=1.62939in,alt={P763\#yIS1}]{media/2_Relatività/image11.pdf}\caption{Sistemi di riferimento in moto relativo}
-\end{figure}
+\input{Image/2_Relatività/2_SistRef}
 
-In questo caso, le trasformazioni galileiane si scrivono come:
+L'ipotesi fondamentale della meccanica classica è il \textbf{tempo assoluto}, ovvero che il tempo scorra nello stesso modo per tutti gli osservatori inerziali ($t = t'$). In queste condizioni, le \textbf{Trasformazioni Galileiane di Posizione} si scrivono come:
 
 \[
 \begin{cases}
 x = x' + vt \\
 y = y' \\
-z = z'
-\end{cases} \Leftrightarrow \begin{cases}
-v_{x} = v_{x'} + v \\
-v_{y} = v_{y'} \\
-v_{z} = v_{z'}
-\end{cases} 
+z = z' \\
+t = t'
+\end{cases}
 \]
 
-Da queste relazioni si evince che, se una radiazione elettromagnetica viaggia con velocità \(c\) nel sistema \(K'\), un osservatore nel sistema \(K\) la misurerebbe a una velocità pari a \(c + v\). Tale considerazione è in contrasto con l'esperimento di Michelson e Morley. Questa incongruenza discende dall'aver considerato il tempo uguale per i due sistemi di riferimento inerziali, in moto relativo tra loro \cite{kittel1965meccanica}.
+Derivando queste relazioni rispetto al tempo, si ottengono le \textbf{Trasformazioni Galileiane di Velocità} o regola di composizione classica delle velocità:
 
-\section{Relatività ristretta}\label{relativituxe0-ristretta}
+\[
+\begin{cases}
+v_{x} = v'_{x} + v \\
+v_{y} = v'_{y} \\
+v_{z} = v'_{z}
+\end{cases}
+\]
 
-Assumendo che il principio di relatività sia valido, nel `900 Einstein dimostrò che il concetto di tempo non è assoluto ma relativo. Si considerano, dunque, due sistemi inerziali \(K\) e \(K'\), di cui il primo fermo mentre il secondo in moto lungo la direzione delle \(x\) positive con velocità \(v\). Se è valido il principio di relatività, le equazioni di Maxwell devono essere le stesse per ogni sistema inerziale. Di conseguenza la velocità della luce \(c\) deve essere la stessa sia in \(K\) che \(K'\).
+Da queste relazioni, si evince che se una radiazione elettromagnetica viaggia con velocità $c$ lungo l'asse $x'$ nel sistema $K'$ (quindi $v'_{x} = c$), un osservatore nel sistema $K$ misurerebbe una velocità $v_x$ pari a $c + v$ (se $K'$ si allontana da $K$). Questa previsione, basata sul \textbf{Principio di Relatività Galileiana} e sull'ipotesi di \textbf{tempo assoluto}, è in \textbf{netto contrasto} con il risultato nullo dell'esperimento di Michelson-Morley e con la costanza della velocità della luce \cite{kittel1965meccanica}.
 
-Siano \(A\), \(B\) e \(C\) tre punti sull'asse delle \(x'\), con \(A\) e \(C\) equidistanti da \(B\), sorgente luminosa. I tre punti sono solidali con il sistema riferimento \(K'\), ovvero sono fermi rispetto a esso. Se anche l'osservatore è solidale con il sistema di riferimento \(K'\), vede i tre punti fermi, dunque, la luce, procedendo con velocità \(c\) in entrambe le direzioni, giungere contemporaneamente sui punti \(A\) e \(C\).
+Questo profondo conflitto teorico-sperimentale evidenziò che l'ipotesi classica di $t=t'$ non è valida quando si considerano fenomeni ad alta velocità \cite{kittel1965meccanica}.
 
-Per un osservatore solidale con \(K\) i tre punti si muovono con velocità \(v\) nel verso positivo delle \(x\). In particolare, \(A\) insegue la sorgente luminosa, mentre \(C\) si allontana da essa. La luce, dovendo compiere percorsi diversi, raggiunge prima il punto \(A\) e, successivamente, il punto \(C\).
+\section{Relatività ristretta}\label{relativita-ristretta}
 
-Da questo esempio discende che, cambiando sistema di riferimento, gli eventi che in un sistema di riferimento \(K'\) sono contemporanei, non lo sono nel sistema di riferimento \(K\). Si conclude, quindi, che il tempo è un concetto relativistico legato al sistema di riferimento considerato. Bisogna collegare la coordinata temporale \(t'\) del sistema in moto \(K'\) con la rispettiva \(t\) del sistema di riferimento \(K\), in modo che sia rispettato il principio di invarianza della velocità della luce delle equazioni di Maxwell.
+Assumendo che il principio di relatività sia valido, all'inizio del '900 Einstein dimostrò che il concetto di tempo non è assoluto ma \textbf{relativo}. Egli si basò su due postulati fondamentali:
 
-A tale scopo si supponga che un'onda luminosa sferica si propaghi partendo dall'origine del sistema di coordinate \(K\) e si propaghi con velocità \(c\) nello spazio. Questo fenomeno deve essere osservato allo stesso modo anche nel sistema di riferimento \(K'\). Si suppone che l'origine di quest'ultimo sistema di riferimento coincida con quella di \(K\), all'atto di emissione dell'onda luminosa. Per i due sistemi valgono le relazioni:
+\begin{enumerate}
+    \item Le leggi della fisica sono le stesse in tutti i sistemi di riferimento inerziali (Principio di Relatività).
+    \item La velocità della luce nel vuoto ($c$) è la stessa in tutti i sistemi di riferimento inerziali, indipendentemente dal moto della sorgente o dell'osservatore (Principio di Invarianza di $c$).
+\end{enumerate}
+
+
+Si considerano due sistemi inerziali $K$ e $K'$, di cui il primo fermo, mentre il secondo in moto lungo la direzione delle $x$ positive con velocità costante $v$. Il secondo postulato di Einstein implica la non assolutezza del tempo. Per dimostrarlo, si considera l'esperimento mentale dei tre punti. Siano $A$, $B$ e $C$ tre punti sull'asse delle $x'$, con $A$ e $C$ equidistanti da $B$, sorgente luminosa. I tre punti sono solidali con il sistema di riferimento $K'$.
+\begin{itemize}
+    \item Per un osservatore solidale con $K'$: Egli vede i tre punti fermi. Poiché la luce procede con velocità $c$ in entrambe le direzioni e le distanze $BA$ e $BC$ sono uguali, la luce giunge \textbf{contemporaneamente} sui punti $A$ e $C$.
+    \item Per un osservatore solidale con $K$: I tre punti si muovono con velocità $v$ nel verso positivo delle $x$. In particolare, $A$ si muove verso la luce emessa da $B$, mentre $C$ si allontana da essa. Poiché la velocità della luce deve essere $c$ anche in $K$, essa, dovendo percorrere cammini diversi, raggiunge prima il punto $A$ e, successivamente, il punto $C$.
+\end{itemize}
+
+Da questo esempio discende che, cambiando sistema di riferimento, gli eventi che in un sistema di riferimento $K'$ sono contemporanei, non lo sono nel sistema di riferimento $K$. Si conclude, quindi, che il tempo è un concetto relativistico legato al sistema di riferimento considerato.
+
+Per rispettare il principio di invarianza della velocità della luce, le trasformazioni tra i sistemi $K$ e $K'$ devono essere diverse da quelle galileiane. A tale scopo si supponga che un'onda luminosa sferica si propaghi partendo dall'origine dei due sistemi all'istante $t=t'=0\ \text{s}$ e si propaghi con velocità $c$. L'equazione che descrive il fronte d'onda deve essere la stessa nei due sistemi:
 
 \[
 \begin{cases}
@@ -59,22 +73,26 @@ x^{2} + y^{2} + z^{2} = r^{2} \\
 \end{cases} 
 \]
 
-Dove, i raggi sono dati da:
+dove, i raggi sono dati da:
 
-\[r = ct,\ \ r' = ct'\]
+\[
+r = ct, \quad \text{e} \quad r' = ct'
+\]
 
-Inoltre, per le ipotesi fatte sui due sistemi di riferimento, risulta:
+
+Dato che gli assi $y$ e $z$ sono perpendicolari al moto, si ha $y=y'$ e $z=z'$. Per cui, è possibile scrivere:
+
 
 \[
 \begin{cases}
 x^{2} + y^{2} + z^{2} = c^{2}t^{2} \\
 {x'}^{2} + {y'}^{2} + {z'}^{2} = c^{2}{t'}^{2}
-\end{cases}
+\end{cases} 
 \]
 
 Siccome gli eventi non sono simultanei nei due sistemi di riferimento, \(t' \neq t\).
 
-Einstein ipotizzo un legame di tipo lineare tra il tempo e lo spazio in \(K'\) con le analoghe quantità in \(K\), ovvero:
+Einstein postulò un legame di tipo lineare tra le coordinate, noto come \textbf{Trasformazioni di Lorentz Generalizzate}:
 
 \[
 \begin{cases}
@@ -83,23 +101,29 @@ x' = ax + bt
 \end{cases}
 \]
 
-Queste equazioni sono dette trasformazioni di Lorentz generalizzate.
-
 Si sostituisce queste relazioni nell'equazione che descrive l'espansione dell'onda in \(K'\):
 
-\[(ax + bt)^{2} + y^{2} + z^{2} = c^{2}(gx + et)^{2}\]
+\[
+\left(ax + bt\right)^{2} + y^{2} + z^{2} = c^{2}\left(gx + et\right)^{2}
+\]
 
 Sviluppando i quadrati:
 
-\[a^{2}x^{2} + 2abxt + b^{2}t^{2} + y^{2} + z^{2} = c^{2}g^{2}x^{2} + 2c^{2}gext + c^{2}e^{2}t^{2}\]
+\[
+a^{2}x^{2} + 2abxt + b^{2}t^{2} + y^{2} + z^{2} = c^{2}g^{2}x^{2} + 2c^{2}gext + c^{2}e^{2}t^{2}
+\]
 
 Raccogliendo, si ha:
 
-\[\left( a^{2} - c^{2}g^{2} \right)x^{2} + \left( 2ab - 2c^{2}ge \right)xt + y^{2} + z^{2} = \left( c^{2}e^{2} - b^{2} \right)t^{2}\]
+\[
+\left( a^{2} - c^{2}g^{2} \right)x^{2} + \left( 2ab - 2c^{2}ge \right)xt + y^{2} + z^{2} = \left( c^{2}e^{2} - b^{2} \right)t^{2}
+\]
 
 Questa equazione descrive l'onda nel sistema di riferimento \(K\), quindi, deve essere paragonata all'equazione:
 
-\[x^{2} + y^{2} + z^{2} = c^{2}t^{2}\]
+\[
+x^{2} + y^{2} + z^{2} = c^{2}t^{2}
+\]
 
 Uguagliando i coefficienti dei termini corrispondente, si ha:
 
@@ -123,9 +147,12 @@ dx' = a\ dx + b\ dt
 \end{cases} 
 \]
 
+
 Se la sorgente luminosa è solidale col sistema \(K\), ovvero è ferma in tale sistema, allora la variazione della sua coordinata \(x\) deve essere nulla; per cui:
 
-\[dx = 0\]
+\[
+dx = 0
+\]
 
 Si ottiene:
 
@@ -138,11 +165,15 @@ dx' = b\ dt
 
 Dividendo membro a membro si ha:
 
-\[\dfrac{dx'}{dt'} = \dfrac{b}{e}\dfrac{dt}{dt}\ \]
+\[
+\dfrac{dx'}{dt'} = \dfrac{b}{e}\dfrac{dt}{dt}
+\]
 
 Siccome la variazione di \(t\) considerata è relativa al sistema \(K\), i \(dt\) sono uguali, dunque possono essere semplificati:
 
-\[\dfrac{dx'}{dt'} = \dfrac{b}{e}\]
+\[
+\dfrac{dx'}{dt'} = \dfrac{b}{e}
+\]
 
 Si considera un punto fermo in \(K'\); per il quale la sua coordinata \(x'\) è costante, dunque, \(dx' = 0\). Si considera l'equazione \(x' = a\ dx + b\ dt\). Ponendo \(dx' = 0\) si ottiene:
 
@@ -320,10 +351,7 @@ La meccanica classica, in ultima analisi, è un caso particolare della meccanica
 
 \[\gamma = \left. \ \dfrac{1}{\sqrt{1 - \left( \dfrac{v}{c} \right)^{2}}} \right|_{v = c} \rightarrow \infty\]
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=2.70069in,height=2.16528in,alt={P870\#yIS1}]{media/2_Relatività/image12.pdf}\caption{Andamento del fattore di Lorentz}
-\end{figure}
+\input{Image/2_Relatività/2_GammaFactor.tex}
 
 La velocità della luce \(c\) è un limite irraggiungibile per la teoria della meccanica relativistica.
 
@@ -547,7 +575,7 @@ L_{appr}^r=\alpha\left( 1 - \dfrac{1}{2}\dfrac{v^{2}}{c^{2}} \right) = - m_{0}c^
 La costante non influenza il risultato dell'equazione di Eulero-Lagrange, dunque, può essere trascurata senza problemi.
 
 La lagrangiana deve rispettare il principio di Fermat del minor tempo, secondo il quale, tra tutti i possibili percorsi che uniscono due punti,
-un raggio di luce segue il cammino che richiede il minor tempo e che, di conseguenza, minimizza l'azione.
+un raggio di luce segue il cammino che richiede il minor tempo e che, di conseguenza, rende l'azione stazionaria.
 
 L'azione relativistica può essere espressa come:
 
@@ -590,10 +618,7 @@ Essa presenta, invece, una relazione più complessa, poiché anche la massa dipe
 
 La massa \(m\), nel piano \(p - v\), rappresenta la pendenza della curva quantità di moto in funzione della velocità. Nella teoria relativistica, non si ha una retta. L'andamento della quantità di moto relativistica è lineare nel limite classico, dunque per \(v \ll c\).
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=4.54852in,height=3.76256in,alt={P971\#yIS1}]{media/2_Relatività/image14.pdf}\caption{Andamento della quantità di moto relativistica}
-\end{figure}
+input{Image/2_MassRelav}
 
 Per valutare l'energia relativistica si ricorre alla definizione di lagrangiana:
 
