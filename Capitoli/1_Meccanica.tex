@@ -20,7 +20,7 @@ La \textbf{meccanica} è la branca della fisica che studia il moto dei corpi mat
 \end{itemize}
 
 \section{Meccanica newtoniana}\label{meccanica-newtoniana}
-La \textbf{meccanica classica} si fonda sulla descrizione dei fenomeni fisici secondo l'approccio introdotto da Newton nel XVII secolo. Essa interpreta il moto della natura in termini di forze $\vec{F}$ e accelerazioni $\vec{a}$. Il punto di vista \textbf{newtoniano} si basa sull'equazione fondamentale del moto:
+La \textbf{meccanica classica} si fonda sulla descrizione dei fenomeni fisici secondo l'approccio introdotto da Newton nel XVII secolo. Essa interpreta il moto della natura in termini di forze $\vec{F}$ e accelerazioni $\vec{a}$. Il punto di vista \textbf{newtoniano} si basa sull'equazione fondamentale del moto, valida nell'ipotesi in cui la massa è costante nel tempo:
 
 \[
 \vec{F} = m \vec{a}
@@ -318,7 +318,7 @@ Questa è l'Equazione di \textbf{Eulero-Lagrange in forma vettoriale}, che equiv
 
 \subsubsection{Particella in coordinate cartesiane}\label{particella-in-coordinate-cartesiane}
 
-Per una \textbf{particella libera} (cioè in assenza di forze conservative, dove l'energia potenziale è nulla) in moto in uno spazio cartesiano, la lagrangiana \(L\) è data da:
+Per una \textbf{particella libera} (cioè in assenza di forze  e non conservative, dove l'energia potenziale è nulla) in moto in uno spazio cartesiano, la lagrangiana \(L\) è data da:
 
 \[
 L = \dfrac{1}{2}mv^{2}
@@ -330,7 +330,7 @@ Dove
 v^{2} = {\dot{x}}^{2} + {\dot{y}}^{2} + {\dot{z}}^{2}
 \]
 
-In altre parole, in questo caso la lagrangiana coincide con l'energia cinetica della particella. Inoltre, la descrizione lagrangiana si riduce alla modellazione newtoniana, dato che il sistema di riferimento corrisponde con quello cartesiano. Tuttavia, nella pratica non è sempre conveniente descrivere il moto in coordinate cartesiane. In presenza di vincoli o geometrie particolari, è utile ricorrere alle coordinate generalizzate \(\mathbf{q}\) e \(\mathbf{\dot{q}}\). È quindi necessario esprimere l'energia del sistema in funzione di queste coordinate. Tuttavia, nella pratica non è sempre conveniente descrivere il moto in coordinate cartesiane. In presenza di vincoli o geometrie particolari, è utile ricorrere alle coordinate generalizzate \(\mathbf{q}\) e \(\mathbf{\dot{q}}\). È quindi necessario esprimere l'energia del sistema in funzione di queste coordinate.
+In altre parole, in questo caso la lagrangiana coincide con l'energia cinetica della particella. Inoltre, la descrizione lagrangiana si riduce alla modellazione newtoniana, dato che il sistema di riferimento corrisponde con quello cartesiano. Tuttavia, nella pratica non è sempre conveniente descrivere il moto in coordinate cartesiane. In presenza di vincoli o geometrie particolari, infatti, è utile ricorrere alle coordinate generalizzate \(\mathbf{q}\) e \(\mathbf{\dot{q}}\). È quindi necessario esprimere l'energia del sistema in funzione di queste coordinate.
 
 \subsection{Energia cinetica in coordinate generalizzate}\label{energia-cinetica-in-generalizzate}
 
@@ -545,7 +545,7 @@ Va notato che in coordinate cartesiane, l'energia potenziale non dipende dalla v
 Si ottiene:
 
 \[
-\dfrac{\partial L}{\partial{\dot{x}}_{i}} = \dot{p}_i
+\dfrac{\partial L}{\partial{\dot{x}}_{i}} = {p}_i
 \]
 
 Ne discende che la quantità di moto $p_{i}$ e la forza $F_{i}$ sono legate alla Lagrangiana $L$ e all'energia potenziale $U$ dalle relazioni generali \cite{arnold1992matematici, landau1994meccanica}:
