@@ -1,0 +1,36 @@
+\begin{tikzpicture}[>=Stealth, font=\large]
+
+% Piastre
+\draw[thick] (-3,-4) rectangle (-2,4);
+\draw[thick] (3,-4) rectangle (2,4);
+
+% Cariche sulle piastre
+\foreach \y in {-3.5,-2.5,-1.5,-0.5,0.5,1.5,2.5,3.5} {
+    \node at (-2.5,\y) {\textbf{+}};
+    \node at (2.5,\y) {\textbf{-}};
+}
+
+% Linee di campo elettrico
+\foreach \y in {-3.5,-2.5,-1.5,-0.5,0.5,1.5,2.5,3.5} {
+    \draw[->, red, thick] (-2,\y) -- (2,\y);
+}
+
+% Etichetta E
+\node[red, above] at (0,4.2) {\textbf{E}};
+\draw[->, red, thick] (0,4.1) -- (0,3.7);
+
+% Delta V
+\node[above] at (0,5) {$\Delta V$};
+\draw[decorate, decoration={brace, amplitude=10pt}] (-3,4.6) -- (3,4.6);
+
+% Particella positiva
+\draw[thick] (-1.5,0) circle (0.4);
+\node at (-1.5,0) {\textbf{+}};
+\draw[->, thick] (-1.1,0) -- (-0.3,0);
+\node[above] at (-0.85,-0.5) {$\vec{v}$};
+
+% Distanza d
+\draw[<->, thick] (-1.8,-4.5) -- (1.8,-4.5);
+\node[below] at (0,-4.5) {$d$};
+
+\end{tikzpicture}

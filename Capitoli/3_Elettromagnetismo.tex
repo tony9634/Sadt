@@ -27,10 +27,10 @@ Quando una carica $q$ si muove in una regione di spazio, essa è soggetta alla F
 Sebbene sia possibile descrivere l'interazione elettromagnetica mediante l'uso del solo campo elettrico, per semplicità si ammette l'esistenza anche del campo magnetico. In quest'ottica, il campo elettrico e il campo di induzione magnetica sono due manifestazioni dello stesso campo: il campo elettromagnetico, descritto, in assenza di mezzo materiale (nel vuoto), dalle equazioni differenziali in forma locale:
 
 \[\begin{cases}
-\displaystyle \vec{\nabla} \cdot \vec{E} = \dfrac{\rho}{\varepsilon_{0}} & \text{(Legge di Gauss per l'Elettricità)} \\
+ \vec{\nabla} \cdot \vec{E} = \dfrac{\rho}{\varepsilon_{0}} & \text{(Legge di Gauss per l'Elettricità)} \\
 \vec{\nabla} \cdot \vec{B} = 0 & \text{(Legge di Gauss per il Magnetismo)} \\
-\displaystyle \vec{\nabla} \times \vec{E} = - \dfrac{\partial\vec{B}}{\partial t} & \text{(Legge di Faraday-Neumann-Lenz)} \\
-\displaystyle \vec{\nabla} \times \vec{B} = \mu_{0}\left( \vec{J} + \varepsilon_{0}\dfrac{\partial\vec{E}}{\partial t} \right) & \text{(Teorema di Ampère-Maxwell)}
+ \vec{\nabla} \times \vec{E} = - \dfrac{\partial\vec{B}}{\partial t} & \text{(Legge di Faraday-Neumann-Lenz)} \\
+ \vec{\nabla} \times \vec{B} = \mu_{0}\left( \vec{J} + \varepsilon_{0}\dfrac{\partial\vec{E}}{\partial t} \right) & \text{(Teorema di Ampère-Maxwell)}
 \end{cases}
 \]
 
@@ -77,10 +77,10 @@ Tale equazione afferma che, se la carica in un volume varia nel tempo, deve esis
 Si considera il caso di assenza di sorgenti, ovvero, si vuole risolvere le equazioni di Maxwell lontano dalle sorgenti di campo \(\vec{J}\) e \(\rho\)
 
 \[\begin{cases}
-\displaystyle \vec{\nabla} \cdot \vec{E} = \dfrac{\rho}{\varepsilon_{0}} \\
+ \vec{\nabla} \cdot \vec{E} = \dfrac{\rho}{\varepsilon_{0}} \\
 \vec{\nabla} \cdot \vec{B} = 0 \\
-\displaystyle\vec{\nabla} \times \vec{E} = - \dfrac{\partial\vec{B}}{\partial t}  \\
-\displaystyle\vec{\nabla} \times \vec{B} = \mu_{0}\left( \vec{J} + \varepsilon_{0}\dfrac{\partial\vec{E}}{\partial t} \right)
+\vec{\nabla} \times \vec{E} = - \dfrac{\partial\vec{B}}{\partial t}  \\
+\vec{\nabla} \times \vec{B} = \mu_{0}\left( \vec{J} + \varepsilon_{0}\dfrac{\partial\vec{E}}{\partial t} \right)
 \end{cases}
 \]
 
@@ -121,10 +121,10 @@ Dove \(c\) è la velocità di propagazione dell'onda. In questo caso, \(c\) coin
 Si vuole risolvere le equazioni di Maxwell in prossimità delle sorgenti \(\vec{J}\) e \(\rho\). In questo modo è possibile ricostruire l'intero campo elettromagnetico generato dalle sorgenti.
 
 \[\begin{cases}
-\displaystyle \vec{\nabla} \cdot \vec{E} = \dfrac{\rho}{\varepsilon_{0}} \\
+ \vec{\nabla} \cdot \vec{E} = \dfrac{\rho}{\varepsilon_{0}} \\
 \vec{\nabla} \cdot \vec{B} = 0 \\
-\displaystyle\vec{\nabla} \times \vec{E} = - \dfrac{\partial\vec{B}}{\partial t}  \\
-\displaystyle\vec{\nabla} \times \vec{B} = \mu_{0}\left( \vec{J} + \varepsilon_{0}\dfrac{\partial\vec{E}}{\partial t} \right)
+\vec{\nabla} \times \vec{E} = - \dfrac{\partial\vec{B}}{\partial t}  \\
+\vec{\nabla} \times \vec{B} = \mu_{0}\left( \vec{J} + \varepsilon_{0}\dfrac{\partial\vec{E}}{\partial t} \right)
 \end{cases}
 \]
 
@@ -181,10 +181,10 @@ Dove \({\vec{r}}_{0}\) è la posizione in cui sono posizionate le sorgenti, ment
 Le equazioni di Maxwell in forma locale non possono essere utilizzate in presenza di brusche variazioni della superficie dei volumi sui quali calcolare i campi. In questo caso si ricorre alla forma globale o integrale:
 
 \[\begin{cases}
-\displaystyle \oiint_{S}{\vec{E} \cdot d\vec{S}\ } = \dfrac{Q}{\varepsilon_{0}} \\
-\displaystyle \oiint_{S}{\vec{B} \cdot d\vec{S}\ } = 0  \\
-\displaystyle \oint_{\partial S}{\vec{E} \cdot d\vec{s}} = - \dfrac{\partial}{\partial t}\int_{\Sigma}{\vec{B} \cdot d\vec{\Sigma}}  \\
-\displaystyle \oint_{\partial S}{\vec{B} \cdot d\vec{s}} = \mu_{0}I + \mu_{0}\varepsilon_{0}\dfrac{\partial}{\partial t}\int_{\Sigma}{\vec{E} \cdot d\vec{\Sigma}}
+ \oiint_{S}{\vec{E} \cdot d\vec{S}\ } = \dfrac{Q}{\varepsilon_{0}} \\
+ \oiint_{S}{\vec{B} \cdot d\vec{S}\ } = 0  \\
+ \oint_{\partial S}{\vec{E} \cdot d\vec{s}} = - \dfrac{\partial}{\partial t}\int_{\Sigma}{\vec{B} \cdot d\vec{\Sigma}}  \\
+ \oint_{\partial S}{\vec{B} \cdot d\vec{s}} = \mu_{0}I + \mu_{0}\varepsilon_{0}\dfrac{\partial}{\partial t}\int_{\Sigma}{\vec{E} \cdot d\vec{\Sigma}}
 \end{cases}
 \]
 
@@ -200,8 +200,8 @@ I campi di induzione descrivono il comportamento del materiale a seguito dell'ap
 \begin{cases}
 \vec{\nabla} \cdot \vec{D} = \rho_{lib} \\
 \vec{\nabla} \cdot \vec{B} = 0 \\
-\displaystyle\vec{\nabla} \times \vec{E} = - \dfrac{\partial \vec{B}}{\partial t} \\
-\displaystyle\vec{\nabla} \times \vec{H} = \vec{J}_{lib} + \dfrac{\partial \vec{D}}{\partial t}
+\vec{\nabla} \times \vec{E} = - \dfrac{\partial \vec{B}}{\partial t} \\
+\vec{\nabla} \times \vec{H} = \vec{J}_{lib} + \dfrac{\partial \vec{D}}{\partial t}
 \end{cases}
 \]
 
@@ -332,12 +332,12 @@ Per il campo elettrico:
 
 \[
 \begin{cases}
-\displaystyle U = - \vec{d} \cdot \vec{E} \\
-\displaystyle \vec{F} = - \vec{\nabla}U = \vec{\nabla}\left( \vec{d} \cdot \vec{E} \right) \\
-\displaystyle \vec{N} = \vec{d} \times \vec{E} \\
-\displaystyle \phi(\vec{r}) = \dfrac{1}{4\pi\varepsilon_0}\int \dfrac{\rho(\vec{r}')}{R}\,dV' \\
-\displaystyle \vec{E} = - \vec{\nabla}\phi \\
-\displaystyle \nabla^{2}\phi = -\dfrac{\rho}{\varepsilon_{0}}
+ U = - \vec{d} \cdot \vec{E} \\
+ \vec{F} = - \vec{\nabla}U = \vec{\nabla}\left( \vec{d} \cdot \vec{E} \right) \\
+ \vec{N} = \vec{d} \times \vec{E} \\
+ \phi(\vec{r}) = \dfrac{1}{4\pi\varepsilon_0}\int \dfrac{\rho(\vec{r}')}{R}\,dV' \\
+ \vec{E} = - \vec{\nabla}\phi \\
+ \nabla^{2}\phi = -\dfrac{\rho}{\varepsilon_{0}}
 \end{cases}
 \]
 
@@ -354,12 +354,12 @@ Per il campo magnetico risulta:
 
 \[
 \begin{cases}
-\displaystyle U = - \vec{\mu} \cdot \vec{B} \\
-\displaystyle \vec{F} = - \vec{\nabla}U = \vec{\nabla}\left( \vec{\mu} \cdot \vec{B} \right) \\
-\displaystyle \vec{N} = \vec{\mu} \times \vec{B} \\
-\displaystyle \vec{A}(\vec{r}) = \dfrac{\mu_0}{4\pi}\int \dfrac{\vec{J}(\vec{r}')}{R}\,dV' \\
-\displaystyle \vec{B} = \vec{\nabla} \times \vec{A} \\
-\displaystyle \nabla^{2}\vec{A} = -\mu_{0}\vec{J}
+ U = - \vec{\mu} \cdot \vec{B} \\
+ \vec{F} = - \vec{\nabla}U = \vec{\nabla}\left( \vec{\mu} \cdot \vec{B} \right) \\
+ \vec{N} = \vec{\mu} \times \vec{B} \\
+ \vec{A}(\vec{r}) = \dfrac{\mu_0}{4\pi}\int \dfrac{\vec{J}(\vec{r}')}{R}\,dV' \\
+ \vec{B} = \vec{\nabla} \times \vec{A} \\
+ \nabla^{2}\vec{A} = -\mu_{0}\vec{J}
 \end{cases}
 \]
 
@@ -867,15 +867,15 @@ F_{x} \\
 F_{y} \\
 F_{z}
 \end{pmatrix} = \begin{pmatrix}
-    \displaystyle \mu_x\dfrac{\partial}{\partial x} + \mu_y\dfrac{\partial}{\partial y} + \mu_z\dfrac{\partial}{\partial z}
+     \mu_x\dfrac{\partial}{\partial x} + \mu_y\dfrac{\partial}{\partial y} + \mu_z\dfrac{\partial}{\partial z}
 \end{pmatrix}\begin{pmatrix}
 B_{x} \\
 B_{y} \\
 B_{z}
 \end{pmatrix} = \begin{pmatrix}
-\displaystyle \mu_x\dfrac{\partial B_x}{\partial x} + \mu_y\dfrac{\partial B_x}{\partial y} + \mu_z\dfrac{\partial B_x}{\partial z} \\
-\displaystyle \mu_x\dfrac{\partial B_y}{\partial x} + \mu_y\dfrac{\partial B_y}{\partial y} + \mu_z\dfrac{\partial B_y}{\partial z} \\
-\displaystyle \mu_x\dfrac{\partial B_z}{\partial x} + \mu_y\dfrac{\partial B_z}{\partial y} + \mu_z\dfrac{\partial B_z}{\partial z}
+ \mu_x\dfrac{\partial B_x}{\partial x} + \mu_y\dfrac{\partial B_x}{\partial y} + \mu_z\dfrac{\partial B_x}{\partial z} \\
+ \mu_x\dfrac{\partial B_y}{\partial x} + \mu_y\dfrac{\partial B_y}{\partial y} + \mu_z\dfrac{\partial B_y}{\partial z} \\
+ \mu_x\dfrac{\partial B_z}{\partial x} + \mu_y\dfrac{\partial B_z}{\partial y} + \mu_z\dfrac{\partial B_z}{\partial z}
 \end{pmatrix}
 \]
 
@@ -890,7 +890,7 @@ F_{x} \\
 F_{y} \\
 F_{z}
 \end{pmatrix} = \begin{pmatrix}
-     \displaystyle \mu_x\dfrac{\partial}{\partial x} + \mu_y\dfrac{\partial}{\partial y} + \mu_z\dfrac{\partial}{\partial z}
+      \mu_x\dfrac{\partial}{\partial x} + \mu_y\dfrac{\partial}{\partial y} + \mu_z\dfrac{\partial}{\partial z}
 \end{pmatrix}\begin{pmatrix}
 0 \\
 0 \\
@@ -898,7 +898,7 @@ B_{z}\left(z\right)
 \end{pmatrix} = \begin{pmatrix}
 0 \\
 0 \\
-\displaystyle \mu_z\dfrac{\partial B_z}{\partial z}
+ \mu_z\dfrac{\partial B_z}{\partial z}
 \end{pmatrix}
 \]
 
@@ -1044,7 +1044,7 @@ Si vuole determinare il campo creato da un momento magnetico di una piccola spir
 
 \[\begin{cases}
 \vec{\nabla} \cdot \vec{B} = 0 \\
-\displaystyle\vec{\nabla} \times \vec{B} = \mu_{0}\left( \vec{J} + \varepsilon_{0}\dfrac{\partial\vec{E}}{\partial t} \right)
+\vec{\nabla} \times \vec{B} = \mu_{0}\left( \vec{J} + \varepsilon_{0}\dfrac{\partial\vec{E}}{\partial t} \right)
 \end{cases}
 \]
 

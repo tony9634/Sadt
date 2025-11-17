@@ -1,11 +1,8 @@
-\begin{figure}[h!]
-    \centering
-    
-\begin{tikzpicture}[>=stealth, thick]
+\begin{tikzpicture}[>=stealth, thick, scale=1.0]
 
 % Punti A e B
-\node[label=left:{$\left(\vec{A}, t_0\right)$}] (A) at (0,0) {};
-\node[label=right:{$\left(\vec{B}, t_1\right)$}] (B) at (6,2) {};
+\node[label=left:{$\mathbf{q}\left(t_0\right)$}] (A) at (0,0) {};
+\node[label=right:{$\mathbf{q}\left(t_1\right)$}] (B) at (6,2) {};
 
 % Traiettoria principale (nera)
 \draw[line width=1.2pt] (A) to[out=60, in=180] (2,0);
@@ -26,7 +23,3 @@
 \node[red] at (3,2.4) {\scriptsize Traiettoria perturbata di $\delta\vec{q}$ };
 
 \end{tikzpicture}
-
-    \caption{Perturbazione della traiettoria}
-    \label{fig:1_TraiettoriaPertu}
-\end{figure}

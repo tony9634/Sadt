@@ -1,11 +1,9 @@
-\begin{figure}[h!]
-    \centering
-    \begin{tikzpicture}[
+\begin{tikzpicture}[
         particle/.style={circle, draw, fill=blue!20, minimum size=10pt, inner sep=0pt},
         velocity/.style={-Latex, thick, red},
         axis/.style={-Latex, thick},
         origin/.style={circle, fill=black, inner sep=1.5pt},
-        scale=1.2
+        scale=1.0
     ]
 
     % Sistema di riferimento tridimensionale
@@ -35,7 +33,3 @@
     \draw[velocity] (mi) -- ++(-0.6,0.5) node[above left] {$\vec{v}_i$};
 
     \end{tikzpicture}
-
-    \caption{Sistema di particelle in un sistema di riferimento tridimensionale}
-    \label{fig:1_sistPart}
-\end{figure}

@@ -1,7 +1,7 @@
 \begin{center}
 \vfill
     \chapter{Meccanica classica}
-    \label{blx:refsection\therefsection}
+    \label{blx:Meccanica-Classica\therefsection}
 \vfill
 
 \minitoc
@@ -58,7 +58,13 @@ Questa espressione rappresenta il \textbf{Teorema della quantità di moto} (o \t
 {\vec{F}}_{\text{est}} = \dfrac{d\vec{P}}{dt} \quad \text{con } \vec{P} = \sum_{k=1}^n \vec{p}_k
 \]
 
-\input{Image/1_Meccanica/1_sistPart}
+\begin{figure}[ht]
+    \centering
+    \input{Image/1_Meccanica/1_sistPart}
+    \caption{Sistema di particelle in un sistema di riferimento tridimensionale}
+    \label{fig:1_sistPart}
+\end{figure}
+
 
 Per una particella soggetta a una forza \(\vec{F}\), si definisce \textbf{momento torcente} (o \textbf{momento della forza}) \(\vec{N}\) (talvolta indicato anche con \(\vec{\tau}\)):
 
@@ -68,7 +74,13 @@ Per una particella soggetta a una forza \(\vec{F}\), si definisce \textbf{moment
 
 dove \(\vec{r}\) è il vettore posizione della particella rispetto a un polo (origine del sistema di riferimento).
 
-\input{Image/1_Meccanica/1_momTorc}
+\begin{figure}[ht]
+    \centering
+    \input{Image/1_Meccanica/1_momTorc}
+    \caption{Definizione del momento torcente rispetto a un punto fisso}
+    \label{fig:1_momTorc}
+\end{figure}
+
 
 Analogamente, si definisce \textbf{momento angolare} (o \textbf{quantità di moto angolare}) \(\vec{L}\):
 
@@ -76,7 +88,12 @@ Analogamente, si definisce \textbf{momento angolare} (o \textbf{quantità di mot
 \vec{L} = \vec{r} \times \vec{p}
 \]
 
-\input{Image/1_Meccanica/1_momAng}
+\begin{figure}[ht]
+    \centering
+    \input{Image/1_Meccanica/1_momAng}
+    \caption{Momento angolare di una particella rispetto a un'origine fissa}
+    \label{fig:1_momAng}
+\end{figure}
 
 Sostituendo la definizione di quantità di moto:
 
@@ -152,9 +169,15 @@ Si considera un sistema composto da \(N\) particelle. La descrizione del loro mo
 
 Tra tutte le curve che collegano un punto (o configurazione) $\mathbf{q}\left(t_0\right)$ al tempo $t_{0}$ con un altro punto $\mathbf{q}\left(t_1\right)$ al tempo $t_{1}$, la traiettoria fisica $\mathbf{q}\left(t\right)$ è quella che rende stazionaria l'azione, ovvero l'integrale della funzione lagrangiana nel tempo.
 
-In fisica teorica e meccanica analitica, quando si indica il vettore delle coordinate generalizzate $\mathbf{q} = (q_1, q_2, \ldots, q_s)$ nello spazio delle configurazioni, la convenzione più diffusa è usare il grassetto ($\mathbf{q}$) piuttosto che la freccia ($\vec{q}$).Questo perché la freccia ($\vec{q}$) è tradizionalmente riservata ai vettori nello spazio euclideo tridimensionale ($\mathbb{R}^3$), mentre $\mathbf{q}$ è un vettore in uno spazio $s$-dimensionale, dove $s$ non è necessariamente 3.
+In fisica teorica e meccanica analitica, la convenzione più utilizzata, per indicare il vettore delle coordinate generalizzate $\mathbf{q} = (q_1, q_2, \ldots, q_s)$ nello spazio delle configurazioni, è  il grassetto ($\mathbf{q}$) piuttosto che la freccia ($\vec{q}$).Questo perché la freccia ($\vec{q}$) è tradizionalmente riservata ai vettori nello spazio euclideo tridimensionale ($\mathbb{R}^3$), mentre $\mathbf{q}$ è un vettore in uno spazio $s$-dimensionale, dove $s$ non è necessariamente 3.
 
-\input{Image/1_Meccanica/1_Traittoria.tex}
+\begin{figure}[ht]
+\centering
+\input{Image/1_Meccanica/1_Traiettoria.tex}
+\caption{Esempio di moto su traiettoria a azione stazionaria tra due punti nel tempo}
+\label{fig:1_Traiettoria}
+\end{figure}
+
 
 \subsection{Principio di Azione Stazionaria di Hamilton}\label{principio-di-azione-stazionaria}
 Il moto del \textbf{sistema} (o della particella), ovvero la traiettoria \(\mathbf{q}(t)\) e la velocità con cui essa viene percorsa \({\mathbf{\dot{q}}}(t)\), deve rendere stazionario l'integrale \cite{arnold1992matematici}:
@@ -191,7 +214,13 @@ S + \delta S = \int_{t_{0}}^{t_{1}}{L\left( \mathbf{q} + \delta\mathbf{q},\mathb
 
 dove \(\mathbf{q}\) è la traiettoria fisica che rende stazionaria l'azione \(S\). Il Principio di Hamilton (o di Azione Stazionaria) stabilisce che la traiettoria rende l'azione stazionaria (ovvero $\delta S=0$). Non è garantito che sia un minimo poiché può coincidere un massimo o un punto di sella.
 
-\input{Image/1_Meccanica/1_TraiettoriaPertu}
+\begin{figure}[ht]
+    \centering
+    \input{Image/1_Meccanica/1_TraiettoriaPertu}
+    \caption{Perturbazione della traiettoria}
+    \label{fig:1_TraiettoriaPertu}
+\end{figure}
+
 
 Siccome le variazioni di spostamento e velocità sono molto minori delle rispettive quantità (ovvero $\delta\mathbf{q}$ è una piccola variazione della traiettoria fisica):
 
@@ -951,7 +980,12 @@ Da questa relazione discende la conservazione della componente del momento angol
 
 Si considera un corpo di massa \(m\) sospeso a un filo di lunghezza \(l\) nel campo gravitazionale con accelerazione \(g\).
 
-\input{Image/1_Meccanica/1_Pendolo}
+\begin{figure}[ht]
+    \centering
+    \input{Image/1_Meccanica/1_Pendolo}
+    \caption{Pendolo semplice}
+    \label{fig:1_Pendolo}
+\end{figure}
 
 Il pendolo possiede un solo grado di libertà, ovvero la rotazione intorno al proprio polo. Sia \(\vartheta\) l'angolo di cui la massa \(m\) è inclinata rispetto la verticale. La funzione lagrangiana data da:
 
@@ -1021,121 +1055,129 @@ In definitiva, si ottiene l'equazione dell'oscillatore armonico.
 
 \subsection{Lagrangiana per il doppio pendolo}\label{lagrangiana-per-il-doppio-pendolo}
 
-Si vuole scrivere la lagrangiana per un doppio pendolo, costituito da due masse, \(m_{1}\) e \(m_{2}\) connesse tra loro. La prima massa è collegata al fulcro mediante un cavo di lunghezza \(l_{1}\); la seconda è connessa a \(m_{1}\) mediante un cavo di lunghezza \(l_{2}\).
+Si vuole scrivere la Lagrangiana per un doppio pendolo, costituito da due masse, $m_{1}$ e $m_{2}$, connesse tra loro. La prima massa è collegata al fulcro mediante un'asta (o cavo) rigida di lunghezza $l_{1}$; la seconda è connessa a $m_{1}$ mediante un'asta di lunghezza $l_{2}$. I parametri generalizzati del sistema sono gli angoli $\vartheta_{1}$ e $\vartheta_{2}$, misurati rispetto alla verticale, da cui si deduce che il sistema ha $2$ gradi di libertà.
 
+\begin{figure}[ht]
+\centering
 \input{Image/1_Meccanica/1_DoublePendolo}
+\caption{Doppio pendolo}
+\label{fig:1_DoublePendolo}
+\end{figure}
 
-Si proiettano le componenti delle lunghezze \(l_{1}\) e \(l_{2}\) sugli assi cartesiani:
+Si suppone che l'origine del sistema di riferimento sia nel fulcro. L'asse delle ascisse ($x$) è orientato verso destra mentre l'asse delle ordinate ($y$) è orientato verso il basso. Gli angoli $\vartheta_{1}$ e $\vartheta_{2}$ sono misurati dalla verticale negativa (verso il basso).
 
-\[l_{1}: \begin{cases}
-x_{1} = l_{1}\sin\vartheta_{1} \\
-y_{1} = - l_{1}\cos\vartheta_{1}
-\end{cases}\ \]
+Le coordinate delle masse $m_1$ e $m_2$ sono:
 
-\[l_{2}: \begin{cases}
-x_{2} = x_{1} + l_{2}\sin\vartheta_{2} \\
-y_{2} = y_{1} - l_{2}\cos\vartheta_{2}
-\end{cases}\]
 
-Le componenti della velocità possono essere valutate, derivando rispetto al tempo le equazioni ottenute:
 
 \[
-\begin{cases}
-\displaystyle{\dot{x}}_{1} = l_{1}\dfrac{d}{dt}\sin\vartheta_{1} = l_{1}\cos\vartheta_{1}\dfrac{d\vartheta_{1}}{dt} \\
-\displaystyle{\dot{y}}_{1} = - l_{1}\dfrac{d}{dt}\cos\vartheta_{1} = l_{1}\sin\vartheta_{1}\dfrac{d\vartheta_{1}}{dt}
+l_{1}: \begin{cases}
+x_{1} = l_{1}\sin\vartheta_{1} \\
+y_{1} = l_{1}\cos\vartheta_{1}
+\end{cases}, \quad l_{2}: \begin{cases}
+x_{2} = x_{1} + l_{2}\sin\vartheta_{2} = l_{1}\sin\vartheta_{1} + l_{2}\sin\vartheta_{2} \\
+y_{2} = y_{1} + l_{2}\cos\vartheta_{2} = l_{1}\cos\vartheta_{1} + l_{2}\cos\vartheta_{2}
 \end{cases}
 \]
 
+Le componenti della velocità si ottengono derivando rispetto al tempo:
+
 \[
 \begin{cases}
-\displaystyle{\dot{x}}_{2} = l_{1}\cos\vartheta_{1}\dfrac{d\vartheta_{1}}{dt} + l_{2}\cos\vartheta_{2}\dfrac{d\vartheta_{2}}{dt} \\
-\displaystyle{\dot{y}}_{2} = l_{1}\sin\vartheta_{1}\dfrac{d\vartheta_{1}}{dt} + l_{2}\sin\vartheta_{2}\dfrac{d\vartheta_{2}}{dt}
-\end{cases} \]
+{\dot{x}}_{1} = l_{1}\cos\vartheta_{1}\,{\dot{\vartheta}}_{1} \\
+{\dot{y}}_{1} = - l_{1}\sin\vartheta_{1}\,{\dot{\vartheta}}_{1}
+\end{cases}, \quad \begin{cases}
+{\dot{x}}_{2} = l_{1}\cos\vartheta_{1}\,{\dot{\vartheta}}_{1} + l_{2}\cos\vartheta_{2}\,{\dot{\vartheta}}_{2} \\
+{\dot{y}}_{2} = - l_{1}\sin\vartheta_{1}\,{\dot{\vartheta}}_{1} - l_{2}\sin\vartheta_{2}\,{\dot{\vartheta}}_{2}
+\end{cases}
+\]
 
-La configurazione del sistema può essere determinata noti i parametri \(\vartheta_{1}\) e\(\vartheta_{2}\), dunque, il sistema presenta \(2\) gradi di libertà. Infatti, rispetto al fulcro, le due masse possono ruotare relativamente, dunque, l'energia cinetica comprende sia la velocità di transizione che rotazione:
+Le due masse possono ruotare relativamente, dunque, l'energia cinetica comprende sia la velocità di transizione che rotazione:
 
-\[T = \dfrac{1}{2}m_{1}v_{1}^{2} + \dfrac{1}{2}m_{2}v_{2}^{2}\]
+\[
+T = \dfrac{1}{2}m_{1}v_{1}^{2} + \dfrac{1}{2}m_{2}v_{2}^{2}
+\]
 
 La velocità al quadrato della massa \(m_{1}\) è data da:
 
 \[
-v_{1}^{2} = {\dot{x}}_{1}^{2} + {\dot{y}}_{1}^{2} = \left( l_{1}\cos\vartheta_{1}\dfrac{d\vartheta_{1}}{dt} \right)^{2} + \left( l_{1}\sin\vartheta_{1}\dfrac{d\vartheta_{1}}{dt} \right) = l_{1}^{2}{\dot{\vartheta}}_{1}^{2}\left( \cos^{2}\vartheta_{1} + \sin^{2}\vartheta_{1} \right) \Leftrightarrow v_{1}^{2} = l_{1}^{2}{\dot{\vartheta}}_{1}^{2}
+v_{1}^{2} = {\dot{x}}_{1}^{2} + {\dot{y}}_{1}^{2} = l_{1}^{2}{\dot{\vartheta}}_{1}^{2}\left( \cos^{2}\vartheta_{1} + \sin^{2}\vartheta_{1} \right) \Rightarrow v_{1}^{2} = l_{1}^{2}{\dot{\vartheta}}_{1}^{2}
 \]
 
-La velocità al quadrato della massa \(m_{2}\) è data da:
+La velocità al quadrato della massa $m_{2}$ è:
 
 \begin{align*}
-v_{2}^{2} & = {\dot{x}}_{2}^{2} + {\dot{y}}_{2}^{2} = \left( l_{1}\cos\vartheta_{1}\,{\dot{\vartheta}}_{1} + l_{2}\cos\vartheta_{2}\,{\dot{\vartheta}}_{2} \right)^{2} + \left( l_{1}\sin\vartheta_{1}\,{\dot{\vartheta}}_{1} + l_{2}\sin\vartheta_{2}\,{\dot{\vartheta}}_{2} \right)^{2} \\
-& = l_{1}^{2}{\dot{\vartheta}}_{1}^{2}\left( \cos^{2}\vartheta_{1} + \sin^{2}\vartheta_{1} \right) + l_{2}^{2}{\dot{\vartheta}}_{2}^{2}\left( \cos^{2}\vartheta_{2} + \sin^{2}\vartheta_{2} \right) + 2l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\left( \cos\vartheta_{1}\cos\vartheta_{2} + sin\vartheta_{1}\sin\vartheta_{2} \right) \\
-& = l_{1}^{2}{\dot{\vartheta}}_{1}^{2} + l_{2}^{2}{\dot{\vartheta}}_{2}^{2} + 2l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}cos(\vartheta_{1} - \vartheta_{2})
+v_{2}^{2} &= {\dot{x}}_{2}^{2} + {\dot{y}}_{2}^{2} = \left( l_{1}\cos\vartheta_{1}\,{\dot{\vartheta}}_{1} + l_{2}\cos\vartheta_{2}\,{\dot{\vartheta}}_{2} \right)^{2} + \left( l_{1}\sin\vartheta_{1}\,{\dot{\vartheta}}_{1} + l_{2}\sin\vartheta_{2}\,{\dot{\vartheta}}_{2} \right)^{2} =\\
+&= l_{1}^{2}{\dot{\vartheta}}_{1}^{2} + l_{2}^{2}{\dot{\vartheta}}_{2}^{2} + 2l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\left( \cos\vartheta_{1}\cos\vartheta_{2} + \sin\vartheta_{1}\sin\vartheta_{2} \right) \\
 \end{align*}
 
 Ricorrendo alle identità trigonometriche, è possibile scrivere:
 
-\[v_{2}^{2} = l_{1}^{2}{\dot{\vartheta}}_{1}^{2} + l_{2}^{2}{\dot{\vartheta}}_{2}^{2} + 2l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\cos\left( \vartheta_{1} - \vartheta_{2} \right)\]
+\[
+v_{2}^{2} = l_{1}^{2}{\dot{\vartheta}}_{1}^{2} + l_{2}^{2}{\dot{\vartheta}}_{2}^{2} + 2l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\cos\left( \vartheta_{1} - \vartheta_{2} \right)
+\]
 
-L'energia cinetica si scrive come:
+L'energia cinetica totale si scrive:
 
-\[T = \dfrac{1}{2}m_{1}l_{1}^{2}{\dot{\vartheta}}_{1}^{2} + \dfrac{1}{2}m_{2}\left\lbrack l_{1}^{2}{\dot{\vartheta}}_{1}^{2} + l_{2}^{2}{\dot{\vartheta}}_{2}^{2} + 2l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\cos\left( \vartheta_{1} - \vartheta_{2} \right) \right\rbrack\]
+\[
+T = \dfrac{1}{2}\left( m_{1} + m_{2} \right)l_{1}^{2}{\dot{\vartheta}}_{1}^{2} + \dfrac{1}{2}m_{2}l_{2}^{2}{\dot{\vartheta}}_{2}^{2} + m_{2}l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\cos\left( \vartheta_{1} - \vartheta_{2} \right)
+\]
 
-Bisogna valutare anche l'energia potenziale. Quest'ultima è data dalla somma delle energie potenziali delle due masse:
+Bisogna valutare anche l'energia potenziale. Quest'ultima è data dalla somma delle energie potenziali delle due masse. Utilizzando l'asse $y$ orientato verso il basso, l'energia potenziale è:
 
-\[U = m_{1}g\Delta h_{1} + m_{2}g\Delta h_{2}\]
+\[
+U = m_{1}gy_{1} + m_{2}gy_{2}
+\]
 
 Dove:
 
-\[\Delta h_{1} = l_{1} - l_{1}\cos\vartheta_{1} = l_{1}\left( 1 - cos\vartheta_{1} \right),\quad\Delta h_{2} = l_{1} + l_{2} - l_{1}\cos\vartheta_{1} - l_{2}\cos\vartheta_{2} = l_{1}\left( 1 - cos\vartheta_{1} \right) + l_{2}\left( 1 - cos\vartheta_{2} \right)\]
+\[
+U = m_{1}g\left( l_{1}\cos\vartheta_{1} \right) + m_{2}g\left( l_{1}\cos\vartheta_{1} + l_{2}\cos\vartheta_{2} \right) = g \left[ \left( m_{1} + m_{2} \right)l_{1}\cos\vartheta_{1} + m_{2}l_{2}\cos\vartheta_{2} \right]
+\]
 
-Sostituendo, si ottiene:
-
-\[U = m_{1}gl_{1}\left( 1 - cos\vartheta_{1} \right) + m_{2}gl_{1}\left( 1 - cos\vartheta_{1} \right) + m_{2}gl_{2}\left( 1 - cos\vartheta_{2} \right)\]
-
-La lagrangiana per questo sistema è data da:
+La Lagrangiana $L = T - U$ per questo sistema è data da:
 
 \begin{align*}
 L\left( \vartheta_{1},\vartheta_{2},{\dot{\vartheta}}_{1},{\dot{\vartheta}}_{2} \right)
-&= \dfrac{1}{2}m_{1}l_{1}^{2}{\dot{\vartheta}}_{1}^{2}
-+ \dfrac{1}{2}m_{2}\left( l_{1}^{2}{\dot{\vartheta}}_{1}^{2} + l_{2}^{2}{\dot{\vartheta}}_{2}^{2} + 2l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\cos\left( \vartheta_{1} - \vartheta_{2} \right) \right) +\\
-&\quad - m_{1}gl_{1}\left( 1 - \cos\vartheta_{1} \right)
-- m_{2}gl_{1}\left( 1 - \cos\vartheta_{1} \right)
-- m_{2}gl_{2}\left( 1 - \cos\vartheta_{2} \right)
+&= \dfrac{1}{2}\left( m_{1} + m_{2} \right)l_{1}^{2}{\dot{\vartheta}}_{1}^{2}
++ \dfrac{1}{2}m_{2}l_{2}^{2}{\dot{\vartheta}}_{2}^{2}
++ m_{2}l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\cos\left( \vartheta_{1} - \vartheta_{2} \right) + \\
+&\quad - g \left[ \left( m_{1} + m_{2} \right)l_{1}\cos\vartheta_{1} + m_{2}l_{2}\cos\vartheta_{2} \right]
 \end{align*}
 
-La funzione lagrangiana deve soddisfare l'equazione di Eulero-Lagrange:
+La funzione Lagrangiana deve soddisfare le equazioni di Eulero-Lagrange:
 
-\[\dfrac{d}{dt}\dfrac{\partial L}{\partial\dot{\boldsymbol{\vartheta}}} - \dfrac{\partial L}{\partial\boldsymbol{\vartheta}} = \vec{0}\]
+\[
+\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial{\dot{\vartheta}}_{i}} \right) - \dfrac{\partial L}{\partial\vartheta_{i}} = 0 \quad \text{per } i=1, 2
+\]
 
-L'equazione si traduce in due equazioni, relative a \(\vartheta_{1}\) e \(\vartheta_{2}\):
-
-\[ \begin{cases}
-\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial{\dot{\vartheta}}_{1}} \right) - \dfrac{\partial L}{\partial\vartheta_{1}} = 0 \\
-\dfrac{d}{dt}\left( \dfrac{\partial L}{\partial{\dot{\vartheta}}_{2}} \right) - \dfrac{\partial L}{\partial\vartheta_{2}} = 0
-\end{cases} \]
-
-Dove le derivate sono:
-
-\[\begin{cases}
-\displaystyle\dfrac{\partial L}{\partial{\dot{\vartheta}}_{1}} = \left( m_{1} + m_{2} \right)l_{1}^{2}{\dot{\vartheta}}_{1} + m_{2}l_{1}l_{2}{\dot{\vartheta}}_{2}\cos\left( \vartheta_{1} - \vartheta_{2} \right) \\
-\displaystyle\dfrac{\partial L}{\partial{\dot{\vartheta}}_{2}} = m_{2}l_{2}^{2}{\dot{\vartheta}}_{2} + m_{2}l_{1}l_{2}{\dot{\vartheta}}_{1}\cos\left( \vartheta_{1} - \vartheta_{2} \right) \\
-\displaystyle\dfrac{\partial L}{\partial\vartheta_{1}} = - m_{2}l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\sin\left( \vartheta_{1} - \vartheta_{2} \right) + \left( m_{1} + m_{2} \right)gl_{1}\sin\vartheta_{1} \\
-\displaystyle\dfrac{\partial L}{\partial\vartheta_{2}} = m_{2}l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\sin\left( \vartheta_{1} - \vartheta_{2} \right) + m_{2}gl_{2}\sin\vartheta_{2}
-\end{cases}\]
-
-Eseguendo le derivate temporali e riarrangiando i termini, si ottengono le due equazioni:
+Le derivate parziali sono:
 
 \[
 \begin{cases}
-\left( m_{1} + m_{2} \right)l_{1}^{2}{\ddot{\vartheta}}_{1} + m_{2}l_{1}l_{2}{\ddot{\vartheta}}_{2}\cos\left( \vartheta_{1} - \vartheta_{2} \right) + m_{2}l_{1}l_{2}{\dot{\vartheta}}_{2}^{2}\sin\left( \vartheta_{1} - \vartheta_{2} \right) + \left( m_{1} + m_{2} \right)gl_{1}\sin\vartheta_{1} = 0 \\
-m_{2}l_{2}{\ddot{\vartheta}}_{2} + m_{2}l_{1}l_{2}{\ddot{\vartheta}}_{1}\cos\left( \vartheta_{1} - \vartheta_{2} \right) - m_{2}l_{1}l_{2}{\dot{\vartheta}}_{1}^{2}\sin\left( \vartheta_{1} - \vartheta_{2} \right) + m_{2}gl_{2}\sin\vartheta_{2} = 0
+\dfrac{\partial L}{\partial{\dot{\vartheta}}_{1}} = \left( m_{1} + m_{2} \right)l_{1}^{2}{\dot{\vartheta}}_{1} + m_{2}l_{1}l_{2}{\dot{\vartheta}}_{2}\cos\left( \vartheta_{1} - \vartheta_{2} \right) \\
+\dfrac{\partial L}{\partial{\dot{\vartheta}}_{2}} = m_{2}l_{2}^{2}{\dot{\vartheta}}_{2} + m_{2}l_{1}l_{2}{\dot{\vartheta}}_{1}\cos\left( \vartheta_{1} - \vartheta_{2} \right) \\
+\dfrac{\partial L}{\partial\vartheta_{1}} = - m_{2}l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\sin\left( \vartheta_{1} - \vartheta_{2} \right) + \left( m_{1} + m_{2} \right)gl_{1}\sin\vartheta_{1} \\
+\dfrac{\partial L}{\partial\vartheta_{2}} = m_{2}l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\sin\left( \vartheta_{1} - \vartheta_{2} \right) + m_{2}gl_{2}\sin\vartheta_{2}
+\end{cases}
+\]
+
+Eseguendo le derivate temporali e sostituendo nelle equazioni di Eulero-Lagrange si ottiene (dopo riarrangiamento):
+
+\[
+\begin{cases}
+\left( m_{1} + m_{2} \right)l_{1}^{2}{\ddot{\vartheta}}_{1} + m_{2}l_{1}l_{2}{\ddot{\vartheta}}_{2}\cos\left( \vartheta_{1} - \vartheta_{2} \right) + m_{2}l_{1}l_{2}{\dot{\vartheta}}_{2}^{2}\sin\left( \vartheta_{1} - \vartheta_{2} \right) - \left( m_{1} + m_{2} \right)gl_{1}\sin\vartheta_{1} = 0 \\
+m_{2}l_{2}^{2}{\ddot{\vartheta}}_{2} + m_{2}l_{1}l_{2}{\ddot{\vartheta}}_{1}\cos\left( \vartheta_{1} - \vartheta_{2} \right) - m_{2}l_{1}l_{2}{\dot{\vartheta}}_{1}^{2}\sin\left( \vartheta_{1} - \vartheta_{2} \right) - m_{2}gl_{2}\sin\vartheta_{2} = 0
 \end{cases}
 \]
 
 Risolte le due equazioni, si ottiene la traiettoria, descritta da \(\vartheta_{1}\) e \(\vartheta_{2}\), del doppio pendolo.
 
 \begin{figure}[ht]
-\includegraphics[width=6.25in,height=2.38333in]{media/1_Meccanica/doppio_pendolo.eps}
-\caption{Sequenza temporale del moto del doppio pendolo in 10 istanti successivi}
-\label{fig:1_doppio_pendolo}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Media/1_Meccanica/doppio_pendolo.eps}
+    \caption{Sequenza temporale del moto del doppio pendolo in 10 istanti successivi}
+    \label{fig:1_doppio_pendolo}
 \end{figure}
 
 La \figurename~\ref{fig:1_doppio_pendolo} mostra una sequenza di fotogrammi che rappresentano l'evoluzione temporale del doppio pendolo. Ogni riquadro corrisponde a un istante successivo, e le posizioni delle due masse sono tracciate in base agli angoli \(\vartheta_{1}(t)\) e \(\vartheta_{2}(t)\).
@@ -1609,7 +1651,8 @@ set(gca,'xlim',[0 1])
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=4.93333in,height=3.95833in,alt={P754\#yIS1}]{media/1_Meccanica/spettro_segnali.eps}\caption{Andamento delle soluzioni e relativa risposta spettrale}
+\includegraphics[width=\textwidth]{Media/1_Meccanica/spettro_segnali.eps}
+\caption{Andamento delle soluzioni e relativa risposta spettrale}
 \end{figure}
 
 Come si vede dalla trasformata di Fourier, le soluzioni del sistema accoppiato contengono due frequenze di oscillazione ben distinte (\(\omega_{1}\) e \(\omega_{2}\)). A causa dell'interazione tra le due funzioni, entrambe le soluzioni \(y_{1}\) e \(y_{2}\) sono una combinazione di queste due frequenze, che sono differenti dal caso non interagente.

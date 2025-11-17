@@ -1,0 +1,40 @@
+\begin{tikzpicture}[>=Stealth, font=\small]
+
+% Prima riga: particelle A e B
+% Particella A
+\fill[blue] (-3,1.5) circle (0.3);
+\node[below=4pt] at (-3,1.4) {\textbf{A}};
+\node[above=4pt] at (-3,1.6) {$m$};
+
+% Freccia A
+\draw[->, thick] (-2.6,1.5) -- (-1,1.5);
+\node[above=4pt] at (-1.8,1.5) {$u'_A = u'_0$};
+
+% Particella B
+\fill[red] (3,1.5) circle (0.3);
+\node[below=4pt] at (3,1.4) {\textbf{B}};
+\node[above=4pt] at (3,1.6) {$m$};
+
+% Freccia B
+\draw[->, thick] (2.6,1.5) -- (1,1.5);
+\node[above=4pt] at (1.8,1.5) {$u'_B = -u'_0$};
+
+% Asse x' superiore
+\draw[->, thick] (-4,0.7) -- (4,0.7) node[right] {$x'$};
+
+% Linea separatrice
+\draw[thick] (-4,0) -- (4,0);
+
+% Seconda riga: particella C
+\fill[blue] (-0.3,-1.5) circle (0.3);
+\fill[red] (0.3,-1.5) circle (0.3);
+\node[below=4pt] at (0,-1.6) {\textbf{C}};
+\node[above=6pt] at (0,-1.4) {$M_0$};
+
+% Velocità C
+\node[right=8pt] at (0.6,-1.5) {$u'_C = 0$};
+
+% Asse x' inferiore
+\draw[->, thick] (-4,-2.3) -- (4,-2.3) node[right] {$x'$};
+
+\end{tikzpicture}

@@ -1,13 +1,10 @@
-\begin{figure}[h!]
-    \centering
-
 \begin{tikzpicture}[scale=3, thick, >=stealth]
 
 % --- Parametri ---
 \coordinate (B) at (0,-1);
-\coordinate (O) at (0,0);       % punto di sospensione
-\def\L{2}                       % lunghezza del filo
-\def\ang{35}                    % angolo di deviazione
+\coordinate (O) at (0,0);
+\def\L{2}
+\def\ang{35}
 
 % --- Massa ---
 \coordinate (M) at (\ang:-\L);
@@ -18,40 +15,24 @@
 % --- Filo del pendolo ---
 \draw[black] (O) -- (M) node[midway, right=2pt] {$L$};
 
-% --- Massa (pallina) ---
+% --- Massa ---
 \filldraw[fill=gray!30] (M) circle (0.08) node[right=5pt] {$m$};
 
 % --- Angolo θ ---
 \pic [draw, "$\theta$", angle radius=1cm] {angle = M--O--B};
 
-% --- Forze agenti ---
-% Tensione
+% --- Forze ---
 \draw[->, blue, thick] (M) -- ++(\ang:0.7) node[above right=-1pt and -6pt] {$\vec{T}$};
-
-% Peso totale
 \draw[->, red!80!black, thick] (M) -- ++(270:0.9) node[right] {$\vec{P}=m\vec{g}$};
-
-% --- Componenti del peso ---
-% Radiale (verso O)
 \draw[->, red!60!black, thick] (M) -- ++(\ang-90:0.7)
   node[below right=-15pt and 1pt] {$\vec{P_r}=mg\cos\theta$};
-
-% Tangenziale (perpendicolare al filo)
 \draw[->, red!60!black, thick] (M) -- ++(\ang-180:0.4)
   node[above left=2pt and -2pt] {$\vec{P_t}=mg\sin\theta$};
 
-% --- Angolo tra P e Pr ---
 \coordinate (Pr) at ($(M)+(\ang-90:0.7)$);
 \coordinate (P)  at ($(M)+(0,-0.9)$);
-
 \pic [draw, "$\theta$", angle radius=1cm] {angle = P--M--Pr};
 
-
-% --- Punto di sospensione ---
 \fill (O) circle (0.04);
 
 \end{tikzpicture}
-
-    \caption{Pendolo semplice}
-    \label{fig:1_Pendolo}
-\end{figure}
