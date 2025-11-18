@@ -1,0 +1,26 @@
+   \begin{tikzpicture}[scale=1.5, >=Stealth] 
+         
+        % Assi Spazio-Tempo (x e ct) 
+        \draw[->, very thick] (0, -3) -- (0, 3) node[above] {Tempo ($ct$)}; 
+        \draw[->, very thick] (-3, 0) -- (3, 0) node[right] {Spazio ($x$)}; 
+         
+        % Cono Luce (Definito da ct = |x|) 
+        \fill[yellow!60, opacity=0.7] (0, 0) -- (2.5, 2.5) -- (-2.5, 2.5) -- cycle; % Cono Futuro 
+        \fill[yellow!60, opacity=0.7] (0, 0) -- (2.5, -2.5) -- (-2.5, -2.5) -- cycle; % Cono Passato 
+         
+        % Linee Limite (Linee di Luce) 
+        \draw[dashed, thick, black] (2.5, 2.5) -- (0, 0) -- (2.5, -2.5); 
+        \draw[dashed, thick, black] (-2.5, 2.5) -- (0, 0) -- (-2.5, -2.5); 
+         
+        % Etichette Aree 
+        \node at (0, 2) {Futuro Luce}; 
+        \node at (0, -2) {Passato Luce}; 
+        \node at (2, 0.5) {Spazio-simile}; 
+        \node at (-2, 0.5) {Spazio-simile}; 
+        \node at (0.8, 1.5) {Tempo-simile}; 
+        \node at (0.8, -1.5) {Tempo-simile}; 
+         
+        % Evento Osservatore (Origine) 
+        \fill (0, 0) circle (3pt) node[below left] {Osservatore / Evento}; 
+         
+    \end{tikzpicture} 
