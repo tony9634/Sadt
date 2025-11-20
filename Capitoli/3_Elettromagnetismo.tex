@@ -10,17 +10,17 @@
 \justify
 
 
-\section{Cenni di elettromagnetismo}\label{cenni-di-elettromagnetismo}
-
-Le \textbf{equazioni di Maxwell}, formalizzate verso la metà dell'Ottocento dal fisico James Clerk Maxwell, non solo sintetizzarono le leggi dell'elettricità e del magnetismo note all'epoca (come le leggi di Faraday e Ampère), ma predissero l'esistenza delle onde elettromagnetiche e dimostrarono che la luce stessa è un'onda elettromagnetica \cite{landau1975campi, purcell1985elettromagnetismo, feynman1964vol2, halliday2004fisica2}. Queste equazioni sono ancora valide in molte applicazioni pratiche moderne, con poche modifiche rispetto alla formulazione originale.
-
-Il concetto di \textbf{spazio-tempo} (nella teoria \textbf{Relatività Ristretta}) fu introdotto da Albert Einstein nel 1905 proprio per risolvere il conflitto tra la meccanica newtoniana (che era invariante solo rispetto alle trasformazioni Galileiane) e le equazioni di Maxwell (che sono invece invarianti rispetto alle trasformazioni di Lorentz).
-
-Il campo elettromagnetico è descritto in modo formale dai due campi vettoriali: il \textbf{campo elettrico} ($\vec{E}$) e il \textbf{campo di induzione magnetica} ($\vec{B}$). Questi due campi non sono entità separate e indipendenti, ma sono le manifestazioni di un unico tensore elettromagnetico.
-
-Il campo magnetico ($\vec{B}$) è essenzialmente una manifestazione relativistica del campo elettrico ($\vec{E}$). Ossia, il campo magnetico osservato in un sistema di riferimento $K$ è in parte il risultato della trasformazione del campo elettrico e delle cariche in moto osservate in un altro sistema $K'$
-
-Quando una carica $q$ si muove in una regione di spazio, essa è soggetta alla Forza di Lorentz ($\vec{F} = q(\vec{E} + \vec{v} \times \vec{B})$) \cite{landau1975campi, purcell1985elettromagnetismo, feynman1964vol2, halliday2004fisica2}. Se si considera un sistema di riferimento $K'$ solidale con la carica ($\vec{v}' = 0$), su di essa agisce solo la forza elettrica ($\vec{F}' = q\vec{E}'$). Pertanto, in tale sistema, qualsiasi forza percepita dalla carica deve essere attribuita al solo campo elettrico trasformato $\vec{E}'$, mentre il termine magnetico è nullo.
+\section{Cenni di elettromagnetismo}\label{cenni-di-elettromagnetismo} 
+ 
+Le \textbf{equazioni di Maxwell}, formalizzate verso la metà dell'Ottocento dal fisico James Clerk Maxwell, non solo sintetizzarono le leggi dell'elettricità e del magnetismo note all'epoca (come le leggi di Faraday e Ampère), ma predissero l'esistenza delle onde elettromagnetiche e dimostrarono che la luce stessa è un'onda elettromagnetica \cite{landau1975campi, purcell1985elettromagnetismo, feynman1964vol2, halliday2004fisica2}. Queste equazioni sono ancora valide in molte applicazioni pratiche moderne e, a differenza della meccanica newtoniana, si dimostrarono \textbf{intrinsecamente invarianti} rispetto alle trasformazioni di Lorentz. 
+ 
+Il concetto di \textbf{spazio-tempo} (nella teoria della \textbf{Relatività Ristretta}), introdotto da Albert Einstein nel 1905, nacque per risolvere il \textbf{conflitto} tra la meccanica newtoniana (che era invariante solo rispetto alle trasformazioni Galileiane) e il principio che la velocità della luce (coerente con le equazioni di Maxwell) fosse la stessa in tutti i sistemi di riferimento inerziali. La Relatività Ristretta non modificò le equazioni di Maxwell, ma stabilì una nuova meccanica coerente con la loro invarianza di Lorentz. 
+ 
+Il campo elettromagnetico è descritto in modo formale dai due campi vettoriali: il \textbf{campo elettrico} ($\vec{E}$) e il \textbf{campo di induzione magnetica} ($\vec{B}$). Questi due campi non sono entità separate e indipendenti, ma le componenti spaziali e temporali di un unico oggetto quadridimensionale: il \textbf{tensore elettromagnetico} ($F^{\mu \nu}$). 
+ 
+Il campo magnetico ($\vec{B}$) è, in termini relativistici, una manifestazione dell'effetto Doppler e della contrazione delle lunghezze applicati al campo elettrico ($\vec{E}$) e alle cariche in movimento. Ossia, il campo magnetico osservato in un sistema di riferimento $K$ emerge dal \textbf{trasformarsi} del campo elettrico e delle distribuzioni di carica osservate in un altro sistema inerziale $K'$ che è in moto rispetto a $K$. 
+ 
+Quando una carica $q$ si muove in una regione di spazio, essa è soggetta alla Forza di Lorentz ($\vec{F} = q(\vec{E} + \vec{v} \times \vec{B})$) \cite{landau1975campi, purcell1985elettromagnetismo, feynman1964vol2, halliday2004fisica2}. Se si considera un sistema di riferimento $K'$ solidale con la carica ($\vec{v}' = 0$), su di essa agisce solo la forza elettrica ($\vec{F}' = q\vec{E}'$). Pertanto, in tale sistema, qualsiasi forza percepita dalla carica deve essere attribuita al solo campo elettrico trasformato $\vec{E}'$, mentre il termine magnetico è nullo. 
 
 \section{Equazioni di Maxwell nel vuoto in forma locale}\label{equazioni-di-maxwell-nel-vuoto-in-forma-locale}
 
@@ -34,18 +34,19 @@ Sebbene sia possibile descrivere l'interazione elettromagnetica mediante l'uso d
 \end{cases}
 \]
 
-La prima equazione è la legge di Gauss per il campo elettrico e afferma che la divergenza del campo elettrico è proporzionale alla densità di carica $\rho$ presente nel volume di riferimento, rapportata alla costante dielettrica nel vuoto \(\varepsilon_{0}\).
+La prima equazione è la \textbf{legge di Gauss per il campo elettrico} e afferma che la divergenza del campo elettrico è proporzionale alla densità di carica $\rho$ presente nel volume di riferimento, rapportata alla costante dielettrica nel vuoto \(\varepsilon_{0}\).
 
-La seconda equazione è la legge di Gauss per il magnetismo, secondo cui la divergenza del campo di induzione magnetica $\vec{B}$ è nulla. Questa legge implica che le linee di campo magnetico non hanno sorgenti o pozzi (non esistono monopoli magnetici) e che il campo $\vec{B}$ è solenoidale. Dal punto di vista fisico, questa legge implica che le linee di campo magnetico entrano ed escono dal volumetto \(d\Omega\) su cui si calcola la divergenza, che, di conseguenza, è nulla \figurename~\ref{fig:CampSolenoidale}.
+La seconda equazione è la \textbf{legge di Gauss per il magnetismo}, secondo cui la divergenza del campo di induzione magnetica $\vec{B}$ è nulla. Questa legge implica che le linee di campo magnetico non hanno sorgenti o pozzi (non esistono monopoli magnetici) e che il campo $\vec{B}$ è solenoidale. Dal punto di vista fisico, questa legge implica che le linee di campo magnetico entrano ed escono dal volumetto \(d\Omega\) su cui si calcola la divergenza, che, di conseguenza, è nulla \figurename~\ref{fig:3_MagneteLinee}.
 
-La terza equazione è la legge di Faraday-Neumann-Lenz e stabilisce che un campo di induzione magnetica variabile nel tempo ($\partial\vec{B}/\partial t$) induce un campo elettrico rotazionale ($\vec{\nabla} \times \vec{E}$). In altre parole, la variazione del flusso del campo magnetico attraverso un circuito elettrico genera una forza elettromotrice indotta e, di conseguenza, una corrente elettrica indotta
+La terza equazione è la \textbf{legge di Faraday-Neumann-Lenz} e stabilisce che un campo di induzione magnetica variabile nel tempo ($\partial\vec{B}/\partial t$) induce un campo elettrico rotazionale ($\vec{\nabla} \times \vec{E}$). In altre parole, la variazione del flusso del campo magnetico attraverso un circuito elettrico genera una forza elettromotrice indotta e, di conseguenza, una corrente elettrica indotta
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=1.90691in,height=1.76389in,alt={P1154\#yIS1}]{media/3_Elettromagnetismo/image18.pdf}\caption{Flusso campo magnetico attraverso superficie chiusa}\label{fig:CampSolenoidale}
+\input{Image/3_Elettromagnetismo/3_MagneteLinee}
+\caption{Flusso campo magnetico attraverso superficie chiusa}\label{fig:3_MagneteLinee}
 \end{figure}
-
-La quarta equazione è il teorema di Ampère-Maxwell, secondo cui il rotore del campo $\vec{B}$ è determinato dalla densità di corrente di conduzione ($\vec{J}$) più la corrente di spostamento ($\varepsilon_{0}\partial\vec{E}/\partial t$). La corrente di spostamento fu introdotta da Maxwell per garantire la conservazione della carica. Secondo questo teorema, dal punto di vista globale, un campo magnetico indotto intorno a un circuito chiuso qualsiasi è proporzionale alla corrente elettrica concatenata \(\mu_{0}\vec{J}\) al circuito più la corrente di spostamento (\(\mu_{0}\varepsilon_{0}\partial\vec{E}/\partial t\)) attraverso la superficie chiusa.
+ 
+La quarta equazione è il \textbf{Teorema di Ampère-Maxwell}, secondo cui il rotore del campo $\vec{B}$ è determinato dalla densità di corrente di conduzione ($\vec{J}$) più la densità di corrente di spostamento ($\varepsilon_{0}\partial\vec{E}/\partial t$). La corrente di spostamento fu introdotta da Maxwell per garantire la conservazione della carica. Secondo questo teorema, dal punto di vista globale (forma integrale), la circolazione del campo $\vec{B}$ lungo un \textbf{circuito chiuso} è proporzionale alla corrente elettrica concatenata ($\mu_{0}I_{cond}$) più la corrente di spostamento ($\mu_{0}I_{spost}$) che attraversa \textbf{qualsiasi superficie aperta} delimitata dal circuito stesso.
 
 \subsection{Equazione di continuità della carica}
 Dalle equazioni di Maxwell è possibile ricavare la legge di continuità della carica. A tale scopo si applica la divergenza all'equazione di Ampere-Maxwell:
@@ -56,109 +57,165 @@ Dalle equazioni di Maxwell è possibile ricavare la legge di continuità della c
 
 Il primo membro è la divergenza di un rotore che, per qualsiasi campo vettoriale derivabile due volte, è sempre nulla, ovvero \(\vec{\nabla} \cdot \vec{\nabla} \times \vec{B} = 0\). Si ottiene:
 
-\[\mu_{0}\vec{\nabla} \cdot \vec{J} + \mu_{0}\varepsilon_{0}\vec{\nabla} \cdot \dfrac{\partial\vec{E}}{\partial t} = 0\]
+\[
+\mu_{0}\vec{\nabla} \cdot \vec{J} + \mu_{0}\varepsilon_{0}\vec{\nabla} \cdot \dfrac{\partial\vec{E}}{\partial t} = 0
+\]
 
 È possibile scambiare il simbolo di derivata temporale con quello di divergenza:
 
-\[\mu_{0}\vec{\nabla} \cdot \vec{J} + \mu_{0}\varepsilon_{0}\dfrac{\partial}{\partial t}\left( \vec{\nabla} \cdot \vec{E} \right) = 0\]
+\[
+\mu_{0}\vec{\nabla} \cdot \vec{J} + \mu_{0}\varepsilon_{0}\dfrac{\partial}{\partial t}\left( \vec{\nabla} \cdot \vec{E} \right) = 0
+\]
 
 La divergenza del campo elettrico è data dalla prima equazione di Maxwell. Semplificando anche \(\mu_{0}\), si ottiene:
 
-\[\vec{\nabla} \cdot \vec{J} + \varepsilon_{0}\dfrac{\partial}{\partial t}\left( \dfrac{\rho}{\varepsilon_{0}} \right) = 0\]
+\[
+\vec{\nabla} \cdot \vec{J} + \varepsilon_{0}\dfrac{\partial}{\partial t}\left( \dfrac{\rho}{\varepsilon_{0}} \right) = 0
+\]
 
-Dunque, si è ottenuta la legge di conservazione della carica:
+Dunque, si è ottenuta la \textbf{legge di conservazione della carica}:
 
-\[\vec{\nabla} \cdot \vec{J} + \dfrac{\partial\rho}{\partial t} = 0\]
+\[
+\vec{\nabla} \cdot \vec{J} + \dfrac{\partial\rho}{\partial t} = 0
+\]
 
 Tale equazione afferma che, se la carica in un volume varia nel tempo, deve esistere una corrente in ingresso o in uscita dal volume che sostenga tale variazione di carica.
 
 \subsection{Risoluzione delle equazioni di Maxwell omogenee}\label{risoluzione-delle-equazioni-maxwell-omogenee}
 
-Si considera il caso di assenza di sorgenti, ovvero, si vuole risolvere le equazioni di Maxwell lontano dalle sorgenti di campo \(\vec{J}\) e \(\rho\)
+Si considera il caso di \textbf{assenza di sorgenti}, ovvero, si vuole risolvere le equazioni di Maxwell lontano dalle sorgenti di campo (densità di corrente $\vec{J} = 0$ e densità di carica $\rho = 0$).
 
-\[\begin{cases}
- \vec{\nabla} \cdot \vec{E} = \dfrac{\rho}{\varepsilon_{0}} \\
-\vec{\nabla} \cdot \vec{B} = 0 \\
-\vec{\nabla} \times \vec{E} = - \dfrac{\partial\vec{B}}{\partial t}  \\
-\vec{\nabla} \times \vec{B} = \mu_{0}\left( \vec{J} + \varepsilon_{0}\dfrac{\partial\vec{E}}{\partial t} \right)
+\[
+\begin{cases}
+\vec{\nabla} \cdot \vec{E} = 0 & \text{(Legge di Gauss per } \vec{E} \text{ omogenea)} \\
+\vec{\nabla} \cdot \vec{B} = 0 & \text{(Legge di Gauss per } \vec{B})\\
+\vec{\nabla} \times \vec{E} = - \dfrac{\partial\vec{B}}{\partial t} & \text{(Legge di Faraday-Neumann-Lenz)}  \\
+\vec{\nabla} \times \vec{B} = \mu_{0}\varepsilon_{0}\dfrac{\partial\vec{E}}{\partial t} & \text{(Legge di Ampère-Maxwell omogenea)}
 \end{cases}
 \]
 
-Si vuole risolvere il sistema di equazioni in modo da determinare il campo induzione magnetica \(\vec{B}\). A tale scopo si applica il rotore all'equazione di Ampere-Maxwell:
 
-\[\vec{\nabla} \times \vec{\nabla} \times \vec{B} = \mu_{0}\varepsilon_{0}\vec{\nabla} \times \dfrac{\partial\vec{E}}{\partial t}\]
+Si vuole risolvere il sistema di equazioni in modo da determinare il campo induzione magnetica $\vec{B}$. A tale scopo si applica l'operatore \textbf{rotore} all'equazione di Ampère-Maxwell (la quarta equazione):
+
+\[
+\vec{\nabla} \times \left( \vec{\nabla} \times \vec{B} \right) = \mu_{0}\varepsilon_{0}\vec{\nabla} \times \dfrac{\partial\vec{E}}{\partial t}
+\]
 
 Il rotore del rotore può essere scritto come:
 
-\[\vec{\nabla} \times \vec{\nabla} \times = \vec{\nabla}\left( \vec{\nabla} \cdot \  \right) - \nabla^{2}\ \]
+\[
+\vec{\nabla} \times \vec{\nabla} \times = \vec{\nabla}\left( \vec{\nabla} \cdot \  \right) - \nabla^{2}
+\]
 
 Dove \(\nabla^{2}\) è l'operatore laplaciano che, scritto in coordinate cartesiane, è dato da:
 
-\[\nabla^{2} = \Delta = \dfrac{\partial^{2}}{\partial x^{2}} + \dfrac{\partial^{2}}{\partial y^{2}} + \dfrac{\partial^{2}}{\partial z^{2}}\]
+\[
+\nabla^{2} = \Delta = \dfrac{\partial^{2}}{\partial x^{2}} + \dfrac{\partial^{2}}{\partial y^{2}} + \dfrac{\partial^{2}}{\partial z^{2}}
+\]
 
 L'equazione di Ampere-Maxwell si può scrivere, invertendo l'operatore derivata temporale col rotore, come:
 
-\[\vec{\nabla} \times \vec{\nabla} \times \vec{B} = \mu_{0}\varepsilon_{0}\vec{\nabla} \times \dfrac{\partial\vec{E}}{\partial t} \Leftrightarrow \vec{\nabla}\left( \vec{\nabla} \cdot \ \vec{B} \right) - \nabla^{2}\vec{B} = \mu_{0}\varepsilon_{0}\dfrac{\partial}{\partial t}\left( \vec{\nabla} \times \vec{E} \right)\]
+\[
+\vec{\nabla} \times \vec{\nabla} \times \vec{B} = \mu_{0}\varepsilon_{0}\vec{\nabla} \times \dfrac{\partial\vec{E}}{\partial t} \Leftrightarrow \vec{\nabla}\left( \vec{\nabla} \cdot \ \vec{B} \right) - \nabla^{2}\vec{B} = \mu_{0}\varepsilon_{0}\dfrac{\partial}{\partial t}\left( \vec{\nabla} \times \vec{E} \right)
+\]
 
 La divergenza del campo induzione magnetica è nulla, inoltre, sostituendo la terza equazione di Maxwell si ha:
 
-\[- \nabla^{2}\vec{B} = \mu_{0}\varepsilon_{0}\dfrac{\partial}{\partial t}\left( - \dfrac{\partial\vec{B}}{\partial t} \right) \Leftrightarrow - \nabla^{2}\vec{B} = - \ \mu_{0}\varepsilon_{0}\dfrac{\partial^{2}\vec{B}}{\partial t^{2}}\]
+\[
+- \nabla^{2}\vec{B} = \mu_{0}\varepsilon_{0}\dfrac{\partial}{\partial t}\left( - \dfrac{\partial\vec{B}}{\partial t} \right) \Leftrightarrow - \nabla^{2}\vec{B} = - \ \mu_{0}\varepsilon_{0}\dfrac{\partial^{2}\vec{B}}{\partial t^{2}}
+\]
 
-L'equazione:
+L'equazione risultante, valida per il campo magnetico:
 
-\[\nabla^{2}\vec{B} - \ \mu_{0}\varepsilon_{0}\dfrac{\partial^{2}\vec{B}}{\partial t^{2}} = 0\]
+\[
+\nabla^{2}\vec{B} - \ \mu_{0}\varepsilon_{0}\dfrac{\partial^{2}\vec{B}}{\partial t^{2}} = 0
+\]
 
-È detta equazione delle onde o di d'Alembert. Si definisce operatore di d'Alembert come:
+È l'\textbf{equazione delle onde} o di d'Alembert. Applicando un procedimento analogo alla Legge di Faraday, si otterrebbe l'identica equazione per il campo elettrico:
 
-\[\square = \nabla^{2} - \dfrac{1}{c^{2}}\dfrac{\partial^{2}}{\partial t^{2}}\]
+\[
+\nabla^{2}\vec{E} - \ \mu_{0}\varepsilon_{0}\dfrac{\partial^{2}\vec{E}}{\partial t^{2}} = 0
+\]
 
-Dove \(c\) è la velocità di propagazione dell'onda. In questo caso, \(c\) coincide con la velocità della luce nel vuoto. Dalle equazioni di Maxwell discende che:
+Entrambe le equazioni possono essere espresse tramite l'operatore d'Alembert $\square$:
 
-\[c = \dfrac{1}{\sqrt{\mu_{0}\varepsilon_{0}}} \simeq 3.00 \cdot 10^{8}\ m/s\]
+\[
+\square \vec{B} = 0 \quad \text{e} \quad \square \vec{E} = 0
+\]
+
+L'equazione d'onda generale ha la forma
+
+\[
+\nabla^2 \vec{V} - \dfrac{1}{c^2}\dfrac{\partial^2 \vec{V}}{\partial t^2} = 0
+\]
+
+dove $c$ è la velocità di propagazione. Confrontando, si deduce che la velocità dell'onda elettromagnetica è data da:
+
+\[
+c = \dfrac{1}{\sqrt{\mu_{0}\varepsilon_{0}}} \simeq 3.00 \cdot 10^{8}\ m/s
+\]
+
+Questa velocità $c$ è identica alla \textbf{velocità della luce nel vuoto}, dimostrando che la luce è una manifestazione del campo elettromagnetico.
 
 \subsection{Risoluzione delle equazioni di Maxwell in presenza di sorgenti}\label{risoluzione-delle-equazioni-di-maxwell}
 
-Si vuole risolvere le equazioni di Maxwell in prossimità delle sorgenti \(\vec{J}\) e \(\rho\). In questo modo è possibile ricostruire l'intero campo elettromagnetico generato dalle sorgenti.
+Si vuole risolvere le equazioni di Maxwell in prossimità delle sorgenti (densità di corrente $\vec{J}$ e densità di carica $\rho$). Questo approccio permette di ricostruire l'intero campo elettromagnetico generato dalle sorgenti stesse.
 
-\[\begin{cases}
- \vec{\nabla} \cdot \vec{E} = \dfrac{\rho}{\varepsilon_{0}} \\
-\vec{\nabla} \cdot \vec{B} = 0 \\
-\vec{\nabla} \times \vec{E} = - \dfrac{\partial\vec{B}}{\partial t}  \\
-\vec{\nabla} \times \vec{B} = \mu_{0}\left( \vec{J} + \varepsilon_{0}\dfrac{\partial\vec{E}}{\partial t} \right)
+Le equazioni di Maxwell nel vuoto con sorgenti sono:
+\[
+\begin{cases}
+ \vec{\nabla} \cdot \vec{E} = \dfrac{\rho}{\varepsilon_{0}} & \text{(Legge di Gauss per } \vec{E}) \\
+\vec{\nabla} \cdot \vec{B} = 0 & \text{(Legge di Gauss per } \vec{B})\\
+\vec{\nabla} \times \vec{E} = - \dfrac{\partial\vec{B}}{\partial t} & \text{(Legge di Faraday-Neumann-Lenz)}  \\
+\vec{\nabla} \times \vec{B} = \mu_{0}\left( \vec{J} + \varepsilon_{0}\dfrac{\partial\vec{E}}{\partial t} \right) & \text{(Legge di Ampère-Maxwell)}
 \end{cases}
 \]
 
-Dall'equazione di Gauss per il magnetismo, risulta che il campo induzione magnetica è solenoidale, quindi, è possibile definire un potenziale vettore \(\vec{A}\) tale che:
+Dall'equazione di Gauss per il magnetismo, risulta che il campo induzione magnetica è solenoidale, quindi, è possibile definire un \textbf{potenziale vettore} \(\vec{A}\) tale che:
 
-\[\vec{\nabla} \times \vec{A} = \vec{B}\]
+\[
+\vec{\nabla} \times \vec{A} = \vec{B}
+\]
 
-Si sostituisce tale definizione nella terza equazione di Maxwell:
+Sostituendo questa definizione nella terza equazione (Faraday-Neumann-Lenz):
 
-\[\vec{\nabla} \times \vec{E} = - \dfrac{\partial\vec{B}}{\partial t} = - \dfrac{\partial}{\partial t}\left( \vec{\nabla} \times \vec{A} \right)\]
+\[
+\vec{\nabla} \times \vec{E} = - \dfrac{\partial\vec{B}}{\partial t} = - \dfrac{\partial}{\partial t}\left( \vec{\nabla} \times \vec{A} \right)
+\]
 
 L'operatore \(\vec{\nabla}\) è indipendente dalla derivata temporale, dunque, è lecita la loro inversione:
 
-\[\vec{\nabla} \times \vec{E} = - \vec{\nabla} \times \dfrac{\partial\vec{A}}{\partial t}\]
+\[
+\vec{\nabla} \times \vec{E} = - \vec{\nabla} \times \dfrac{\partial\vec{A}}{\partial t}
+\]
 
 Portando tutto al primo membro e applicando la linearità dell'operatore rotore, è possibile scrivere:
 
-\[\vec{\nabla} \times \left( \vec{E} + \dfrac{\partial\vec{A}}{\partial t} \right) = \vec{0}\]
+\[
+\vec{\nabla} \times \left( \vec{E} + \dfrac{\partial\vec{A}}{\partial t} \right) = \vec{0}
+\]
 
 Il campo \(\vec{E} + \partial\vec{A}/\partial t\) è irrotazionale, per cui, è possibile definire un potenziale scalare \(\phi\) tale che:
 
-\[\vec{E} + \dfrac{\partial\vec{A}}{\partial t} = - \vec{\nabla}\phi\]
+\[
+\vec{E} + \dfrac{\partial\vec{A}}{\partial t} = - \vec{\nabla}\phi
+\]
 
 Il potenziale scalare $\phi$ è generalmente definito con un segno negativo. Nell'elettrostatica, il potenziale scalare concide con la tensione $\vec{E} = -\vec{\nabla}V$.
 
 In presenza di un campo magnetostatico, la derivata temporale di \(\vec{B}\) è nulla, per cui il potenziale scalare coincide con il potenziale elettrico:
 
-\[\vec{E} = - \vec{\nabla}\phi\]
+\[
+\vec{E} = - \vec{\nabla}\phi
+\]
 
-La forza elettrica ($\vec{F}$) deve essere opposta al gradiente del potenziale scalare ($\phi$) perché il potenziale $\phi$ rappresenta l'energia potenziale elettrica per unità di carica (ossia, la tensione o voltaggio).In fisica, una forza conservativa (come la forza elettrica) tende sempre a muovere un oggetto nella direzione in cui l'energia potenziale diminuisce più rapidamente. Il gradiente ($\vec{\nabla}\phi$) punta, per definizione, nella direzione in cui il potenziale aumenta più rapidamente. Per questo motivo, la relazione fondamentale tra campo elettrico ($\vec{E}$) e potenziale elettrico ($\phi$) deve includere un segno negativo
+La forza elettrica ($\vec{F}$) deve essere opposta al gradiente del potenziale scalare ($\phi$) perché il potenziale $\phi$ rappresenta l'energia potenziale elettrica per unità di carica (ossia, la tensione o voltaggio). In fisica, una forza conservativa (come la forza elettrica) tende sempre a muovere un oggetto nella direzione in cui l'energia potenziale diminuisce più rapidamente. Il gradiente ($\vec{\nabla}\phi$) punta, per definizione, nella direzione in cui il potenziale aumenta più rapidamente. Per questo motivo, la relazione fondamentale tra campo elettrico ($\vec{E}$) e potenziale elettrico ($\phi$) deve includere un segno negativo.
 
- potenziali vettore $\vec{A}$ e scalare $\phi$ non sono univocamente determinati. Per tale motivo, si adotta una condizione di Gauge per disaccoppiare le equazioni differenziali. La Gauge di Lorentz, data da:
+I potenziali vettore $\vec{A}$ e scalare $\phi$ non sono univocamente determinati. Per tale motivo, si adotta una condizione di Gauge per disaccoppiare le equazioni differenziali. La Gauge di Lorentz, data da:
 
-\[\vec{\nabla} \cdot \vec{A} + \mu_0\varepsilon_{0}\dfrac{\partial\phi}{\partial t} = 0\]
+\[
+\vec{\nabla} \cdot \vec{A} + \mu_0\varepsilon_{0}\dfrac{\partial\phi}{\partial t} = 0
+\]
 
 è invariante quando si passa da un sistema di riferimento inerziale a un altro tramite le trasformazioni di Lorentz,il che è un requisito fondamentale della Relatività Ristretta. Per tale motivo si parla di condizione covariante in relatività.
 
@@ -166,33 +223,54 @@ Sotto la condizione di Gauge di Lorentz, le Equazioni di Maxwell si riducono a d
 
 Si dimostra che, per una sorgente puntiforme, il potenziale vettore, nel dominio della frequenza, è dato da:
 
-\[\vec{A} = \dfrac{\mu_{0}}{4\pi}\dfrac{\vec{J}}{\left| \vec{r} - {\vec{r}}_{0} \right|}e^{- jk\left| \vec{r} - {\vec{r}}_{0} \right|}\]
+La soluzione nel dominio della frequenza per il potenziale vettore generato da una distribuzione di corrente $\vec{J}(\vec{r}')$ in un volume $V$ è data dall'integrale di convoluzione con la funzione di Green:
 
-Dove \({\vec{r}}_{0}\) è la posizione in cui sono posizionate le sorgenti, mentre \(\vec{r}\) è il punto nello spazio in cui si valuta il campo. La quantità:
+\[
+\vec{A}(\vec{r}) = \dfrac{\mu_{0}}{4\pi} \int_{V} \dfrac{\vec{J}(\vec{r}')}{\left| \vec{r} - {\vec{r}}' \right|}e^{- jk\left| \vec{r} - {\vec{r}}' \right|} dV'
+\]
 
-\[g\left( \vec{r} \right) = \dfrac{1}{4\pi}\dfrac{1}{\left| \vec{r} \right|}e^{- jk\left| \vec{r} \right|}\]
+In questa espressione, $\vec{r}'$ è la posizione della sorgente e $\vec{r}$ è il punto di valutazione del campo.
 
-È la funzione di Green o risposta impulsiva del mezzo, lineare e isotropo, visto come un sistema ingresso-uscita. Si definisce il numero d'onda (o costante di propagazione nel vuoto) come:
+La quantità:
 
-\[k = \omega\sqrt{\mu_{0}\varepsilon_{0}}=\dfrac{\omega}{c}\]
+\[
+g\left( \vec{r} \right) = \dfrac{1}{4\pi}\dfrac{1}{\left| \vec{r} \right|}e^{- jk\left| \vec{r} \right|}
+\]
+
+È la \textbf{funzione di Green} (o risposta impulsiva) per l'operatore di Helmholtz nel vuoto, che descrive la propagazione da una sorgente puntiforme.
+
+Si definisce il \textbf{numero d'onda} (o costante di propagazione nel vuoto) come:
+
+\[
+k = \omega\sqrt{\mu_{0}\varepsilon_{0}}=\dfrac{\omega}{c}
+\]
 
 \subsection{Equazioni di Maxwell nel vuoto in forma globale}\label{equazioni-di-maxwell-nel-vuoto-in-forma-globale}
 
-Le equazioni di Maxwell in forma locale non possono essere utilizzate in presenza di brusche variazioni della superficie dei volumi sui quali calcolare i campi. In questo caso si ricorre alla forma globale o integrale:
+Le equazioni di Maxwell in forma globale (o integrale) sono fisicamente equivalenti a quelle in forma locale. Si preferisce ricorrere alla forma globale in presenza di \textbf{alta simmetria} del sistema fisico (per semplificare i calcoli) o in presenza di \textbf{superfici di discontinuità} (condizioni al contorno tra materiali diversi).
 
-\[\begin{cases}
- \oiint_{S}{\vec{E} \cdot d\vec{S}\ } = \dfrac{Q}{\varepsilon_{0}} \\
- \oiint_{S}{\vec{B} \cdot d\vec{S}\ } = 0  \\
- \oint_{\partial S}{\vec{E} \cdot d\vec{s}} = - \dfrac{\partial}{\partial t}\int_{\Sigma}{\vec{B} \cdot d\vec{\Sigma}}  \\
- \oint_{\partial S}{\vec{B} \cdot d\vec{s}} = \mu_{0}I + \mu_{0}\varepsilon_{0}\dfrac{\partial}{\partial t}\int_{\Sigma}{\vec{E} \cdot d\vec{\Sigma}}
+Le equazioni di Maxwell nel vuoto in forma globale sono:
+\[
+\begin{cases}
+ \oiint_{S}{\vec{E} \cdot d\vec{S}\ } = \dfrac{Q}{\varepsilon_{0}} & \text{(Legge di Gauss per } \vec{E}) \\
+ \oiint_{S}{\vec{B} \cdot d\vec{S}\ } = 0 & \text{(Legge di Gauss per } \vec{B})  \\
+ \oint_{\partial \Sigma}{\vec{E} \cdot d\vec{s}} = - \dfrac{\partial}{\partial t}\int_{\Sigma}{\vec{B} \cdot d\vec{\Sigma}} & \text{(Legge di Faraday)}  \\
+ \oint_{\partial \Sigma}{\vec{B} \cdot d\vec{s}} = \mu_{0}I + \mu_{0}\varepsilon_{0}\dfrac{\partial}{\partial t}\int_{\Sigma}{\vec{E} \cdot d\vec{\Sigma}} & \text{(Legge di Ampère-Maxwell)}
 \end{cases}
 \]
 
-Dove \(S\) è una superficie all'interno della quale si vuole valutare il campo, mentre \(\Sigma\) è una superficie aperta avente per contorno \(\partial S\). \(Q\) è la quantità di carica contenuta in \(S\) e \(I\) la corrente che attraversa \(\Sigma\).
+Dove:
+\begin{itemize}
+    \item $S$ è una \textbf{superficie chiusa} che racchiude la carica $Q$.
+    \item $\Sigma$ è una \textbf{superficie aperta}.
+    \item $\partial \Sigma$ è la \textbf{linea chiusa} che costituisce il contorno di $\Sigma$.
+    \item $Q$ è la quantità di carica netta contenuta nel volume racchiuso da $S$.
+    \item $I$ è la corrente di conduzione che attraversa la superficie aperta $\Sigma$.
+\end{itemize}
 
 \section{Equazioni di Maxwell nel mezzo}\label{equazioni-di-maxwell-nel-mezzo}
 
-In presenza di un mezzo materiale si introducono i vettori di induzione elettrica \(\vec{D}\) e di campo magnetico \(\vec{H}\). Il vettore \(\vec{B}\) è detto vettore di induzione magnetica, mentre \(\vec{E}\) rappresenta il campo elettrico.
+In presenza di un \textbf{mezzo materiale} si introducono i vettori di \textbf{induzione elettrica} \(\vec{D}\) e di \textbf{campo magnetico} \(\vec{H}\). Il vettore \(\vec{B}\) è detto vettore di \textbf{induzione magnetica}, mentre \(\vec{E}\) rappresenta il \textbf{campo elettrico}.
 
 I campi di induzione descrivono il comportamento del materiale a seguito dell'applicazione dei rispettivi campi. Con l'introduzione dei campi \(\vec{E}\), \(\vec{D}\), \(\vec{H}\) e \(\vec{B}\), le equazioni di Maxwell in forma locale si scrivono come:
 
@@ -205,7 +283,7 @@ I campi di induzione descrivono il comportamento del materiale a seguito dell'ap
 \end{cases}
 \]
 
-Dove \(\rho_{lib}\) e \(\vec{J}_{lib}\) sono le sorgenti libere ovvero le cariche e correnti che possono muoversi liberamente all’interno o all’esterno di un materiale, non vincolate alla struttura atomica o molecolare del mezzo. Queste sorgenti possono essere controllate direttamente, ad esempio, applicando una tensione o facendo passare una corrente in un conduttore. In contrapposizione, ci sono le sorgenti vincolate (o di legame), che derivano dal comportamento microscopico delle molecole e atomi del materiale. I vettori di polarizzazione e di magnetizzazione dipendono da tali sorgenti.
+Dove \(\rho_{lib}\) e \(\vec{J}_{lib}\) sono le \textbf{sorgenti libere} ovvero le cariche e correnti che possono muoversi liberamente all’interno o all’esterno di un materiale, non vincolate alla struttura atomica o molecolare del mezzo. Queste sorgenti possono essere controllate direttamente, ad esempio, applicando una tensione o facendo passare una corrente in un conduttore. In contrapposizione, ci sono le sorgenti vincolate (o di legame), che derivano dal comportamento microscopico delle molecole e atomi del materiale. I vettori di polarizzazione e di magnetizzazione dipendono da tali sorgenti.
 
 Il vettore di induzione elettrica è definito come:
 
@@ -213,7 +291,7 @@ Il vettore di induzione elettrica è definito come:
 \vec{D} = \varepsilon_{0}\vec{E} + \vec{P}
 \]
 
-dove \(\vec{P}\) è il vettore di polarizzazione; esso descrive come i dipoli elettrici contenuti nel materiale si orientano sotto l'effetto del campo elettrico.
+dove \(\vec{P}\) è il \textbf{vettore di polarizzazione}; esso descrive come i dipoli elettrici contenuti nel materiale si orientano sotto l'effetto del campo elettrico.
 
 L'induzione magnetica è invece definita come:
 
@@ -221,9 +299,9 @@ L'induzione magnetica è invece definita come:
 \vec{B} = \mu_{0}(\vec{H} + \vec{M})
 \]
 
-dove \(\vec{M}\) è il vettore di magnetizzazione e descrive come i dipoli magnetici nel materialesi orientano sotto l’azione del campo magnetico applicato H \(\vec{H}\).
+dove \(\vec{M}\) è il \textbf{vettore di magnetizzazione} e descrive come i dipoli magnetici nel materialesi orientano sotto l’azione del campo magnetico applicato H \(\vec{H}\).
 
-Per i mezzi lineari e isotropi esistono due costanti, dette suscettibilità elettrica \(\chi_{e}\) e suscettibilità magnetica \(\chi_{m}\), che rappresentano i coefficienti di proporzionalità, rispettivamente, tra i campi di polarizzazione e magnetizzazione e i relativi campi applicati:
+Per i \textbf{mezzi lineari e isotropi} esistono due costanti, dette \textbf{suscettibilità elettrica} \(\chi_{e}\) e \textbf{suscettibilità magnetica} \(\chi_{m}\), che rappresentano i coefficienti di proporzionalità, rispettivamente, tra i campi di polarizzazione e magnetizzazione e i relativi campi applicati:
 
 \[
 \vec{P} = \varepsilon_{0}\chi_{e}\vec{E}, \qquad \vec{M} = \chi_{m}\vec{H}
@@ -235,7 +313,7 @@ Sostituendo il vettore di polarizzazione nella definizione del vettore di induzi
 \vec{D} = \varepsilon_{0}\vec{E} + \vec{P} = \varepsilon_{0}\vec{E} + \varepsilon_{0}\chi_{e}\vec{E} = \varepsilon_{0}\left( 1 + \chi_{e} \right)\vec{E}
 \]
 
-Si definisce la costante dielettrica del mezzo, per un materiale lineare e isotropo, come:
+Si definisce la \textbf{costante dielettrica del mezzo}, per un materiale lineare e isotropo, come:
 
 \[
 \varepsilon = \varepsilon_{0}\left( 1 + \chi_{e} \right)
@@ -253,7 +331,7 @@ Analogamente, per il campo di induzione magnetica:
 \vec{B} = \mu_{0}\vec{H} + \mu_{0}\vec{M} = \mu_{0}\vec{H} + \mu_{0}\chi_{m}\vec{H} = \mu_{0}\left( 1 + \chi_{m} \right)\vec{H}
 \]
 
-Si definisce la permeabilità magnetica del mezzo, per un materiale lineare e isotropo, come:
+Si definisce la \textbf{permeabilità magnetica del mezzo}, per un materiale lineare e isotropo, come:
 
 \[
 \mu = \mu_{0}\left( 1 + \chi_{m} \right)
@@ -283,7 +361,7 @@ La densità di corrente vincolata (o di legame) è data da:
 \vec{J}_{vinc} = \dfrac{\partial \vec{P}}{\partial t} + \vec{\nabla} \times \vec{M}
 \]
 
-Per un mezzo lineare e isotropo, sostituendo le relazioni costitutive si ottiene:
+Per un mezzo lineare e isotropo, sostituendo le \textbf{relazioni costitutive} si ottiene:
 
 \[
 \vec{J}_{vinc} = \varepsilon_0 \chi_e \dfrac{\partial \vec{E}}{\partial t} + \left(\vec{\nabla} \times \left(\chi_{m} \vec{H}\right)\right)

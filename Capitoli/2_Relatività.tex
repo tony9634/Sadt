@@ -78,14 +78,13 @@ x^{2} + y^{2} + z^{2} = r^{2} \\
 \end{cases} 
 \]
 
-dove, i raggi sono dati da:
+dove i raggi sono dati da:
 
 \[
 r = ct, \quad \text{e} \quad r' = ct'
 \]
 
 Dato che gli assi $y$ e $z$ sono perpendicolari al moto, si ha $y=y'$ e $z=z'$. Per cui, è possibile scrivere:
-
 
 \[
 \begin{cases}
@@ -105,7 +104,7 @@ t' = gx + et
 \end{cases}
 \]
 
-Si sostituisce queste relazioni nell'equazione che descrive l'espansione dell'onda in \(K'\):
+Si sostituiscono queste relazioni nell'equazione che descrive l'espansione dell'onda in \(K'\):
 
 \[
 \left(ax + bt\right)^{2} + y^{2} + z^{2} = c^{2}\left(gx + et\right)^{2}
@@ -123,13 +122,13 @@ Raccogliendo, si ha:
 \left( a^{2} - c^{2}g^{2} \right)x^{2} + \left( 2ab - 2c^{2}ge \right)xt + y^{2} + z^{2} = \left( c^{2}e^{2} - b^{2} \right)t^{2}
 \]
 
-Questa equazione descrive l'onda nel sistema di riferimento \(K\), quindi, deve essere paragonata all'equazione:
+Questa equazione descrive l'onda nel sistema di riferimento \(K\), quindi deve essere paragonata all'equazione:
 
 \[
 x^{2} + y^{2} + z^{2} = c^{2}t^{2}
 \]
 
-Questa equazione deve essere proporzionale a $x^{2} + y^{2} + z^{2} - c^{2}t^{2} = 0$. Uguagliando i coefficienti, si ottiene il sistema di equazioni:
+Uguagliando i coefficienti, si ottiene il sistema di equazioni:
 
 \[
 \begin{cases}
@@ -139,7 +138,7 @@ c^{2}e^{2} - b^{2} = c^{2} \quad \text{(coeff. di } t^2)
 \end{cases}
 \]
 
-Il sistema ottenuto presenta tre equazioni, nelle incognite $a$, $b$, $e$ e $g$. È, dunque, necessario aggiungere una quarta equazione che leghi i coefficienti alla velocità relativa $v$. A tale scopo, si considera un punto fermo nel sistema $K'$, per il quale $dx' = 0$. Dalla trasformazione di $x'$, differenziando, si ha:
+Il sistema ottenuto presenta tre equazioni nelle incognite $a$, $b$, $e$ e $g$. È dunque necessario aggiungere una quarta equazione che leghi i coefficienti alla velocità relativa $v$. A tale scopo, si considera un punto fermo nel sistema $K'$, per il quale $dx' = 0$. Dalla trasformazione di $x'$, differenziando, si ha:
 
 \[
 dx' = a\ dx + b\ dt = 0 \Leftrightarrow \dfrac{dx}{dt} = - \dfrac{b}{a}
@@ -167,42 +166,109 @@ c^{2}e^{2} - b^{2} = c^{2} \quad \text{(Eq. 3)} \\
 b = - av \quad \text{(Eq. 4)}
 \end{cases}
 \]
+Si parte dal sistema di equazioni ottenuto imponendo l'invarianza della forma dell'equazione dell'onda luminosa:
 
-Si considera la terza equazione:
+\[
+\begin{cases}
+a^{2} - c^{2}g^{2} = 1 \quad \text{(Eq. 1)} \\
+ab - c^{2}ge = 0 \quad \text{(Eq. 2)} \\
+c^{2}e^{2} - b^{2} = c^{2} \quad \text{(Eq. 3)} \\
+b = - av \quad \text{(Eq. 4)}
+\end{cases}
+\]
 
-\[c^{2}e^{2} - b^{2} = c^{2}\]
+Dalla seconda equazione si ricava $g$:
 
-Si sostituisce l'ultima:
+\[
+ab - c^{2}ge = 0 \Leftrightarrow g = \dfrac{ab}{c^{2}e}
+\]
 
-\[c^{2}e^{2} - v^{2}e^{2} = c^{2}\]
+Sostituendo $b = -av$:
 
-Da cui è possibile ricavare \(e\):
+\[
+g = \dfrac{a\left(-av\right)}{c^{2}e} = -\dfrac{a^{2}v}{c^{2}e}
+\]
 
-\[e^{2} = \dfrac{c^{2}}{c^{2} - v^{2}} = \dfrac{1}{1 - \left( \dfrac{v}{c} \right)^{2}}\]
+si sostituisce l'espressione di $g$ nella prima equazione:
 
-\[e = \dfrac{1}{\sqrt{1 - \left( \dfrac{v}{c} \right)^{2}}}\]
+\[
+a^{2} - c^{2}g^{2} = 1 \Leftrightarrow a^{2} - c^{2}\left(-\dfrac{a^{2}v}{c^{2}e}\right)^{2} = 1
+\]
 
-Noto \(e\) è possibile risalire a \(b\) dalla quarta equazione:
+Si svolge il quadrato:
 
-\[b = - ve = - \dfrac{v}{\sqrt{1 - \left( \dfrac{v}{c} \right)^{2}}}\]
+\[
+a^{2} - c^{2}\dfrac{a^{4}v^{2}}{c^{4}e^{2}} = 1 \Leftrightarrow a^{2} - \dfrac{a^{4}v^{2}}{c^{2}e^{2}} = 1
+\]
 
-Dalla seconda equazione è possibile ricavare \(g\) in funzione di \(a\):
+Si moltiplica per $c^{2}e^{2}$:
 
-\[c^{2}ge = ab \Leftrightarrow g = \dfrac{1}{c^{2}}a\dfrac{b}{e}\]
+\[
+a^{2}c^{2}e^{2} - a^{4}v^{2} = c^{2}e^{2}
+\]
 
-Per la quarta equazione, si ha:
+Si raccoglie $a^{2}$:
 
-\[g = - \dfrac{v}{c^{2}}a\]
+\[
+a^{2}(c^{2}e^{2} - a^{2}v^{2}) = c^{2}e^{2}
+\]
 
-Si sostituisce questo risultato nella prima equazione:
+Si sostiuisce la quarta equazione nella terza:
 
-\[a^{2} - c^{2}g^{2} = 1 \Leftrightarrow a^{2} - c^{2}\dfrac{v^{2}}{c^{4}}a^{2} = 1 \Leftrightarrow \left( 1 - \dfrac{v^{2}}{c^{2}} \right)a^{2} = 1 \Leftrightarrow a = \dfrac{1}{\sqrt{1 - \left( \dfrac{v}{c} \right)^{2}}}\]
+\[
+c^{2}e^{2} - b^{2} = c^{2}, \quad b^{2} = a^{2}v^{2}
+\]
 
-Noto \(a\), è possibile risalire a \(g\):
+Quindi:
 
-\[g = - \dfrac{v}{c^{2}}a = - \dfrac{v}{c^{2}}\dfrac{1}{\sqrt{1 - \left( \dfrac{v}{c} \right)^{2}}}\]
+\[
+c^{2}e^{2} - a^{2}v^{2} = c^{2}
+\]
 
-I coefficienti determinati sono, dunque:
+Si sostituisce questo risultato nella relazione $a^{2}(c^{2}e^{2} - a^{2}v^{2}) = c^{2}e^{2}$:
+
+\[
+a^{2}\left(c^{2}\right) = c^{2}e^{2} \Leftrightarrow a^{2} = e^{2}
+\]
+
+Poiché $a$ ed $e$ sono positivi:
+
+\[
+a = e
+\]
+
+Con questa relazione è possibile ricavare tutti i parametri del sistema:
+
+\[
+c^{2}a^{2} - a^{2}v^{2} = c^{2} \Leftrightarrow a^{2}(c^{2} - v^{2}) = c^{2}
+\]
+
+Quindi:
+
+\[
+a^{2} = \dfrac{c^{2}}{c^{2} - v^{2}} \Leftrightarrow a = \dfrac{1}{\sqrt{1 - \dfrac{v^{2}}{c^{2}}}} = \dfrac{c}{\sqrt{c^{2} - v^{2}}}
+\]
+
+Poiché $e = a$:
+
+\[
+e = \dfrac{c}{\sqrt{c^{2} - v^{2}}}
+\]
+
+Dalla quarta:
+
+\[
+b = -av = -\dfrac{c}{\sqrt{c^{2} - v^{2}}} \cdot v = -\dfrac{cv}{\sqrt{c^{2} - v^{2}}}
+\]
+
+Dall'equazione per $g$, si ottiene:
+
+\[
+g = -\dfrac{a^{2}v}{c^{2}a} = -\dfrac{a v}{c^{2}} = -\dfrac{c}{\sqrt{c^{2} - v^{2}}} \dfrac{v}{c^{2}} = -\dfrac{v}{c\sqrt{c^{2} - v^{2}}}
+\]
+
+
+I coefficienti determinati sono dunque:
 
 \[
 \begin{cases}
@@ -213,16 +279,10 @@ e = \dfrac{1}{\sqrt{1 - \left( \dfrac{v}{c} \right)^{2}}}
 \end{cases}
 \]
 
-Dato che il rapporto della velocità di movimento del sistema di riferimento sulla velocità della luce compare frequentemente, si pone:
+Dato che il rapporto tra la velocità del sistema e quella della luce compare frequentemente, si pone:
 
 \[
-\dfrac{v}{c} = \beta
-\]
-
-La quantità:
-
-\[
-\gamma = \dfrac{1}{\sqrt{1 - \left( \dfrac{v}{c} \right)^{2}}} = \dfrac{1}{\sqrt{1 - \beta^{2}}}
+\dfrac{v}{c} = \beta, \quad \gamma = \dfrac{1}{\sqrt{1 - \beta^{2}}}
 \]
 
 È detto \textbf{fattore di Lorentz}. Con queste definizioni, i coefficienti delle equazioni di composizione possono essere scritti come:
@@ -245,11 +305,6 @@ Le leggi di trasformazioni tra il sistema \(K\) e \(K'\) sono dette \textbf{tras
 
 \[
 \begin{cases}
-x' = ax + bt \\
-y' = y \\
-z' = z \\
-t' = gx + et
-\end{cases} \Leftrightarrow \begin{cases}
 x' = \gamma (x - vt) \\
 y' = y \\
 z' = z \\
@@ -497,18 +552,17 @@ A differenza degli intervalli di tempo misurati nei vari sistemi di riferimento,
 
 Si considerino due sistemi di riferimento inerziali $K$ e $K'$, in moto relativo con velocità $v$ (con $\beta = v/c$) lungo la direzione positiva dell'asse $x$. Si assuma che il sistema $K$ sia fermo e si osservano due punti nel sistema $K'$ nello stesso istante; pertanto la variazione temporale è nulla: $dt' = 0$.
 
-Nel sistema in moto $K'$ si misura una distanza $dx'$, mentre un osservatore nel sistema fisso $K$ misura una distanza $dx$, legata a $dx'$ dalle trasformazioni di Lorentz:
+Nel sistema in moto $K'$ si misura una distanza $dx'$, mentre un osservatore nel sistema fisso $K$ misura una distanza $dx$, legata a $dx'$ dalle trasformazioni differenziali di Lorentz:
 
 \[
 \begin{cases}
-dx = \gamma\left( dx' + \beta c\ dt' \right) \\
- dt = \gamma\left( dt' + \dfrac{\beta}{c}\ dx' \right)
-\end{cases} 
+dx = \gamma\left( dx' + \beta c\, dt' \right), \\
+dt = \gamma\left( dt' + \dfrac{\beta}{c}\, dx' \right),
+\end{cases}
+\qquad \text{dove } \gamma = \dfrac{1}{\sqrt{1-\beta^2}}.
 \]
 
-dove $\gamma = 1/\sqrt{1-\beta^2}$.
-
-Per misurare la lunghezza di un oggetto in movimento, l'osservatore nel sistema $K$ deve determinare le posizioni delle sue estremità simultaneamente nel proprio sistema, cioè $dt=0$. Impostando quindi la seconda equazione a zero si ottiene:
+Per misurare la lunghezza di un oggetto in movimento, l'osservatore nel sistema $K$ deve determinare le posizioni delle sue estremità simultaneamente nel proprio sistema, cioè $dt = 0$. Impostando quindi la seconda equazione a zero si ottiene:
 
 \[
 dt = \gamma\left( dt' + \dfrac{\beta}{c}\ dx' \right) \Leftrightarrow\ \gamma\left( dt' + \dfrac{\beta}{c}\ dx' \right) = 0
@@ -1236,10 +1290,10 @@ Esplicitando le equazioni, si ha:
 \]
 
 Semplificando \(c^{2}\), si ottiene la massa a riposo risultante:
-\begin{align*}
-    M_{0} &= 2\gamma m_{0} \\
-    &= 2\dfrac{m_{0}}{\sqrt{1 - \dfrac{v^{2}}{c^{2}}}}
-\end{align*}
+
+\[
+    M_{0} = 2\gamma m_{0} = 2\dfrac{m_{0}}{\sqrt{1 - \dfrac{v^{2}}{c^{2}}}}
+\]
 
 Poiché le due particelle, prima dell'urto, erano in moto, il fattore di Lorentz è maggiore dell'unità ($\gamma > 1$). Di conseguenza, la massa \(M_{0}\) della particella risultante a valle dell'urto è maggiore della somma delle due masse a riposo iniziali ($2m_{0}$). Questo fenomeno è la conseguenza del fatto che l'energia cinetica posseduta dalle particelle prima dell'urto è convertita in energia interna, manifestandosi come un aumento della massa a riposo del sistema combinato ($\Delta M_0 c^2 = E_{\text{cinetica}}$).
 
@@ -1279,7 +1333,7 @@ Da cui si ricavano le seguenti trasformazioni (solo $x$ e $t$):
 \[
 \begin{cases}
  \dfrac{E'}{c} = \gamma\dfrac{E}{c} - \beta\gamma p_{x} \\
- p_{x'} = - \beta\gamma\dfrac{E}{c} + \gamma p_{x} \quad \text{(Corretto)}
+ p_{x'} = - \beta\gamma\dfrac{E}{c} + \gamma p_{x}
 \end{cases}
 \]
 
