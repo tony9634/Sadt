@@ -1,0 +1,49 @@
+\begin{tikzpicture}[scale=2]
+
+% Assi con prospettiva
+\draw[->] (0,0) -- (2,0) node[below right] {$x$};
+\draw[->] (0,0) -- (-1,1) node[above left] {$y$};
+\draw[->] (0,0) -- (0,1.5) node[left] {$z$};
+
+% Piano XY (in prospettiva)
+\fill[cyan!20,opacity=0.5] (-1.2,1.2) -- (2,0) -- (1.2,-1.2) -- (-2,0) -- cycle;
+
+% Spira come ellisse
+\draw[red,thick] (0,0) ellipse [x radius=1, y radius=0.4];
+
+% Centro C
+\node at (0,0) [below left] {$C$};
+
+% Punto sull'asse z
+\coordinate (Pz) at (0,1.2); % punto a quota z
+\fill (Pz) circle (0.02);
+\node[right] at (Pz) {$z$};
+
+% Elemento infinitesimo dl sulla spira
+\coordinate (dl) at (0.8,0.32); % punto sulla ellisse
+\draw[<->,blue,thick] (dl) ++(-0.25,0.01) -- ++(0.26,-0.1); % piccolo segmento tangente
+\node[xshift=6pt,yshift=1pt] at (dl) {$d\vec{l}$};
+
+% Vettore r dal punto z a dl
+\draw[->,orange,thick] (Pz) -- (dl) node[midway,right] {$\vec{r}$};
+
+% Raggio R
+\draw[->] (0,0) -- ($(0,0)!0.85!(dl)$) node[midway,above] {$R$};
+
+% Angolo alpha (tra z e r)
+\draw (0,0.8) arc[start angle=-90,end angle=-35,radius=0.3];
+\node at (0.1,0.95) {$\alpha$};
+
+% Angolo theta tra asse x e raggio verso dl
+\draw (0.3,0) arc[start angle=0,end angle=22,radius=0.3]
+    node[pos=0.7,right] {$\theta$};
+    
+% Formula nel centro
+\node[fill=yellow!30,draw,rounded corners] at (-1.5,1.5)
+{$\displaystyle B = \frac{\mu_0 I}{2R}$};
+
+% Formula sull'asse
+\node[fill=yellow!50,draw,rounded corners,text width=4cm] at (0,-1.2)
+{\centering $\displaystyle B_{\text{asse}} = \frac{\mu_0 i}{2} \frac{R^2}{(R^2 + z^2)^{3/2}}$};
+
+\end{tikzpicture}

@@ -1,0 +1,152 @@
+\begin{tikzpicture}[scale=2.5, >=stealth, line cap=round, line join=round]
+    % Definizioni di base
+    \def\R{1.6} % Raggio della sfera
+    \def\thetaValue{60} % Angolo polare \vartheta in gradi
+    
+    % *** Parametri per l'effetto 3D (prospettiva) ***
+    \def\yAxisScale{0.4} % Raggio y dell'ellisse per la profondità (0.4 è un buon compromesso)
+
+    % Coordinate sferiche (in base a \thetaValue)
+    \pgfmathsetmacro\r{\R*sin(\thetaValue)} % raggio dell'anello: R*sin(\vartheta)
+    \pgfmathsetmacro\z{\R*cos(\thetaValue)} % coordinata z: R*cos(\vartheta)
+
+    % --- Parametri per lo spessore infinitesimo (d\vartheta) ---
+    \def\dTheta{3} % Metà della variazione d\vartheta per l'anello in gradi
+    \pgfmathsetmacro\thetaUpper{\thetaValue - \dTheta} % Angolo superiore
+    \pgfmathsetmacro\thetaLower{\thetaValue + \dTheta} % Angolo inferiore
+    
+    % Coordinate per i bordi dell'anello
+    \pgfmathsetmacro\rUpper{\R*sin(\thetaUpper)}
+    \pgfmathsetmacro\zUpper{\R*cos(\thetaUpper)}
+    \pgfmathsetmacro\rLower{\R*sin(\thetaLower)}
+    \pgfmathsetmacro\zLower{\R*cos(\thetaLower)}
+    
+    % --- Asse e Origine ---
+    
+    % Asse z (asse di rotazione)
+    \draw[->, very thick] (0, 0, 0) -- (0, \R + 0.5, 0) node[above] {$z$};
+    \draw[dashed, gray] (0, 0, 0) -- (0, -\R-0.1, 0);
+        % Asse x 
+    \draw[->, very thick] (0, 0, 0) -- (\R + 0.5, 0, 0) node[above] {$x$};
+    \draw[dashed, gray] (0, 0, 0) -- (-\R-0.1, 0, 0);
+        % Asse y
+    \draw[->, very thick] (0, 0, 0) -- (0, 0, \R + 0.5) node[above] {$z$};
+    \draw[dashed, gray] (0, 0, 0) -- (0, 0, -\R-0.1);
+
+    % Centro della sfera (Origine O)
+    \coordinate (O) at (0, 0);
+    \draw[fill] (O) circle (1.5pt) node[below right] {$O$};
+
+    % Linea per \omega (velocità angolare)
+    \draw[->, very thick] (0.2, \R + 0.1) -- (0.2, \R + 0.4);
+    \node[right] at (0.2, \R + 0.25) {$\vec{\omega}=\omega\,\hat{z}$};
+    
+    % --- Disegno della Sfera 3D (Simulata) ---
+
+    % 1. Parte nascosta (posteriore) della sfera (sotto l'anello)
+    \draw[thick, gray] (-\R, 0) arc (180:360:\R cm and \R*\yAxisScale cm); % Metà inferiore (nascosta)
+    \draw[dashed, gray] (-\R, 0) arc (180:0:\R cm and \R*\yAxisScale cm); % Metà superiore (visibile)
+
+    % 2. Contorno verticale (circonferenza)
+    \draw[thick, gray] (0, 0) circle (\R);
+
+    % --- Anello Elementare (Guscio) ---
+    
+    % L'anello è disegnato come due ellissi (bordo superiore e bordo inferiore)
+    % e una superficie curva (riempimento) tra i due.
+    
+    % 1. Parte nascosta (posteriore) dell'anello
+    \draw[dashed, blue!70!cyan] (0, \zUpper) ellipse (\rUpper cm and \rUpper*\yAxisScale cm); % Bordo superiore
+    \draw[dashed, blue!70!cyan] (0, \zLower) ellipse (\rLower cm and \rLower*\yAxisScale cm); % Bordo inferiore
+
+% ============================
+%   1. SUPERFICIE (posteriore)
+% ============================
+\path[fill=blue!30, opacity=0.7]
+  % Arco posteriore superiore
+  (\rUpper, \zUpper)
+    arc[start angle=0, end angle=180,
+        x radius=\rUpper, y radius=\rUpper*\yAxisScale]
+  --
+  (-\rLower, \zLower)
+  % Arco posteriore inferiore
+    arc[start angle=180, end angle=0,
+        x radius=\rLower, y radius=\rLower*\yAxisScale]
+  -- cycle;
+
+
+% ============================
+%   3. BORDI ANTERIORI (visibili)
+% ============================
+\draw[line width=2pt, blue!70!cyan]
+  (\rUpper, \zUpper)
+    arc[start angle=0, end angle=-180,
+        x radius=\rUpper, y radius=\rUpper*\yAxisScale];
+
+\draw[line width=2pt, blue!70!cyan]
+  (\rLower, \zLower)
+    arc[start angle=0, end angle=-180,
+        x radius=\rLower, y radius=\rLower*\yAxisScale];
+
+\path[fill=blue!40, opacity=0.7]
+  % Arco posteriore superiore
+  (\rUpper, \zUpper)
+    arc[start angle=0, end angle=-180,
+        x radius=\rUpper, y radius=\rUpper*\yAxisScale]
+  --
+  (-\rLower, \zLower)
+  % Arco posteriore inferiore
+    arc[start angle=-180, end angle=0,
+        x radius=\rLower, y radius=\rLower*\yAxisScale]
+  -- cycle;
+        
+  % collegamento inferiore sinistra → destra
+  --
+  (\rLower, \zLower)
+  % Arco anteriore inferiore (ritorno)
+    arc[start angle=0, end angle=-180,
+        x radius=\rLower, y radius=\rLower*\yAxisScale]
+  -- cycle;
+  
+    % Linee di collegamento laterali (visibili)
+    \draw[line width=2pt, blue!70!cyan] (\rUpper, \zUpper) -- (\rLower, \zLower);
+    \draw[line width=2pt, blue!70!cyan] (-\rUpper, \zUpper) -- (-\rLower, \zLower);
+
+    % --- Etichettatura dei parametri ---
+    
+    % Raggio 'r' dell'anello (al punto medio \z)
+    \draw[<->, dashed, red] (0, \z) -- (\r, \z);
+    \node[above] at (\r*0.5 + 0.5, \z + 0.1) {Raggio: $r=R\sin\vartheta$};
+    
+    % Raggio R della sfera (sul piano xz, passa attraverso il punto medio)
+    \draw[->, very thick] (O) -- (\r, \z); 
+    \node[right] at (\r*0.5 - 0.2, \z*0.5 + 0.1) {$R$};
+    
+    % Angolo \vartheta
+    \draw[thick] (0.3, 0) arc (0:\thetaValue/2:0.3);
+    \node[right] at (0.3, 0.1) {$\vartheta$};
+
+    % Larghezza R d\vartheta (sulla superficie)
+    
+    % Coordinate per la freccia di larghezza (all'esterno della sfera)
+    \coordinate (P_Top_Ext) at (\rUpper+0.1, \zUpper);
+    \coordinate (P_Bottom_Ext) at (\rLower+0.1, \zLower);
+    
+    % Frecce per la larghezza R d\vartheta
+    \draw[<->, very thick, red!70!black, shorten >= 1pt, shorten <= 1pt] 
+        (P_Top_Ext) -- (P_Bottom_Ext);
+    
+    % Etichetta centrata sullo spessore
+    \node[right, xshift=5pt] at ($(P_Top_Ext)!0.5!(P_Bottom_Ext)$) {Larghezza: $R\,d\vartheta$};
+
+    % Elemento di area (etichette testuali)
+    \node[below right, align=left, text=black!80!green, font=\small] at (\R + 0.05, -\R + 0.1) {
+        \textbf{Elemento di area $dS$:}\\
+        $\text{Circonf.} \times \text{Larghezza}$
+    };
+    \node[below right, align=left, text=black!80!green, font=\small] at (\R + 0.05, -\R + 0.5) {
+        $dS = (2\pi r)(R\,d\vartheta)$\\
+        $dS = 2\pi R^2\sin\vartheta\,d\vartheta$
+    };
+    
+\end{tikzpicture}

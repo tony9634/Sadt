@@ -1,0 +1,21 @@
+\begin{tikzpicture}[>=Stealth, font=\sffamily]
+
+% Traiettorie
+\draw[thick] (-4,0) .. controls (-1,0.5) and (1,1) .. (4,2);
+\draw[thick] (-4,0) .. controls (-1,-0.5) and (1,-1) .. (4,-2);
+
+% Sorgente atomi
+\draw[red, thick] (-4,0) circle (0.15cm);
+\node[red, left] at (-2.5,-0.45) {sorgente atomi};
+
+% Schermo rivelatore
+\draw[red, thick] (4,2) circle (0.15cm);
+\draw[red, thick] (4,-2) circle (0.15cm);
+\draw[red, dotted, thick] (4,-2.5) -- (4,2.5);
+\node[red, right] at (4,0) {schermo rivelatore};
+
+% Freccia verticale con etichetta
+\draw[->, thick] (0,-0.3) -- (0,2.5);
+\node[above] at (0,2.5) {$\frac{\partial B_z}{\partial z}$};
+
+\end{tikzpicture}

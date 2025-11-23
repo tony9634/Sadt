@@ -1,11 +1,5 @@
-\begin{tikzpicture}
-\tikzstyle directed=[postaction={decorate,decoration={markings, % arrows on the field lines
-mark=at position .1 with {\arrowreversed[scale=1.5]{stealth}},
-mark=at position .9 with {\arrowreversed[scale=1.5]{stealth}}}}]
-\tikzstyle tangent=[postaction={decorate,decoration={markings, % Tangent to the field line
-mark=at position .7 with {\draw[ultra thick,stealth-,green!60!black,solid](-12pt,0)--(12pt,0)node[above]{$\vec{B}$};}}}]
-\tikzstyle fLines=[thick,dashed,directed,tangent]
-\def\lmag{1.8}  % length of magnet
+\begin{tikzpicture}[scale = 1.2]
+\def\lmag{1.5}  % length of magnet
 \def\wmag{0.4}  % thickness of magnet
 \def\nc{5}      % no. of lines = 2*\nc+1
 
@@ -15,7 +9,7 @@ mark=at position .7 with {\draw[ultra thick,stealth-,green!60!black,solid](-12pt
 \draw[fill, color=blue](A) rectangle ++(\lmag/2,-\wmag)node[white,midway]{S};
 \draw[fill, color=red](0,-\wmag/2) rectangle ++(\lmag/2,\wmag)node[white,midway]{N};
 
-\clip (-5,-8) rectangle (5,8);
+\clip (-5,-4) rectangle (5,4);
 \foreach \r in {1,...,\nc}{
 \draw[fLines]($(A)-(0,0.5*\r*\wmag/\nc)$) arc(({270-asin(\lmag/(2*\r))}):({-90+asin(\lmag/(2*\r))}):\r);
 \draw[fLines]($(B)+(0,0.5*\r*\wmag/\nc)$) arc(({90-asin(\lmag/(2*\r))}):({-270+asin(\lmag/(2*\r))}):\r); }

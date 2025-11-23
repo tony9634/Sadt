@@ -1,0 +1,115 @@
+\begin{tikzpicture}[font=\sffamily]
+
+% General styles
+\tikzset{
+  sample/.style={
+    draw, thick,
+    minimum width=6cm,
+    minimum height=1.8cm,
+    align=center,
+    fill=#1!20
+  },
+  Bfield/.style={-Stealth, line width=0.9pt},
+  mfield/.style={-Stealth, line width=0.8pt, red},
+  domainline/.style={line width=0.9pt, blue, -Stealth},
+  labeltop/.style={font=\large, yshift=3mm},
+  labelbottom/.style={font=\footnotesize, yshift=-6mm, align=center}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LAYOUT con due colonne
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\colsep{8cm}   % distanza tra colonne
+\def\rowsep{6.5cm} % distanza tra righe
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% 1) DIAMAGNETICO (colonna sinistra)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{scope}[xshift=-\colsep/2]
+
+\node (dia) at (0,0) [sample=cyan] {};
+\node[labeltop] at (dia.north) {\textbf{Diamagnetico}};
+\node[labelbottom] at (dia.south)
+{Momenti $m$ indotti opposti a $B$ \\ ($\chi < 0$)};
+
+\foreach \y in {0.7,0.35,0,-0.35,-0.7}{
+  \draw[Bfield] (-3,\y) -- (3,\y);
+}
+
+\foreach \x in {-1.5,-0.5,0.5,1.5}{
+  \draw[mfield] (\x,0) -- ++(-0.5,0);
+}
+
+\begin{scope}[yshift=-3.5cm, scale=0.8]
+  \draw[->] (0,0) -- (2,0) node[right]{\(B\)};
+  \draw[->] (0,0) -- (0,1.2) node[above]{\(M\)};
+  \draw[thick] (0.2,1.0) -- (1.8,0.3);
+\end{scope}
+
+\end{scope}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% 2) PARAMAGNETICO (colonna destra)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{scope}[xshift=\colsep/2]
+
+\node (para) at (0,0) [sample=green] {};
+\node[labeltop] at (para.north) {\textbf{Paramagnetico}};
+\node[labelbottom] at (para.south)
+{Momenti $m$ debolmente allineati a $B$ \\ ($\chi > 0$)};
+
+\foreach \y in {0.7,0.35,0,-0.35,-0.7}{
+  \draw[Bfield] (-3,\y) -- (3,\y);
+}
+
+\foreach \x in {-1.5,-0.5,0.5,1.5}{
+  \draw[mfield] (\x,0) -- ++(0.5,0);
+}
+
+\begin{scope}[yshift=-3.5cm, scale=0.8]
+  \draw[->] (0,0) -- (2,0) node[right]{\(B\)};
+  \draw[->] (0,0) -- (0,1.2) node[above]{\(M\)};
+  \draw[thick] (0.2,0.2) -- (1.8,1.0);
+\end{scope}
+
+\end{scope}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% 3) FERROMAGNETICO (riga sotto, centrato)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{scope}[yshift=-\rowsep]
+
+\node (ferro) at (0,0) [sample=orange] {};
+\node[labeltop] at (ferro.north) {\textbf{Ferromagnetico}};
+\node[labelbottom] at (ferro.south)
+{Domini magnetici allineati; remanenza e isteresi};
+
+\foreach \y in {0.7,0.35,0,-0.35,-0.7}{
+  \draw[Bfield] (-3,\y) -- (3,\y);
+}
+
+\foreach \x in {-1.5,-0.5,0.5,1.5}{
+  \draw[domainline] (\x,0) -- ++(0.5,0);
+}
+
+\foreach \x in {-1.0,-0.5,0,0.5}{
+  \draw[dashed] (\x,-1) -- ++(0,2);
+}
+
+\begin{scope}[yshift=-3.5cm, scale=0.8]
+  \draw[->] (-1.5,0) -- (1.5,0) node[right]{\(B\)};
+  \draw[->] (0,-1.2) -- (0,1.4) node[above]{\(M\)};
+  \draw[thick, rounded corners=3pt]
+    (-1.1,-0.45) .. controls (-0.4,-0.9) and (0.4,-0.9) .. (1.1,-0.45)
+    .. controls (0.45,0) and (0.5,0.6) .. (1.1,0.95)
+    .. controls (0,1.2) and (-0,1.2) .. (-1.1,0.95)
+    .. controls (-0.5,0.6) and (-0.5,0) .. (-1.1,-0.45);
+\end{scope}
+
+\end{scope}
+
+\end{tikzpicture}

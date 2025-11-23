@@ -1,0 +1,37 @@
+\begin{tikzpicture}[>=Stealth, font=\sffamily]
+
+% Orbita
+\draw[thick] (0,0) circle (3cm);
+
+% Protone al centro
+\fill[blue!70!black] (0,0) circle (0.4cm);
+\node[text=white, font=\bfseries] at (0,0) {+};
+\node[below=6pt] at (0,-0.4) {Proton};
+
+% Elettrone sul bordo sinistro
+\fill[red!70!black] (-3,0) circle (0.25cm);
+\node[text=white, font=\bfseries] at (-3,0) {-};
+\node[above left=2pt] at (-3,0) {Electron};
+
+% Freccia E (tangente alla circonferenza, verso il basso)
+\draw[->, thick] (-3,-0.25) -- (-3,-1.2);
+\node[left] at (-3,-1.2) {$E$};
+
+% Freccia F_B (perpendicolare a E, verso il centro)
+\draw[->, thick] (-2.75,0) -- (-1.90,0);
+\node[above] at (-2,0) {$F_B$};
+
+% Frecce di moto lungo l'orbita
+\foreach \angle in {30,150,270} {
+    \draw[->, thick] (\angle:3cm) arc[start angle=\angle,end angle=\angle+20,radius=3cm];
+}
+
+% Campo magnetico esterno (X simboli)
+\foreach \x/\y in {-1.5/1.5,1.5/1.5,-1.5/-1.5,1.5/-1.5,0/2,0/-2} {
+    \node at (\x,\y) {\Large $\times$};
+}
+
+% Etichetta External B
+\node[right] at (1,1) {External B};
+
+\end{tikzpicture}

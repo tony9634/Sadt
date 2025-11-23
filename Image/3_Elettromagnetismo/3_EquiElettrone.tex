@@ -1,0 +1,25 @@
+\begin{tikzpicture}[>=Stealth, font=\sffamily]
+
+% Nucleo
+\fill[red!70!black] (0,0) circle (0.4cm);
+\node[text=white, font=\bfseries] at (0,0) {+};
+\node[below=4pt] at (0,-0.4) {Nucleo};
+
+% Orbita
+\draw[orange, thick, ->] (2,0) arc[start angle=0,end angle=360,radius=2cm];
+\node at (2.6,-0.2) {Orbita};
+
+% Elettrone
+\fill[blue!70!black] (0,2) circle (0.25cm);
+\node[text=white, font=\bfseries] at (0,2) {-};
+\node[right=6pt] at (0.25,2) {Elettrone};
+
+% Forza centrifuga
+\draw[->, thick] (0,2.25) -- (0,3);
+\node[above] at (0,3) {Forza centrifuga};
+
+% Forza di attrazione elettrostatica (con allineamento corretto)
+\draw[->, thick] (0,1.75) -- (0,1);
+\node[align=center,left] at (-0.1,1.5) {Forza di attrazione\\elettrostatica};
+
+\end{tikzpicture}

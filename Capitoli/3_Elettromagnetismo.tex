@@ -1,7 +1,7 @@
 \begin{center}
 \vfill
     \chapter{Elettromagnetismo}
-    \label{blx:refsection\therefsection}
+    \label{blx:Elettromagnetismo\therefsection}
 \vfill
 
 \minitoc
@@ -24,7 +24,8 @@ Quando una carica $q$ si muove in una regione di spazio, essa è soggetta alla F
 
 \section{Equazioni di Maxwell nel vuoto in forma locale}\label{equazioni-di-maxwell-nel-vuoto-in-forma-locale}
 
-Sebbene sia possibile descrivere l'interazione elettromagnetica mediante l'uso del solo campo elettrico, per semplicità si ammette l'esistenza anche del campo magnetico. In quest'ottica, il campo elettrico e il campo di induzione magnetica sono due manifestazioni dello stesso campo: il campo elettromagnetico, descritto, in assenza di mezzo materiale (nel vuoto), dalle equazioni differenziali in forma locale:
+L'interazione elettromagnetica è descritta dal \textbf{campo elettromagnetico}, le cui due manifestazioni interdipendenti sono il \textbf{campo elettrico} ($\vec{E}$) e il \textbf{campo di induzione magnetica} ($\vec{B}$). Questi due campi sono aspetti diversi dello stesso fenomeno, legati intrinsecamente dai principi della Relatività Ristretta.
+In assenza di mezzo materiale (nel vuoto), il campo elettromagnetico è governato dalle seguenti quattro equazioni differenziali in forma locale:
 
 \[\begin{cases}
  \vec{\nabla} \cdot \vec{E} = \dfrac{\rho}{\varepsilon_{0}} & \text{(Legge di Gauss per l'Elettricità)} \\
@@ -34,52 +35,62 @@ Sebbene sia possibile descrivere l'interazione elettromagnetica mediante l'uso d
 \end{cases}
 \]
 
-La prima equazione è la \textbf{legge di Gauss per il campo elettrico} e afferma che la divergenza del campo elettrico è proporzionale alla densità di carica $\rho$ presente nel volume di riferimento, rapportata alla costante dielettrica nel vuoto \(\varepsilon_{0}\).
+La prima equazione è la \textbf{legge di Gauss per il campo elettrico} e afferma che la \textbf{divergenza} del campo elettrico è proporzionale alla \textbf{densità di carica} ($\rho$) presente nel volume di riferimento, rapportata alla costante dielettrica nel vuoto \(\varepsilon_{0}\). Le cariche elettriche sono le \textbf{sorgenti} (o i pozzi) del campo elettrico. 
 
-La seconda equazione è la \textbf{legge di Gauss per il magnetismo}, secondo cui la divergenza del campo di induzione magnetica $\vec{B}$ è nulla. Questa legge implica che le linee di campo magnetico non hanno sorgenti o pozzi (non esistono monopoli magnetici) e che il campo $\vec{B}$ è solenoidale. Dal punto di vista fisico, questa legge implica che le linee di campo magnetico entrano ed escono dal volumetto \(d\Omega\) su cui si calcola la divergenza, che, di conseguenza, è nulla \figurename~\ref{fig:3_MagneteLinee}.
+La seconda equazione è la \textbf{legge di Gauss per il magnetismo}, secondo cui la \textbf{divergenza} del campo di induzione magnetica $\vec{B}$ è \textbf{identicamente nulla}. Ciò implica che il campo $\vec{B}$ è \textbf{solenoidale} e che \textbf{non esistono monopoli magnetici}. Dunque, le linee di campo magnetico sono sempre chiuse \figurename~\ref{fig:3_MagneteLinee}. 
 
-La terza equazione è la \textbf{legge di Faraday-Neumann-Lenz} e stabilisce che un campo di induzione magnetica variabile nel tempo ($\partial\vec{B}/\partial t$) induce un campo elettrico rotazionale ($\vec{\nabla} \times \vec{E}$). In altre parole, la variazione del flusso del campo magnetico attraverso un circuito elettrico genera una forza elettromotrice indotta e, di conseguenza, una corrente elettrica indotta
+La terza equazione è la \textbf{legge di Faraday-Neumann-Lenz} e stabilisce che il \textbf{rotore} del campo elettrico è proporzionale al tasso di variazione temporale negativo del campo di induzione magnetica. Un campo $\vec{B}$ variabile nel tempo \textbf{induce} un campo elettrico \textbf{rotazionale} (o non conservativo), fondamento dell'induzione elettromagnetica. 
 
 \begin{figure}[ht]
 \centering
 \input{Image/3_Elettromagnetismo/3_MagneteLinee}
-\caption{Flusso campo magnetico attraverso superficie chiusa}\label{fig:3_MagneteLinee}
+\caption{Flusso campo magnetico attraverso superficie chiusa}
+\label{fig:3_MagneteLinee}
 \end{figure}
+
+Stabilisce che il \textbf{rotore} del campo $\vec{B}$ è determinato da due contributi: la \textbf{densità di corrente di conduzione} ($\vec{J}$) e la \textbf{densità di corrente di spostamento} ($\varepsilon_{0}\partial\vec{E}/\partial t$). 
+
+La quarta equazione è il \textbf{Teorema di Ampère-Maxwell}, secondo cui il \textbf{rotore} del campo $\vec{B}$ è determinato da due contributi: la \textbf{densità di corrente di conduzione} ($\vec{J}$) e la \textbf{densità di corrente di spostamento} ($\varepsilon_{0}\partial\vec{E}/\partial t$). 
+
+Il termine di \textbf{corrente di spostamento} fu aggiunto da Maxwell per due ragioni cruciali: 
+
+\begin{itemize} 
+    \item Garantire la \textbf{conservazione della carica elettrica};
+    \item Prevedere l'esistenza delle \textbf{onde elettromagnetiche} che si propagano nel vuoto, unificando definitivamente i fenomeni elettrici e magnetici. 
+\end{itemize} 
+
+\subsection{Equazione di Continuità della Carica}
+Dalle equazioni di Maxwell è possibile ricavare la legge di continuità della carica. A tale scopo si applica la divergenza all'equazione di Ampère-Maxwell:
  
-La quarta equazione è il \textbf{Teorema di Ampère-Maxwell}, secondo cui il rotore del campo $\vec{B}$ è determinato dalla densità di corrente di conduzione ($\vec{J}$) più la densità di corrente di spostamento ($\varepsilon_{0}\partial\vec{E}/\partial t$). La corrente di spostamento fu introdotta da Maxwell per garantire la conservazione della carica. Secondo questo teorema, dal punto di vista globale (forma integrale), la circolazione del campo $\vec{B}$ lungo un \textbf{circuito chiuso} è proporzionale alla corrente elettrica concatenata ($\mu_{0}I_{cond}$) più la corrente di spostamento ($\mu_{0}I_{spost}$) che attraversa \textbf{qualsiasi superficie aperta} delimitata dal circuito stesso.
-
-\subsection{Equazione di continuità della carica}
-Dalle equazioni di Maxwell è possibile ricavare la legge di continuità della carica. A tale scopo si applica la divergenza all'equazione di Ampere-Maxwell:
-
 \[
-\vec{\nabla} \cdot \vec{\nabla} \times \vec{B} = \mu_{0}\vec{\nabla} \cdot \vec{J} + \mu_{0}\varepsilon_{0}\vec{\nabla} \cdot \dfrac{\partial\vec{E}}{\partial t}
+\vec{\nabla} \cdot \left(\vec{\nabla} \times \vec{B}\right) = \mu_{0}\vec{\nabla} \cdot \vec{J} + \mu_{0}\varepsilon_{0}\vec{\nabla} \cdot \dfrac{\partial\vec{E}}{\partial t}
 \]
-
-Il primo membro è la divergenza di un rotore che, per qualsiasi campo vettoriale derivabile due volte, è sempre nulla, ovvero \(\vec{\nabla} \cdot \vec{\nabla} \times \vec{B} = 0\). Si ottiene:
-
+ 
+Il primo membro è la divergenza di un rotore che, per qualsiasi campo vettoriale derivabile due volte, è sempre nulla, ovvero $\vec{\nabla} \cdot (\vec{\nabla} \times \vec{B}) = 0$. Si ottiene:
+ 
 \[
 \mu_{0}\vec{\nabla} \cdot \vec{J} + \mu_{0}\varepsilon_{0}\vec{\nabla} \cdot \dfrac{\partial\vec{E}}{\partial t} = 0
 \]
-
-È possibile scambiare il simbolo di derivata temporale con quello di divergenza:
-
+ 
+È possibile scambiare il simbolo di derivata temporale con quello di divergenza (essendo gli operatori spaziali e temporali indipendenti):
+ 
 \[
 \mu_{0}\vec{\nabla} \cdot \vec{J} + \mu_{0}\varepsilon_{0}\dfrac{\partial}{\partial t}\left( \vec{\nabla} \cdot \vec{E} \right) = 0
 \]
-
-La divergenza del campo elettrico è data dalla prima equazione di Maxwell. Semplificando anche \(\mu_{0}\), si ottiene:
-
+ 
+La divergenza del campo elettrico è data dalla prima equazione di Maxwell (Legge di Gauss per l'Elettricità, $\vec{\nabla} \cdot \vec{E} = \rho/\varepsilon_{0}$). Semplificando anche $\mu_{0}$ e sostituendo, si ottiene:
+ 
 \[
 \vec{\nabla} \cdot \vec{J} + \varepsilon_{0}\dfrac{\partial}{\partial t}\left( \dfrac{\rho}{\varepsilon_{0}} \right) = 0
 \]
-
-Dunque, si è ottenuta la \textbf{legge di conservazione della carica}:
-
+ 
+Dunque, si ottiene l'\textbf{Equazione di Continuità della Carica} (che esprime il principio di conservazione della carica):
+ 
 \[
 \vec{\nabla} \cdot \vec{J} + \dfrac{\partial\rho}{\partial t} = 0
 \]
-
-Tale equazione afferma che, se la carica in un volume varia nel tempo, deve esistere una corrente in ingresso o in uscita dal volume che sostenga tale variazione di carica.
+ 
+Tale equazione afferma che la variazione temporale della densità di carica ($\partial\rho/\partial t$) in un volume infinitesimo è bilanciata dal flusso netto di carica in uscita (o in ingresso) dal volume, descritto dalla divergenza della densità di corrente ($\vec{\nabla} \cdot \vec{J}$).
 
 \subsection{Risoluzione delle equazioni di Maxwell omogenee}\label{risoluzione-delle-equazioni-maxwell-omogenee}
 
@@ -93,7 +104,6 @@ Si considera il caso di \textbf{assenza di sorgenti}, ovvero, si vuole risolvere
 \vec{\nabla} \times \vec{B} = \mu_{0}\varepsilon_{0}\dfrac{\partial\vec{E}}{\partial t} & \text{(Legge di Ampère-Maxwell omogenea)}
 \end{cases}
 \]
-
 
 Si vuole risolvere il sistema di equazioni in modo da determinare il campo induzione magnetica $\vec{B}$. A tale scopo si applica l'operatore \textbf{rotore} all'equazione di Ampère-Maxwell (la quarta equazione):
 
@@ -159,25 +169,27 @@ Questa velocità $c$ è identica alla \textbf{velocità della luce nel vuoto}, d
 
 \subsection{Risoluzione delle equazioni di Maxwell in presenza di sorgenti}\label{risoluzione-delle-equazioni-di-maxwell}
 
-Si vuole risolvere le equazioni di Maxwell in prossimità delle sorgenti (densità di corrente $\vec{J}$ e densità di carica $\rho$). Questo approccio permette di ricostruire l'intero campo elettromagnetico generato dalle sorgenti stesse.
+ 
+Si vuole risolvere le equazioni di Maxwell in prossimità delle sorgenti (densità di corrente $\vec{J}$ e densità di carica $\rho$). L'approccio si basa sull'introduzione dei potenziali elettromagnetici, $\vec{A}$ (potenziale vettore) e $\phi$ (potenziale scalare), ricostruendo l'intero campo elettromagnetico.
 
-Le equazioni di Maxwell nel vuoto con sorgenti sono:
-\[
-\begin{cases}
- \vec{\nabla} \cdot \vec{E} = \dfrac{\rho}{\varepsilon_{0}} & \text{(Legge di Gauss per } \vec{E}) \\
-\vec{\nabla} \cdot \vec{B} = 0 & \text{(Legge di Gauss per } \vec{B})\\
-\vec{\nabla} \times \vec{E} = - \dfrac{\partial\vec{B}}{\partial t} & \text{(Legge di Faraday-Neumann-Lenz)}  \\
-\vec{\nabla} \times \vec{B} = \mu_{0}\left( \vec{J} + \varepsilon_{0}\dfrac{\partial\vec{E}}{\partial t} \right) & \text{(Legge di Ampère-Maxwell)}
-\end{cases}
+
+Le equazioni di Maxwell nel vuoto con sorgenti sono: 
+\[ 
+\begin{cases} 
+\vec{\nabla} \cdot \vec{E} = \dfrac{\rho}{\varepsilon_{0}} \\ 
+\vec{\nabla} \cdot \vec{B} = 0 \\ 
+\vec{\nabla} \times \vec{E} = - \dfrac{\partial\vec{B}}{\partial t} \\ 
+\vec{\nabla} \times \vec{B} = \mu_{0}\vec{J} + \mu_{0}\varepsilon_{0}\dfrac{\partial\vec{E}}{\partial t} 
+\end{cases} 
 \]
 
-Dall'equazione di Gauss per il magnetismo, risulta che il campo induzione magnetica è solenoidale, quindi, è possibile definire un \textbf{potenziale vettore} \(\vec{A}\) tale che:
+Dalla Legge di Gauss per il Magnetismo ($\vec{\nabla} \cdot \vec{B} = 0$), il campo di induzione magnetica $\vec{B}$ è solenoidale. Pertanto, è possibile definirlo tramite un \textbf{potenziale vettore} $\vec{A}$:
 
-\[
-\vec{\nabla} \times \vec{A} = \vec{B}
-\]
+\[ 
+\vec{B} = \vec{\nabla} \times \vec{A} 
+\] 
 
-Sostituendo questa definizione nella terza equazione (Faraday-Neumann-Lenz):
+Sostituendo questa definizione nella Legge di Faraday-Maxwell, si ricava:
 
 \[
 \vec{\nabla} \times \vec{E} = - \dfrac{\partial\vec{B}}{\partial t} = - \dfrac{\partial}{\partial t}\left( \vec{\nabla} \times \vec{A} \right)
@@ -191,19 +203,17 @@ L'operatore \(\vec{\nabla}\) è indipendente dalla derivata temporale, dunque, �
 
 Portando tutto al primo membro e applicando la linearità dell'operatore rotore, è possibile scrivere:
 
-\[
-\vec{\nabla} \times \left( \vec{E} + \dfrac{\partial\vec{A}}{\partial t} \right) = \vec{0}
+\[ 
+\vec{\nabla} \times \left( \vec{E} + \dfrac{\partial\vec{A}}{\partial t} \right) = \vec{0} 
 \]
 
-Il campo \(\vec{E} + \partial\vec{A}/\partial t\) è irrotazionale, per cui, è possibile definire un potenziale scalare \(\phi\) tale che:
+Poiché l'espressione in parentesi è irrotazionale, essa può essere espressa come il gradiente di una funzione scalare, detta \textbf{potenziale scalare} $\phi$:
 
 \[
 \vec{E} + \dfrac{\partial\vec{A}}{\partial t} = - \vec{\nabla}\phi
 \]
 
-Il potenziale scalare $\phi$ è generalmente definito con un segno negativo. Nell'elettrostatica, il potenziale scalare concide con la tensione $\vec{E} = -\vec{\nabla}V$.
-
-In presenza di un campo magnetostatico, la derivata temporale di \(\vec{B}\) è nulla, per cui il potenziale scalare coincide con il potenziale elettrico:
+Questa relazione definisce il campo elettrico dinamico in termini di potenziali. Se $\vec{B}$ è stazionario ($\partial\vec{B}/\partial t = 0$), allora $\partial\vec{A}/\partial t = \vec{0}$, e si ritorna al caso elettrostatico:
 
 \[
 \vec{E} = - \vec{\nabla}\phi
@@ -211,33 +221,46 @@ In presenza di un campo magnetostatico, la derivata temporale di \(\vec{B}\) è 
 
 La forza elettrica ($\vec{F}$) deve essere opposta al gradiente del potenziale scalare ($\phi$) perché il potenziale $\phi$ rappresenta l'energia potenziale elettrica per unità di carica (ossia, la tensione o voltaggio). In fisica, una forza conservativa (come la forza elettrica) tende sempre a muovere un oggetto nella direzione in cui l'energia potenziale diminuisce più rapidamente. Il gradiente ($\vec{\nabla}\phi$) punta, per definizione, nella direzione in cui il potenziale aumenta più rapidamente. Per questo motivo, la relazione fondamentale tra campo elettrico ($\vec{E}$) e potenziale elettrico ($\phi$) deve includere un segno negativo.
 
-I potenziali vettore $\vec{A}$ e scalare $\phi$ non sono univocamente determinati. Per tale motivo, si adotta una condizione di Gauge per disaccoppiare le equazioni differenziali. La Gauge di Lorentz, data da:
+I potenziali vettore ($\vec{A}$) e scalare ($\phi$) non sono univocamente determinati e possono essere trasformati tramite una \textbf{trasformazione di Gauge} senza alterare i campi $\vec{E}$ e $\vec{B}$. Per disaccoppiare le equazioni differenziali e garantire l'invarianza (covarianza) relativistica, si impone la \textbf{Gauge di Lorentz}: 
 
-\[
-\vec{\nabla} \cdot \vec{A} + \mu_0\varepsilon_{0}\dfrac{\partial\phi}{\partial t} = 0
+\[ 
+\vec{\nabla} \cdot \vec{A} + \mu_0\varepsilon_{0}\dfrac{\partial\phi}{\partial t} = 0 
 \]
 
-è invariante quando si passa da un sistema di riferimento inerziale a un altro tramite le trasformazioni di Lorentz,il che è un requisito fondamentale della Relatività Ristretta. Per tale motivo si parla di condizione covariante in relatività.
+Tale relazione è invariante quando si passa da un sistema di riferimento inerziale a un altro tramite le trasformazioni di Lorentz, il che è un requisito fondamentale della Relatività Ristretta. Per tale motivo si parla di condizione covariante in relatività.
 
-Sotto la condizione di Gauge di Lorentz, le Equazioni di Maxwell si riducono a due equazioni d'onda disaccoppiate per $\vec{A}$ e $\phi$ con termini sorgente. La soluzione di queste equazioni porta ai potenziali ritardati.
+Sotto la condizione di Gauge di Lorentz, le Equazioni di Maxwell si riducono a due equazioni d'onda disaccoppiate per $\vec{A}$ e $\phi$ con termini sorgente: 
 
-Si dimostra che, per una sorgente puntiforme, il potenziale vettore, nel dominio della frequenza, è dato da:
-
-La soluzione nel dominio della frequenza per il potenziale vettore generato da una distribuzione di corrente $\vec{J}(\vec{r}')$ in un volume $V$ è data dall'integrale di convoluzione con la funzione di Green:
-
-\[
-\vec{A}(\vec{r}) = \dfrac{\mu_{0}}{4\pi} \int_{V} \dfrac{\vec{J}(\vec{r}')}{\left| \vec{r} - {\vec{r}}' \right|}e^{- jk\left| \vec{r} - {\vec{r}}' \right|} dV'
+\[ 
+\nabla^2 \phi - \mu_0\varepsilon_0 \dfrac{\partial^2 \phi}{\partial t^2} = - \dfrac{\rho}{\varepsilon_0} \quad \text{e} \quad \nabla^2 \vec{A} - \mu_0\varepsilon_0 \dfrac{\partial^2 \vec{A}}{\partial t^2} = - \mu_0 \vec{J} 
 \]
 
-In questa espressione, $\vec{r}'$ è la posizione della sorgente e $\vec{r}$ è il punto di valutazione del campo.
-
-La quantità:
+Queste sono le \textbf{Equazioni d'Onda non omogenee} o \textbf{Equazioni d'Alembert con Sorgenti}, che possono essere espresse tramite l'operatore d'Alembert:
 
 \[
-g\left( \vec{r} \right) = \dfrac{1}{4\pi}\dfrac{1}{\left| \vec{r} \right|}e^{- jk\left| \vec{r} \right|}
+\square \equiv \nabla^2 - \dfrac{1}{c^2}\dfrac{\partial^2}{\partial t^2}
 \]
 
-È la \textbf{funzione di Green} (o risposta impulsiva) per l'operatore di Helmholtz nel vuoto, che descrive la propagazione da una sorgente puntiforme.
+ottenendo:
+
+\[ 
+\square \phi = - \dfrac{\rho}{\varepsilon_0} \quad \text{e} \quad \square \vec{A} = - \mu_0 \vec{J} 
+\]
+
+La soluzione generale di queste equazioni, nota come \textbf{potenziali ritardati}, riflette il fatto che i campi si propagano con la velocità della luce $c = 1/\sqrt{\mu_0\varepsilon_0}$.
+Nel dominio della frequenza $\omega$ (dove $\vec{J}(\vec{r}', t) \propto \exp{\left(j\omega t\right)}$ e $\vec{A}(\vec{r}, t) \propto \exp{\left(j\omega t\right)}$), la soluzione per il potenziale vettore è data dall'integrale di convoluzione: 
+
+\[ 
+\vec{A}(\vec{r}) = \dfrac{\mu_{0}}{4\pi} \int_{V} \dfrac{\vec{J}(\vec{r}')}{\left| \vec{r} - {\vec{r}}' \right|}\exp{\left(- jk\left| \vec{r} - {\vec{r}}' \right|\right)} dV' 
+\]
+
+In questa espressione, $\vec{r}'$ è la posizione della sorgente e $\vec{r}$ è il punto di valutazione del campo. Il termine esponenzial introduce il ritardo di fase dovuto alla propagazione.
+
+La \textbf{funzione di Green} o risposta impulsiva del mezzo per l'operatore di Helmholtz ($-\square$ nel dominio della frequenza) è: 
+ 
+\[ 
+g\left( \vec{r} \right) = \dfrac{1}{4\pi}\dfrac{\exp{\left(- jk\left| \vec{r} \right|\right)}}{\left| \vec{r} \right|} 
+\] 
 
 Si definisce il \textbf{numero d'onda} (o costante di propagazione nel vuoto) come:
 
@@ -245,19 +268,22 @@ Si definisce il \textbf{numero d'onda} (o costante di propagazione nel vuoto) co
 k = \omega\sqrt{\mu_{0}\varepsilon_{0}}=\dfrac{\omega}{c}
 \]
 
-\subsection{Equazioni di Maxwell nel vuoto in forma globale}\label{equazioni-di-maxwell-nel-vuoto-in-forma-globale}
+\section{Equazioni di Maxwell nel vuoto in forma globale}\label{equazioni-di-maxwell-nel-vuoto-in-forma-globale}
 
-Le equazioni di Maxwell in forma globale (o integrale) sono fisicamente equivalenti a quelle in forma locale. Si preferisce ricorrere alla forma globale in presenza di \textbf{alta simmetria} del sistema fisico (per semplificare i calcoli) o in presenza di \textbf{superfici di discontinuità} (condizioni al contorno tra materiali diversi).
+ 
+Le equazioni di Maxwell in forma globale sono \textbf{fisicamente equivalenti} a quelle in forma locale. 
 
-Le equazioni di Maxwell nel vuoto in forma globale sono:
-\[
-\begin{cases}
- \oiint_{S}{\vec{E} \cdot d\vec{S}\ } = \dfrac{Q}{\varepsilon_{0}} & \text{(Legge di Gauss per } \vec{E}) \\
- \oiint_{S}{\vec{B} \cdot d\vec{S}\ } = 0 & \text{(Legge di Gauss per } \vec{B})  \\
- \oint_{\partial \Sigma}{\vec{E} \cdot d\vec{s}} = - \dfrac{\partial}{\partial t}\int_{\Sigma}{\vec{B} \cdot d\vec{\Sigma}} & \text{(Legge di Faraday)}  \\
- \oint_{\partial \Sigma}{\vec{B} \cdot d\vec{s}} = \mu_{0}I + \mu_{0}\varepsilon_{0}\dfrac{\partial}{\partial t}\int_{\Sigma}{\vec{E} \cdot d\vec{\Sigma}} & \text{(Legge di Ampère-Maxwell)}
-\end{cases}
-\]
+Le equazioni di Maxwell in forma globale (o integrale) sono fisicamente equivalenti a quelle in forma locale. Si preferisce ricorrere alla forma globale in presenza di \textbf{alta simmetria} del sistema fisico (per semplificare i calcoli) o in presenza di \textbf{superfici di discontinuità} (condizioni al contorno tra materiali diversi). Questa rappresentazione è ottenuta applicando il \textbf{Teorema della Divergenza} (per le equazioni di Gauss) e il \textbf{Teorema di Stokes} (per le equazioni del rotore).
+
+Le equazioni di Maxwell nel vuoto in forma globale sono: 
+\[ 
+\begin{cases} 
+\displaystyle \oiint_{S}{\vec{E} \cdot d\vec{S}\ } = \dfrac{Q_{int}}{\varepsilon_{0}} & \text{(Legge di Gauss per } \vec{E}) \\ 
+\displaystyle \oiint_{S}{\vec{B} \cdot d\vec{S}\ } = 0 & \text{(Legge di Gauss per } \vec{B})  \\ 
+\displaystyle \oint_{\partial \Sigma}{\vec{E} \cdot d\vec{s}} = - \dfrac{d\Phi_B}{dt} = - \dfrac{d}{dt}\int_{\Sigma}{\vec{B} \cdot d\vec{\Sigma}} & \text{(Legge di Faraday-Neumann)}  \\ 
+\displaystyle \oint_{\partial \Sigma}{\vec{B} \cdot d\vec{s}} = \mu_{0}I_{conc} + \mu_{0}\varepsilon_{0}\dfrac{d\Phi_E}{dt}  & \text{(Legge di Ampère-Maxwell)} 
+\end{cases} 
+\] 
 
 Dove:
 \begin{itemize}
@@ -268,9 +294,23 @@ Dove:
     \item $I$ è la corrente di conduzione che attraversa la superficie aperta $\Sigma$.
 \end{itemize}
 
+La prima equazione, la \textbf{Legge di Gauss per il campo elettrico}, afferma che Il \textbf{flusso} del campo elettrico attraverso una superficie chiusa $S$ è proporzionale alla carica totale $Q_{int}$ racchiusa dalla superficie. 
+
+La seconda equazione, la \textbf{Legge di Gauss per il campo magnetico} afferma che il \textbf{flusso} del campo di induzione magnetica attraverso qualsiasi superficie chiusa $S$ è nullo, confermando l'assenza di monopoli magnetici. 
+
+La terza equazione, la  \textbf{Legge di Faraday-Neumann}, afferma che òa \textbf{circuitazione} del campo elettrico (o \textbf{forza elettromotrice}) lungo un circuito chiuso $\partial \Sigma$ è uguale e opposta alla derivata temporale del flusso magnetico $\Phi_B$ attraverso la superficie aperta $\Sigma$ avente $\partial \Sigma$ come bordo.
+
+La quarta equazione, la \textbf{Legge di Ampère-Maxwell}, afferma che la \textbf{circuitazione} del campo $\vec{B}$ lungo un circuito chiuso $\partial \Sigma$ è determinata dalla somma della corrente di conduzione $I_{conc}$ e della corrente di spostamento:
+
+\[
+I_{spost} = \varepsilon_{0}\dfrac{d\Phi_E}{dt} 
+\]
+
+che attraversano la superficie $\Sigma$. 
+
 \section{Equazioni di Maxwell nel mezzo}\label{equazioni-di-maxwell-nel-mezzo}
 
-In presenza di un \textbf{mezzo materiale} si introducono i vettori di \textbf{induzione elettrica} \(\vec{D}\) e di \textbf{campo magnetico} \(\vec{H}\). Il vettore \(\vec{B}\) è detto vettore di \textbf{induzione magnetica}, mentre \(\vec{E}\) rappresenta il \textbf{campo elettrico}.
+In presenza di un \textbf{mezzo materiale}, gli effetti microscopici di polarizzazione e magnetizzazione vengono inglobati tramite l'introduzione di due vettori ausiliari: il vettore di \textbf{induzione elettrica} $\vec{D}$ e il vettore di \textbf{campo magnetico} $\vec{H}$ (anche detto eccitazione magnetica). I campi fondamentali sono $\vec{E}$ (\textbf{campo elettrico}) e $\vec{B}$ (\textbf{induzione magnetica}).
 
 I campi di induzione descrivono il comportamento del materiale a seguito dell'applicazione dei rispettivi campi. Con l'introduzione dei campi \(\vec{E}\), \(\vec{D}\), \(\vec{H}\) e \(\vec{B}\), le equazioni di Maxwell in forma locale si scrivono come:
 
@@ -283,7 +323,19 @@ I campi di induzione descrivono il comportamento del materiale a seguito dell'ap
 \end{cases}
 \]
 
-Dove \(\rho_{lib}\) e \(\vec{J}_{lib}\) sono le \textbf{sorgenti libere} ovvero le cariche e correnti che possono muoversi liberamente all’interno o all’esterno di un materiale, non vincolate alla struttura atomica o molecolare del mezzo. Queste sorgenti possono essere controllate direttamente, ad esempio, applicando una tensione o facendo passare una corrente in un conduttore. In contrapposizione, ci sono le sorgenti vincolate (o di legame), che derivano dal comportamento microscopico delle molecole e atomi del materiale. I vettori di polarizzazione e di magnetizzazione dipendono da tali sorgenti.
+ 
+Dove $\rho_{lib}$ e $\vec{J}_{lib}$ sono le \textbf{sorgenti libere} (cariche e correnti controllabili), e $\vec{J}_{lib}$ include tipicamente la densità di corrente di conduzione $\vec{J}_{c} = \sigma \vec{E}$ (Legge di Ohm locale, .
+
+Dove \(\rho_{lib}\) e \(\vec{J}_{lib}\) sono le \textbf{sorgenti libere} ovvero le cariche e correnti che possono muoversi liberamente all’interno o all’esterno di un materiale, non vincolate alla struttura atomica o molecolare del mezzo. Queste sorgenti possono essere controllate direttamente, ad esempio, applicando una tensione o facendo passare una corrente in un conduttore, secondo la legge locale di Ohm:
+
+\[
+\vec{J}_{c} = \sigma \vec{E}
+\]
+valida nei mezzi conduttori con conducibilità $\sigma$.
+
+In contrapposizione, ci sono le sorgenti vincolate (o di legame), che derivano dal comportamento microscopico delle molecole e atomi del materiale. I vettori di polarizzazione e di magnetizzazione dipendono da tali sorgenti.
+
+L'introduzione di $\vec{D}$ e $\vec{H}$ permette di separare gli effetti liberi da quelli \textbf{vincolati} (o di legame), che derivano dalla struttura atomica del mezzo. Questi ultimi sono descritti dai vettori di polarizzazione ($\vec{P}$) e magnetizzazione ($\vec{M}$).
 
 Il vettore di induzione elettrica è definito come:
 
@@ -307,7 +359,7 @@ Per i \textbf{mezzi lineari e isotropi} esistono due costanti, dette \textbf{sus
 \vec{P} = \varepsilon_{0}\chi_{e}\vec{E}, \qquad \vec{M} = \chi_{m}\vec{H}
 \]
 
-Sostituendo il vettore di polarizzazione nella definizione del vettore di induzione elettrica si ottiene:
+Sostituendo queste \textbf{relazioni costitutive} nelle definizioni di $\vec{D}$, si ottiene:
 
 \[
 \vec{D} = \varepsilon_{0}\vec{E} + \vec{P} = \varepsilon_{0}\vec{E} + \varepsilon_{0}\chi_{e}\vec{E} = \varepsilon_{0}\left( 1 + \chi_{e} \right)\vec{E}
@@ -345,8 +397,9 @@ Il campo di induzione magnetica si scrive quindi come:
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=3.19044in,height=2.4711in,alt={P1240\#yIS1}]{media/3_Elettromagnetismo/image19.pdf}
-\caption{Dipolo elettrico e magnetico.}
+\input{Image/3_Elettromagnetismo/3_Dipoli.tex}
+\caption{Dipolo elettrico e magnetico}
+\label{fig:3_Dipoli}
 \end{figure}
 
 Infine, la densità di corrente totale si suddivide in una componente libera, associata alle cariche mobili, e in una componente vincolata, dovuta alla polarizzazione e alla magnetizzazione del materiale. Si scrive dunque:
@@ -382,38 +435,35 @@ La densità di corrente totale \(\vec{J}\) dipende dunque sia dal campo elettric
 In definitiva, i campi fondamentali che descrivono le forze elettromagnetiche sono \(\vec{E}\) e \(\vec{B}\), mentre \(\vec{D}\) e \(\vec{H}\) sono campi ausiliari introdotti per semplificare le equazioni di Maxwell in presenza di un mezzo materiale (come un dielettrico o un magnete), inglobando negli stessi gli effetti microscopici di polarizzazione (\(\vec{P}\)) e magnetizzazione (\(\vec{M}\)).
 
 \section{Forza di Lorentz}\label{forza-di-lorentz}
-
-I campi elettrico \(\vec{E}\) e di induzione magnetica \(\vec{B}\) esercitano una forza su una particella di carica \(q\) che si muove con velocità \(\vec{v}\) in una regione di spazio contenente tali campi. L’espressione della forza totale è:
+I campi elettrico ($\vec{E}$) e di induzione magnetica ($\vec{B}$) esercitano una forza totale su una particella di carica $q$ che si muove con velocità $\vec{v}$. L'espressione della forza totale è la \textbf{Forza di Lorentz}:
 
 \[
 \vec{F} = q\vec{E} + q\vec{v} \times \vec{B}
 \]
 
-Questa interazione è nota come \textbf{forza di Lorentz}. Essa si compone di due contributi distinti:
+Questa interazione si compone di due contributi distinti e fisicamente separati:
 
 \begin{itemize}
-    \item \textbf{Forza elettrica}: \(\vec{F}_{E} = q\vec{E}\).
-    Questa forza è parallela o antiparallela al campo elettrico, a seconda del segno della carica \(q\), ed è indipendente dalla velocità \(\vec{v}\) della particella.
-    
-    \item \textbf{Forza magnetica}: \(\vec{F}_{B} = q(\vec{v} \times \vec{B})\).
-    Questa forza è sempre perpendicolare sia alla velocità \(\vec{v}\) sia al campo di induzione magnetica \(\vec{B}\). Poiché la direzione della forza è perpendicolare allo spostamento della particella, la forza magnetica \textit{non compie lavoro} sulla carica.
+\item \textbf{Forza Elettrica}: $\vec{F}_{E} = q\vec{E}$. Questa forza agisce parallelamente o antiparallelamente al campo $\vec{E}$, è \textbf{indipendente} dalla velocità della particella ed è l'unica componente che può \textbf{compiere lavoro} sulla carica, modificandone l'energia cinetica.
+\item \textbf{Forza Magnetica}: $\vec{F}_{B} = q(\vec{v} \times \vec{B})$. Questa forza è sempre \textbf{perpendicolare} sia alla velocità $\vec{v}$ sia al campo $\vec{B}$.
+    \subitem \textbf{Lavoro e Potenza}: Poiché $\vec{F}_B$ è sempre perpendicolare al vettore velocità $\vec{v}$ (e quindi allo spostamento $d\vec{s} = \vec{v}dt$), il prodotto scalare è nullo:
+    \[\vec{F}_B \cdot \vec{v} = 0\]
+    Di conseguenza, la forza magnetica \textbf{non compie lavoro} ($L_B=0$) e non modifica l'energia cinetica della particella, potendone solo deviare la traiettoria.
 \end{itemize}
 
 \section{Parallelismo tra campo elettrico e magnetico}\label{parallelismo-tra-campo-magnetico-ed-elettrico}
 
-Le equazioni di Maxwell possono essere rese formalmente simmetriche introducendo le \textit{cariche magnetiche} e le \textit{correnti magnetiche}, concetti ipotetici non osservati sperimentalmente ma utili per evidenziare l’analogia tra fenomeni elettrici e magnetici.
+Le equazioni di Maxwell possono essere rese formalmente simmetriche introducendo le \textbf{cariche magnetiche} e le \textbf{correnti magnetiche}, concetti ipotetici non osservati sperimentalmente ma utili per evidenziare l’analogia tra fenomeni elettrici e magnetici.
+Si indichi con $U$ l’energia potenziale di un dipolo elettrico $\vec{d}$ o magnetico $\vec{\mu}$, immerso rispettivamente in un campo elettrico o magnetico. Conoscendo $U$, è possibile determinare la forza $\vec{F}$ e il momento torcente $\vec{N}$ agente sul dipolo.
 
-Si indichi con \(U\) l’energia potenziale di un dipolo elettrico \(\vec{d}\) o magnetico \(\vec{\mu}\), immerso rispettivamente in un campo elettrico o magnetico.  
-Conoscendo \(U\), è possibile determinare la forza \(\vec{F}\) e il momento torcente \(\vec{N}\) agente sul dipolo.
-
-Per il campo elettrico:
+Per il campo elettrico (elettrostatica):
 
 \[
 \begin{cases}
  U = - \vec{d} \cdot \vec{E} \\
  \vec{F} = - \vec{\nabla}U = \vec{\nabla}\left( \vec{d} \cdot \vec{E} \right) \\
  \vec{N} = \vec{d} \times \vec{E} \\
- \phi(\vec{r}) = \dfrac{1}{4\pi\varepsilon_0}\int \dfrac{\rho(\vec{r}')}{R}\,dV' \\
+ \displaystyle \phi(\vec{r}) = \dfrac{1}{4\pi\varepsilon_0}\int \dfrac{\rho(\vec{r}')}{R}\,dV' \\
  \vec{E} = - \vec{\nabla}\phi \\
  \nabla^{2}\phi = -\dfrac{\rho}{\varepsilon_{0}}
 \end{cases}
@@ -435,7 +485,7 @@ Per il campo magnetico risulta:
  U = - \vec{\mu} \cdot \vec{B} \\
  \vec{F} = - \vec{\nabla}U = \vec{\nabla}\left( \vec{\mu} \cdot \vec{B} \right) \\
  \vec{N} = \vec{\mu} \times \vec{B} \\
- \vec{A}(\vec{r}) = \dfrac{\mu_0}{4\pi}\int \dfrac{\vec{J}(\vec{r}')}{R}\,dV' \\
+  \displaystyle \vec{A}(\vec{r}) = \dfrac{\mu_0}{4\pi}\int \dfrac{\vec{J}(\vec{r}')}{R}\,dV' \\
  \vec{B} = \vec{\nabla} \times \vec{A} \\
  \nabla^{2}\vec{A} = -\mu_{0}\vec{J}
 \end{cases}
@@ -471,21 +521,29 @@ $\varepsilon_0$ & $\mu_0$ & Costanti fondamentali del vuoto \\
 
 Questa analogia sottolinea la profonda simmetria formale tra elettricità e magnetismo, unificate nella teoria elettromagnetica di Maxwell.
 
+Nonostante l'analogia formale, esiste una \textbf{asimmetria fisica} fondamentale nelle equazioni di Maxwell che si riflette nella natura dei potenziali:
+\begin{itemize}
+    \item La sorgente elettrica $\rho$ è \textbf{scalare}, e genera $\vec{E}$ da un potenziale $\phi$ \textbf{scalare}.
+    \item La sorgente magnetica $\vec{J}$ è \textbf{vettoriale}, e genera $\vec{B}$ da un potenziale $\vec{A}$ \textbf{vettoriale}.
+\end{itemize}
+Questa asimmetria deriva dalla mancanza di \textbf{monopoli magnetici} ($\vec{\nabla} \cdot \vec{B} = 0$), che impedisce di definire $\vec{B}$ unicamente come il gradiente di un potenziale scalare, a differenza di quanto avviene per $\vec{E}$ in elettrostatica.
+
 \section{Forza e coppia su una piccola spira}\label{forza-e-coppia-su-una-piccola-spira}
 
-Si vuole determinare la forza totale agente su una piccola spira di superficie \(S\), percorsa da una corrente \(I\), immersa in un campo di induzione magnetica uniforme.
+Si vuole determinare la forza e il momento torcente totale agente su una piccola spira di superficie $S$, percorsa da una corrente $I$, immersa in un campo di induzione magnetica uniforme $\vec{B}$. 
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.35\textwidth]{media/3_Elettromagnetismo/image20.pdf}
-\caption{Spira percorsa da corrente in un campo magnetico.}
+\input{Image/3_Elettromagnetismo/3_DipoloMag.tex}
+\caption{Spira percorsa da corrente in un campo magnetico}
+\label{fig:3_DipoloMag}
 \end{figure}
 
 Il momento magnetico dipolare è dato da:
 \[
 \vec{\mu} = I S\,\hat{\imath}_n
 \]
-dove \(\hat{\imath}_n\) è la normale alla superficie \(S\), orientata in modo da vedere la corrente ruotare in senso antiorario.
+dove $\hat{\imath}_n$ è la normale alla superficie $S$, orientata secondo la regola della mano destra rispetto alla corrente $I$.
 
 Si consideri un tratto elementare \(d\vec{s}\) della spira; su di esso agisce la forza di Lorentz, poiché le cariche al suo interno sono messe in moto dalla corrente elettrica:
 \[
@@ -540,71 +598,105 @@ Il termine \(\vec{r}\cdot d\vec{r}\) può essere riscritto come:
 \]
 per cui:
 
-\[\vec{N} = I\oint_{\partial S}{\left( \vec{r} \cdot \vec{B} \right)d\vec{r}} - I\oint_{\partial S}{\vec{B}\left( \vec{r} \cdot d\vec{r} \right)} = I\oint_{\partial S}{\left( \vec{r} \cdot \vec{B} \right)d\vec{r}} - \dfrac{1}{2}I\vec{B}\oint_{\partial S}{d\left( \vec{r} \cdot \vec{r} \right)}\]
+\[
+\vec{N} = I\oint_{\partial S}{\left( \vec{r} \cdot \vec{B} \right)d\vec{r}} - I\oint_{\partial S}{\vec{B}\left( \vec{r} \cdot d\vec{r} \right)} = I\oint_{\partial S}{\left( \vec{r} \cdot \vec{B} \right)d\vec{r}} - \dfrac{1}{2}I\vec{B}\oint_{\partial S}{d\left( \vec{r} \cdot \vec{r} \right)}
+\]
 
 L'ultimo termine è l'integrale esteso a una linea chiusa di una forma differenziale esatta, dunque, è nullo:
 
-\[\oint_{\partial S}{d\left( \vec{r} \cdot \vec{r} \right)} = 0\]
+\[
+\oint_{\partial S}{d\left( \vec{r} \cdot \vec{r} \right)} = 0
+\]
 
 Pertanto, la coppia risulta:
 
-\[\vec{N} = I\oint_{\partial S}{\left( \vec{r} \cdot \vec{B} \right)d\vec{r}}\]
+\[
+\vec{N} = I\oint_{\partial S}{\left( \vec{r} \cdot \vec{B} \right)d\vec{r}}
+\]
 
 Per risolvere tale integrale si considera la quantità \(d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right)\); si applicano le proprietà del differenziale:
 
-\[d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right) = \left( d\vec{r} \cdot \vec{B} \right)\vec{r} + \left( \vec{r} \cdot \vec{B} \right)d\vec{r} + \left( \vec{r} \cdot d\vec{B} \right)\vec{r}\]
+\[
+d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right) = \left( d\vec{r} \cdot \vec{B} \right)\vec{r} + \left( \vec{r} \cdot \vec{B} \right)d\vec{r} + \left( \vec{r} \cdot d\vec{B} \right)\vec{r}
+\]
 
 Dato che il campo è uniforme, \(d\vec{B} = 0\). Per cui:
 
-\[d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right) = \left( d\vec{r} \cdot \vec{B} \right)\vec{r} + \left( \vec{r} \cdot \vec{B} \right)d\vec{r}\]
+\[
+d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right) = \left( d\vec{r} \cdot \vec{B} \right)\vec{r} + \left( \vec{r} \cdot \vec{B} \right)d\vec{r}
+\]
 
 Si ricava la quantità \(\left( \vec{r} \cdot \vec{B} \right)d\vec{r}\), presente nell'espressione della coppia:
 
-\[\left( \vec{r} \cdot \vec{B} \right)d\vec{r} = d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right) - \left( d\vec{r} \cdot \vec{B} \right)\vec{r}\]
+\[
+\left( \vec{r} \cdot \vec{B} \right)d\vec{r} = d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right) - \left( d\vec{r} \cdot \vec{B} \right)\vec{r}
+\]
 
 Per applicare nuovamente la proprietà sul prodotto vettore di tre vettori, si aggiunge e sottrae \(\left( \vec{r} \cdot \vec{B} \right)d\vec{r}\) al secondo membro:
 
-\[\left( \vec{r} \cdot \vec{B} \right)d\vec{r} = d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right) - \left( d\vec{r} \cdot \vec{B} \right)\vec{r} - \left( \vec{r} \cdot \vec{B} \right)d\vec{r} + \left( \vec{r} \cdot \vec{B} \right)d\vec{r}\]
+\[
+\left( \vec{r} \cdot \vec{B} \right)d\vec{r} = d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right) - \left( d\vec{r} \cdot \vec{B} \right)\vec{r} - \left( \vec{r} \cdot \vec{B} \right)d\vec{r} + \left( \vec{r} \cdot \vec{B} \right)d\vec{r}
+\]
 
 Dove:
 
-\[\left( \vec{r} \cdot \vec{B} \right)d\vec{r} - \left( d\vec{r} \cdot \vec{B} \right)\vec{r} = \vec{r} \times d\vec{r} \times \vec{B}\]
+\[
+\left( \vec{r} \cdot \vec{B} \right)d\vec{r} - \left( d\vec{r} \cdot \vec{B} \right)\vec{r} = \vec{r} \times d\vec{r} \times \vec{B}
+\]
 
 Per cui si ha:
 
-\[\left( \vec{r} \cdot \vec{B} \right)d\vec{r} = d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right) + \vec{r} \times d\vec{r} \times \vec{B} - \left( \vec{r} \cdot \vec{B} \right)d\vec{r} \Leftrightarrow 2\left( \vec{r} \cdot \vec{B} \right)d\vec{r} = d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right) + \vec{r} \times d\vec{r} \times \vec{B}\]
+\[
+\left( \vec{r} \cdot \vec{B} \right)d\vec{r} = d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right) + \vec{r} \times d\vec{r} \times \vec{B} - \left( \vec{r} \cdot \vec{B} \right)d\vec{r} \Leftrightarrow 2\left( \vec{r} \cdot \vec{B} \right)d\vec{r} = d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right) + \vec{r} \times d\vec{r} \times \vec{B}
+\]
 
 In definitiva, si ha:
 
-\[\left( \vec{r} \cdot \vec{B} \right)d\vec{r} = \dfrac{1}{2}d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right) + \dfrac{1}{2}\vec{r} \times d\vec{r} \times \vec{B}\]
+\[
+\left( \vec{r} \cdot \vec{B} \right)d\vec{r} = \dfrac{1}{2}d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right) + \dfrac{1}{2}\vec{r} \times d\vec{r} \times \vec{B}
+\]
 
 Sostituendo tale risultato nell’espressione della coppia si ha::
 
-\[\vec{N} = I\oint_{\partial S}{\left( \vec{r} \cdot \vec{B} \right)d\vec{r}} = \dfrac{1}{2}\ I\oint_{\partial S}{d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right)} + \dfrac{1}{2}\ I\oint_{\partial S}{\vec{r} \times d\vec{r} \times \vec{B}}\]
+\[
+\vec{N} = I\oint_{\partial S}{\left( \vec{r} \cdot \vec{B} \right)d\vec{r}} = \dfrac{1}{2}\ I\oint_{\partial S}{d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right)} + \dfrac{1}{2}\ I\oint_{\partial S}{\vec{r} \times d\vec{r} \times \vec{B}}
+\]
 
 Il primo termine è nullo, essendo una circuitazione di una forma differenziale esatta, quindi:
 
-\[\oint_{\partial S}{d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right)} = \vec{0}\]
+\[
+\oint_{\partial S}{d\left( \left( \vec{r} \cdot \vec{B} \right)\vec{r} \right)} = \vec{0}
+\]
 
 Per cui si ha:
 
-\[\vec{N} = \dfrac{1}{2}\ I\oint_{\partial S}{\vec{r} \times d\vec{r} \times \vec{B}}\]
+\[
+\vec{N} = \dfrac{1}{2}\ I\oint_{\partial S}{\vec{r} \times d\vec{r} \times \vec{B}}
+\]
 
 Siccome il campo è costante lungo tutto il percorso di integrazione, può essere portato all'esterno del simbolo di integrale:
 
-\[\vec{N} = \dfrac{1}{2}\ I\left( \oint_{\partial S}{\vec{r} \times d\vec{r}} \right) \times \vec{B}\]
+\[
+\vec{N} = \dfrac{1}{2}\ I\left( \oint_{\partial S}{\vec{r} \times d\vec{r}} \right) \times \vec{B}
+\]
 
-Si definisce il \textit{momento magnetico} della spira:
+Si definisce il \textbf{momento magnetico} della spira:
 
-\[\vec{\mu} = \dfrac{1}{2}\ I\oint_{\partial S}{\vec{r} \times d\vec{r}} = IS{\hat{\imath}}_{n}\]
+\[
+\vec{\mu} = \dfrac{1}{2}\ I\oint_{\partial S}{\vec{r} \times d\vec{r}} = IS{\hat{\imath}}_{n}
+\]
 
 La coppia \(\vec{N}\) può, in definitiva, essere espressa come:
 
-\[\vec{N} = \vec{\mu} \times \vec{B}\]
+\[
+\vec{N} = \vec{\mu} \times \vec{B}
+\]
 
 Nel caso più generale, il momento magnetico di una distribuzione continua di corrente in un volume \(V\) è dato da:
 
-\[\vec{\mu} = \dfrac{1}{2}\int_{V}{\vec{r} \times \vec{J}dV}\]
+\[
+\vec{\mu} = \dfrac{1}{2}\int_{V}{\vec{r} \times \vec{J}dV}
+\]
 
 \subsection{Momento magnetico di un anello rotante}\label{momento-magnetico-di-un-anello-rotante}
 
@@ -612,28 +704,40 @@ Si vuole calcolare il momento magnetico di un anello sottile di raggio \(R\), ma
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=1.34709in,height=2.1703in,alt={P1332\#yIS1}]{media/3_Elettromagnetismo/image21.pdf}\caption{Anello rotante nel campo magnetico}
+\input{Image/3_Elettromagnetismo/3_RotRing.tex}
+\caption{Anello rotante nel campo magnetico}
+\label{fig:3_RotRing}
 \end{figure}
 
 L’anello, ruotando, genera una corrente la cui intensità media è:
 
-\[I = \dfrac{q}{T}\]
+\[
+I = \dfrac{q}{T}
+\]
 
 Dove \(T\) è il periodo dell'oscillazione dato da:
 
-\[T = \dfrac{2\pi}{\omega}\]
+\[
+T = \dfrac{2\pi}{\omega}
+\]
 
 Per cui la corrente è data da:
 
-\[I = \dfrac{q}{T} = q\dfrac{\omega}{2\pi}\]
+\[
+I = \dfrac{q}{T} = q\dfrac{\omega}{2\pi}
+\]
 
 L'anello è assimilabile a una spira percorsa da corrente, dunque, il suo momento magnetico è dato da:
 
-\[\vec{\mu} = IS{\hat{\imath}}_{n} = q\dfrac{\omega}{2\pi}\pi R^{2}{\hat{\imath}}_{n}\]
+\[
+\vec{\mu} = IS{\hat{\imath}}_{n} = q\dfrac{\omega}{2\pi}\pi R^{2}{\hat{\imath}}_{n}
+\]
 
 Semplificando, si ottiene il momento magnetico:
 
-\[\vec{\mu} = \dfrac{1}{2}q\omega R^{2}{\hat{\imath}}_{n}\]
+\[
+\vec{\mu} = \dfrac{1}{2}q\omega R^{2}{\hat{\imath}}_{n}
+\]
 
 \subsection{Momento magnetico per un guscio sferico}\label{momento-magnetico-per-un-guscio-sferico}
 
@@ -641,10 +745,13 @@ Si vuole calcolare il momento magnetico di uno strato sferico sottile di raggio 
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=2.625in,height=1.991in,alt={P1346\#yIS1}]{media/3_Elettromagnetismo/image22.pdf}\caption{Guscio sferico}
+\input{Image/3_Elettromagnetismo/3_SferaCava.tex}
+\caption{Guscio sferico}
+\label{fig:3_SferaCava}
 \end{figure}
 
 Si pone l'asse \(z\) coincidente con l'asse di rotazione, per cui \(\vec{\omega}=\omega\,\hat{z}\). Si suddivide la superficie sferica in anelli infinitesimi, ciascuno giacente su un piano ortogonale all'asse \(z\). In corrispondenza dell'angolo polare \(\vartheta\) l'anello ha:
+
 \[
 \text{raggio: } r=R\sin\vartheta,\qquad
 \text{lunghezza: } 2\pi R\sin\vartheta,\qquad
@@ -670,39 +777,55 @@ d\vec{\mu}=S\,dI\,\hat{z}
 
 Per le ipotesi fatte sul sistema di riferimento, risulta che \({\hat{\imath}}_{n} = {\hat{\imath}}_{z}\). Infatti, il momento magnetico è diretto come \(\vec{\omega}\). Svolgendo i prodotti, si ha:
 
-\[d\vec{\mu} = \pi\omega\sigma R^{4}\sin^{3}\vartheta\ d\vartheta{\hat{\imath}}_{z}\]
+\[
+d\vec{\mu} = \pi\omega\sigma R^{4}\sin^{3}\vartheta\ d\vartheta{\hat{\imath}}_{z}
+\]
 
 Il momento magnetico è ottenuto integrando l'equazione ottenuta su tutti i possibili valori assunti da \(\vartheta\), ovvero:
 
-\[\vec{\mu} = \int_{0}^{\pi}{\pi\omega\sigma R^{4}\sin^{3}\vartheta\ d\vartheta{\hat{\imath}}_{z}} = \pi\omega\sigma R^{4}\int_{0}^{\pi}{\sin^{3}\vartheta\ d\vartheta}{\hat{\imath}}_{z}\]
+\[
+\vec{\mu} = \int_{0}^{\pi}{\pi\omega\sigma R^{4}\sin^{3}\vartheta\ d\vartheta{\hat{\imath}}_{z}} = \pi\omega\sigma R^{4}\int_{0}^{\pi}{\sin^{3}\vartheta\ d\vartheta}{\hat{\imath}}_{z}
+\]
 
 Si risolve l'integrale. Per le relazioni trigonometriche è possibile scrivere:
 
-\[\int_{0}^{\pi}{\sin^{3}\vartheta d\vartheta} = \int_{0}^{\pi}{\left( \dfrac{3\sin\vartheta - \sin{3\vartheta}}{4} \right)d\vartheta} = \dfrac{1}{4}\left( 3\int_{0}^{\pi}{\sin\vartheta d\vartheta} - \int_{0}^{\pi}{\sin{3\vartheta}d\vartheta} \right)\]
+\[
+\int_{0}^{\pi}{\sin^{3}\vartheta d\vartheta} = \int_{0}^{\pi}{\left( \dfrac{3\sin\vartheta - \sin{3\vartheta}}{4} \right)d\vartheta} = \dfrac{1}{4}\left( 3\int_{0}^{\pi}{\sin\vartheta d\vartheta} - \int_{0}^{\pi}{\sin{3\vartheta}d\vartheta} \right)
+\]
 
 Dove:
 
-\[3\int_{0}^{\pi}{\sin\vartheta d\vartheta} = 3\left\lbrack - \cos\vartheta \right\rbrack_{0}^{\pi} = 3\left( - \cos\pi + \cos 0 \right) = 3(1 + 1) = 6\]
+\[
+3\int_{0}^{\pi}{\sin\vartheta d\vartheta} = 3\left\lbrack - \cos\vartheta \right\rbrack_{0}^{\pi} = 3\left( - \cos\pi + \cos 0 \right) = 3(1 + 1) = 6
+\]
 
-\[\int_{0}^{\pi}{\sin{3\vartheta}d\vartheta} = - \dfrac{1}{3}\left\lbrack \cos{3\vartheta} \right\rbrack_{0}^{\pi} = - \dfrac{1}{3}\left( \cos{3\pi} - \cos 0 \right) = - \dfrac{1}{3}( - 1 - 1) = \dfrac{2}{3}\]
+\[
+\int_{0}^{\pi}{\sin{3\vartheta}d\vartheta} = - \dfrac{1}{3}\left\lbrack \cos{3\vartheta} \right\rbrack_{0}^{\pi} = - \dfrac{1}{3}\left( \cos{3\pi} - \cos 0 \right) = - \dfrac{1}{3}( - 1 - 1) = \dfrac{2}{3}
+\]
 
 Nel complesso, l'integrale è dato da:
 
-\[\int_{0}^{\pi}{\sin^{3}\vartheta d\vartheta} = \dfrac{1}{4}\left( 6 - \dfrac{2}{3} \right) = \dfrac{1}{4}\left( \dfrac{18 - 2}{3} \right) = \dfrac{1}{4}\dfrac{16}{3} = \dfrac{4}{3}\]
+\[
+\int_{0}^{\pi}{\sin^{3}\vartheta d\vartheta} = \dfrac{1}{4}\left( 6 - \dfrac{2}{3} \right) = \dfrac{1}{4}\left( \dfrac{18 - 2}{3} \right) = \dfrac{1}{4}\dfrac{16}{3} = \dfrac{4}{3}
+\]
 
 Il momento magnetico è dato da:
 
-\[\vec{\mu} = \dfrac{4}{3}\ \pi\omega\sigma R^{4}{\hat{\imath}}_{z}\]
+\[
+\vec{\mu} = \dfrac{4}{3}\ \pi\omega\sigma R^{4}{\hat{\imath}}_{z}
+\]
 
 La superficie totale della sfera è data da:
 
-\[S = 4\pi R^{2}\]
+\[
+S = 4\pi R^{2}
+\]
 
 Il prodotto della densità superficiale di carica \(\sigma\) per la superficie \(S\) restituisce la carica globale \(Q\). Il momento magnetico può essere scritto come:
 
-\[\vec{\mu} = \dfrac{1}{3}\ \omega QR^{2}{\hat{\imath}}_{z}\]
-
-%\input{Image/Ring}
+\[
+\vec{\mu} = \dfrac{1}{3}\ \omega QR^{2}{\hat{\imath}}_{z}
+\]
 
 \subsection{Momento magnetico per una sfera}\label{momento-magnetico-per-una-sfera}
 
@@ -710,37 +833,52 @@ Si vuole calcolare il momento magnetico di una sfera raggio \(R\), massa \(M\) e
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=1.375in,height=1.73838in,alt={P1372\#yIS1}]{media/3_Elettromagnetismo/image23.pdf}\caption{Sfera rotante}
+\input{Image/3_Elettromagnetismo/3_RotSphere.tex}
+\caption{Sfera rotante}
+\label{fig:3_RotSphere}
 \end{figure}
 
 Si utilizzano le coordinate sferiche \(r\), \(\vartheta\), \(\varphi\). Si assume come polo il centro \(O\) della sfera carica e come asse polare il diametro parallelo alla velocità angolare\(\omega\). Dove:
 
-\[r \in \left[ 0; R\right],\ \vartheta \in \left[ 0;\pi\right],\ \varphi \in \left[ 0;2\pi\right]\]
+\[
+r \in \left[ 0; R\right],\ \vartheta \in \left[ 0;\pi\right],\ \varphi \in \left[ 0;2\pi\right]
+\]
 
 Si indica con \(\rho\) la densità di carica volumetrica. Il volumetto \(dV\) contiene una carica \(dq\):
 
-\[dq = \rho dV\]
+\[
+dq = \rho dV
+\]
 
 Un elemento di volume $dV$ contribuisce alla densità di corrente volumetrica $\vec{J}$, data da:
 
-\[\vec{J} = \rho \vec{v}\]
+\[
+\vec{J} = \rho \vec{v}
+\]
 
 Poiché la sfera ruota con velocità angolare \(\vec{\omega}\) e la carica ha densità \(\rho\), la densità di corrente volumetrica è:
 
-\[\vec{J} = \rho \vec{v} = \rho \left( \vec{\omega} \times \vec{r}\right)\]
+\[
+\vec{J} = \rho \vec{v} = \rho \left( \vec{\omega} \times \vec{r}\right)
+\]
 
 per calcolare il momento magnetico di un corpo di volume \(V\) con densità di corrente \(J\), si usa la formula generale:
 
-\[\vec{\mu} = \dfrac{1}{2}\int_{V}{\vec{r} \times \vec{J}dV}\]
+\[
+\vec{\mu} = \dfrac{1}{2}\int_{V}{\vec{r} \times \vec{J}dV}
+\]
 
 Sostituendo la densità di corrente dell'elemento di volume infinitesimo nella definizione del momento magnetico si ha:
 
-\[\vec{\mu} = \dfrac{1}{2}\int_{V}{\vec{r} \times \left(\rho \left( \vec{\omega} \times \vec{r}\right)\right)dV}\]
+\[
+\vec{\mu} = \dfrac{1}{2}\int_{V}{\vec{r} \times \left(\rho \left( \vec{\omega} \times \vec{r}\right)\right)dV}
+\]
 
 Nell'ipotesi di densità di carica costante in tutto il volume, è possibile portare all'esterno del simbolo di integrale \(\rho\):
 
-
-\[\vec{\mu} = \dfrac{1}{2}\rho\int_{V}{\vec{r} \times \left( \vec{\omega} \times \vec{r}\right)dV}\]
+\[
+\vec{\mu} = \dfrac{1}{2}\rho\int_{V}{\vec{r} \times \left( \vec{\omega} \times \vec{r}\right)dV}
+\]
 
 Si considera il triplo prodotto vettoriale all'interno dell'integrale e si utilizza l'identità nota:
 
@@ -868,22 +1006,29 @@ L'integrale sul raggio, è invece dato da:
 
 L'integrale sulla coordinata polare è:
 
-\[\int_{0}^{\pi}{\sin^{3}\vartheta d\vartheta} = \int_{0}^{\pi}{\left( \dfrac{3\sin\vartheta - \sin{3\vartheta}}{4} \right)d\vartheta} = \dfrac{1}{4}\left( 3\int_{0}^{\pi}{\sin\vartheta d\vartheta} - \int_{0}^{\pi}{\sin{3\vartheta}d\vartheta} \right)\]
+\[
+\int_{0}^{\pi}{\sin^{3}\vartheta d\vartheta} = \int_{0}^{\pi}{\left( \dfrac{3\sin\vartheta - \sin{3\vartheta}}{4} \right)d\vartheta} = \dfrac{1}{4}\left( 3\int_{0}^{\pi}{\sin\vartheta d\vartheta} - \int_{0}^{\pi}{\sin{3\vartheta}d\vartheta} \right)
+\]
 
-\[\int_{0}^{\pi}{\sin^{3}\vartheta d\vartheta} = \int_{0}^{\pi}{\left( \dfrac{3\sin\vartheta - \sin{3\vartheta}}{4} \right)d\vartheta} = \dfrac{1}{4}\left( 3\int_{0}^{\pi}{\sin\vartheta d\vartheta} - \int_{0}^{\pi}{\sin{3\vartheta}d\vartheta} \right)\]
+\[
+\int_{0}^{\pi}{\sin^{3}\vartheta d\vartheta} = \int_{0}^{\pi}{\left( \dfrac{3\sin\vartheta - \sin{3\vartheta}}{4} \right)d\vartheta} = \dfrac{1}{4}\left( 3\int_{0}^{\pi}{\sin\vartheta d\vartheta} - \int_{0}^{\pi}{\sin{3\vartheta}d\vartheta} \right)
+\]
 
 Dove:
 
-\[3\int_{0}^{\pi}{\sin\vartheta d\vartheta} = 3\left\lbrack - \cos\vartheta \right\rbrack_{0}^{\pi} = 3\left( - \cos\pi + \cos 0 \right) = 3(1 + 1) = 6\]
+\[
+3\int_{0}^{\pi}{\sin\vartheta d\vartheta} = 3\left\lbrack - \cos\vartheta \right\rbrack_{0}^{\pi} = 3\left( - \cos\pi + \cos 0 \right) = 3(1 + 1) = 6
+\]
 
-\[\int_{0}^{\pi}{\sin{3\vartheta}d\vartheta} = - \dfrac{1}{3}\left\lbrack \cos{3\vartheta} \right\rbrack_{0}^{\pi} = - \dfrac{1}{3}\left( \cos{3\pi} - \cos 0 \right) = - \dfrac{1}{3}( - 1 - 1) = \dfrac{2}{3}\]
+\[
+\int_{0}^{\pi}{\sin{3\vartheta}d\vartheta} = - \dfrac{1}{3}\left\lbrack \cos{3\vartheta} \right\rbrack_{0}^{\pi} = - \dfrac{1}{3}\left( \cos{3\pi} - \cos 0 \right) = - \dfrac{1}{3}( - 1 - 1) = \dfrac{2}{3}
+\]
 
 Nel complesso, l'integrale è dato da:
 
 \[
 \int_{0}^{\pi} \sin^3{\vartheta} d\vartheta = \dfrac{4}{3}
 \]
-
 
 Di conseguenza, il momento magnetico della sfera è dato da:
 
@@ -898,6 +1043,7 @@ Q=\rho V\Leftrightarrow \rho = \dfrac{Q}{V}
 \]
 
 Sostituendo il volume della sfera, si ottiene:
+
 \[
 Q=\rho V\Leftrightarrow \rho = \dfrac{Q}{V}=\dfrac{Q}{\dfrac{4}{3}\pi R^3}=\dfrac{3Q}{4\pi R^3}
 \]
@@ -915,17 +1061,21 @@ Semplificando:
 \]
 
 Dato che il momento magnetico della sfera rotante è diretto lungo l'asse di rotazione, si ha:
+
 \[
 \vec{\mu} = \dfrac{1}{5} Q \omega R^{2}\hat{\imath}_z
 \]
 
 \section{Forza su piccola spira in un campo disomogeneo}\label{forza-su-piccola-spira-in-un-campo-disomogeneo}
 
-La forza agente su una spira elementare, percorsa da corrente, immersa in un campo magnetico generico può essere espressa come:
+La forza che agisce su una piccola spira percorsa da corrente, assimilabile a un \textbf{dipolo magnetico} $\vec{\mu}$, immersa in un campo di induzione magnetica $\vec{B}$ \textbf{non uniforme} è determinata dalla variazione spaziale dell'energia potenziale $U = - \vec{\mu} \cdot \vec{B}$.
 
-\[\vec{F} = \vec{\nabla}\left( \vec{\mu} \cdot \vec{B} \right)\]
+La forza è data da $\vec{F} = -\vec{\nabla}U$:
+\[
+\vec{F} = -\vec{\nabla}\left( - \vec{\mu} \cdot \vec{B} \right) = \vec{\nabla}\left( \vec{\mu} \cdot \vec{B} \right)
+\]
 
-Dove \(\vec{\mu}\) è il momento magnetico della spira. Per un atomo il momento magnetico è costante, dunque, può essere portato all'esterno del simbolo di gradiente, producendo l'operatore:
+Poiché il momento magnetico $\vec{\mu}$ di una spira elementare è costante rispetto alla posizione $\vec{r}$, l'espressione $\vec{\nabla}(\vec{\mu} \cdot \vec{B})$ può essere semplificata utilizzando l'identità vettoriale generale:
 
 \[
 (\vec{\mu} \cdot \vec{\nabla}) = \mu_x\dfrac{\partial}{\partial x} + \mu_y\dfrac{\partial}{\partial y} + \mu_z\dfrac{\partial}{\partial z}
@@ -984,76 +1134,100 @@ La componente non nulla della forza è solamente quella lungo \(z\), data da:
 
 \[F_{z} = \mu_{z}\dfrac{\partial B_{z}}{\partial z}\]
 
-La forza che agisce sulla spira dipende dalla proiezione del momento magnetico \(\vec{\mu}\) lungo \(z\) e dal gradiente del campo magnetico \(\vec{B}\) lungo \(z\).
+La forza $F_z$ dipende dalla \textbf{proiezione del momento magnetico} $\mu_{z}$ lungo la direzione del gradiente e dalla \textbf{pendenza} ($\partial B_{z}/\partial z$) del campo. \item Se $\mu_z$ e $\partial B_z / \partial z$ hanno lo stesso segno, la forza spinge la spira verso le regioni di campo più intenso.
 
-Questa relazione mostra che un dipolo magnetico immerso in un campo non uniforme subisce una forza che tende a spostarlo verso le regioni di campo più intenso se il momento magnetico è positivo, \(\mu_z>0\), o meno intenso se \(\mu_z<0\).
+Questa relazione è il principio fisico alla base dell'esperimento di \textbf{Stern-Gerlach}, dove un fascio di atomi (dipoli magnetici) viene deviato in un campo magnetico non uniforme.
 
 \subsection{Esperimento di Stern-Gerlach}\label{esperimento-di-stern-gerlach}
 
-L'esperimento di Stern-Gerlach fornisce una prova sperimentale della quantizzazione del momento magnetico dell'atomo.
+L'esperimento di Stern-Gerlach (1922) fornisce la prova sperimentale della \textbf{quantizzazione spaziale} del momento magnetico dell'atomo.
 
 Nel modello classico l'elettrone era visto come un pianeta orbitante intorno al nucleo, dunque, caratterizzato da un momento angolare dato dalla rivoluzione dell'elettrone intorno al nucleo e intorno al proprio asse.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=3.21429in,height=2.53278in,alt={P1423\#yIS1}]{media/3_Elettromagnetismo/image24.pdf}\caption{Modello planetario dell'atomo}
+\input{Image/3_Elettromagnetismo/3_ModPlan.tex}
+\caption{Modello planetario dell'atomo}
+\label{fig:3_ModPlan}
 \end{figure}
 
 È noto, inoltre, che la massa del nucleo è di molti ordini di grandezza maggiore rispetto quella dell'elettrone; dunque, è possibile ritenere il nucleo fermo rispetto all'elettrone.
 
-Il moto dell'elettrone può essere considerato circolare con raggio \(r\). L'elettrone viaggia con velocità \(\vec{v}\). Per definizione la corrente è:
+Nel modello classico, l'elettrone orbita attorno al nucleo (considerato fermo, $m_{nucleo} \gg m_{e}$) con raggio $r$ e velocità $v$. L'elettrone, avendo carica $e$, genera una corrente $I$:
 
-\[I = \dfrac{\mathrm{\Delta}q}{\mathrm{\Delta}t}\]
+\[
+I = \dfrac{{\Delta}q}{{\Delta}t}
+\]
 
-Dove, la carica coincide con quella dell'elettrone, mentre \(\mathrm{\Delta}t\) coincide con il periodo di rivoluzione della particella carica:
+Dove, la carica coincide con quella dell'elettrone, mentre \({\Delta}t\) coincide con il periodo di rivoluzione della particella carica:
 
-\[I = \dfrac{\mathrm{\Delta}q}{\mathrm{\Delta}t} = \dfrac{e}{2\pi\dfrac{r}{v}} = \dfrac{ev}{2\pi r}\]
+\[
+I = \dfrac{{\Delta}q}{{\Delta}t} = \dfrac{e}{2\pi\dfrac{r}{v}} = \dfrac{ev}{2\pi r}
+\]
 
 Data la piccola corrente generata, esiste un momento magnetico \(\vec{\mu}\) ortogonale al piano sul quale l'elettrone esegue la sua orbita, con verso diretto in modo da vedere la corrente ruotare in senso antiorario. Per convenzione sulla corrente, l'elettrone deve ruotare in senso orario.
 
 Il momento magnetico è dato da:
 
-\[\vec{\mu} = IS{\hat{\imath}}_{n}\]
+\[
+\vec{\mu} = IS{\hat{\imath}}_{n}
+\]
 
 Si considera il modulo, si sostituisce l'espressione della corrente prodotta dall'elettrone e la superficie della spira descritta :
 
-\[\mu = IS = - \dfrac{ev}{2\pi r}\pi r^{2} = - \dfrac{evr}{2}\]
+\[
+\mu = IS = - \dfrac{ev}{2\pi r}\pi r^{2} = - \dfrac{evr}{2}
+\]
 
 Dove il segno meno è dovuto alla convenzione sulle correnti.
 
 Sull'elettrone agisce un momento angolare \(\vec{L}\), dovuto all'orbita circolare descritto dall'elettrone, anch'esso ortogonale al piano dell'orbita, dato da:
 
-\[\vec{L} = m\vec{r} \times \vec{v}\]
+\[
+\vec{L} = m\vec{r} \times \vec{v}
+\]
 
 Si considera il modulo del momento angolare:
 
-\[L = mrv\]
+\[
+L = mrv
+\]
 
 Si moltiplicano ambo i membri per \(e/2\):
 
-\[\dfrac{e}{2}L = \dfrac{e}{2}mrv\]
+\[
+\dfrac{e}{2}L = \dfrac{e}{2}mrv
+\]
 
 Sostituendo l'espressione del momento magnetico, si ha:
 
-\[\dfrac{e}{2}L = m\mu\]
+\[
+\dfrac{e}{2}L = m\mu
+\]
 
 Ricavano il momento magnetico in funzione del momento angolare, si ha:
 
-\[\mu = \dfrac{e}{2m}L\]
+\[
+\mu = \dfrac{e}{2m}L
+\]
 
 In generale, se la particella ha carica \(q\) negativa, risulta:
 
-\[\vec{\mu} = - \dfrac{q}{2m}\vec{L}\]
+\[
+\vec{\mu} = - \dfrac{q}{2m}\vec{L}
+\]
 
 Dove \(\vec{\mu}\) è opposto a \(\vec{L}\) per la convenzione sulle correnti.
 
 Sebbene l'ultima equazione sia stata ricavata nell'ambito della fisica classica, è valida anche in meccanica quantistica, in cui il punto di vista è completamente diverso.
 
-Sebbene l'esperimento venga oggi usato per dimostrare lo spin, al tempo l'obiettivo era dimostrare l'esistenza del momento magnetico intrinseco e la sua quantizzazione spaziale. I due fisici eseguirono l'esperimento sugli atomi di argento, emessi da una sorgente. Questi atomi venivano deflessi da un campo magnetico non omogeneo, variabile lungo \(z\). L'argento è stato scelto proprio perché il suo momento angolare totale, derivante dagli elettroni di valenza, è dovuto essenzialmente a un singolo elettrone $s$-orbitale, semplificando l'interpretazione dei risultati.
+I risultatit dell'esperimento sono usati ancora oggi per dimostrare lo spin. Al tempo l'obiettivo era dimostrare l'esistenza del momento magnetico intrinseco e la sua quantizzazione spaziale. I due fisici eseguirono l'esperimento sugli atomi di \textbf{argento}, emessi da una sorgente. Questi atomi venivano deflessi da un campo magnetico non omogeneo, variabile lungo \(z\). L'argento è stato scelto proprio perché il suo momento angolare totale, derivante dagli elettroni di valenza, è dovuto essenzialmente a un singolo elettrone $s$-orbitale, semplificando l'interpretazione dei risultati.
 
 La meccanica classica prevede che momento magnetico degli atomi di argento sia distribuito statisticamente in tutte le direzioni. Sugli atomi di argento agisce una forza data da:
 
-\[F_{i} = {\mu_{i}}_{z}\dfrac{\partial B_{z}}{\partial z}\ \]
+\[
+F_{i} = {\mu_{i}}_{z}\dfrac{\partial B_{z}}{\partial z}
+\]
 
 Dunque, ogni atomo subisce una deflessione dovuta alla proiezione del suo momento magnetico lungo l'asse \(z\) e dal gradiente del campo magnetico lungo lo stesso asse.
 
@@ -1065,8 +1239,28 @@ Questo risultato non può essere previsto dalla meccanica classica, ma viene spi
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=5.47196in,height=2.05093in,alt={P1456\#yIS1}]{media/3_Elettromagnetismo/image25.pdf}\caption{Esperimento di Stern-Gerlach}
+\input{Image/3_Elettromagnetismo/3_SternGerlach.tex}
+\label{fig:3_SternGerlach}
+\caption{Esperimento di Stern-Gerlach}
 \end{figure}
+
+Il risultato non può essere spiegato dalla quantizzazione del momento angolare orbitale prevista da Bohr, ma dalla scoperta successiva del \textbf{momento angolare di spin} intrinseco ($\vec{S}$) dell'elettrone.
+Per l'elettrone, il momento angolare di spin è quantizzato e può avere solo due proiezioni lungo l'asse $z$: $m_s = \pm 1/2$. Il momento magnetico di spin è legato a $\vec{S}$ da:
+   
+\[
+\vec{\mu}_S = - g_e \dfrac{e}{2m_e}\vec{S} \quad \text{con } g_e \approx 2
+\]
+
+Dove $g_e$ è il fattore $g$ di Landé per lo spin.
+
+Il risultato a due punti dello Stern-Gerlach è, di fatto, la prova diretta che l'elettrone possiede una proprietà quantistica intrinseca chiamata \textbf{spin}, che può essere orientata solo in due direzioni discrete ($\uparrow$ o $\downarrow$) rispetto a un asse di riferimento esterno.
+
+La quantità fondamentale del magnetismo quantistico è il \textbf{Magnetone di Bohr}:
+
+\[
+\mu_B = \dfrac{e\hbar}{2m_e} \approx 9.27 \times 10^{-24} \text{ J/T}
+\]
+La forza magnetica misurata è quindi direttamente proporzionale a $\pm \mu_B$.
 
 \subsection{Concetto di spin}\label{concetto-di-spin}
 
@@ -1085,7 +1279,7 @@ Dove:
 \begin{itemize}
     \item $q$ e $m$ sono, rispettivamente, la carica e la massa della particella (ad esempio, elettrone, protone, muone, ecc.);
     \item $\vec{S}$ è il momento angolare di spin della particella;
-    \item $g$ è il fattore giromagnetico ($g$-factor) o fattore di Landé, un numero adimensionale che indica di quanto il momento magnetico devia dal valore classico ($q/2m$)
+     \item $g$ è il \textbf{fattore giromagnetico} ($g$-factor) o \textbf{fattore di Landé}, un numero adimensionale che quantifica lo scostamento del momento magnetico dal valore atteso classico ($q/2m$).
 \end{itemize}
 
 Per l'elettrone, la formula è:
@@ -1093,7 +1287,7 @@ Per l'elettrone, la formula è:
 \vec{\mu}_{e} = - g_{e} \dfrac{e}{2m_{e}} \vec{S}
 \]
 
-Il fattore $e/2m_{e}$ è l'unità naturale del magnetismo per l'elettrone ed è chiamato magnetone di Bohr ($\mu_B$). Il fattore $g_e$ per l'elettrone libero è $g_e \approx 2.0023$ (la piccola deviazione da $g=2$ è spiegata dall'Elettrodinamica Quantistica, QED).
+Il fattore $e/2m_{e}$ è l'unità naturale del magnetismo per l'elettrone ed è chiamato \textbf{Magnetone di Bohr} ($\mu_B$). Il fattore $g_e$ per l'elettrone libero è $g_e \approx 2.0023$ (la piccola deviazione da $g=2$ è spiegata dall'Elettrodinamica Quantistica, QED).
 
 Per i nucleoni e nuclei, si usa la massa del protone ($m_p$) come riferimento per l'unità magnetica, poiché i momenti magnetici nucleari sono molto più piccoli:
 
@@ -1107,20 +1301,32 @@ Dove:
     \item $g_N$ è il fattore $g$ nucleare, che è caratteristico di ciascun nucleo.
 \end{itemize}
 
+Per i nucleoni (protoni e neutroni) e i nuclei, i momenti magnetici sono significativamente più piccoli. Si usa il \textbf{Magnetone Nucleare} ($\mu_N$), basato sulla massa del protone ($m_p$):
+
+\[
+\mu_N = \dfrac{e\hbar}{2m_{p}} \ll \mu_B
+\]
+
+La relazione è data da:
+\[
+\vec{\mu}_{N} = g_{N} \dfrac{e}{2m_{p}} \vec{I}
+\]
+
+dove $\vec{I}$ è il momento angolare di spin nucleare e $g_N$ è il fattore $g$ nucleare, che non ha un valore universale come l'elettrone, ma è caratteristico di ciascun nucleo o nucleone.
 Per un atomo in uno stato quantico definito, il momento magnetico totale ($\vec{\mu}_{tot}$) è proporzionale al momento angolare totale ($\vec{J} = \vec{L} + \vec{S}$):
 
 \[
 \vec{\mu}_{tot} = - g \dfrac{e}{2m_{e}} \vec{J}
 \]
-In questo caso, il fattore $g$ è il fattore di Landé ($g$) dell'atomo, il cui valore dipende da come si accoppiano $\vec{L}$ e $\vec{S}$ (ad esempio, tramite l'accoppiamento $LS$)
+In questo caso, $g_J$ è il \textbf{fattore di Landé} per l'atomo intero, il cui valore dipende da come si accoppiano $\vec{L}$ e $\vec{S}$ (ad esempio, tramite l'accoppiamento $LS$).
 
 In sintesi, la relazione $\vec{\mu} = g q/2m \vec{S}$ è la formula unificatrice in meccanica quantistica, con il fattore $g$ che incorpora la natura specifica della particella o del sistema considerato.
 
 \section{Campo magnetico prodotto da un momento magnetico}\label{campo-magnetico-prodotto-da-un-momento-magnetico}
+Si vuole determinare il campo $\vec{B}$ creato da un momento magnetico $\vec{\mu}$ di una piccola spira percorsa da corrente, a grandi distanze $R$. A tale scopo si considerano le equazioni di Maxwell per il campo induzione magnetica nel vuoto:
 
-Si vuole determinare il campo creato da un momento magnetico di una piccola spira percorsa da corrente. A tale scopo si considerano le equazioni di Maxwell per il campo induzione magnetica nel vuoto:
-
-\[\begin{cases}
+\[
+\begin{cases}
 \vec{\nabla} \cdot \vec{B} = 0 \\
 \vec{\nabla} \times \vec{B} = \mu_{0}\left( \vec{J} + \varepsilon_{0}\dfrac{\partial\vec{E}}{\partial t} \right)
 \end{cases}
@@ -1128,259 +1334,392 @@ Si vuole determinare il campo creato da un momento magnetico di una piccola spir
 
 Se la lunghezza d'onda del campo incidente \(\lambda\) è molto maggiore della dimensione lineare dell'oggetto, è possibile ritenere il campo elettromagnetico lentamente variabile sulla superficie della spira, dunque:
 
-\[\dfrac{\partial\vec{E}}{\partial t} \simeq 0\]
+\[
+\dfrac{\partial\vec{E}}{\partial t} \simeq 0
+\]
 
 È possibile scrivere:
 
-\[\begin{cases}
+\[
+\begin{cases}
 \vec{\nabla} \cdot \vec{B} = 0 \\
 \vec{\nabla} \times \vec{B} = \mu_{0}\vec{J}
 \end{cases}
 \]
 
-Siccome il campo induzione magnetica è solenoidale, è possibile definire un potenziale vettore, tale che:
+Siccome il campo induzione magnetica è solenoidale, è possibile definire un \textbf{potenziale vettore}, tale che:
 
-\[\vec{B} = \vec{\nabla} \times \vec{A}\]
+\[
+\vec{B} = \vec{\nabla} \times \vec{A}
+\]
 
 Si sostituisce la definizione del potenziale vettore nella seconda equazione:
 
-\[\vec{\nabla} \times \vec{B} = \mu_{0}\vec{J} \Leftrightarrow \vec{\nabla} \times \vec{\nabla} \times \vec{A}\]
+\[
+\vec{\nabla} \times \vec{B} = \mu_{0}\vec{J} \Leftrightarrow \vec{\nabla} \times \vec{\nabla} \times \vec{A}
+\]
 
 Il rotore del rotore può essere scritto come:
 
-\[\vec{\nabla} \times \vec{\nabla} \times = \vec{\nabla}\left( \vec{\nabla} \cdot \  \right) - \nabla^{2}\ \]
+\[
+\vec{\nabla} \times \vec{\nabla} \times = \vec{\nabla}\left( \vec{\nabla} \cdot \  \right) - \nabla^{2}
+\]
 
 Dunque, si ottiene:
 
-\[\vec{\nabla}\left( \vec{\nabla} \cdot \vec{A} \right) - \nabla^{2}\vec{A} = \mu_{0}\vec{J}\]
+\[
+\vec{\nabla}\left( \vec{\nabla} \cdot \vec{A} \right) - \nabla^{2}\vec{A} = \mu_{0}\vec{J}
+\]
 
-Il potenziale vettore non è univocamente definito, dunque, è possibile imporre la condizione, detta gauge di Coulomb:
+Il potenziale vettore non è univocamente definito, dunque, è possibile imporre la condizione, detta \textbf{gauge di Coulomb}:
 
-\[\vec{\nabla} \cdot \vec{A} = 0\]
+\[
+\vec{\nabla} \cdot \vec{A} = 0
+\]
 
 Si ottiene che il laplaciano del campo vettore è dato da:
 
-\[\nabla^{2}\vec{A} = - \mu_{0}\vec{J}\]
+\[
+\nabla^{2}\vec{A} = - \mu_{0}\vec{J}
+\]
 
 Si dimostra che la soluzione è del tipo:
 
-\[\vec{A} = \dfrac{\mu_{0}}{4\pi}\int_{V}\dfrac{\vec{J}\left( {\vec{r}}' \right)}{\left| \vec{r} - {\vec{r}}' \right|}dV'\]
+\[
+\vec{A} = \dfrac{\mu_{0}}{4\pi}\int_{V}\dfrac{\vec{J}\left( {\vec{r}}' \right)}{\left| \vec{r} - {\vec{r}}' \right|}dV'
+\]
 
 Per una piccola spira, lontano da essa, si utilizza lo sviluppo in serie di multipoli per $1/\left| \vec{r} - {\vec{r}}' \right|$ e si considera solo il termine di dipolo magnetico. Si dimostra che il potenziale vettore in un punto di osservazione $\vec{R}$ è dato da::
 
-\[\vec{A}\left( \vec{r} \right) = \dfrac{\mu_{0}}{4\pi}\dfrac{\vec{\mu} \times \vec{R}}{R^{3}}\]
+\[
+\vec{A}\left( \vec{r} \right) = \dfrac{\mu_{0}}{4\pi}\dfrac{\vec{\mu} \times \vec{R}}{R^{3}}
+\]
 
-Dove \(\vec{R}\) è il vettore che congiunge il centro della piccola spira col punto di osservazione.
+dove \(\vec{R}\) è il vettore che congiunge il centro della piccola spira col punto di osservazione.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=2.69167in,height=2.03333in,alt={P1496\#yIS1}]{media/3_Elettromagnetismo/image26.pdf}\caption{Campo prodotto da una spira elementare}
+\input{Image/3_Elettromagnetismo/3_CampoSpira.tex}
+\caption{Campo prodotto da una spira elementare}
+\label{fig:3_CampoSpira}
 \end{figure}
 
 L'iterazione di una spira con un campo magnetico \(\vec{B}\) esterno è descritta dall'energia potenziale \(U\), data da:
 
-\[U = - \vec{\mu} \cdot \vec{B} = -\mu B\cos\beta\]
+\[
+U = - \vec{\mu} \cdot \vec{B} = -\mu B\cos\beta
+\]
 
 Con \(\beta\) angolo formato dal campo magnetico e il momento magnetico. L'energia potenziale è nulla quando il campo magnetico è ortogonale al momento magnetico.
 
 Il momento magnetico immerso in un campo magnetico subisce l'effetto di una coppia data da:
 
-\[\vec{\tau} = \vec{\mu} \times \vec{B}\]
+\[
+\vec{\tau} = \vec{\mu} \times \vec{B}
+\]
 
 Con \(\vec{\tau}\) momento torcente.
 
+Il campo $\vec{B}$ si ottiene calcolando il rotore del potenziale vettore dipolare $\vec{B} = \vec{\nabla} \times \vec{A}$. Utilizzando l'identità generale $\vec{\nabla} \times (f\vec{C}) = (\vec{\nabla} f) \times \vec{C} + f(\vec{\nabla} \times \vec{C})$, dove $f = 1/R^3$ e $\vec{C} = \vec{\mu} \times \vec{R}$, il calcolo porta a:
+\[
+\vec{B}(\vec{R}) = \dfrac{\mu_{0}}{4\pi}\left[ \dfrac{3(\vec{\mu} \cdot \vec{R})\vec{R} - \vec{\mu}R^2}{R^{5}} \right]
+\]
+
+Questa è l'espressione vettoriale per il \textbf{Campo Magnetico di un Dipolo Magnetico} $\vec{\mu}$. Essa è formalmente identica all'espressione del campo elettrico di un dipolo elettrico $\vec{p}$ (sostituendo $\vec{\mu} \to \vec{p}$ e $\mu_0/(4\pi) \to 1/(4\pi\varepsilon_0)$).
+
+Riassumendo, l'interazione di una spira (dipolo $\vec{\mu}$) con un campo magnetico esterno $\vec{B}_{ext}$ è descritta da:
+\begin{itemize}
+    \item \textbf{Energia Potenziale}: Tende a minimizzarsi quando $\vec{\mu}$ è allineato con $\vec{B}_{ext}$.
+    \[
+    U = - \vec{\mu} \cdot \vec{B}_{ext} = -\mu B_{ext}\cos\beta
+    \]
+    \item \textbf{Coppia} (Momento Torcente): Tende ad allineare $\vec{\mu}$ con $\vec{B}_{ext}$.
+    \[
+    \vec{\tau} = \vec{\mu} \times \vec{B}_{ext}
+    \]
+    \item \textbf{Forza} (in campo non uniforme $\vec{\nabla}\vec{B}_{ext} \neq 0$): Tende a spostare il dipolo.
+    \[
+    \vec{F} = \vec{\nabla}\left( \vec{\mu} \cdot \vec{B}_{ext} \right)
+    \]
+\end{itemize}
+
 \section{Moto del momento magnetico in campo magnetico}\label{moto-del-momento-magnetico-in-campo-magnetico}
 
-Si considera una particella, come un elettrone, un atomo o un nucleo, immerso in un campo magnetico \(\vec{B}\). Per semplicità si analizza il sistema mediante una descrizione classica e non relativistica.
+Si considera una particella (elettrone, atomo o nucleo) con momento magnetico $\vec{\mu}$ e momento angolare $\vec{L}$, immersa in un campo magnetico $\vec{B}$ uniforme. Per semplicità si utilizza una descrizione classica e non relativistica.
 
-Ogni atomo o particella subatomica, immerso in un campo magnetico subisce un momento torcente \(\vec{\tau}\) dato da:
+Ogni particella subatomica o atomo, immerso in un campo magnetico subisce un momento torcente $\vec{\tau}$ dato da:
 
-\[\vec{\tau} = \vec{\mu} \times \vec{B}\]
+\[
+\vec{\tau} = \vec{\mu} \times \vec{B}
+\]
 
 Il momento angolare rispetta la seconda legge di Newton:
 
-\[\dfrac{d\vec{L}}{dt} = \vec{\tau}\]
+\[
+\dfrac{d\vec{L}}{dt} = \vec{\tau}
+\]
 
 Sostituendo l'espressione per il momento angolare in funzione del momento magnetico si ha:
 
-\[\dfrac{d\vec{L}}{dt} = \vec{\mu} \times \vec{B}\]
+\[
+\dfrac{d\vec{L}}{dt} = \vec{\mu} \times \vec{B}
+\]
+Il momento magnetico è legato al momento angolare dal \textbf{rapporto giromagnetico} $\gamma$:
 
-Il momento magnetico è legato al momento angolare da un fattore di proporzionalità \(\gamma\):
+\[
+\vec{\mu} = \gamma\vec{L}
+\]
 
-\[\vec{\mu} = \gamma\vec{L}\]
+In caso di elettroni, il rapporto giromagnetico è:
 
-In caso di elettroni, la costante di proporzionalità coincide con il rapporto giromagnetico:
+\[
+\gamma = - \gamma_{e}
+\]
 
-\[\gamma = - \gamma_{e}\]
+In caso di atomo è:
 
-In caso di atomo con:
-
-\[\gamma = - g\dfrac{q}{2m}\]
+\[
+\gamma = - g\dfrac{q}{2m}
+\]
 
 Mentre per un nucleo con:
 
-\[\gamma = g\dfrac{q}{2m_{p}}\]
+\[
+\gamma = g\dfrac{q}{2m_{p}}
+\]
 
 La seconda legge di Newton può essere scritta come:
 
-\[\dfrac{d\vec{L}}{dt} = \vec{\mu} \times \vec{B} =  \gamma\vec{L} \times \vec{B}\]
+\[
+\dfrac{d\vec{L}}{dt} = \vec{\mu} \times \vec{B} =  \gamma\vec{L} \times \vec{B}
+\]
 
-\(\gamma\) è positivo se momento angolare e momento magnetico sono paralleli, negativo se antiparalleli.
+dove \(\gamma = \mu/L\) è positivo se momento angolare e momento magnetico sono paralleli, negativo se antiparalleli.
 
-Dall'equazione ottenuta si nota che la derivata del momento angolare deve essere perpendicolare al momento angolare stesso. Ne discende che il modulo di \(\vec{L}\) è costante. In altre parole, la punta del vettore momento angolare \(\vec{L}\) giace su una sfera e percorre una traiettoria circolare nel piano perpendicolare a \(\vec{B}\). Tale modo è detto precessione del momento magnetico o del momento angolare.
+Dall'equazione ottenuta si nota che la derivata del momento angolare deve essere perpendicolare al momento angolare stesso. Ne discende che il modulo di \(\vec{L}\) è \textbf{costante}. In altre parole, $\vec{L}$ non cambia in lunghezza, ma solo in direzione, compiendo un moto conico attorno alla direzione del campo $\vec{B}$. Tale moto è detto \textbf{precessione del momento magnetico} (o di Larmor).
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=2.30833in,height=2.58576in,alt={P1524\#yIS1}]{media/3_Elettromagnetismo/image27.pdf}\caption{Moto di precessione del momento magnetico}
+\input{Image/3_Elettromagnetismo/3_spin.tex}
+\caption{Moto di precessione del momento magnetico}
+\label{fig:3_spin}
 \end{figure}
 
 Confrontando l'equazione ottenuta per il momento angolare:
 
-\[\dfrac{d\vec{L}}{dt} = \gamma\vec{L} \times \vec{B} = - \gamma\vec{B} \times \vec{L}\]
+\[
+\dfrac{d\vec{L}}{dt} = \gamma\vec{L} \times \vec{B} = - \gamma\vec{B} \times \vec{L}
+\]
 
 Con la relazione generale che lega la rotazione di un vettore alla velocità angolare:
 
-\[d\vec{v} = \vec{\Omega} \times \vec{v}dt\]
+\[
+d\vec{v} = \vec{\Omega} \times \vec{v}dt
+\]
 
-è evidente che la velocità del moto di precessione è data da:
+è evidente che la velocità angolare del moto di precessione è data da:
 
-\[\vec{\Omega} = - \gamma\vec{B}\]
+\[
+\vec{\Omega} = - \gamma\vec{B}
+\]
 
 Con questa definizione, è possibile scrivere:
 
-\[\dfrac{d\vec{L}}{dt} = \vec{\Omega} \times \vec{L}\]
+\[
+\dfrac{d\vec{L}}{dt} = \vec{\Omega} \times \vec{L}
+\]
+
+Il modulo di questa velocità angolare è chiamato \textbf{Frequenza di Larmor} e rappresenta la frequenza angolare con cui il momento $\vec{\mu}$ precede attorno al campo $\vec{B}$:
+
+\[
+\omega_L = |\vec{\Omega}| = |\gamma| B
+\]
 
 \section{Diamagnetismo}\label{diamagnetismo}
-
-I materiali diamagnetici sono caratterizzati da atomi che, se immersi in un campo magnetico \(\vec{B}\), sviluppano un momento magnetico aggiuntivo tale che il momento magnetico risultante si oppone al campo applicato.
+I materiali diamagnetici sono caratterizzati da atomi che, se immersi in un campo magnetico $\vec{B}$, sviluppano un momento magnetico aggiuntivo ($\Delta \vec{\mu}$) che si \textbf{oppone} al campo applicato ($\vec{B}$). Il diamagnetismo è un fenomeno universale, presente in tutti i materiali, dovuto alla variazione del moto orbitale degli elettroni per effetto del campo esterno (Legge di Lenz).
 
 Si suppone di applicare lentamente un campo magnetico a un atomo di materiale diamagnetico. Il suo nucleo, avendo una massa molto maggiore dell'elettrone può essere ritenuto fermo, mentre l'elettrone ruota interno al nucleo. Questo movimento può essere assimilato a una spira di raggio \(r\) percorsa da corrente centrata sul nucleo.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=2.05833in,height=1.91724in,alt={P1537\#yIS1}]{media/3_Elettromagnetismo/image28.pdf}\caption{Nucleo immerso in un campo magnetico}
+\input{Image/3_Elettromagnetismo/3_AtomoMagnetic.tex}
+\caption{Nucleo immerso in un campo magnetico}
+\label{fig:3_AtomoMagnetic}
 \end{figure}
 
 Il campo magnetico \(\vec{B}\), variabile nel tempo e nello spazio, si concatena con la spira, provocando la generazione di una forza elettromagnetica data dalla legge di Faraday:
 
-\[\oint_{C}{\vec{E} \cdot d\vec{C}} = - \dfrac{\partial}{\partial t}\int_{S}{\vec{B} \cdot d\vec{S}}\]
+\[
+\oint_{C}{\vec{E} \cdot d\vec{C}} = - \dfrac{\partial}{\partial t}\int_{S}{\vec{B} \cdot d\vec{S}}
+\]
 
-Dove \(S\) è la superficie della spira e \(\partial S = C\) il suo contorno. Se il campo \(\vec{B}\) è costante sulla superficie della spira può essere portato fuori dal simbolo di integrale:
+dove \(S\) è la superficie della spira e \(\partial S = C\) il suo contorno. Se il campo \(\vec{B}\) è costante sulla superficie della spira può essere portato fuori dal simbolo di integrale:
 
-\[\vec{E} \cdot \oint_{C}{d\vec{C}} = - \dfrac{\partial}{\partial t}\vec{B} \cdot \int_{S}{d\vec{S}}\]
+\[
+\vec{E} \cdot \oint_{C}{d\vec{C}} = - \dfrac{\partial}{\partial t}\vec{B} \cdot \int_{S}{d\vec{S}}
+\]
 
 Ne discende che il campo elettrico è anch'esso uniforme sulla spira e parallelo, in ogni punto, a \(d\vec{C}\). Per una circonferenza risulta:
 
-\[E2\pi r = \pi r^{2}\left( - \dfrac{\partial B}{\partial t} \right)\]
+\[
+E2\pi r = \pi r^{2}\left( - \dfrac{\partial B}{\partial t} \right)
+\]
 
 Dato che \(B\) è una funzione solo del tempo, la derivata parziale si riduce a una totale. Semplificando \(\pi r\) si ottiene:
 
-\[E = - \dfrac{r}{2}\dfrac{dB}{dt}\]
+\[
+E = - \dfrac{r}{2}\dfrac{dB}{dt}
+\]
 
 Il campo elettrico produce un momento torcente sull'elettrone, dato dalla relazione:
 
-\[\vec{\tau} = q\vec{r} \times \vec{E}\]
+\[
+\vec{\tau} = q\vec{r} \times \vec{E}
+\]
 
 Dato che il campo elettrico è ortogonale al raggio, essendo ortogonale anche al campo magnetico \(\vec{B}\), il modulo del momento torcente, esplicitando anche la carica dell'elettrone, può essere espresso come:
 
-\[\tau = - erE\]
+\[
+\tau = - erE
+\]
 
 Sostituendo il campo elettrico prima determinato, si ha:
 
-\[\tau = e\dfrac{r^{2}}{2}\dfrac{dB}{dt}\]
+\[
+\tau = e\dfrac{r^{2}}{2}\dfrac{dB}{dt}
+\]
 
 Per la seconda legge di Newton \(dL\backslash dt = \tau\), si ottiene:
 
-\[\dfrac{dL}{dt} = e\dfrac{r^{2}}{2}\dfrac{dB}{dt}\]
+\[
+\dfrac{dL}{dt} = e\dfrac{r^{2}}{2}\dfrac{dB}{dt}
+\]
 
 Si integra tra \(t_{0}\), tempo di applicazione del campo magnetico, e \(t_{1}\) tempo in cui il campo \(B\) raggiunge il suo valore massimo:
 
-\[\int_{t_{0}}^{t_{1}}{\dfrac{dL}{dt}dt} = e\dfrac{r^{2}}{2}\int_{t_{0}}^{t_{1}}{\dfrac{dB}{dt}dt}\]
+\[
+\int_{t_{0}}^{t_{1}}{\dfrac{dL}{dt}dt} = e\dfrac{r^{2}}{2}\int_{t_{0}}^{t_{1}}{\dfrac{dB}{dt}dt}
+\]
 
 Risolvendo si ha:
 
-\[L\left( t_{1} \right) - L\left( t_{0} \right) = e\dfrac{r^{2}}{2}\left\lbrack B\left( t_{1} \right) - B\left( t_{0} \right) \right\rbrack\]
+\[
+L\left( t_{1} \right) - L\left( t_{0} \right) = e\dfrac{r^{2}}{2}\left\lbrack B\left( t_{1} \right) - B\left( t_{0} \right) \right\rbrack
+\]
 
 Inizialmente il campo è nullo \(B\left( t_{0} \right) = 0\), per cui la differenza di momento angolare è data da:
 
-\[\mathrm{\Delta}L = e\dfrac{r^{2}}{2}B\]
+\[
+{\Delta}L = e\dfrac{r^{2}}{2}B
+\]
 
-Dove \(B\) è il massimo valore del campo.
+dove \(B\) è il massimo valore del campo.
 
 Il momento magnetico dell'elettrone intorno al nucleo è antiparallelo al momento angolare. Le due quantità sono legate dal rapporto giromagnetico:
 
-\[\mathrm{\Delta}\mu = - \dfrac{e}{2m}\mathrm{\Delta}L\]
+\[
+{\Delta}\mu = - \dfrac{e}{2m}{\Delta}L
+\]
 
 Sostituendo l'espressione della differenza del momento angolare, si ottiene:
 
-\[\mathrm{\Delta}\mu = - \dfrac{e^{2}r^{2}}{4m}B\]
+\[
+{\Delta}\mu = - \dfrac{e^{2}r^{2}}{4m}B
+\]
 
 In linea di principio l'orbita descritta dall'elettrone dovrebbe variare per l'applicazione del campo magnetico.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=2.30915in,height=2.64167in,alt={P1568\#yIS1}]{media/3_Elettromagnetismo/image29.pdf}\caption{Elettrone in equilibrio sull'orbita}
+\input{Image/3_Elettromagnetismo/3_EquiElettrone.tex}
+\caption{Elettrone in equilibrio sull'orbita}
+\label{fig:3_EquiElettrone}
 \end{figure}
 
 Un elettrone orbitante è mantenuto, infatti, in equilibrio dalla forza centripeta (\(F_{c}\)) e dell'iterazione coulombiana con il nucleo (\(F_{e}\)):
 
-\[F_{e} = F_{c}\]
+\[
+F_{e} = F_{c}
+\]
 
 Sostituendo le relative espressioni nell'ipotesi che il nucleo sia composto da un solo elettrone, si ha:
 
-\[m\dfrac{v^{2}}{r} = \dfrac{1}{4\pi\varepsilon_{0}}\dfrac{e^{2}}{r^{2}}\]
+\[
+m\dfrac{v^{2}}{r} = \dfrac{1}{4\pi\varepsilon_{0}}\dfrac{e^{2}}{r^{2}}
+\]
 
 La variazione di velocità indotta dal campo elettrico dopo l'introduzione del campo \(dB\) è data dalla forza che il campo esercita:
 
-\[F = \dfrac{dp}{dt} = m\dfrac{dv}{dt}\]
+\[
+F = \dfrac{dp}{dt} = m\dfrac{dv}{dt}
+\]
 
 La forza può essere espressa in termini di campo elettrico. Dalla definizione di campo elettrico, per l'elettrone risulta:
 
-\[E = \dfrac{F}{q} \Leftrightarrow F = - eE\]
+\[
+E = \dfrac{F}{q} \Leftrightarrow F = - eE
+\]
 
 Dunque, la variazione di quantità di moto può essere espressa come:
 
-\[- eE = m\dfrac{dv}{dt}\]
+\[
+- eE = m\dfrac{dv}{dt}
+\]
 
 Il campo elettrico, per la legge di Faraday, è legato al campo magnetico dalla relazione:
 
-\[E = - \dfrac{r}{2}\dfrac{d\vec{B}}{dt}\]
+\[
+E = - \dfrac{r}{2}\dfrac{d\vec{B}}{dt}
+\]
 
-Dunque, si ha:
+Ricavando:
 
-\[- eE = m\dfrac{dv}{dt} \Leftrightarrow e\dfrac{r}{2}\dfrac{d\vec{B}}{dt} = m\dfrac{dv}{dt}\]
+\[
+- eE = m\dfrac{dv}{dt} \Leftrightarrow e\dfrac{r}{2}\dfrac{d\vec{B}}{dt} = m\dfrac{dv}{dt}
+\]
 
 Si analizza la sola variazione di velocità subita dall'elettrone:
 
-\[dv = \dfrac{er}{2m}dB\]
+\[
+dv = \dfrac{er}{2m}dB
+\]
 
 A causa della variazione di velocità, anche l'accelerazione centripeta \(\alpha\) varia. Ricorrendo allo sviluppo in serie di Taylor, trascurando gli ordini superiori al primo, si ha:
 
-\[\alpha + d\alpha = \dfrac{v^{2}}{r} + d\left( \dfrac{v^{2}}{r} \right) = \dfrac{v^{2}}{r} + \dfrac{2vdv}{r}\  + o\left( \dfrac{1}{r^{2}}dr \right) + o\left( dv^{2} \right)\]
+\[
+\alpha + d\alpha = \dfrac{v^{2}}{r} + d\left( \dfrac{v^{2}}{r} \right) = \dfrac{v^{2}}{r} + \dfrac{2vdv}{r}\  + o\left( \dfrac{1}{r^{2}}dr \right) + o\left( dv^{2} \right)
+\]
 
 Dopo l'applicazione del campo magnetico, bisogna considerare anche la forza di Lorentz nel bilancio delle forze sull'elettrone. La forza di Lorentz e quella elettrostatica sono concordi, dunque, affinché l'elettrone sia in equilibrio, la velocità deve aumentare per incrementare la forza centripeta:
 
-\[\dfrac{mv^{2}}{r} + \dfrac{2mvdv}{r} = \dfrac{1}{4\pi\varepsilon_{0}}\dfrac{e^{2}}{r^{2}} + evdB\]
+\[
+\dfrac{mv^{2}}{r} + \dfrac{2mvdv}{r} = \dfrac{1}{4\pi\varepsilon_{0}}\dfrac{e^{2}}{r^{2}} + evdB
+\]
 
 Si è visto che:
 
-\[dv = \dfrac{er}{2m}dB\]
+\[
+dv = \dfrac{er}{2m}dB
+\]
 
 Sostituendo nel bilancio, si ha:
 
-\[\dfrac{mv^{2}}{r} + \dfrac{2mv}{r}\dfrac{er}{2m}dB = \dfrac{1}{4\pi\varepsilon_{0}}\dfrac{e^{2}}{r^{2}} + evdB \Leftrightarrow \dfrac{mv^{2}}{r} + vedB = \dfrac{1}{4\pi\varepsilon_{0}}\dfrac{e^{2}}{r^{2}} + evdB\]
+\[
+\dfrac{mv^{2}}{r} + \dfrac{2mv}{r}\dfrac{er}{2m}dB = \dfrac{1}{4\pi\varepsilon_{0}}\dfrac{e^{2}}{r^{2}} + evdB \Leftrightarrow \dfrac{mv^{2}}{r} + vedB = \dfrac{1}{4\pi\varepsilon_{0}}\dfrac{e^{2}}{r^{2}} + evdB
+\]
 
 Per cui si ottiene l'equazione dell'equilibrio prima dell'applicazione del campo esterno:
 
-\[\dfrac{mv^{2}}{r} = \dfrac{1}{4\pi\varepsilon_{0}}\dfrac{e^{2}}{r^{2}}\]
+\[
+\dfrac{mv^{2}}{r} = \dfrac{1}{4\pi\varepsilon_{0}}\dfrac{e^{2}}{r^{2}}
+\]
 
 Dopo l'applicazione del campo magnetico, l'equilibrio dell'elettrone è ottenuto mediante una sola variazione della velocità di rotazione. La variazione del raggio è influente per ordini superiori, dunque, in prima analisi, è perfettamente trascurabile. La cancellazione dei termini di ordine superiore ($\pm evdB$) dimostra che, se si ignora la variazione di raggio, la variazione di velocità indotta ($2mvdv/r$) è esattamente ciò che è richiesto dalla forza aggiuntiva di Lorentz ($evdB$) per mantenere l'equilibrio (cioè, $F_{centripeta} = F_{Lorentz} + F_{Coulomb}$).
 
-Per i materiali diamagnetici la permeabilità relativa è circa unitaria, \(\mu_{r} \simeq 1\), con valori leggermente inferiori all'unità in modo da opporsi al campo applicato. Inoltre, essendo un fenomeno legato all'orbita elettronica, il diamagnetismo è presente in tutti i materiali.
+Per i materiali diamagnetici la \textbf{permeabilità relativa} è circa unitaria, \(\mu_{r} \simeq 1\), con \textbf{valori leggermente inferiori all'unità} in modo da opporsi al campo applicato. Inoltre, essendo un fenomeno legato all'orbita elettronica, il diamagnetismo è presente in tutti i materiali.
 
 \section{Paramagnetismo}\label{paramagnetismo}
-
-A differenza del diamagnetismo sempre presente in ogni materiale, il paramagnetismo è presente solamente in quei materiali i cui atomi o molecole hanno un momento magnetico permanente ($\vec{\mu} \neq 0$), dovuto alla presenza di elettroni spaiati negli orbitali atomici.
+A differenza del diamagnetismo (sempre presente in ogni materiale), il paramagnetismo è presente solamente nei materiali i cui atomi o molecole possiedono un \textbf{momento magnetico permanente} ($\vec{\mu} \neq 0$). Questo momento permanente è dovuto alla presenza di \textbf{elettroni spaiati} negli orbitali atomici, dove la cancellazione degli spin non è completa.
 
 Per il principio di esclusione di Pauli, gli elettroni negli orbitali atomici si dispongono con spin antiparallelo, così da cancellare gli effetti degli spin stessi. Negli atomi in cui sono presenti elettroni spaiati, ovvero con orbitali atomici non completamente riempiti, la cancellazione degli spin non avviene, dunque, lo spin netto dell'atomo è diverso da zero. 
 
@@ -1390,14 +1729,25 @@ In assenza di un campo magnetico esterno, il momento magnetico di ogni atomo è 
 
 Applicato un campo magnetico esterno, invece, i singoli momenti magnetici (spin) subiscono un momento torcente che tende ad allinearli nella direzione del campo. Essi iniziano a precedere attorno alla direzione del campo con la frequenza di Larmor:
 
-\[\omega = \gamma B\]
+\[
+\omega = \gamma B
+\]
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=3.81482in,height=2.1701in,alt={P1604\#yIS1}]{media/3_Elettromagnetismo/image30.pdf}\caption{Spin nei materiali paramagnetici}
+\input{Image/3_Elettromagnetismo/3_ParaMagn.tex}
+\caption{Spin nei materiali paramagnetici}
+\label{fig:3_ParaMagn}
 \end{figure}
 
-Il paramagnetismo è presente solo in alcune sostanze ed è caratterizzato da una permeabilità magnetica relativa \(\mu_{r} \simeq 1\), lievemente maggiore dell'unità.
+Il paramagnetismo è presente solo in alcune sostanze ed è un fenomeno debole. Esso è caratterizzato da una \textbf{suscettività magnetica} $\chi_m$ piccola e \textbf{positiva}:
+
+\[
+\chi_m > 0 \quad \text{e} \quad \chi_m \approx 10^{-3} - 10^{-5}
+\]
+
+Di conseguenza, la permeabilità magnetica relativa è lievemente maggiore dell'unità: $\mu_{r} = 1 + \chi_m \gtrsim 1$.
+
 
 Si osservi che il vettore di magnetizzazione ($M$) è definito come la somma vettoriale dei momenti magnetici per unità di volume:
 
@@ -1406,3 +1756,34 @@ Si osservi che il vettore di magnetizzazione ($M$) è definito come la somma vet
 \]
 
 L'interazione del campo esterno con i momenti magnetici determina la magnetizzazione macroscopica $M$ del materiale, che in equilibrio termico è generalmente debole a causa del disorientamento termico.
+
+La dipendenza della magnetizzazione dalla temperatura ($T$) è la firma distintiva del paramagnetismo, descritta dalla \textbf{Legge di Curie} (valida a basse induzioni e alte temperature):
+
+\[
+\chi_m = \dfrac{C}{T}
+\]
+
+Dove $C$ è la \textbf{Costante di Curie} del materiale. La suscettività è inversamente proporzionale alla temperatura: all'aumentare dell'agitazione termica, l'allineamento dei momenti magnetici diminuisce.
+
+\section{Ferromagnetismo}
+Il ferromagnetismo è la forma di magnetismo più intensa ed è caratteristica di materiali come ferro, cobalto, nichel e alcune loro leghe. A differenza del paramagnetismo, il ferromagnetismo non è causato solo dai momenti magnetici permanenti degli atomi, ma da una forte interazione di scambio quantistica tra gli spin degli elettroni degli atomi adiacenti. Questa interazione, molto più potente dell'agitazione termica, forza gli spin a orientarsi parallelamente su larga scala. Il risultato è la formazione di regioni microscopiche chiamate \textbf{domini di Weiss}, all'interno delle quali tutti i momenti magnetici sono perfettamente allineati, creando una magnetizzazione spontanea anche in assenza di un campo esterno ($\vec{B}_{est} = 0$). 
+
+L'applicazione di un campo esterno debole fa crescere i domini favorevolmente orientati a spese di quelli sfavorevoli, portando a una magnetizzazione molto elevata. 
+
+\begin{figure}[ht]
+    \centering
+    \input{Image/3_Elettromagnetismo/3_DomWeiss.tex}
+    \caption{Effetto dell'applicazione di un campo magnetico sui domini di Weiss}
+    \label{fig:3_DomWeiss}
+\end{figure}
+
+I materiali ferromagnetici sono caratterizzati da una suscettività magnetica $\chi_m$ estremamente grande e positiva ($\chi_m \gg 10^5$) e una permeabilità magnetica relativa $\mu_r \gg 1$. 
+
+Se la temperatura supera un valore critico chiamato temperatura di Curie ($T_C$), l'agitazione termica distrugge l'allineamento a lungo raggio, e il materiale perde il ferromagnetismo, diventando paramagnetico.
+
+\begin{figure}[ht]
+    \centering
+    \input{Image/3_Elettromagnetismo/3_DiffMaterial.tex}
+    \caption{Risposta al campo magnetico da parte dei diversi materiali}
+    \label{fig:3_DiffMaterial}
+\end{figure}
