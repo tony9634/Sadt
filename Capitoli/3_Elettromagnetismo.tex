@@ -16,11 +16,7 @@ Le \textbf{equazioni di Maxwell}, formalizzate verso la metà dell'Ottocento dal
  
 Il concetto di \textbf{spazio-tempo} (nella teoria della \textbf{Relatività Ristretta}), introdotto da Albert Einstein nel 1905, nacque per risolvere il \textbf{conflitto} tra la meccanica newtoniana (che era invariante solo rispetto alle trasformazioni Galileiane) e il principio che la velocità della luce (coerente con le equazioni di Maxwell) fosse la stessa in tutti i sistemi di riferimento inerziali. La Relatività Ristretta non modificò le equazioni di Maxwell, ma stabilì una nuova meccanica coerente con la loro invarianza di Lorentz. 
  
-Il campo elettromagnetico è descritto in modo formale dai due campi vettoriali: il \textbf{campo elettrico} ($\vec{E}$) e il \textbf{campo di induzione magnetica} ($\vec{B}$). Questi due campi non sono entità separate e indipendenti, ma le componenti spaziali e temporali di un unico oggetto quadridimensionale: il \textbf{tensore elettromagnetico} ($F^{\mu \nu}$). 
- 
-Il campo magnetico ($\vec{B}$) è, in termini relativistici, una manifestazione dell'effetto Doppler e della contrazione delle lunghezze applicati al campo elettrico ($\vec{E}$) e alle cariche in movimento. Ossia, il campo magnetico osservato in un sistema di riferimento $K$ emerge dal \textbf{trasformarsi} del campo elettrico e delle distribuzioni di carica osservate in un altro sistema inerziale $K'$ che è in moto rispetto a $K$. 
- 
-Quando una carica $q$ si muove in una regione di spazio, essa è soggetta alla Forza di Lorentz ($\vec{F} = q(\vec{E} + \vec{v} \times \vec{B})$) \cite{landau1975campi, purcell1985elettromagnetismo, feynman1964vol2, halliday2004fisica2}. Se si considera un sistema di riferimento $K'$ solidale con la carica ($\vec{v}' = 0$), su di essa agisce solo la forza elettrica ($\vec{F}' = q\vec{E}'$). Pertanto, in tale sistema, qualsiasi forza percepita dalla carica deve essere attribuita al solo campo elettrico trasformato $\vec{E}'$, mentre il termine magnetico è nullo. 
+Il campo elettromagnetico è descritto in modo formale dai due campi vettoriali: il \textbf{campo elettrico} ($\vec{E}$) e il \textbf{campo di induzione magnetica} ($\vec{B}$). Questi due campi non sono entità separate e indipendenti, ma le componenti spaziali e temporali di un unico oggetto quadridimensionale: il \textbf{tensore elettromagnetico} ($F^{\mu \nu}$).  Il campo magnetico ($\vec{B}$) è, in termini relativistici, una manifestazione dell'effetto Doppler e della contrazione delle lunghezze applicati al campo elettrico ($\vec{E}$) e alle cariche in movimento. Ossia, il campo magnetico osservato in un sistema di riferimento $K$ emerge dal \textbf{trasformarsi} del campo elettrico e delle distribuzioni di carica osservate in un altro sistema inerziale $K'$ che è in moto rispetto a $K$. Quando una carica $q$ si muove in una regione di spazio, essa è soggetta alla Forza di Lorentz ($\vec{F} = q(\vec{E} + \vec{v} \times \vec{B})$) \cite{landau1975campi, purcell1985elettromagnetismo, feynman1964vol2, halliday2004fisica2}. Se si considera un sistema di riferimento $K'$ solidale con la carica ($\vec{v}' = 0$), su di essa agisce solo la forza elettrica ($\vec{F}' = q\vec{E}'$). Pertanto, in tale sistema, qualsiasi forza percepita dalla carica deve essere attribuita al solo campo elettrico trasformato $\vec{E}'$, mentre il termine magnetico è nullo. 
 
 \section{Equazioni di Maxwell nel vuoto in forma locale}\label{equazioni-di-maxwell-nel-vuoto-in-forma-locale}
 
@@ -43,7 +39,9 @@ La terza equazione è la \textbf{legge di Faraday-Neumann-Lenz} e stabilisce che
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.5\textwidth}{!}{%
 \input{Image/3_Elettromagnetismo/3_MagneteLinee}
+}
 \caption{Flusso campo magnetico attraverso superficie chiusa}
 \label{fig:3_MagneteLinee}
 \end{figure}
@@ -129,7 +127,7 @@ L'equazione di Ampere-Maxwell si può scrivere, invertendo l'operatore derivata 
 \vec{\nabla} \times \vec{\nabla} \times \vec{B} = \mu_{0}\varepsilon_{0}\vec{\nabla} \times \dfrac{\partial\vec{E}}{\partial t} \Leftrightarrow \vec{\nabla}\left( \vec{\nabla} \cdot \ \vec{B} \right) - \nabla^{2}\vec{B} = \mu_{0}\varepsilon_{0}\dfrac{\partial}{\partial t}\left( \vec{\nabla} \times \vec{E} \right)
 \]
 
-La divergenza del campo induzione magnetica è nulla, inoltre, sostituendo la terza equazione di Maxwell si ha:
+La divergenza del campo induzione magnetica è nulla. Sostituendo la terza equazione di Maxwell si ha:
 
 \[
 - \nabla^{2}\vec{B} = \mu_{0}\varepsilon_{0}\dfrac{\partial}{\partial t}\left( - \dfrac{\partial\vec{B}}{\partial t} \right) \Leftrightarrow - \nabla^{2}\vec{B} = - \ \mu_{0}\varepsilon_{0}\dfrac{\partial^{2}\vec{B}}{\partial t^{2}}
@@ -159,7 +157,7 @@ L'equazione d'onda generale ha la forma
 \nabla^2 \vec{V} - \dfrac{1}{c^2}\dfrac{\partial^2 \vec{V}}{\partial t^2} = 0
 \]
 
-dove $c$ è la velocità di propagazione. Confrontando, si deduce che la velocità dell'onda elettromagnetica è data da:
+dove $c$ è la velocità di propagazione. Confrontando, si deduce che la velocità dell'onda elettromagnetica è:
 
 \[
 c = \dfrac{1}{\sqrt{\mu_{0}\varepsilon_{0}}} \simeq 3.00 \cdot 10^{8}\ m/s
@@ -227,9 +225,7 @@ I potenziali vettore ($\vec{A}$) e scalare ($\phi$) non sono univocamente determ
 \vec{\nabla} \cdot \vec{A} + \mu_0\varepsilon_{0}\dfrac{\partial\phi}{\partial t} = 0 
 \]
 
-Tale relazione è invariante quando si passa da un sistema di riferimento inerziale a un altro tramite le trasformazioni di Lorentz, il che è un requisito fondamentale della Relatività Ristretta. Per tale motivo si parla di condizione covariante in relatività.
-
-Sotto la condizione di Gauge di Lorentz, le Equazioni di Maxwell si riducono a due equazioni d'onda disaccoppiate per $\vec{A}$ e $\phi$ con termini sorgente: 
+Tale relazione è invariante quando si passa da un sistema di riferimento inerziale a un altro tramite le trasformazioni di Lorentz, il che è un requisito fondamentale della Relatività Ristretta. Per tale motivo si parla di condizione covariante in relatività. Sotto la condizione di Gauge di Lorentz, le Equazioni di Maxwell si riducono a due equazioni d'onda disaccoppiate per $\vec{A}$ e $\phi$ con termini sorgente: 
 
 \[ 
 \nabla^2 \phi - \mu_0\varepsilon_0 \dfrac{\partial^2 \phi}{\partial t^2} = - \dfrac{\rho}{\varepsilon_0} \quad \text{e} \quad \nabla^2 \vec{A} - \mu_0\varepsilon_0 \dfrac{\partial^2 \vec{A}}{\partial t^2} = - \mu_0 \vec{J} 
@@ -310,9 +306,7 @@ che attraversano la superficie $\Sigma$.
 
 \section{Equazioni di Maxwell nel mezzo}\label{equazioni-di-maxwell-nel-mezzo}
 
-In presenza di un \textbf{mezzo materiale}, gli effetti microscopici di polarizzazione e magnetizzazione vengono inglobati tramite l'introduzione di due vettori ausiliari: il vettore di \textbf{induzione elettrica} $\vec{D}$ e il vettore di \textbf{campo magnetico} $\vec{H}$ (anche detto eccitazione magnetica). I campi fondamentali sono $\vec{E}$ (\textbf{campo elettrico}) e $\vec{B}$ (\textbf{induzione magnetica}).
-
-I campi di induzione descrivono il comportamento del materiale a seguito dell'applicazione dei rispettivi campi. Con l'introduzione dei campi \(\vec{E}\), \(\vec{D}\), \(\vec{H}\) e \(\vec{B}\), le equazioni di Maxwell in forma locale si scrivono come:
+In presenza di un \textbf{mezzo materiale}, gli effetti microscopici di polarizzazione e magnetizzazione vengono inglobati tramite l'introduzione di due vettori ausiliari: il vettore di \textbf{induzione elettrica} $\vec{D}$ e il vettore di \textbf{campo magnetico} $\vec{H}$ (anche detto eccitazione magnetica). I campi fondamentali sono $\vec{E}$ (\textbf{campo elettrico}) e $\vec{B}$ (\textbf{induzione magnetica}). I campi di induzione descrivono il comportamento del materiale a seguito dell'applicazione dei rispettivi campi. Con l'introduzione dei campi \(\vec{E}\), \(\vec{D}\), \(\vec{H}\) e \(\vec{B}\), le equazioni di Maxwell in forma locale si scrivono come:
 
 \[
 \begin{cases}
@@ -397,7 +391,9 @@ Il campo di induzione magnetica si scrive quindi come:
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.25\textwidth}{!}{%
 \input{Image/3_Elettromagnetismo/3_Dipoli.tex}
+}
 \caption{Dipolo elettrico e magnetico}
 \label{fig:3_Dipoli}
 \end{figure}
@@ -446,7 +442,7 @@ Questa interazione si compone di due contributi distinti e fisicamente separati:
 \begin{itemize}
 \item \textbf{Forza Elettrica}: $\vec{F}_{E} = q\vec{E}$. Questa forza agisce parallelamente o antiparallelamente al campo $\vec{E}$, è \textbf{indipendente} dalla velocità della particella ed è l'unica componente che può \textbf{compiere lavoro} sulla carica, modificandone l'energia cinetica.
 \item \textbf{Forza Magnetica}: $\vec{F}_{B} = q(\vec{v} \times \vec{B})$. Questa forza è sempre \textbf{perpendicolare} sia alla velocità $\vec{v}$ sia al campo $\vec{B}$.
-    \subitem \textbf{Lavoro e Potenza}: Poiché $\vec{F}_B$ è sempre perpendicolare al vettore velocità $\vec{v}$ (e quindi allo spostamento $d\vec{s} = \vec{v}dt$), il prodotto scalare è nullo:
+  \item \textbf{Lavoro e Potenza}: Poiché $\vec{F}_B$ è sempre perpendicolare al vettore velocità $\vec{v}$ (e quindi allo spostamento $d\vec{s} = \vec{v}dt$), il prodotto scalare è nullo:
     \[\vec{F}_B \cdot \vec{v} = 0\]
     Di conseguenza, la forza magnetica \textbf{non compie lavoro} ($L_B=0$) e non modifica l'energia cinetica della particella, potendone solo deviare la traiettoria.
 \end{itemize}
@@ -454,7 +450,7 @@ Questa interazione si compone di due contributi distinti e fisicamente separati:
 \section{Parallelismo tra campo elettrico e magnetico}\label{parallelismo-tra-campo-magnetico-ed-elettrico}
 
 Le equazioni di Maxwell possono essere rese formalmente simmetriche introducendo le \textbf{cariche magnetiche} e le \textbf{correnti magnetiche}, concetti ipotetici non osservati sperimentalmente ma utili per evidenziare l’analogia tra fenomeni elettrici e magnetici.
-Si indichi con $U$ l’energia potenziale di un dipolo elettrico $\vec{d}$ o magnetico $\vec{\mu}$, immerso rispettivamente in un campo elettrico o magnetico. Conoscendo $U$, è possibile determinare la forza $\vec{F}$ e il momento torcente $\vec{N}$ agente sul dipolo.
+Si indichi con $U$ l’energia potenziale di un dipolo elettrico $\vec{d}$ o magnetico $\vec{\mu}$, immerso rispettivamente in un campo elettrico o magnetico. Conoscendo $U$, è possibile determinare la forza $\vec{F}$ e il momento torcente $\vec{N}$ agente sul dipolo. 
 
 Per il campo elettrico (elettrostatica):
 
@@ -502,7 +498,7 @@ Dove:
 
 Queste relazioni mostrano il parallelismo formale tra le grandezze elettriche \((\vec{d}, \vec{E}, \phi, \rho, \varepsilon_0)\) e le corrispondenti magnetiche \((\vec{\mu}, \vec{B}, \vec{A}, \vec{J}, \mu_0)\).
 
-\begin{table}[h!]
+\begin{table}[ht]
 \centering
 \begin{tabular}{@{} c c l @{}}
 \toprule
@@ -534,7 +530,9 @@ Si vuole determinare la forza e il momento torcente totale agente su una piccola
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.428\textwidth}{!}{
 \input{Image/3_Elettromagnetismo/3_DipoloMag.tex}
+}
 \caption{Spira percorsa da corrente in un campo magnetico}
 \label{fig:3_DipoloMag}
 \end{figure}
@@ -704,7 +702,9 @@ Si vuole calcolare il momento magnetico di un anello sottile di raggio \(R\), ma
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.196\textwidth}{!}{%
 \input{Image/3_Elettromagnetismo/3_RotRing.tex}
+}
 \caption{Anello rotante nel campo magnetico}
 \label{fig:3_RotRing}
 \end{figure}
@@ -745,7 +745,9 @@ Si vuole calcolare il momento magnetico di uno strato sferico sottile di raggio 
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.59\textwidth}{!}{%
 \input{Image/3_Elettromagnetismo/3_SferaCava.tex}
+}
 \caption{Guscio sferico}
 \label{fig:3_SferaCava}
 \end{figure}
@@ -833,12 +835,14 @@ Si vuole calcolare il momento magnetico di una sfera raggio \(R\), massa \(M\) e
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.57\textwidth}{!}{%
 \input{Image/3_Elettromagnetismo/3_RotSphere.tex}
+}
 \caption{Sfera rotante}
 \label{fig:3_RotSphere}
 \end{figure}
 
-Si utilizzano le coordinate sferiche \(r\), \(\vartheta\), \(\varphi\). Si assume come polo il centro \(O\) della sfera carica e come asse polare il diametro parallelo alla velocità angolare\(\omega\). Dove:
+Si utilizzano le coordinate sferiche \(r\), \(\vartheta\), \(\varphi\). Si assume come polo il centro \(O\) della sfera carica e come asse polare il diametro parallelo alla velocità angolare \(\omega\). Risulta che:
 
 \[
 r \in \left[ 0; R\right],\ \vartheta \in \left[ 0;\pi\right],\ \varphi \in \left[ 0;2\pi\right]
@@ -1107,11 +1111,7 @@ B_{z}
 \end{pmatrix}
 \]
 
-Si suppone che il campo sia diretto solamente lungo \(z\), direzione lungo cui è variabile. In altre parole, il campo è dato da:
-
-\[\vec{B} = B_{z}(z){\hat{\imath}}_{z}\]
-
-La forza, in questo contesto, può essere espressa come:
+Si suppone che il campo sia diretto solamente lungo \(z\), direzione lungo cui è variabile. In altre parole, il campo è $\vec{B} = B_{z}\left(z\right){\hat{\imath}}_{z}$. La forza, in questo contesto, può essere espressa come:
 \[
 \begin{pmatrix}
 F_{x} \\
@@ -1134,7 +1134,7 @@ La componente non nulla della forza è solamente quella lungo \(z\), data da:
 
 \[F_{z} = \mu_{z}\dfrac{\partial B_{z}}{\partial z}\]
 
-La forza $F_z$ dipende dalla \textbf{proiezione del momento magnetico} $\mu_{z}$ lungo la direzione del gradiente e dalla \textbf{pendenza} ($\partial B_{z}/\partial z$) del campo. \item Se $\mu_z$ e $\partial B_z / \partial z$ hanno lo stesso segno, la forza spinge la spira verso le regioni di campo più intenso.
+La forza $F_z$ dipende dalla \textbf{proiezione del momento magnetico} $\mu_{z}$ lungo la direzione del gradiente e dalla \textbf{pendenza} ($\partial B_{z}/\partial z$) del campo. Se $\mu_z$ e $\partial B_z / \partial z$ hanno lo stesso segno, la forza spinge la spira verso le regioni di campo più intenso.
 
 Questa relazione è il principio fisico alla base dell'esperimento di \textbf{Stern-Gerlach}, dove un fascio di atomi (dipoli magnetici) viene deviato in un campo magnetico non uniforme.
 
@@ -1146,8 +1146,10 @@ Nel modello classico l'elettrone era visto come un pianeta orbitante intorno al 
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.41\textwidth}{!}{%
 \input{Image/3_Elettromagnetismo/3_ModPlan.tex}
-\caption{Modello planetario dell'atomo}
+}
+\caption{Modello pl3netario dell'atomo}
 \label{fig:3_ModPlan}
 \end{figure}
 
@@ -1221,7 +1223,9 @@ Dove \(\vec{\mu}\) è opposto a \(\vec{L}\) per la convenzione sulle correnti.
 
 Sebbene l'ultima equazione sia stata ricavata nell'ambito della fisica classica, è valida anche in meccanica quantistica, in cui il punto di vista è completamente diverso.
 
-I risultatit dell'esperimento sono usati ancora oggi per dimostrare lo spin. Al tempo l'obiettivo era dimostrare l'esistenza del momento magnetico intrinseco e la sua quantizzazione spaziale. I due fisici eseguirono l'esperimento sugli atomi di \textbf{argento}, emessi da una sorgente. Questi atomi venivano deflessi da un campo magnetico non omogeneo, variabile lungo \(z\). L'argento è stato scelto proprio perché il suo momento angolare totale, derivante dagli elettroni di valenza, è dovuto essenzialmente a un singolo elettrone $s$-orbitale, semplificando l'interpretazione dei risultati.
+I risultati dell'esperimento sono usati ancora oggi per dimostrare lo spin. Al tempo l'obiettivo era dimostrare l'esistenza del momento magnetico intrinseco e la sua quantizzazione spaziale. I due fisici eseguirono l'esperimento sugli atomi di \textbf{argento}, emessi da una sorgente. Questi atomi venivano deflessi da un campo magnetico non omogeneo, variabile lungo \(z\). 
+
+L'argento è stato scelto proprio perché il suo momento angolare totale, derivante dagli elettroni di valenza, è dovuto essenzialmente a un singolo elettrone $s$-orbitale, semplificando l'interpretazione dei risultati.
 
 La meccanica classica prevede che momento magnetico degli atomi di argento sia distribuito statisticamente in tutte le direzioni. Sugli atomi di argento agisce una forza data da:
 
@@ -1239,7 +1243,9 @@ Questo risultato non può essere previsto dalla meccanica classica, ma viene spi
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.57\textwidth}{!}{%
 \input{Image/3_Elettromagnetismo/3_SternGerlach.tex}
+}
 \label{fig:3_SternGerlach}
 \caption{Esperimento di Stern-Gerlach}
 \end{figure}
@@ -1399,7 +1405,9 @@ dove \(\vec{R}\) è il vettore che congiunge il centro della piccola spira col p
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.53\textwidth}{!}{%
 \input{Image/3_Elettromagnetismo/3_CampoSpira.tex}
+}
 \caption{Campo prodotto da una spira elementare}
 \label{fig:3_CampoSpira}
 \end{figure}
@@ -1500,7 +1508,9 @@ Dall'equazione ottenuta si nota che la derivata del momento angolare deve essere
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.72\textwidth}{!}{2
 \input{Image/3_Elettromagnetismo/3_spin.tex}
+}
 \caption{Moto di precessione del momento magnetico}
 \label{fig:3_spin}
 \end{figure}
@@ -1542,7 +1552,9 @@ Si suppone di applicare lentamente un campo magnetico a un atomo di materiale di
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.49\textwidth}{!}{%
 \input{Image/3_Elettromagnetismo/3_AtomoMagnetic.tex}
+}
 \caption{Nucleo immerso in un campo magnetico}
 \label{fig:3_AtomoMagnetic}
 \end{figure}
@@ -1631,7 +1643,9 @@ In linea di principio l'orbita descritta dall'elettrone dovrebbe variare per l'a
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.53\textwidth}{!}{%
 \input{Image/3_Elettromagnetismo/3_EquiElettrone.tex}
+}
 \caption{Elettrone in equilibrio sull'orbita}
 \label{fig:3_EquiElettrone}
 \end{figure}
@@ -1735,7 +1749,9 @@ Applicato un campo magnetico esterno, invece, i singoli momenti magnetici (spin)
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.85\textwidth}{!}{%
 \input{Image/3_Elettromagnetismo/3_ParaMagn.tex}
+}
 \caption{Spin nei materiali paramagnetici}
 \label{fig:3_ParaMagn}
 \end{figure}
@@ -1772,7 +1788,9 @@ L'applicazione di un campo esterno debole fa crescere i domini favorevolmente or
 
 \begin{figure}[ht]
     \centering
+    \resizebox{0.60\textwidth}{!}{%
     \input{Image/3_Elettromagnetismo/3_DomWeiss.tex}
+    }
     \caption{Effetto dell'applicazione di un campo magnetico sui domini di Weiss}
     \label{fig:3_DomWeiss}
 \end{figure}
@@ -1783,7 +1801,9 @@ Se la temperatura supera un valore critico chiamato temperatura di Curie ($T_C$)
 
 \begin{figure}[ht]
     \centering
+    \resizebox{0.8\textwidth}{!}{%
     \input{Image/3_Elettromagnetismo/3_DiffMaterial.tex}
+    }
     \caption{Risposta al campo magnetico da parte dei diversi materiali}
     \label{fig:3_DiffMaterial}
 \end{figure}

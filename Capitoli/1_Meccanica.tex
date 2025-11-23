@@ -58,9 +58,11 @@ Questa espressione rappresenta il \textbf{Teorema della quantità di moto} (o \t
 {\vec{F}}_{\text{est}} = \dfrac{d\vec{P}}{dt} \quad \text{con } \vec{P} = \sum_{k=1}^n \vec{p}_k
 \]
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
+    \resizebox{0.45\textwidth}{!}{%
     \input{Image/1_Meccanica/1_sistPart}
+    }
     \caption{Sistema di particelle in un sistema di riferimento tridimensionale}
     \label{fig:1_sistPart}
 \end{figure}
@@ -74,9 +76,11 @@ Per una particella soggetta a una forza \(\vec{F}\), si definisce \textbf{moment
 
 dove \(\vec{r}\) è il vettore posizione della particella rispetto a un polo (origine del sistema di riferimento).
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
+    \resizebox{0.44\textwidth}{!}{%
     \input{Image/1_Meccanica/1_momTorc}
+    }
     \caption{Definizione del momento torcente rispetto a un punto fisso}
     \label{fig:1_momTorc}
 \end{figure}
@@ -88,9 +92,11 @@ Analogamente, si definisce \textbf{momento angolare} (o \textbf{quantità di mot
 \vec{L} = \vec{r} \times \vec{p}
 \]
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
+    \resizebox{0.8\textwidth}{!}{%
     \input{Image/1_Meccanica/1_momAng}
+    }
     \caption{Momento angolare di una particella rispetto a un'origine fissa}
     \label{fig:1_momAng}
 \end{figure}
@@ -171,9 +177,11 @@ Tra tutte le curve che collegano un punto (o configurazione) $\mathbf{q}\left(t_
 
 In fisica teorica e meccanica analitica, la convenzione più utilizzata, per indicare il vettore delle coordinate generalizzate $\mathbf{q} = (q_1, q_2, \ldots, q_s)$ nello spazio delle configurazioni, è  il grassetto ($\mathbf{q}$) piuttosto che la freccia ($\vec{q}$).Questo perché la freccia ($\vec{q}$) è tradizionalmente riservata ai vettori nello spazio euclideo tridimensionale ($\mathbb{R}^3$), mentre $\mathbf{q}$ è un vettore in uno spazio $s$-dimensionale, dove $s$ non è necessariamente 3.
 
-\begin{figure}[ht]
+\begin{figure}[H]
 \centering
+\resizebox{0.46\textwidth}{!}{%
 \input{Image/1_Meccanica/1_Traiettoria.tex}
+}
 \caption{Esempio di moto su traiettoria a azione stazionaria tra due punti nel tempo}
 \label{fig:1_Traiettoria}
 \end{figure}
@@ -214,9 +222,11 @@ S + \delta S = \int_{t_{0}}^{t_{1}}{L\left( \mathbf{q} + \delta\mathbf{q},\mathb
 
 dove \(\mathbf{q}\) è la traiettoria fisica che rende stazionaria l'azione \(S\). Il Principio di Hamilton (o di Azione Stazionaria) stabilisce che la traiettoria rende l'azione stazionaria (ovvero $\delta S=0$). Non è garantito che sia un minimo poiché può coincidere un massimo o un punto di sella.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
+    \resizebox{0.7\textwidth}{!}{%
     \input{Image/1_Meccanica/1_TraiettoriaPertu}
+    }
     \caption{Perturbazione della traiettoria}
     \label{fig:1_TraiettoriaPertu}
 \end{figure}
@@ -608,9 +618,7 @@ Questa relazione lega la derivata del momento generalizzato coniugato alla Lagra
 
 \subsection{Principio di conservazione}\label{principio-di-conservazione}
 
-Le leggi di conservazione dell'energia, del momento lineare e del momento angolare sono una conseguenza delle simmetrie fondamentali dello spazio e del tempo.
-
-In particolare, queste leggi di conservazione sono connesse all'invarianza delle leggi fisiche del sistema rispetto a determinate trasformazioni. Questo legame profondo fu dimostrato da Emmy Noether nel 1915 \cite{arnold1992matematici}. Secondo il suo teorema, a ogni simmetria continua e differenziabile delle leggi fisiche corrisponde una quantità conservata:
+Le leggi di conservazione dell'energia, del momento lineare e del momento angolare sono una conseguenza delle simmetrie fondamentali dello spazio e del tempo. In particolare, queste leggi di conservazione sono connesse all'invarianza delle leggi fisiche del sistema rispetto a determinate trasformazioni. Questo legame profondo fu dimostrato da Emmy Noether nel 1915 \cite{arnold1992matematici}. Secondo il suo teorema, a ogni simmetria continua e differenziabile delle leggi fisiche corrisponde una quantità conservata:
 
 \begin{itemize}
 \item
@@ -980,9 +988,11 @@ Da questa relazione discende la conservazione della componente del momento angol
 
 Si considera un corpo di massa \(m\) sospeso a un filo di lunghezza \(l\) nel campo gravitazionale con accelerazione \(g\).
 
-\begin{figure}[ht]
+\begin{figure}[H]
+    \resizebox{0.5\textwidth}{!}{%
     \centering
     \input{Image/1_Meccanica/1_Pendolo}
+    }
     \caption{Pendolo semplice}
     \label{fig:1_Pendolo}
 \end{figure}
@@ -1057,9 +1067,11 @@ In definitiva, si ottiene l'equazione dell'oscillatore armonico.
 
 Si vuole scrivere la Lagrangiana per un doppio pendolo, costituito da due masse, $m_{1}$ e $m_{2}$, connesse tra loro. La prima massa è collegata al fulcro mediante un'asta (o cavo) rigida di lunghezza $l_{1}$; la seconda è connessa a $m_{1}$ mediante un'asta di lunghezza $l_{2}$. I parametri generalizzati del sistema sono gli angoli $\vartheta_{1}$ e $\vartheta_{2}$, misurati rispetto alla verticale, da cui si deduce che il sistema ha $2$ gradi di libertà.
 
-\begin{figure}[ht]
+\begin{figure}[H]
 \centering
+\resizebox{0.49\textwidth}{!}{%
 \input{Image/1_Meccanica/1_DoublePendolo}
+}
 \caption{Doppio pendolo}
 \label{fig:1_DoublePendolo}
 \end{figure}
@@ -1173,9 +1185,9 @@ m_{2}l_{2}^{2}{\ddot{\vartheta}}_{2} + m_{2}l_{1}l_{2}{\ddot{\vartheta}}_{1}\cos
 
 Risolte le due equazioni, si ottiene la traiettoria, descritta da \(\vartheta_{1}\) e \(\vartheta_{2}\), del doppio pendolo.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Media/1_Meccanica/doppio_pendolo.eps}
+    \includegraphics[width=0.61\textwidth]{Media/1_Meccanica/doppio_pendolo.eps}
     \caption{Sequenza temporale del moto del doppio pendolo in 10 istanti successivi}
     \label{fig:1_doppio_pendolo}
 \end{figure}
@@ -1455,11 +1467,8 @@ Si ottiene così un sistema del primo ordine con quattro funzioni di stato incog
 \end{cases}
 \]
 
-Il sistema può essere risolto mediante il \textbf{Metodo di Eulero esplicito}. Quest'ultimo si basa sull'approssimazione della derivata $dY / dt \approx \Delta Y / \Delta t$.
+Il sistema può essere risolto mediante il \textbf{Metodo di Eulero esplicito}. Quest'ultimo si basa sull'approssimazione della derivata $dY / dt \approx \Delta Y / \Delta t$. Si considera il generico passo temporale $t_k$. La soluzione al passo successivo $t_{k+1} = t_k + \Delta t$ è data da $Y_{k+1} = Y_k + \Delta Y$. Per la prima equazione (ad esempio):
 
-Si considera il generico passo temporale $t_k$. La soluzione al passo successivo $t_{k+1} = t_k + \Delta t$ è data da $Y_{k+1} = Y_k + \Delta Y$.
-
-Per la prima equazione (ad esempio):
 \[
 \dfrac{dy_{1}}{dt} \simeq A_{1}(t_k) \Rightarrow \dfrac{y_{1}^{k+1} - y_{1}^{k}}{\Delta t} \simeq A_{1}^{k}
 \]
@@ -1633,9 +1642,9 @@ w2=sqrt(w(2))
 
 risulta che:
 
-\[\omega_{1} = 2.4011\]
-
-\[\omega_{2} = 0.9669\]
+\[
+\omega_{1} = 2.4011 \quad \text{e} \quad \omega_{2} = 0.9669
+\]
 
 Si plottano le due funzioni e i picchi spettrali.
 
@@ -1649,10 +1658,11 @@ plot(fax,abs(fft(s(:,1:2))))
 set(gca,'xlim',[0 1])
 \end{lstlisting}
 
-\begin{figure}[ht]
+\begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{Media/1_Meccanica/spettro_segnali.eps}
+\includegraphics[scale=0.27]{Media/1_Meccanica/spettro_segnali.eps}
 \caption{Andamento delle soluzioni e relativa risposta spettrale}
+\label{fig:1_spettro_segnali}
 \end{figure}
 
-Come si vede dalla trasformata di Fourier, le soluzioni del sistema accoppiato contengono due frequenze di oscillazione ben distinte (\(\omega_{1}\) e \(\omega_{2}\)). A causa dell'interazione tra le due funzioni, entrambe le soluzioni \(y_{1}\) e \(y_{2}\) sono una combinazione di queste due frequenze, che sono differenti dal caso non interagente.
+Come si vede dalla trasformata di Fourier (\figurename~\ref{fig:1_spettro_segnali}), le soluzioni del sistema accoppiato contengono due frequenze di oscillazione ben distinte (\(\omega_{1}\) e \(\omega_{2}\)). A causa dell'interazione tra le due funzioni, entrambe le soluzioni \(y_{1}\) e \(y_{2}\) sono una combinazione di queste due frequenze, che sono differenti dal caso non interagente.

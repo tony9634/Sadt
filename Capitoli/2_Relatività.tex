@@ -21,7 +21,9 @@ Per comprendere le previsioni della meccanica classica si considerino due sistem
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.53\textwidth}{!}{%
 \input{Image/2_Relatività/2_SistRef}
+}
 \caption{Sistemi di riferimento in moto relativo}
 \label{fig:2_SistRef}
 \end{figure}
@@ -47,9 +49,7 @@ v_{z} = v'_{z}
 \end{cases}
 \]
 
-Da queste relazioni, si evince che se una radiazione elettromagnetica viaggia con velocità $c$ lungo l'asse $x'$ nel sistema $K'$ (quindi $v'_{x} = c$), un osservatore nel sistema $K$ misurerebbe una velocità $v_x$ pari a $c + v$ (se $K'$ si allontana da $K$). Questa previsione, basata sul \textbf{Principio di Relatività Galileiana} e sull'ipotesi di \textbf{tempo assoluto}, è in \textbf{netto contrasto} con il risultato nullo dell'esperimento di Michelson-Morley e con la costanza della velocità della luce \cite{kittel1965meccanica}.
-
-Questo profondo conflitto teorico-sperimentale evidenziò che l'ipotesi classica di $t=t'$ non è valida quando si considerano fenomeni ad alta velocità \cite{kittel1965meccanica}.
+Da queste relazioni, si evince che se una radiazione elettromagnetica viaggia con velocità $c$ lungo l'asse $x'$ nel sistema $K'$ (quindi $v'_{x} = c$), un osservatore nel sistema $K$ misurerebbe una velocità $v_x$ pari a $c + v$ (se $K'$ si allontana da $K$). Questa previsione, basata sul \textbf{Principio di Relatività Galileiana} e sull'ipotesi di \textbf{tempo assoluto}, è in \textbf{netto contrasto} con il risultato nullo dell'esperimento di Michelson-Morley e con la costanza della velocità della luce \cite{kittel1965meccanica}. Questo profondo conflitto teorico-sperimentale evidenziò che l'ipotesi classica di $t=t'$ non è valida quando si considerano fenomeni ad alta velocità \cite{kittel1965meccanica}.
 
 \section{Relatività ristretta}\label{relativita-ristretta}
 
@@ -157,16 +157,6 @@ v = - \dfrac{b}{a} \Leftrightarrow b = -av
 \]
 
 Si ottiene il sistema risolvibile:
-
-\[
-\begin{cases}
-a^{2} - c^{2}g^{2} = 1 \quad \text{(Eq. 1)} \\
-ab - c^{2}ge = 0 \quad \text{(Eq. 2)} \\
-c^{2}e^{2} - b^{2} = c^{2} \quad \text{(Eq. 3)} \\
-b = - av \quad \text{(Eq. 4)}
-\end{cases}
-\]
-Si parte dal sistema di equazioni ottenuto imponendo l'invarianza della forma dell'equazione dell'onda luminosa:
 
 \[
 \begin{cases}
@@ -325,9 +315,8 @@ dt' = \gamma \left( dt - \dfrac{v}{c^{2}}\,dx \right)
 \end{cases}
 \]
 
-Dividendo una delle variazioni spaziali per $dt'$ si ottengono le velocità lungo gli assi nel sistema $K'$.
+Dividendo una delle variazioni spaziali per $dt'$ si ottengono le velocità lungo gli assi nel sistema $K'$. La velocità $v_{x'}$ è data dal rapporto $dx'/dt'$. Sostituendo le espressioni differenziali:
 
-La velocità $v_{x'}$ è data dal rapporto $dx'/dt'$. Sostituendo le espressioni differenziali:
 \[
 v_{x'} = \dfrac{dx'}{dt'} = \dfrac{\gamma(dx - v\,dt)}{\gamma\left( dt - \dfrac{v}{c^{2}}\,dx \right)} = \dfrac{dx - v\,dt}{dt - \dfrac{v}{c^{2}}\,dx}
 \]
@@ -384,9 +373,7 @@ Il \textbf{fattore di Lorentz} ($\gamma$) è definito come:
 \gamma = \dfrac{1}{\sqrt{1 - \left( \dfrac{v}{c} \right)^{2}}}
 \]
 
-dove $v$ è la velocità relativa tra i sistemi di riferimento e $c$ è la velocità della luce.
-
-Le velocità considerate nella maggior parte delle applicazioni pratiche sono molto minori della velocità della luce:
+dove $v$ è la velocità relativa tra i sistemi di riferimento e $c$ è la velocità della luce. Le velocità considerate nella maggior parte delle applicazioni pratiche sono molto minori della velocità della luce:
 
 \[
 \dfrac{v}{c} \ll 1
@@ -408,7 +395,9 @@ Al crescere della velocità $v$, il fattore di Lorentz, sempre positivo, tende a
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.7\textwidth}{!}{%
 \input{Image/2_Relatività/2_GammaFactor.tex}
+}
 \caption{Andamento del fattore di Lorentz al variare della velocità}
 \label{fig:2_GammaFactor}
 \end{figure}
@@ -418,9 +407,7 @@ La velocità della luce ($c$) rappresenta un \textbf{limite irraggiungibile} per
 
 \subsection{Dilatazione dei tempi}\label{dilatazione-dei-tempi}
 
-Si considerano due sistemi di riferimento inerziali \(K\) e \(K'\), in moto relativo tra loro con velocità \(v\) lungo la direzione delle \(x\) positive. Si suppone che \(K\) sia fermo.
-
-Per ricavare $dt$ in funzione di $dt'$ e $dx'$, si parte dalle Trasformazioni di Lorentz:
+Si considerano due sistemi di riferimento inerziali \(K\) e \(K'\), in moto relativo tra loro con velocità \(v\) lungo la direzione delle \(x\) positive. Si suppone che \(K\) sia fermo. Per ricavare $dt$ in funzione di $dt'$ e $dx'$, si parte dalle Trasformazioni di Lorentz:
 
 \[
 \begin{cases}
@@ -534,16 +521,8 @@ Per apprezzare tale effetto, noto come dilatazione dei tempi, il fattore di Lore
 Per apprezzare tale effetto, il fattore di Lorentz \(\gamma\) deve essere significativamente maggiore di \(1\).
 
 \begin{itemize}
- \item \textbf{Limite Classico} ($v \ll c$): In questo limite, il fattore di Lorentz è circa unitario ($\gamma \simeq 1$), dunque la dilatazione dei tempi non è apprezzabile:
-    
- \[
- dt \simeq d\tau
- \]
- \item \textbf{Limite Relativistico} ($v \to c$): Nel caso limite in cui \(K'\) si muove alla velocità della luce, il fattore di Lorentz tende all'infinito ($\gamma \to \infty$):
- \[
- dt = \left. \ \gamma\ d\tau \right|_{v \to c} \rightarrow \infty
- \]
-    Ciò implica che, per un osservatore esterno, il tempo di un oggetto che viaggia alla velocità della luce (se fosse possibile) si fermerebbe.
+ \item \textbf{Limite Classico} ($v \ll c$): In questo limite, il fattore di Lorentz è circa unitario ($\gamma \simeq 1$), dunque la dilatazione dei tempi non è apprezzabile ($dt \simeq d\tau$);
+ \item \textbf{Limite Relativistico} ($v \to c$): Nel caso limite in cui \(K'\) si muove alla velocità della luce, il fattore di Lorentz tende all'infinito ($\gamma \to \infty \Leftarrow dt = \left. \ \gamma\ d\tau \right|_{v \to c} \rightarrow \infty$). Ciò implica che, per un osservatore esterno, il tempo di un oggetto che viaggia alla velocità della luce (se fosse possibile) si fermerebbe.
 \end{itemize}
 
 A differenza degli intervalli di tempo misurati nei vari sistemi di riferimento, il tempo proprio \(\tau\) è univocamente determinato noto \(\gamma\), ovvero la velocità relativa di \(K'\) rispetto al sistema di riferimento \(K\), in cui si effettua la misura.
@@ -632,9 +611,7 @@ Per garantire l'invarianza dell'azione, l'integrando deve essere una quantità p
 S = \int_{\tau_1}^{\tau_2}{\alpha d\tau}
 \]
 
-dove $\alpha$ è una costante scalare da determinare.
-
-Sostituendo l'espressione per $d\tau$, l'azione può essere riscritta in funzione del tempo coordinato $t$:
+dove $\alpha$ è una costante scalare da determinare. Sostituendo l'espressione per $d\tau$, l'azione può essere riscritta in funzione del tempo coordinato $t$:
 
 \[
 S = \int_{t_1}^{t_2}{\alpha \sqrt{1 - \frac{v^{2}}{c^{2}}}dt}
@@ -659,9 +636,7 @@ Con questo risultato l'azione, nel limite classico, può essere scritta come:
 S = \int{\alpha\sqrt{1 - \dfrac{v^{2}}{c^{2}}}dt} \simeq \int{\alpha\left( 1 - \dfrac{1}{2}\dfrac{v^{2}}{c^{2}} \right)dt}
 \]
 
-L'integrando coincide con la lagrangiana relativistica $L_{appr}^r$, nel limite delle meccanica classica, in cui le velocità in gioco sono molto minori della velocità della luce. Questa quantità deve coincidere con la lagrangiana classica ($L_{class}$), a meno di una costante additiva, in quanto le equazioni di Eulero-Lagrange dipendono solamente dalla derivata della lagrangiana.
-
-Per una particella libera, la Lagrangiana classica è:
+L'integrando coincide con la lagrangiana relativistica $L_{appr}^r$, nel limite delle meccanica classica, in cui le velocità in gioco sono molto minori della velocità della luce. Questa quantità deve coincidere con la lagrangiana classica ($L_{class}$), a meno di una costante additiva, in quanto le equazioni di Eulero-Lagrange dipendono solamente dalla derivata della lagrangiana. Per una particella libera, la Lagrangiana classica è:
 
 \[
 L_{class} = \frac{1}{2}m_{0}v^{2}
@@ -737,7 +712,9 @@ m \rightarrow \infty,\quad v \rightarrow c
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.54\textwidth}{!}{%
 \input{Image/2_Relatività/2_MassRelav}
+}
 \caption{Andamento della massa relativistica in funzione della velocità}
 \label{fig:2_MassRelav}
 \end{figure}
@@ -760,7 +737,9 @@ La massa \(m\), nel piano \(p - v\), rappresenta la pendenza della curva quantit
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.82\textwidth}{!}{%
 \input{Image/2_Relatività/2_qMotoRelativistica}
+}
 \caption{Andamento della quantità di moto relativistica}
 \label{fig:2_qMotoRelativistica}
 \end{figure}
@@ -812,7 +791,7 @@ Svolgendo i prodotti, si ricava l'espressione per l'energia totale nel limite cl
 E\simeq m_{0}c^{2} +\dfrac{1}{2}m_{0}v^{2} ,\ \ v \ll c
 \]
 
-L'energia totale della particella è la somma dell'\textbf{Energia a Riposo} ($E_0 = m_{0}c^{2}$) e dell'\textbf{Energia Cinetica Classica} per una particella libera. 
+L'energia totale della particella è la somma dell'\textbf{Energia a Riposo} ($E_0 = m_{0}c^{2}$) e dell'\textbf{Energia Cinetica Classica} per una particella libera.  
 
 L'\textbf{Energia Cinetica Relativistica} $K$ è definita come la differenza tra l'energia totale e l'energia a riposo: 
 
@@ -828,8 +807,8 @@ Elevando al quadrato l'equazione dell'energia totale e della quantità di moto (
 
 \[
 \begin{cases} 
-E^2 &= \dfrac{m_{0}^{2}c^{4}}{1 - \dfrac{v^{2}}{c^{2}}} \\ 
-(p c)^2 &= \dfrac{m_{0}^{2}v^{2}c^{2}}{1 - \dfrac{v^{2}}{c^{2}}} 
+E^2 = \dfrac{m_{0}^{2}c^{4}}{1 - \dfrac{v^{2}}{c^{2}}} \\ 
+(p c)^2 = \dfrac{m_{0}^{2}v^{2}c^{2}}{1 - \dfrac{v^{2}}{c^{2}}} 
 \end{cases} 
 \]
 
@@ -871,8 +850,10 @@ Il termine $\Delta x^{2} + \Delta y^{2} + \Delta z^{2}$ coincide con il quadrato
 
 \begin{figure}[ht] 
     \centering 
+    \resizebox{0.45\textwidth}{!}{%
     \input{Image/2_Relatività/2_cono_luce}
-    \caption{Diagramma bidimensionale del Cono Luce nello Spazio-Tempo di Minkowski.} 
+    }
+    \caption{Diagramma bidimensionale del Cono Luce nello Spazio-Tempo di Minkowski} 
     \label{fig:2_cono_luce} 
 \end{figure} 
 
@@ -1125,9 +1106,7 @@ e che quest'ultima è un quadrivettore, si trasforma secondo la stessa matrice  
 \] 
  
  
-La matrice di trasformazione di Lorentz è costante rispetto al tempo poiché la velocità relativa tra i due sistemi di riferimento è fissata, dunque, i termini \(\beta\) e \(\gamma\) sono costanti. 
- 
-Infine, la quadrivelocità esplicitata è: 
+La matrice di trasformazione di Lorentz è costante rispetto al tempo poiché la velocità relativa tra i due sistemi di riferimento è fissata, dunque, i termini \(\beta\) e \(\gamma\) sono costanti.  Infine, la quadrivelocità esplicitata è: 
  
 \[ 
 u^\mu = \gamma(c, v_x, v_y, v_z), \quad \text{dove } \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} 
@@ -1259,7 +1238,9 @@ m_{1} = m_{2} = m_{0} \quad \text{e} \quad {\mathbf{v}}_{1} = - {\mathbf{v}}_{2}
 
 \begin{figure}[ht]
     \centering
+    \resizebox{0.4\textwidth}{!}{%
     \input{Image/2_Relatività/2_UrtoAnelastico.tex}
+    }
     \caption{Urto anelastico tra due particelle}
     \label{fig:2_UrtoAnelastico}
 \end{figure}
@@ -1269,7 +1250,7 @@ L'energia di una particella secondo la meccanica relativistica è data da:
 E = \gamma m_{0}c^{2}
 \]
 
-Siccome le velocità, in modulo, e le masse delle due particelle sono uguali, anche le energie coincidono, ovvero:
+Siccome le velocità, in modulo, e le masse delle due particelle sono uguali, anche le energie coincidono:
 \[
 E_{1} = E_{2} = E
 \]
@@ -1391,7 +1372,9 @@ Per cui la legge di Lorentz si scrive anche:
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.285\textwidth}{!}{%
 \input{Image/2_Relatività/2_CaricaCampo.tex}
+}
 \label{fig:2_CaricaCampo}
 \caption{Particella immersa in un campo elettrico costante e uniforme}
 \end{figure}
@@ -1472,7 +1455,9 @@ v_{x} \simeq \dfrac{q}{m}E_{ext,x}t,\ \ t \ll \dfrac{m_{0}c}{qE_{ext,x}}
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.85\textwidth}{!}{%
 \input{Image/2_Relatività/2_velocitàTempo.tex}
+}
 \label{fig:2_velocitàTempo}
 \caption{Andamento della velocità in funzione del tempo per particella accelerata}
 \end{figure}

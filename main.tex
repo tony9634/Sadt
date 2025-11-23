@@ -58,6 +58,7 @@
 \captionsetup{textfont=sl}
 \maxdeadcycles=300
 
+\usepackage{float}
 \usepackage{morefloats}
 
 \usepackage[italian]{babel} %lingua principale
@@ -67,7 +68,7 @@
 \addto{\captionsitalian}{% Making babel aware of special titles
   \renewcommand{\mtctitle}{Sommario}
 }
-\setcounter{secnumdepth}{3}
+\setcounter{secnumdepth}{5}
 \usepackage[sorting=none,backend=biber,refsection=chapter]{biblatex} %bibliografia
 \defbibheading{bibbysubsect}{}
 \addbibresource{bibliografia.bib}
