@@ -1,5 +1,5 @@
 
-name: TeXtidote Grammar Check (All Chapters)
+name: Combined Grammar Check (TeXtidote + LanguageTool)
 
 on:
   pull_request:
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  textidote:
+  grammar-check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,16 +19,35 @@ jobs:
           mkdir -p tmp
           cat main.tex Capitoli/*.tex > tmp/all.tex
 
+      # Step 1: TeXtidote
       - name: Run TeXtidote
         uses: ChiefGokhlayeh/textidote-action@v5
         with:
           root_file: tmp/all.tex
           report_type: markdown
-          report_file: report-it.md
-          args: "--check it --type tex --encoding utf-8 --remove envs figure table --remove-macros includegraphics --error-level info"
+          report_file: textidote-report.md
+          args: "--check italian --type tex --encoding utf-8 --remove-envs figure,table --remove-macros includegraphics --error-level info"
 
-      - name: Upload report
+      # Step 2: LanguageTool
+      - name: Install Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+
+      - name: Download LanguageTool
+        run: |
+          curl -L -o languagetool.zip https://languagetool.org/download/LanguageTool-stable.zip
+          unzip languagetool.zip -d languagetool
+
+      - name: Run LanguageTool
+        run: |
+          java -jar languagetool/LanguageTool-*/languagetool-commandline.jar \
+            --language it tmp/all.tex > languagetool-report.txt
+
+      - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
-          name: textidote-report
-          path: report-it.md
+          name: grammar-reports
+          path: |
+            textidote-report.md
+            languagetool-report.txt
