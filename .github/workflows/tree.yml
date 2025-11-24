@@ -2,7 +2,7 @@
 name: Generate Project Tree
 
 on:
-  workflow_dispatch: # Puoi avviarlo manualmente
+  workflow_dispatch: # Avvio manuale
   push:
     branches:
       - main
@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install tree utility
         run: sudo apt-get update && sudo apt-get install -y tree
@@ -24,7 +24,6 @@ jobs:
           cat project_tree.txt
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: project-tree
-          path: project_tree.txt
