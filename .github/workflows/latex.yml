@@ -1,0 +1,44 @@
+
+name: Compile LaTeX and Commit PDF
+
+on:
+  push:
+    paths:
+      - '**.tex'
+      - '**.bib'
+      - '**.sty'
+      - '**.cls'
+
+permissions:
+  contents: write
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install TeX Live and tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-full biber make
+
+      - name: Compile LaTeX (pdflatex + biber + makeindex)
+        run: |
+          mkdir -p output
+          pdflatex -interaction=nonstopmode -output-directory=output main.tex
+          biber --output-directory output main
+          pdflatex -interaction=nonstopmode -output-directory=output main.tex
+          makeindex output/main.idx
+          pdflatex -interaction=nonstopmode -output-directory=output main.tex
+          mv output/main.pdf output/Appunti.pdf
+
+      - name: Commit and push PDF
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add output/Appunti.pdf
+          git commit -m "Auto-compiled PDF from main.tex"
+          git push
