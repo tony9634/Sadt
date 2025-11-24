@@ -14,27 +14,21 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Esecuzione di TeXtidote (LanguageTool - Italiano)
-        # Utilizza l'action di TeXtidote che integra LanguageTool
+        # Usa l'action di TeXtidote. Sostituisci 'main.tex' con il nome del tuo file principale.
         uses: ChiefGokhlayeh/textidote-action@v5
         with:
-          # SPECIFICA IL FILE PRINCIPALE DEL PROGETTO
-          # Questo è il file che include tutti i capitoli in Capitoli/*.tex
-          # Sostituisci 'main.tex' con il nome del tuo file principale, ad esempio 'tesi.tex'.
           root_file: main.tex 
-          
-          # Parametri per LanguageTool:
-          # --check it imposta la lingua su Italiano
-          # --output markdown crea un report pulito (puoi usare anche 'html')
-          # --error-level info mostra tutti gli avvisi
+          # --check it per l'Italiano. --output markdown per il report.
           args: --check it --output markdown --error-level info
           
-      # Opzionale: Carica il report generato come artefatto
-      - name: Caricamento del Report
-        uses: actions/upload-artifact@v3
+      - name: Caricamento del Report (v4) 🛠️
+        # Azione aggiornata a v4 per risolvere l'errore di deprecazione
+        uses: actions/upload-artifact@v4
         with:
+          # Il nuovo parametro 'name'
           name: report-textidote
-          path: report.md # O report.html se hai usato --output html
-          
-      # Opzionale: Aggiungi un passaggio per fallire il job 
-      # se vengono trovati errori gravi (solo se si usa report.md e si fa parsing)
-      # Nota: l'action di default imposterà il fallimento in base agli errori
+          # Il nuovo parametro 'path' (era 'files' in v3)
+          path: report.md 
+          # Questo è un parametro nuovo opzionale, impostalo se non vuoi
+          # che l'Action fallisca nel caso non trovi il file report.md
+          retention-days: 7
