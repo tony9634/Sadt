@@ -126,7 +126,7 @@ jobs:
 
           prerelease: false 
 
-          files: ./pdf/main.pdf 
+          files: ./pdf/Appunti del Corso di Strumentazione Avanzata per Diagnosi e Terapia.pdf 
 
         env: 
 
