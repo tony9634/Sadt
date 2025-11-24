@@ -1,0 +1,51 @@
+name: Spellcheck LaTeX
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  spellcheck:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️ Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️ Install Java per LanguageTool
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      # 3️ Install detex per estrarre testo da .tex
+      - name: Install detex
+        run: sudo apt-get update && sudo apt-get install -y detex
+
+      # 4️ Download LanguageTool
+      - name: Download LanguageTool
+        run: |
+          wget https://languagetool.org/download/LanguageTool-stable.zip
+          unzip LanguageTool-stable.zip
+
+      # 5️ Controllo ortografico e grammaticale
+      - name: LanguageTool Spell & Grammar Check
+        run: |
+          echo "Eseguo controllo ortografico/grammaticale sui file .tex"
+          ERRORS=0
+          for file in $(find . -name "*.tex"); do
+            echo "Controllo $file"
+            detex "$file" > tmp.txt
+            java -jar LanguageTool-*/languagetool-commandline.jar -l it tmp.txt | tee lt.log
+            if grep -q "ERROR" lt.log; then
+              ERRORS=$((ERRORS+1))
+            fi
+          done
+          rm tmp.txt
+          if [ $ERRORS -gt 0 ]; then
+            echo "::error ::Trovati errori ortografici/grammaticali in $ERRORS file"
+            exit 1
+          fi
