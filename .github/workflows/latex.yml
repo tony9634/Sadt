@@ -1,4 +1,4 @@
-name: Build & Release PDF 
+name: CI LaTeX + Spellcheck 
 
  
 
@@ -6,9 +6,9 @@ on:
 
   push: 
 
-    branches: [ main ] 
+    branches: [main] 
 
-  workflow_dispatch: 
+  pull_request: 
 
  
 
@@ -18,116 +18,102 @@ jobs:
 
     runs-on: ubuntu-latest 
 
-    outputs: 
-
-      pdf_path: ${{ steps.upload_pdf.outputs.artifact_path }} 
-
  
 
     steps: 
+
+      # 1️ Checkout repository 
 
       - name: Checkout repository 
 
-        uses: actions/checkout@v4 
+        uses: actions/checkout@v3 
 
  
 
-      - name: Install TeXLive Full 
+      # 2 Installazione Java per LanguageTool 
 
-        run: | 
+      - name: Setup Java 
 
-          sudo apt-get update 
-
-          sudo apt-get install -y texlive-full ghostscript 
-
- 
-
-      - name: Compile main.tex 
-
-        run: | 
-
-          latexmk -pdf -interaction=nonstopmode -shell-escape main.tex 
-
- 
-
-      - name: Upload PDF as artifact 
-
-        id: upload_pdf 
-
-        uses: actions/upload-artifact@v4 
+        uses: actions/setup-java@v3 
 
         with: 
 
-          name: Sadt-PDF 
+          distribution: 'temurin' 
 
-          path: main.pdf 
-
- 
-
-  release: 
-
-    needs: build 
-
-    runs-on: ubuntu-latest 
+          java-version: '17' 
 
  
 
-    steps: 
+      # 3 Installazione strumenti LaTeX 
 
-      - name: Download compiled PDF 
+      - name: Install TeX Live 
 
-        uses: actions/download-artifact@v4 
-
-        with: 
-
-          name: Sadt-PDF 
-
-          path: ./pdf 
+        run: sudo apt-get update && sudo apt-get install -y texlive-full latexmk biber 
 
  
 
-      - name: Create Release Tag 
+     # 4 Download LanguageTool 
 
-        id: tag 
+      - name: Download LanguageTool 
 
         run: | 
 
-          # Trova ultimo tag, altrimenti parte da v0 
+          wget https://languagetool.org/download/LanguageTool-stable.zip 
 
-          LATEST=$(git tag --list "v*" | sort -V | tail -n 1) 
+          unzip LanguageTool-stable.zip 
 
-          if [ -z "$LATEST" ]; then 
+ 
 
-            NEXT=v1 
+      # 5 Controllo ortografico e grammaticale (Italiano) 
 
-          else 
+      - name: LanguageTool Spell & Grammar Check 
 
-            NUM=${LATEST#v} 
+        run: | 
 
-            NEXT=v$((NUM + 1)) 
+          ERRORS=0 
+
+          for file in $(find . -name "*.tex"); do 
+
+            echo "Controllo $file" 
+
+            java -jar LanguageTool-*/languagetool-commandline.jar -l it "$file" --encoding UTF-8 | tee lt.log 
+
+            if grep -q "ERROR" lt.log; then 
+
+              ERRORS=$((ERRORS+1)) 
+
+            fi 
+
+          done 
+
+          if [ $ERRORS -gt 0 ]; then 
+
+            echo "::error ::Trovati errori ortografici/grammaticali in $ERRORS file" 
+
+            exit 1 
 
           fi 
 
-          echo "next_tag=$NEXT" >> $GITHUB_OUTPUT 
+ 
+
+      # 6 Compilazione PDF 
+
+      - name: Compile PDF 
+
+        run: | 
+
+          latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex 
 
  
 
-      - name: Create GitHub Release 
+      # 7 Caricamento PDF come artefatto 
 
-        uses: softprops/action-gh-release@v1 
+      - name: Upload PDF Artifact 
+
+        uses: actions/upload-artifact@v3 
 
         with: 
 
-          tag_name: ${{ steps.tag.outputs.next_tag }} 
+          name: compiled-pdf 
 
-          name: "Release ${{ steps.tag.outputs.next_tag }}" 
-
-          draft: false 
-
-          prerelease: false 
-
-          files: ./pdf/Appunti del Corso di Strumentazione Avanzata per Diagnosi e Terapia.pdf 
-
-        env: 
-
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          path: main.pdf 
