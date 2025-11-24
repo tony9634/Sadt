@@ -1,5 +1,5 @@
 
-name: Correzione Grammaticale e Ortografica (Italiano)
+name: Correzione Grammaticale e Ortografica (IT + EN)
 
 on:
   push:
@@ -10,21 +10,48 @@ on:
 jobs:
   lint_and_spell_check_latex:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout del codice
         uses: actions/checkout@v4
 
-      - name: Esecuzione di TeXtidote (LanguageTool - Italiano)
+      # Controllo Italiano
+      - name: TeXtidote - Italiano
         uses: ChiefGokhlayeh/textidote-action@v5
         with:
           root_file: main.tex
           report_type: markdown
-          report_file: report.md
-          args: --check it --error-level info --encoding utf-8
+          report_file: report-it.md
+          args: --check it --error-level info --encoding utf-8 --ci
 
+      # Controllo Inglese
+      - name: TeXtidote - Inglese
+        uses: ChiefGokhlayeh/textidote-action@v5
+        with:
+          root_file: main.tex
+          report_type: markdown
+          report_file: report-en.md
+          args: --check en --error-level info --encoding utf-8 --ci
+
+      # Unione dei report
+      - name: Unisci i report
+        run: |
+          echo "# Report Italiano" > report.md
+          cat report-it.md >> report.md
+          echo "\n# Report Inglese" >> report.md
+          cat report-en.md >> report.md
+
+      # Caricamento artifact
       - name: Caricamento del Report
         uses: actions/upload-artifact@v4
         with:
           name: report-textidote
           path: report.md
           retention-days: 7
+
+      # Commento sul PR
+      - name: Commenta sul Pull Request
+        if: github.event_name == 'pull_request'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          path: report.md
