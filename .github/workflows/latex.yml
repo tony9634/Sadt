@@ -22,7 +22,7 @@ jobs:
 
     steps: 
 
-      # 1Checkout repository 
+      # 1 Checkout repository 
 
       - name: Checkout repository 
 
@@ -34,7 +34,7 @@ jobs:
 
       - name: Setup Java 
 
-        uses: actions/setup-java@stable 
+        uses: actions/setup-java@v3
 
         with: 
 
