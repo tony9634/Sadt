@@ -30,9 +30,13 @@ jobs:
         run: |
           mkdir -p output/Capitoli output/Image output/Media
 
+      - name: Configure latexmk for Biber
+        run: |
+          echo '$bibtex = "biber";' > .latexmkrc
+
       - name: Compile LaTeX with latexmk
         run: |
-          latexmk -pdf -interaction=nonstopmode -outdir=output -use-biber main.tex
+          latexmk -pdf -interaction=nonstopmode -outdir=output main.tex
           mv output/main.pdf output/Appunti.pdf
 
       - name: Clean temporary files
@@ -45,3 +49,4 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git add output/Appunti.pdf
           git commit -m "Auto-compiled PDF from main.tex"
+          git push
