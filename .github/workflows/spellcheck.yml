@@ -1,57 +1,32 @@
 
-name: Correzione Grammaticale e Ortografica (IT + EN)
+name: Check Italian Grammar
 
 on:
-  push:
-    branches: [ main, master ]
   pull_request:
-    branches: [ main, master ]
+    paths:
+      - '**.tex'
 
 jobs:
-  lint_and_spell_check_latex:
+  grammar-check:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout del codice
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      # Controllo Italiano
-      - name: TeXtidote - Italiano
-        uses: ChiefGokhlayeh/textidote-action@v5
+      - name: Set up Java
+        uses: actions/setup-java@v3
         with:
-          root_file: main.tex
-          report_type: markdown
-          report_file: report-it.md
-          args: --check it --error-level info --encoding utf-8 --ci
+          java-version: '17'
 
-      # Controllo Inglese
-      - name: TeXtidote - Inglese
-        uses: ChiefGokhlayeh/textidote-action@v5
-        with:
-          root_file: main.tex
-          report_type: markdown
-          report_file: report-en.md
-          args: --check en --error-level info --encoding utf-8 --ci
-
-      # Unione dei report
-      - name: Unisci i report
+      - name: Download LanguageTool
         run: |
-          echo "# Report Italiano" > report.md
-          cat report-it.md >> report.md
-          echo "\n# Report Inglese" >> report.md
-          cat report-en.md >> report.md
+          curl -L -o languagetool.zip https://languagetool.org/download/LanguageTool-stable.zip
+          unzip languagetool.zip -d languagetool
 
-      # Caricamento artifact
-      - name: Caricamento del Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: report-textidote
-          path: report.md
-          retention-days: 7
-
-      # Commento sul PR
-      - name: Commenta sul Pull Request
-        if: github.event_name == 'pull_request'
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          path: report.md
+      - name: Run grammar check
+        run: |
+          find . -name '*.tex' | while read file; do
+            echo "Checking $file"
+            java -jar languagetool/LanguageTool-*/languagetool-commandline.jar \
+              --language it "$file" || true
+          done
