@@ -8,6 +8,7 @@ on:
       - '**.bib'
       - '**.sty'
       - '**.cls'
+      - '**.yml'
 
 permissions:
   contents: write
