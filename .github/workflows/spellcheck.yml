@@ -1,3 +1,4 @@
+
 name: Correzione Grammaticale e Ortografica (Italiano)
 
 on:
@@ -14,21 +15,16 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Esecuzione di TeXtidote (LanguageTool - Italiano)
-        # Il file principale è specificato come 'main.tex' nella root
         uses: ChiefGokhlayeh/textidote-action@v5
         with:
-          root_file: main.tex 
-          
-          # Parametri corretti per l'Italiano e gestione dell'encoding:
-          # --check it: Imposta la lingua su Italiano
-          # --output markdown: Crea un report leggibile
-          # --error-level info: Mostra tutti gli avvisi
-          # --encoding utf-8: Essenziale per gestire correttamente i caratteri accentati italiani
-          args: --check it --output markdown --error-level info --encoding utf-8
-          
-      - name: Caricamento del Report (v4)
+          root_file: main.tex
+          report_type: markdown
+          report_file: report.md
+          args: --check it --error-level info --encoding utf-8
+
+      - name: Caricamento del Report
         uses: actions/upload-artifact@v4
         with:
           name: report-textidote
-          path: report.md # Assicurati che corrisponda a --output markdown
+          path: report.md
           retention-days: 7
