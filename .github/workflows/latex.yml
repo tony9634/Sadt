@@ -1,119 +1,54 @@
-name: CI LaTeX + Spellcheck 
+name: CI LaTeX + Spellcheck
 
- 
+on:
+  push:
+    branches: [main]
+  pull_request:
 
-on: 
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-  push: 
+    steps:
+      # 1️⃣ Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    branches: [main] 
-
-  pull_request: 
-
- 
-
-jobs: 
-
-  build: 
-
-    runs-on: ubuntu-latest 
-
- 
-
-    steps: 
-
-      # 1 Checkout repository 
-
-      - name: Checkout repository 
-
-        uses: actions/checkout@v4 
-
- 
-
-      # 2 Installazione Java per LanguageTool 
-
-      - name: Setup Java 
-
+      # 2️⃣ Installazione Java per LanguageTool
+      - name: Setup Java
         uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: '17'
 
-        with: 
+      # 3️⃣ Installazione strumenti LaTeX
+      - name: Install TeX Live
+        run: sudo apt-get update && sudo apt-get install -y texlive-full latexmk biber
 
-          distribution: 'temurin' 
+      # 4️⃣ Download LanguageTool
+      - name: Download LanguageTool
+        run: |
+          wget https://languagetool.org/download/LanguageTool-stable.zip
+          unzip LanguageTool-stable.zip
 
-          java-version: '17' 
+      # 5️⃣ Controllo ortografico e grammaticale (Italiano) su tutti i file .tex
+      - name: LanguageTool Spell & Grammar Check
+        run: |
+          echo "Eseguo controllo ortografico/grammaticale su tutti i file .tex"
+          java -jar LanguageTool-*/languagetool-commandline.jar -l it -c UTF-8 -r . | tee lt.log
+          if grep -q "ERROR" lt.log; then
+            echo "::error ::Trovati errori ortografici/grammaticali"
+            exit 1
+          fi
 
- 
+      # 6️⃣ Compilazione PDF
+      - name: Compile PDF
+        run: |
+          latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
-      # 3 Installazione strumenti LaTeX 
-
-      - name: Install TeX Live 
-
-        run: sudo apt-get update && sudo apt-get install -y texlive-full latexmk biber 
-
- 
-
-     # 4 Download LanguageTool 
-
-      - name: Download LanguageTool 
-
-        run: | 
-
-          wget https://languagetool.org/download/LanguageTool-stable.zip 
-
-          unzip LanguageTool-stable.zip 
-
- 
-
-      # 5 Controllo ortografico e grammaticale (Italiano) 
-
-      - name: LanguageTool Spell & Grammar Check 
-
-        run: | 
-
-          ERRORS=0 
-
-          for file in $(find . -name "*.tex"); do 
-
-            echo "Controllo $file" 
-
-            java -jar LanguageTool-*/languagetool-commandline.jar -l it "$file" --encoding UTF-8 | tee lt.log 
-
-            if grep -q "ERROR" lt.log; then 
-
-              ERRORS=$((ERRORS+1)) 
-
-            fi 
-
-          done 
-
-          if [ $ERRORS -gt 0 ]; then 
-
-            echo "::error ::Trovati errori ortografici/grammaticali in $ERRORS file" 
-
-            exit 1 
-
-          fi 
-
- 
-
-      # 6 Compilazione PDF 
-
-      - name: Compile PDF 
-
-        run: | 
-
-          latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex 
-
- 
-
-      # 7 Caricamento PDF come artefatto 
-
-      - name: Upload PDF Artifact 
-
-        uses: actions/upload-artifact@v4 
-
-        with: 
-
-          name: compiled-pdf 
-
-          path: main.pdf 
+      # 7️⃣ Caricamento PDF come artefatto
+      - name: Upload PDF Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: compiled-pdf
+          path: main.pdf
