@@ -1,51 +1,40 @@
-name: Spellcheck LaTeX
+name: Correzione Grammaticale e Ortografica (Italiano)
 
 on:
   push:
-    branches: [main]
+    branches: [ main, master ]
   pull_request:
+    branches: [ main, master ]
 
 jobs:
-  spellcheck:
+  lint_and_spell_check_latex:
     runs-on: ubuntu-latest
-
     steps:
-      # 1️ Checkout repository
-      - name: Checkout repository
+      - name: Checkout del codice
         uses: actions/checkout@v4
 
-      # 2️ Install Java per LanguageTool
-      - name: Setup Java
-        uses: actions/setup-java@v3
+      - name: Esecuzione di TeXtidote (LanguageTool - Italiano)
+        # Utilizza l'action di TeXtidote che integra LanguageTool
+        uses: ChiefGokhlayeh/textidote-action@v5
         with:
-          distribution: temurin
-          java-version: '17'
-
-      # 3️ Install detex per estrarre testo da .tex
-      - name: Install detex
-        run: sudo apt-get update && sudo apt-get install -y detex
-
-      # 4️ Download LanguageTool
-      - name: Download LanguageTool
-        run: |
-          wget https://languagetool.org/download/LanguageTool-stable.zip
-          unzip LanguageTool-stable.zip
-
-      # 5️ Controllo ortografico e grammaticale
-      - name: LanguageTool Spell & Grammar Check
-        run: |
-          echo "Eseguo controllo ortografico/grammaticale sui file .tex"
-          ERRORS=0
-          for file in $(find . -name "*.tex"); do
-            echo "Controllo $file"
-            detex "$file" > tmp.txt
-            java -jar LanguageTool-*/languagetool-commandline.jar -l it tmp.txt | tee lt.log
-            if grep -q "ERROR" lt.log; then
-              ERRORS=$((ERRORS+1))
-            fi
-          done
-          rm tmp.txt
-          if [ $ERRORS -gt 0 ]; then
-            echo "::error ::Trovati errori ortografici/grammaticali in $ERRORS file"
-            exit 1
-          fi
+          # SPECIFICA IL FILE PRINCIPALE DEL PROGETTO
+          # Questo è il file che include tutti i capitoli in Capitoli/*.tex
+          # Sostituisci 'main.tex' con il nome del tuo file principale, ad esempio 'tesi.tex'.
+          root_file: main.tex 
+          
+          # Parametri per LanguageTool:
+          # --check it imposta la lingua su Italiano
+          # --output markdown crea un report pulito (puoi usare anche 'html')
+          # --error-level info mostra tutti gli avvisi
+          args: --check it --output markdown --error-level info
+          
+      # Opzionale: Carica il report generato come artefatto
+      - name: Caricamento del Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: report-textidote
+          path: report.md # O report.html se hai usato --output html
+          
+      # Opzionale: Aggiungi un passaggio per fallire il job 
+      # se vengono trovati errori gravi (solo se si usa report.md e si fa parsing)
+      # Nota: l'action di default imposterà il fallimento in base agli errori
