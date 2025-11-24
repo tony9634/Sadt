@@ -5,20 +5,17 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1 Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2 Install LaTeX
-      - name: Install TeX Live
-        run: sudo apt-get update && sudo apt-get install -y texlive-full latexmk biber
-        
-      # 3 Cache TeX Live
       - name: Cache TeX Live
         uses: actions/cache@v3
         with:
@@ -28,18 +25,18 @@ jobs:
             ~/.texmf-config
           key: ${{ runner.os }}-texlive-2025
 
-      # 4 Creazione cartella output
+      - name: Install TeX Live
+        run: sudo apt-get update && sudo apt-get install -y texlive-full latexmk biber
+
       - name: Create output folder
         run: mkdir -p output
 
-      # 5 Compilazione PDF Final
       - name: Compile PDF Final
         run: |
           latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
           ls -l
           cp main.pdf output/main_final.pdf
 
-      # 6 Upload PDF come artefatto
       - name: Upload PDF Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -48,10 +45,10 @@ jobs:
 
       - name: Commit compiled PDF
         run: |
-            git config user.name "GitHub Action"
-            git config user.email "actions@github.com"
-            git add output/main_final.pdf
-           git commit -m "Update compiled PDF [skip ci]" || echo "No changes to commit"
-           git push
+          git config user.name "GitHub Action"
+          git config user.email "actions@github.com"
+          git add output/main_final.pdf
+          git commit -m "Update compiled PDF [skip ci]" || echo "No changes to commit"
+          git push
         env:
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
