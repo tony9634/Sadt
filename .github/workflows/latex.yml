@@ -26,17 +26,13 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y texlive-full biber make latexmk ghostscript
 
-      - name: Configure latexmk for biber
-        run: |
-          echo '$bibtex = "biber";' > .latexmkrc
-
       - name: Prepare directories
         run: |
           mkdir -p output/Capitoli output/Image output/Media
 
-      - name: Compile LaTeX with latexmk
+      - name: Compile LaTeX with latexmk (EPS support)
         run: |
-          latexmk -pdf -interaction=nonstopmode -outdir=output main.tex
+          latexmk -pdf -interaction=nonstopmode -shell-escape -outdir=output -use-biber main.tex
           mv output/main.pdf output/Appunti.pdf
 
       - name: Clean temporary files
