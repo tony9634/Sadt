@@ -8,6 +8,7 @@ on:
       - '**.bib'
       - '**.sty'
       - '**.cls'
+      - '**.yml'
 
 permissions:
   contents: write
@@ -23,16 +24,15 @@ jobs:
       - name: Install TeX Live and tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-full biber make
+          sudo apt-get install -y texlive-full biber make latexmk
 
-      - name: Compile LaTeX (pdflatex + biber + makeindex)
+      - name: Ensure directories exist
         run: |
-          mkdir -p output
-          pdflatex -interaction=nonstopmode -output-directory=output main.tex
-          biber --output-directory output main
-          pdflatex -interaction=nonstopmode -output-directory=output main.tex
-          makeindex output/main.idx
-          pdflatex -interaction=nonstopmode -output-directory=output main.tex
+          mkdir -p output Capitoli image/1_Meccanica media/1_Meccanica
+
+      - name: Compile LaTeX with latexmk
+        run: |
+          latexmk -pdf -interaction=nonstopmode -outdir=output -use-biber main.tex
           mv output/main.pdf output/Appunti.pdf
 
       - name: Commit and push PDF
