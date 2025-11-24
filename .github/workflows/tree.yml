@@ -3,9 +3,7 @@ name: Generate Project Tree
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+
 
 jobs:
   generate-tree:
