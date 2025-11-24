@@ -1,0 +1,30 @@
+
+name: Generate Project Tree
+
+on:
+  workflow_dispatch: # Puoi avviarlo manualmente
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-tree:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install tree utility
+        run: sudo apt-get update && sudo apt-get install -y tree
+
+      - name: Generate project tree
+        run: |
+          tree -I 'node_modules|.git' > project_tree.txt
+          cat project_tree.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: project-tree
+          path: project_tree.txt
