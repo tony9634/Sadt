@@ -5,6 +5,7 @@ on:
   pull_request:
     paths:
       - '**.tex'
+  workflow_dispatch:  # ✅ aggiunto trigger manuale
 
 jobs:
   grammar-check:
