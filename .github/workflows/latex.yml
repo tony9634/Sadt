@@ -1,4 +1,4 @@
-name: CI LaTeX + Spellcheck
+name: CI LaTeX Advanced Separated
 
 on:
   push:
@@ -6,49 +6,69 @@ on:
   pull_request:
 
 jobs:
-  build:
+  spellcheck:
     runs-on: ubuntu-latest
-
     steps:
-      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Installazione Java per LanguageTool
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
           distribution: temurin
           java-version: '17'
 
-      # 3️⃣ Installazione strumenti LaTeX
-      - name: Install TeX Live
-        run: sudo apt-get update && sudo apt-get install -y texlive-full latexmk biber
+      - name: Install striptex
+        run: pip install striptex
 
-      # 4️⃣ Download LanguageTool
       - name: Download LanguageTool
         run: |
           wget https://languagetool.org/download/LanguageTool-stable.zip
           unzip LanguageTool-stable.zip
 
-      # 5️⃣ Controllo ortografico e grammaticale (Italiano) su tutti i file .tex
       - name: LanguageTool Spell & Grammar Check
         run: |
-          echo "Eseguo controllo ortografico/grammaticale su tutti i file .tex"
-          java -jar LanguageTool-*/languagetool-commandline.jar -l it -c UTF-8 -r . | tee lt.log
-          if grep -q "ERROR" lt.log; then
-            echo "::error ::Trovati errori ortografici/grammaticali"
+          echo "Eseguo controllo ortografico/grammaticale sui file .tex"
+          ERRORS=0
+          for file in $(find . -name "*.tex"); do
+            echo "Controllo $file"
+            striptex "$file" > tmp.txt
+            java -jar LanguageTool-*/languagetool-commandline.jar -l it tmp.txt | tee lt.log
+            if grep -q "ERROR" lt.log; then
+              ERRORS=$((ERRORS+1))
+            fi
+          done
+          rm tmp.txt
+          if [ $ERRORS -gt 0 ]; then
+            echo "::error ::Trovati errori ortografici/grammaticali in $ERRORS file"
             exit 1
           fi
 
-      # 6️⃣ Compilazione PDF
-      - name: Compile PDF
+  build:
+    runs-on: ubuntu-latest
+    needs: spellcheck
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install TeX Live
+        run: sudo apt-get update && sudo apt-get install -y texlive-full latexmk biber
+
+      - name: Create output folder
+        run: mkdir -p output
+
+      - name: Compile PDF Draft
+        run: |
+          latexmk -pdf -interaction=nonstopmode -halt-on-error -jobname=main_draft main.tex
+          cp main_draft.pdf output/main_draft.pdf
+
+      - name: Compile PDF Final
         run: |
           latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+          cp main.pdf output/main_final.pdf
 
-      # 7️⃣ Caricamento PDF come artefatto
-      - name: Upload PDF Artifact
+      - name: Upload PDF Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: compiled-pdf
-          path: main.pdf
+          name: compiled-pdfs
+          path: output/
