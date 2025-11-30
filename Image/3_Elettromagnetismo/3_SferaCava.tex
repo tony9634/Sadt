@@ -13,25 +13,20 @@
     % --- Parametri per lo spessore infinitesimo (d\vartheta) ---
     \def\dTheta{3} % Metà della variazione d\vartheta per l'anello in gradi
     \pgfmathsetmacro\thetaUpper{\thetaValue - \dTheta} % Angolo superiore
-    \pgfmathsetmacro\thetaLower{\thetaValue + \dTheta} % Angolo inferiore
-    
-    % Coordinate per i bordi dell'anello
-    \pgfmathsetmacro\rUpper{\R*sin(\thetaUpper)}
     \pgfmathsetmacro\zUpper{\R*cos(\thetaUpper)}
-    \pgfmathsetmacro\rLower{\R*sin(\thetaLower)}
+    \pgfmathsetmacro\rUpper{\R*sin(\thetaUpper)}
+    \pgfmathsetmacro\thetaLower{\thetaValue + \dTheta} % Angolo inferiore
     \pgfmathsetmacro\zLower{\R*cos(\thetaLower)}
+    \pgfmathsetmacro\rLower{\R*sin(\thetaLower)}
     
     % --- Asse e Origine ---
     
     % Asse z (asse di rotazione)
-    \draw[->, very thick] (0, 0, 0) -- (0, \R + 0.5, 0) node[above] {$z$};
-    \draw[dashed, gray] (0, 0, 0) -- (0, -\R-0.1, 0);
-        % Asse x 
-    \draw[->, very thick] (0, 0, 0) -- (\R + 0.5, 0, 0) node[above] {$x$};
-    \draw[dashed, gray] (0, 0, 0) -- (-\R-0.1, 0, 0);
-        % Asse y
-    \draw[->, very thick] (0, 0, 0) -- (0, 0, \R + 0.5) node[above] {$z$};
-    \draw[dashed, gray] (0, 0, 0) -- (0, 0, -\R-0.1);
+    \draw[->, very thick] (0, 0) -- (0, \R + 0.5) node[above] {$z$};
+    \draw[dashed, gray] (0, 0) -- (0, -\R-0.1);
+    % Asse x 
+    \draw[->, very thick] (0, 0) -- (\R + 0.5, 0) node[below right] {$x$};
+    \draw[dashed, gray] (0, 0) -- (-\R-0.1, 0);
 
     % Centro della sfera (Origine O)
     \coordinate (O) at (0, 0);
@@ -43,71 +38,67 @@
     
     % --- Disegno della Sfera 3D (Simulata) ---
 
-    % 1. Parte nascosta (posteriore) della sfera (sotto l'anello)
-    \draw[thick, gray] (-\R, 0) arc (180:360:\R cm and \R*\yAxisScale cm); % Metà inferiore (nascosta)
-    \draw[dashed, gray] (-\R, 0) arc (180:0:\R cm and \R*\yAxisScale cm); % Metà superiore (visibile)
+    % 1. Parte nascosta (posteriore) della sfera
+    \draw[thick, gray] (-\R, 0) arc (180:360:\R cm and \R*\yAxisScale cm); 
+    \draw[dashed, gray] (-\R, 0) arc (180:0:\R cm and \R*\yAxisScale cm); 
 
     % 2. Contorno verticale (circonferenza)
     \draw[thick, gray] (0, 0) circle (\R);
 
     % --- Anello Elementare (Guscio) ---
     
-    % L'anello è disegnato come due ellissi (bordo superiore e bordo inferiore)
-    % e una superficie curva (riempimento) tra i due.
-    
-    % 1. Parte nascosta (posteriore) dell'anello
-    \draw[dashed, blue!70!cyan] (0, \zUpper) ellipse (\rUpper cm and \rUpper*\yAxisScale cm); % Bordo superiore
-    \draw[dashed, blue!70!cyan] (0, \zLower) ellipse (\rLower cm and \rLower*\yAxisScale cm); % Bordo inferiore
+    % 1. Parti nascoste (posteriori)
+    % Bordo superiore posteriore
+    \draw[dashed, blue!70!cyan] (\rUpper, \zUpper) arc (0:180:\rUpper cm and \rUpper*\yAxisScale cm); 
+    % Bordo inferiore posteriore
+    \draw[dashed, blue!70!cyan] (-\rLower, \zLower) arc (180:0:\rLower cm and \rLower*\yAxisScale cm); 
 
 % ============================
-%   1. SUPERFICIE (posteriore)
+%   2. RIEMPIMENTO POSTERIORE (nascosto)
 % ============================
 \path[fill=blue!30, opacity=0.7]
-  % Arco posteriore superiore
-  (\rUpper, \zUpper)
-    arc[start angle=0, end angle=180,
-        x radius=\rUpper, y radius=\rUpper*\yAxisScale]
+ % Arco posteriore superiore (da -rUpper a rUpper)
+ (-\rUpper, \zUpper)
+   arc[start angle=180, end angle=0,
+       x radius=\rUpper, y radius=\rUpper*\yAxisScale]
   --
-  (-\rLower, \zLower)
-  % Arco posteriore inferiore
-    arc[start angle=180, end angle=0,
-        x radius=\rLower, y radius=\rLower*\yAxisScale]
+  (\rLower, \zLower)
+  % Arco posteriore inferiore (da rLower a -rLower)
+   arc[start angle=0, end angle=180,
+       x radius=\rLower, y radius=\rLower*\yAxisScale]
   -- cycle;
 
 
 % ============================
-%   3. BORDI ANTERIORI (visibili)
+%  3. BORDI ANTERIORI (visibili)
 % ============================
-\draw[line width=2pt, blue!70!cyan]
-  (\rUpper, \zUpper)
-    arc[start angle=0, end angle=-180,
-        x radius=\rUpper, y radius=\rUpper*\yAxisScale];
+% Bordo superiore anteriore
+\draw[line width=2pt, blue!70!cyan] 
+  (\rUpper, \zUpper) 
+    arc[start angle=0, end angle=-180, 
+      x radius=\rUpper, y radius=\rUpper*\yAxisScale];
 
-\draw[line width=2pt, blue!70!cyan]
-  (\rLower, \zLower)
-    arc[start angle=0, end angle=-180,
+% Bordo inferiore anteriore
+\draw[line width=2pt, blue!70!cyan] 
+  (-\rLower, \zLower)
+    arc[start angle=-180, end angle=0, 
         x radius=\rLower, y radius=\rLower*\yAxisScale];
 
+% ============================
+%   4. RIEMPIMENTO ANTERIORE (visibile)
+% ============================
 \path[fill=blue!40, opacity=0.7]
-  % Arco posteriore superiore
+  % Bordo superiore anteriore
   (\rUpper, \zUpper)
     arc[start angle=0, end angle=-180,
         x radius=\rUpper, y radius=\rUpper*\yAxisScale]
-  --
+  -- % Linea sinistra
   (-\rLower, \zLower)
-  % Arco posteriore inferiore
+  % Bordo inferiore anteriore (in senso orario, da -rLower a rLower)
     arc[start angle=-180, end angle=0,
         x radius=\rLower, y radius=\rLower*\yAxisScale]
   -- cycle;
         
-  % collegamento inferiore sinistra → destra
-  --
-  (\rLower, \zLower)
-  % Arco anteriore inferiore (ritorno)
-    arc[start angle=0, end angle=-180,
-        x radius=\rLower, y radius=\rLower*\yAxisScale]
-  -- cycle;
-  
     % Linee di collegamento laterali (visibili)
     \draw[line width=2pt, blue!70!cyan] (\rUpper, \zUpper) -- (\rLower, \zLower);
     \draw[line width=2pt, blue!70!cyan] (-\rUpper, \zUpper) -- (-\rLower, \zLower);
@@ -116,14 +107,14 @@
     
     % Raggio 'r' dell'anello (al punto medio \z)
     \draw[<->, dashed, red] (0, \z) -- (\r, \z);
-    \node[above] at (\r*0.5 + 0.5, \z + 0.1) {Raggio: $r=R\sin\vartheta$};
+    \node[above, xshift=10pt] at (\r*0.5, \z) {Raggio: $r=R\sin\vartheta$};
     
     % Raggio R della sfera (sul piano xz, passa attraverso il punto medio)
     \draw[->, very thick] (O) -- (\r, \z); 
     \node[right] at (\r*0.5 - 0.2, \z*0.5 + 0.1) {$R$};
     
     % Angolo \vartheta
-    \draw[thick] (0.3, 0) arc (0:\thetaValue/2:0.3);
+    \draw[thick] (0.3, 0) arc (0:\thetaValue:0.3);
     \node[right] at (0.3, 0.1) {$\vartheta$};
 
     % Larghezza R d\vartheta (sulla superficie)

@@ -14,7 +14,7 @@
 \foreach \angle in {0,30,...,345} {
     \pgfmathsetmacro{\x}{\a*cos(\angle)*cos(\rot) - \b*sin(\angle)*sin(\rot)}
     \pgfmathsetmacro{\y}{\a*cos(\angle)*sin(\rot) + \b*sin(\angle)*cos(\rot)}
-    \node at (\x,\y) {\textbf{\large +}};;
+    \node at (\x,\y) {\textbf{\large +}};
 }
 
 % Linea verticale tratteggiata (Omega_p)

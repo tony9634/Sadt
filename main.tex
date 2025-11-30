@@ -1,30 +1,40 @@
 %!TEX bibfile = bibliografia.bib
 
-%Questo è il preambolo, dove si inseriscono i pacchetti e le impostazioni che servono per compilare il documento. Quanto scritto dopo il simbolo '%' è solo un commento e serve a fini dimostrativi.
-\documentclass[a4paper, 12, oneside]{report}
-%\usepackage[13pt]{extsizes}
-\linespread{1.5} %interlinea
-\setlength{\parindent}{0pt} % niente rientro dopo punto a capo
+\documentclass[a4paper,10pt,oneside]{report}
+
+% --- Impostazioni di base ---
+\linespread{1.5}
+\setlength{\parindent}{0pt}
 \setlength{\parskip}{0.75em}
 \pagestyle{plain}
-\usepackage{geometry} %margini
+
+\usepackage{geometry}
 \geometry{a4paper, top=2.5cm, bottom=2cm, left=2cm, right=2cm, bindingoffset=5mm}
+
 \usepackage{graphicx}
 
-\usepackage{listings}
+% --- FONT UNIFORMI SU TUTTI I MOTORI ---
+% Evita differenze tra pdfLaTeX / XeLaTeX / LuaLaTeX
+\usepackage{lmodern} % oppure: \usepackage{newtxtext,newtxmath}
+
+% --- MICROTIPOGRAFIA DISATTIVATA (per uniformità) ---
+\usepackage[protrusion=false,expansion=false]{microtype}
+
+% --- Pacchetti vari ---
 \usepackage{xcolor}
+\usepackage{listings}
+
 \usepackage{tikz}
 \usepackage{tikz-3dplot}
-\usepackage{tikz-feynman}
+\usetikzlibrary{backgrounds}
 \usetikzlibrary{angles,quotes,calc,positioning}
 \usetikzlibrary{decorations.pathmorphing}
 \usetikzlibrary{decorations.markings}
 \definecolor{darkgreen}{rgb}{0,0.5,0}
 \tdplotsetmaincoords{70}{120}
-\tikzset{
-    fLines/.style={thin,->}
-}
+\tikzset{ fLines/.style={thin,->} }
 
+% --- Listings (MATLAB) ---
 \lstset{
   language=Matlab,
   basicstyle=\ttfamily\small,
@@ -44,92 +54,98 @@
   showtabs=false,
   tabsize=2
 }
-\usepackage{multicol} %più colonne
-\usepackage{ragged2e} %allineamento testo
+
+\usepackage{multicol}
+\usepackage{ragged2e}
 \usepackage{caption}
+\captionsetup{textfont=sl}
+
 \usepackage{pdfpages}
 \usepackage{csquotes}
-\usepackage{amsmath}
-\usepackage{mathtools}
-\usepackage{amssymb}
+
+% --- Matematica ---
+\usepackage{amsmath,amssymb,mathtools}
 \usepackage{esint}
+
+% --- Grafici e tabelle ---
 \usepackage{pgfplotstable}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.7}
-\captionsetup{textfont=sl}
-\maxdeadcycles=300
+\pgfplotsset{compat=newest}
 
+% --- Flottanti ---
 \usepackage{float}
 \usepackage{morefloats}
 
-\usepackage[italian]{babel} %lingua principale
+% --- Lingua ---
+\usepackage[italian]{babel}
 
-\usepackage{minitoc} %mini sommario a inizio capitolo
-\nomtcrule 
-\addto{\captionsitalian}{% Making babel aware of special titles
+% --- Hyperref + PDF uniformi ---
+\usepackage{hyperref}
+\hypersetup{
+  pdfauthor={Antonio Ausilio},
+  pdftitle={Appunti del Corso di Strumentazione Avanzata per la Diagnosi e Terapia},
+  pdfcreationdate={},
+  pdfmoddate={}
+}
+
+% --- MiniToc ---
+\usepackage{minitoc}
+\nomtcrule
+\addto{\captionsitalian}{
   \renewcommand{\mtctitle}{Sommario}
 }
 \setcounter{secnumdepth}{5}
-\usepackage[sorting=none,backend=biber,refsection=chapter]{biblatex} %bibliografia
+
+% --- Bibliografia ---
+\usepackage[
+  sorting=none,
+  backend=biber,
+  refsection=chapter
+]{biblatex}
 \defbibheading{bibbysubsect}{}
 \addbibresource{bibliografia.bib}
 
-\usepackage{hyperref}
-\usepackage{comment}
+% --- Patch capitoli centrati ---
 \usepackage{xpatch}
-\usepackage{blindtext}
-
-
 \makeatletter
-
-\xpatchcmd{\@makeschapterhead}{%
-  \Huge \bfseries  #1\par\nobreak%
-}{%
-  \Huge \bfseries\centering #1\par\nobreak%
-}{\typeout{Patched makeschapterhead}}{\typeout{patching of @makeschapterhead failed}}
-
-\xpatchcmd{\@makechapterhead}{%
-  \huge\bfseries \@chapapp\space \thechapter
-}{%
-  \huge\bfseries\centering \@chapapp\space \thechapter
-}{\typeout{Patched @makechapterhead}}{\typeout{Patching of @makechapterhead failed}}
-
+\xpatchcmd{\@makeschapterhead}
+  {\Huge \bfseries #1\par\nobreak}
+  {\Huge \bfseries\centering #1\par\nobreak}
+  {}{}
+\xpatchcmd{\@makechapterhead}
+  {\huge\bfseries \@chapapp\space \thechapter}
+  {\huge\bfseries\centering \@chapapp\space \thechapter}
+  {}{}
 \makeatother
+
+% --- Varie ---
 \usepackage{csvsimple}
 \usepackage{fancyhdr}
 \usepackage[export]{adjustbox}
-
-\usepackage{booktabs} %per le tabelle
+\usepackage{booktabs}
 \usepackage{multirow}
-%\usepackage[table,xcdraw]{xcolor}
-
 \usepackage{lscape}
 \usepackage{wrapfig}
 \usepackage{pgffor}
 \usepackage{subcaption}
-
 \usepackage[version=4]{mhchem}
-%\usepackage{chemfig}
-\usepackage{calc} % per calcoli sulle lunghezze
-
 \usepackage{chemfig}
+
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{enumitem}
 \usepackage{supertabular}
 \usepackage{breqn}
-
+\usepackage{blindtext}
 
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
-%\renewcommand{\arraystretch}{1.4} % <-- Aggiunge spazio tra le righe
 
+% --- Comandi personalizzati ---
 \newcommand{\gbar}{\mathrlap{\raisebox{0.5ex}{\rule{0.5em}{0.1pt}}}\gamma}
 
-% --- definizioni personalizzate ---
-\newcommand{\imagesperrow}{3} % immagini per riga
-\newcommand{\imgwidth}{0.3\textwidth} % larghezza di ciascuna immagine
+\newcommand{\imagesperrow}{3}
+\newcommand{\imgwidth}{0.3\textwidth}
 \newcounter{imgcount}
-
 
 %Da qui in poi inizia il documento.
 \begin{document}
