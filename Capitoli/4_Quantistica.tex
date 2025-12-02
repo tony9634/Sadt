@@ -251,20 +251,22 @@ dove $E$ è l'energia del fotone, $\nu$ è la sua frequenza, e $h$ è la costant
 
 Se il fotone viene assorbito, l'elettrone subisce una transizione (eccitazione) a un livello energetico superiore ($E_f$). Successivamente, l'elettrone può ritornare a un livello inferiore (rilassamento), emettendo un fotone con un'energia pari alla differenza energetica tra i due stati.
 
-\subsection{Dualismo onda-particella}\label{dualismo-onda-particella}
-
-L'ipotesi di Louis de Broglie, formulata nel 1924, ha fornito una spiegazione teorica al comportamento osservato nell'esperimento della doppia fenditura. Secondo questa ipotesi, a ogni particella materiale, come l'elettrone, è associata un'onda, descritta da una funzione d'onda \(\Psi(\vec{r}, t)\), che racchiude le informazioni sullo stato quantico della particella.
-
-Poiché la particella manifesta anche una natura ondulatoria, le si può associare un'energia secondo la relazione di Planck:
+\subsection{Dualismo Onda-Particella (Ipotesi di De Broglie)}\label{dualismo-onda-particella} 
+ 
+L'ipotesi di \textbf{Louis de Broglie}, formulata nel 1924, ha esteso il dualismo onda-corpuscolo (già riconosciuto per la luce) alla \textbf{materia}. Secondo questa ipotesi, a ogni particella materiale, come l'elettrone, è associata un'onda (l'\textbf{onda di materia}), descritta da una \textbf{funzione d'onda} $\Psi(\vec{r}, t)$, che racchiude le informazioni sullo stato quantico della particella. 
+ 
+Le relazioni di De Broglie stabiliscono il legame quantitativo tra le proprietà corpuscolari (Energia $E$, Quantità di moto $p$) e le proprietà ondulatorie (Frequenza $\nu$, Lunghezza d'onda $\lambda$). 
+ 
+L'energia ($E$) della particella è legata alla frequenza ($\nu$) e alla pulsazione ($\omega$) dell'onda associata dalla relazione di Planck: 
 
 \[
 E = h\nu
 \]
 
-dove \(E\) è l'energia, \(\nu\) è la frequenza dell'onda associata, e \(h\) è la costante di Planck. La frequenza è legata alla pulsazione \(\omega\) dalla relazione:
+dove \(E\) è l'energia associata all'onda, \(\nu\) è la frequenza, e \(h\) è la costante di Planck. La pulsazione è legata alla frequenza da:
 
 \[
-\nu = \dfrac{\omega}{2\pi}
+\omega = 2\pi\nu
 \]
 
 Sostituendo nella formula dell'energia, si ottiene:
@@ -273,50 +275,43 @@ Sostituendo nella formula dell'energia, si ottiene:
 E = \dfrac{h}{2\pi}\omega = \hslash\omega
 \]
 
-Si definisce \(h\) tagliato, \(\hslash\), la costante di Planck normalizzata o ridotta di \(2\pi\):
+dove:
 
 \[
-E = \hslash\omega
+\hslash = \dfrac{h}{2\pi}
 \]
 
-Alla particella è anche associata una quantità di moto \(p\). Per una particella relativistica, si ha:
+è la \textbf{costante di Planck ridotta}. 
 
-\[
-E = mc^2 \quad \text{e} \quad p = \dfrac{E}{c}
-\]
-
-Per l'ipotesi di de Broglie \(E = \hslash\omega\), la quantità di moto dipende della pulsazione:
-
-\[
-p = \hslash\dfrac{\omega}{c}
-\]
-
-Si definisce numero d'onda \(k\) come:
-
-\[
-k = \dfrac{\omega}{c}
-\]
-
-Con questa definizione, è possibile scrivere la quantità di moto come:
+Alla particella è anche associata una quantità di moto \(p\). Per l'ipotesi di de Broglie, la quantità di moto ($p$) è legata al \textbf{numero d'onda} ($k$) e alla lunghezza d'onda ($\lambda$): 
 
 \[
 p = \hslash k
 \]
 
-Ragionando in termini di frequenza \(\nu\), si ha:
+dove \(k\) è il \textbf{numero d'onda} definito come:
 
 \[
-p = \dfrac{h\nu}{c}
+k = \dfrac{2\pi}{\lambda}
 \]
 
-Infine, ricordando che \(\lambda = \dfrac{c}{\nu}\), si può scrivere:
+Sostituendo la definizione di $\hslash$ e $k$, si ottiene la relazione fondamentale che quantifica il dualismo:
 
 \[
-p = \dfrac{h}{\lambda}
+\lambda = \dfrac{h}{p}
 \]
 
-Queste relazioni mostrano come le proprietà dinamiche di una particella, come energia e quantità di moto, siano legate a grandezze tipiche delle onde, ovvero frequenza e lunghezza d’onda, confermando il dualismo onda-corpuscolo alla base della meccanica quantistica.
+Questa formula dimostra che maggiore è la quantità di moto della particella, minore è la lunghezza d'onda associata, spiegando perché gli effetti ondulatori non siano osservabili su scala macroscopica. 
+ 
+Mentre le relazioni di De Broglie si applicano a tutte le particelle, il loro contesto energetico è definito dalla relatività. Per una particella con massa a riposo $m_0$, la relazione completa tra energia e quantità di moto è: 
 
+\[
+E^2 = (pc)^2 + (m_0c^2)^2
+\]
+
+In \textbf{regime non relativistico} ($v \ll c$), l'energia cinetica domina, e la relazione $\lambda = h/p$ è l'approssimazione valida. Il \textbf{fotone} ($m_0=0$) rappresenta il limite estremo, dove la relazione $p = h/\lambda$ è ottenuta direttamente dalle leggi dell'elettromagnetismo e di Planck ($p = E/c = h\nu/c$). 
+ 
+Queste relazioni confermano in modo definitivo il \textbf{dualismo onda-corpuscolo} alla base della meccanica quantistica. 
 
 \subsection{Funzione d'onda associata alla particella}\label{funzione-donda-associata-alla-particella}
 
