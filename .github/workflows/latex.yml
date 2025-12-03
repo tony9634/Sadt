@@ -1,3 +1,4 @@
+
 name: Build LaTeX PDF
 
 on:
@@ -37,6 +38,30 @@ jobs:
           ls -l
           cp main.pdf output/main_final.pdf
 
+      # ✅ Estrazione warning, info e errori
+      - name: Extract LaTeX warnings, info, and errors
+        run: |
+          if [ -f main.log ]; then
+            grep -E "LaTeX Warning|Package|Output written|! |Error" main.log > latex_warnings_info_errors.txt
+          else
+            echo "No log file found" > latex_warnings_info_errors.txt
+          fi
+
+      # ✅ Upload del file con warning + errori come artifact
+      - name: Upload warnings, info, and errors
+        uses: actions/upload-artifact@v4
+        with:
+          name: latex-warnings-info-errors
+          path: latex_warnings_info_errors.txt
+
+      # ✅ Fail se ci sono errori
+      - name: Fail if errors found
+        run: |
+          if grep -q "! " main.log; then
+            echo "❌ Errors detected in LaTeX compilation"
+            exit 1
+          fi
+
       - name: Upload PDF Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -44,11 +69,11 @@ jobs:
           path: output/
 
       - name: Commit compiled PDF
+        if: success() # ✅ Commit solo se il job non è fallito
         run: |
           git config user.name "GitHub Action"
           git config user.email "actions@github.com"
           git add output/main_final.pdf
-          git commit -m "Update compiled PDF [skip ci]" || echo "No changes to commit"
+          git commit -m "Update compiled PDF [skip ci]" || echo          git commit -m "Update compiled PDF [skip ci]" || echo "No changes to commit"
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
