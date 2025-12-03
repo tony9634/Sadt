@@ -19,7 +19,7 @@ La fisica classica non era in grado di spiegare in modo soddisfacente i seguenti
 \item
     \textbf{La Stabilità dell'Atomo di Rutherford}: Secondo l'elettrodinamica classica, un elettrone in orbita attorno al nucleo (in moto accelerato) dovrebbe emettere continuamente radiazione elettromagnetica, perdendo energia e spiraleggiando verso il nucleo nel giro di una frazione di secondo. Al contrario, gli atomi sono \textbf{strutture stabili};
 \item
-    \textbf{La Distribuzione Spettrale della Radiazione del Corpo Nero}: La teoria classica (legge di Rayleigh-Jeans) prevedeva che l'energia emessa da un corpo nero divergesse alle alte frequenze, portando a una quantità di energia infinita (la cosiddetta \textbf{catastrofe ultravioletta}), in netto contrasto con i dati sperimentali. Questo problema fu risolto da Planck (1900) postulando che l'energia fosse emessa in pacchetti discreti ($E=h\nu$);
+    \textbf{La Distribuzione Spettrale della Radiazione del Corpo Nero}: La teoria classica (legge di Rayleigh-Jeans) prevedeva che l'energia emessa da un corpo nero divergesse alle alte frequenze, portando a una quantità di energia infinita (la cosiddetta \textbf{catastrofe ultravioletta} o \textbf{Rayleigh-Jeans catastrophe}), in netto contrasto con i dati sperimentali. Questo problema fu risolto da Planck (1900) postulando che l'energia fosse emessa in pacchetti discreti ($E=h\nu$);
 \item
     \textbf{L'Effetto Fotoelettrico}: La luce incidente su una superficie metallica può liberare elettroni solo se la sua frequenza supera un valore soglia specifico, indipendentemente dall'intensità della luce stessa. La teoria ondulatoria classica non poteva spiegare questa dipendenza dalla frequenza. Il fenomeno fu spiegato da Einstein (1905) introducendo il concetto di \textbf{fotone} (quanto di luce).
 \end{itemize}
@@ -56,16 +56,23 @@ Sebbene il corpo nero sia un'astrazione teorica, può essere approssimato sperim
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=1.72015in,height=1.21296in,alt={Modello pratico di corpo nero, come una cavità con una piccola apertura}]{media/4_Quantiatica/image31.pdf}
-\caption{Modello pratico di corpo nero}
+\resizebox{0.5\textwidth}{!}{%
+\input{Image/4_Quantistica/4_CorpoNero.tex}
+}
+\caption{Modello pratico di corpo nero, come una cavità con una piccola apertura}
+\label{fig:4_CorpoNero}
 \end{figure}
+
 
 Secondo la fisica classica, in particolare la teoria basata sulla legge di \textbf{Rayleigh-Jeans}, l'intensità della radiazione emessa per unità di frequenza ($I(\nu, T)$) dovrebbe aumentare indefinitamente con l'aumento della frequenza ($\nu$). Questa previsione teorica, che prevedeva una divergenza dell'energia alle alte frequenze, è nota come \textbf{catastrofe ultravioletta} e contraddiceva clamorosamente i risultati sperimentali.
 
 \begin{figure}[ht]
 \centering
-
-\caption{Confronto tra la previsione classica (Rayleigh-Jeans) e i dati sperimentali che mostrano la catastrofe ultravioletta.}
+\resizebox{0.5\textwidth}{!}{%
+\input{Image/4_Quantistica/4_CatastrofeUV.tex}
+}
+\caption{Confronto tra la previsione classica (Rayleigh-Jeans) e i dati sperimentali che mostrano la catastrofe ultravioletta}
+\label{fig:4_CatastrofeUV}
 \end{figure}
 
 In realtà, lo spettro di emissione del corpo nero dipende strettamente dalla temperatura, presentando un andamento continuo e finito: l'intensità raggiunge un massimo a una specifica lunghezza d'onda, che si sposta verso valori più corti all'aumentare della temperatura (Legge dello spostamento di Wien), per poi decrescere.
