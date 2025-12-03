@@ -76,4 +76,5 @@ jobs:
           git add output/main_final.pdf
           git commit -m "Update compiled PDF [skip ci]" || echo          git commit -m "Update compiled PDF [skip ci]" || echo "No changes to commit"
           git push
-        env:
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
