@@ -71,14 +71,12 @@ jobs:
         with:
           name: compiled-pdfs
           path: output/
-
       - name: Commit compiled PDF
-        if: success() # ✅ Commit solo se il job non è fallito
         run: |
           git config user.name "GitHub Action"
           git config user.email "actions@github.com"
           git add output/main_final.pdf
-          git commit -m "Update compiled PDF          git commit -m "Update compiled PDF [skip ci]" || echo "No changes to commit"
+          git commit -m "Update compiled PDF [skip ci]" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
