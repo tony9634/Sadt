@@ -360,25 +360,33 @@ In questo contesto probabilistico, il concetto classico di orbita (inteso come t
 
 \section{Principio di indeterminazione di Heisenberg}\label{principio-di-indeterminazione-di-heisenberg}
 
-Il principio di indeterminazione di Heisenberg è coerente con l’interpretazione probabilistica della meccanica quantistica proposta da Born. Secondo questo principio, non è possibile conoscere con precisione e simultaneamente la posizione e la quantità di moto di una particella. Indicando con \({\Delta}x\) l’incertezza sulla posizione e con \({\Delta}p\) quella sulla quantità di moto, si ha:
+Il \textbf{Principio di Indeterminazione di Heisenberg} è uno dei fondamenti della Meccanica Quantistica (MQ) e riflette la sua natura intrinsecamente probabilistica e ondulatoria. Esso stabilisce un limite fondamentale alla precisione con cui è possibile conoscere simultaneamente due proprietà fisiche complementari (o \textbf{osservabili non commutabili}) di una particella. Secondo questo principio, non è possibile conoscere con precisione arbitraria e simultaneamente la \textbf{posizione} e la \textbf{quantità di moto} (o impulso) di una particella. Indicando con $\Delta x$ l'incertezza (la deviazione standard) sulla posizione e con $\Delta p$ quella sulla quantità di moto, la relazione è espressa dalla disuguaglianza:
+
 
 \[
-{\Delta}x {\Delta}p \geq \dfrac{\hslash}{2}
+\Delta x \Delta p \geq \dfrac{\hslash}{2}
 \]
 
-Questo significa che, se la posizione viene determinata con estrema precisione (\({\Delta}x \rightarrow 0\)), l’incertezza sulla quantità di moto deve aumentare (\({\Delta}p \rightarrow \infty\)) per mantenere valida la disuguaglianza. Analogamente, maggiore è la precisione sulla misura della quantità di moto meno precisa è la conoscenza della posizione, ovvero \({\Delta}p \rightarrow 0\) allora \({\Delta}x \rightarrow \infty\).
+dove $\hslash$ (h-bar) è la \textbf{costante di Planck ridotta} ($\hslash = \frac{h}{2\pi}$).
 
-Il principio può essere esteso anche alla coppia energia-tempo, come:
+Questa relazione implica che, se la posizione viene determinata con estrema precisione ($\Delta x \rightarrow 0$), l'incertezza sulla quantità di moto deve necessariamente aumentare ($\Delta p \rightarrow \infty$) per mantenere valida la disuguaglianza. Analogamente, maggiore è la precisione sulla misura della quantità di moto ($\Delta p \rightarrow 0$), meno precisa è la conoscenza della posizione ($\Delta x \rightarrow \infty$).
+
+Il principio può essere esteso anche alla coppia \textbf{energia-tempo} (sebbene la natura di $\Delta t$ sia concettualmente diversa rispetto a $\Delta x$ e $\Delta p$):
 
 \[
-{\Delta}E {\Delta}t \geq \dfrac{\hslash}{2}
+\Delta E \Delta t \geq \dfrac{\hslash}{2}
 \]
 
-In questo contesto, $\Delta t$ rappresenta l'intervallo di tempo durante il quale l'energia del sistema è definita. Questo significa che una misura precisa dell’energia ($\Delta E \rightarrow 0$) richiede un intervallo di tempo $\Delta t$ sufficientemente lungo (tendente a infinito), mentre una misura molto rapida ($\Delta t$ piccolo) comporta una maggiore incertezza sull’energia ($\Delta E$ grande).
+In questo contesto, $\Delta E$ rappresenta l'incertezza sull'energia e $\Delta t$ rappresenta tipicamente l'\textbf{intervallo di tempo minimo} necessario affinché l'energia del sistema possa essere definita (ad esempio, la vita media di uno stato instabile). Questo significa che una misura precisa dell'energia ($\Delta E \rightarrow 0$) richiede un intervallo di tempo $\Delta t$ sufficientemente lungo (tendente a infinito), mentre una misura molto rapida ($\Delta t$ piccolo) comporta una maggiore incertezza sull'energia ($\Delta E$ grande).
 
-Questo principio rappresenta un limite fondamentale alla conoscenza dello stato di una particella e riflette la natura intrinsecamente probabilistica della meccanica quantistica.
+Il Principio di Indeterminazione \textbf{non è una conseguenza dei limiti della nostra strumentazione}, ma è una \textbf{proprietà fondamentale} dello stato quantistico. L'indeterminazione nasce dal fatto che gli operatori matematici che rappresentano la posizione ($\hat{x}$) e la quantità di moto ($\hat{p}$) \textbf{non commutano} (cioè, $[\hat{x}, \hat{p}] \neq 0$). Inoltre, il principio di indeterminazione è coerente con:
 
-L’indeterminazione può essere interpretata come una conseguenza del processo di misura. Per determinare la posizione di una particella, ad esempio un elettrone, è necessario interagire con essa, ad esempio mediante fotoni. Questa interazione modifica inevitabilmente lo stato della particella. Nel mondo macroscopico, tale effetto è trascurabile, poiché l’energia dei fotoni è molto inferiore rispetto a quella degli oggetti con cui interagiscono, e quindi non ne altera significativamente lo stato.
+\begin{itemize}
+    \item \textbf{Natura Ondulatoria}: L'indeterminazione è coerente con il \textbf{dualismo onda-particella}. Una particella ben localizzata ($\Delta x$ piccolo) corrisponde a un pacchetto d'onda formato dalla sovrapposizione di molte lunghezze d'onda (cioè, un ampio intervallo di momenti $\Delta p$).
+    \item \textbf{Effetto della Misura}: L'atto di misurare, interagendo con la particella (ad esempio con fotoni), inevitabilmente rivela solo una parte della conoscenza intrinseca al sistema quantistico, portando al \textbf{collasso della funzione d'onda} e manifestando l'indeterminazione. Tuttavia, l'indeterminazione esiste indipendentemente da questo atto.
+\end{itemize}
+
+Nel mondo macroscopico, l'effetto di questo principio è trascurabile, poiché il valore di $\hslash$ è estremamente piccolo (circa $1.054 \times 10^{-34} \, \text{J} \cdot \text{s}$), rendendo l'incertezza minima ben al di sotto della nostra capacità di rilevazione.
 
 \section{Equazione di Schrödinger}\label{equazione-di-schruxf6dinger}
 
@@ -477,8 +485,6 @@ Uguagliando i secondi membri delle due equazioni si ottiene:
     - \dfrac{\hslash^{2}}{p^{2}}\nabla^{2}\Psi = j\dfrac{\hslash}{E}\dfrac{\partial\Psi}{\partial t} 
     \label{eq:eq1}
 \end{equation}
-
-
 
 Per una particella libera, l’energia totale o hamiltoniana  coincide con l'energia cinetica:
 
