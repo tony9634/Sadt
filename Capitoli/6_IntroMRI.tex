@@ -1429,7 +1429,7 @@ Raccogliendo \(N\) e \(\Delta N\) al secondo membro si ha:
 \dfrac{d\Delta N}{dt} = N\left( W_{- \rightarrow +} - W_{+ \rightarrow -} \right) - \Delta N\left( W_{- \rightarrow +} + W_{+ \rightarrow -} \right)
 \]
 
-Queste equazioni devono essere sempre valide poiché non sono state proposte ipotesi particolari semplificative. Se le equazioni sono sempre valide, lo sono anche all'equilibrio termodinamico, condizione in cui non vi è nessuna variazione di \(\Delta N\) dato che le due popolazioni presentano lo stesso numero di spin, nonostante la variazione della configurazione del sistema.Dal punto di vista matematico, all'equilibrio termodinamico si ha:
+Queste equazioni devono essere sempre valide poiché non sono state proposte ipotesi particolari semplificative. Se le equazioni sono sempre valide, lo sono anche all'equilibrio termodinamico, condizione in cui non vi è nessuna variazione di \(\Delta N\) dato che le due popolazioni presentano lo stesso numero di spin, nonostante la variazione della configurazione del sistema. Dal punto di vista matematico, all'equilibrio termodinamico si ha:
 
 \[
 \dfrac{d\Delta N}{dt} = 0
@@ -2157,7 +2157,7 @@ M_{x}\left(t\right) = \left\lbrack C_{1}\exp\left( - j\omega_{0}t \right) + C_{2
 
 Dove per \(C_1\) risulta:
 
-\begin{align*}
+\[\begin{aligned}
 C_{1}\exp\left( - j\omega_{0}t \right) &= 
 \dfrac{1}{2}\left[ M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) 
 + jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right] \exp\left( j\omega_{0}t_{0} \right)\exp\left( - j\omega_{0}t \right) = \\
@@ -2165,12 +2165,12 @@ C_{1}\exp\left( - j\omega_{0}t \right) &=
 \exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left[ - j\omega_{0}\left( t - t_{0} \right) \right] = \\
 &= \left[ \dfrac{1}{2}M_{x}\left( t_{0} \right) - \dfrac{1}{2j}M_{y}\left( t_{0} \right) \right]
 \exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left[ - j\omega_{0}\left( t - t_{0} \right) \right]
-\end{align*}
+\end{aligned}\]
 
 
 mentre per \(C_2\):
 
-\begin{align*}
+\[\begin{aligned}
 C_{2}\exp\left( j\omega_{0}t \right) &= 
 \dfrac{1}{2}\left[ M_{x}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) 
 - jM_{y}\left( t_{0} \right)\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right] \exp\left( - j\omega_{0}t_{0} \right)\exp\left( j\omega_{0}t \right) = \\
@@ -2178,11 +2178,11 @@ C_{2}\exp\left( j\omega_{0}t \right) &=
 \exp\left( - j\omega_{0}t_{0} \right)\exp\left[ j\omega_{0}\left( t - t_{0} \right) \right] = \\
 &= \left[ \dfrac{1}{2}M_{x}\left( t_{0} \right) + \dfrac{1}{2j}M_{y}\left( t_{0} \right) \right]
 \exp\left( - j\omega_{0}t_{0} \right)\exp\left[ j\omega_{0}\left( t - t_{0} \right) \right]
-\end{align*}
+\end{aligned}\]
 
 Quindi, la soluzione lungo \({\hat{\imath}}_{x}\) si scrive come:
 
-\begin{align*}
+\[\begin{aligned}
 M_{x}(t) &= \left\{ 
 \left[ \dfrac{1}{2}M_{x}(t_{0}) - \dfrac{1}{2j}M_{y}(t_{0}) \right]
 \exp\left( \dfrac{t_{0}}{T_{2}} \right)
@@ -2192,11 +2192,11 @@ M_{x}(t) &= \left\{
 \exp\left( -j\omega_{0}t_{0} \right)
 \exp\left[ j\omega_{0}(t - t_{0}) \right] 
 \right\} \exp\left( -\dfrac{t}{T_{2}} \right)
-\end{align*}
+\end{aligned}\]
 
 Raccogliendo opportunamente si ha:
 
-\begin{align*}
+\[\begin{aligned}
 M_{x}(t) &= \left\{ 
 M_{x}(t_{0}) \dfrac{
 \exp\left[ j\omega_{0}(t - t_{0}) \right] + 
@@ -2208,7 +2208,7 @@ M_{y}(t_{0}) \dfrac{
 \exp\left[ -j\omega_{0}(t - t_{0}) \right]
 }{2j}
 \right\} \exp\left( -\dfrac{t - t_{0}}{T_{2}} \right)
-\end{align*}
+\end{aligned}\]
 
 Per le relazioni di Eulero, risulta:
 
@@ -2220,7 +2220,7 @@ Analogamente, per la componente lungo \({\hat{\imath}}_{y}\) si ha:
 
 Svolgendo i calcoli per \(C_1\):
 
-\begin{align*}
+\[\begin{aligned}
 - jC_{1}\exp\left( - j\omega_{0}t \right) &= 
 - j\dfrac{1}{2}\left[ M_{x}(t_{0})\exp\left( \dfrac{t_{0}}{T_{2}} \right) 
 + jM_{y}(t_{0})\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right]  \exp\left( j\omega_{0}t_{0} \right)\exp\left( - j\omega_{0}t \right) =  \\
@@ -2228,11 +2228,11 @@ Svolgendo i calcoli per \(C_1\):
 \exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left[ - j\omega_{0}(t - t_{0}) \right] =\\
 &= \left[ \dfrac{1}{2j}M_{x}(t_{0}) + \dfrac{1}{2}M_{y}(t_{0}) \right]
 \exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left[ - j\omega_{0}(t - t_{0}) \right]
-\end{align*}
+\end{aligned}\]
 
 mentre per \(C_2\)
 
-\begin{align*}
+\[\begin{aligned}
 jC_{2}\exp\left( j\omega_{0}t \right) &= 
 j\dfrac{1}{2}\left[ M_{x}(t_{0})\exp\left( \dfrac{t_{0}}{T_{2}} \right) 
 - jM_{y}(t_{0})\exp\left( \dfrac{t_{0}}{T_{2}} \right) \right] \exp\left( - j\omega_{0}t_{0} \right)\exp\left( j\omega_{0}t \right) = \\
@@ -2240,11 +2240,11 @@ j\dfrac{1}{2}\left[ M_{x}(t_{0})\exp\left( \dfrac{t_{0}}{T_{2}} \right)
 \exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left[ j\omega_{0}(t - t_{0}) \right] = \\
 &= \left[ -\dfrac{1}{2j}M_{x}(t_{0}) + \dfrac{1}{2}M_{y}(t_{0}) \right]
 \exp\left( \dfrac{t_{0}}{T_{2}} \right)\exp\left[ j\omega_{0}(t - t_{0}) \right]
-\end{align*}
+\end{aligned}\]
 
 Quindi, la soluzione lungo \({\hat{\imath}}_{y}\) si scrive come:
 
-\begin{align*}
+\[\begin{aligned}
 M_{y}(t) &= \left\{ 
 \left[ \dfrac{1}{2j}M_{x}(t_{0}) + \dfrac{1}{2}M_{y}(t_{0}) \right]
 \exp\left( \dfrac{t_{0}}{T_{2}} \right)
@@ -2254,11 +2254,11 @@ M_{y}(t) &= \left\{
 \exp\left( \dfrac{t_{0}}{T_{2}} \right)
 \exp\left[ j\omega_{0}(t - t_{0}) \right]
 \right\} \exp\left( -\dfrac{t}{T_{2}} \right)
-\end{align*}
+\end{aligned}\]
 
 Raccogliendo opportunamente si ha:
 
-\begin{align*}
+\[\begin{aligned}
 M_{y}(t) &= \left\{ 
 - M_{x}(t_{0}) \dfrac{
 \exp\left[ j\omega_{0}(t - t_{0}) \right] - 
@@ -2270,7 +2270,7 @@ M_{y}(t_{0}) \dfrac{
 \exp\left[ -j\omega_{0}(t - t_{0}) \right]
 }{2}
 \right\} \exp\left( -\dfrac{t - t_{0}}{T_{2}} \right)
-\end{align*}
+\end{aligned}\]
 
 Per l'equivalenza di Eulero risulta:
 
@@ -2311,17 +2311,17 @@ Siccome il tempo di rilassamento trasversale è dell'ordine di \(100\ ms\), il t
 
 È possibile scrivere la soluzione delle componenti trasversali in forma complessa, introducendo il fasore \(M_{+}\), definito come:
 
-\begin{align*}
+\[\begin{aligned}
 M_{+}(t) &= M_{x}(t) + jM_{y}(t) =\\
 &= \left[
 M_{x}(0)\cos(\omega_{0}t) + M_{y}(0)\sin(\omega_{0}t)
 - jM_{x}(0)\sin(\omega_{0}t) + jM_{y}(0)\cos(\omega_{0}t)
 \right] \exp\left( -\dfrac{t}{T_{2}} \right)
-\end{align*}
+\end{aligned}\]
 
 Raccogliendo si ottiene:
 
-\begin{align*}
+\[\begin{aligned}
 M_{+}(t) &= \left\{
 M_{x}(0)\left[ \cos(\omega_{0}t) - j\sin(\omega_{0}t) \right]
 + jM_{y}(0)\left[ \cos(\omega_{0}t) - j\sin(\omega_{0}t) \right]
@@ -2330,7 +2330,7 @@ M_{x}(0)\left[ \cos(\omega_{0}t) - j\sin(\omega_{0}t) \right]
 \left[ \cos(\omega_{0}t) - j\sin(\omega_{0}t) \right]
 \left[ M_{x}(0) + jM_{y}(0) \right]
 \right\} \exp\left( -\dfrac{t}{T_{2}} \right)
-\end{align*}
+\end{aligned}\]
 
 Dove:
 
@@ -2408,7 +2408,7 @@ B_{1} & 0 & B_{0} - \dfrac{\omega}{\gamma}
 
 Raccogliendo i termini, si ottiene:
 
-\begin{align*}
+\[\begin{aligned}
 \vec{M} \times \vec{B}_{\text{eff}} &= 
 M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right)\hat{\imath}_{x'} 
 + M_{z}B_{1}\hat{\imath}_{y'} 
@@ -2417,11 +2417,11 @@ M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right)\hat{\imath}_{x'}
 &= M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right)\hat{\imath}_{x'} 
 - \left[ M_{x'}\left( B_{0} - \dfrac{\omega}{\gamma} \right) - M_{z}B_{1} \right]\hat{\imath}_{y'} 
 - M_{y'}B_{1}\hat{\imath}_{z}
-\end{align*}
+\end{aligned}\]
 
 L'equazione vettoriale di Bloch si scrive:
 
-\begin{align*}
+\[\begin{aligned}
 \left( \dfrac{d\vec{M}}{dt} \right)' &= 
 \gamma \vec{M} \times \vec{B}_{\text{eff}} 
 + \dfrac{1}{T_{1}}\left( M_{0} - M_{z} \right)\hat{\imath}_{z} 
@@ -2433,7 +2433,7 @@ M_{y'}\left( B_{0} - \dfrac{\omega}{\gamma} \right)\hat{\imath}_{x'}
 \right\} + \\
 &\quad + \dfrac{1}{T_{1}}\left( M_{0} - M_{z} \right)\hat{\imath}_{z} 
 - \dfrac{1}{T_{2}}\left( M_{x'}\hat{\imath}_{x'} + M_{y'}\hat{\imath}_{y'} \right)
-\end{align*}
+\end{aligned}\]
 
 Scomponendo lungo gli assi del sistema rotante si ottiene:
 

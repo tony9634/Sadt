@@ -35,7 +35,7 @@ La maggior parte del grasso nel corpo umano presenta una costante di \emph{shiel
 
 Per un campo principale \(B_{0} = 1.5\ T\), ciò porta a uno shift in frequenza di:
 
-\[\left| \Delta f_{fw} \right| = \left| - \sigma_{fw}\overline{\gamma}B_{0} \right| = 3.335 \cdot 10^{- 6} \cdot 42.6 \cdot 10^{6}\frac{Hz}{T}1.5\ T = 214\ Hz\]
+\[\left| \Delta f_{fw} \right| = \left| - \sigma_{fw}\overline{\gamma}B_{0} \right| = 3.335 \cdot 10^{- 6} \cdot 42.6 \cdot 10^{6}\dfrac{Hz}{T}1.5\ T = 214\ Hz\]
 
 La densità protonica dell'acqua può anche essere molto maggiore di quella del grasso in un tessuto sano, tuttavia, il segnale del voxel legato ai lipidi per una sequenza con intervalli di ripetizione di breve durata può essere molto maggiore di quello legato all'acqua, poiché quest'ultimo presenta un tempo di rilassamento longitudinale \(T_{1}\) maggiore.
 
@@ -71,7 +71,7 @@ La frequenza di risonanza dell'acqua, nel sistema rotante, è maggiore di quella
 
 Il segnale nel voxel è dato dalla combinazione di due picchi spettrali, rispettivamente a frequenza \(f_{0} = 2\pi\omega_{o} = 2\pi\gamma B_{0}\) e shiftata di \(\Delta f_{fw}\):
 
-\[s = s(w)\exp\left( - j\omega_{0}t \right) + s(f)\exp\left( - \left( \omega_{0} + \frac{\Delta f_{fw}}{2\pi} \right)t \right)\]
+\[s = s(w)\exp\left( - j\omega_{0}t \right) + s(f)\exp\left( - \left( \omega_{0} + \dfrac{\Delta f_{fw}}{2\pi} \right)t \right)\]
 
 Nel sistema rotante, la magnetizzazione dell'acqua e del grasso, a valle dell'impulso a radiofrequenza a \(\pi/2\), mostrano comportamenti diversi:
 
@@ -141,7 +141,7 @@ Il termine \(\overline{\gamma}B_{0}\) è in comune ai due membri, dunque, può e
 
 Risolvendo l'equazione si ottiene:
 
-\[x_{1} - x_{f} = \frac{\Delta f_{fw}}{\overline{\gamma}G_{x}}\]
+\[x_{1} - x_{f} = \dfrac{\Delta f_{fw}}{\overline{\gamma}G_{x}}\]
 
 Questa relazione dimostra che più grande è il gradiente di lettura (\(G_{x}\)), minore sarà lo shift spaziale, riducendo così l'artefatto.
 
@@ -157,7 +157,7 @@ Se si vuole una banda nel voxel minore del \emph{chemical shift} è necessario a
 
 La banda del voxel deve essere opportunamente scelta. È noto, infatti, che la banda del voxel è legata al rapporto segnale/rumore: minore è la banda di frequenza contenuta nel voxel e maggiore è il rapporto segnale rumore, secondo un andamento del tipo:
 
-\[SNR \propto \frac{1}{\sqrt{{BW}_{R}}}\]
+\[SNR \propto \dfrac{1}{\sqrt{{BW}_{R}}}\]
 
 Questo requisito è in contrasto con l'ampliamento della banda al fine di eliminare l'artefatto legato al \emph{chemical shift}, poiché, come visto, per ridurre tale fenomeno è necessario avere una banda per voxel maggiore dello shift in frequenza delle due sostanze- Ciò produce una riduzione del rapporto segnale/rumore.
 
@@ -270,15 +270,15 @@ Si raccoglie moltiplica e divide per \(2\pi\), al fine di ottenere \(\overline{\
 
 Si raccoglie il termine \(2\pi\overline{\gamma}G_{x}t'\):
 
-\[\phi_{f}\left( t' \right) = - 2\pi\overline{\gamma}G_{x}\left( x + \frac{\Delta B_{fw}}{G_{x}} \right)t'\]
+\[\phi_{f}\left( t' \right) = - 2\pi\overline{\gamma}G_{x}\left( x + \dfrac{\Delta B_{fw}}{G_{x}} \right)t'\]
 
 Questa relazione può essere espressa in termini del \(k\)-spazio:
 
-\[\phi_{f}\left( k_{x} \right) = - 2\pi k_{x}\left( x + \frac{\Delta B_{fw}}{G_{x}} \right)\]
+\[\phi_{f}\left( k_{x} \right) = - 2\pi k_{x}\left( x + \dfrac{\Delta B_{fw}}{G_{x}} \right)\]
 
 Nel \(k\)-spazio, la fase del grasso è sfasata di una quantità \(- \ \Delta B_{fw}/G_{x}\). Siccome la fase del grasso, al tempo d'echo, non è recuperata, è necessario introdurre un termine addizionale di fase che tiene conto dello sfasamento introdotto dall'ambiente molecolare:
 
-\[\phi_{f}\left( k_{x} \right) = - 2\pi k_{x}\left( x + \frac{\Delta B_{fw}}{G_{x}} \right) - 2\pi\overline{\gamma}\Delta B_{fw}T_{E}\]
+\[\phi_{f}\left( k_{x} \right) = - 2\pi k_{x}\left( x + \dfrac{\Delta B_{fw}}{G_{x}} \right) - 2\pi\overline{\gamma}\Delta B_{fw}T_{E}\]
 
 Si pone:
 
@@ -334,7 +334,7 @@ Acquisite le due immagini è possibile ricavare sia l'immagine dell'acqua \(s_{w
 
 Da cui:
 
-\[s_{w} = \frac{s_{OP} + s_{IN}}{2}\]
+\[s_{w} = \dfrac{s_{OP} + s_{IN}}{2}\]
 
 Mediante sottrazione tra le due immagini, invece, si ricava l'immagine del grasso:
 
@@ -342,13 +342,13 @@ Mediante sottrazione tra le due immagini, invece, si ricava l'immagine del grass
 
 Da cui:
 
-\[s_{f} = \frac{s_{IN} - s_{OP}}{2}\]
+\[s_{f} = \dfrac{s_{IN} - s_{OP}}{2}\]
 
 Con questa metodica è semplice ricostruire l'immagine della sezione anatomica di interesse rimuovendo la componente del segnale del voxel indesiderata. In caso di acqua e grasso i tempi di echo da utilizzare sono, all'incirca:
 
-\[T_{E,IN} = \frac{2\pi}{\Delta\omega_{fw}} \simeq 4.54\ ms\]
+\[T_{E,IN} = \dfrac{2\pi}{\Delta\omega_{fw}} \simeq 4.54\ ms\]
 
-\[T_{E,OP} = \frac{\pi}{\Delta\omega_{fw}} \simeq 2.27\ ms\]
+\[T_{E,OP} = \dfrac{\pi}{\Delta\omega_{fw}} \simeq 2.27\ ms\]
 
 Dove \(\Delta\omega_{fw} = 2\pi\overline{\gamma}\Delta B_{fw}\) e \(\Delta B_{fw} = \gamma\Delta f_{fw} \Leftrightarrow \ \Delta f_{fw} = \Delta B_{fw}/\gamma\). Combinando si ottiene:
 

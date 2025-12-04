@@ -64,7 +64,7 @@ Sia \(t_{n}\) il tempo che intercorre tra l'impulso \(n\)-esimo e l'impulso \(n 
 
 Con un abuso di notazione si pone \(t_{n} = t - nT_{R}\) in modo da portare l'origine dei tempi in \(nT_{R}\). Nell'intervallo tra due ripetizioni \(t_{n} = t - nT_{R}\) rappresenta lo spostamento dall'origine dei tempi all'istante \(nT_{R}\) di applicazione dell'impulso \(n\)-esimo. Al tempo \(t_{n}\) la componente trasversale ricevuta dall'antenna è data delle equazioni di Bloch:
 
-\[M_{\bot}\left( t_{n} \right) = M_{\bot}\left( 0^{+} \right)\exp\left( - \frac{t_{n}}{T_{2}} \right),0 < t_{n} < T_{R}\]
+\[M_{\bot}\left( t_{n} \right) = M_{\bot}\left( 0^{+} \right)\exp\left( - \dfrac{t_{n}}{T_{2}} \right),0 < t_{n} < T_{R}\]
 
 Dove \(t = 0^{+}\) è l'istante immediatamente successivo all'applicazione dell'impulso a radiofrequenza. La componente trasversale dall'inizio della sequenza è legata alla magnetizzazione longitudinale dalla proiezione della componente longitudinale lungo il piano trasverso:
 
@@ -72,11 +72,11 @@ Dove \(t = 0^{+}\) è l'istante immediatamente successivo all'applicazione dell'
 
 Ovviamente, \({\overset{\underline{}}{M}}_{\bot}\) dipende dal valore che assume la componente longitudinale un istante prima dell'impulso a \(\vartheta\), poiché in quest'ultimo la magnetizzazione longitudinale è ribaltata quasi istantaneamente. La componente trasversa è:
 
-\[M_{\bot}\left( t_{n} \right) = {\overset{\underline{}}{M}}_{\bot}\left( 0^{+} \right)\exp\left( - \frac{t_{n}}{T_{2}} \right) = {\overset{\underline{}}{M}}_{z}\left( 0^{-} \right)\sin\vartheta\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}\left( t_{n} \right) = {\overset{\underline{}}{M}}_{\bot}\left( 0^{+} \right)\exp\left( - \dfrac{t_{n}}{T_{2}} \right) = {\overset{\underline{}}{M}}_{z}\left( 0^{-} \right)\sin\vartheta\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Per calcolare con precisione la componente trasversale è necessario esplicitare la componente longitudinale. Per l'equazione di Bloch, tra l'applicazione di un impulso e il successivo, la componente longitudinale è data da:
 
-\[M_{z}\left( t_{n} \right) = M_{0}\left( 1 - \exp\left( - \frac{t_{n}}{T_{1}} \right) \right) + M_{z}\left( 0^{+} \right)\exp\left( - \frac{t_{n}}{T_{1}} \right)\]
+\[M_{z}\left( t_{n} \right) = M_{0}\left( 1 - \exp\left( - \dfrac{t_{n}}{T_{1}} \right) \right) + M_{z}\left( 0^{+} \right)\exp\left( - \dfrac{t_{n}}{T_{1}} \right)\]
 
 La componente longitudinale dipende dal valore che aveva prima dell'impulso a radiofrequenza, che a sua volta è legata alla componente longitudinale prima dell'impulso:
 
@@ -84,21 +84,21 @@ La componente longitudinale dipende dal valore che aveva prima dell'impulso a ra
 
 L'equazione complessiva è data da:
 
-\[M_{z}\left( t_{n} \right) = M_{0}\left( 1 - \exp\left( - \frac{t_{n}}{T_{1}} \right) \right) + M_{z}\left( 0^{-} \right)\cos\vartheta\exp\left( - \frac{t_{n}}{T_{1}} \right)\]
+\[M_{z}\left( t_{n} \right) = M_{0}\left( 1 - \exp\left( - \dfrac{t_{n}}{T_{1}} \right) \right) + M_{z}\left( 0^{-} \right)\cos\vartheta\exp\left( - \dfrac{t_{n}}{T_{1}} \right)\]
 
 I transitori si estinguono con andamento esponenziale e costante di tempo \(T_{1}\). Dopo un certo numero di impulsi il transitorio si estingue, dunque, le riduzioni del segnale registrato si esauriscono. Si raggiunge così lo stato steady state nel quale tra un impulso e il successivo la magnetizzazione recupera completamente il valore che aveva prima dell'impulso a radiofrequenza.
 
 Dal punto di vista analitico, la magnetizzazione trasversale un attimo prima dell'impulso \(n + 1\)-esimo è:
 
-\[M_{\bot}\left( (n + 1)T_{R} \right) = M_{\bot}\left( nT_{R}^{+} \right)\exp\left( - \frac{T_{R}}{T_{2}} \right)\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}\left( (n + 1)T_{R} \right) = M_{\bot}\left( nT_{R}^{+} \right)\exp\left( - \dfrac{T_{R}}{T_{2}} \right)\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Per semplicità di notazione si pone:
 
-\[E_{2} = \exp\left( - \frac{T_{R}}{T_{2}} \right)\]
+\[E_{2} = \exp\left( - \dfrac{T_{R}}{T_{2}} \right)\]
 
 Con questa posizione la magnetizzazione trasversale si scrive come:
 
-\[M_{\bot}\left( (n + 1)T_{R} \right) = M_{\bot}\left( nT_{R}^{+} \right)E_{2}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}\left( (n + 1)T_{R} \right) = M_{\bot}\left( nT_{R}^{+} \right)E_{2}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 La magnetizzazione trasversale all'istante \(nT_{R}^{+}\) è uguale alla proiezione della magnetizzazione longitudinale un istante prima di applicare l'impulso \(n\)-esimo:
 
@@ -110,11 +110,11 @@ Da cui:
 
 La componente longitudinale, un attimo prima dell'applicazione dell'impulso \(n + 1\)-esimo è:
 
-\[M_{z}\left( (n + 1)T_{R}^{-} \right) = M_{z}\left( nT_{R}^{-} \right)\cos\vartheta\exp\left( - \frac{T_{R}}{T_{1}} \right) + M_{0}\left( 1 - \exp\left( - \frac{T_{R}}{T_{1}} \right) \right)\]
+\[M_{z}\left( (n + 1)T_{R}^{-} \right) = M_{z}\left( nT_{R}^{-} \right)\cos\vartheta\exp\left( - \dfrac{T_{R}}{T_{1}} \right) + M_{0}\left( 1 - \exp\left( - \dfrac{T_{R}}{T_{1}} \right) \right)\]
 
 Per semplicità di notazione si pone;
 
-\[E_{1} = \exp\left( - \frac{T_{R}}{T_{1}} \right)\]
+\[E_{1} = \exp\left( - \dfrac{T_{R}}{T_{1}} \right)\]
 
 Con questa posizione, la componente longitudinale si scrive come:
 
@@ -134,15 +134,15 @@ Con questa relazione è possibile ricavare il valore della magnetizzazione all'e
 
 Ricavando \(M_{ze}\) si ottiene:
 
-\[M_{ze} = M_{0}\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\]
+\[M_{ze} = M_{0}\dfrac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\]
 
 Nota questa quantità è possibile analizzare il comportamento della magnetizzazione trasversale all'equilibrio. Dalla relazione \(M_{\bot}\left( (n + 1)T_{R} \right) = M_{z}\left( nT_{R}^{+} \right)\sin\vartheta\left( nT_{R}^{+} \right)E_{2}\), si ha:\(\left( t_{n} \right) = {\overset{\underline{}}{M}}_{\bot}\left( 0^{+} \right)\exp\left( - t_{n}/T_{2} \right)\), si ha:
 
-\[M_{\bot}\left( (n + 1)T_{R} \right) = M_{ze}\sin\vartheta\left( nT_{R}^{+} \right)E_{2}\exp\left( - \frac{t_{n}}{T_{2}} \right) = M_{0}\sin\vartheta\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}\left( (n + 1)T_{R} \right) = M_{ze}\sin\vartheta\left( nT_{R}^{+} \right)E_{2}\exp\left( - \dfrac{t_{n}}{T_{2}} \right) = M_{0}\sin\vartheta\dfrac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Nota la componente trasversale della magnetizzazione è possibile ricostruire l'immagine della densità protonica del voxel, dipendente da \(\vartheta\) e il tempo di echo:
 
-\[\widehat{\rho}\left( \vartheta,T_{E} \right) = \rho_{0}\sin\vartheta\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+\[\widehat{\rho}\left( \vartheta,T_{E} \right) = \rho_{0}\sin\vartheta\dfrac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)\]
 
 La densità protonica ottenuta, ovvero l'immagine, non ha una pesatura semplice in \(T_{1}\), \(T_{2}\) o \(\rho_{0}\) me dipende da tutti questi parametri, secondo la relazione individuata. Tipici tempi di ripetizione sono di \(T_{E} \simeq 4\ ms\).
 
@@ -158,31 +158,31 @@ La sequenza appena introdotta è nota come short \(T_{R}\) steady state incohere
 
 Dalla relazione individuata per \(\widehat{\rho}\left( \vartheta,T_{E} \right)\) si evince che la pesatura dipende sia dal tempo d'echo che dal flip angle \(\vartheta\) dell'impulso a radiofrequenza. Si vuole determinare l'angono in corrispondenza del quale il segnale assume il suo valore massimo. A tale scopo si deriva rispetto \(\vartheta\) e si pone a zero la derivata
 
-\[\frac{\partial\widehat{\rho}}{\partial\vartheta} = 0 \Leftrightarrow \frac{\partial}{\partial\vartheta}\left( \rho_{0}\sin\vartheta\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right) \right) = 0\]
+\[\dfrac{\partial\widehat{\rho}}{\partial\vartheta} = 0 \Leftrightarrow \dfrac{\partial}{\partial\vartheta}\left( \rho_{0}\sin\vartheta\dfrac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right) \right) = 0\]
 
 Grazie alla linearità della derivata, si ha:
 
-\[\left( 1 - E_{1} \right)\rho_{0}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\frac{\partial}{\partial\vartheta}\left( \sin\vartheta\frac{1}{1 - E_{1}\cos\vartheta} \right) = 0\]
+\[\left( 1 - E_{1} \right)\rho_{0}\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)\dfrac{\partial}{\partial\vartheta}\left( \sin\vartheta\dfrac{1}{1 - E_{1}\cos\vartheta} \right) = 0\]
 
 I termini costante possono essere semplificati poiché diversi da zero, quindi:
 
-\[\frac{\partial}{\partial\vartheta}\left( \sin\vartheta\frac{1}{1 - E_{1}\cos\vartheta} \right) = 0\]
+\[\dfrac{\partial}{\partial\vartheta}\left( \sin\vartheta\dfrac{1}{1 - E_{1}\cos\vartheta} \right) = 0\]
 
 Si esegue la derivata:
 
-\[\cos\vartheta\frac{1}{1 - E_{1}\cos\vartheta} + \sin\vartheta\frac{1}{\left( 1 - E_{1}\cos\vartheta \right)^{2}}\left( - E_{1}\sin\vartheta \right) = 0\]
+\[\cos\vartheta\dfrac{1}{1 - E_{1}\cos\vartheta} + \sin\vartheta\dfrac{1}{\left( 1 - E_{1}\cos\vartheta \right)^{2}}\left( - E_{1}\sin\vartheta \right) = 0\]
 
 Si considera \(1 - E_{1}\cos\vartheta\) e si verifica se può essere uguale a zero:
 
-\[1 - E_{1}\cos\vartheta = 0 \Leftrightarrow \cos\vartheta = \frac{1}{E_{1}}\]
+\[1 - E_{1}\cos\vartheta = 0 \Leftrightarrow \cos\vartheta = \dfrac{1}{E_{1}}\]
 
 Per definizione \(E_{1} = \exp\left( - T_{R}/T_{1} \right)\). Poiché \(T_{R}\) è dell'ordine del \(ms\) mentre \(T_{1}\) dei secondi, l'esponenziale è circa uguale all'unità:
 
-\[\exp\left( - \frac{T_{R}}{T_{1}} \right) \simeq 1\]
+\[\exp\left( - \dfrac{T_{R}}{T_{1}} \right) \simeq 1\]
 
 La condizione \(\cos\vartheta = E_{1}^{- 1}\) è verificata quando \(\vartheta \simeq 2m\pi,m \in \mathbb{N}_{0}\). Ne discende che è possibile semplificare \(1 - E_{1}\cos\vartheta\) nell'espressione per valutare \(\vartheta\) massimo, a patto che la soluzione \(\vartheta_{opt}\) non sia prossima a \(0\). Si ottiene:
 
-\[\cos\vartheta - E_{1}\sin^{2}\vartheta\frac{1}{1 - E_{1}\cos\vartheta} = 0\]
+\[\cos\vartheta - E_{1}\sin^{2}\vartheta\dfrac{1}{1 - E_{1}\cos\vartheta} = 0\]
 
 Si esegue il minimo comune multiplo:
 
@@ -210,7 +210,7 @@ Applicando la funzione inversa al coseno si ottiene l'angolo di massimo:
 
 Applicando la definizione di \(E_{1}\) si ricava:
 
-\[\vartheta_{opt} = \arccos\left( \exp\left( - \frac{T_{R}}{T_{1}} \right) \right)\]
+\[\vartheta_{opt} = \arccos\left( \exp\left( - \dfrac{T_{R}}{T_{1}} \right) \right)\]
 
 L'angolo \(\vartheta_{opt}\), in corrispondenza del quale il segnale del tessuto nel voxel ha il suo valore massimo, è detto angolo di Ernst ed è una quantità minore di \(\pi/2\). Questo angolo è generalmente indicato con \(\vartheta_{E}\).
 
@@ -226,7 +226,7 @@ Si suppone che il tempo di ripetizione tra una sequenza e l'altra sia molto mino
 
 In questa ipotesi, il termine \(E_{1}\) piò essere sviluppato in serie di Taylor:
 
-\[E_{1} = \exp\left( - \frac{T_{R}}{T_{1}} \right) \simeq 1 - \frac{T_{R}}{T_{1}}\]
+\[E_{1} = \exp\left( - \dfrac{T_{R}}{T_{1}} \right) \simeq 1 - \dfrac{T_{R}}{T_{1}}\]
 
 È valida la relazione trigonometrica:
 
@@ -242,15 +242,15 @@ Ma \(\cos^{2}\left( \arccos\left( E_{1} \right) \right) = E_{1}^{2}\) perché fu
 
 Applicando l'approssimazione per \(T_{R} \ll T_{1}\) si scrive:
 
-\[\sin\vartheta_{E} = \sqrt{1 - E_{1}^{2}} \simeq \sqrt{1 - \left( 1 - \frac{T_{R}}{T_{1}} \right)^{2}}\]
+\[\sin\vartheta_{E} = \sqrt{1 - E_{1}^{2}} \simeq \sqrt{1 - \left( 1 - \dfrac{T_{R}}{T_{1}} \right)^{2}}\]
 
 Svolgendo il quadrato, si ottiene:
 
-\[\sin\vartheta_{E} \simeq \sqrt{1 - 1 + 2\frac{T_{R}}{T_{1}} - \left( \frac{T_{R}}{T_{1}} \right)^{2}} = \sqrt{2\frac{T_{R}}{T_{1}} - \left( \frac{T_{R}}{T_{1}} \right)^{2}}\]
+\[\sin\vartheta_{E} \simeq \sqrt{1 - 1 + 2\dfrac{T_{R}}{T_{1}} - \left( \dfrac{T_{R}}{T_{1}} \right)^{2}} = \sqrt{2\dfrac{T_{R}}{T_{1}} - \left( \dfrac{T_{R}}{T_{1}} \right)^{2}}\]
 
 Siccome \(T_{R}/T_{1} \ll 1\), è possibile trascurare i termini di ordine superiore al primo, ottenendo:
 
-\[\sin\vartheta_{E} \simeq \sqrt{2\frac{T_{R}}{T_{1}}}\]
+\[\sin\vartheta_{E} \simeq \sqrt{2\dfrac{T_{R}}{T_{1}}}\]
 
 Se \(T_{R} \ll T_{1}\), il termine \(E_{1} = \exp\left( - T_{R}/T_{1} \right) \simeq 1\). In questa condizione l'angolo di Ernst è molto minore di \(1\), poiché l'arcocoseno in prossimità di \(1\) tende a \(0\):
 
@@ -258,67 +258,67 @@ Se \(T_{R} \ll T_{1}\), il termine \(E_{1} = \exp\left( - T_{R}/T_{1} \right) \s
 
 In questa ipotesi è possibile approssimare il seno con il suo argomento, così da ricavare un'espressione semplice per l'angolo di Ernst:
 
-\[\vartheta_{E} \simeq \sqrt{2\frac{T_{R}}{T_{1}}}\]
+\[\vartheta_{E} \simeq \sqrt{2\dfrac{T_{R}}{T_{1}}}\]
 
 Con questa approssimazione, la componente trasversale del vettore di magnetizzazione, valutata nell'angolo di Ernst è:
 
-\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\sin\vartheta_{E}\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta_{E}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\sin\vartheta_{E}\dfrac{1 - E_{1}}{1 - E_{1}\cos\vartheta_{E}}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Si è visto che \(\sin\vartheta_{E} = \sqrt{1 - E_{1}^{2}}\) e che \(\vartheta_{E} = \arccos\left( E_{1} \right)\), per cui:
 
-\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\sin\vartheta_{E}\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta_{E}}\exp\left( - \frac{t_{n}}{T_{2}} \right) = M_{0}\sqrt{1 - E_{1}^{2}}\ \frac{1 - E_{1}}{1 - E_{1}\cos\left( \arccos\left( E_{1} \right) \right)}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\sin\vartheta_{E}\dfrac{1 - E_{1}}{1 - E_{1}\cos\vartheta_{E}}\exp\left( - \dfrac{t_{n}}{T_{2}} \right) = M_{0}\sqrt{1 - E_{1}^{2}}\ \dfrac{1 - E_{1}}{1 - E_{1}\cos\left( \arccos\left( E_{1} \right) \right)}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Da cui:
 
-\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\sqrt{1 - E_{1}^{2}}\ \frac{1 - E_{1}}{1 - E_{1}^{2}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\sqrt{1 - E_{1}^{2}}\ \dfrac{1 - E_{1}}{1 - E_{1}^{2}}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Si scompongono i termini \(1 - E_{1}^{2}\) in \(\left( 1 - E_{1} \right)\left( 1 + E_{1} \right)\):
 
-\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\sqrt{\left( 1 - E_{1} \right)\left( 1 + E_{1} \right)}\ \frac{1 - E_{1}}{\left( 1 - E_{1} \right)\left( 1 + E_{1} \right)}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\sqrt{\left( 1 - E_{1} \right)\left( 1 + E_{1} \right)}\ \dfrac{1 - E_{1}}{\left( 1 - E_{1} \right)\left( 1 + E_{1} \right)}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Nella frazione è possibile semplificare \(1 - E_{1}\):
 
-\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\ \frac{\sqrt{\left( 1 - E_{1} \right)\left( 1 + E_{1} \right)}}{\left( 1 + E_{1} \right)}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\ \dfrac{\sqrt{\left( 1 - E_{1} \right)\left( 1 + E_{1} \right)}}{\left( 1 + E_{1} \right)}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Grazie alle proprietà delle radici, è possibile scrivere:
 
-\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\ \sqrt{\frac{\left( 1 - E_{1} \right)\left( 1 + E_{1} \right)}{\left( 1 + E_{1} \right)^{2}}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\ \sqrt{\dfrac{\left( 1 - E_{1} \right)\left( 1 + E_{1} \right)}{\left( 1 + E_{1} \right)^{2}}}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Da cui:
 
-\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\ \sqrt{\frac{1 - E_{1}}{1 + E_{1}}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\ \sqrt{\dfrac{1 - E_{1}}{1 + E_{1}}}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Nella condizione \(T_{R} \ll T_{1}\) è possibile applicare lo sviluppo di Taylor per \(E_{1}\), ottenendo:
 
-\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\ \sqrt{\frac{1 - E_{1}}{1 + E_{1}}}\exp\left( - \frac{t_{n}}{T_{2}} \right) \simeq M_{0}\ \sqrt{\frac{1 - \left( 1 - \frac{T_{R}}{T_{1}} \right)}{1 + 1 - \frac{T_{R}}{T_{1}}}}\exp\left( - \frac{t_{n}}{T_{2}} \right) =\]
+\[M_{\bot}\left( \vartheta_{E} \right) = M_{0}\ \sqrt{\dfrac{1 - E_{1}}{1 + E_{1}}}\exp\left( - \dfrac{t_{n}}{T_{2}} \right) \simeq M_{0}\ \sqrt{\dfrac{1 - \left( 1 - \dfrac{T_{R}}{T_{1}} \right)}{1 + 1 - \dfrac{T_{R}}{T_{1}}}}\exp\left( - \dfrac{t_{n}}{T_{2}} \right) =\]
 
 Svolendo le somme, si ottiene:
 
-\[M_{\bot}\left( \vartheta_{E} \right) \simeq M_{0}\ \sqrt{\frac{\frac{T_{R}}{T_{1}}}{2 - \frac{T_{R}}{T_{1}}}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}\left( \vartheta_{E} \right) \simeq M_{0}\ \sqrt{\dfrac{\dfrac{T_{R}}{T_{1}}}{2 - \dfrac{T_{R}}{T_{1}}}}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Dato che \(T_{R} \ll T_{1}\) è possibile trascurare \(T_{R}/T_{1}\) al denominatore:
 
-\[M_{\bot}\left( \vartheta_{E} \right) \simeq M_{0}\ \sqrt{\frac{\frac{T_{R}}{T_{1}}}{2 - \frac{T_{R}}{T_{1}}}}\exp\left( - \frac{t_{n}}{T_{2}} \right) \simeq M_{0}\ \sqrt{\frac{T_{R}}{2T_{1}}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}\left( \vartheta_{E} \right) \simeq M_{0}\ \sqrt{\dfrac{\dfrac{T_{R}}{T_{1}}}{2 - \dfrac{T_{R}}{T_{1}}}}\exp\left( - \dfrac{t_{n}}{T_{2}} \right) \simeq M_{0}\ \sqrt{\dfrac{T_{R}}{2T_{1}}}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Poiché \(T_{2} < T_{1}\) e \(0 < t_{n} < T_{R}\) il termine \(\exp\left( - t_{n}/T_{2} \right)\) tende all'unità:
 
-\[\exp\left( - \frac{t_{n}}{T_{2}} \right) \simeq 1\]
+\[\exp\left( - \dfrac{t_{n}}{T_{2}} \right) \simeq 1\]
 
 Si ottiene:
 
-\[M_{\bot}\left( \vartheta_{E} \right) \simeq M_{0}\ \sqrt{\frac{T_{R}}{2T_{1}}}\]
+\[M_{\bot}\left( \vartheta_{E} \right) \simeq M_{0}\ \sqrt{\dfrac{T_{R}}{2T_{1}}}\]
 
 All'interno della radice quadrata, si moltiplica e divide per \(2\):
 
-\[M_{\bot}\left( \vartheta_{E} \right) \simeq M_{0}\sqrt{\frac{T_{R}}{2T_{1}}} = M_{0}\sqrt{\frac{2T_{R}}{4T_{1}}}\]
+\[M_{\bot}\left( \vartheta_{E} \right) \simeq M_{0}\sqrt{\dfrac{T_{R}}{2T_{1}}} = M_{0}\sqrt{\dfrac{2T_{R}}{4T_{1}}}\]
 
 Poiché si è visto che:
 
-\[\vartheta_{E} \simeq \sqrt{2\frac{T_{R}}{T_{1}}}\]
+\[\vartheta_{E} \simeq \sqrt{2\dfrac{T_{R}}{T_{1}}}\]
 
 È possibile concludere che:
 
-\[M_{\bot}\left( \vartheta_{E} \right) \simeq M_{0}\frac{\vartheta_{E}}{2}\]
+\[M_{\bot}\left( \vartheta_{E} \right) \simeq M_{0}\dfrac{\vartheta_{E}}{2}\]
 
 La magnetizzazione trasversale, nel punto di massimo \(\vartheta_{E}\) e per tempi di ripetizioni molto minori del tempo di rilassamento longitudinale, è proporzionale a metà dell'angolo di Ernst, espresso in radianti, tramite la costante \(M_{0}\).
 
@@ -327,69 +327,69 @@ La magnetizzazione trasversale, nel punto di massimo \(\vartheta_{E}\) e per tem
 
 La relazione generale della magnetizzazione trasversa, in funzione del flip angle, è data da:
 
-\[M_{\bot}(\vartheta) = M_{0}\sin\vartheta\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}(\vartheta) = M_{0}\sin\vartheta\dfrac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Si suppone che \(\vartheta \ll 1\). È possibile arrestare lo sviluppo del seno al primo ordine e del coseno al secondo ordine:
 
 \[\sin\vartheta \simeq \ \vartheta\]
 
-\[\cos(\vartheta) \simeq 1 - \frac{\vartheta^{2}}{2}\]
+\[\cos(\vartheta) \simeq 1 - \dfrac{\vartheta^{2}}{2}\]
 
 La componente trasversale del vettore magnetizzazione può essere approssimata come:
 
-\[M_{\bot}(\vartheta) = M_{0}\sin\vartheta\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \frac{t_{n}}{T_{2}} \right) \simeq M_{0}\vartheta\frac{1 - E_{1}}{1 - E_{1}\left( 1 - \frac{\vartheta^{2}}{2} \right)}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}(\vartheta) = M_{0}\sin\vartheta\dfrac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \dfrac{t_{n}}{T_{2}} \right) \simeq M_{0}\vartheta\dfrac{1 - E_{1}}{1 - E_{1}\left( 1 - \dfrac{\vartheta^{2}}{2} \right)}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Si divide e moltiplica il secondo membro per \(1 - E_{1}\):
 
-\[M_{\bot}(\vartheta) \simeq \frac{M_{0}\vartheta}{\frac{1 - E_{1}\left( 1 - \frac{\vartheta^{2}}{2} \right)}{1 - E_{1}}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}(\vartheta) \simeq \dfrac{M_{0}\vartheta}{\dfrac{1 - E_{1}\left( 1 - \dfrac{\vartheta^{2}}{2} \right)}{1 - E_{1}}}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Svolgendo i prodotti, si ottiene:
 
-\[M_{\bot}(\vartheta) \simeq \frac{M_{0}\vartheta}{\frac{1 - E_{1} + E_{1}\frac{\vartheta^{2}}{2}}{1 - E_{1}}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}(\vartheta) \simeq \dfrac{M_{0}\vartheta}{\dfrac{1 - E_{1} + E_{1}\dfrac{\vartheta^{2}}{2}}{1 - E_{1}}}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Grazie alla proprietà distributiva del prodotto, si ha:
 
-\[M_{\bot}(\vartheta) \simeq \frac{M_{0}\vartheta}{\frac{1 - E_{1}}{1 - E_{1}} + \frac{E_{1}}{1 - E_{1}}\frac{\vartheta^{2}}{2}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}(\vartheta) \simeq \dfrac{M_{0}\vartheta}{\dfrac{1 - E_{1}}{1 - E_{1}} + \dfrac{E_{1}}{1 - E_{1}}\dfrac{\vartheta^{2}}{2}}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Per cui:
 
-\[M_{\bot}(\vartheta) \simeq \frac{M_{0}\vartheta}{1 + \frac{E_{1}}{1 - E_{1}}\frac{\vartheta^{2}}{2}}\exp\left( - \frac{t_{n}}{T_{2}} \right)\]
+\[M_{\bot}(\vartheta) \simeq \dfrac{M_{0}\vartheta}{1 + \dfrac{E_{1}}{1 - E_{1}}\dfrac{\vartheta^{2}}{2}}\exp\left( - \dfrac{t_{n}}{T_{2}} \right)\]
 
 Se il tempo di ripetizione è molto minore del tempo di rilassamento longitudinale \(T_{1}\) è possibile sviluppare \(E_{1}\) in serie di Taylor:
 
-\[E_{1} \simeq 1 - \frac{T_{R}}{T_{1}}\]
+\[E_{1} \simeq 1 - \dfrac{T_{R}}{T_{1}}\]
 
 Sostituendo, si ottiene:
 
-\[M_{\bot}(\vartheta) \simeq \frac{M_{0}\vartheta}{1 + \frac{1 - \frac{T_{R}}{T_{1}}}{1 - \left( 1 - \frac{T_{R}}{T_{1}} \right)}\frac{\vartheta^{2}}{2}}\exp\left( - \frac{t_{n}}{T_{2}} \right) =\]
+\[M_{\bot}(\vartheta) \simeq \dfrac{M_{0}\vartheta}{1 + \dfrac{1 - \dfrac{T_{R}}{T_{1}}}{1 - \left( 1 - \dfrac{T_{R}}{T_{1}} \right)}\dfrac{\vartheta^{2}}{2}}\exp\left( - \dfrac{t_{n}}{T_{2}} \right) =\]
 
 Si considera solamente il denominatore. Svolgendo le operazioni di somme:
 
-\[1 + \frac{1 - \frac{T_{R}}{T_{1}}}{1 - \left( 1 - \frac{T_{R}}{T_{1}} \right)}\frac{\vartheta^{2}}{2} = 1 + \frac{1 - \frac{T_{R}}{T_{1}}}{1 - 1 + \frac{T_{R}}{T_{1}}}\frac{\vartheta^{2}}{2} = 1 + \frac{1 - \frac{T_{R}}{T_{1}}}{\frac{T_{R}}{T_{1}}}\frac{\vartheta^{2}}{2} =\]
+\[1 + \dfrac{1 - \dfrac{T_{R}}{T_{1}}}{1 - \left( 1 - \dfrac{T_{R}}{T_{1}} \right)}\dfrac{\vartheta^{2}}{2} = 1 + \dfrac{1 - \dfrac{T_{R}}{T_{1}}}{1 - 1 + \dfrac{T_{R}}{T_{1}}}\dfrac{\vartheta^{2}}{2} = 1 + \dfrac{1 - \dfrac{T_{R}}{T_{1}}}{\dfrac{T_{R}}{T_{1}}}\dfrac{\vartheta^{2}}{2} =\]
 
 Da cui:
 
-\[= 1 + \left( \frac{T_{1}}{T_{R}} - 1 \right)\frac{\vartheta^{2}}{2}\]
+\[= 1 + \left( \dfrac{T_{1}}{T_{R}} - 1 \right)\dfrac{\vartheta^{2}}{2}\]
 
 Per l'ipotesi \(T_{R} \ll T_{1}\) risulta che \(T_{1} \gg T_{R}\), per cui è possibile trascurare l'unità:
 
-\[1 + \left( \frac{T_{1}}{T_{R}} - 1 \right)\frac{\vartheta^{2}}{2} \simeq 1 + \frac{T_{1}}{T_{R}}\frac{\vartheta^{2}}{2}\]
+\[1 + \left( \dfrac{T_{1}}{T_{R}} - 1 \right)\dfrac{\vartheta^{2}}{2} \simeq 1 + \dfrac{T_{1}}{T_{R}}\dfrac{\vartheta^{2}}{2}\]
 
 Si è visto che:
 
-\[\vartheta_{E} \simeq \sqrt{2\frac{T_{R}}{T_{1}}}\]
+\[\vartheta_{E} \simeq \sqrt{2\dfrac{T_{R}}{T_{1}}}\]
 
 Elevando al quadrato e invertendo la relazione, si ha:
 
-\[\vartheta_{E}^{- 2} \simeq \frac{1}{2}\frac{T_{1}}{T_{R}}\]
+\[\vartheta_{E}^{- 2} \simeq \dfrac{1}{2}\dfrac{T_{1}}{T_{R}}\]
 
 Sostituendo nel denominatore della magnetizzazione trasversale si ha:
 
-\[1 + \frac{T_{1}}{T_{R}}\frac{\vartheta^{2}}{2} \simeq 1 + \frac{\vartheta^{2}}{\vartheta_{E}^{2}}\]
+\[1 + \dfrac{T_{1}}{T_{R}}\dfrac{\vartheta^{2}}{2} \simeq 1 + \dfrac{\vartheta^{2}}{\vartheta_{E}^{2}}\]
 
 La componente trasversale del vettore di magnetizzazione si scrive come:
 
-\[M_{\bot}(\vartheta) \simeq \frac{M_{0}\vartheta}{1 + \frac{\vartheta^{2}}{\vartheta_{E}^{2}}}\exp\left( - \frac{t_{n}}{T_{2}} \right) =\]
+\[M_{\bot}(\vartheta) \simeq \dfrac{M_{0}\vartheta}{1 + \dfrac{\vartheta^{2}}{\vartheta_{E}^{2}}}\exp\left( - \dfrac{t_{n}}{T_{2}} \right) =\]
 
 Nelle ipotesi \(T_{R} \ll T_{1}\) e \(\vartheta \ll 1\), la magnetizzazione trasversale dipende dalla magnetizzazione longitudinale all'equilibrio \(M_{0}\) e dal flip angle \(\vartheta\). Fissato quest'ultimo parametro, il segnale registrato dipende linearmente da \(M_{0}\), di conseguenza l'immagine ricostruita presenta un contrasto pesato in densità protonica.
 
@@ -427,7 +427,7 @@ Dove la sommatoria tiene conto dei contributi \(M_{0}\left( 1 - E_{1} \right)E_{
 
 La relazione \(M_{z}(n)\) descrive come varia la magnetizzazione in funzione del numero di impulsi \(n\) a partire dai valori iniziali. Essendo una sommatoria geometrica, essa converge. È possibile scrivere la somma della serie:
 
-\[M_{z}(n) = \sum_{l = 0}^{n - 1}\left\lbrack \left( E_{1}\cos\vartheta \right)^{l}\left( 1 - E_{1} \right)M_{0} \right\rbrack + M_{0}\left( E_{1}\cos\vartheta \right)^{n} = M_{0}\left( 1 - E_{1} \right)\frac{1 - \left( E_{1}\cos\vartheta \right)^{n}}{1 - E_{1}\cos\vartheta} + M_{0}E_{1}^{2n}\]
+\[M_{z}(n) = \sum_{l = 0}^{n - 1}\left\lbrack \left( E_{1}\cos\vartheta \right)^{l}\left( 1 - E_{1} \right)M_{0} \right\rbrack + M_{0}\left( E_{1}\cos\vartheta \right)^{n} = M_{0}\left( 1 - E_{1} \right)\dfrac{1 - \left( E_{1}\cos\vartheta \right)^{n}}{1 - E_{1}\cos\vartheta} + M_{0}E_{1}^{2n}\]
 
 \begin{figure}
 \centering
@@ -436,67 +436,67 @@ La relazione \(M_{z}(n)\) descrive come varia la magnetizzazione in funzione del
 
 La relazione può essere semplificata se valutata per un flip angle uguale a quello di Ernst, \(\vartheta = \vartheta_{E}\):
 
-\[\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = M_{0}\left( 1 - E_{1} \right)\frac{1 - \left( E_{1}\cos\vartheta_{E} \right)^{n}}{1 - E_{1}\cos\vartheta_{E}} + M_{0}E_{1}^{2n}\]
+\[\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = M_{0}\left( 1 - E_{1} \right)\dfrac{1 - \left( E_{1}\cos\vartheta_{E} \right)^{n}}{1 - E_{1}\cos\vartheta_{E}} + M_{0}E_{1}^{2n}\]
 
 Dove \(\vartheta_{E} = \arccos\left( E_{1} \right)\). Sostituendo questa relazione si ottiene:
 
-\[\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = M_{0}\left( 1 - E_{1} \right)\frac{1 - \left( E_{1}\cos\left( \arccos\left( E_{1} \right) \right) \right)^{n}}{1 - E_{1}\cos\left( \arccos\left( E_{1} \right) \right)} + M_{0}E_{1}^{2n}\]
+\[\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = M_{0}\left( 1 - E_{1} \right)\dfrac{1 - \left( E_{1}\cos\left( \arccos\left( E_{1} \right) \right) \right)^{n}}{1 - E_{1}\cos\left( \arccos\left( E_{1} \right) \right)} + M_{0}E_{1}^{2n}\]
 
 Per cui:
 
-\[\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = M_{0}\left( 1 - E_{1} \right)\frac{1 - \left( E_{1}^{2} \right)^{n}}{1 - E_{1}^{2}} + M_{0}E_{1}^{2n}\]
+\[\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = M_{0}\left( 1 - E_{1} \right)\dfrac{1 - \left( E_{1}^{2} \right)^{n}}{1 - E_{1}^{2}} + M_{0}E_{1}^{2n}\]
 
 Il termine \(1 - E_{1}^{2}\) può essere scomposto in \(\left( 1 - E_{1} \right)\left( 1 + E_{1} \right)\). \(\left( 1 - E_{1} \right)\) piò essere semplificato, ottenendo:
 
-\[\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = M_{0}\frac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n}\]
+\[\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = M_{0}\dfrac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n}\]
 
 Per valutare lo stato stazionario si passa al limite per \(n \rightarrow \infty\) di questa lezione:
 
-\[\lim_{n \rightarrow \infty}\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = \lim_{n \rightarrow \infty}\left( M_{0}\frac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} \right)\]
+\[\lim_{n \rightarrow \infty}\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = \lim_{n \rightarrow \infty}\left( M_{0}\dfrac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} \right)\]
 
 I termini
 
-\[E_{1}^{2n} = \exp\left( - \frac{2nT_{R}}{T_{1}} \right) \rightarrow 0,n \rightarrow \infty\]
+\[E_{1}^{2n} = \exp\left( - \dfrac{2nT_{R}}{T_{1}} \right) \rightarrow 0,n \rightarrow \infty\]
 
 Per cui si ottiene:
 
-\[\lim_{n \rightarrow \infty}\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = \lim_{n \rightarrow \infty}\left( M_{0}\frac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} \right) = M_{0}\frac{1}{1 + E_{1}} = M_{ze}\]
+\[\lim_{n \rightarrow \infty}\left. \ M_{z}(n) \right|_{\vartheta = \vartheta_{E}} = \lim_{n \rightarrow \infty}\left( M_{0}\dfrac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} \right) = M_{0}\dfrac{1}{1 + E_{1}} = M_{ze}\]
 
 Questo risultato coincide con il valore della magnetizzazione longitudinale allo steady state.
 
 L'errore relativo commesso nel confondere il valore della magnetizzazione un attimo prima dell'applicazione dell'impulso \((n + 1)\)-esimo con il valore allo steady state, con un flip angle uguale a quello di Ernst, è definito come:
 
-\[\alpha = \frac{M_{z}\left( n,\vartheta_{E} \right) - M_{ze}\left( \vartheta_{E} \right)}{M_{ze}\left( \vartheta_{E} \right)}\]
+\[\alpha = \dfrac{M_{z}\left( n,\vartheta_{E} \right) - M_{ze}\left( \vartheta_{E} \right)}{M_{ze}\left( \vartheta_{E} \right)}\]
 
 Dove:
 
-\[M_{ze}\left( \vartheta_{E} \right) = \frac{M_{0}}{1 + E_{1}}\]
+\[M_{ze}\left( \vartheta_{E} \right) = \dfrac{M_{0}}{1 + E_{1}}\]
 
-\[M_{z}\left( n,\vartheta_{E} \right) = M_{0}\frac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n}\]
+\[M_{z}\left( n,\vartheta_{E} \right) = M_{0}\dfrac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n}\]
 
 In altre parole, \(\alpha\) è l'errore relativo commesso nel confondere il valore della magnetizzazione longitudinale dopo \(n\) impulsi col valore del limite per \(n \rightarrow \infty\), ovvero con la magnetizzazione allo steady state. Sostituendo le espressioni per \(M_{ze}\left( \vartheta_{E} \right)\) e \(M_{z}\left( n,\vartheta_{E} \right)\) si ottiene:
 
-\[\alpha = \frac{M_{z}\left( n,\vartheta_{E} \right) - M_{ze}\left( \vartheta_{E} \right)}{M_{ze}\left( \vartheta_{E} \right)} = \frac{M_{0}\frac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} - \frac{M_{0}}{1 + E_{1}}}{\frac{M_{0}}{1 + E_{1}}}\]
+\[\alpha = \dfrac{M_{z}\left( n,\vartheta_{E} \right) - M_{ze}\left( \vartheta_{E} \right)}{M_{ze}\left( \vartheta_{E} \right)} = \dfrac{M_{0}\dfrac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} - \dfrac{M_{0}}{1 + E_{1}}}{\dfrac{M_{0}}{1 + E_{1}}}\]
 
 Si considera il numeratore e si applica la proprietà distributiva del prodotto:
 
-\[M_{0}\frac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} - \frac{M_{0}}{1 + E_{1}} = \frac{M_{0}}{1 + E_{1}} - \frac{M_{0}E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} - \frac{M_{0}}{1 + E_{1}} =\]
+\[M_{0}\dfrac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} - \dfrac{M_{0}}{1 + E_{1}} = \dfrac{M_{0}}{1 + E_{1}} - \dfrac{M_{0}E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} - \dfrac{M_{0}}{1 + E_{1}} =\]
 
 Semplificando, si ottiene:
 
-\[= M_{0}E_{1}^{2n} - \frac{M_{0}E_{1}^{2n}}{1 + E_{1}} =\]
+\[= M_{0}E_{1}^{2n} - \dfrac{M_{0}E_{1}^{2n}}{1 + E_{1}} =\]
 
 Raccogliendo i termini comuni, si ottiene:
 
-\[= M_{0}E_{1}^{2n}\left( 1 - \frac{1}{1 + E_{1}} \right) =\]
+\[= M_{0}E_{1}^{2n}\left( 1 - \dfrac{1}{1 + E_{1}} \right) =\]
 
 Applicando il minimo comune multiplo si ottiene:
 
-\[= M_{0}E_{1}^{2n}\left( \frac{1 + E_{1} - 1}{1 + E_{1}} \right) = M_{0}E_{1}^{2n}\left( \frac{E_{1}}{1 + E_{1}} \right)\]
+\[= M_{0}E_{1}^{2n}\left( \dfrac{1 + E_{1} - 1}{1 + E_{1}} \right) = M_{0}E_{1}^{2n}\left( \dfrac{E_{1}}{1 + E_{1}} \right)\]
 
 Sostituendo questo risultato nell'espressione dell'errore relativo, \(\alpha\), si ottiene:
 
-\[\alpha = \frac{M_{0}\frac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} - \frac{M_{0}}{1 + E_{1}}}{\frac{M_{0}}{1 + E_{1}}} = \frac{M_{0}E_{1}^{2n}\left( \frac{E_{1}}{1 + E_{1}} \right)}{\frac{M_{0}}{1 + E_{1}}}\]
+\[\alpha = \dfrac{M_{0}\dfrac{1 - E_{1}^{2n}}{1 + E_{1}} + M_{0}E_{1}^{2n} - \dfrac{M_{0}}{1 + E_{1}}}{\dfrac{M_{0}}{1 + E_{1}}} = \dfrac{M_{0}E_{1}^{2n}\left( \dfrac{E_{1}}{1 + E_{1}} \right)}{\dfrac{M_{0}}{1 + E_{1}}}\]
 
 Semplificando i termini comuni tra numeratore e denominatore, ottiene l'espressione per l'errore relativo:
 
@@ -508,15 +508,15 @@ Se si vuole un certo errore \(\alpha\) è necessario applicare un numero \(n_{\a
 
 Ricordando la definizione di \(E_{1}\), si ottiene la relazione:
 
-\[\alpha = \left( \exp\left( - \frac{T_{R}}{T_{1}} \right) \right)^{2n_{\alpha} + 1}\]
+\[\alpha = \left( \exp\left( - \dfrac{T_{R}}{T_{1}} \right) \right)^{2n_{\alpha} + 1}\]
 
 Passando ai logaritmi, si ricava un'espressione lineare per \(n_{\alpha}\):
 
-\[\log\alpha = - \frac{T_{R}}{T_{1}}\left( 2n_{\alpha} + 1 \right)\]
+\[\log\alpha = - \dfrac{T_{R}}{T_{1}}\left( 2n_{\alpha} + 1 \right)\]
 
 Risolvendo per \(n_{\alpha}\) si ottiene il tempo richiesto per raggiungere l'errore \(\alpha\) desiderato:
 
-\[n_{\alpha} = - \frac{1}{2}\frac{T_{2}}{T_{R}}\log\alpha - \frac{1}{2}\]
+\[n_{\alpha} = - \dfrac{1}{2}\dfrac{T_{2}}{T_{R}}\log\alpha - \dfrac{1}{2}\]
 
 Se, ad esempio, si vuole commettere un errore del \(10\%\) sul grasso con un impulso a radiofrequenza all'angolo di Ernst, è necessario applicare \(8\) impulsi, a \(T_{R} = 40\ ms\).
 
@@ -537,7 +537,7 @@ Questa sequenza è particolarmente utile nell'imaging tridimensionale, in cui i 
 
 Si osserva, infine, che, nel caso generale, la magnetizzazione longitudinale è data da:
 
-\[M_{z}(n) = M_{0}\left( 1 - E_{1} \right)\frac{1 - \left( E_{1}\cos\vartheta \right)^{n}}{1 - E_{1}\cos\vartheta} + M_{0}E_{1}^{2n}\]
+\[M_{z}(n) = M_{0}\left( 1 - E_{1} \right)\dfrac{1 - \left( E_{1}\cos\vartheta \right)^{n}}{1 - E_{1}\cos\vartheta} + M_{0}E_{1}^{2n}\]
 
 Riducendo l'angolo di ribaltamento si ottiene un'attenuazione del segnale ricevuto; tuttavia, ciò non inficia la visualizzazione dei tessuti in quanto il contrasto tra due tessuti non viene perso, anzi, la sequenza permette di enfatizzare un tessuto in base al tempo di rilassamento longitudinale o densità protonica.
 
@@ -563,7 +563,7 @@ La pesatura, a parità di rapporto segnale/rumore influenza l'imaging, quindi, m
 
 L'intensità del segnale del pixel dipende dal flip angle, \(s(\vartheta)\). IN una sequenza basata su short-\(T_{R}\) incoherent gradient-echo, il segnale del voxel è data dalla relazione:
 
-\[s\left( \vartheta,T_{E} \right) = \rho_{0}\sin\vartheta\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+\[s\left( \vartheta,T_{E} \right) = \rho_{0}\sin\vartheta\dfrac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)\]
 
 Per stimare il tempo di rilassamento longitudinale è necessario acquisire più immagini con flip angle diversi e applicare un algoritmo di fitting come least square.
 
@@ -578,11 +578,11 @@ Eseguendo l'imaging con differenti flip angle si ottengono diversi segnali del v
 
 Si osservi che per una sequenza short-\(T_{R}\), il tempo di ripetizione \(T_{R}\) è molto minore del tempo di rilassamento legato alle disomogeneità di campo, \(T_{2}^{*}\), dunque, il termine esponenziale legato a questi due tempi tende all'unità:
 
-\[E_{2} = \exp\left( - \frac{T_{R}}{T_{2}} \right) \simeq 1,T_{R} \ll T_{2}\]
+\[E_{2} = \exp\left( - \dfrac{T_{R}}{T_{2}} \right) \simeq 1,T_{R} \ll T_{2}\]
 
 Il segnale del voxel, contenente il tessuto di interesse, può essere approssimato come:
 
-\[s(\vartheta) \simeq \rho_{0}\sin\vartheta\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\]
+\[s(\vartheta) \simeq \rho_{0}\sin\vartheta\dfrac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\]
 
 La risoluzione del problema sfrutta la minimizzazione dell'errore quadratico medio tra la curva \(\widehat{\rho}(\vartheta)\), con i parametri \(\rho_{0}\), \(T_{1}\) e \(T_{2}\) da valutare, e i punti sperimentalmente misurati. Il problema della determinazione dei parametri è molto simile a una regressione lineare di tipo OLS (\emph{Ordinary Least Square}); tuttavia, il legame tra i parametri del tessuto e il flip angle è non lineare, dunque, si parla di NLS (Non-linear least squares), di più difficile risoluzione.
 
@@ -784,7 +784,7 @@ In alcuni casi è possibile linearizzare la minimizzazione degli scarti quadrati
 
 Il segnale del voxel, nel caso di sequenza short-\(T_{R}\) dipende, secondo una legge nota, dal flip-angle (FA), densità protonica e tempo di rilassamento longitudinale \(T_{1}\) del tessuto di cui è composto il voxel:
 
-\[s\left( \vartheta,T_{1},\rho_{0} \right) = \rho_{0}\sin\vartheta\frac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\]
+\[s\left( \vartheta,T_{1},\rho_{0} \right) = \rho_{0}\sin\vartheta\dfrac{1 - E_{1}}{1 - E_{1}\cos\vartheta}\]
 
 Si vuole linearizzare la dipendenza del segnale \(s\) dai parametri \(E_{1}\) e \(\rho_{0}\); a tale scopo si moltiplica ambo i membri per \(1 - E_{1}\cos\vartheta\):
 
@@ -792,27 +792,27 @@ Si vuole linearizzare la dipendenza del segnale \(s\) dai parametri \(E_{1}\) e 
 
 Si divide anche per \(\sin\vartheta\):
 
-\[\left( 1 - E_{1}\cos\vartheta \right)\frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} = \left( 1 - E_{1} \right)\rho_{0}\]
+\[\left( 1 - E_{1}\cos\vartheta \right)\dfrac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} = \left( 1 - E_{1} \right)\rho_{0}\]
 
 Si svolgono i prodotti al primo membro:
 
-\[\frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} - E_{1}\cos\vartheta\frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} = \left( 1 - E_{1} \right)\rho_{0}\]
+\[\dfrac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} - E_{1}\cos\vartheta\dfrac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} = \left( 1 - E_{1} \right)\rho_{0}\]
 
 Il rapporto tra il seno e il coseno coincide con la tangente dell'angolo, per cui:
 
-\[\frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} - E_{1}s\left( \vartheta,T_{1},\rho_{0} \right)\frac{\cos\vartheta}{\sin\vartheta} = \left( 1 - E_{1} \right)\rho_{0}\]
+\[\dfrac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} - E_{1}s\left( \vartheta,T_{1},\rho_{0} \right)\dfrac{\cos\vartheta}{\sin\vartheta} = \left( 1 - E_{1} \right)\rho_{0}\]
 
 Dove:
 
-\[\frac{\cos\vartheta}{\sin\vartheta} = \cot\vartheta = \frac{1}{\tan\vartheta}\]
+\[\dfrac{\cos\vartheta}{\sin\vartheta} = \cot\vartheta = \dfrac{1}{\tan\vartheta}\]
 
 Da cui:
 
-\[\Longleftrightarrow \frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} - E_{1}\frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\tan\vartheta} = \left( 1 - E_{1} \right)\rho_{0}\]
+\[\Longleftrightarrow \dfrac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} - E_{1}\dfrac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\tan\vartheta} = \left( 1 - E_{1} \right)\rho_{0}\]
 
 Si porta al secondo membro i termini dipendenti da \(E_{1}\):
 
-\[\frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} = \left( 1 - E_{1} \right)\rho_{0} + E_{1}\frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\tan\vartheta}\]
+\[\dfrac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} = \left( 1 - E_{1} \right)\rho_{0} + E_{1}\dfrac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\tan\vartheta}\]
 
 Rispetto al flip angle la quantità \(\left( 1 - E_{1} \right)\rho_{0}\) è costante, per cui può essere indicata semplicemente con \(c\):
 
@@ -821,8 +821,8 @@ Rispetto al flip angle la quantità \(\left( 1 - E_{1} \right)\rho_{0}\) è cost
 Se si pone:
 
 \[\left\{ \begin{matrix}
-y = \frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} \\
-x = \frac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\tan\vartheta}
+y = \dfrac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\sin\vartheta} \\
+x = \dfrac{s\left( \vartheta,T_{1},\rho_{0} \right)}{\tan\vartheta}
 \end{matrix} \right.\ \]
 
 Si ottiene una relazione di tipo lineare dove coefficiente angolare e intercetta dipendono dai parametri \(E_{1}\) e \(\rho_{0}\):
@@ -834,8 +834,8 @@ La relazione del segnale nel voxel in questo modo è stata linearizzata nei conf
 Per ogni \(k\)-esima sequenza di acquisizione il segnale del voxel (\(s_{k}\)) è noto, poiché misurato sperimentalmente, così come il flip angle (\(\vartheta_{k}\)) impostato dall'esterno. In altre parole, sono note le quantità \(y_{k}\) e \(x_{k}\) noti \(s_{k}\) e \(\vartheta_{k}\):
 
 \[\left\{ \begin{matrix}
-y_{k} = \frac{s_{k}}{\sin\vartheta_{k}} \\
-x_{k} = \frac{s_{k}}{\tan\vartheta_{k}}
+y_{k} = \dfrac{s_{k}}{\sin\vartheta_{k}} \\
+x_{k} = \dfrac{s_{k}}{\tan\vartheta_{k}}
 \end{matrix} \right.\ \]
 
 È possibile definire una matrice dei coefficienti \(\overset{\underline{}}{\overset{\underline{}}{X}}\) come:

@@ -347,7 +347,7 @@ M_{x}\vec{B}_{\text{ric}} + M_{y}B_{ric,y} = {\vec{M}}_{\bot} \cdot {\vec{B}}_{r
 
 Si svolgono i passaggi matematici per la parte reale:
 
-\begin{align*}
+\[\begin{aligned}
 \Re\left\{ M_{+}(\vec{r}, t) \right\} 
 &= \text{Re}\left\{ 
 \left| M_{+}(\vec{r}, 0) \right| 
@@ -360,11 +360,11 @@ Si svolgono i passaggi matematici per la parte reale:
 &= \left| M_{+}(\vec{r}, 0) \right| 
 \exp\left( -\dfrac{t}{T_{2}(\vec{r})} \right) 
 \cos\left[ \omega_{0}(\vec{r})t - \phi_{0}(\vec{r}) \right]
-\end{align*}
+\end{aligned}\]
 
 Analogamente, per la parte immaginaria
 
-\begin{align*}
+\[\begin{aligned}
 \Im\left\{ M_{+}(\vec{r}, t) \right\} 
 &= \text{Im}\left\{ 
 \left| M_{+}(\vec{r}, 0) \right| 
@@ -377,11 +377,11 @@ Analogamente, per la parte immaginaria
 &= -\left| M_{+}(\vec{r}, 0) \right| 
 \exp\left( -\dfrac{t}{T_{2}(\vec{r})} \right) 
 \sin\left[ \omega_{0}(\vec{r})t - \phi_{0}(\vec{r}) \right]
-\end{align*}
+\end{aligned}\]
 
 Per cui la funzione integranda è data da:
 
-\begin{align*}
+\[\begin{aligned}
 \vec{M}_{\bot} \cdot \vec{B}_{\text{ric}}(\vec{r}) 
 &= \left( \Re\left\{ M_{+}(\vec{r}, t) \right\} \hat{i}_{x} 
 + \Im\left\{ M_{+}(\vec{r}, t) \right\} \hat{i}_{y} \right) 
@@ -390,47 +390,47 @@ Per cui la funzione integranda è data da:
 \exp\left( -\dfrac{t}{T_{2}(\vec{r})} \right) 
 \left[ B_{\text{ric},x}(\vec{r}) \cos\left( \omega_{0}(\vec{r})t - \phi_{0}(\vec{r}) \right) 
 - B_{\text{ric},y}(\vec{r}) \sin\left( \omega_{0}(\vec{r})t - \phi_{0}(\vec{r}) \right) \right]
-\end{align*}
+\end{aligned}\]
 
 
 La f.e.m. indotta sull'antenna è data dalla derivata della quantità appena individuata:
 
 
-\begin{align*}
+\[\begin{aligned}
 \text{emf}\!\left(t\right) \propto \dfrac{d}{dt} \int_{V'} & \left|M_+\!\left(\vec{r}, 0\right)\right| \exp\!\left(-\dfrac{t}{T_2\!\left(\vec{r}\right)}\right)
 \big[B_{\text{ric},x}\!\left(\vec{r}\right)
 \cos\!\left(\omega_0\!\left(\vec{r}\right)t - \phi_0\!\left(\vec{r}\right)\right) + \\
 &-B_{\text{ric},y}\!\left(\vec{r}\right) \sin\!\left(\omega_0\!\left(\vec{r}\right)t -\phi_0\!\left(\vec{r}\right)\right)\big] dV'
-\end{align*}
+\end{aligned}\]
 
 In ipotesi di volumetto costante nel tempo, è possibile scrivere:
 
 
-\begin{align*}
-\text{emf}\left( t \right) \propto \int_{V'} \frac{\partial}{\partial t} \Bigg\{ 
-& \left| M_{+}\left(\vec{r}, 0\right) \right| \exp\left( -\frac{t}{T_{2}\left(\vec{r}\right)} \right) \ \left[ \vec{B}_{\text{ric}}\left(\vec{r}\right) \cos\left( \omega_{0}\left(\vec{r}\right) t - \phi_{0}\left(\vec{r}\right) \right) \right. + \\
+\[\begin{aligned}
+\text{emf}\left( t \right) \propto \int_{V'} \dfrac{\partial}{\partial t} \Bigg\{ 
+& \left| M_{+}\left(\vec{r}, 0\right) \right| \exp\left( -\dfrac{t}{T_{2}\left(\vec{r}\right)} \right) \ \left[ \vec{B}_{\text{ric}}\left(\vec{r}\right) \cos\left( \omega_{0}\left(\vec{r}\right) t - \phi_{0}\left(\vec{r}\right) \right) \right. + \\
 & \left.- B_{\text{ric},y}\left(\vec{r}\right) \sin\left( \omega_{0}\left(\vec{r}\right) t - \phi_{0}\left(\vec{r}\right) \right)\right]\Bigg\} \, dV' =
-\end{align*}
+\end{aligned}\]
 
 Svolgendo la derivata temporale, si ha:
 
-\begin{align*}
+\[\begin{aligned}
 = \int_{V'}\! \Bigg\{ 
-& - \frac{1}{T_{2}\!\left(\vec{r}'\right)} \left| M_{+}\!\left(\vec{r}, 0\right) \right| 
-\exp\!\left( - \frac{t}{T_{2}\!\left(\vec{r}\right)} \right)
+& - \dfrac{1}{T_{2}\!\left(\vec{r}'\right)} \left| M_{+}\!\left(\vec{r}, 0\right) \right| 
+\exp\!\left( - \dfrac{t}{T_{2}\!\left(\vec{r}\right)} \right)
 \Big[
 B_{\text{ric},x}\!\left(\vec{r}\right) \cos\!\left( \omega_{0}\!\left(\vec{r}\right) t - \phi_{0}\!\left(\vec{r}\right) \right) - B_{\text{ric},y}\!\left(\vec{r}\right) \sin\!\left( \omega_{0}\!\left(\vec{r}\right) t - \phi_{0}\!\left(\vec{r}\right) \right)
 \Big] + \\
-& - \omega_{0}\!\left(\vec{r}\right) \left| M_{+}\!\left(\vec{r}, 0\right) \right| \exp\!\left( - \frac{t}{T_{2}\!\left(\vec{r}\right)} \right)\Big[
+& - \omega_{0}\!\left(\vec{r}\right) \left| M_{+}\!\left(\vec{r}, 0\right) \right| \exp\!\left( - \dfrac{t}{T_{2}\!\left(\vec{r}\right)} \right)\Big[
 B_{\text{ric},x}\!\left(\vec{r}\right) \sin\!\left( \omega_{0}\!\left(\vec{r}\right) t - \phi_{0}\!\left(\vec{r}\right) \right)  +\\
 &+  B_{\text{ric},y}\!\left(\vec{r}\right) \cos\!\left( \omega_{0}\!\left(\vec{r}\right) t - \phi_{0}\!\left(\vec{r}\right) \right)\Big]\Bigg\}\, dV' \simeq
-\end{align*}
+\end{aligned}\]
 
 Questa espressione mostra che il segnale ricevuto è una sinusoide smorzata, modulata spazialmente dalla fase iniziale, dalla frequenza di Larmor locale e dal campo ricevente.
 
 Poiché \(\omega_{0} \gg T_{2}^{- 1}\), è possibile trascurare il termine dipendente dal tempo di rilassamento trasversale:
 
-\begin{align*}
+\[\begin{aligned}
 \simeq \int_{V'} \Big\{ 
 & \omega_{0}\left( \vec{r} \right)
 \left| M_{+}\left( \vec{r},\ 0 \right) \right|
@@ -443,7 +443,7 @@ Poiché \(\omega_{0} \gg T_{2}^{- 1}\), è possibile trascurare il termine dipen
 \cos\left( \omega_{0}\left( \vec{r} \right)t - \phi_{0}\left( \vec{r} \right) \right)
 \right]
 \Big\} \, dV' =
-\end{align*}
+\end{aligned}\]
 
 All'interno dell'integrale sono presenti solo quantità dipendenti dalla posizione, come la fase iniziale, la frequenza di larmor, tempo di rilassamento e magnetizzazione iniziale.
 
@@ -455,7 +455,7 @@ Se il campo ricevente è del tipo:
 
 Il segnale ricevuto può essere scritto come:
 
-\begin{align*}
+\[\begin{aligned}
 = \int_{V'} \Big\{ 
 & \omega_{0}\left( \vec{r} \right)
 \left| M_{+}\left( \vec{r},\ 0 \right) \right|
@@ -469,7 +469,7 @@ B_{\bot}\left( \vec{r} \right)
 \cos\left( \omega_{0}\left( \vec{r} \right)t - \phi_{0}\left( \vec{r} \right) \right)
 \right]
 \Big\} \, dV'
-\end{align*}
+\end{aligned}\]
 
 
 Per le formula di addizione del seno:
@@ -515,8 +515,8 @@ Il segnale misurato dipende essenzialmente da:
 La dipendenza spaziale può essere trascurata se la magnetizzazione proviene da un piccolo campione omogeneo, come ad esempio un bicchiere d'acqua. In questo caso, l'integrale è di semplice risoluzione poiché nessuna quantità, come \(T_2\) e \(\omega_0\), dipende dalla posizione spaziale del volumetto elementare \(\vec{r}\). Sia \(V_s\) il volume del campione, il segnale ottenuto è proporzionale a:
 
 \[
-\text{emf}\left(t\right) \propto \omega_0 \int_{V'} \left| M_+ \right| B_\perp \exp\left( - \frac{t}{T_2} \right) \sin\left( \omega_0 t - \phi_0 + \vartheta \right) dV'
-= \omega_0 \left| M_+ \right| V_s B_\perp \exp\left( - \frac{t}{T_2} \right) \sin\left( \omega_0 t - \phi_0 + \vartheta \right)
+\text{emf}\left(t\right) \propto \omega_0 \int_{V'} \left| M_+ \right| B_\perp \exp\left( - \dfrac{t}{T_2} \right) \sin\left( \omega_0 t - \phi_0 + \vartheta \right) dV'
+= \omega_0 \left| M_+ \right| V_s B_\perp \exp\left( - \dfrac{t}{T_2} \right) \sin\left( \omega_0 t - \phi_0 + \vartheta \right)
 \]
 
 
@@ -712,7 +712,7 @@ Dopo la demodulazione, le componenti ad alta frequenza, maggiori di \(\delta\ome
 \phi\left( t \right) = \delta\omega_{0}t + \phi_{0}
 \]
 
-Si osservi che l'attenuazione del segnale avviene con constante di tempo \(T_{2}\), la quale varia anche in base alle disomogeneità di campo magnetico.Il tempo \(T_2\) è legato allo sfasamento degli spin nel piano trasversale, causato da interazioni spin-spin e disomogeneità del campo magnetico.
+Si osservi che l'attenuazione del segnale avviene con constante di tempo \(T_{2}\), la quale varia anche in base alle disomogeneità di campo magnetico. Il tempo \(T_2\) è legato allo sfasamento degli spin nel piano trasversale, causato da interazioni spin-spin e disomogeneità del campo magnetico.
 
 Il campo magnetico principale non è omogeneo in tutto lo spazio occupato dal paziente, ma presenta una certa variabilità dell'ordine di grandezza di \(1\ ppm\). Il campo magnetico avvertito da uno spin può, quindi, essere espresso come somma del campo magnetico principale e di un certo termine \(\Delta B\) legato alle disomogeneità:
 
@@ -769,7 +769,7 @@ Si vuole determinare l'origine della relazione tra il tempo di rilassamento tras
 Il segnale captato dalle antenne è del tipo:
 
 \[
-s\left( t \right) \propto \omega_0 \int_V \exp\left( - \frac{t}{T_2(\vec{r})} \right) \vec{B}_\perp(\vec{r}) \cdot \vec{M}_\perp(\vec{r}) \sin\left( \omega_0(\vec{r}) t \right) dV
+s\left( t \right) \propto \omega_0 \int_V \exp\left( - \dfrac{t}{T_2(\vec{r})} \right) \vec{B}_\perp(\vec{r}) \cdot \vec{M}_\perp(\vec{r}) \sin\left( \omega_0(\vec{r}) t \right) dV
 \]
 
 In generale, per un materiale qualsiasi, sia il tempo di rilassamento traversale\(T_2\) che la frequenza di precessione di Larmor \(\omega_0\) dipendono dalla posizione \(\vec{r}\) del volumetto elementare nel corpo, anche a causa delle disomogeneità del campo \(\Delta \vec{B}\).
@@ -1012,7 +1012,7 @@ Durante l’evoluzione libera, l’inviluppo del segnale decresce con costante d
 Poiché l’interazione spin-spin non è influenzata dalle disomogeneità di campo, il processo di rilassamento trasversale con costante $T_2$ continua ad agire durante tutta la sequenza, sia nella fase di sfasamento sia in quella di rifocalizzazione.  Di conseguenza, anche l’ampiezza dell’echo risulta modulata da un termine esponenziale di decadimento con costante di tempo $T_2$:
 
 \[
-M_{\bot}(t) \propto \exp\!\left(-\frac{t}{T_2}\right).
+M_{\bot}(t) \propto \exp\!\left(-\dfrac{t}{T_2}\right).
 \]
 
 In definitiva, la magnetizzazione trasversa al tempo di eco risulta ridotta di un fattore \(\exp\!\left(-{T_E}/{T_2}\right)\) rispetto alla magnetizzazione iniziale misurata subito dopo l’impulso a $\pi/2$.
@@ -1032,7 +1032,7 @@ Dall’analisi dell’ampiezza degli echi in funzione del tempo di eco si ricava
 È possibile misurare il picco del segnale di echo ricevuto, ottenendo così informazioni sulla magnetizzazione trasversa, che a sua volta dipende dal tempo di rilassamento $T_2$:
 
 \[
-M_{\bot} \propto \exp\!\left(-\frac{T_E}{T_2}\right).
+M_{\bot} \propto \exp\!\left(-\dfrac{T_E}{T_2}\right).
 \]
 
 In questo modo si ricavano informazioni dirette su $T_2$, eliminando gli effetti dovuti al tempo apparente $T_2^*$.  Tuttavia, la misura di un singolo segnale di echo non è sufficiente per determinare con precisione il tempo di rilassamento trasversale: è necessario acquisire più echi a diversi tempi $T_E$ e analizzarne l’andamento esponenziale.
@@ -1040,14 +1040,14 @@ In questo modo si ricavano informazioni dirette su $T_2$, eliminando gli effetti
 La modulazione del segnale registrato secondo la legge \(\exp\left( - t/T_{2} \right)\) deriva dal fatto che il vettore di magnetizzazione $\vec{M}$ evolve nel tempo in accordo con le equazioni di Bloch.  All’interno del campione, gli spin che precessano alla stessa frequenza (\textbf{isocromati}) presentano fasi inizialmente casuali, legate a \(\Delta B\). Le disomogeneità statiche del campo magnetico principale $B_0$ fanno sì che differenti regioni del campione abbiano frequenze di precessione leggermente diverse, producendo un rapido sfasamento tra gli isocromati. L’effetto complessivo è una magnetizzazione trasversa che, in assenza di rifocalizzazione, decresce come:
 
 \[
-M_{\bot}(t) \propto \exp\!\left(-\frac{t}{T_2^*}\right),
+M_{\bot}(t) \propto \exp\!\left(-\dfrac{t}{T_2^*}\right),
 \]
 
 a causa delle disomogeneità di campo.
 
 Il vettore di magnetizzazione, secondo le equazioni di Bloch, subisce inoltre un decadimento intrinseco della sua componente trasversale con costante di tempo $T_2$:
 \[
-M_{\bot}(t) \propto \exp\!\left(-\frac{t}{T_2}\right).
+M_{\bot}(t) \propto \exp\!\left(-\dfrac{t}{T_2}\right).
 \]
 Questo fenomeno rappresenta il vero processo di rilassamento trasversale, dovuto alle interazioni spin-spin, e consente di misurare sperimentalmente il tempo $T_2$ mediante sequenze di tipo \textbf{spin-echo}.
 
@@ -1131,7 +1131,7 @@ Gli impulsi di rifocalizzazione consentono di misurare un valore del segnale pro
 In definitiva, il processo di misura equivale a un campionamento del segnale di magnetizzazione trasversale:
 
 \[
-M_{\bot}(t) \propto \exp\!\left(-\frac{t}{T_{2}}\right),
+M_{\bot}(t) \propto \exp\!\left(-\dfrac{t}{T_{2}}\right),
 \]
 
 con periodo di campionamento pari a $T_{E}$.  Questo approccio consente una valutazione più robusta e precisa del tempo di rilassamento trasversale $T_{2}$.
@@ -1377,7 +1377,7 @@ Per la proprietà della matrice inversa, si ha:
 
 Semplificando e svolgendo i prodotti si ha:
 
-\begin{align*}
+\[\begin{aligned}
 &= E\left[ 
   \left( (\mathbf{X}^{T}\mathbf{X})^{-1}\mathbf{X}^{T}\vec{\varepsilon} \right)
   \left( (\mathbf{X}^{T}\mathbf{X})^{-1}\mathbf{X}^{T}\vec{\varepsilon} \right)^{T} 
@@ -1389,7 +1389,7 @@ Semplificando e svolgendo i prodotti si ha:
 \left(\mathbf{X}^{T}\mathbf{X}\right)^{-1}\mathbf{X}^{T}
 E\!\left[ \vec{\varepsilon}\vec{\varepsilon}^{T} \right]
 \mathbf{X}(\mathbf{X}^{T}\mathbf{X})^{-T}
-\end{align*}
+\end{aligned}\]
 
 
 Ma, per ipotesi \(E\left[ \vec{\varepsilon}{\vec{\varepsilon}}^{T} \right]\mathbf{X} = \sigma^{2}\mathbf{I}\), per cui:

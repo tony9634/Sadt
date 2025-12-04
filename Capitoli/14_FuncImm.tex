@@ -64,7 +64,7 @@ Per poter quantificare le varie molecole, ovvero misurare le concentrazioni, è 
 
 Dove \(c_{k} = a_{k}\exp\left( j\phi_{k} \right)\) tiene conto che la ricostruzione del \(k\)-spazio è complessa a causa degli sfasamenti, mentre \(\xi_{k}^{n} = \exp\left( - \alpha_{k} + j2\pi\nu_{k} \right)\), ovvero è il termine esponenziale che comprende il decadimento dovuto a \(T_{2}\) (se si applica una sequenza spin-echo) o \(T_{2}^{*}\) (se si applica una sequenza gradient-echo) e la frequenza di risonanza caratteristica della specie chimica. Più nel dettaglio il termine \(\alpha_{k}\) è il damping factor mentre \(a_{k}\) è legato alla concentrazione delle molecole contenute nel materiale. In ambito clinico il termine di fase ha poco interesse. Infine, il termine \(\varepsilon(n)\) rappresenta il rumore sovrapposto alla misura eseguita.
 
-A partire dai dati acquisiti è possibile costruire una matrice dei dati con una struttura Hankel, ovvero una matrice quadrata o rettangolare in cui ogni elemento \(a_{ij}\) dipende solo dalla somma degli indici di riga e di colonna, ovvero \(a_{ij} = f(i + j - 1)\).In parole più semplici, una matrice di Hankel ha elementi costanti lungo le antidiagonali, ovvero le diagonali che salgono da sinistra verso destra.
+A partire dai dati acquisiti è possibile costruire una matrice dei dati con una struttura Hankel, ovvero una matrice quadrata o rettangolare in cui ogni elemento \(a_{ij}\) dipende solo dalla somma degli indici di riga e di colonna, ovvero \(a_{ij} = f(i + j - 1)\). In parole più semplici, una matrice di Hankel ha elementi costanti lungo le antidiagonali, ovvero le diagonali che salgono da sinistra verso destra.
 
 Nel caso specifico delle misurazioni, si ha:
 
@@ -182,7 +182,7 @@ Per la decomposizione in valori singolari è possibile scrivere:
 
 \[\overset{\underline{}}{\overset{\underline{}}{S}} = {\overset{\underline{}}{\overset{\underline{}}{U}}}^{H}\overset{\underline{}}{\overset{\underline{}}{\Sigma}}\overset{\underline{}}{\overset{\underline{}}{V}}\]
 
-Dato il suo andamento sinusoidale del segnale acquisito, i valori singolari del rumore sono prossimi allo zero, dunque, si può ottenere una pulizia del rumore ponendo i valori singolari del rumore esattamente uguali a zero.Questo processo si chiama \textbf{troncamento della SVD}. In questo modo, si ottiene una matrice \(\widehat{\overset{\underline{}}{\overset{\underline{}}{S}}}\), a partire da quella di Henkle \(\overset{\underline{}}{\overset{\underline{}}{S}}\), con rango \(k\). La matrice ripulita non possiede più struttura di Henkel. Tale struttura può essere ripristinata ponendo su ciascuna antidiagonale il valor medio dei termini su quella diagonale. Al fine di ottenere i valori dei coefficienti del modello di predizione lineare si utilizza un algoritmo OLS:
+Dato il suo andamento sinusoidale del segnale acquisito, i valori singolari del rumore sono prossimi allo zero, dunque, si può ottenere una pulizia del rumore ponendo i valori singolari del rumore esattamente uguali a zero. Questo processo si chiama \textbf{troncamento della SVD}. In questo modo, si ottiene una matrice \(\widehat{\overset{\underline{}}{\overset{\underline{}}{S}}}\), a partire da quella di Henkle \(\overset{\underline{}}{\overset{\underline{}}{S}}\), con rango \(k\). La matrice ripulita non possiede più struttura di Henkel. Tale struttura può essere ripristinata ponendo su ciascuna antidiagonale il valor medio dei termini su quella diagonale. Al fine di ottenere i valori dei coefficienti del modello di predizione lineare si utilizza un algoritmo OLS:
 
 \[\overset{\underline{}}{q} = \left( {\widehat{\overset{\underline{}}{\overset{\underline{}}{S}}}}^{T}\widehat{\overset{\underline{}}{\overset{\underline{}}{S}}} \right)^{- 1}\widehat{\overset{\underline{}}{\overset{\underline{}}{S}}}\widehat{\overset{\underline{}}{s}}\]
 
@@ -259,7 +259,7 @@ Il vettore di magnetizzazione è legato al campo magnetico \(\overset{\underline
 
 Anche il vettore induzione magnetica \(\overset{\underline{}}{B}\) è legato alla magnetizzazione tramite la suscettibilità \(\chi\) e la permeabilità magnetica del vuoto dalla relazione:
 
-\[\overset{\underline{}}{B} = \frac{1 + \chi}{\chi}\mu_{0}\overset{\underline{}}{M}\]
+\[\overset{\underline{}}{B} = \dfrac{1 + \chi}{\chi}\mu_{0}\overset{\underline{}}{M}\]
 
 Al variare della suscettività magnetica \(\chi\) cambia la magnetizzazione \(\overset{\underline{}}{M}\), dovuta al campo magnetico \(\overset{\underline{}}{B}\) applicato. Di conseguenza, gli spin vedono un campo magnetico diverso che porta il segnale di quel voxel ad avere caratteristiche differenti dai tessuti circostanti, in cui la quantità di desossiemoglobina è trascurabile. La presenza di questo tipo di emoglobina determina un cambio locale della suscettibilità \(\chi\) che porta a una variazione del vettore di magnetizzazione nel voxel.
 
@@ -485,13 +485,13 @@ Data una particella immersa in un ambiente circostante, essa non è ferma ma si 
 
 La diffusione è governata dal coefficiente di Einstein \(\mathcal{D}\) che quantifica lo spostamento della particella nel tempo. Questa grandezza è data da:
 
-\[\mathcal{D =}\frac{k_{B}T}{6\pi\eta r}\]
+\[\mathcal{D =}\dfrac{k_{B}T}{6\pi\eta r}\]
 
 Dove \(k_{B}\) è la costante di Boltzmann, \(T\) la temperatura assoluta della particella, \(\eta\) la viscosità del fluido nel quale la particella si muove e \(r\) il raggio della particella supposta sferica.
 
 Il coefficiente di diffusione dell'acqua a temperatura ambiente è:
 
-\[\mathcal{D =}\frac{k_{B}T}{6\pi\eta r} = \frac{1.38 \cdot 10^{- 23}\ \frac{J}{K}295\ K\ }{6\pi \cdot 1.0\frac{m^{2}}{s}0.1 \cdot 10^{- 9}m} = \frac{1.38 \cdot 10^{- 23}\ \frac{kg}{K}m/295\ K\ }{6\pi \cdot 1.0\frac{m^{2}}{s}0.1 \cdot 10^{- 9}m} = 2.2 \cdot 10^{- 12}\frac{m^{2}}{s} = 2.2\frac{pm^{2}}{s}\]
+\[\mathcal{D =}\dfrac{k_{B}T}{6\pi\eta r} = \dfrac{1.38 \cdot 10^{- 23}\ \dfrac{J}{K}295\ K\ }{6\pi \cdot 1.0\dfrac{m^{2}}{s}0.1 \cdot 10^{- 9}m} = \dfrac{1.38 \cdot 10^{- 23}\ \dfrac{kg}{K}m/295\ K\ }{6\pi \cdot 1.0\dfrac{m^{2}}{s}0.1 \cdot 10^{- 9}m} = 2.2 \cdot 10^{- 12}\dfrac{m^{2}}{s} = 2.2\dfrac{pm^{2}}{s}\]
 
 Dove \(k_{B} = 1.38 \cdot 10^{- 23}J/K\), \(T = 295\ K\), \(\eta = 1\ m^{2}/s\) e \(r = 0.1\ nm\).
 
@@ -504,7 +504,7 @@ In pochi istanti di tempo la molecola d'acqua percorre uno spazio di alcuni micr
 
 Nel 1956 Torrey propose l'aggiunta di due termini all'equazione di Bloch per tener conto del flusso e della diffusione dei protoni:
 
-\[\frac{d\overset{\underline{}}{M}}{dt} = \gamma\overset{\underline{}}{M} \times {\overset{\underline{}}{B}}_{0} + \frac{M_{0} - M_{z}}{T_{1}}{\widehat{i}}_{z} - \frac{1}{T_{2}}{\overset{\underline{}}{M}}_{\bot} - \left( \overset{\underline{}}{\nabla} \cdot \overset{\underline{}}{v} \right)\overset{\underline{}}{M} + \overset{\underline{}}{\nabla} \cdot \left( \overset{\underline{}}{\overset{\underline{}}{\mathcal{D}}}\overset{\underline{}}{\nabla}\overset{\underline{}}{M} \right)\]
+\[\dfrac{d\overset{\underline{}}{M}}{dt} = \gamma\overset{\underline{}}{M} \times {\overset{\underline{}}{B}}_{0} + \dfrac{M_{0} - M_{z}}{T_{1}}{\widehat{i}}_{z} - \dfrac{1}{T_{2}}{\overset{\underline{}}{M}}_{\bot} - \left( \overset{\underline{}}{\nabla} \cdot \overset{\underline{}}{v} \right)\overset{\underline{}}{M} + \overset{\underline{}}{\nabla} \cdot \left( \overset{\underline{}}{\overset{\underline{}}{\mathcal{D}}}\overset{\underline{}}{\nabla}\overset{\underline{}}{M} \right)\]
 
 Dove \(\overset{\underline{}}{M}\) è il vettore di magnetizzazione del voxel con valore all'equilibrio \(M_{0}\), \({\overset{\underline{}}{B}}_{0}\) è il campo magnetico statico applicato, \(T_{1}\) e \(T_{2}\) sono i tempi di rilassamento del tessuto, \(\overset{\underline{}}{v}\) è il flusso e \(\overset{\underline{}}{\overset{\underline{}}{\mathcal{D}}}\) il tensore di diffusione con rango \(2\).
 
@@ -514,7 +514,7 @@ Infine, \(\overset{\underline{}}{\nabla} \cdot \left( \overset{\underline{}}{\ov
 
 Si dimostra che, in caso di applicazione di un gradiente continuo, la componente trasversa della magnetizzazione evolve come:
 
-\[M_{xy}(t) = M_{0}\exp\left( - \frac{t}{T_{2}} \right)\exp\left( - \gamma G^{2}\mathcal{D}\frac{t^{3}}{3} \right)\]
+\[M_{xy}(t) = M_{0}\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left( - \gamma G^{2}\mathcal{D}\dfrac{t^{3}}{3} \right)\]
 
 Dove \(G\) è l'ampiezza del gradiente applicato e \(\mathcal{D}\) la diffusività lungo la direzione trasversale. La derivazione della relazione appena citata coinvolge anche la distribuzione statistica delle frequenze dei vari isocromati.
 
@@ -522,17 +522,17 @@ Dalla relazione si osserva che l'attenuazione della magnetizzazione trasversale 
 
 Nella pratica è possibile applicare delle sequenze che risaltano la diffusione degli isocromati. Prima di entrare nel dettaglio della sequenza, è comodo scrivere la magnetizzazione trasversale come:
 
-\[M_{xy}(t) = M_{0}\exp\left( - \frac{t}{T_{2}} \right)\exp\left( - b\mathcal{D} \right)\]
+\[M_{xy}(t) = M_{0}\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left( - b\mathcal{D} \right)\]
 
 Dove \(b\) è un coefficiente molto importante nel contesto di imaging di diffusione o Diffusion Weighting Imaging (DWI) ed è dato da:
 
-\[b = \gamma G^{2}\frac{t^{3}}{3}\]
+\[b = \gamma G^{2}\dfrac{t^{3}}{3}\]
 
 Mediante delle sequenze è possibile evidenziare come le molecole d'acqua si muovono nel tempo. A tale fenomeno corrisponde uno sfasamento degli isocromati che attenua il segnale come nella preazione per \(M_{xy}(t)\).
 
 Il coefficiente \(b\), contenendo nella sua definizione il gradiente applicato, dipende dalla sequenza applicata per avere immagini pesate in diffusione. Indipendentemente dalla sequenza applicata la relazione:
 
-\[M_{xy}(t) = M_{0}\exp\left( - \frac{t}{T_{2}} \right)\exp\left( - b\mathcal{D} \right)\]
+\[M_{xy}(t) = M_{0}\exp\left( - \dfrac{t}{T_{2}} \right)\exp\left( - b\mathcal{D} \right)\]
 
 Resta valida a patto di ridefinire il coefficiente \(b\).
 
@@ -567,7 +567,7 @@ Lo sfasamento introdotto dalla diffusione è legato al termine \(\exp\left( - b\
 
 Per la sequenza Stejskal-Tanner si dimostra che il termine \(b\) è dato da:
 
-\[b = \gamma^{2}G^{2}\delta^{2}\left( \Delta - \frac{1}{3}\delta \right)\]
+\[b = \gamma^{2}G^{2}\delta^{2}\left( \Delta - \dfrac{1}{3}\delta \right)\]
 
 Con questa specifica sequenza, \(b\) è legato alla durata \(\delta\) dei due gradienti e all'intervallo di applicazione tra i due \(\Delta\). Lo sfasamento è quindi noto controllando l'ampiezza e la durate dei due gradienti. In conclusione, manipolando i gradienti di diffusione è possibile modificare il parametro \(b\) al dine di enfatizzare la presenza di sfasamento legato alla diffusione. Ovviamente, quando \(b\) aumenta, la magnetizzazione trasversale si riduce.
 

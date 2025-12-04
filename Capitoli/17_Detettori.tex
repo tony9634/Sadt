@@ -108,7 +108,7 @@ La risoluzione energetica è definita considerando il picco dell'istogramma prec
 
 Se l'energia è \(H_{0}\), la risoluzione si calcola come:
 
-\[R = \frac{FWHM}{H_{0}}\]
+\[R = \dfrac{FWHM}{H_{0}}\]
 
 Ovviamente, più è stretto il picco, migliore sarà la risoluzione energetica;
 
@@ -125,7 +125,7 @@ L'efficienza intrinseca per i fotoni \(\gamma\) coincide con la probabilità che
 
 Dove \(\mu\) è funzione di densità, numero atomico del materiale di rilevazione ed energia della radiazione incidente ed \(e^{- \mu x}\) la probabilità che esso rilevi i fotoni. L'efficienza intrinseca è, inoltre, influenzata dallo \emph{Stopping Power} tramite \(\mu\). La relazione che intercorre tra efficienza assoluta e intrinseca è la seguente:
 
-\[\varepsilon_{int} = \varepsilon_{abs}\frac{4\pi}{\Omega}\]
+\[\varepsilon_{int} = \varepsilon_{abs}\dfrac{4\pi}{\Omega}\]
 
 Dove \(\Omega\) è l'angolo solido del detettore visto dalla posizione della sorgente;
 
@@ -273,19 +273,19 @@ Per il teorema di Bloch, le funzioni d'onda devono avere una forma periodica del
 
 dove \(u(x)\) è una funzione periodica e \(k\) è un fattore di fase. Se il potenziale fosse ovunque nullo, ovvero se l'elettrone fosse libero, si avrebbe, includendo anche il tempo:
 
-\[\Psi(x,t) = \psi(x) \cdot \Phi(t) = u(x)e^{jkx}e^{- j\frac{E}{\hslash}t} = u(x)e^{j\left( kx - \frac{E}{\hslash}t \right)}\]
+\[\Psi(x,t) = \psi(x) \cdot \Phi(t) = u(x)e^{jkx}e^{- j\dfrac{E}{\hslash}t} = u(x)e^{j\left( kx - \dfrac{E}{\hslash}t \right)}\]
 
 Da cui si evince l'interpretazione di \(k\) come numero d'onda. Scrivendo le equazioni per le regioni I, in cui il potenziale è nullo, e II, dove il potenziale ha un valore \(V_{0}\), si ottengono due equazioni per \emph{u(x)} nelle due regioni:
 
-\[\frac{d^{2}u_{I}}{dx^{2}} + 2jk\frac{du_{I}}{dx} - \left( k^{2} - \alpha^{2} \right)u_{I}(x) = 0\]
+\[\dfrac{d^{2}u_{I}}{dx^{2}} + 2jk\dfrac{du_{I}}{dx} - \left( k^{2} - \alpha^{2} \right)u_{I}(x) = 0\]
 
-\[\frac{d^{2}u_{II}}{dx^{2}} + 2jk\frac{du_{II}}{dx} - \left( k^{2} - \beta^{2} \right)u_{II}(x) = 0\]
+\[\dfrac{d^{2}u_{II}}{dx^{2}} + 2jk\dfrac{du_{II}}{dx} - \left( k^{2} - \beta^{2} \right)u_{II}(x) = 0\]
 
 Dove
 
-\[\alpha^{2} = \frac{2mE}{\hslash^{2}}\]
+\[\alpha^{2} = \dfrac{2mE}{\hslash^{2}}\]
 
-\[\beta^{2} = \frac{2mE}{\hslash^{2}} - \frac{2mV_{0}}{\hslash^{2}}\]
+\[\beta^{2} = \dfrac{2mE}{\hslash^{2}} - \dfrac{2mV_{0}}{\hslash^{2}}\]
 
 Con \(E\) energia, \(m\) massa, \(V_{0}\) potenziale nella regione II. Le soluzioni sono del tipo:
 
@@ -298,8 +298,8 @@ Le condizioni al contorno da imporre per ottenere la soluzione riguardano la con
 \[\left\{ \begin{array}{r}
 u_{I}(0) = u_{II}(0) \\
 u_{I}(a) = u_{II}( - b) \\
-\left. \ \frac{du_{I}}{dx} \right|_{x = 0} = \left. \ \frac{du_{II}}{dx} \right|_{x = 0} \\
-\left. \ \frac{du_{I}}{dx} \right|_{x = a} = \left. \ \frac{du_{II}}{dx} \right|_{x = - b}
+\left. \ \dfrac{du_{I}}{dx} \right|_{x = 0} = \left. \ \dfrac{du_{II}}{dx} \right|_{x = 0} \\
+\left. \ \dfrac{du_{I}}{dx} \right|_{x = a} = \left. \ \dfrac{du_{II}}{dx} \right|_{x = - b}
 \end{array} \right.\ \]
 
 Si ottiene così il sistema di equazioni:
@@ -313,11 +313,11 @@ Aj(\alpha - k)e^{j(\alpha - k)a} + Bj(\alpha + k)e^{j(\alpha + k)a} = Cj(\alpha 
 
 La risoluzione del sistema porta all'equazione
 
-\[\cos\left( k(a + b) \right) = \frac{\alpha^{2} + \beta^{2}}{2\alpha\beta}\sin(a\alpha) + \sin(b\beta) + \cos(a\alpha)\cos(b\beta)\]
+\[\cos\left( k(a + b) \right) = \dfrac{\alpha^{2} + \beta^{2}}{2\alpha\beta}\sin(a\alpha) + \sin(b\beta) + \cos(a\alpha)\cos(b\beta)\]
 
 Le soluzioni dell'equazione di Schrödinger esistono se questa relazione ammette soluzioni. Se \(b \rightarrow 0\) e \(V_{0} \rightarrow \infty\), ovvero si fa tendere la regione II a un impulso di Dirac, si approssima il potenziale in corrispondenza del nucleo tendente, appunto, all'infinito. È possibile, così, semplificare l'equazione:
 
-\[\cos(ka) = \frac{mV_{0}ab}{\hslash^{2}}\frac{\sin(a\alpha)}{a\alpha} + \cos(a\alpha)\]
+\[\cos(ka) = \dfrac{mV_{0}ab}{\hslash^{2}}\dfrac{\sin(a\alpha)}{a\alpha} + \cos(a\alpha)\]
 
 Questa equazione non può essere risolta analiticamente. Visualizzando il secondo membro, posto uguale a \(f(a\alpha)\), e tenendo conto che il primo membro può assumere solo valori compresi in (-1; 1), si vede che i valori di energia \(E\) sono collegati ai valori di \(k\) ed è possibile trovare la soluzione mediante il metodo grafico:
 
@@ -408,7 +408,7 @@ Ad esempio, dato 1MeV di radiazione incidente, si assiste a circa \(5 \times 10^
 
 L'efficienza si definisce come:
 
-\[Efficienza = \frac{numero\ di\ fotoni}{numero\ di\ coppie}\]
+\[Efficienza = \dfrac{numero\ di\ fotoni}{numero\ di\ coppie}\]
 
 Data la sua elevata efficienza, questo materiale è preso come riferimento per calcolare l'efficienza degli altri materiali.
 
@@ -496,9 +496,9 @@ Questo processo è detto logica di Anger e consente di ricostruire su quale dei 
 \includegraphics[width=2.52083in,height=2.40625in,alt={P4195\#y1}]{media/17_Detettori/image451.pdf}
 Figura .: Blocco detettore visto dall'alto
 
-\[X_{\gamma} = \frac{(B + D) - (A + C)}{A + B + C + D}\]
+\[X_{\gamma} = \dfrac{(B + D) - (A + C)}{A + B + C + D}\]
 
-\[Y_{\gamma} = \frac{(A + B) - (C + D)}{A + B + C + D}\]
+\[Y_{\gamma} = \dfrac{(A + B) - (C + D)}{A + B + C + D}\]
 
 Le coordinate \({(X}_{\gamma},Y_{\gamma})\) sono variabili tra -1 e 1: sono 1 o -1 quando non si hanno fotoni luminosi su tutti i rispettivi detettori, ovvero verso gli estremi oppure una certa percentuale all'avvicinarsi del centro, in cui assumono valori intermedi. Le correnti, in definitiva, dipenderanno dal PMT che ha catturato la radiazione, quindi, dal fatto che quest'ultima è arrivata solo su A, solo su B o al 50\% tra A e B. La logica di Anger permette di ridurre l'incertezza di 4cm a 4mm, ottenendo immagini molto più precise.
 

@@ -42,7 +42,7 @@ Registrando il segnale in una finestra di acquisizione abbastanza breve da poter
 
 Dal punto di vista realizzativo, il processo di ricostruzione è ottenuti un impulso a radiofrequenza che ribalta la magnetizzazione di \(\pi/2\) su uno degli assi del sistema rotante e tre gradienti di campo principale, nelle tre direzioni dello spazio.
 
-\[G_{z} = \frac{\partial}{\partial z}B_{z}\left( \overset{\underline{}}{r} \right),G_{x} = \frac{\partial}{\partial x}B_{z}\left( \overset{\underline{}}{r} \right),G_{y} = \frac{\partial}{\partial y}B_{z}\left( \overset{\underline{}}{r} \right)\]
+\[G_{z} = \dfrac{\partial}{\partial z}B_{z}\left( \overset{\underline{}}{r} \right),G_{x} = \dfrac{\partial}{\partial x}B_{z}\left( \overset{\underline{}}{r} \right),G_{y} = \dfrac{\partial}{\partial y}B_{z}\left( \overset{\underline{}}{r} \right)\]
 
 In forma compatta è possibile scrivere:
 
@@ -432,7 +432,7 @@ Lo spettro di frequenza di un impulso reale non è impulsivo, come desiderato, m
 
 Nel dominio del tempo, l'impulso a radiofrequenza può essere pensato come un segnale \(sinc\) troncato nello spazio:
 
-\[B_{1} = A{sinc}\left( 2\pi f\left( z_{0} \right)t \right){rect}\left( \frac{z}{\Delta z} \right)\]
+\[B_{1} = A{sinc}\left( 2\pi f\left( z_{0} \right)t \right){rect}\left( \dfrac{z}{\Delta z} \right)\]
 
 La trasformata di Fourier dell'impulso è una \(rect\) smussata, così da avere una migliore selezione. Nel sistema di riferimento fisso, l'impulso a radiofrequenza è ottenuto come modulazione della \(sinc\) di una portante a frequenza \(f\left( z_{0} \right) = f_{0} + \overline{\gamma}G_{z}z_{0}\). Nel sistema rotante, invece, l'impulso è centrato nell'origine del sistema di riferimento, in quanto è stata eseguita l'operazione di demodulazione.
 
@@ -455,7 +455,7 @@ Si introduce lo spessore di fetta o \emph{slice} \emph{thickness} come:
 
 Lo spessore della slice eccitata dall'impulso a radiofrequenza, con banda \(BW_{RF}\) è data da:
 
-\[TH = \Delta z = \frac{BW_{RF}}{\overline{\gamma}G_{z}}\]
+\[TH = \Delta z = \dfrac{BW_{RF}}{\overline{\gamma}G_{z}}\]
 
 Progettando opportunamente l'impulso a radiofrequenza, in modo da avere una banda \(BW_{RF}\) quanto più piccola possibile, si riesce a ridurre lo spessore della slice del corpo umano. Tipici spessori in risonanza magnetica sono di \(1\ mm\) fino a \(3 \div 4\ mm\) in alcune applicazioni.
 
@@ -519,7 +519,7 @@ Applicando la stessa sequenza di eccitazione, ma con un impulso RF a frequenza:
 
 Si eccita contemporaneamente sia la slice a \(z_{0}\) sia a \(z_{1}\). Per evitare fenomeni di interferenza tra le due fette, acquisite contemporaneamente, deve intercorrere una distanza di \(3 \div 4\ mm\), dove:
 
-\[d = \frac{\Delta\omega_{slice} - 2\pi BW}{\gamma G_{z}}\]
+\[d = \dfrac{\Delta\omega_{slice} - 2\pi BW}{\gamma G_{z}}\]
 
 Nel caso in cui non sia rispettato il giusto gap possono verificarsi problemi di sfocamento o blander.
 

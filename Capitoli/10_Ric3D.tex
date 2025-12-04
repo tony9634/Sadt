@@ -60,7 +60,7 @@ Per il canale reale, risulta:
 
 Applicando le formule di Werner, si ha:
 
-\[= \frac{1}{2}\cos(\xi - \phi) - \frac{1}{2}\cos\left( 2\omega_{0}t + \phi + \xi \right)\]
+\[= \dfrac{1}{2}\cos(\xi - \phi) - \dfrac{1}{2}\cos\left( 2\omega_{0}t + \phi + \xi \right)\]
 
 Analogamente per il canale immaginario si ha:
 
@@ -68,31 +68,31 @@ Analogamente per il canale immaginario si ha:
 
 Per Wagner si ha:
 
-\[= \frac{1}{2}\sin(\xi - \phi) + \frac{1}{2}\sin\left( 2\omega_{0}t + \phi + \xi \right)\]
+\[= \dfrac{1}{2}\sin(\xi - \phi) + \dfrac{1}{2}\sin\left( 2\omega_{0}t + \phi + \xi \right)\]
 
 Mediante filtraggi passa-basso è possibile rimuovere le componenti a elevata frequenza, centrate su \(2\omega_{0}\). In uscita al filtro, il segnale è dato da:
 
-\[s(k) \propto \frac{1}{2}\cos(\xi - \phi) + j\frac{1}{2}\sin(\xi - \phi) =\]
+\[s(k) \propto \dfrac{1}{2}\cos(\xi - \phi) + j\dfrac{1}{2}\sin(\xi - \phi) =\]
 
 Applicando le relazioni trigonometriche si ottiene:
 
-\[= \frac{1}{2}\left\lbrack \left( \cos\xi\cos\phi + \sin\xi\sin\phi \right) + j\left( \sin\xi\cos\phi - \cos\xi\sin\phi \right) \right\rbrack =\]
+\[= \dfrac{1}{2}\left\lbrack \left( \cos\xi\cos\phi + \sin\xi\sin\phi \right) + j\left( \sin\xi\cos\phi - \cos\xi\sin\phi \right) \right\rbrack =\]
 
 Raccogliendo \(\cos\xi\) e \(\sin\xi\), si ottiene:
 
-\[= \frac{1}{2}\left\lbrack \cos\xi\left( \cos\phi - j\sin\phi \right) + \sin\xi\left( \sin\phi + j\cos\phi \right) \right\rbrack =\]
+\[= \dfrac{1}{2}\left\lbrack \cos\xi\left( \cos\phi - j\sin\phi \right) + \sin\xi\left( \sin\phi + j\cos\phi \right) \right\rbrack =\]
 
 Nel termine \(\sin\phi + j\cos\phi\) si mette in evidenza \(j\):
 
-\[= \frac{1}{2}\left\lbrack \cos\xi\left( \cos\phi - j\sin\phi \right) + j\sin\xi\left( \cos\phi - j\sin\phi \right) \right\rbrack =\]
+\[= \dfrac{1}{2}\left\lbrack \cos\xi\left( \cos\phi - j\sin\phi \right) + j\sin\xi\left( \cos\phi - j\sin\phi \right) \right\rbrack =\]
 
 Per le formule di Eulero, si ottiene:
 
-\[= \frac{1}{2}\left\lbrack \cos\xi\exp( - j\phi) + j\sin\xi\exp( - j\phi) \right\rbrack =\]
+\[= \dfrac{1}{2}\left\lbrack \cos\xi\exp( - j\phi) + j\sin\xi\exp( - j\phi) \right\rbrack =\]
 
 Raccogliendo \(\exp( - j\phi)\) e applicando le formule di Eulero, si ottiene:
 
-\[= \frac{1}{2}\exp( - j\phi)\exp(j\xi)\]
+\[= \dfrac{1}{2}\exp( - j\phi)\exp(j\xi)\]
 
 In questa espressione \(\exp(j\xi)\) rappresenta il segnale registrato dalle antenne, demodulato, mentre \(\exp( - j\phi)\) un termine di fase dovuto allo sfasamento tra segnale e oscillatore. Di conseguenza, il segnale complessivo può essere espresso come:
 
@@ -136,19 +136,19 @@ In questo modo si ottiene il segnale fisicamente registrato dalle antenne sui ca
 
 Si scrive \(j\) in notazione esponenziale, ovvero \(j = \exp(j\pi/2)\):
 
-\[= \int_{}^{}{s^{*}\left( \overset{\underline{}}{k} \right)\exp\left( j\frac{\pi}{2} \right)\exp(j2\pi kx)dk} =\]
+\[= \int_{}^{}{s^{*}\left( \overset{\underline{}}{k} \right)\exp\left( j\dfrac{\pi}{2} \right)\exp(j2\pi kx)dk} =\]
 
 Per le proprietà del complesso coniugato è possibile scrivere:
 
-\[= \left\lbrack \int_{}^{}{s\left( \overset{\underline{}}{k} \right)\exp\left( - j\frac{\pi}{2} \right)\exp( - j2\pi kx)dk} \right\rbrack^{*}\]
+\[= \left\lbrack \int_{}^{}{s\left( \overset{\underline{}}{k} \right)\exp\left( - j\dfrac{\pi}{2} \right)\exp( - j2\pi kx)dk} \right\rbrack^{*}\]
 
 Per definizione di antitrasformata di Fourier, si ha:
 
-\[\widehat{\rho}(x) = \widehat{\rho}( - x)\exp\left( - j\frac{\pi}{2} \right)\]
+\[\widehat{\rho}(x) = \widehat{\rho}( - x)\exp\left( - j\dfrac{\pi}{2} \right)\]
 
 L'immagine finale ricostruita è ottenuta moltiplicando l'immagine originale, ribaltate rispetto all'asse di lettura, moltiplicando per un fattore di fase noto \(\exp( - j\pi/2)\). Considerando il modulo dell'immagine ricostruite, il termine di fase può essere ignorato poiché con modulo unitario:
 
-\[\left| \widehat{\rho}(x) \right| = \left| \widehat{\rho}( - x)\exp\left( - j\frac{\pi}{2} \right) \right| = \left| \widehat{\rho}( - x) \right|\]
+\[\left| \widehat{\rho}(x) \right| = \left| \widehat{\rho}( - x)\exp\left( - j\dfrac{\pi}{2} \right) \right| = \left| \widehat{\rho}( - x) \right|\]
 
 L'immagine ottenuta e mostrata a video è semplicemente ribaltata rispetto all'origine, quindi, è sempre possibile eseguire la diagnosi.
 
@@ -162,31 +162,31 @@ Dove \(\omega = \omega_{0} - \Delta\omega\). Il segnale demodulato è del tipo \
 
 Per il canale reale, si ottiene:
 
-\[s_{R} \propto \sin\left( \omega_{0}t + \xi \right)\cos(\omega t) = \frac{1}{2}\sin\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack + \frac{1}{2}\sin\left\lbrack \left( \omega_{0} + \omega \right)t + \xi \right\rbrack\]
+\[s_{R} \propto \sin\left( \omega_{0}t + \xi \right)\cos(\omega t) = \dfrac{1}{2}\sin\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack + \dfrac{1}{2}\sin\left\lbrack \left( \omega_{0} + \omega \right)t + \xi \right\rbrack\]
 
 Per il canale immaginario, invece, risulta:
 
-\[s_{I} \propto \sin\left( \omega_{0}t + \xi \right)\sin(\omega t) = \frac{1}{2}\cos\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack - \frac{1}{2}\cos\left\lbrack \left( \omega_{0} + \omega \right)t + \xi \right\rbrack\]
+\[s_{I} \propto \sin\left( \omega_{0}t + \xi \right)\sin(\omega t) = \dfrac{1}{2}\cos\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack - \dfrac{1}{2}\cos\left\lbrack \left( \omega_{0} + \omega \right)t + \xi \right\rbrack\]
 
 Il segnale \(s(k)\) nel \(k\)-spazio, dopo la moltiplicazione con le oscillazioni, può essere scritto come:
 
-\[s(k) \propto \frac{1}{2}\sin\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack + \frac{1}{2}\sin\left\lbrack \left( \omega_{0} + \omega \right)t + \xi \right\rbrack + j\frac{1}{2}\cos\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack - j\frac{1}{2}\cos\left\lbrack \left( \omega_{0} + \omega \right)t + \xi \right\rbrack\]
+\[s(k) \propto \dfrac{1}{2}\sin\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack + \dfrac{1}{2}\sin\left\lbrack \left( \omega_{0} + \omega \right)t + \xi \right\rbrack + j\dfrac{1}{2}\cos\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack - j\dfrac{1}{2}\cos\left\lbrack \left( \omega_{0} + \omega \right)t + \xi \right\rbrack\]
 
 A valle del filtro passa-basso, le frequenze a \(\omega_{0} + \omega\) sono rimosse, per cui si ottiene:
 
-\[s(k) \propto \frac{1}{2}\sin\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack + j\frac{1}{2}\cos\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack\]
+\[s(k) \propto \dfrac{1}{2}\sin\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack + j\dfrac{1}{2}\cos\left\lbrack \left( \omega_{0} - \omega \right)t + \xi \right\rbrack\]
 
 Dove \(\omega_{0} - \omega = \Delta\omega\):
 
-\[s(k) \propto \frac{1}{2}\sin(\Delta\omega t + \xi) + j\frac{1}{2}\cos(\Delta\omega t + \xi)\]
+\[s(k) \propto \dfrac{1}{2}\sin(\Delta\omega t + \xi) + j\dfrac{1}{2}\cos(\Delta\omega t + \xi)\]
 
 Si raccoglie \(j\) per applicare le formule di Eulero:
 
-\[\frac{1}{2}\sin(\Delta\omega t + \xi) + j\frac{1}{2}\cos(\Delta\omega t + \xi) = j\frac{1}{2}\left\lbrack \cos(\Delta\omega t + \xi) - j\sin(\Delta\omega t + \xi) \right\rbrack\]
+\[\dfrac{1}{2}\sin(\Delta\omega t + \xi) + j\dfrac{1}{2}\cos(\Delta\omega t + \xi) = j\dfrac{1}{2}\left\lbrack \cos(\Delta\omega t + \xi) - j\sin(\Delta\omega t + \xi) \right\rbrack\]
 
 Per le formule di Eulero, si può scrivere:
 
-\[s(k) \propto \frac{1}{2}\exp( - j\Delta\omega t)\exp\left( - j\frac{\pi}{2} - j\xi \right)\]
+\[s(k) \propto \dfrac{1}{2}\exp( - j\Delta\omega t)\exp\left( - j\dfrac{\pi}{2} - j\xi \right)\]
 
 È possibile scrivere:
 
@@ -208,7 +208,7 @@ Per definizione, \(k = \overline{\gamma}Gt\), da cui si ottiene:
 
 Risolvendo rispetto a \(x_{0}\), si ottiene:
 
-\[x_{0} = \frac{\Delta\omega t}{2\pi k}\]
+\[x_{0} = \dfrac{\Delta\omega t}{2\pi k}\]
 
 Il segnale a valle della demodulazione può essere scritto come:
 
@@ -224,7 +224,7 @@ Ovvero:
 
 La soluzione è, quindi uno shift sull'asse di lettura:
 
-\[\widehat{p}(x) = \int_{}^{}{s(k)\exp\left\lbrack j2\pi k\left( x - x_{0} \right) \right\rbrack dk} = \widehat{p}\left( x - x_{0} \right) = \widehat{p}\left( x - \frac{\Delta\omega t}{2\pi k} \right)\]
+\[\widehat{p}(x) = \int_{}^{}{s(k)\exp\left\lbrack j2\pi k\left( x - x_{0} \right) \right\rbrack dk} = \widehat{p}\left( x - x_{0} \right) = \widehat{p}\left( x - \dfrac{\Delta\omega t}{2\pi k} \right)\]
 
 Dalla differenza di frequenza \(\Delta\omega\) discende che l'immagine ricostruita è una versione traslata dell'immagine originale di una quantità \(x_{0}\), dipendente dal tempo della finestra di acquisizione e dalla differenza di fase. Nonostante non sia strettamente necessario è comodo valutare il modulo dell'immagine ricostruita:
 
@@ -250,7 +250,7 @@ Per effetto delle disomogeneità di campo si introduce un gradiente aggiuntivo a
 
 Siccome la finestra di acquisizione è centrata intorno al tempo di echo previsto, il gradiente aggiuntivo determina la registrazione di un segnale \(s(k)\) traslato rispetto al tempo \(T_{E}\) di una quantità \(k_{0}\) data da:
 
-\[k_{0} = \frac{\Delta\phi}{2\pi x}\]
+\[k_{0} = \dfrac{\Delta\phi}{2\pi x}\]
 
 Dove \(\Delta\phi\) è lo sfasamento indotto da \(\Delta B\).
 
@@ -281,7 +281,7 @@ Siccome \(k_{0}\) è costante, l'integrale si risolve nell'immagine \(\widehat{\
 
 A causa delle disomogeneità di campo, la densità protonica ricostruita è data dalla distribuzione degli spin nel volume, pesata per dei parametri del sistema \(\widehat{\rho}(x)\), a cui va moltiplicato un termine di fase dipendente dalla variabile \(x\), direzione di lettura. La differenza di fase, in particolare, è data da:
 
-\[\phi(x) = \arctan\left( \frac{Im\left\{ \widehat{\rho}(x) \right\}}{Re\{\widehat{\rho}(x)\}} \right)\]
+\[\phi(x) = \arctan\left( \dfrac{Im\left\{ \widehat{\rho}(x) \right\}}{Re\{\widehat{\rho}(x)\}} \right)\]
 
 Siccome la funzione tangente è invertibile solamente nell'intervallo \(( - \pi;\pi)\) la fase \(\phi(x)\) può variare solamente in questo intervallo spaziale. Visualizzando nel piano-immagine, l'andamento della fase l'andamento nella fase \(\phi(x)\) si osserva che i punti distanziati da un valore di \(x\), tale che \(\phi = 2\pi\), hanno la stessa intensità.
 
@@ -329,29 +329,29 @@ La densità protonica è ottenuta dalla trasformata inversa di Fourier di \(s(k)
 
 Se il segnale densità protonica efficace è reale, allora il segnale nel \(k\)-spazio è harmitiono. In particolare, risulta:
 
-\[s(k) + s( - k) = s(k) + s^{*}(k) = 2Re\left\{ s(k) \right\} = 2s_{R} \Leftrightarrow s_{R} = \frac{s(k) + s( - k)}{2}\]
+\[s(k) + s( - k) = s(k) + s^{*}(k) = 2Re\left\{ s(k) \right\} = 2s_{R} \Leftrightarrow s_{R} = \dfrac{s(k) + s( - k)}{2}\]
 
-\[s(k) - s( - k) = s(k) - s^{*}(k) = 2jIm\left\{ s(k) \right\} = 2s_{I} \Leftrightarrow s_{I} = \frac{s(k) - s( - k)}{2j}\]
+\[s(k) - s( - k) = s(k) - s^{*}(k) = 2jIm\left\{ s(k) \right\} = 2s_{I} \Leftrightarrow s_{I} = \dfrac{s(k) - s( - k)}{2j}\]
 
 Applicando la relazione per \(s_{I}\) nella relazione per \(\widehat{\rho}(x)\) e ricordando che \(s_{R} + js_{I} = s(k)\), è possibile scrivere:
 
-\[\widehat{\rho}(x) = \int_{}^{}{\left\lbrack s_{R} + js_{I} + j(\delta - 1)s_{I} \right\rbrack\exp(j2\pi kx)dk} = \int_{}^{}{\left\lbrack s(k) + j(\delta - 1)\frac{s(k) - s( - k)}{2j} \right\rbrack\exp(j2\pi kx)dk} = \int_{}^{}{\left\lbrack s(k) + (\delta - 1)\frac{s(k) - s( - k)}{2} \right\rbrack\exp(j2\pi kx)dk}\]
+\[\widehat{\rho}(x) = \int_{}^{}{\left\lbrack s_{R} + js_{I} + j(\delta - 1)s_{I} \right\rbrack\exp(j2\pi kx)dk} = \int_{}^{}{\left\lbrack s(k) + j(\delta - 1)\dfrac{s(k) - s( - k)}{2j} \right\rbrack\exp(j2\pi kx)dk} = \int_{}^{}{\left\lbrack s(k) + (\delta - 1)\dfrac{s(k) - s( - k)}{2} \right\rbrack\exp(j2\pi kx)dk}\]
 
 Svolgendo i prodotti si ottiene:
 
-\[= \int_{}^{}{\left\lbrack s(k) + \frac{1}{2}(\delta - 1)s(k) - \frac{1}{2}(\delta - 1)s( - k) \right\rbrack\exp(j2\pi kx)dk}\]
+\[= \int_{}^{}{\left\lbrack s(k) + \dfrac{1}{2}(\delta - 1)s(k) - \dfrac{1}{2}(\delta - 1)s( - k) \right\rbrack\exp(j2\pi kx)dk}\]
 
 Da cui:
 
-\[\widehat{\rho}(x) = \int_{}^{}{\left\lbrack \left( 1 + \frac{\delta - 1}{2} \right)s(k) - \frac{1}{2}(\delta - 1)s( - k) \right\rbrack\exp(j2\pi kx)dk} = \widehat{\rho}(x) =\]
+\[\widehat{\rho}(x) = \int_{}^{}{\left\lbrack \left( 1 + \dfrac{\delta - 1}{2} \right)s(k) - \dfrac{1}{2}(\delta - 1)s( - k) \right\rbrack\exp(j2\pi kx)dk} = \widehat{\rho}(x) =\]
 
 Da cui:
 
-\[\widehat{\rho}(x) = \int_{}^{}{\left\lbrack \frac{1}{2}(\delta + 1)s(k) - \frac{1}{2}(\delta - 1)s( - k) \right\rbrack\exp(j2\pi kx)dk}\]
+\[\widehat{\rho}(x) = \int_{}^{}{\left\lbrack \dfrac{1}{2}(\delta + 1)s(k) - \dfrac{1}{2}(\delta - 1)s( - k) \right\rbrack\exp(j2\pi kx)dk}\]
 
 Il segnale ricostruito, per la linearità dell'operatore integrale e della trasformata inversa di Fourier, può essere scritto come:
 
-\[\widehat{\rho}(x) = \frac{1}{2}(1 + \delta)\widehat{\rho}(x) - \frac{1}{2}(1 - \delta)\widehat{\rho}( - x)\]
+\[\widehat{\rho}(x) = \dfrac{1}{2}(1 + \delta)\widehat{\rho}(x) - \dfrac{1}{2}(1 - \delta)\widehat{\rho}( - x)\]
 
 Nel caso opposto, in cui il canale reale presenta un guadagno \(\delta\), si ottiene una relazione uguale; infatti, il segnale può essere scritto come \(s(k) = \delta s_{R} + js_{I}\), per cui la densità protonica è:
 
@@ -359,7 +359,7 @@ Nel caso opposto, in cui il canale reale presenta un guadagno \(\delta\), si ott
 
 Per la proprietà di hermitianità si ha:
 
-\[\widehat{\rho}(x) = \int_{}^{}{\left\lbrack \delta\left( \frac{s(k) + s( - k)}{2} \right) + j\frac{s(k) - s( - k)}{2j} \right\rbrack\exp(j2\pi kx)dk} = \int_{}^{}{\left\lbrack \delta\left( \frac{s(k) + s( - k)}{2} \right) + \frac{s(k) - s( - k)}{2} \right\rbrack\exp(j2\pi kx)dk} = \int_{}^{}{\left\lbrack \frac{\delta}{2}s(k) + \frac{\delta}{2}s( - k) + \frac{1}{2}s(k) - \frac{1}{2}s( - k) \right\rbrack\exp(j2\pi kx)dk} = \frac{\delta}{2}\widehat{\rho}(x) + \frac{\delta}{2}\widehat{\rho}( - x) + \frac{1}{2}\widehat{\rho}(x) - \frac{1}{2}\widehat{\rho}( - x) = \frac{1}{2}(1 + \delta)\widehat{\rho}(x) + \frac{1}{2}(\delta - 1)\widehat{\rho}( - x)\]
+\[\widehat{\rho}(x) = \int_{}^{}{\left\lbrack \delta\left( \dfrac{s(k) + s( - k)}{2} \right) + j\dfrac{s(k) - s( - k)}{2j} \right\rbrack\exp(j2\pi kx)dk} = \int_{}^{}{\left\lbrack \delta\left( \dfrac{s(k) + s( - k)}{2} \right) + \dfrac{s(k) - s( - k)}{2} \right\rbrack\exp(j2\pi kx)dk} = \int_{}^{}{\left\lbrack \dfrac{\delta}{2}s(k) + \dfrac{\delta}{2}s( - k) + \dfrac{1}{2}s(k) - \dfrac{1}{2}s( - k) \right\rbrack\exp(j2\pi kx)dk} = \dfrac{\delta}{2}\widehat{\rho}(x) + \dfrac{\delta}{2}\widehat{\rho}( - x) + \dfrac{1}{2}\widehat{\rho}(x) - \dfrac{1}{2}\widehat{\rho}( - x) = \dfrac{1}{2}(1 + \delta)\widehat{\rho}(x) + \dfrac{1}{2}(\delta - 1)\widehat{\rho}( - x)\]
 
 L'immagine ricostruita contiene una componente \((1 + \delta)\widehat{\rho}(x)\), ovvero l'immagine attesa, pesata per una quantità dipendente dal canale con valore diverso di un \(\delta\) e una componente \(\widehat{\rho}( - x)\), ottenuta dal ribaltamento della densità protonica reale e scalata di un fattore \(\delta - 1\). L'effetto finale è la presenza di una ripetizione dell'immagine, ribaltata rispetto l'asse di lettura, di minore ampiezza, sovrapposta all'immagine attesa. Questo fenomeno è noto come effetto ghost e consiste nell'apparizione di porzioni dell'immagini ribaltata e posizionate in luoghi non attesi.
 
@@ -385,7 +385,7 @@ Esistono dei casi, come la spettroscopia o imaging di fase, in cui l'immagine de
 
 Dall'analisi spettrale, è noto che la derivata nel dominio dello spazio-immagine si traduce nel dominio del \(k\)-spazio in una moltiplicazione per \(j2\pi k\), dato che i due domini sono legati tra loro dalla trasformata di Fourier:
 
-\[\frac{d}{dx}\rho(x) \rightarrow j2\pi k\ s(k)\]
+\[\dfrac{d}{dx}\rho(x) \rightarrow j2\pi k\ s(k)\]
 
 Questa operazione corrisponde a una riduzione delle basse frequenze e un'esaltazione delle alte. In particolare, alle alte frequenze corrispondono aree di transizione tra i vari distretti anatomici, ovvero, i bordi; mentre le basse frequenze si riferiscono ad aree omogenee dell'immagine, ovvero il parenchima di un organo o tessuto.
 
@@ -398,7 +398,7 @@ L'operazione di derivata, in altre parole, corrisponde a un filtraggio di tipo p
 
 Per esaltare le componenti continue, ovvero il parenchima di un organo, è necessario esaltare le basse frequenze e sopprimere le componenti ad alte frequenze. Questa operazione può essere realizzata mediante un filtraggio di tipo smoothing a valor medio:
 
-\[\int_{}^{}{\rho(x)dx} \rightarrow \frac{1}{j2\pi k}s(k)\]
+\[\int_{}^{}{\rho(x)dx} \rightarrow \dfrac{1}{j2\pi k}s(k)\]
 
 \begin{figure}
 \centering
@@ -459,15 +459,15 @@ La densità protonica ricostruita campionando il segnale \(s(k)\) su tutto l'ass
 
 Dove \(\mathfrak{F}^{- 1}\left\lbrack s_{\infty}(k) \right\rbrack = \rho(x)\) è la densità protonica effettiva. Per la seconda formula di somma di Poisson, risulta:
 
-\[U(x) = \mathfrak{F}^{- 1}\left\lbrack u(k) \right\rbrack = \sum_{q = - \infty}^{+ \infty}{\delta\left( x - \frac{q}{\Delta k_{R}} \right)}\]
+\[U(x) = \mathfrak{F}^{- 1}\left\lbrack u(k) \right\rbrack = \sum_{q = - \infty}^{+ \infty}{\delta\left( x - \dfrac{q}{\Delta k_{R}} \right)}\]
 
 La densità protonica ricostruita si può scrivere come:
 
-\[{\widehat{\rho}}_{\infty}(x) = \mathfrak{F}^{- 1}\left\lbrack s_{\infty}(k) \right\rbrack*\mathfrak{F}^{- 1}\left\lbrack u(k) \right\rbrack = \rho(x)*U(x) = \ \rho(x)*\sum_{q = - \infty}^{+ \infty}{\delta\left( x - \frac{q}{\Delta k_{R}} \right)}\]
+\[{\widehat{\rho}}_{\infty}(x) = \mathfrak{F}^{- 1}\left\lbrack s_{\infty}(k) \right\rbrack*\mathfrak{F}^{- 1}\left\lbrack u(k) \right\rbrack = \rho(x)*U(x) = \ \rho(x)*\sum_{q = - \infty}^{+ \infty}{\delta\left( x - \dfrac{q}{\Delta k_{R}} \right)}\]
 
 Per l proprietà di campionamento della \(\delta\), è possibile scrivere:
 
-\[{\widehat{\rho}}_{\infty}(x) = \sum_{q = - \infty}^{+ \infty}{\rho(x)*\delta\left( x - \frac{q}{\Delta k_{R}} \right)} = \sum_{q = - \infty}^{+ \infty}{\rho\left( \frac{q}{\Delta k_{R}} \right)\delta\left( x - \frac{q}{\Delta k_{R}} \right)}\]
+\[{\widehat{\rho}}_{\infty}(x) = \sum_{q = - \infty}^{+ \infty}{\rho(x)*\delta\left( x - \dfrac{q}{\Delta k_{R}} \right)} = \sum_{q = - \infty}^{+ \infty}{\rho\left( \dfrac{q}{\Delta k_{R}} \right)\delta\left( x - \dfrac{q}{\Delta k_{R}} \right)}\]
 
 \begin{figure}
 \centering
@@ -476,7 +476,7 @@ Per l proprietà di campionamento della \(\delta\), è possibile scrivere:
 
 Il campionamento spaziale della densità protonica \(\rho(x)\) avviene con passo \(\Delta k_{R}^{- 1}\). Si definisce:
 
-\[L_{R} = \frac{1}{\Delta k_{R}}\]
+\[L_{R} = \dfrac{1}{\Delta k_{R}}\]
 
 Il \emph{field of view} o FOV e rappresenta l'intervallo spaziale oltre al quale si presentano le repliche dell'immagine. Il pedice \(R\) indica che il FOV è relativo all'asse di lettura, che nel caso in esame coincide con l'asse \(x\).
 
@@ -496,25 +496,25 @@ Sia \(A\) la dimensione dell'oggetto contenuto nell'immagine. Se il FOV è minor
 
 Per evitare gli errori da aliasing, è necessario che il FOV sia maggiore della dimensione \(A_{R}\) dell'oggetto, in un discorso monodimensionale, deve risultati, quindi, che:
 
-\[FOV_{R} \geq \frac{1}{\Delta k_{R}} \geq A_{R} \Leftrightarrow \Delta k_{R} \leq \frac{1}{A_{R}}\]
+\[FOV_{R} \geq \dfrac{1}{\Delta k_{R}} \geq A_{R} \Leftrightarrow \Delta k_{R} \leq \dfrac{1}{A_{R}}\]
 
 Questa condizione è nota come criterio di Nyquist per l'asse di lettura. In altre parole, l'intervallo di campionamento nel \(k\)-spazio deve essere minore del reciproco della dimensione dell'immagine.
 
 È noto che il campionamento lungo l'asse di lettura avviene con passo \(\Delta k_{R} = \overline{\gamma}G_{R}\Delta t\), per cui la condizione di Nyquist è:
 
-\[FOV_{R} \geq \frac{1}{\Delta k_{R}} \geq A_{R} \Leftrightarrow \Delta k_{R} \leq \frac{1}{A_{R}} \Leftrightarrow \overline{\gamma}G_{R}\Delta t \leq \frac{1}{A_{R}}\]
+\[FOV_{R} \geq \dfrac{1}{\Delta k_{R}} \geq A_{R} \Leftrightarrow \Delta k_{R} \leq \dfrac{1}{A_{R}} \Leftrightarrow \overline{\gamma}G_{R}\Delta t \leq \dfrac{1}{A_{R}}\]
 
 Passando ai reciproci:
 
-\[\frac{1}{\overline{\gamma}G_{R}\Delta t} \geq A_{R}\]
+\[\dfrac{1}{\overline{\gamma}G_{R}\Delta t} \geq A_{R}\]
 
 Si isola \(1/\Delta t\):
 
-\[\frac{1}{\Delta t} \geq \overline{\gamma}G_{R}A_{R}\]
+\[\dfrac{1}{\Delta t} \geq \overline{\gamma}G_{R}A_{R}\]
 
 Si definisce frequenza di campionamento lungo l'asse di lettura come:
 
-\[f_{R} = \frac{1}{\Delta t}\]
+\[f_{R} = \dfrac{1}{\Delta t}\]
 
 Da questa relazione si evince un vincolo sulla frequenza di campionamento:
 
@@ -530,7 +530,7 @@ La banda di ricezione è nota, poiché dipendente dai parametri della strumentaz
 
 Per definizione di FOV e frequenza di campionamento\_
 
-\[\frac{1}{L_{R}} = \overline{\gamma}G_{R}\frac{1}{{BW}_{R}}\ \]
+\[\dfrac{1}{L_{R}} = \overline{\gamma}G_{R}\dfrac{1}{{BW}_{R}}\ \]
 
 Isolando \({BW}_{R}\), si ottiene:
 
@@ -550,7 +550,7 @@ Siccome \(G_{PE}\) è fissato dalla strumentazione, è possibile agire su \(\tau
 
 In questo caso di definisce FOV lungo la direzione di codifica di fase come:
 
-\[{FOV}_{PE} = L_{PE} = \frac{1}{\Delta k_{PE}}\]
+\[{FOV}_{PE} = L_{PE} = \dfrac{1}{\Delta k_{PE}}\]
 
 Anche in questo caso è valida la relazione di Nyquist, quindi il \({FOV}_{PE}\) deve essere maggiore della dimensione dell'oggetto-immagine da visualizzare. Sia \(A_{PE}\)0 la dimensione lineare dell'oggetto, il criterio di Nyquist nella direzione di phase enoding si esprime come:
 
@@ -558,13 +558,13 @@ Anche in questo caso è valida la relazione di Nyquist, quindi il \({FOV}_{PE}\)
 
 Il \({FOV}_{PE}\) nella direzione di codifica di fase è legato al tempo di applicazione del gradiente \(\tau_{PE}\), fissato, e all'incremento dell'ampiezza del gradiente \(\Delta G_{PE}\) dalla relazione:
 
-\[{FOV}_{PE} = \frac{1}{\overline{\gamma}\Delta G_{PE}\tau_{PE}} \geq A_{PE}\]
+\[{FOV}_{PE} = \dfrac{1}{\overline{\gamma}\Delta G_{PE}\tau_{PE}} \geq A_{PE}\]
 
 Il tempo \(\tau_{PE}\) non può essere troppo lungo per non aumentare il tempo di esecuzione; inoltre, l'ampiezza della variazione del gradiente dovrebbe diminuire conseguentemente.
 
 La frequenza di campionamento, dunque, la massima banda dell'oggetto, in ricezione è:
 
-\[{BW}_{PE} = \frac{1}{\Delta G_{PE}} \geq A_{PE}\]
+\[{BW}_{PE} = \dfrac{1}{\Delta G_{PE}} \geq A_{PE}\]
 
 Tipicamente il tecnico radiologo agisce sulla dimensione dei \(FOV\), tramite un apposito software, per risolvere gli oggetti necessari all'indagine clinica, contenuti nell'immagine.
 
@@ -574,11 +574,11 @@ La trattazione della ricostruzione dell'immagine in risonanza magnetica si compl
 
 Il troncamento o \emph{windowing} del segnale è modellato matematicamente moltiplicando la funzione campionata in un intervallo di tempo illimitato per una finestra rettangolare di ampiezza \(W\) e centrata in \(\Delta k/2\):
 
-\[s_{m}(k) = s_{\infty}(k)rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right)\]
+\[s_{m}(k) = s_{\infty}(k)rect\left( \dfrac{k + \dfrac{\Delta k}{2}}{W} \right)\]
 
 \(s_{\infty}(k)\) è dato dalla moltiplicazione del segnale originale per il treno di impulsi di Dirac:
 
-\[s_{m}(k) = s(k)u(k)rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right)\]
+\[s_{m}(k) = s(k)u(k)rect\left( \dfrac{k + \dfrac{\Delta k}{2}}{W} \right)\]
 
 Sia \(N\) il numero degli impulsi contenuti nella finestra di acquisizione, ovvero il numero dei campioni che ricadono nell'intervallo di ampiezza \(W\). Il parametro \(N\) è scelto in modo da essere un numero pari, generalmente multiplo di \(2\), così da rendere pi semplice l'applicazione di algoritmi di ricostruzione mediante trasformata discreta di Fourier (DFT) e fast-fourier transform (FFT), quest'ultimo opera proprio su un numero pari di campioni ed è ancora più efficiente se il numero \(N\) è una potenza di \(2\).
 
@@ -599,7 +599,7 @@ Siccome i punti sono pari, la finestra di acquisizione non è simmetrica rispett
 
 Per il troncamento, il segnale misurato, \(s_{m}(k)\), è dato da:
 
-\[s_{m}(k) = \Delta k_{R}\left\lbrack \sum_{p = - \infty}^{+ \infty}{s\left( p\Delta k_{R} \right)\delta\left( k - p\Delta k_{R} \right)} \right\rbrack rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right) = \Delta k_{R}\sum_{p = - n}^{n - 1}{s\left( p\Delta k_{R} \right)\delta\left( k - p\Delta k_{R} \right)}\]
+\[s_{m}(k) = \Delta k_{R}\left\lbrack \sum_{p = - \infty}^{+ \infty}{s\left( p\Delta k_{R} \right)\delta\left( k - p\Delta k_{R} \right)} \right\rbrack rect\left( \dfrac{k + \dfrac{\Delta k}{2}}{W} \right) = \Delta k_{R}\sum_{p = - n}^{n - 1}{s\left( p\Delta k_{R} \right)\delta\left( k - p\Delta k_{R} \right)}\]
 
 Il segnale misurato è dato da una somma discreta e finita di impulsi \(\delta\) applicati sui multipli interi di \(\Delta k_{R}\) e di area \(s\left( p\Delta k_{R} \right)\ \Delta k_{R}\).
 
@@ -628,21 +628,21 @@ Il campionamento finito porta a una stima della densità protonica, ricostruita 
 
 Il campionamento finito nel \(k\)-spazio si traduce nel prodotto di convoluzione tra le antitrasformate del segnale registrato dalle antenne, \(s_{\infty}(k)\), la funzione di campionamento data dai treni di impulsi \(u(k)\) e la finestra rettangolare di troncamento:
 
-\[\widehat{\rho}(x) = \mathfrak{F}^{- 1}\left\lbrack s_{\infty}(k) \right\rbrack*\mathfrak{F}^{- 1}\left\lbrack u(k) \right\rbrack*\mathfrak{F}^{- 1}\left\lbrack rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right) \right\rbrack\]
+\[\widehat{\rho}(x) = \mathfrak{F}^{- 1}\left\lbrack s_{\infty}(k) \right\rbrack*\mathfrak{F}^{- 1}\left\lbrack u(k) \right\rbrack*\mathfrak{F}^{- 1}\left\lbrack rect\left( \dfrac{k + \dfrac{\Delta k}{2}}{W} \right) \right\rbrack\]
 
 Dove l'antitrasformata dalla finestra di troncamento corrisponde a una \(sinc\):
 
-\[\mathfrak{F}^{- 1}\left\lbrack rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right) \right\rbrack = Wsinc(\pi Wx)\exp{\left( - j2\pi\frac{\Delta k}{2}x\  \right)\ }\]
+\[\mathfrak{F}^{- 1}\left\lbrack rect\left( \dfrac{k + \dfrac{\Delta k}{2}}{W} \right) \right\rbrack = Wsinc(\pi Wx)\exp{\left( - j2\pi\dfrac{\Delta k}{2}x\  \right)\ }\]
 
 La \(sinc\) presenta il primo zero in \(x = \pm W^{- 1}\).
 
 Nel dominio dello spazio-immagine, la densità protonica ricostruita è data da:
 
-\[\widehat{\rho}(x) = \rho(x)*\sum_{q = - \infty}^{+ \infty}{\delta\left( x - \frac{q}{\Delta k_{R}} \right)}*Wsinc(\pi Wx)\exp{\left( - j2\pi\frac{\Delta k}{2}x\  \right)\ }\]
+\[\widehat{\rho}(x) = \rho(x)*\sum_{q = - \infty}^{+ \infty}{\delta\left( x - \dfrac{q}{\Delta k_{R}} \right)}*Wsinc(\pi Wx)\exp{\left( - j2\pi\dfrac{\Delta k}{2}x\  \right)\ }\]
 
 La convoluzione della densità protonica reale \(\rho(x)\) col treno di impulsi restituisce la densità protonica ricostruita nel caso in cui il campionamento non sia troncato \({\widehat{\rho}}_{\infty}(x)\):
 
-\[\widehat{\rho}(x) = {\widehat{\rho}}_{\infty}(x)*Wsinc(\pi Wx)\exp{\left( - j2\pi\frac{\Delta k}{2}x\  \right)\ }\]
+\[\widehat{\rho}(x) = {\widehat{\rho}}_{\infty}(x)*Wsinc(\pi Wx)\exp{\left( - j2\pi\dfrac{\Delta k}{2}x\  \right)\ }\]
 
 La convoluzione del segnale campionato in una finestra illimitata per la funzione \(sinc\) sfoca i contorni dell'immagine. Infatti, poiché la \(sinc\) non è limitata, le varie repliche interagiscono tra loro, portando a delle distorsioni nei confini dell'oggetto.
 
@@ -667,11 +667,11 @@ Dove \(L_{R} \geq A_{R}\) dimensione dell'oggetto di cui si vuole ricostruire l'
 
 Dove \(\overline{\gamma} = 42.6\ MHz/T\). Facendo valere il simbolo di uguaglianza, risulta:
 
-\[f_{R} = \overline{\gamma}G_{R}A_{R} = 42.6\frac{MHz}{T}10\frac{mT}{m}0.5\ m = 42.6 \cdot 10^{6}\frac{Hz}{T}10 \cdot 10^{- 3}\frac{T}{m}0.5\ m = 213\ kHz\]
+\[f_{R} = \overline{\gamma}G_{R}A_{R} = 42.6\dfrac{MHz}{T}10\dfrac{mT}{m}0.5\ m = 42.6 \cdot 10^{6}\dfrac{Hz}{T}10 \cdot 10^{- 3}\dfrac{T}{m}0.5\ m = 213\ kHz\]
 
 Se il gradiente di lettura raddoppia, anche la banda minima del senale raddoppia:
 
-\[f_{R} = \overline{\gamma}2G_{R}A_{R} = 42.6 \cdot 10^{6}\frac{Hz}{T}2 \cdot 10 \cdot 10^{- 3}\frac{T}{m}0.5\ m = 426\ kHz\]
+\[f_{R} = \overline{\gamma}2G_{R}A_{R} = 42.6 \cdot 10^{6}\dfrac{Hz}{T}2 \cdot 10 \cdot 10^{- 3}\dfrac{T}{m}0.5\ m = 426\ kHz\]
 
 Nella pratica le frequenze utilizzate per la banda di ricezione hanno ordine di grandezza del centinaio di \(kHz\), contro la frequenza di una decina di \(MHz\) del segnale trasmesso.
 
@@ -685,15 +685,15 @@ Date le due sequenze segnale acquisito \(s(p\Delta k)\) e densità protonica ric
 
 Questa è limitata dalla finestra rettangolare di durata \(L\), centrata in \(\Delta x/2\):
 
-\[rect\left( \frac{x + \frac{1}{2}\Delta x}{L} \right)\]
+\[rect\left( \dfrac{x + \dfrac{1}{2}\Delta x}{L} \right)\]
 
 La \(rect\) è la funzione finestratura nella quale si campiona la densità protonica spazio-immagine, la quale può essere scritta come prodotto tra la funzione finestra e la funzione campionatrice:
 
-\[{\widehat{\rho}}_{m}(x) = \widehat{\rho}(x)\widetilde{U}(x)\ rect\left( \frac{x + \frac{1}{2}\Delta x}{L} \right)\]
+\[{\widehat{\rho}}_{m}(x) = \widehat{\rho}(x)\widetilde{U}(x)\ rect\left( \dfrac{x + \dfrac{1}{2}\Delta x}{L} \right)\]
 
 Si esplicita il termine di campionamento:
 
-\[{\widehat{\rho}}_{m}(x) = \widehat{\rho}(x)\Delta x\sum_{q = - \infty}^{+ \infty}{\delta(x - q\Delta x)}rect\left( \frac{x + \frac{1}{2}\Delta x}{L} \right)\]
+\[{\widehat{\rho}}_{m}(x) = \widehat{\rho}(x)\Delta x\sum_{q = - \infty}^{+ \infty}{\delta(x - q\Delta x)}rect\left( \dfrac{x + \dfrac{1}{2}\Delta x}{L} \right)\]
 
 Si suppone che nella finestra di acquisizione, entrino \(N = 2n\) campioni del segnale densità protonica. Il segnale misurato si può scrivere come:
 
@@ -745,33 +745,33 @@ Da cui:
 
 Per definizione il FOV è:
 
-\[FOV \equiv L = \frac{1}{\Delta k}\]
+\[FOV \equiv L = \dfrac{1}{\Delta k}\]
 
 Da cui:
 
-\[\Delta k = \frac{1}{L}\]
+\[\Delta k = \dfrac{1}{L}\]
 
 Il FOV coincide con l'estensione della finestra lungo la direzione di lettura:
 
-\[L = 2n\Delta x \Leftrightarrow \Delta x = \frac{L}{2n}\]
+\[L = 2n\Delta x \Leftrightarrow \Delta x = \dfrac{L}{2n}\]
 
 Il prodotto \(\Delta k\Delta x\) può, quindi, essere scritto come:
 
-\[\Delta k\Delta x = \frac{1}{L}\frac{L}{2n} = \frac{1}{2n}\]
+\[\Delta k\Delta x = \dfrac{1}{L}\dfrac{L}{2n} = \dfrac{1}{2n}\]
 
 Questa relazione, in una sorta di analogia col principio di indeterminazione di Heisenberg, determina una relazione di inversa proporzionalità tra il campionamento nel \(k\)-spazio e nel dominio dello spazio-immagine. Nel dettaglio, maggiore è il FOV e minore risoluzione, e viceversa.
 
 Il segnale ricostruito, sostituendo \(\Delta x = L^{- 1}\) e \(\Delta k\Delta x = (2n)^{- 1}\) è:
 
-\[\widehat{s}\left( \frac{r}{L} \right) = \frac{1}{2n}\sum_{q = - n}^{n + 1}\left\{ \sum_{p = - n}^{n - 1}\left\lbrack s\left( \frac{p}{L} \right)\exp\left( j2\pi q\frac{p - r}{2n} \right) \right\rbrack \right\}\]
+\[\widehat{s}\left( \dfrac{r}{L} \right) = \dfrac{1}{2n}\sum_{q = - n}^{n + 1}\left\{ \sum_{p = - n}^{n - 1}\left\lbrack s\left( \dfrac{p}{L} \right)\exp\left( j2\pi q\dfrac{p - r}{2n} \right) \right\rbrack \right\}\]
 
 Per la linearità, si ha:
 
-\[\widehat{s}\left( \frac{r}{L} \right) = \frac{1}{2n}\sum_{q = - n}^{n + 1}\left\{ s\left( \frac{p}{L} \right)\sum_{p = - n}^{n - 1}\left\lbrack \exp\left( j2\pi q\frac{p - r}{2n} \right) \right\rbrack \right\}\]
+\[\widehat{s}\left( \dfrac{r}{L} \right) = \dfrac{1}{2n}\sum_{q = - n}^{n + 1}\left\{ s\left( \dfrac{p}{L} \right)\sum_{p = - n}^{n - 1}\left\lbrack \exp\left( j2\pi q\dfrac{p - r}{2n} \right) \right\rbrack \right\}\]
 
 È noto che
 
-\[\sum_{p = - n}^{n - 1}\left\lbrack \exp\left( j2\pi q\frac{p - r}{2n} \right) \right\rbrack = 2n\delta_{pr}\]
+\[\sum_{p = - n}^{n - 1}\left\lbrack \exp\left( j2\pi q\dfrac{p - r}{2n} \right) \right\rbrack = 2n\delta_{pr}\]
 
 Dove \(\delta_{pr}\) è la delta di Kronecker, definita come:
 
@@ -782,13 +782,13 @@ Dove \(\delta_{pr}\) è la delta di Kronecker, definita come:
 
 Il segnale ricostruito nel \(k\)-spazio è:
 
-\[\widehat{s}\left( \frac{r}{L} \right) = \frac{1}{2n}2n\sum_{q = - n}^{n + 1}\left\lbrack s\left( \frac{p}{L} \right)\delta_{pr} \right\rbrack = \sum_{q = - n}^{n + 1}\left\lbrack s\left( \frac{p}{L} \right)\delta_{pr} \right\rbrack\]
+\[\widehat{s}\left( \dfrac{r}{L} \right) = \dfrac{1}{2n}2n\sum_{q = - n}^{n + 1}\left\lbrack s\left( \dfrac{p}{L} \right)\delta_{pr} \right\rbrack = \sum_{q = - n}^{n + 1}\left\lbrack s\left( \dfrac{p}{L} \right)\delta_{pr} \right\rbrack\]
 
 Il segnale ricostruito a partire dai campioni dello spazio-immagine è uguale, punto per punto, al segnale originale campionato nel \(k\)-spazio. Dalla relazione appena individuata si evince che il segnale registrato \(s(pk)\) e densità protonica ricostruita \(\widehat{\rho}(qL/2n)\) sono legate da una coppia di trasformate di Fourier discrete:
 
 \[\left\{ \begin{matrix}
-s\left( \frac{p}{L} \right) = \Delta x\sum_{q = - n}^{n - 1}{\widehat{\rho}\left( q\frac{L}{2n} \right)\exp\left( - j2\pi\frac{pq}{2n} \right)} \\
-s\left( q\frac{L}{2n} \right) = \Delta k\sum_{q = - n}^{n - 1}{s\left( \frac{p}{L} \right)\exp\left( j2\pi\frac{pq}{2n} \right)}
+s\left( \dfrac{p}{L} \right) = \Delta x\sum_{q = - n}^{n - 1}{\widehat{\rho}\left( q\dfrac{L}{2n} \right)\exp\left( - j2\pi\dfrac{pq}{2n} \right)} \\
+s\left( q\dfrac{L}{2n} \right) = \Delta k\sum_{q = - n}^{n - 1}{s\left( \dfrac{p}{L} \right)\exp\left( j2\pi\dfrac{pq}{2n} \right)}
 \end{matrix} \right.\ \]
 
 La trasformata discreta di Fourier del segnale registrato \(s(p/L)\) è proporzionale alla densità protonica fisicamente presente in un voxel dell'immagine.
@@ -799,7 +799,7 @@ Il passo di campionamento nello spazio-immagine \(\Delta x\) è detto Fourier Pi
 
 Il campionamento e il troncamento, in definitiva, introducono degli artefatti che riducono la risoluzione. La relazione:
 
-\[\Delta x = \frac{1}{2n\Delta k}\]
+\[\Delta x = \dfrac{1}{2n\Delta k}\]
 
 Rappresenta, dunque, la risoluzione nel caso migliore possibile ed è legata al campionamento nel \(k\)-spazio e al numero di punti acquisiti nella finestra rettangolare.
 
@@ -843,59 +843,59 @@ La banda di ricezione minima \(BW_{R}\)è data da:
 
 Inoltre, per definizione, la banda passante è legata al passo di campionamento lungo la direzione di lettura dalla relazione:
 
-\[BW_{R} = \frac{1}{\Delta t_{R}}\]
+\[BW_{R} = \dfrac{1}{\Delta t_{R}}\]
 
 Il tempo di campionamento può essere ottenuto semplicemente dividendo l'ampiezza della finestra di acquisizione per il numero di punti memorizzati in tale intervallo temporale, lungo l'asse di lettura:
 
-\[\Delta t_{R} = \frac{T_{S}}{N_{R}}\]
+\[\Delta t_{R} = \dfrac{T_{S}}{N_{R}}\]
 
 La banda di ricezione minima è, dunque:
 
-\[BW_{R} = \frac{1}{\Delta t_{R}} = \frac{N_{R}}{T_{S}} = \frac{256}{5.12 \cdot 10^{- 3}\ s} = 50\ kHz\]
+\[BW_{R} = \dfrac{1}{\Delta t_{R}} = \dfrac{N_{R}}{T_{S}} = \dfrac{256}{5.12 \cdot 10^{- 3}\ s} = 50\ kHz\]
 
 L'intervallo di campionamento è, invece:
 
-\[\Delta t_{R} = \frac{T_{S}}{N_{R}} = \frac{10^{- 3}s}{256} = 0.02\ ms\]
+\[\Delta t_{R} = \dfrac{T_{S}}{N_{R}} = \dfrac{10^{- 3}s}{256} = 0.02\ ms\]
 
 Il gradiente lungo la direzione di lettura necessario per ottenere la banda di ricezione minima individuata si ottiene dalla relazione:
 
-\[BW_{R} = \overline{\gamma}G_{R}L_{R} \Leftrightarrow G_{R} = \frac{BW_{R}}{\overline{\gamma}L_{R}}\]
+\[BW_{R} = \overline{\gamma}G_{R}L_{R} \Leftrightarrow G_{R} = \dfrac{BW_{R}}{\overline{\gamma}L_{R}}\]
 
 Numericamente, si scrive:
 
-\[G_{R} = \frac{BW_{R}}{\overline{\gamma}L_{R}} = \frac{50 \cdot 10^{3}Hz}{42.6 \cdot 10^{6}\frac{Hz}{T} \cdot 256 \cdot 10^{- 3}m} = 4.58\frac{mT}{m}\]
+\[G_{R} = \dfrac{BW_{R}}{\overline{\gamma}L_{R}} = \dfrac{50 \cdot 10^{3}Hz}{42.6 \cdot 10^{6}\dfrac{Hz}{T} \cdot 256 \cdot 10^{- 3}m} = 4.58\dfrac{mT}{m}\]
 
 L'intervallo di campionamento lungo l'asse di lettura è:
 
-\[\Delta k_{R} = \frac{1}{L_{R}} = \frac{1}{256\ mm} = 3.9\ m^{- 1}\]
+\[\Delta k_{R} = \dfrac{1}{L_{R}} = \dfrac{1}{256\ mm} = 3.9\ m^{- 1}\]
 
 Analogamente, per l'asse di codifica di fase, il campionamento avviene con passo:
 
-\[\Delta k_{PE} = \frac{1}{L_{PE}} = \frac{1}{256\ mm} = 3.9\ m^{- 1}\]
+\[\Delta k_{PE} = \dfrac{1}{L_{PE}} = \dfrac{1}{256\ mm} = 3.9\ m^{- 1}\]
 
 La variazione del gradiente lungo l'asse di codifica di fase, tra una sequenza e l'altra, è dato da:
 
-\[\Delta k_{PE} = \overline{\gamma}\Delta G_{PE}\tau_{PE} \Leftrightarrow \ \Delta G_{PE} = \frac{\Delta k_{PE}}{\overline{\gamma}\tau_{PE}}\]
+\[\Delta k_{PE} = \overline{\gamma}\Delta G_{PE}\tau_{PE} \Leftrightarrow \ \Delta G_{PE} = \dfrac{\Delta k_{PE}}{\overline{\gamma}\tau_{PE}}\]
 
 Numericamente:
 
-\[\Delta G_{PE} = \frac{\Delta k_{PE}}{\overline{\gamma}\tau_{PE}} = \frac{3.9\frac{1}{m}}{42.6 \cdot 10^{6}\frac{Hz}{T} \cdot 256 \cdot 10^{- 3}m} = 0.036\frac{mT}{m}\]
+\[\Delta G_{PE} = \dfrac{\Delta k_{PE}}{\overline{\gamma}\tau_{PE}} = \dfrac{3.9\dfrac{1}{m}}{42.6 \cdot 10^{6}\dfrac{Hz}{T} \cdot 256 \cdot 10^{- 3}m} = 0.036\dfrac{mT}{m}\]
 
 Siccome la sequenza va ripetuta \(N_{PE}\) volte, il gradiente è applicato tra un valore \(- \Delta G_{\min}\) a \(\Delta G_{\max}\), passando per lo \(0\). Nell'ipotesi che \(G_{PE}\) assuma \(N/2\) valori prima dello zero e dopo, è possibile scrivere:
 
-\[\Delta G_{\max} = \Delta G_{PE}\frac{N_{PE}}{2}\]
+\[\Delta G_{\max} = \Delta G_{PE}\dfrac{N_{PE}}{2}\]
 
 Numericamente, si scrive:
 
-\[\Delta G_{\max} = \Delta G_{PE}\frac{N_{PE}}{2} = 0.036 \cdot 10^{- 3}\frac{T}{m} \cdot \frac{256}{2} = 4.57\frac{mT}{m}\]
+\[\Delta G_{\max} = \Delta G_{PE}\dfrac{N_{PE}}{2} = 0.036 \cdot 10^{- 3}\dfrac{T}{m} \cdot \dfrac{256}{2} = 4.57\dfrac{mT}{m}\]
 
 Il gradiente di selezione della fetta è legato allo spessore della fetta, \(TH\), tramite la relazione:
 
-\[TH = \frac{BW_{rf}}{\overline{\gamma}G_{SS}} \Leftrightarrow G_{SS} = \frac{BW_{rf}}{\overline{\gamma}TH}\]
+\[TH = \dfrac{BW_{rf}}{\overline{\gamma}G_{SS}} \Leftrightarrow G_{SS} = \dfrac{BW_{rf}}{\overline{\gamma}TH}\]
 
 Numericamente, si ha:
 
-\[G_{SS} = \frac{BW_{rf}}{\overline{\gamma}TH} = \frac{2\ kHz}{42.6 \cdot 10^{6}\frac{Hz}{T} \cdot 3 \cdot 10^{- 3}\ m} = 9.38\frac{mT}{m}\]
+\[G_{SS} = \dfrac{BW_{rf}}{\overline{\gamma}TH} = \dfrac{2\ kHz}{42.6 \cdot 10^{6}\dfrac{Hz}{T} \cdot 3 \cdot 10^{- 3}\ m} = 9.38\dfrac{mT}{m}\]
 
 Il tempo necessario per acquisire una singola fetta è dato dall'intervallo temporale in cui è attivata la finestra di ricezione \(T_{S}\) e il tempo tra due ripetizioni \(T_{R}\) da una sequenza e la successiva. Numericamente, \(T_{R} = 600\ ms\) mentre \(T_{S} = 5.12\ ms\). È chiaro che \(T_{R} \gg T_{S}\), quindi, l'intervallo in cui si preleva il segnale può essere trascurato. In altre parole, si soppone che l'asse di lettura sia acquisito istantaneamente rispetto all'asse di codifica di fase.
 
@@ -907,55 +907,55 @@ L'acquisizione di una singola avviene in un tempo di circa \(2.6\ min\).
 
 Se si raddoppiano \(N_{R}\) e \(N_{PE}\) e si dimezza \(TH\), a parità di tutti gli altri parametri, dalla relazione:
 
-\[G_{R} = \frac{BW_{R}}{\overline{\gamma}L_{R}}\]
+\[G_{R} = \dfrac{BW_{R}}{\overline{\gamma}L_{R}}\]
 
 Per definizione di \(BW_{R} = N_{R}/T_{S}\), si ha:
 
-\[G_{R} = \frac{N_{R}}{\overline{\gamma}L_{R}T_{S}}\]
+\[G_{R} = \dfrac{N_{R}}{\overline{\gamma}L_{R}T_{S}}\]
 
 Se il numero di punti campionato lungo la direzione di lettura, \(N_{R}\), raddoppia, anche il gradiente \(G_{R}\) raddoppia.
 
 Il massimo gradiente lungo l'asse di codifica di fase è dato da:
 
-\[G_{PE,max} = \Delta G_{PE}\frac{N_{PE}}{2}\]
+\[G_{PE,max} = \Delta G_{PE}\dfrac{N_{PE}}{2}\]
 
 Se raddoppia il numero di punti \(N_{PE}\) anche il massimo gradiente applicato lungo la direzione di codifica di fase è raddoppia.
 
 Dimezzando \(TH\) invece, \(G_{SS}\) raddoppia poiché i due parametri sono legati da una legge di inversa proporzionalità:
 
-\[G_{SS} = \left. \ \frac{BW_{rf}}{\overline{\gamma}TH} \right|_{TH = \frac{TH}{2}} = 2\frac{BW_{rf}}{\overline{\gamma}TH}\]
+\[G_{SS} = \left. \ \dfrac{BW_{rf}}{\overline{\gamma}TH} \right|_{TH = \dfrac{TH}{2}} = 2\dfrac{BW_{rf}}{\overline{\gamma}TH}\]
 
 Se si dimezza la dimensione dell'oggetto \(L_{R}\), il gradiente di lettura raddoppia, infatti le due quantità sono inversamente proporzionate:
 
-\[G_{R} = \left. \ \frac{BW_{R}}{\overline{\gamma}L_{R}} \right|_{L_{R} = \frac{L_{R}}{2}} = 2\frac{BW_{R}}{\overline{\gamma}L_{R}}\]
+\[G_{R} = \left. \ \dfrac{BW_{R}}{\overline{\gamma}L_{R}} \right|_{L_{R} = \dfrac{L_{R}}{2}} = 2\dfrac{BW_{R}}{\overline{\gamma}L_{R}}\]
 
 Il tempo di acquisizione della finestra \(T_{S}\) è legato agli altri parametri lungo la direzione di lettura dalla relazione:
 
-\[G_{R} = \frac{N_{R}}{\overline{\gamma}L_{R}T_{S}}\]
+\[G_{R} = \dfrac{N_{R}}{\overline{\gamma}L_{R}T_{S}}\]
 
 Aumentando \(T_{S}\), il gradiente lungo \(G_{R}\) si riduce per inversa proporzionalità. Numericamente:
 
-\[G_{R} = \frac{N_{R}}{\overline{\gamma}L_{R}T_{S}} = \frac{256}{42.6 \cdot 10^{6}\frac{Hz}{T} \cdot 256 \cdot 10^{- 3}m \cdot 2.56 \cdot 10^{- 3}s} = 9.2\frac{mT}{m}\]
+\[G_{R} = \dfrac{N_{R}}{\overline{\gamma}L_{R}T_{S}} = \dfrac{256}{42.6 \cdot 10^{6}\dfrac{Hz}{T} \cdot 256 \cdot 10^{- 3}m \cdot 2.56 \cdot 10^{- 3}s} = 9.2\dfrac{mT}{m}\]
 
 Il valore del gradiente di selezione della fetta è dato da:
 
-\[G_{SS} = \frac{BW_{rf}}{\overline{\gamma}TH} = \frac{2\ kHz}{42.6 \cdot 10^{6}\frac{Hz}{T}36 \cdot 10^{- 3}m} = 1.3\frac{mT}{m}\]
+\[G_{SS} = \dfrac{BW_{rf}}{\overline{\gamma}TH} = \dfrac{2\ kHz}{42.6 \cdot 10^{6}\dfrac{Hz}{T}36 \cdot 10^{- 3}m} = 1.3\dfrac{mT}{m}\]
 
 Il passo di campionamento lungo l'asse di \emph{slice selection} è dato da:
 
-\[\Delta k_{SS} = \overline{\gamma}\Delta G_{SS}\tau_{SS} \Leftrightarrow \ \Delta G_{SS} = \frac{\Delta k_{SS}}{\overline{\gamma}\tau_{SS}}\]
+\[\Delta k_{SS} = \overline{\gamma}\Delta G_{SS}\tau_{SS} \Leftrightarrow \ \Delta G_{SS} = \dfrac{\Delta k_{SS}}{\overline{\gamma}\tau_{SS}}\]
 
 Dove \(\Delta k_{SS} = 1/L_{SS}\), ovvero:
 
-\[\Delta k_{SS} = \frac{1}{L_{SS}} = \frac{1}{32 \cdot 10^{- 3}m} = 31.3\ m^{- 1}\]
+\[\Delta k_{SS} = \dfrac{1}{L_{SS}} = \dfrac{1}{32 \cdot 10^{- 3}m} = 31.3\ m^{- 1}\]
 
 Noto questo parametro è possibile ricavare l'incremento del gradiente di selezione della fetta tra una sequenza e la successiva:
 
-\[\ \Delta G_{SS} = \frac{\Delta k_{SS}}{\overline{\gamma}\tau_{SS}} = \frac{31.3\ m^{- 1}}{42.6 \cdot 10^{6}\frac{Hz}{T}256 \cdot 10^{- 3}m} = 2.87\frac{\mu T}{m}\]
+\[\ \Delta G_{SS} = \dfrac{\Delta k_{SS}}{\overline{\gamma}\tau_{SS}} = \dfrac{31.3\ m^{- 1}}{42.6 \cdot 10^{6}\dfrac{Hz}{T}256 \cdot 10^{- 3}m} = 2.87\dfrac{\mu T}{m}\]
 
 Il gradiente massimo applicato lungo la direzione di selezione della fetta è dato da:
 
-\[G_{SS,max} = \Delta G_{SS}N_{SS} = 16 \cdot 2.87\frac{\mu T}{m} = 45.9\frac{\mu T}{m}\]
+\[G_{SS,max} = \Delta G_{SS}N_{SS} = 16 \cdot 2.87\dfrac{\mu T}{m} = 45.9\dfrac{\mu T}{m}\]
 
 Il tempo di acquisizione deve tener conto, oltre ai \(N_{PE}\) punti lungo l'asse di codifica di fase, anche gli \(N_{SS}\) punti lungo l'asse di selezione della fetta. Per un tempo di ripetizione di \(T_{R} = 600\ ms\), si ha un tempo:
 
@@ -983,15 +983,15 @@ La trasformata inversa di Fourier è ottenuta come somma di \(2n\) termini a cau
 
 Siccome, per il teorema di Nyquist applicato lungo l'asse di lettura, il FOV deve essere maggiore della dimensione degli oggetti dell'immagine:
 
-\[L \geq A,\Delta k = \frac{1}{L}\]
+\[L \geq A,\Delta k = \dfrac{1}{L}\]
 
 Risulta:
 
-\[\Delta k \leq \frac{1}{A}\]
+\[\Delta k \leq \dfrac{1}{A}\]
 
 Da cui discende che la finestra di acquisizione deve essere più piccola dell'inverso della dimensione dell'oggetto, moltiplicata per \(N\):
 
-\[W = N\Delta k \Leftrightarrow W \leq \frac{N}{A}\]
+\[W = N\Delta k \Leftrightarrow W \leq \dfrac{N}{A}\]
 
 \subsubsection{Banda di ricezione dell'imaging}\label{banda-di-ricezione-dellimaging}
 
@@ -1036,19 +1036,19 @@ Nella maggior parte dei casi pratici la banda di eccitazione non è perfettament
 
 Il troncamento e il campionamento, dal punto di vista analitico, possono essere espressi come la convoluzione tra la finestra rettangolare e il treno di impulso di campionamento:
 
-\[{\widehat{\rho}}_{m}(x) = {\widehat{\rho}}_{\infty}(x)*U(x)*Wsinc(\pi Wx)\exp{\left( - j2\pi\frac{\Delta k}{2}x\  \right)\ }\]
+\[{\widehat{\rho}}_{m}(x) = {\widehat{\rho}}_{\infty}(x)*U(x)*Wsinc(\pi Wx)\exp{\left( - j2\pi\dfrac{\Delta k}{2}x\  \right)\ }\]
 
 Nel \(k\)-spazio la relazione può essere espressa come:
 
-\[s_{m}(k) = s_{\infty}(k)u(k)rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right)\]
+\[s_{m}(k) = s_{\infty}(k)u(k)rect\left( \dfrac{k + \dfrac{\Delta k}{2}}{W} \right)\]
 
 Dove \(W = 2n\Delta k = \Delta x^{- 1}\). Nel \(k\)-spazio questa operazione corrisponde a un filtraggio a opera della funzione di trasferimento \(H(k)\), definita come:
 
-\[H(k) = u(k)rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right)\]
+\[H(k) = u(k)rect\left( \dfrac{k + \dfrac{\Delta k}{2}}{W} \right)\]
 
 Nello spazio-immagine la funzione \(H(k)\) è identificata con la \emph{point spread function} o PSF. La funzione rettangolare corrisponde a un filtraggio detto con \emph{windowed} e indicato con \(H_{W}\):
 
-\[H_{W}(k) = rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right)\]
+\[H_{W}(k) = rect\left( \dfrac{k + \dfrac{\Delta k}{2}}{W} \right)\]
 
 Il treno di impulsi corrisponde a un filtraggio detto sampling e indicato con \(H_{S}\):
 
@@ -1056,7 +1056,7 @@ Il treno di impulsi corrisponde a un filtraggio detto sampling e indicato con \(
 
 I due contributi offrono insieme un comportamento del tipo \emph{windowed} e \emph{sampling}:
 
-\[H_{WS}(k) = \Delta k\sum_{p = - \infty}^{+ \infty}{\delta(k - p\Delta k)}rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right)\]
+\[H_{WS}(k) = \Delta k\sum_{p = - \infty}^{+ \infty}{\delta(k - p\Delta k)}rect\left( \dfrac{k + \dfrac{\Delta k}{2}}{W} \right)\]
 
 Nel \(k\)-spazio il segnale misurato può essere espresso come:
 
@@ -1072,7 +1072,7 @@ Il segnale nel \(k\)-spazio è dato da:
 
 Sostituendo l'espressione del filtro \emph{windowed} e \emph{sampling}, si ottiene:
 
-\[\widehat{\rho}(x) = \int_{- \infty}^{+ \infty}{s_{\infty}(k)\left\lbrack \Delta k\sum_{p = - \infty}^{+ \infty}{\delta(k - p\Delta k)}rect\left( \frac{k + \frac{\Delta k}{2}}{W} \right) \right\rbrack\exp(j2\pi kx)dk}\]
+\[\widehat{\rho}(x) = \int_{- \infty}^{+ \infty}{s_{\infty}(k)\left\lbrack \Delta k\sum_{p = - \infty}^{+ \infty}{\delta(k - p\Delta k)}rect\left( \dfrac{k + \dfrac{\Delta k}{2}}{W} \right) \right\rbrack\exp(j2\pi kx)dk}\]
 
 Per effetto della finestra rettangolare, la sommatoria non si estende per tutti i numeri interi ma solamente sui \(2n\) punti che ricadono nella finestra stessa:
 
@@ -1096,7 +1096,7 @@ Dal confronto è evidente che l'antitrasformata della funzione di filtraggio o P
 
 La sommatoria che definisce \(h_{WS}(x)\) ha somma nota:
 
-\[h_{WS}(x) = \ \Delta k\sum_{p = - n}^{n - 1}{\exp(j2\pi p\Delta kx)} = \Delta k\exp( - j2\pi n\Delta kx)\frac{1 - \exp(j4\pi n\Delta kx)}{1 - \exp(j2\pi\Delta kx)}\]
+\[h_{WS}(x) = \ \Delta k\sum_{p = - n}^{n - 1}{\exp(j2\pi p\Delta kx)} = \Delta k\exp( - j2\pi n\Delta kx)\dfrac{1 - \exp(j4\pi n\Delta kx)}{1 - \exp(j2\pi\Delta kx)}\]
 
 Si considera le formule di Eulero per \(\exp(j\vartheta)\) e \(\exp( - j\vartheta)\):
 
@@ -1128,31 +1128,31 @@ Applicando questo risultato all'espressione per la PSF nello spazio-immagine, \(
 
 Da cui:
 
-\[h_{WS}(x) = \Delta k\frac{1 - \exp(j4\pi n\Delta kx)}{1 - \exp(j2n\Delta kx)}\exp( - j2\pi n\Delta kx) = \Delta k\frac{- 2j\sin(2\pi n\Delta kx)\exp(j2\pi n\Delta kx)}{- 2j\sin(\pi\Delta kx)\exp(j\pi n\Delta kx)}\exp( - j2\pi n\Delta kx) =\]
+\[h_{WS}(x) = \Delta k\dfrac{1 - \exp(j4\pi n\Delta kx)}{1 - \exp(j2n\Delta kx)}\exp( - j2\pi n\Delta kx) = \Delta k\dfrac{- 2j\sin(2\pi n\Delta kx)\exp(j2\pi n\Delta kx)}{- 2j\sin(\pi\Delta kx)\exp(j\pi n\Delta kx)}\exp( - j2\pi n\Delta kx) =\]
 
 È noto che \(W = 2n\Delta k\), per cui:
 
-\[= \Delta k\frac{\sin(\pi Wx)}{\sin(\pi\Delta kx)}\exp(j\pi n\Delta kx)\exp( - j2\pi n\Delta kx) =\]
+\[= \Delta k\dfrac{\sin(\pi Wx)}{\sin(\pi\Delta kx)}\exp(j\pi n\Delta kx)\exp( - j2\pi n\Delta kx) =\]
 
 Si moltiplica e divide il secondo membro per \(\pi Wx\):
 
-\[= \Delta k\frac{\frac{\sin(\pi Wx)}{\pi Wx}}{\frac{\sin(\pi\Delta kx)}{\pi Wx}}\exp( - j\pi n\Delta kx) =\]
+\[= \Delta k\dfrac{\dfrac{\sin(\pi Wx)}{\pi Wx}}{\dfrac{\sin(\pi\Delta kx)}{\pi Wx}}\exp( - j\pi n\Delta kx) =\]
 
 Per definizione:
 
-\[\frac{\sin(\pi Wx)}{\pi Wx} = sinc(\pi Wx)\]
+\[\dfrac{\sin(\pi Wx)}{\pi Wx} = sinc(\pi Wx)\]
 
 Inoltre, al denominatore si ricorda che \(W = 2n\Delta k\):
 
-\[\frac{\sin(\pi\Delta kx)}{2n\pi\Delta kx} = \frac{1}{2n}\frac{\sin(\pi\Delta kx)}{\pi\Delta kx}\frac{1}{2n}{sinc}(\pi\Delta kx)\]
+\[\dfrac{\sin(\pi\Delta kx)}{2n\pi\Delta kx} = \dfrac{1}{2n}\dfrac{\sin(\pi\Delta kx)}{\pi\Delta kx}\dfrac{1}{2n}{sinc}(\pi\Delta kx)\]
 
 Sostituendo questo risultato appena ottenuto in \(h_{WS}(x)\), si ha:
 
-\[h_{WS}(x) = 2n\Delta k\frac{{sinc}(\pi Wx)}{{sinc}(\pi\Delta kx)}\exp( - j\pi n\Delta kx)\]
+\[h_{WS}(x) = 2n\Delta k\dfrac{{sinc}(\pi Wx)}{{sinc}(\pi\Delta kx)}\exp( - j\pi n\Delta kx)\]
 
 Ovvero:
 
-\[h_{WS}(x) = W\frac{{sinc}(\pi Wx)}{{sinc}(\pi\Delta kx)}\exp( - j\pi n\Delta kx)\]
+\[h_{WS}(x) = W\dfrac{{sinc}(\pi Wx)}{{sinc}(\pi\Delta kx)}\exp( - j\pi n\Delta kx)\]
 
 Come nel caso continuo, la PSF, \(h_{WS}(x)\), determina degli sfocamenti nelle regioni ad alta frequenza dell'immagine, ovvero dei bordi dell'immagine. La \(sinc\) presenta delle oscillazioni che non portano a transizioni nette tra i vari organi ma a delle sfocature che determinano una cattiva visione dei confini tra i vari parenchima degli organi.
 
@@ -1189,7 +1189,7 @@ Un rimedio alternativo consiste nell'utilizzare un ulteriore filtro di smoothing
 
 Un semplice funzione filtrante è offerta dalla finestra di Hamming o coseno rialzato, data dall'equazione nel \(k\)-spazio:
 
-\[H_{ham}(k) = \frac{1}{2} + \frac{1}{2}\cos\left( \frac{2\pi k}{W} \right) = \cos^{2}\left( \frac{\pi k}{W} \right)\]
+\[H_{ham}(k) = \dfrac{1}{2} + \dfrac{1}{2}\cos\left( \dfrac{2\pi k}{W} \right) = \cos^{2}\left( \dfrac{\pi k}{W} \right)\]
 
 Dal punto di vista numerico \(H_{ham}(k)\) è un vettore detto convolution window.
 
@@ -1199,23 +1199,23 @@ Si analizza il caso in cui \(k \rightarrow + k_{\max}\) e \(k \rightarrow - k_{\
 
 Se \(k \rightarrow \pm k_{\max}\), si ha:
 
-\[\frac{2\pi k}{W} = \frac{2\pi k}{k_{\max} + k_{\min}} = \frac{2\pi k}{2k_{\max}} = \frac{\pi k}{k_{\max}} \rightarrow \pm \pi,k \rightarrow \pm k_{\max}\ \]
+\[\dfrac{2\pi k}{W} = \dfrac{2\pi k}{k_{\max} + k_{\min}} = \dfrac{2\pi k}{2k_{\max}} = \dfrac{\pi k}{k_{\max}} \rightarrow \pm \pi,k \rightarrow \pm k_{\max}\ \]
 
 In questa condizione:
 
-\[H_{ham}(k) = \cos^{2}\left( \frac{\pi k}{W} \right) \rightarrow 0,k \rightarrow \pm k_{\max}\ \]
+\[H_{ham}(k) = \cos^{2}\left( \dfrac{\pi k}{W} \right) \rightarrow 0,k \rightarrow \pm k_{\max}\ \]
 
 Nel dominio dello spazio-immagine la finestra di Hamming si esprime come somma di impulsi di opportuna area e punti di applicazione:
 
-\[h_{ham}(x) = \frac{1}{2}\delta(x) + \frac{1}{4}\left\lbrack \delta\left( x - \frac{1}{W} \right) + \delta\left( x + \frac{1}{W} \right) \right\rbrack\]
+\[h_{ham}(x) = \dfrac{1}{2}\delta(x) + \dfrac{1}{4}\left\lbrack \delta\left( x - \dfrac{1}{W} \right) + \delta\left( x + \dfrac{1}{W} \right) \right\rbrack\]
 
 Dove \(W\) è legato alla risoluzione spaziale \(\Delta x\) dalla relazione:
 
-\[W = \frac{1}{\Delta x} \Leftrightarrow \Delta x = \frac{1}{W}\]
+\[W = \dfrac{1}{\Delta x} \Leftrightarrow \Delta x = \dfrac{1}{W}\]
 
 Per cui, è possibile la finestra nello spazio-immagine:
 
-\[h_{ham}(x) = \frac{1}{2}\delta(x) + \frac{1}{4}\left\lbrack \delta(x - \Delta x) + \delta(x + \Delta x) \right\rbrack\]
+\[h_{ham}(x) = \dfrac{1}{2}\delta(x) + \dfrac{1}{4}\left\lbrack \delta(x - \Delta x) + \delta(x + \Delta x) \right\rbrack\]
 
 Se agisce solamente la finestra di Hamming, la densità protonica ricostruita è data dalla convoluzione dall'antitrasformata della finestra di smoothing con la densità protonica fisicamente presente nel volume:
 
@@ -1223,11 +1223,11 @@ Se agisce solamente la finestra di Hamming, la densità protonica ricostruita è
 
 Sostituendo l'espressione della finestra di Hamming:
 
-\[\widehat{\rho}(x) = \rho(x)*\left\{ \frac{1}{2}\delta(x) + \frac{1}{4}\left\lbrack \delta(x - \Delta x) + \delta(x + \Delta x) \right\rbrack \right\}\]
+\[\widehat{\rho}(x) = \rho(x)*\left\{ \dfrac{1}{2}\delta(x) + \dfrac{1}{4}\left\lbrack \delta(x - \Delta x) + \delta(x + \Delta x) \right\rbrack \right\}\]
 
 Per la proprietà di campionamento della delta, si ha:
 
-\[\widehat{\rho}(x) = \frac{1}{2}\rho(x) + \frac{1}{4}\rho(x - \Delta x) + \frac{1}{4}\rho(x + \Delta x)\]
+\[\widehat{\rho}(x) = \dfrac{1}{2}\rho(x) + \dfrac{1}{4}\rho(x - \Delta x) + \dfrac{1}{4}\rho(x + \Delta x)\]
 
 Il filtraggio con la finestra di Hamming nel dominio dell'immagne corrisponde a un'operazione di media di \(\rho(x)\) e una sua versione scalata e traslata di \(\pm \Delta x\). Con questa soluzione si riduce il contenuto oscillatorio dei bordi. La finestratura non rimuove comunque lo sfocamento dei bordi, rendendo difficile il riconoscimento dei vari organi. Si perde, quindi, in risoluzione a favore dell'abbattimento delle oscillazioni o ringing sia all'interno che all'esterno dell'immagine.
 
@@ -1237,11 +1237,11 @@ Se si tronca il segnale con la finestra rettangolare e si campione, la densità 
 
 Sostituendo le espressioni per le funzioni di trasferimento, si ha:
 
-\[\widehat{\rho}(x) = \ \rho(x)*\left\lbrack W\frac{{sinc}(\pi Wx)}{{sinc}(\pi\Delta kx)}\exp( - j\pi n\Delta kx) \right\rbrack*\left\lbrack \frac{1}{2}\delta(x) + \frac{1}{4}\delta(x - \Delta x) + \frac{1}{4}\delta(x + \Delta x) \right\rbrack\]
+\[\widehat{\rho}(x) = \ \rho(x)*\left\lbrack W\dfrac{{sinc}(\pi Wx)}{{sinc}(\pi\Delta kx)}\exp( - j\pi n\Delta kx) \right\rbrack*\left\lbrack \dfrac{1}{2}\delta(x) + \dfrac{1}{4}\delta(x - \Delta x) + \dfrac{1}{4}\delta(x + \Delta x) \right\rbrack\]
 
 Applicando le proprietà della delta di Dirac tra le due funzioni di trasferimento, si ha:
 
-\[\widehat{\rho}(x) = \ \rho(x)*\left\lbrack \frac{1}{2}W\frac{{sinc}(\pi Wx)}{{sinc}(\pi\Delta kx)}\exp( - j\pi n\Delta kx) + \frac{1}{4}W\frac{{sinc}\left( \pi W(x - \Delta x) \right)}{{sinc}\left( \pi\Delta k(x - \Delta x) \right)}\exp\left( - j\pi n\Delta k(x - \Delta x) \right)\frac{1}{4}W\frac{{sinc}\left( \pi W(x + \Delta x) \right)}{{sinc}\left( \pi\Delta k(x + \Delta x) \right)}\exp\left( - j\pi n\Delta k(x + \Delta x) \right) \right\rbrack\]
+\[\widehat{\rho}(x) = \ \rho(x)*\left\lbrack \dfrac{1}{2}W\dfrac{{sinc}(\pi Wx)}{{sinc}(\pi\Delta kx)}\exp( - j\pi n\Delta kx) + \dfrac{1}{4}W\dfrac{{sinc}\left( \pi W(x - \Delta x) \right)}{{sinc}\left( \pi\Delta k(x - \Delta x) \right)}\exp\left( - j\pi n\Delta k(x - \Delta x) \right)\dfrac{1}{4}W\dfrac{{sinc}\left( \pi W(x + \Delta x) \right)}{{sinc}\left( \pi\Delta k(x + \Delta x) \right)}\exp\left( - j\pi n\Delta k(x + \Delta x) \right) \right\rbrack\]
 
 A questo segnale ricostruito corrisponde una media spaziale della funzione filtratane \(h_{WS}(x)\) che riduce l'ampiezza delle oscillazioni ma allo stesso tempo sfoca i contorni dell'immagine.
 
@@ -1264,7 +1264,7 @@ Nella pratica, la PSF presenta una certa estensione finita nello spazio-immagine
 
 Una prima definizione di risoluzione spaziale è data dall'area sottesa in tutto il dominio dello spazzi-immagine dalla PSF, normalizzata al valore che essa assume nell'origine:
 
-\[\Delta x_{MRI} = \frac{1}{h(0)}\int_{- \infty}^{+ \infty}{h(x)dx}\]
+\[\Delta x_{MRI} = \dfrac{1}{h(0)}\int_{- \infty}^{+ \infty}{h(x)dx}\]
 
 È possibile scrivere l'integrale al secondo membro in termini di trasformata di Fourier:
 
@@ -1312,33 +1312,33 @@ Si valuta l'energia della PSF legato al solo troncamento e campionamento, \(h_{w
 
 \[H_{WS}(0) = \int_{- \infty}^{+ \infty}{\left\lbrack \sum_{p = - n}^{n - 1}{\exp(j2\pi p\Delta kx)} \right\rbrack dx}\]
 
-Sia \(\left\lbrack - \frac{L}{2};\frac{L}{2} \right\rbrack\) l'intervallo in cui la PSF è non nulla, dove \(L\) è l'estensione della finestra di acquisizione, ovvero il FOV. L'integrale si riduce a:
+Sia \(\left\lbrack - \dfrac{L}{2};\dfrac{L}{2} \right\rbrack\) l'intervallo in cui la PSF è non nulla, dove \(L\) è l'estensione della finestra di acquisizione, ovvero il FOV. L'integrale si riduce a:
 
-\[H_{WS}(0) = \int_{- \frac{L}{2}}^{+ \frac{L}{2}}{\left\lbrack \sum_{p = - n}^{n - 1}{\exp(j2\pi p\Delta kx)} \right\rbrack dx}\]
+\[H_{WS}(0) = \int_{- \dfrac{L}{2}}^{+ \dfrac{L}{2}}{\left\lbrack \sum_{p = - n}^{n - 1}{\exp(j2\pi p\Delta kx)} \right\rbrack dx}\]
 
 Si inverte il simbolo di integrale con quello di sommatoria, ottenendo:
 
-\[H_{WS}(0) = \sum_{p = - n}^{n - 1}\left\lbrack \int_{- \frac{L}{2}}^{+ \frac{L}{2}}{\exp(j2\pi p\Delta kx)dx} \right\rbrack\]
+\[H_{WS}(0) = \sum_{p = - n}^{n - 1}\left\lbrack \int_{- \dfrac{L}{2}}^{+ \dfrac{L}{2}}{\exp(j2\pi p\Delta kx)dx} \right\rbrack\]
 
 Si risolve l'integrale:
 
-\[\int_{- \frac{L}{2}}^{+ \frac{L}{2}}{\exp(j2\pi p\Delta kx)dx} = \frac{1}{j2\pi p\Delta k}\left\lbrack \exp(j2\pi p\Delta kx) \right\rbrack_{- \frac{L}{2}}^{+ \frac{L}{2}} = \ \frac{1}{j2\pi p\Delta k}\left\lbrack \exp\left( j2\pi p\Delta k\frac{L}{2} \right) - \exp\left( - j2\pi p\Delta k\frac{L}{2} \right) \right\rbrack\]
+\[\int_{- \dfrac{L}{2}}^{+ \dfrac{L}{2}}{\exp(j2\pi p\Delta kx)dx} = \dfrac{1}{j2\pi p\Delta k}\left\lbrack \exp(j2\pi p\Delta kx) \right\rbrack_{- \dfrac{L}{2}}^{+ \dfrac{L}{2}} = \ \dfrac{1}{j2\pi p\Delta k}\left\lbrack \exp\left( j2\pi p\Delta k\dfrac{L}{2} \right) - \exp\left( - j2\pi p\Delta k\dfrac{L}{2} \right) \right\rbrack\]
 
 Per le formule di Eulero, risulta:
 
-\[\exp\left( j2\pi p\Delta k\frac{L}{2} \right) - \exp\left( - j2\pi p\Delta k\frac{L}{2} \right) = 2j\sin\left( 2\pi p\Delta k\frac{L}{2} \right)\]
+\[\exp\left( j2\pi p\Delta k\dfrac{L}{2} \right) - \exp\left( - j2\pi p\Delta k\dfrac{L}{2} \right) = 2j\sin\left( 2\pi p\Delta k\dfrac{L}{2} \right)\]
 
 Quindi la soluzione dell'integrale è:
 
-\[\int_{- \frac{L}{2}}^{+ \frac{L}{2}}{\exp(j2\pi p\Delta kx)dx} = \frac{1}{j2\pi p\Delta k}2j\sin\left( 2\pi p\Delta k\frac{L}{2} \right) = \frac{1}{\pi p\Delta k}\sin(\pi p\Delta kL) =\]
+\[\int_{- \dfrac{L}{2}}^{+ \dfrac{L}{2}}{\exp(j2\pi p\Delta kx)dx} = \dfrac{1}{j2\pi p\Delta k}2j\sin\left( 2\pi p\Delta k\dfrac{L}{2} \right) = \dfrac{1}{\pi p\Delta k}\sin(\pi p\Delta kL) =\]
 
 Moltiplicando e dividendo per \(L\) il secondo membro è possibile esprimere l'integrale in termini di \(sinc\):
 
-\[= L\frac{\sin(\pi p\Delta kL)}{\pi p\Delta kL} = L{sinc}(\pi p\Delta kL) =\]
+\[= L\dfrac{\sin(\pi p\Delta kL)}{\pi p\Delta kL} = L{sinc}(\pi p\Delta kL) =\]
 
 Il campionamento nel \(k\)-spazio, \(\Delta k\), e il FOV sono legati dalla relazione \(\Delta k = L^{- 1}\), per cui:
 
-\[= L{sinc}\left( \pi p\frac{1}{L}L \right) = L{sinc}(\pi p)\]
+\[= L{sinc}\left( \pi p\dfrac{1}{L}L \right) = L{sinc}(\pi p)\]
 
 Al variare di \(p \in \mathbb{N}_{0}\), la \({sinc}(\pi p)\) è nulla, a eccezione del caso \(p = 0\), nella quale è unitaria. Formalmente, è possibile scrivere che:
 
@@ -1361,11 +1361,11 @@ Di tutta la sommatoria esiste un unico \(p = 0\), gli altri sono diversi da tale
 
 La risoluzione spaziale nel caso di solo campionamento e troncamento, \(\Delta x_{RMI}\), per definizione è data da:
 
-\[\Delta x_{MRI} = \frac{1}{h_{WS}(0)}\int_{- \infty}^{+ \infty}{h_{WS}(x)dx} = \frac{H_{WS}(0)}{h_{WS}(0)}\]
+\[\Delta x_{MRI} = \dfrac{1}{h_{WS}(0)}\int_{- \infty}^{+ \infty}{h_{WS}(x)dx} = \dfrac{H_{WS}(0)}{h_{WS}(0)}\]
 
 Sostituendo i risultati ottenuti si ottiene:
 
-\[\Delta x_{MRI} = \frac{L}{2n} = \frac{1}{2n\Delta k} = \Delta x\]
+\[\Delta x_{MRI} = \dfrac{L}{2n} = \dfrac{1}{2n\Delta k} = \Delta x\]
 
 Nel caso migliore, la risoluzione \(\Delta x_{MRI}\) coincide con il Fourier pixel size \(\Delta x\).
 
@@ -1385,11 +1385,11 @@ La risoluzione di risoluzione spaziale come integrale della PSF può non essere 
 
 La \emph{full width half maximum} (FWHM) è definita come il doppio della distanza del centro della PSF simmetrica e un punto in cui la sua ampiezza decade di un fattore \(k\) rispetto al valore massimo, ottenuto nell'origine:
 
-\[h\left( \frac{\Delta x_{RMI}}{2} \right) = kh(0)\]
+\[h\left( \dfrac{\Delta x_{RMI}}{2} \right) = kh(0)\]
 
 Solitamente, come riferimento si utilizza metà dell'ampiezza massima, ovvero \(k = 1/2\). In questo caso si ottiene:
 
-\[h\left( \frac{\Delta x_{RMI}}{2} \right) = \frac{1}{2}h(0)\]
+\[h\left( \dfrac{\Delta x_{RMI}}{2} \right) = \dfrac{1}{2}h(0)\]
 
 \begin{figure}
 \centering
@@ -1410,7 +1410,7 @@ L'effetto del campionamento e del filtraggio può essere modellato come un filtr
 
 Gli effetti del rilassamento non possono essere trascurati nel caso in cui la finestra di acquisizione \(T_{S}\) è paragonabile col tempo \(T_{2}^{*}\) con cui decade il segnale registrato. In questa condizione il segnale campionato presenta un'ampiezza dipendente da un decadimento esponenziale del tipo:
 
-\[s_{m}(k) = s(k)\exp\left( - \frac{t}{T_{2}^{*}} \right)\]
+\[s_{m}(k) = s(k)\exp\left( - \dfrac{t}{T_{2}^{*}} \right)\]
 
 Dove l'origine dei tempi \(t = 0\ s\) è scelto, generalmente, al centro dell'impulso a radiofrequenza. Si considera, ad esempio, una sequenza gradient-echo. Si adopera la sostituzione \(t' = t - T_{E}\) in modo da riportare l'origine dei tempi al tempo di echo \(T_{E}\); in altre parole, si sceglie \(T_{E}\) come riferimento temporale.
 
@@ -1421,47 +1421,47 @@ Dove l'origine dei tempi \(t = 0\ s\) è scelto, generalmente, al centro dell'im
 
 Nel dominio del \(k\)-spazio, è possibile scrivere che:
 
-\[k = \overline{\gamma}Gt' \Leftrightarrow t' = \frac{k}{\overline{\gamma}G}\]
+\[k = \overline{\gamma}Gt' \Leftrightarrow t' = \dfrac{k}{\overline{\gamma}G}\]
 
 Il tempo \(t\), legato a \(t'\), può essere espresso come:
 
-\[t' = t - T_{E} \Leftrightarrow t = t' + T_{E} = \frac{k}{\overline{\gamma}G} + T_{E}\]
+\[t' = t - T_{E} \Leftrightarrow t = t' + T_{E} = \dfrac{k}{\overline{\gamma}G} + T_{E}\]
 
 Con questa posizione, il decadimento esponenziale del segnale registrato nel \(k\)-spazio si scrive come:
 
-\[\exp\left( - \frac{t}{T_{2}^{*}} \right) = \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right)\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+\[\exp\left( - \dfrac{t}{T_{2}^{*}} \right) = \exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}^{*}} \right)\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)\]
 
 Applicando anche il troncamento al segnale registrato nel \(k\)-spazio, si ottiene:
 
-\[s_{m}(k) = s(k)\exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right)\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)H_{w}(k)\]
+\[s_{m}(k) = s(k)\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}^{*}} \right)\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)H_{w}(k)\]
 
 Una volta fissato il tempo di echo e le disomogeneità di campo, il termine \(\exp\left( - T_{E}/T_{2}^{*} \right)\) è costante.
 
 Si esplicita la finestra di troncamento, \(H_{w}(k)\):
 
-\[s_{m}(k) = s(k)\exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right){rect}\left( \frac{k + \frac{\Delta k}{2}}{W} \right)\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+\[s_{m}(k) = s(k)\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}^{*}} \right){rect}\left( \dfrac{k + \dfrac{\Delta k}{2}}{W} \right)\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)\]
 
 Il segnale registrato non è simmetrico intorno all'origine, dunque, la sua antitrasformata restituisce una densità protonica ricostruita complessa.
 
 All'atto pratico, dominio dello spazio-immagine, oltre alla convoluzione con la finestra di campionamento e troncamento, bisogna aggiungere anche la convoluzione con la finestra \(h_{T_{2}^{*}}\), ottenuta antitrasformato i termini esponenziali che dipendono da \(T_{2}^{*}\):
 
-\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right)\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right) \right\rbrack(x) = \exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x)\]
+\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}^{*}} \right)\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right) \right\rbrack(x) = \exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)\mathfrak{F}^{-}\left\lbrack \exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x)\]
 
 Si applica la definizione di trasformata inversa di Fourier:
 
-\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x) = \int_{- \infty}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right)\exp(j2\pi kx)dk} = \int_{- \infty}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} + j2\pi kx \right)dk} =\]
+\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x) = \int_{- \infty}^{+ \infty}{\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}^{*}} \right)\exp(j2\pi kx)dk} = \int_{- \infty}^{+ \infty}{\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}^{*}} + j2\pi kx \right)dk} =\]
 
 Il termine esponenziale è un esponenziale decrescente, non simmetrico rispetto all'origine, definito su un intervallo finito di acquisizione \(\left\lbrack - k_{\max}:k_{\max} \right\rbrack\) a causa del troncamento. La trasformata inversa di Fourier si riduce a:
 
-\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x) = \int_{- k_{\max}}^{+ k_{\max}}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} + j2\pi kx \right)dk} = \int_{- k_{\max}}^{+ k_{\max}}{\exp\left( \left( j2\pi x - \frac{1}{\overline{\gamma}GT_{2}^{*}} \right)k \right)dk} =\]
+\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x) = \int_{- k_{\max}}^{+ k_{\max}}{\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}^{*}} + j2\pi kx \right)dk} = \int_{- k_{\max}}^{+ k_{\max}}{\exp\left( \left( j2\pi x - \dfrac{1}{\overline{\gamma}GT_{2}^{*}} \right)k \right)dk} =\]
 
 Si risolve l'integrale al secondo membro, moltiplicando e dividendo per l'argomento di \(k\):
 
-\[= \int_{- k_{\max}}^{+ k_{\max}}{\exp\left( \left( j2\pi x - \frac{1}{\overline{\gamma}GT_{2}^{*}} \right)k \right)dk} = \frac{1}{j2\pi x - \frac{1}{\overline{\gamma}GT_{2}^{*}}}\left\lbrack \exp\left( \left( j2\pi x - \frac{1}{\overline{\gamma}GT_{2}^{*}} \right)k \right) \right\rbrack_{- k_{\max}}^{k_{\max}} = \frac{\exp\left( \left( j2\pi x - \frac{1}{\overline{\gamma}GT_{2}^{*}} \right)k_{\max} \right) - \exp\left( - \left( j2\pi x - \frac{1}{\overline{\gamma}GT_{2}^{*}} \right)k_{\max} \right)}{j2\pi x - \frac{1}{\overline{\gamma}GT_{2}^{*}}} =\]
+\[= \int_{- k_{\max}}^{+ k_{\max}}{\exp\left( \left( j2\pi x - \dfrac{1}{\overline{\gamma}GT_{2}^{*}} \right)k \right)dk} = \dfrac{1}{j2\pi x - \dfrac{1}{\overline{\gamma}GT_{2}^{*}}}\left\lbrack \exp\left( \left( j2\pi x - \dfrac{1}{\overline{\gamma}GT_{2}^{*}} \right)k \right) \right\rbrack_{- k_{\max}}^{k_{\max}} = \dfrac{\exp\left( \left( j2\pi x - \dfrac{1}{\overline{\gamma}GT_{2}^{*}} \right)k_{\max} \right) - \exp\left( - \left( j2\pi x - \dfrac{1}{\overline{\gamma}GT_{2}^{*}} \right)k_{\max} \right)}{j2\pi x - \dfrac{1}{\overline{\gamma}GT_{2}^{*}}} =\]
 
 Il gradiente \(G\) è legato alla finestra di lettura dalla relazione:
 
-\[T_{S} = \frac{W}{\overline{\gamma}G} \Leftrightarrow \ G = \frac{W}{\overline{\gamma}T_{S}}\]
+\[T_{S} = \dfrac{W}{\overline{\gamma}G} \Leftrightarrow \ G = \dfrac{W}{\overline{\gamma}T_{S}}\]
 
 La finestra di acquisizione si estende da \(- k_{\max}\) a \(k_{\max}\), quindi, l'estensione della finestra di acquisizione è due volte \(k_{\max}\):
 
@@ -1469,83 +1469,83 @@ La finestra di acquisizione si estende da \(- k_{\max}\) a \(k_{\max}\), quindi,
 
 Da cui:
 
-\[G = \frac{2k_{\max}}{\overline{\gamma}T_{S}}\]
+\[G = \dfrac{2k_{\max}}{\overline{\gamma}T_{S}}\]
 
 È possibile scrivere:
 
-\[= \frac{\exp\left( \left( j2\pi x - \frac{1}{\overline{\gamma}\frac{2k_{\max}}{\overline{\gamma}T_{S}}T_{2}^{*}} \right)k_{\max} \right) - \exp\left( - \left( j2\pi x - \frac{1}{\overline{\gamma}\frac{2k_{\max}}{\overline{\gamma}T_{S}}T_{2}^{*}} \right)k_{\max} \right)}{j2\pi x - \frac{1}{\overline{\gamma}\frac{2k_{\max}}{\overline{\gamma}T_{S}}T_{2}^{*}}} =\]
+\[= \dfrac{\exp\left( \left( j2\pi x - \dfrac{1}{\overline{\gamma}\dfrac{2k_{\max}}{\overline{\gamma}T_{S}}T_{2}^{*}} \right)k_{\max} \right) - \exp\left( - \left( j2\pi x - \dfrac{1}{\overline{\gamma}\dfrac{2k_{\max}}{\overline{\gamma}T_{S}}T_{2}^{*}} \right)k_{\max} \right)}{j2\pi x - \dfrac{1}{\overline{\gamma}\dfrac{2k_{\max}}{\overline{\gamma}T_{S}}T_{2}^{*}}} =\]
 
 Si svolgono i prodotti:
 
-\[= \frac{\exp\left( j2\pi xk_{\max} - \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - j2\pi xk_{\max} + \frac{T_{S}}{2T_{2}^{*}} \right)}{j2\pi x - \frac{T_{S}}{2k_{\max}T_{2}^{*}}} =\]
+\[= \dfrac{\exp\left( j2\pi xk_{\max} - \dfrac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - j2\pi xk_{\max} + \dfrac{T_{S}}{2T_{2}^{*}} \right)}{j2\pi x - \dfrac{T_{S}}{2k_{\max}T_{2}^{*}}} =\]
 
 La finestra di acquisizione si estende da \(- k_{\max}\) a \(k_{\max}\), quindi, l'estensione della finestra di acquisizione è due volte \(k_{\max}\), \(W = 2k_{\max}\). L'ampiezza della finestra \(W\) è legata all'inverso del campionamento \(\Delta x\):
 
-\[W = 2k_{\max} \Leftrightarrow 2k_{\max} = \frac{1}{\Delta x} \Leftrightarrow k_{\max} = \frac{1}{2\Delta x}\]
+\[W = 2k_{\max} \Leftrightarrow 2k_{\max} = \dfrac{1}{\Delta x} \Leftrightarrow k_{\max} = \dfrac{1}{2\Delta x}\]
 
 Sostituendo tale risultato si ottiene:
 
-\[= \frac{\exp\left( j2\pi x\frac{1}{2\Delta x} - \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - j2\pi x\frac{1}{2\Delta x} + \frac{T_{S}}{2T_{2}^{*}} \right)}{j2\pi x - \frac{T_{S}}{\frac{2}{2\Delta x}T_{2}^{*}}}\]
+\[= \dfrac{\exp\left( j2\pi x\dfrac{1}{2\Delta x} - \dfrac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - j2\pi x\dfrac{1}{2\Delta x} + \dfrac{T_{S}}{2T_{2}^{*}} \right)}{j2\pi x - \dfrac{T_{S}}{\dfrac{2}{2\Delta x}T_{2}^{*}}}\]
 
 Semplificando, si ottiene:
 
-\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x) = \frac{\exp\left( j\pi\frac{x}{\Delta x} - \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - j\pi\frac{x}{\Delta x} + \frac{T_{S}}{2T_{2}^{*}} \right)}{j2\pi x - \Delta x\frac{T_{S}}{T_{2}^{*}}}\]
+\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x) = \dfrac{\exp\left( j\pi\dfrac{x}{\Delta x} - \dfrac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - j\pi\dfrac{x}{\Delta x} + \dfrac{T_{S}}{2T_{2}^{*}} \right)}{j2\pi x - \Delta x\dfrac{T_{S}}{T_{2}^{*}}}\]
 
 Mettendo un segno negativo in evidenza al numerato e al denominatore, si ottiene:
 
-\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x) = \frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} - j\pi\frac{x}{\Delta x} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} + j\pi\frac{x}{\Delta x} \right)}{\Delta x\frac{T_{S}}{T_{2}^{*}} - j2\pi x}\]
+\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x) = \dfrac{\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} - j\pi\dfrac{x}{\Delta x} \right) - \exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} + j\pi\dfrac{x}{\Delta x} \right)}{\Delta x\dfrac{T_{S}}{T_{2}^{*}} - j2\pi x}\]
 
 Considerando anche il termine esponenziale costante, la PSF introdotta dal tempo di rilassamento \(T_{2}^{*}\) è data da:
 
-\[h_{T_{2}^{*}}(x) = \exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x) = \frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} - j\pi\frac{x}{\Delta x} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} + j\pi\frac{x}{\Delta x} \right)}{\Delta x\frac{T_{S}}{T_{2}^{*}} - j2\pi x}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+\[h_{T_{2}^{*}}(x) = \exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)\mathfrak{F}^{-}\left\lbrack \exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}^{*}} \right) \right\rbrack(x) = \dfrac{\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} - j\pi\dfrac{x}{\Delta x} \right) - \exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} + j\pi\dfrac{x}{\Delta x} \right)}{\Delta x\dfrac{T_{S}}{T_{2}^{*}} - j2\pi x}\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)\]
 
 La risoluzione \(\Delta x_{RMI}\) introdotta da questo filtraggio può essere ottenuta applicando la definizione:
 
-\[\Delta x_{MRI} = \frac{1}{h_{T_{2}^{*}}(0)}\int_{\infty}^{\infty}{h_{T_{2}^{*}}(x)dx} = \frac{H_{T_{2}^{*}}(0)}{h_{T_{2}^{*}}(0)}\]
+\[\Delta x_{MRI} = \dfrac{1}{h_{T_{2}^{*}}(0)}\int_{\infty}^{\infty}{h_{T_{2}^{*}}(x)dx} = \dfrac{H_{T_{2}^{*}}(0)}{h_{T_{2}^{*}}(0)}\]
 
 La trasformata di Fourier della PSF è nota ed è:
 
-\[H_{T_{2}^{*}}(k) = \exp\left( - \frac{k}{\overline{\gamma}GT_{2}^{*}} \right)\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+\[H_{T_{2}^{*}}(k) = \exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}^{*}} \right)\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)\]
 
 La quale, valutata per \(k = 0\), si riduce a:
 
-\[H_{T_{2}^{*}}(0) = \exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+\[H_{T_{2}^{*}}(0) = \exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)\]
 
 La PSF valutata in \(x = 0\) è data, invece, da:
 
-\[h_{T_{2}^{*}}(x) = \left. \ \frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} - j\pi\frac{x}{\Delta x} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} + j\pi\frac{x}{\Delta x} \right)}{\Delta x\frac{T_{S}}{T_{2}^{*}} - j2\pi x}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right) \right|_{x = 0} = \frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)}{\Delta x\frac{T_{S}}{T_{2}^{*}}}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+\[h_{T_{2}^{*}}(x) = \left. \ \dfrac{\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} - j\pi\dfrac{x}{\Delta x} \right) - \exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} + j\pi\dfrac{x}{\Delta x} \right)}{\Delta x\dfrac{T_{S}}{T_{2}^{*}} - j2\pi x}\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right) \right|_{x = 0} = \dfrac{\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} \right)}{\Delta x\dfrac{T_{S}}{T_{2}^{*}}}\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)\]
 
 La risoluzione della PSF è, quindi:
 
-\[\Delta x_{MRI} = \frac{H_{T_{2}^{*}}(0)}{h_{T_{2}^{*}}(0)} = \frac{\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)}{\frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)}{\Delta x\frac{T_{S}}{T_{2}^{*}}}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)} = \Delta x\frac{T_{S}}{T_{2}^{*}}\frac{1}{\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)}\]
+\[\Delta x_{MRI} = \dfrac{H_{T_{2}^{*}}(0)}{h_{T_{2}^{*}}(0)} = \dfrac{\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)}{\dfrac{\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} \right)}{\Delta x\dfrac{T_{S}}{T_{2}^{*}}}\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)} = \Delta x\dfrac{T_{S}}{T_{2}^{*}}\dfrac{1}{\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} \right)}\]
 
 Si definisce \(sinc\) iperbolico, \(sinch\), come:
 
-\[{sinch}(x) = \frac{\sinh(x)}{x} = \frac{e^{x} - e^{- x}}{2x}\]
+\[{sinch}(x) = \dfrac{\sinh(x)}{x} = \dfrac{e^{x} - e^{- x}}{2x}\]
 
 È possibile scrivere, dunque:
 
-\[{sinch}\left( \frac{T_{S}}{2T_{2}^{*}} \right) = \frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)}{2\frac{T_{S}}{2T_{2}^{*}}} = \frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)}{\frac{T_{S}}{T_{2}^{*}}}\]
+\[{sinch}\left( \dfrac{T_{S}}{2T_{2}^{*}} \right) = \dfrac{\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} \right)}{2\dfrac{T_{S}}{2T_{2}^{*}}} = \dfrac{\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} \right)}{\dfrac{T_{S}}{T_{2}^{*}}}\]
 
 La risoluzione \(\Delta x_{MRI}\) relativo alla PSF dovuta al tempo di rilassamento \(T_{2}^{*}\) si può scrivere come:
 
-\[\Delta x_{MRI} = \frac{\Delta x}{{sinch}\left( \frac{T_{S}}{2T_{2}^{*}} \right)}\]
+\[\Delta x_{MRI} = \dfrac{\Delta x}{{sinch}\left( \dfrac{T_{S}}{2T_{2}^{*}} \right)}\]
 
 Se risulta:
 
-\[\frac{T_{S}}{2T_{2}^{*}} \ll 1\]
+\[\dfrac{T_{S}}{2T_{2}^{*}} \ll 1\]
 
 È possibile approssimare la funzione \(sinc\) iperbolico come:
 
-\[{sinch}\left( \frac{T_{S}}{2T_{2}^{*}} \right) \simeq 1 - \frac{x^{2}}{6}\]
+\[{sinch}\left( \dfrac{T_{S}}{2T_{2}^{*}} \right) \simeq 1 - \dfrac{x^{2}}{6}\]
 
 In questa condizione, si ha:
 
-\[\Delta x_{MRI} = \frac{\Delta x}{{sinch}\left( \frac{T_{S}}{2T_{2}^{*}} \right)} \simeq \frac{\Delta x}{\left( 1 - \frac{1}{6}\left( \frac{T_{S}}{2T_{2}^{*}} \right)^{2} \right)}\]
+\[\Delta x_{MRI} = \dfrac{\Delta x}{{sinch}\left( \dfrac{T_{S}}{2T_{2}^{*}} \right)} \simeq \dfrac{\Delta x}{\left( 1 - \dfrac{1}{6}\left( \dfrac{T_{S}}{2T_{2}^{*}} \right)^{2} \right)}\]
 
 Se risulta che \(T_{S} = T_{2}^{*}\), la risoluzione è:
 
-\[\left. \ \Delta x_{MRI} \right|_{T_{S} = T_{2}^{*}} = \left. \ \frac{\Delta x}{{sinch}\left( \frac{T_{S}}{2T_{2}^{*}} \right)} \right|_{T_{S} = T_{2}^{*}} = \left. \ \frac{\Delta x}{\frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)}{\frac{T_{S}}{T_{2}^{*}}}} \right|_{T_{S} = T_{2}^{*}} = \frac{\Delta x}{\exp\left( \frac{1}{2} \right) - \exp\left( - \frac{1}{2} \right)} \simeq 1.04\Delta x\]
+\[\left. \ \Delta x_{MRI} \right|_{T_{S} = T_{2}^{*}} = \left. \ \dfrac{\Delta x}{{sinch}\left( \dfrac{T_{S}}{2T_{2}^{*}} \right)} \right|_{T_{S} = T_{2}^{*}} = \left. \ \dfrac{\Delta x}{\dfrac{\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} \right)}{\dfrac{T_{S}}{T_{2}^{*}}}} \right|_{T_{S} = T_{2}^{*}} = \dfrac{\Delta x}{\exp\left( \dfrac{1}{2} \right) - \exp\left( - \dfrac{1}{2} \right)} \simeq 1.04\Delta x\]
 
 In questa condizione la risoluzione della PSF differisce dal Fourier pixel size, \(\Delta x\), del \(4\%\). Inoltre, la risoluzione introdotta dal decadimento esponenziale per i tempi di rilassamento.
 
@@ -1553,7 +1553,7 @@ In caso, anche se il tempo di campionamento è dello stesso ordine di grandezza 
 
 Si valuta la risoluzione spaziale con la tecnica del \emph{full width half maximum}¸ al fine di ottenere una misura alternativa della sfocatura introdotta dal filtro legato alle disomogeneità di campo. Si suppone che:
 
-\[\exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right) \ll 1\]
+\[\exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} \right) \ll 1\]
 
 Ciò equivale a fissare la condizione:
 
@@ -1561,61 +1561,61 @@ Ciò equivale a fissare la condizione:
 
 La PSF introdotta dal decadimento \(T_{2}^{*}\) è data da:
 
-\[h_{T_{2}^{*}}(x) = \frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} - j\pi\frac{x}{\Delta x} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} + j\pi\frac{x}{\Delta x} \right)}{\Delta x\frac{T_{S}}{T_{2}^{*}} - j2\pi x}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+\[h_{T_{2}^{*}}(x) = \dfrac{\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} - j\pi\dfrac{x}{\Delta x} \right) - \exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} + j\pi\dfrac{x}{\Delta x} \right)}{\Delta x\dfrac{T_{S}}{T_{2}^{*}} - j2\pi x}\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)\]
 
 Si considera il solo numeratore:
 
-\[\exp\left( \frac{T_{S}}{2T_{2}^{*}} - j\pi\frac{x}{\Delta x} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} + j\pi\frac{x}{\Delta x} \right)\]
+\[\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} - j\pi\dfrac{x}{\Delta x} \right) - \exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} + j\pi\dfrac{x}{\Delta x} \right)\]
 
 Per le proprietà degli esponenziali, si ha:
 
-\[\exp\left( \frac{T_{S}}{2T_{2}^{*}} - j\pi\frac{x}{\Delta x} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} + j\pi\frac{x}{\Delta x} \right) = \exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)\exp\left( - j\pi\frac{x}{\Delta x} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)\exp\left( j\pi\frac{x}{\Delta x} \right)\]
+\[\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} - j\pi\dfrac{x}{\Delta x} \right) - \exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} + j\pi\dfrac{x}{\Delta x} \right) = \exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right)\exp\left( - j\pi\dfrac{x}{\Delta x} \right) - \exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} \right)\exp\left( j\pi\dfrac{x}{\Delta x} \right)\]
 
 Raccogliendo, è possibile scrivere:
 
-\[\exp\left( - j\pi\frac{x}{\Delta x} \right)\left( \exp\left( \frac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)\exp\left( j2\pi\frac{x}{\Delta x} \right) \right)\]
+\[\exp\left( - j\pi\dfrac{x}{\Delta x} \right)\left( \exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right) - \exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} \right)\exp\left( j2\pi\dfrac{x}{\Delta x} \right) \right)\]
 
 Nell'ipotesi che:
 
-\[\exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right) \ll 1\]
+\[\exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} \right) \ll 1\]
 
 Il secondo termine può essere trascurato rispetto al primo, infatti:
 
-\[\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right) \gg \exp\left( - \frac{T_{S}}{2T_{2}^{*}} \right)\]
+\[\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right) \gg \exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} \right)\]
 
 Per cui si ottiene:
 
-\[\exp\left( \frac{T_{S}}{2T_{2}^{*}} - j\pi\frac{x}{\Delta x} \right) - \exp\left( - \frac{T_{S}}{2T_{2}^{*}} + j\pi\frac{x}{\Delta x} \right) \simeq \exp\left( - j\pi\frac{x}{\Delta x} \right)\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)\]
+\[\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} - j\pi\dfrac{x}{\Delta x} \right) - \exp\left( - \dfrac{T_{S}}{2T_{2}^{*}} + j\pi\dfrac{x}{\Delta x} \right) \simeq \exp\left( - j\pi\dfrac{x}{\Delta x} \right)\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right)\]
 
 La PSF può essere scritta come:
 
-\[h_{T_{2}^{*}}(x) \simeq \frac{\exp\left( - j\pi\frac{x}{\Delta x} \right)\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)}{\Delta x\frac{T_{S}}{T_{2}^{*}} - j2\pi x}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+\[h_{T_{2}^{*}}(x) \simeq \dfrac{\exp\left( - j\pi\dfrac{x}{\Delta x} \right)\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right)}{\Delta x\dfrac{T_{S}}{T_{2}^{*}} - j2\pi x}\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)\]
 
 Per valutare l'ascissa in cui la finestra è uguale a metà dell'ampiezza massima si valuta il modulo di \(h_{T_{2}^{*}}(x)\):
 
-\[\left| h_{T_{2}^{*}}(x) \right| \simeq \frac{\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( \frac{T_{S}\Delta x}{T_{2}^{*}} \right)^{2} + (2\pi x)^{2}}}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+\[\left| h_{T_{2}^{*}}(x) \right| \simeq \dfrac{\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( \dfrac{T_{S}\Delta x}{T_{2}^{*}} \right)^{2} + (2\pi x)^{2}}}\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)\]
 
 Che può essere riscritta eseguendo il minimo comune multiplo al denominatore:
 
-\[\left| h_{T_{2}^{*}}(x) \right| \simeq \frac{T_{2}^{*}\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( T_{S}\Delta x \right)^{2} + \left( 2\pi xT_{2}^{*} \right)^{2}}}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+\[\left| h_{T_{2}^{*}}(x) \right| \simeq \dfrac{T_{2}^{*}\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( T_{S}\Delta x \right)^{2} + \left( 2\pi xT_{2}^{*} \right)^{2}}}\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)\]
 
 Si applica la definizione di FWHM alla finestra \(\left| h_{T_{2}^{*}}(x) \right|\):
 
-\[h_{T_{2}^{*}}\left( \frac{\Delta x_{RMI}}{2} \right) = \frac{1}{2}h_{T_{2}^{*}}(0)\]
+\[h_{T_{2}^{*}}\left( \dfrac{\Delta x_{RMI}}{2} \right) = \dfrac{1}{2}h_{T_{2}^{*}}(0)\]
 
 Da cui:
 
-\[\left. \ \frac{T_{2}^{*}\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( T_{S}\Delta x \right)^{2} + \left( 2\pi xT_{2}^{*} \right)^{2}}}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right) \right|_{x = \frac{\Delta x_{RMI}}{2}} = \frac{1}{2}\left. \ \frac{T_{2}^{*}\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( T_{S}\Delta x \right)^{2} + \left( 2\pi xT_{2}^{*} \right)^{2}}}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right) \right|_{x = 0}\]
+\[\left. \ \dfrac{T_{2}^{*}\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( T_{S}\Delta x \right)^{2} + \left( 2\pi xT_{2}^{*} \right)^{2}}}\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right) \right|_{x = \dfrac{\Delta x_{RMI}}{2}} = \dfrac{1}{2}\left. \ \dfrac{T_{2}^{*}\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( T_{S}\Delta x \right)^{2} + \left( 2\pi xT_{2}^{*} \right)^{2}}}\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right) \right|_{x = 0}\]
 
-\[\frac{T_{2}^{*}\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( T_{S}\Delta x \right)^{2} + \left( 2\pi\frac{\Delta x_{RMI}}{2}T_{2}^{*} \right)^{2}}}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right) = \frac{1}{2}\frac{T_{2}^{*}\exp\left( \frac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( T_{S}\Delta x \right)^{2}}}\exp\left( - \frac{T_{E}}{T_{2}^{*}} \right)\]
+\[\dfrac{T_{2}^{*}\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( T_{S}\Delta x \right)^{2} + \left( 2\pi\dfrac{\Delta x_{RMI}}{2}T_{2}^{*} \right)^{2}}}\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right) = \dfrac{1}{2}\dfrac{T_{2}^{*}\exp\left( \dfrac{T_{S}}{2T_{2}^{*}} \right)}{\sqrt{\left( T_{S}\Delta x \right)^{2}}}\exp\left( - \dfrac{T_{E}}{T_{2}^{*}} \right)\]
 
 Semplificando i termini comuni tra i due membri, si ottiene:
 
-\[\frac{1}{\sqrt{\left( T_{S}\Delta x \right)^{2} + \left( \pi\Delta x_{RMI}T_{2}^{*} \right)^{2}}} = \frac{1}{2}\frac{1}{\sqrt{\left( T_{S}\Delta x \right)^{2}}} = \frac{1}{2}\frac{1}{T_{S}\Delta x}\]
+\[\dfrac{1}{\sqrt{\left( T_{S}\Delta x \right)^{2} + \left( \pi\Delta x_{RMI}T_{2}^{*} \right)^{2}}} = \dfrac{1}{2}\dfrac{1}{\sqrt{\left( T_{S}\Delta x \right)^{2}}} = \dfrac{1}{2}\dfrac{1}{T_{S}\Delta x}\]
 
 Si eleva al quadrato entrambi i membri per poter ricavare \(\Delta x_{RMI}\):
 
-\[\frac{1}{\left( T_{S}\Delta x \right)^{2} + \left( \pi\Delta x_{RMI}T_{2}^{*} \right)^{2}} = \frac{1}{4}\frac{1}{\left( T_{S}\Delta x \right)^{2}}\]
+\[\dfrac{1}{\left( T_{S}\Delta x \right)^{2} + \left( \pi\Delta x_{RMI}T_{2}^{*} \right)^{2}} = \dfrac{1}{4}\dfrac{1}{\left( T_{S}\Delta x \right)^{2}}\]
 
 Passando ai reciproci, si ottiene:
 
@@ -1629,7 +1629,7 @@ Si applica la radice quadrata ambo i membri:
 
 \[\pi\Delta x_{RMI}T_{2}^{*} = \sqrt{3}T_{S}\Delta x\]
 
-\[\Delta x_{RMI} = \frac{\sqrt{3}}{\pi}\frac{T_{S}}{T_{2}^{*}}\Delta x\]
+\[\Delta x_{RMI} = \dfrac{\sqrt{3}}{\pi}\dfrac{T_{S}}{T_{2}^{*}}\Delta x\]
 
 Questa relazione rappresenta uno sfocamento addizionale maggiore dovuto all'usuale campionamento e troncamento.
 
@@ -1639,15 +1639,15 @@ L'effetto del filtraggio causato dal rilassamento della componente trasversa nel
 
 Il decadimento associato a \(T_{2}'\) è simmetrico rispetto al tempo d'eco \(T_{E}\), poiché le disomogeneità di campo agiscono in modo reversibile e vengono compensate dall'impulso \(\pi\). Nel \(k\)-spazio, questo decadimento si esprime come:
 
-\[s(k) \propto \exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right)\]
+\[s(k) \propto \exp\left( - \dfrac{|k|}{\overline{\gamma}GT_{2}'} \right)\]
 
 Il decadimento \(T_{2}\), invece, è asimmetrico rispetto a \(T_{E}\), poiché inizia subito dopo l'impulso \(\pi/2\) e non viene rifocalizzato. Nel \(k\)-spazio, il suo effetto può essere approssimato da:
 
-\[s(k) \propto \exp\left( - \frac{T_{E}}{T_{2}} \right)\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\]
+\[s(k) \propto \exp\left( - \dfrac{T_{E}}{T_{2}} \right)\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}} \right)\]
 
 Il filtro equivalente, che descrive il decadimento con \(T_{2}\) e \(T_{2}'\), è ottenuto moltiplicando i due contributi:
 
-\[H_{SE}(k) = \exp\left( - \frac{T_{E}}{T_{2}} \right)\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right)\]
+\[H_{SE}(k) = \exp\left( - \dfrac{T_{E}}{T_{2}} \right)\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \dfrac{|k|}{\overline{\gamma}GT_{2}'} \right)\]
 
 La sequenza spin-echo è composta da due impulsi RF, uno a \(\pi/2\) e l'altro \(\pi\). Il decadimento \(T_{2}\) inizia subito dopo il primo impulso e non è simmetrico rispetto a \(T_{E}\). Al contrario, l'effetto di \(T_{2}'\) viene rifocalizzato e si manifesta solo nella finestra di acquisizione.
 
@@ -1658,23 +1658,23 @@ La sequenza spin-echo è composta da due impulsi RF, uno a \(\pi/2\) e l'altro \
 
 Il filtro complessivo, nel dominio dello spazio immagine, o PSF è dato dall'antitrasformata di Fourier della finestra nel \(k\)-spazio:
 
-\[h_{SE}(x) = \mathfrak{F}^{-}\left\lbrack H_{SE}(k) \right\rbrack(x) = \mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right) \right\rbrack(x) =\]
+\[h_{SE}(x) = \mathfrak{F}^{-}\left\lbrack H_{SE}(k) \right\rbrack(x) = \mathfrak{F}^{-}\left\lbrack \exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \dfrac{|k|}{\overline{\gamma}GT_{2}'} \right) \right\rbrack(x) =\]
 
 Il termine \(\exp\left( - T_{E}/T_{2} \right)\) non dipende da \(k\), per cui è un fattore costante:
 
-\[h_{SE}(x) = \exp\left( - \frac{T_{E}}{T_{2}} \right)\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right) \right\rbrack(x)\]
+\[h_{SE}(x) = \exp\left( - \dfrac{T_{E}}{T_{2}} \right)\mathfrak{F}^{-}\left\lbrack \exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \dfrac{|k|}{\overline{\gamma}GT_{2}'} \right) \right\rbrack(x)\]
 
 Si risolve l'antitrasformata:
 
-\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right) \right\rbrack(x) = \int_{- \infty}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk}\]
+\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \dfrac{|k|}{\overline{\gamma}GT_{2}'} \right) \right\rbrack(x) = \int_{- \infty}^{+ \infty}{\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \dfrac{|k|}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk}\]
 
 Al fine di risolvere l'integrale, per la presenza del modulo, è necessario distinguere il caso di \(k\) negative e positive. L'integrale, in altre parole, viene scisso nella somma di due integrali:
 
-\[\int_{- \infty}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} = \int_{- \infty}^{0}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( \frac{k}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} + \int_{0}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{k}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk}\]
+\[\int_{- \infty}^{+ \infty}{\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \dfrac{|k|}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} = \int_{- \infty}^{0}{\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( \dfrac{k}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} + \int_{0}^{+ \infty}{\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk}\]
 
 Il gradiente \(G\) è legato alla finestra di lettura dalla relazione:
 
-\[T_{S} = \frac{W}{\overline{\gamma}G} \Leftrightarrow \ G = \frac{W}{\overline{\gamma}T_{S}}\]
+\[T_{S} = \dfrac{W}{\overline{\gamma}G} \Leftrightarrow \ G = \dfrac{W}{\overline{\gamma}T_{S}}\]
 
 La finestra di acquisizione si estende da \(- k_{\max}\) a \(k_{\max}\), quindi, l'estensione della finestra di acquisizione è due volte \(k_{\max}\):
 
@@ -1682,91 +1682,91 @@ La finestra di acquisizione si estende da \(- k_{\max}\) a \(k_{\max}\), quindi,
 
 Da cui:
 
-\[G = \frac{2k_{\max}}{\overline{\gamma}T_{S}} \Leftrightarrow k_{\max} = \frac{1}{2}\overline{\gamma}T_{S}G\]
+\[G = \dfrac{2k_{\max}}{\overline{\gamma}T_{S}} \Leftrightarrow k_{\max} = \dfrac{1}{2}\overline{\gamma}T_{S}G\]
 
 Se \(k_{\max} \rightarrow \infty\) anche la finestra di acquisizione tende all'infinito. In altre parole, nella trattazione analitica per individuare la PSF dovuta ai fenomeni di rilassamento si ignora il troncamento.
 
 Per le proprietà dell'esponenziale è possibile scrivere:
 
-\[\int_{- \infty}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} = \int_{- \infty}^{0}{\exp{\left( \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi kx \right)dk}} + \int_{0}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi kx \right)dk}\]
+\[\int_{- \infty}^{+ \infty}{\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \dfrac{|k|}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} = \int_{- \infty}^{0}{\exp{\left( \dfrac{k}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) + j2\pi kx \right)dk}} + \int_{0}^{+ \infty}{\exp\left( - \dfrac{k}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} \right) + j2\pi kx \right)dk}\]
 
 Si risolve il primo integrale:
 
-\[\int_{- \infty}^{0}{\exp\left( \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi kx \right)dk} = \frac{1}{\frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi x}\left\lbrack \exp\left( \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi kx \right) \right\rbrack_{- \infty}^{0}\]
+\[\int_{- \infty}^{0}{\exp\left( \dfrac{k}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) + j2\pi kx \right)dk} = \dfrac{1}{\dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) + j2\pi x}\left\lbrack \exp\left( \dfrac{k}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) + j2\pi kx \right) \right\rbrack_{- \infty}^{0}\]
 
 In tutte le applicazioni pratiche, \(T_{2} > T_{2}'\), per cui il fattore moltiplicativo \(k\) è positivo:
 
-\[\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) > 0\]
+\[\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) > 0\]
 
 Di conseguenza, l'esponenziale, nel limite per \(k \rightarrow - \infty\) tende a \(0\). Inoltre, \(\exp( - j2\pi kx)\) è un termine oscillante, il cui modulo è unitario. Per il teorema dei carabinieri è valida la relazione:
 
-\[\exp\left( \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi kx \right) = \exp\left( \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right)\exp(j2\pi kx) \rightarrow 0,k \rightarrow - \infty\]
+\[\exp\left( \dfrac{k}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) + j2\pi kx \right) = \exp\left( \dfrac{k}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right)\exp(j2\pi kx) \rightarrow 0,k \rightarrow - \infty\]
 
 L'integrale ha quindi soluzione:
 
-\[\int_{- \infty}^{0}{\exp\left( \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi kx \right)dk} = \frac{1}{\frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi x}\]
+\[\int_{- \infty}^{0}{\exp\left( \dfrac{k}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) + j2\pi kx \right)dk} = \dfrac{1}{\dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) + j2\pi x}\]
 
 È possibile ripetere un discorso analogo per il secondo integrale:
 
-\[\int_{0}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi kx \right)dk} = \frac{1}{- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi x}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi kx \right) \right\rbrack_{0}^{+ \infty}\]
+\[\int_{0}^{+ \infty}{\exp\left( - \dfrac{k}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} \right) + j2\pi kx \right)dk} = \dfrac{1}{- \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} \right) + j2\pi x}\left\lbrack \exp\left( - \dfrac{k}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} \right) + j2\pi kx \right) \right\rbrack_{0}^{+ \infty}\]
 
 Il fattore moltiplicativo la variabile \(k\) è positivo e il termine \(\exp( - j2\pi kx)\) è oscillante, per cui:
 
-\[\exp\left( - \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) \right)\exp(j2\pi kx) \rightarrow 0,k \rightarrow + \infty\]
+\[\exp\left( - \dfrac{k}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} \right) \right)\exp(j2\pi kx) \rightarrow 0,k \rightarrow + \infty\]
 
 La soluzione del secondo integrale è, quindi:
 
-\[\int_{0}^{+ \infty}{\exp\left( - \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi kx \right)dk} = - \frac{1}{- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi x}\]
+\[\int_{0}^{+ \infty}{\exp\left( - \dfrac{k}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} \right) + j2\pi kx \right)dk} = - \dfrac{1}{- \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} \right) + j2\pi x}\]
 
 La PSF complessiva è data dalla somma dei due contributi appena valutati:
 
-\[h_{SE}(x) = \mathfrak{F}^{-}\left\lbrack H_{SE}(k) \right\rbrack(x) = \frac{1}{\frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi x} - \frac{1}{- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi x} =\]
+\[h_{SE}(x) = \mathfrak{F}^{-}\left\lbrack H_{SE}(k) \right\rbrack(x) = \dfrac{1}{\dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) + j2\pi x} - \dfrac{1}{- \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} \right) + j2\pi x} =\]
 
 Si svolge il minimo comune multiplo:
 
-\[\frac{- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j2\pi x}{\left\lbrack \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi x \right\rbrack\left\lbrack - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi x \right\rbrack}\]
+\[\dfrac{- \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} \right) + j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) - j2\pi x}{\left\lbrack \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) + j2\pi x \right\rbrack\left\lbrack - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} \right) + j2\pi x \right\rbrack}\]
 
 Si considera solamente il numeratore. I termini \(j2\pi x\) si elidono mentre i restanti possono essere sommati:
 
-\[- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) + j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j2\pi x = - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} \right) - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) = - \frac{k}{\overline{\gamma}G}\left( \frac{1}{T_{2}} + \frac{1}{T_{2}'} + \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) = - \frac{2}{\overline{\gamma}GT_{2}'}\]
+\[- \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} \right) + j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) - j2\pi x = - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} \right) - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) = - \dfrac{k}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) = - \dfrac{2}{\overline{\gamma}GT_{2}'}\]
 
 Per il denominatore, invece, si eseguono i prodotti:
 
-\[\left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack = (j2\pi x)^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right)\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + \ j2\pi x\left\lbrack - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) + \ j2\pi x\left\lbrack - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) + \ j2\pi x\left\lbrack \frac{1}{\overline{\gamma}G}\left( - \frac{1}{T_{2}'} - \frac{1}{T_{2}} + \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) - \frac{4\pi x}{\overline{\gamma}GT_{2}}j\]
+\[\left\lbrack j2\pi x + \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack\left\lbrack j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) \right\rbrack = (j2\pi x)^{2} - \dfrac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right)\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + \ j2\pi x\left\lbrack - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \dfrac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \dfrac{1}{{T_{2}'}^{2}} - \dfrac{1}{T_{2}^{2}} \right) + \ j2\pi x\left\lbrack - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \dfrac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \dfrac{1}{{T_{2}'}^{2}} - \dfrac{1}{T_{2}^{2}} \right) + \ j2\pi x\left\lbrack \dfrac{1}{\overline{\gamma}G}\left( - \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \dfrac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \dfrac{1}{{T_{2}'}^{2}} - \dfrac{1}{T_{2}^{2}} \right) - \dfrac{4\pi x}{\overline{\gamma}GT_{2}}j\]
 
 La PSF è, in definitiva, data da:
 
-\[h_{SE}(x) = \frac{- \frac{2}{\overline{\gamma}GT_{2}'}}{- 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) - \frac{4\pi x}{\overline{\gamma}GT_{2}}j} = \frac{\frac{2}{\overline{\gamma}GT_{2}'}}{4\pi^{2}x^{2} + \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) + \frac{4\pi x}{\overline{\gamma}GT_{2}}j}\]
+\[h_{SE}(x) = \dfrac{- \dfrac{2}{\overline{\gamma}GT_{2}'}}{- 4\pi^{2}x^{2} - \dfrac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \dfrac{1}{{T_{2}'}^{2}} - \dfrac{1}{T_{2}^{2}} \right) - \dfrac{4\pi x}{\overline{\gamma}GT_{2}}j} = \dfrac{\dfrac{2}{\overline{\gamma}GT_{2}'}}{4\pi^{2}x^{2} + \dfrac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \dfrac{1}{{T_{2}'}^{2}} - \dfrac{1}{T_{2}^{2}} \right) + \dfrac{4\pi x}{\overline{\gamma}GT_{2}}j}\]
 
 In molti casi pratici, è valida l'approssimazione \(T_{2}' \ll T_{2}\); questa condizione significa che il decadimento della magnetizzazione trasversale è dominato dagli effetti \(T_{2}'\), ovvero dalle disomogeneità del campo magnetico e dagli effetti di suscettibilità, piuttosto che dalle interazioni spin-spin intrinseche (\(T_{2}\)). Di conseguenza è possibile approssimare:
 
-\[\frac{1}{T_{2}'} - \frac{1}{T_{2}} \simeq \frac{1}{T_{2}'}\]
+\[\dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \simeq \dfrac{1}{T_{2}'}\]
 
 Inoltre, la parte immaginaria al denominatore dipende da \(T_{2}^{- 1}\) per cui può essere trascurata. In quest3 ipotesi la PSF, si scrive come:
 
-\[h_{SE}(x) \simeq \frac{\frac{2}{\overline{\gamma}GT_{2}'}}{4\pi^{2}x^{2} + \frac{1}{{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}}}\]
+\[h_{SE}(x) \simeq \dfrac{\dfrac{2}{\overline{\gamma}GT_{2}'}}{4\pi^{2}x^{2} + \dfrac{1}{{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}}}\]
 
 Riarrangiando i termini si scrive:
 
-\[h_{SE}(x) \simeq \frac{2\overline{\gamma}GT_{2}'}{1 + 4\pi^{2}x^{2}{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}}\]
+\[h_{SE}(x) \simeq \dfrac{2\overline{\gamma}GT_{2}'}{1 + 4\pi^{2}x^{2}{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}}\]
 
 La PSF così ottenuta è una distribuzione lorentziana centrata nell'origine.
 
 Si valuta la risoluzione secondo l'approccio FWHM, per cui \(\Delta x_{RMI}\) deve essere tale da:
 
-\[h_{SE}\left( \frac{\Delta x_{RMI}}{2} \right) = \frac{1}{2}h_{SE}(0)\]
+\[h_{SE}\left( \dfrac{\Delta x_{RMI}}{2} \right) = \dfrac{1}{2}h_{SE}(0)\]
 
 Sostituendo l'espressione della PSF, si ottiene:
 
-\[\frac{2\overline{\gamma}GT_{2}'}{1 + 4\pi^{2}\left( \frac{\Delta x_{RMI}}{2} \right)^{2}{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}} = \frac{1}{2}2\overline{\gamma}GT_{2}'\]
+\[\dfrac{2\overline{\gamma}GT_{2}'}{1 + 4\pi^{2}\left( \dfrac{\Delta x_{RMI}}{2} \right)^{2}{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}} = \dfrac{1}{2}2\overline{\gamma}GT_{2}'\]
 
 I numeratori sono uguali, a meno del \(2\), quindi possono essere semplificati.
 
-\[\frac{2}{1 + 4\pi^{2}\left( \frac{\Delta x_{RMI}}{2} \right)^{2}{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}} = 1\]
+\[\dfrac{2}{1 + 4\pi^{2}\left( \dfrac{\Delta x_{RMI}}{2} \right)^{2}{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}} = 1\]
 
 Si passa ai reciproci:
 
-\[1 + 4\pi^{2}\frac{\Delta x_{RMI}^{2}}{4}{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2} = 2\]
+\[1 + 4\pi^{2}\dfrac{\Delta x_{RMI}^{2}}{4}{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2} = 2\]
 
 Semplificando:
 
@@ -1774,31 +1774,31 @@ Semplificando:
 
 Si isola \(\Delta x_{RMI}^{2}\):
 
-\[\Delta x_{RMI}^{2} = \frac{1}{{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}\pi^{2}}\]
+\[\Delta x_{RMI}^{2} = \dfrac{1}{{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}\pi^{2}}\]
 
 Applicando la radice a entrambi i membri si ottiene la risoluzione secondo il metodo FWHM:
 
-\[\Delta x_{RMI} = \frac{1}{\overline{\gamma}GT_{2}'\pi}\]
+\[\Delta x_{RMI} = \dfrac{1}{\overline{\gamma}GT_{2}'\pi}\]
 
 Il Fourier pixel size, per definizione è:
 
-\[\Delta x = \frac{1}{W}\]
+\[\Delta x = \dfrac{1}{W}\]
 
 Dove \(\overline{\gamma}GT_{S} = W\), per cui:
 
-\[\Delta x = \frac{1}{W} = \frac{1}{\overline{\gamma}GT_{S}}\]
+\[\Delta x = \dfrac{1}{W} = \dfrac{1}{\overline{\gamma}GT_{S}}\]
 
 La relazione individuata per \(\Delta x_{RMI}\) può essere riscritta in modo tale che la risoluzione spaziale per una sequenza gradient-echo, secondo l'approccio FWHM, sia funzione del Fourier pixel size \(\Delta x\). A tale scopo si divide e moltiplica per la durata della finestra di acquisizione \(T_{S}\) il secondo membro:
 
-\[\Delta x_{RMI} = \frac{1}{\overline{\gamma}GT_{2}'\pi}\frac{T_{S}}{T_{S}}\]
+\[\Delta x_{RMI} = \dfrac{1}{\overline{\gamma}GT_{2}'\pi}\dfrac{T_{S}}{T_{S}}\]
 
 Da cui:
 
-\[\Delta x_{RMI} = \frac{\Delta x}{\pi}\frac{T_{S}}{T_{2}'}\]
+\[\Delta x_{RMI} = \dfrac{\Delta x}{\pi}\dfrac{T_{S}}{T_{2}'}\]
 
 La perdita di risoluzione, a cui consegue uno sfocamento aggiuntivo a quello introdotto dal campionamento e dal troncamento, in una sequenza spin-echo può essere approssimata sommando i contributi dovuti al tempo \(T_{2}\) e al tempo \(T_{2}'\):
 
-\[FWHM_{SE} = \frac{\sqrt{3}}{\pi}\frac{T_{S}}{T_{2}}\Delta x + \frac{\Delta x}{\pi}\frac{T_{S}}{T_{2}'}\]
+\[FWHM_{SE} = \dfrac{\sqrt{3}}{\pi}\dfrac{T_{S}}{T_{2}}\Delta x + \dfrac{\Delta x}{\pi}\dfrac{T_{S}}{T_{2}'}\]
 
 La perdita di risoluzione introdotta è di circa il \(5\%\) del valore ideale del Fourier pixel size, \(\Delta x\). Questo effetto, seppur di poco, limita la visione di oggetti estremamente piccoli. Al fine di limitare gli effetti dei tempi di rilassamento, si tende a strutturare l'acquisizione in una finestra dalla durata temporale limitata.
 
@@ -1812,23 +1812,23 @@ Si vuole stimare la PSF nel caso di sequenza spin-echo considerando anche gli ef
 
 A causa del fenomeno del troncamento, il segnale acquisito varia nell'intervallo \(\left\lbrack - k_{\max};k_{\max} \right\rbrack\), dunque, l'integrale si riduce a:
 
-\[= \int_{- k_{\max}}^{+ k_{\max}}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} =\]
+\[= \int_{- k_{\max}}^{+ k_{\max}}{\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \dfrac{|k|}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} =\]
 
 Al fine di risolvere l'integrale, per la presenza del modulo, è necessario distinguere il caso di \(k\) negative e positive. L'integrale, in altre parole, viene scisso nella somma di due integrali:
 
-\[= \int_{- k_{\max}}^{0}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( \frac{k}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} + \int_{0}^{+ k_{\max}}{\exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{k}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} =\]
+\[= \int_{- k_{\max}}^{0}{\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( \dfrac{k}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} + \int_{0}^{+ k_{\max}}{\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}'} \right)\exp(j2\pi kx)dk} =\]
 
 Per le proprietà degli esponenziali è possibile scrivere:
 
-\[= \int_{- k_{\max}}^{0}{\exp\left( \left( \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right)dk} + \int_{0}^{+ k_{\max}}{\exp\left( \left( - \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right)dk} =\]
+\[= \int_{- k_{\max}}^{0}{\exp\left( \left( \dfrac{1}{\overline{\gamma}GT_{2}'} - \dfrac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right)dk} + \int_{0}^{+ k_{\max}}{\exp\left( \left( - \dfrac{1}{\overline{\gamma}GT_{2}'} - \dfrac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right)dk} =\]
 
 Si risolve il primo integrale; a tal fine si moltiplica e divide per il fattore moltiplicativo \(k\) nell'argomento dell'esponenziale:
 
-\[\int_{- k_{\max}}^{0}{\exp\left( \left( \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right)dk} = \frac{1}{\frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x}\left\lbrack \exp\left( \left( \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right) \right\rbrack_{- k_{\max}}^{0} = \frac{1}{\frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x}\left\lbrack 1 - \exp\left( - \left( \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k_{\max} \right) \right\rbrack =\]
+\[\int_{- k_{\max}}^{0}{\exp\left( \left( \dfrac{1}{\overline{\gamma}GT_{2}'} - \dfrac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right)dk} = \dfrac{1}{\dfrac{1}{\overline{\gamma}GT_{2}'} - \dfrac{1}{\overline{\gamma}GT_{2}} + j2\pi x}\left\lbrack \exp\left( \left( \dfrac{1}{\overline{\gamma}GT_{2}'} - \dfrac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right) \right\rbrack_{- k_{\max}}^{0} = \dfrac{1}{\dfrac{1}{\overline{\gamma}GT_{2}'} - \dfrac{1}{\overline{\gamma}GT_{2}} + j2\pi x}\left\lbrack 1 - \exp\left( - \left( \dfrac{1}{\overline{\gamma}GT_{2}'} - \dfrac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k_{\max} \right) \right\rbrack =\]
 
 Il gradiente \(G\) è legato alla finestra di lettura dalla relazione:
 
-\[T_{S} = \frac{W}{\overline{\gamma}G} \Leftrightarrow \ G = \frac{W}{\overline{\gamma}T_{S}}\]
+\[T_{S} = \dfrac{W}{\overline{\gamma}G} \Leftrightarrow \ G = \dfrac{W}{\overline{\gamma}T_{S}}\]
 
 La finestra di acquisizione si estende da \(- k_{\max}\) a \(k_{\max}\), quindi, l'estensione della finestra di acquisizione è due volte \(k_{\max}\):
 
@@ -1836,99 +1836,99 @@ La finestra di acquisizione si estende da \(- k_{\max}\) a \(k_{\max}\), quindi,
 
 Da cui:
 
-\[G = \frac{2k_{\max}}{\overline{\gamma}T_{S}} \Leftrightarrow k_{\max} = \frac{1}{2}\overline{\gamma}T_{S}G\]
+\[G = \dfrac{2k_{\max}}{\overline{\gamma}T_{S}} \Leftrightarrow k_{\max} = \dfrac{1}{2}\overline{\gamma}T_{S}G\]
 
 Sostituendo tale risultato si ha:
 
-\[= \frac{1}{\frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x}\left\lbrack 1 - \exp\left( - \left( \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)\frac{1}{2}\overline{\gamma}T_{S}G \right) \right\rbrack =\]
+\[= \dfrac{1}{\dfrac{1}{\overline{\gamma}GT_{2}'} - \dfrac{1}{\overline{\gamma}GT_{2}} + j2\pi x}\left\lbrack 1 - \exp\left( - \left( \dfrac{1}{\overline{\gamma}GT_{2}'} - \dfrac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)\dfrac{1}{2}\overline{\gamma}T_{S}G \right) \right\rbrack =\]
 
 Svolgendo i prodotti nel termine esponenziale e raccogliendo, si ha:
 
-\[= \frac{1}{\frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi x}\left\lbrack 1 - \exp\left( - \frac{1}{2}\left( \frac{T_{S}}{T_{2}'} - \frac{T_{S}}{T_{2}} + j2\pi\overline{\gamma}T_{S}Gx \right) \right) \right\rbrack = \frac{1}{\frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi x}\left\lbrack 1 - \exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) \right\rbrack\]
+\[= \dfrac{1}{\dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) + j2\pi x}\left\lbrack 1 - \exp\left( - \dfrac{1}{2}\left( \dfrac{T_{S}}{T_{2}'} - \dfrac{T_{S}}{T_{2}} + j2\pi\overline{\gamma}T_{S}Gx \right) \right) \right\rbrack = \dfrac{1}{\dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) + j2\pi x}\left\lbrack 1 - \exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) \right\rbrack\]
 
 Analogamente, per il secondo integrale:
 
-\[\int_{0}^{+ k_{\max}}{\exp\left( \left( - \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right)dk} = \frac{1}{- \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x}\left\lbrack \exp\left( \left( - \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right) \right\rbrack_{0}^{k_{\max}} = \frac{1}{- \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x}\left\lbrack \exp\left( \left( - \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k_{\max} \right) - 1 \right\rbrack =\]
+\[\int_{0}^{+ k_{\max}}{\exp\left( \left( - \dfrac{1}{\overline{\gamma}GT_{2}'} - \dfrac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right)dk} = \dfrac{1}{- \dfrac{1}{\overline{\gamma}GT_{2}'} - \dfrac{1}{\overline{\gamma}GT_{2}} + j2\pi x}\left\lbrack \exp\left( \left( - \dfrac{1}{\overline{\gamma}GT_{2}'} - \dfrac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k \right) \right\rbrack_{0}^{k_{\max}} = \dfrac{1}{- \dfrac{1}{\overline{\gamma}GT_{2}'} - \dfrac{1}{\overline{\gamma}GT_{2}} + j2\pi x}\left\lbrack \exp\left( \left( - \dfrac{1}{\overline{\gamma}GT_{2}'} - \dfrac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)k_{\max} \right) - 1 \right\rbrack =\]
 
 Dalla relazione tra \(G\) e \(k_{\max}\), si ha:
 
-\[= \frac{1}{- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j2\pi x}\left\lbrack \exp\left( \left( - \frac{1}{\overline{\gamma}GT_{2}'} - \frac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)\frac{1}{2}\overline{\gamma}T_{S}G \right) - 1 \right\rbrack =\]
+\[= \dfrac{1}{- \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + j2\pi x}\left\lbrack \exp\left( \left( - \dfrac{1}{\overline{\gamma}GT_{2}'} - \dfrac{1}{\overline{\gamma}GT_{2}} + j2\pi x \right)\dfrac{1}{2}\overline{\gamma}T_{S}G \right) - 1 \right\rbrack =\]
 
-\[= \frac{1}{- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j2\pi x}\left\lbrack \exp\left( \frac{1}{2}\left( - \frac{T_{S}}{T_{2}'} - \frac{T_{S}}{T_{2}} + j2\pi\overline{\gamma}T_{S}Gx \right) \right) - 1 \right\rbrack =\]
+\[= \dfrac{1}{- \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + j2\pi x}\left\lbrack \exp\left( \dfrac{1}{2}\left( - \dfrac{T_{S}}{T_{2}'} - \dfrac{T_{S}}{T_{2}} + j2\pi\overline{\gamma}T_{S}Gx \right) \right) - 1 \right\rbrack =\]
 
 Raccogliendo:
 
-\[= \frac{1}{- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j2\pi x}\left\lbrack \exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - 1 \right\rbrack\]
+\[= \dfrac{1}{- \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + j2\pi x}\left\lbrack \exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - 1 \right\rbrack\]
 
 Utilizzando i risultati ottenuti, l'antitrasformata si scrive:
 
-\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right) \right\rbrack(x) = \frac{1}{\frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) + j2\pi x}\left\lbrack 1 - \exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) \right\rbrack + \frac{1}{- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j2\pi x}\left\lbrack \exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - 1 \right\rbrack\]
+\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \dfrac{|k|}{\overline{\gamma}GT_{2}'} \right) \right\rbrack(x) = \dfrac{1}{\dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) + j2\pi x}\left\lbrack 1 - \exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) \right\rbrack + \dfrac{1}{- \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + j2\pi x}\left\lbrack \exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - 1 \right\rbrack\]
 
 Si svolge il minimo comune multiplo:
 
-\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \frac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \frac{|k|}{\overline{\gamma}GT_{2}'} \right) \right\rbrack(x) = \frac{\left\lbrack 1 - \exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) \right\rbrack\left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack}{\left\{ \left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack \right\}} + \frac{\left\lbrack \exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - 1 \right\rbrack\left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack}{\left\{ \left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack \right\}}\]
+\[\mathfrak{F}^{-}\left\lbrack \exp\left( - \dfrac{k}{\overline{\gamma}GT_{2}} \right)\exp\left( - \dfrac{|k|}{\overline{\gamma}GT_{2}'} \right) \right\rbrack(x) = \dfrac{\left\lbrack 1 - \exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) \right\rbrack\left\lbrack j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) \right\rbrack}{\left\{ \left\lbrack j2\pi x + \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack\left\lbrack j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) \right\rbrack \right\}} + \dfrac{\left\lbrack \exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - 1 \right\rbrack\left\lbrack j2\pi x + \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack}{\left\{ \left\lbrack j2\pi x + \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack\left\lbrack j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) \right\rbrack \right\}}\]
 
 Si considerano i due termini del numeratore:
 
-\[\left\lbrack 1 - \exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) \right\rbrack\left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack = \ j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) - \left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right)\]
+\[\left\lbrack 1 - \exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) \right\rbrack\left\lbrack j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) \right\rbrack = \ j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) - \left\lbrack j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) \right\rbrack\exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right)\]
 
-\[\left\lbrack \exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - 1 \right\rbrack\left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack = \left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - \ j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right)\]
+\[\left\lbrack \exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - 1 \right\rbrack\left\lbrack j2\pi x + \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack = \left\lbrack j2\pi x + \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack\exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - \ j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right)\]
 
 Sommando i risultati, si ha:
 
-\[j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) - \left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) + \left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - \ j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right)\]
+\[j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) - \left\lbrack j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) \right\rbrack\exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) + \left\lbrack j2\pi x + \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack\exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) - \ j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right)\]
 
 I termini \(j2\pi x\) si elidono, inoltre:
 
-\[- \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) = \frac{1}{\overline{\gamma}G}\left( - \frac{1}{T_{2}'} - \frac{1}{T_{2}} - \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) = - \frac{2}{\overline{\gamma}GT_{2}'}\]
+\[- \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) = \dfrac{1}{\overline{\gamma}G}\left( - \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} - \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) = - \dfrac{2}{\overline{\gamma}GT_{2}'}\]
 
 Componendo il denominatore, si ottiene:
 
-\[- \frac{2}{\overline{\gamma}GT_{2}'} - \left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) + \left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right)\]
+\[- \dfrac{2}{\overline{\gamma}GT_{2}'} - \left\lbrack j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) \right\rbrack\exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) + \left\lbrack j2\pi x + \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack\exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right)\]
 
 Per il denominatore, invece, si ha:
 
-\[\left\{ \left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack \right\} = (j2\pi x)^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right)\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + \ j2\pi x\left\lbrack - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) + \ j2\pi x\left\lbrack - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) + \ j2\pi x\left\lbrack \frac{1}{\overline{\gamma}G}\left( - \frac{1}{T_{2}'} - \frac{1}{T_{2}} + \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) - \frac{4\pi x}{\overline{\gamma}GT_{2}}j\]
+\[\left\{ \left\lbrack j2\pi x + \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack\left\lbrack j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) \right\rbrack \right\} = (j2\pi x)^{2} - \dfrac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right)\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + \ j2\pi x\left\lbrack - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \dfrac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \dfrac{1}{{T_{2}'}^{2}} - \dfrac{1}{T_{2}^{2}} \right) + \ j2\pi x\left\lbrack - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \dfrac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \dfrac{1}{{T_{2}'}^{2}} - \dfrac{1}{T_{2}^{2}} \right) + \ j2\pi x\left\lbrack \dfrac{1}{\overline{\gamma}G}\left( - \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} + \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack = - 4\pi^{2}x^{2} - \dfrac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \dfrac{1}{{T_{2}'}^{2}} - \dfrac{1}{T_{2}^{2}} \right) - \dfrac{4\pi x}{\overline{\gamma}GT_{2}}j\]
 
 La PSF nel dominio dello spazio-immagine è:
 
-\[h_{SE}(x) = \frac{- \frac{2}{\overline{\gamma}GT_{2}'} - \left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right)}{- 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) - \frac{4\pi x}{\overline{\gamma}GT_{2}}j} + \frac{\left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right)}{- 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) - \frac{4\pi x}{\overline{\gamma}GT_{2}}j}\]
+\[h_{SE}(x) = \dfrac{- \dfrac{2}{\overline{\gamma}GT_{2}'} - \left\lbrack j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) \right\rbrack\exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right)}{- 4\pi^{2}x^{2} - \dfrac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \dfrac{1}{{T_{2}'}^{2}} - \dfrac{1}{T_{2}^{2}} \right) - \dfrac{4\pi x}{\overline{\gamma}GT_{2}}j} + \dfrac{\left\lbrack j2\pi x + \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack\exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right)}{- 4\pi^{2}x^{2} - \dfrac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \dfrac{1}{{T_{2}'}^{2}} - \dfrac{1}{T_{2}^{2}} \right) - \dfrac{4\pi x}{\overline{\gamma}GT_{2}}j}\]
 
 Al denominatore la parte immaginaria è pesata per \(T_{2}\), per cui può essere trascurata:
 
-\[- 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \frac{1}{{T_{2}'}^{2}} - \frac{1}{T_{2}^{2}} \right) - \frac{4\pi x}{\overline{\gamma}GT_{2}} \simeq - 4\pi^{2}x^{2} - \frac{1}{{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}}\]
+\[- 4\pi^{2}x^{2} - \dfrac{1}{{\overline{\gamma}}^{2}G^{2}}\left( \dfrac{1}{{T_{2}'}^{2}} - \dfrac{1}{T_{2}^{2}} \right) - \dfrac{4\pi x}{\overline{\gamma}GT_{2}} \simeq - 4\pi^{2}x^{2} - \dfrac{1}{{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}}\]
 
 Per quanto riguarda il numeratore, si considera il termine:
 
-\[\left\lbrack j2\pi x - \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) \simeq \left( j2\pi x - \frac{1}{\overline{\gamma}GT_{2}'} \right)\exp\left( - \frac{1}{2}\frac{T_{S}}{T_{2}'} - j\pi\overline{\gamma}T_{S}Gx \right)\]
+\[\left\lbrack j2\pi x - \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) \right\rbrack\exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) - j\pi\overline{\gamma}T_{S}Gx \right) \simeq \left( j2\pi x - \dfrac{1}{\overline{\gamma}GT_{2}'} \right)\exp\left( - \dfrac{1}{2}\dfrac{T_{S}}{T_{2}'} - j\pi\overline{\gamma}T_{S}Gx \right)\]
 
 Per il secondo termine, si ottiene:
 
-\[\left\lbrack j2\pi x + \frac{1}{\overline{\gamma}G}\left( \frac{1}{T_{2}'} - \frac{1}{T_{2}} \right) \right\rbrack\exp\left( - \frac{T_{S}}{2}\left( \frac{1}{T_{2}'} + \frac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) \simeq \left( \ j2\pi x + \frac{1}{\overline{\gamma}GT_{2}'} \right)\exp\left( - \frac{T_{S}}{2T_{2}'} + j\pi\overline{\gamma}T_{S}Gx \right)\]
+\[\left\lbrack j2\pi x + \dfrac{1}{\overline{\gamma}G}\left( \dfrac{1}{T_{2}'} - \dfrac{1}{T_{2}} \right) \right\rbrack\exp\left( - \dfrac{T_{S}}{2}\left( \dfrac{1}{T_{2}'} + \dfrac{1}{T_{2}} \right) + j\pi\overline{\gamma}T_{S}Gx \right) \simeq \left( \ j2\pi x + \dfrac{1}{\overline{\gamma}GT_{2}'} \right)\exp\left( - \dfrac{T_{S}}{2T_{2}'} + j\pi\overline{\gamma}T_{S}Gx \right)\]
 
 La PSF, in questa ipotesi, è data da:
 
-\[h_{SE}(x) \simeq \frac{- \frac{2}{\overline{\gamma}GT_{2}'} + \left( j2\pi x - \frac{1}{\overline{\gamma}GT_{2}'} \right)\exp\left( - \frac{1}{2}\frac{T_{S}}{T_{2}'} - j\pi\overline{\gamma}T_{S}Gx \right) + \left( \ j2\pi x + \frac{1}{\overline{\gamma}GT_{2}'} \right)\exp\left( - \frac{T_{S}}{2T_{2}'} + j\pi\overline{\gamma}T_{S}Gx \right)}{- \frac{1}{{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}} - 4\pi^{2}x^{2}}\]
+\[h_{SE}(x) \simeq \dfrac{- \dfrac{2}{\overline{\gamma}GT_{2}'} + \left( j2\pi x - \dfrac{1}{\overline{\gamma}GT_{2}'} \right)\exp\left( - \dfrac{1}{2}\dfrac{T_{S}}{T_{2}'} - j\pi\overline{\gamma}T_{S}Gx \right) + \left( \ j2\pi x + \dfrac{1}{\overline{\gamma}GT_{2}'} \right)\exp\left( - \dfrac{T_{S}}{2T_{2}'} + j\pi\overline{\gamma}T_{S}Gx \right)}{- \dfrac{1}{{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}} - 4\pi^{2}x^{2}}\]
 
 Si suppone che la finestra di acquisizione \(T_{S}\) sia molto maggiore del tempo di rilassamento \(T_{2}'\); ciò equivale ad affermare che il segnale è stato acquisito per un tempo così lungo che può essere considerato decaduto. In questa condizione
 
-\[\exp\left( - \frac{1}{2}\frac{T_{S}}{T_{2}'} - j\pi\overline{\gamma}T_{S}Gx \right) = \exp\left( - \frac{1}{2}\frac{T_{S}}{T_{2}'} \right)\exp\left( - j\pi\overline{\gamma}T_{S}Gx \right)\]
+\[\exp\left( - \dfrac{1}{2}\dfrac{T_{S}}{T_{2}'} - j\pi\overline{\gamma}T_{S}Gx \right) = \exp\left( - \dfrac{1}{2}\dfrac{T_{S}}{T_{2}'} \right)\exp\left( - j\pi\overline{\gamma}T_{S}Gx \right)\]
 
 Per valutare cosa accade nel limite \(T_{S} \rightarrow \infty\) si ricorda che \(\exp\left( - j\pi\overline{\gamma}T_{S}Gx \right)\) è un termine oscillante, il cui modulo è unitario. Per il teorema dei carabinieri è valida la relazione:
 
-\[\exp\left( - \frac{1}{2}\frac{T_{S}}{T_{2}'} \right)\exp\left( - j\pi\overline{\gamma}T_{S}Gx \right) \rightarrow 0,T_{S} \gg T_{2}'\]
+\[\exp\left( - \dfrac{1}{2}\dfrac{T_{S}}{T_{2}'} \right)\exp\left( - j\pi\overline{\gamma}T_{S}Gx \right) \rightarrow 0,T_{S} \gg T_{2}'\]
 
 Analogamente:
 
-\[\exp\left( - \frac{1}{2}\frac{T_{S}}{T_{2}'} \right)\exp\left( j\pi\overline{\gamma}T_{S}Gx \right) \rightarrow 0,T_{S} \gg T_{2}'\]
+\[\exp\left( - \dfrac{1}{2}\dfrac{T_{S}}{T_{2}'} \right)\exp\left( j\pi\overline{\gamma}T_{S}Gx \right) \rightarrow 0,T_{S} \gg T_{2}'\]
 
 La PSF, aggiungendo questa ulteriore ipotesi, si riduce a:
 
-\[h_{SE}(x) = \frac{- \frac{2}{\overline{\gamma}GT_{2}'}}{- \frac{1}{{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}} - 4\pi^{2}x^{2}}\]
+\[h_{SE}(x) = \dfrac{- \dfrac{2}{\overline{\gamma}GT_{2}'}}{- \dfrac{1}{{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}} - 4\pi^{2}x^{2}}\]
 
 Riarragiando i termini si può scrivere:
 
-\[h_{SE}(x) = \frac{2\overline{\gamma}GT_{2}'}{1 - 4\pi^{2}x^{2}{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}}\]
+\[h_{SE}(x) = \dfrac{2\overline{\gamma}GT_{2}'}{1 - 4\pi^{2}x^{2}{\overline{\gamma}}^{2}G^{2}{T_{2}'}^{2}}\]
 
 Si è ottenuto lo stesso risultato del caso precedente.
 
@@ -1938,7 +1938,7 @@ Un metodo di interpolazione molto utilizzato nella pratica, al fine di ricostrui
 
 Si suppone di aver campionato nel \(k\)-spazio, da un valore \(- k_{\min}\) a \(+ k_{\max}\) con un passo di campionamento \(\Delta k\). Il campionamento del segnale, inoltre, avviene in una finestra temporale di lunghezza \(W\). Mediante la trasformata inversa di Fourier è possibile ricostruire la densità protonica \(\widehat{\rho}(x)\) su \(N\) punti pari mediante la relazione:
 
-\[\widehat{\rho}(x) = \Delta k\sum_{p = - \frac{N}{2}}^{\frac{N}{2} - 1}{s(p\Delta k)\exp\left( \frac{j2\pi pq}{N} \right)}\]
+\[\widehat{\rho}(x) = \Delta k\sum_{p = - \dfrac{N}{2}}^{\dfrac{N}{2} - 1}{s(p\Delta k)\exp\left( \dfrac{j2\pi pq}{N} \right)}\]
 
 Dove \(\Delta x = W^{- 1}\) e il \(FOV = L = \Delta k^{- 1}\). L'ampiezza dell'oggetto da ricostruire dipende, in ultima analisi, da \(\Delta k\).
 
@@ -1946,7 +1946,7 @@ Il Fourier pixel size, \(\Delta x\), è legato alla risoluzione spaziale tramite
 
 La risoluzione spaziale \(\Delta x\) è legata anche al numero di campioni acquisiti nel \(k\)-spazio, tramite la relazione:
 
-\[\Delta x = \frac{1}{N\Delta k}\]
+\[\Delta x = \dfrac{1}{N\Delta k}\]
 
 Per migliorare la risoluzione è necessario aumentare il numero di punti o ridurre l'intervallo di campionamento nel \(k\)-spazio. Tuttavia, la durata del campionamento è legata a vari fattori della sequenza, ad esempio, nella gradient-echo, la durata complessiva dell'acquisizione \(W\) deve essere tale da non sentire gli effetti del rilassamento.
 
@@ -1954,14 +1954,14 @@ Una metodica utilizzata per migliorare la risoluzione consiste nell'aumentare, m
 
 Nella pratica, generalmente, non si estende la finestra di acquisizione \(W\) oltre un raddoppio di quella in cui sono acquisiti i campioni. Se la finestra \(W\) raddoppia, la risoluzione spaziale si dimezza:
 
-\[\Delta x = \left. \ \frac{1}{NW} \right|_{W = 2W} = \frac{1}{2NW} = \frac{\Delta x}{2}\]
+\[\Delta x = \left. \ \dfrac{1}{NW} \right|_{W = 2W} = \dfrac{1}{2NW} = \dfrac{\Delta x}{2}\]
 
 Il set di dati acquisiti, a valle dell'introduzione dello zero filled, si scrive come:
 
 \[{\widehat{s}}_{0}(p\Delta k) = \left\{ \begin{aligned}
-0,\ \  & - N \leq p \leq - \frac{N}{2} - 1 \\
-s(p\Delta k),\ \  & - \frac{N}{2} \leq p \leq \frac{N}{2} - 1 \\
-0,\ \  & \frac{N}{2} \leq p \leq N - 1
+0,\ \  & - N \leq p \leq - \dfrac{N}{2} - 1 \\
+s(p\Delta k),\ \  & - \dfrac{N}{2} \leq p \leq \dfrac{N}{2} - 1 \\
+0,\ \  & \dfrac{N}{2} \leq p \leq N - 1
 \end{aligned} \right.\ \]
 
 In ogni caso, il numero \(N\) dei campioni deve essere scelto in modo da essere un numero pari, se possibile potenza di \(2\).
@@ -1975,35 +1975,35 @@ Il segnale \({\widehat{s}}_{0}(p\Delta k)0\), nell'intervallo di campionamento f
 
 Si applica ora la trasformata discreta di Fourier inversa al segnale \({\widehat{s}}_{0}(p\Delta k)\), a valle dello zero filling. In questo modo si ricostruisce un segnale proporzionale alla densità protonica, valutata in \(q\Delta x/2\):
 
-\[{\widehat{\rho}}_{0}\left( q\frac{\Delta x}{2} \right) = \frac{1}{2N}\sum_{p = - N}^{N - 1}{{\widehat{s}}_{0}(p\Delta k)\exp\left( j2\pi\frac{pq}{2N} \right)}\]
+\[{\widehat{\rho}}_{0}\left( q\dfrac{\Delta x}{2} \right) = \dfrac{1}{2N}\sum_{p = - N}^{N - 1}{{\widehat{s}}_{0}(p\Delta k)\exp\left( j2\pi\dfrac{pq}{2N} \right)}\]
 
 La normalizzazione per \(2N\) è dovuta al fatto che il numero di punti su cui si calcola la trasformata è raddoppiato. Il segnale \({\widehat{s}}_{0}(p\Delta k)\) è null' all'esterno dell'intervallo \(\lbrack - N/2;N/2 - 1\rbrack\) per cui è possibile ridurre gli indici su cui calcolare la sommatoria:
 
-\[{\widehat{\rho}}_{0}\left( q\frac{\Delta x}{2} \right) = \frac{1}{2N}\sum_{p = - \frac{N}{2}}^{\frac{N}{2} - 1}{{\widehat{s}}_{0}(p\Delta k)\exp\left( j2\pi\frac{pq}{2N} \right)}\]
+\[{\widehat{\rho}}_{0}\left( q\dfrac{\Delta x}{2} \right) = \dfrac{1}{2N}\sum_{p = - \dfrac{N}{2}}^{\dfrac{N}{2} - 1}{{\widehat{s}}_{0}(p\Delta k)\exp\left( j2\pi\dfrac{pq}{2N} \right)}\]
 
 Dalla sequenza di dati acquisiti nel \(k\)-spazio, ottenuta mediante lo zero filling, è possibile ricostruire due immagini, una per \(q\) pari e l'altra per \(q\) dispari.
 
 Si considerano i multipli peri della quantità \(q = 2r\), dove \(r \in \lbrack - N/2;N/2 - 1\rbrack\). L'immagine ricostruita su questi punti è data da:
 
-\[\left. \ {\widehat{\rho}}_{0}\left( q\frac{\Delta x}{2} \right) \right|_{q = 2r} = {\widehat{\rho}}_{0}(r\Delta x) = \frac{1}{2N}\sum_{p = - \frac{N}{2}}^{\frac{N}{2} - 1}{{\widehat{s}}_{0}(p\Delta k)\exp\left( j2\pi\frac{rq}{N} \right)}\]
+\[\left. \ {\widehat{\rho}}_{0}\left( q\dfrac{\Delta x}{2} \right) \right|_{q = 2r} = {\widehat{\rho}}_{0}(r\Delta x) = \dfrac{1}{2N}\sum_{p = - \dfrac{N}{2}}^{\dfrac{N}{2} - 1}{{\widehat{s}}_{0}(p\Delta k)\exp\left( j2\pi\dfrac{rq}{N} \right)}\]
 
 L'immagine ricostruita coincide con l'immagine che sarebbe stata ricostruita in assenza di zero filled, scalata di fattore \(1/2\):
 
-\[{\widehat{\rho}}_{0}(q\Delta x) = \frac{1}{2}\widehat{\rho}(r\Delta x)\]
+\[{\widehat{\rho}}_{0}(q\Delta x) = \dfrac{1}{2}\widehat{\rho}(r\Delta x)\]
 
 L'immagine ottenuta coincide con la densità protonica che sarebbe stata ricostruita in assenza di zero padding, \({\widehat{\rho}}_{0}(q\Delta x)\), e contiene solamente \(N\) punti. In altre parole, la trasformata inversa di Fourier a vale dello zero padding coincide, nei punti multipli pari di \(\Delta x/2\), con la trasformata che si avrebbe senza l'applicazione dello zero filling, a meno di un fattore di scala \(1/2\).
 
 Si analizza, ora, il comportamento dell'antitrasformata della sequenza con zero filling nei punti dispari di \(\Delta x/2\). A tale scopo si scrive \(p = 2r + 1\); sottiene:
 
-\[\left. \ {\widehat{\rho}}_{0}\left( q\frac{\Delta x}{2} \right) \right|_{q = 2r} = {\widehat{\rho}}_{0}\left( (2r + 1)\frac{\Delta x}{2} \right) = \frac{1}{2N}\sum_{p = - \frac{N}{2}}^{\frac{N}{2} - 1}{{\widehat{s}}_{0}(p\Delta k)\exp\left( j2\pi\frac{(2r + 1)q}{2N} \right)} = \frac{1}{2N}\sum_{p = - \frac{N}{2}}^{\frac{N}{2} - 1}{{\widehat{s}}_{0}(p\Delta k)\exp\left( j\pi\frac{(2r + 1)q}{N} \right)}\]
+\[\left. \ {\widehat{\rho}}_{0}\left( q\dfrac{\Delta x}{2} \right) \right|_{q = 2r} = {\widehat{\rho}}_{0}\left( (2r + 1)\dfrac{\Delta x}{2} \right) = \dfrac{1}{2N}\sum_{p = - \dfrac{N}{2}}^{\dfrac{N}{2} - 1}{{\widehat{s}}_{0}(p\Delta k)\exp\left( j2\pi\dfrac{(2r + 1)q}{2N} \right)} = \dfrac{1}{2N}\sum_{p = - \dfrac{N}{2}}^{\dfrac{N}{2} - 1}{{\widehat{s}}_{0}(p\Delta k)\exp\left( j\pi\dfrac{(2r + 1)q}{N} \right)}\]
 
 Per le proprietà degli esponenziali, si ha:
 
-\[= \frac{1}{2N}\sum_{p = - \frac{N}{2}}^{\frac{N}{2} - 1}{\left( {\widehat{s}}_{0}(p\Delta k)\exp\left( j\pi\frac{p}{N} \right) \right)\exp\left( j2\pi\frac{rp}{N} \right)}\]
+\[= \dfrac{1}{2N}\sum_{p = - \dfrac{N}{2}}^{\dfrac{N}{2} - 1}{\left( {\widehat{s}}_{0}(p\Delta k)\exp\left( j\pi\dfrac{p}{N} \right) \right)\exp\left( j2\pi\dfrac{rp}{N} \right)}\]
 
 Per il teorema della traslazione, è possibile scrivere:
 
-\[{\widehat{\rho}}_{0}\left( (2r + 1)\frac{\Delta x}{2} \right) = \frac{1}{2}\widehat{\rho}\left( r\Delta x + \frac{\Delta x}{2} \right)\]
+\[{\widehat{\rho}}_{0}\left( (2r + 1)\dfrac{\Delta x}{2} \right) = \dfrac{1}{2}\widehat{\rho}\left( r\Delta x + \dfrac{\Delta x}{2} \right)\]
 
 La densità protonica ricostruita con lo zero filling, per i multipli dispari di \(\Delta x/2\), coincide con la densità protonica ricostruita su \(N\) punti e traslata di \(\Delta x/2\) rispetto al punto \(r\), e scalta di un fattore \(1/2\).
 
@@ -2190,9 +2190,9 @@ Si dimostra che nel \(k\)-spazio, il segnale, ottenuto a valle delle iterazioni 
 \[s_{j + 1}(p\Delta x) = \left\{ \begin{matrix}
 s_{m}(p\Delta k) & - n_{-} \leq p \leq n_{+} - 1 \\
 {\widetilde{s}}_{j + 1}(p\Delta k) & - n_{+} \leq p \leq - n_{-} - 1 \\
-\frac{1}{2}\left\{ \begin{array}{r}
-s_{m}(p\Delta k)\left\lbrack 1 + \cos\left( \pi + \frac{\pi\left( p + n_{-} \right)}{u} \right) \right\rbrack + \\
- + {\widetilde{s}}_{j + 1}(p\Delta k)\left\lbrack 1 + \cos\left( 1 + \frac{\pi\left( p + n_{-} \right)}{u} \right) \right\rbrack
+\dfrac{1}{2}\left\{ \begin{array}{r}
+s_{m}(p\Delta k)\left\lbrack 1 + \cos\left( \pi + \dfrac{\pi\left( p + n_{-} \right)}{u} \right) \right\rbrack + \\
+ + {\widetilde{s}}_{j + 1}(p\Delta k)\left\lbrack 1 + \cos\left( 1 + \dfrac{\pi\left( p + n_{-} \right)}{u} \right) \right\rbrack
 \end{array} \right\} & - n_{-} \leq p \leq - n_{-} + o - 1
 \end{matrix} \right.\ \]
 

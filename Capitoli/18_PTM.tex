@@ -63,7 +63,7 @@ L'energia necessaria affinché un elettrone di un metallo superi la barriera di 
 
 Si può vedere che, in genere, l'efficienza dei metalli nella regione visibile è dell'ordine di 1 fotoelettrone per 1000 fotoni incidenti:
 
-\[QE = \frac{1}{1000} = 0.1\%\]
+\[QE = \dfrac{1}{1000} = 0.1\%\]
 
 Questa quantità risulta comunque essere molto variabile in base al metallo considerato e le condizioni ambientali.
 
@@ -135,7 +135,7 @@ La \emph{Dark Current} può essere prodotta da:
 
 Nei metalli l'emissione termoionica è data da tutti gli elettroni che oltrepassano la barriera di potenziale tra la banda di conduzione e il vuoto. La densità di corrente prodotta segue la l'equazione di Richardsson:
 
-\[J = 4\pi emk_{B}^{2}\frac{T}{h^{3}}e^{- \frac{\varphi}{k_{B}T}}\ \]
+\[J = 4\pi emk_{B}^{2}\dfrac{T}{h^{3}}e^{- \dfrac{\varphi}{k_{B}T}}\ \]
 
 Dove \(e\) è la carica elementare dell'elettrone, \(m\) la sua massa, \(k_{B}\) la costante di Boltzmann, \(h\) la cosante di Planck, \(T\) la temperatura assoluta e \(\varphi\) la \emph{Work-Function}.
 
@@ -150,7 +150,7 @@ La corrente di disturbo in funzione della temperatura è fornita dal costruttore
 
 I semiconduttori sono anche loro soggetti a correnti termoioniche, date dagli elettroni che passano dalla banda di valenza a quella di conduzione. Per questi materiali, l'equazione di Richardsson va modificata sostituendo al lavoro di estrazione la somma del gap energetico e dell'affinità elettronica:
 
-\[J = 4\pi emk_{B}^{2}\frac{T}{h^{3}}e^{- \frac{E_{A} + E_{G}}{k_{B}T}}\]
+\[J = 4\pi emk_{B}^{2}\dfrac{T}{h^{3}}e^{- \dfrac{E_{A} + E_{G}}{k_{B}T}}\]
 
 La quantità \(E_{A} + E_{G}\) è proprio l'energia necessaria che bisogna fornire all'elettrone nella banda di valenza per essere estratto. È importante sottolineare questo punto poiché per i metalli le due bande coincidono, quindi, un elettrone di valenza è anche di conduzione. Invece, per un semiconduttore le due bande sono separate da un gap energetico che l'elettrone deve superare prima di poter essere estratto.
 
@@ -158,7 +158,7 @@ La quantità \(E_{A} + E_{G}\) è proprio l'energia necessaria che bisogna forni
 
 Il fenomeno dell'emissione secondaria è dovuto all'impatto di elettroni sufficientemente energetici, estratti per effetto foto-ionico o per correnti dispersione, sulla superficie dinodi, che a loro volta producono altri elettroni in cascata. Questo processo può essere quantizzato da un'efficienza, indicata con \(\delta\) e detta \emph{Secondary Emission Ratio}, dato dal rapporto di numero di elettroni secondari emessi e il numero di elettroni primari incidenti:
 
-\[\delta = \frac{N_{s}}{N_{e}}\]
+\[\delta = \dfrac{N_{s}}{N_{e}}\]
 
 Ovviamente si vorrebbe che questa quantità sia più costante possibile e di valore sufficientemente elevato, così da sapere che la quota di rumore è molto limitata e non varia nel tempo. Nella pratica, questa quantità non è costante ma dipende da numerosi fattori statistici. La corrente raccolta dopo il processo di amplificazione elettronica è a sua volta dipendente dall'efficienza: se per ogni fotoelettrone incidente si generano \(\delta\) elettroni secondari, a fine processo si generano \(\delta^{n}\) elettroni secondari, dove \(n\) è il numero dei dinodi.
 
@@ -286,7 +286,7 @@ Questa relazione è sempre più verificata quanto più lo \emph{Spread} del temp
 
 Sia \(Q\) la carica raccolta nell'intero impulso, risulta che:
 
-\[Q = \int_{0}^{\infty}{i(t)dt} = i_{0}\int_{0}^{\infty}{e^{- \lambda t}dt} = \frac{i_{0}}{\lambda} \Leftrightarrow i_{0} = Q\lambda\]
+\[Q = \int_{0}^{\infty}{i(t)dt} = i_{0}\int_{0}^{\infty}{e^{- \lambda t}dt} = \dfrac{i_{0}}{\lambda} \Leftrightarrow i_{0} = Q\lambda\]
 
 La corrente nel dispositivo di misura può essere scritta come:
 
@@ -295,9 +295,9 @@ La corrente nel dispositivo di misura può essere scritta come:
 Per risolvere la rete e determinare la tensione in uscita, si passa nel dominio dei fasori. La corrente si ripartisce nelle due impedenze che rappresentano, quindi, un partitore di corrente:
 
 \includegraphics[width=3.97639in,height=3.77639in,alt={P4353\#y1}]{media/18_PTM/image468.pdf}
-\[{\dot{I}}_{C} = \frac{{\dot{Y}}_{C}}{G + {\dot{Y}}_{C}}\dot{I} = \frac{j\omega C}{\frac{1}{R} + j\omega C}\dot{I}\]
+\[{\dot{I}}_{C} = \dfrac{{\dot{Y}}_{C}}{G + {\dot{Y}}_{C}}\dot{I} = \dfrac{j\omega C}{\dfrac{1}{R} + j\omega C}\dot{I}\]
 
-\[\frac{j\omega C}{\frac{1}{R} + j\omega C} = \frac{j\omega CR}{1 + j\omega CR}\]
+\[\dfrac{j\omega C}{\dfrac{1}{R} + j\omega C} = \dfrac{j\omega CR}{1 + j\omega CR}\]
 
 La tensione indotta sulla capacità è data da:
 
@@ -305,7 +305,7 @@ La tensione indotta sulla capacità è data da:
 
 Da cui:
 
-\[{\dot{V}}_{C} = \frac{1}{j\omega C}\frac{j\omega CR}{1 + j\omega CR}\dot{I} = \frac{R}{1 + j\omega CR}\dot{I}\]
+\[{\dot{V}}_{C} = \dfrac{1}{j\omega C}\dfrac{j\omega CR}{1 + j\omega CR}\dot{I} = \dfrac{R}{1 + j\omega CR}\dot{I}\]
 
 \[R\dot{I} = {\dot{V}}_{C} + j\omega CR{\dot{V}}_{C}\]
 
@@ -313,19 +313,19 @@ Passando nel dominio del tempo si ottiene la relazione ingresso-uscita della ret
 
 Figura .: Imprendenza di ingresso degli stadi di prelievo
 
-\[Ri(t) = v_{C} + RC\frac{dv_{C}}{dt}\]
+\[Ri(t) = v_{C} + RC\dfrac{dv_{C}}{dt}\]
 
 Particolarizzando al caso in esame, è noto il forzamento di tipo esponenziale:
 
-\[RQ\lambda e^{- \lambda t} = v_{C} + RC\frac{dv_{C}}{dt}\]
+\[RQ\lambda e^{- \lambda t} = v_{C} + RC\dfrac{dv_{C}}{dt}\]
 
-Si pone \(\theta = \frac{1}{RC}\) reciproco della costante di tempo del circuito RC di prelievo del segnale, l'equazione della rete può essere scritta come:
+Si pone \(\theta = \dfrac{1}{RC}\) reciproco della costante di tempo del circuito RC di prelievo del segnale, l'equazione della rete può essere scritta come:
 
-\[Q\lambda e^{- \lambda t} = \frac{1}{R}v_{C} + \frac{1}{\theta R}\frac{dv_{C}}{dt}\]
+\[Q\lambda e^{- \lambda t} = \dfrac{1}{R}v_{C} + \dfrac{1}{\theta R}\dfrac{dv_{C}}{dt}\]
 
 Si passa all'omogenea associata:
 
-\[\frac{1}{R}v_{C} + \frac{1}{\theta R}\frac{dv_{C}}{dt} = 0\]
+\[\dfrac{1}{R}v_{C} + \dfrac{1}{\theta R}\dfrac{dv_{C}}{dt} = 0\]
 
 La cui soluzione è semplice:
 
@@ -337,51 +337,51 @@ Una soluzione particolare dell'equazione differenziale è un esponenziale con st
 
 Sostituendo nell'equazione differenziale si ottiene:
 
-\[Q\lambda e^{- \lambda t} = \frac{1}{R}Fe^{- \lambda t} - \frac{\lambda}{\theta R}Fe^{- \lambda t}\]
+\[Q\lambda e^{- \lambda t} = \dfrac{1}{R}Fe^{- \lambda t} - \dfrac{\lambda}{\theta R}Fe^{- \lambda t}\]
 
-\[Q\lambda = \frac{F}{R}\left( 1 - \frac{\lambda}{\theta} \right) \Leftrightarrow F = \frac{RQ\lambda}{\left( 1 - \frac{\lambda}{\theta} \right)} = \frac{RQ\lambda}{(\theta - \lambda)}\theta = \frac{RQ\lambda}{(\theta - \lambda)}\frac{1}{RC} = \frac{1}{(\theta - \lambda)}\frac{Q\lambda}{C}\]
+\[Q\lambda = \dfrac{F}{R}\left( 1 - \dfrac{\lambda}{\theta} \right) \Leftrightarrow F = \dfrac{RQ\lambda}{\left( 1 - \dfrac{\lambda}{\theta} \right)} = \dfrac{RQ\lambda}{(\theta - \lambda)}\theta = \dfrac{RQ\lambda}{(\theta - \lambda)}\dfrac{1}{RC} = \dfrac{1}{(\theta - \lambda)}\dfrac{Q\lambda}{C}\]
 
 La soluzione particolare è, dunque:
 
-\[u(t) = \frac{1}{(\theta - \lambda)}\frac{Q\lambda}{C}\ e^{- \lambda t} = - \frac{1}{(\lambda - \theta)}\frac{Q\lambda}{C}e^{- \lambda t}\ \]
+\[u(t) = \dfrac{1}{(\theta - \lambda)}\dfrac{Q\lambda}{C}\ e^{- \lambda t} = - \dfrac{1}{(\lambda - \theta)}\dfrac{Q\lambda}{C}e^{- \lambda t}\ \]
 
 L'integrale generale dell'equazione differenziale è, quindi, del tipo:
 
-\[v_{C}(t) = ke^{- \theta t} - \frac{1}{(\lambda - \theta)}\frac{Q\lambda}{C}e^{- \lambda t}\]
+\[v_{C}(t) = ke^{- \theta t} - \dfrac{1}{(\lambda - \theta)}\dfrac{Q\lambda}{C}e^{- \lambda t}\]
 
 Se si pone la condizione iniziale che \(v_{C}(0) = 0\) dovuta all'assenza di corrente nella resistenza all'avvio del circuito, si ottiene:
 
-\[k = \frac{1}{(\lambda - \theta)}\frac{Q\lambda}{C}\]
+\[k = \dfrac{1}{(\lambda - \theta)}\dfrac{Q\lambda}{C}\]
 
 La soluzione della rete elettrica è stata determinata
 
-\[v_{C}(t) = \frac{1}{(\lambda - \theta)}\frac{Q\lambda}{C}\left( e^{- \theta t} - e^{- \lambda t} \right)\]
+\[v_{C}(t) = \dfrac{1}{(\lambda - \theta)}\dfrac{Q\lambda}{C}\left( e^{- \theta t} - e^{- \lambda t} \right)\]
 
 A seconda della costante di tempo RC l'equazione ottenuta per la tensione sul cappio RC può essere approssimata in diversi modi.
 
 Se il circuito di ingresso dell'elettronica è un \emph{Large RC}, rispetta la condizione:
 
-\[\frac{1}{\lambda} \ll \frac{1}{\theta}\]
+\[\dfrac{1}{\lambda} \ll \dfrac{1}{\theta}\]
 
 La tensione sulla capacità può essere espressa come:
 
-\[v_{C}(t) \simeq \frac{Q}{C}\left( e^{- \theta t} - e^{- \lambda t} \right)\]
+\[v_{C}(t) \simeq \dfrac{Q}{C}\left( e^{- \theta t} - e^{- \lambda t} \right)\]
 
 Nella condizione iniziale, ovvero per:
 
-\[t \ll \frac{1}{\theta}\]
+\[t \ll \dfrac{1}{\theta}\]
 
 È possibile approssimare \(e^{- \theta t}\) con l'unità:
 
-\[v_{C}(t) \simeq \frac{Q}{C}\left( 1 - e^{- \lambda t} \right)\]
+\[v_{C}(t) \simeq \dfrac{Q}{C}\left( 1 - e^{- \lambda t} \right)\]
 
 Nella condizione opposta, invece, in cui:
 
-\[t \gg \frac{1}{\lambda}\]
+\[t \gg \dfrac{1}{\lambda}\]
 
 Risulta che \(e^{- \theta t} \gg e^{- \lambda t}\), la tensione può essere scritta come:
 
-\[v_{C}(t) \simeq \frac{Q}{C}e^{- \theta t}\]
+\[v_{C}(t) \simeq \dfrac{Q}{C}e^{- \theta t}\]
 
 Da queste approssimazioni è possibile ricavare la forma della tensione sulla capacità: crescente con costante di tempo \(\lambda\) nel tratto iniziale e decresce con costante di tempo \(\theta\) per tempi lunghi. L'ampiezza massima dell'impulso è nota ed è data dalla quantità di carica che genera l'impulso sulla capacità. Questa capacità deve essere scelta piccola così da massimizzare il valore del picco.
 
@@ -394,31 +394,31 @@ Questa soluzione offre il vantaggio di essere poco influenzata dal rumore elettr
 
 È possibile progettare la rete RC in modo che la sua evoluzione temporale sia piccola, ottenendo così uno \emph{Small RC}, nel senso che:
 
-\[\frac{1}{\lambda} \gg \frac{1}{\theta}\]
+\[\dfrac{1}{\lambda} \gg \dfrac{1}{\theta}\]
 
 La tensione può essere scritta come:
 
-\[v_{C}(t) \simeq \frac{Q}{C}\frac{\lambda}{\theta}\left( e^{- \theta t} - e^{- \lambda t} \right)\]
+\[v_{C}(t) \simeq \dfrac{Q}{C}\dfrac{\lambda}{\theta}\left( e^{- \theta t} - e^{- \lambda t} \right)\]
 
 Nei primi istanti dell'evoluzione, ovvero per:
 
-\[t \ll \frac{1}{\lambda}\]
+\[t \ll \dfrac{1}{\lambda}\]
 
 Si ottiene l'andamento
 
-\[v_{C}(t) \simeq \frac{Q}{C}\frac{\lambda}{\theta}\left( 1 - e^{- \lambda t} \right)\]
+\[v_{C}(t) \simeq \dfrac{Q}{C}\dfrac{\lambda}{\theta}\left( 1 - e^{- \lambda t} \right)\]
 
 Nel caso opposto, invece, per
 
-\[t \gg \frac{1}{\theta}\]
+\[t \gg \dfrac{1}{\theta}\]
 
 Si ha:
 
-\[v_{C}(t) \simeq \frac{Q}{C}\frac{\lambda}{\theta}e^{- \theta t}\]
+\[v_{C}(t) \simeq \dfrac{Q}{C}\dfrac{\lambda}{\theta}e^{- \theta t}\]
 
 La curva risulta essere abbastanza limitata nel tempo e, quindi, riesce a seguire l'impulso di corrente così come si verifica. Per costanti di tempo RC grandi invece, l'impulso è slargato nel tempo, quindi, non si riesce a seguire correttamente l'evoluzione temporale degli impulsi di corrente.
 
-Per costanti RC piccole, l'ampiezza del picco dipende da \(\frac{Q}{C}\frac{\lambda}{\theta}\), ovvero è proporzionale alla carica che a sua volta dipende dell'energia del fotone \(\gamma\) incidente. Tuttavia, essendo \(\frac{1}{\lambda} \gg \frac{1}{\theta}\), allora \(1 \gg \frac{\lambda}{\theta}\). L'impulso di tensione possiede un'ampiezza molto minore rispetto ai circuiti \emph{Large RC}.
+Per costanti RC piccole, l'ampiezza del picco dipende da \(\dfrac{Q}{C}\dfrac{\lambda}{\theta}\), ovvero è proporzionale alla carica che a sua volta dipende dell'energia del fotone \(\gamma\) incidente. Tuttavia, essendo \(\dfrac{1}{\lambda} \gg \dfrac{1}{\theta}\), allora \(1 \gg \dfrac{\lambda}{\theta}\). L'impulso di tensione possiede un'ampiezza molto minore rispetto ai circuiti \emph{Large RC}.
 
 \begin{figure}
 \centering

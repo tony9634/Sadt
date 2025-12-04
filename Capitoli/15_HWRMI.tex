@@ -85,7 +85,7 @@ Tuttavia, in generale, nei tessuti biologici, per campi magnetici maggiori di \(
 
 Cambiando il campo principale è necessario riprogettare anche la circuiteria logia di elaborazione, in quanto la frequenza di Larmor varia. Infatti, per un campo di \(3\ T\), la frequenza di precessione è:
 
-\[\omega_{0} = \gamma B_{0} = 42.67\frac{MHz}{T}3\ T = 128MHz\]
+\[\omega_{0} = \gamma B_{0} = 42.67\dfrac{MHz}{T}3\ T = 128MHz\]
 
 In altre parole, raddoppiando il campo magnetico principale, anche la frequenza di risonanza di Larmor raddoppia. Da ciò discende che è necessario modificare gli oscillatori del mixer, gli amplificatori e la digitalizzazione del segnale stesso.
 
@@ -230,7 +230,7 @@ Il tipico scanner a magnete superconduttore presenta una geometria cilindrica co
 
 Il campo magnetico prodotto all'interno del gantry, indipendentemente dalle dimensioni, è molto omogeneo con delle variazioni di alcune parti per milione. L'asse maggiore del cilindro è orizzontale, a differenza delle altre due configurazioni a magnete resistivo o permanente.
 
-All'esterno dell'avvolgimento l'intensità del campo decresce come \(r^{- 3}\). Infatti, per normative tecniche di sicurezza elettromagnetica, i campi nelle aree circostanti, a una certa distanza dal gantry, non devono essere superiori a \(0.5\ mT\). Per scanner a \(1.5\ T\), il limite va raggiunto entro \(3 \div 5\ m\), mentre per quelli a \(3\ T\) verso i \(7\ m\).Campi più intensi del limite imposto potrebbero influenzare i pacemaker, settandolo alla configurazione asincrona o a interferire altri con altri dispositivi elettronici.
+All'esterno dell'avvolgimento l'intensità del campo decresce come \(r^{- 3}\). Infatti, per normative tecniche di sicurezza elettromagnetica, i campi nelle aree circostanti, a una certa distanza dal gantry, non devono essere superiori a \(0.5\ mT\). Per scanner a \(1.5\ T\), il limite va raggiunto entro \(3 \div 5\ m\), mentre per quelli a \(3\ T\) verso i \(7\ m\). Campi più intensi del limite imposto potrebbero influenzare i pacemaker, settandolo alla configurazione asincrona o a interferire altri con altri dispositivi elettronici.
 
 \begin{figure}
 \centering
@@ -439,13 +439,13 @@ Per disattivare il campo in maniera controllata si procede con un meccanismo opp
 
 La corrente nel circuito viene fatta decrescere lentamente, così da ridurre l'energia accumulata nell'induttore \(U_{m}\) molto lentamente:
 
-\[U_{m} = \frac{1}{2}Li^{2}\]
+\[U_{m} = \dfrac{1}{2}Li^{2}\]
 
 La procedura di ramp-up è effettuata all'atto dell'installazione della macchina e può essere ripetuta varie volte durante il collaudo, fase nella quale si misura l'omogeneità del campo magnetico e si pone rimedio in caso di forti disomogeneità.
 
 \subsubsection{Monitoraggio del consumo di elio}\label{monitoraggio-del-consumo-di-elio}
 
-Il termine boil-off si riferisce alla quantità di elio che tende a passare dallo stato liquido allo stato di gas nell'unità di tempo, spesso assunta dell'ordine delle ore. Anche in presenza di isolamento termico, non è possibile eliminare l'effetto del passaggio di stato ma solo limitarlo nel tempo. Il boil-off è tipicamente di \(0.1\,\frac{L}{h}\).
+Il termine boil-off si riferisce alla quantità di elio che tende a passare dallo stato liquido allo stato di gas nell'unità di tempo, spesso assunta dell'ordine delle ore. Anche in presenza di isolamento termico, non è possibile eliminare l'effetto del passaggio di stato ma solo limitarlo nel tempo. Il boil-off è tipicamente di \(0.1\,\dfrac{L}{h}\).
 
 Si rende necessario introdurre un meccanismo di monitoraggio del livello di elio nella forma liquida e in quella gassosa all'interno dell'helium vassel. Il monitoraggio è necessario in quanto, se una porzione eccessiva di elio passa allo stato gassoso, vi è il rischio che avvenga il fenomeno del quench. Inoltre, il gas potrebbe fuoriuscire da fessure, come il tubo di quench. In questo caso si perde la sicurezza che il niobio-titanio si comporti come un superconduttore, riducendo l'efficienza dello scanner.
 
@@ -487,7 +487,7 @@ Misurando il campo su una superficie sferica, infatti, per il teorema di Gauss �
 
 Una disomogeneità di \(1\ ppm\) comporta un errore dell'ordine della decina di \(Hz\), con una frequenza di risonanza dei \(MHz\). Ad esempio, per un magnete a \(1.5\ T\), la disomogeneità è:
 
-\[\Delta B = 42.6\frac{MHz}{T}1.5\ T\ 1ppm = 64\ Hz\]
+\[\Delta B = 42.6\dfrac{MHz}{T}1.5\ T\ 1ppm = 64\ Hz\]
 
 Questa differenza di frequenza è dello stesso ordine di grandezza dello shift tra acqua e grasso, dove la differenza di campo è proprio di \(3.5\ ppm\). Ciò comporta una differenza di frequenza di precessione di circa \(220\ Hz\).
 
@@ -587,8 +587,8 @@ z_{k} = R_{k}\cos\vartheta_{k}
 Per ogni avvolgimento è possibile scrivere un'espansione in armoniche sferiche per il campo magnetico:
 
 \[\left\{ \begin{matrix}
-B_{r}(R,\vartheta) = \frac{\mu}{2}\sum_{n = 1}^{\infty}{\frac{c_{n}}{n + 1}R^{n}P_{n}^{1}\left( \cos\vartheta \right)} \\
-B_{z}(R,\vartheta) = \frac{\mu}{2}\sum_{n = 0}^{\infty}{c_{n}R^{n}P_{n}\left( \cos\vartheta \right)}
+B_{r}(R,\vartheta) = \dfrac{\mu}{2}\sum_{n = 1}^{\infty}{\dfrac{c_{n}}{n + 1}R^{n}P_{n}^{1}\left( \cos\vartheta \right)} \\
+B_{z}(R,\vartheta) = \dfrac{\mu}{2}\sum_{n = 0}^{\infty}{c_{n}R^{n}P_{n}\left( \cos\vartheta \right)}
 \end{matrix} \right.\ \]
 
 Dove \(P_{n}\left( \cos\vartheta \right)\) è la funzione di Legendre e \(P_{n}^{1}\left( \cos\vartheta \right)\) la funzione di Legendre associate di primo tipo, grado \(n\) e ordine \(1\). Inoltre, le coordinate sferiche \((R,\vartheta)\) individuano la posizione del campo magnetico.
@@ -640,7 +640,7 @@ Siccome i gradienti devono avere una durata di qualche millisecondo le correnti 
 
 Si definisce slew rate, \(S_{\max}\), come il rapporto tra il massimo gradiente desiderato e il tempo di salita necessario per raggiungerlo:
 
-\[S_{\max} = \frac{G_{\max}}{t_{rise}}\]
+\[S_{\max} = \dfrac{G_{\max}}{t_{rise}}\]
 
 \begin{figure}
 \centering
@@ -649,7 +649,7 @@ Si definisce slew rate, \(S_{\max}\), come il rapporto tra il massimo gradiente 
 
 È importante inoltre controllare e modellare l'omogeneità del campo nel tempo e nello spazio, il duty cycle nel tempo, il tipo di schermatura, la stabilita e la precisione con cui si producono i gradienti.
 
-Quando la corrente nella bobina gradiente aumenta durante l'attivazione, per la legge di Lorentz, si induce una corrente nella stessa bobina che si oppone all'iniezione di corrente. Per tale motivo, il tempo di salita della corrente non può essere infintamente piccolo. Tipici valori vanno dai \(10\frac{mT}{m\ ms}\) fino a \(200\frac{mT}{m\ ms}\)
+Quando la corrente nella bobina gradiente aumenta durante l'attivazione, per la legge di Lorentz, si induce una corrente nella stessa bobina che si oppone all'iniezione di corrente. Per tale motivo, il tempo di salita della corrente non può essere infintamente piccolo. Tipici valori vanno dai \(10\dfrac{mT}{m\ ms}\) fino a \(200\dfrac{mT}{m\ ms}\)
 
 Collegando la bobina gradiente a una capacità si può ottenere un tempo di salita più breve grazie alle caratteristiche del circuito risonante che si viene a creare; tuttavia, lo svantaggio risiede nella dipendenza dei tempi di salita dalla frequenza di risonanza del circuito.
 
@@ -657,7 +657,7 @@ Un elevato valore di slew rate permette di ottenere tempi di salita più brevi, 
 
 All'estremità del FOV la variazione dei gradienti è massima del campo magnetico prodotto. Si induce una fem legata alla variazione del campo magnetico nel tempo, la quale, durante la fase di salita, coincide proprio con lo slew rate:
 
-\[fem \propto - \frac{dB}{dt} = S_{\max}\frac{Fov}{2}\]
+\[fem \propto - \dfrac{dB}{dt} = S_{\max}\dfrac{Fov}{2}\]
 
 Il campo magnetico variabile induce delle correnti nelle correnti conduttrici circostanti, quali il criostato, i supporti metallici degli avvolgimenti e nel paziente stesso, il quale presenta dei portatori di cariche ioniche nei fluidi biologici. Le correnti parassite indotte o \emph{eddy current} generano dei campi che si oppongono alla variazione del gradiente. Ciò modifica la forma del gradiente, la quale perde l'andamento desiderato:
 
@@ -744,7 +744,7 @@ Al centro del magnete il gradiente è nullo, quindi non vi sono forze attrattive
 
 Per un materiale ferromagnetico, il rapporto tra la forza magnetica e la forza peso si esprime come:
 
-\[\frac{F_{m}}{F_{g}} = \frac{\chi_{m}B_{0}\left| \overset{\underline{}}{\nabla}{\overset{\underline{}}{B}}_{0} \right|}{\mu_{0}\rho g}\]
+\[\dfrac{F_{m}}{F_{g}} = \dfrac{\chi_{m}B_{0}\left| \overset{\underline{}}{\nabla}{\overset{\underline{}}{B}}_{0} \right|}{\mu_{0}\rho g}\]
 
 Per gli scanner moderni il modulo del gradiente spaziale può essere dell'ordine della decina di \(T/m\), quindi la forza che attrae un oggetto ferromagnetico può essere anche maggiore di \(250\) volte il suo peso, il che può portare l'oggetto a muoversi con una velocità di \(200\ km/h\) in \(25\ ms\).
 
@@ -758,11 +758,11 @@ Il momento torcente è massimo al centro dello scanner, quindi, può dare seri p
 
 Una valutazione approssimata dell'intensità del momento torcente su un oggetto di lunghezza \(L\) è dato da:
 
-\[\frac{F_{torc}L}{F_{m}} \simeq \frac{B_{0}}{\left| \overset{\underline{}}{\nabla}{\overset{\underline{}}{B}}_{0} \right|}\]
+\[\dfrac{F_{torc}L}{F_{m}} \simeq \dfrac{B_{0}}{\left| \overset{\underline{}}{\nabla}{\overset{\underline{}}{B}}_{0} \right|}\]
 
 Per un campo a \(3\ T\), con un gradiente spaziale di \(10\ T/m\) e un oggetto di \(1\ cm\), la forza torcente è circa \(300\) volte la forza magnetica:
 
-\[F_{torc} = \frac{B_{0}}{\left| \overset{\underline{}}{\nabla}{\overset{\underline{}}{B}}_{0} \right|}\frac{1}{L}F_{m} = \frac{30\ T}{10\frac{T}{m}1 \cdot 10^{- 2}m}F_{m} = 300F_{m}\]
+\[F_{torc} = \dfrac{B_{0}}{\left| \overset{\underline{}}{\nabla}{\overset{\underline{}}{B}}_{0} \right|}\dfrac{1}{L}F_{m} = \dfrac{30\ T}{10\dfrac{T}{m}1 \cdot 10^{- 2}m}F_{m} = 300F_{m}\]
 
 Le forze e i momenti torcenti sugli elementi diamagnetici e paramagnetici, come i tessuti umani, sono di piccola intensità, dunque, sono tali da non causare pericoli. Ad esempio, i globuli rossi contengono ferro nell'emoglobina. Questa componente paramagnetica porta i globuli rossi a separarsi dal plasma a causa della diversa suscettività magnetica.
 
@@ -792,13 +792,13 @@ Sono stati riportati in letteratura effetti importati come vertigini e nausea le
 
 Accanto alla legge di Lorentz bisogna considerare anche la legge di Faraday-Neumman-Lenz:
 
-\[\overset{\underline{}}{\nabla} \times \overset{\underline{}}{E} = - \frac{\partial\overset{\underline{}}{B}}{\partial t}\]
+\[\overset{\underline{}}{\nabla} \times \overset{\underline{}}{E} = - \dfrac{\partial\overset{\underline{}}{B}}{\partial t}\]
 
 Possono indursi delle correnti nei tessuti biologici in movimento nella regione di spazio in cui insiste un gradiente spaziale di campo magnetico. Ad esempio, nei pressi dello scanner, dove il gradiente è più elevato, possono indursi delle correnti con intensità di \(0.1\ A/m^{2}\), legate al normale movimento dell'operatore. Ciò rappresenta un fattore di rischio in quanto i limiti fissati dall'\emph{International Commission on Non-Ionizing Radiation Protection} o ICNIRP sono di \(0.04\ A/m^{2}\).
 
 Queste correnti possono essere molto importati sui dispositivi metallici impiantati nel paziente come peacemaker e protesi.
 
-Nei moderni sistemi attualmente in commercio si possono raggiungere gradienti di codifica spaziale dell'ordine dei \(40\ mT/m\) fino agli \(80\ mT/m\) i quali, in un FOV di \(50\ cm\), producono una variazione del campo dai \(20\ mT\) ai \(40\ mT\), agli esterni del FOV stesso. Con uno slew rate di \(200\frac{mT}{m/s}\) l'orientamento dei campi può essere invertito ogni \(1\ ms\).
+Nei moderni sistemi attualmente in commercio si possono raggiungere gradienti di codifica spaziale dell'ordine dei \(40\ mT/m\) fino agli \(80\ mT/m\) i quali, in un FOV di \(50\ cm\), producono una variazione del campo dai \(20\ mT\) ai \(40\ mT\), agli esterni del FOV stesso. Con uno slew rate di \(200\dfrac{mT}{m/s}\) l'orientamento dei campi può essere invertito ogni \(1\ ms\).
 
 Si inducono così delle correnti nel corpo umano dovute alla legge di Faraday, che fa circolare gli ioni contenuti nei fluidi biologici. Si genera una corrente che può stimolare i tessuti cardiaci o nervosi. La curva intensità-durata mostra che con le attuali macchine è possibile stimolare i tessuti nervosi periferici ma non i tessuti cardiaci che presentano soglie di attivazione più alte. Per stimolare il miocardio tramite le eddy current è necessario adoperare gradienti spaziali maggiori di quelli in commercio.
 
@@ -825,31 +825,31 @@ Anche se l'intensità del campo a radiofrequenza è dell'ordine del \(\mu T\), o
 
 La legge dell'induzione di Faraday impone che campi magnetici variabili inducono campi elettrici variabili, quindi una circolazione di corrente:
 
-\[\overset{\underline{}}{\nabla} \times \overset{\underline{}}{E} = - \frac{\partial\overset{\underline{}}{B}}{\partial t}\]
+\[\overset{\underline{}}{\nabla} \times \overset{\underline{}}{E} = - \dfrac{\partial\overset{\underline{}}{B}}{\partial t}\]
 
 La corrente indotta dalla forza elettromotrice produce delle dissipazioni di energia in calore nei materiali conduttori come il corpo umano.
 
 Per quantificare questo effetto si introduce il tasso specifico di assorbimento o \emph{Specific Absorption Rate} (SAR), definito come:
 
-\[SAR = \sigma\frac{E_{p}^{2}}{2\rho}\]
+\[SAR = \sigma\dfrac{E_{p}^{2}}{2\rho}\]
 
 Dove il termine \(\sigma\) rappresenta la conducibilità del tessuto, \(E_{p}\) l'ampiezza di picco del campo elettrico variabile secondo legge sinusoidale e \(\rho\) la densità del tessuto biolofico. L'unità di misura del SAR è:
 
-\[\lbrack SAR\rbrack = \left\lbrack \frac{W}{kg} \right\rbrack\]
+\[\lbrack SAR\rbrack = \left\lbrack \dfrac{W}{kg} \right\rbrack\]
 
 Il SAR fornisce indicazioni sull'energia dissipata in calore all'interno di \(1\ kg\) di materia. Esistono delle tabelle normale indicanti il valore di SAR idoneo per la specifica applicazione.
 
 La capacità termica \(c\) dei tessuti biologici è di circa \(4200\ J/(kg{^\circ}C)\). Dividendo questa quantità per il SAR si ottiene il tasso di riscaldamento che subisce quel tessuto:
 
-\[TR = \frac{SAR}{c}\]
+\[TR = \dfrac{SAR}{c}\]
 
 La cui unità di misura è:
 
-\[\lbrack TR\rbrack = \left\lbrack \frac{{^\circ}C}{s} \right\rbrack\]
+\[\lbrack TR\rbrack = \left\lbrack \dfrac{{^\circ}C}{s} \right\rbrack\]
 
 Tipicamente il SAR in risonanza magnetica è di \(4.2\ W/kg\), quindi, per un tessuto biologico si ha un tasso di riscaldamento di:
 
-\[TR = \frac{SAR}{c} = \frac{4.2\frac{Js}{kg}}{4200\frac{J}{kg{^\circ}C}} = 1 \cdot 10^{- 3}\frac{{^\circ}C}{s}\]
+\[TR = \dfrac{SAR}{c} = \dfrac{4.2\dfrac{Js}{kg}}{4200\dfrac{J}{kg{^\circ}C}} = 1 \cdot 10^{- 3}\dfrac{{^\circ}C}{s}\]
 
 Per incrementare la temperatura di \(1\ {^\circ}C\) è necessario fornire al tessuto energia a radiofrequenza per \(100\ s\), ovvero circa \(17\ min\), consecutivi.
 
@@ -1013,21 +1013,21 @@ Il segnale da campionare e digitalizzare è posto in ingresso ai morsetti non in
 
 Ogni comparatore commuta la propria uscita a \(1\) se la tensione del segnale è maggiore del rispettivo livello di riferimento, altrimenti è nulla. L'\(i\)-esimo livello di riferimento è dato dal partitore resistivo:
 
-\[V_{i} = \frac{i}{2^{N}}V_{ref}\]
+\[V_{i} = \dfrac{i}{2^{N}}V_{ref}\]
 
 Affinché la \(i\)-esima uscita sia alta deve accadere che:
 
-\[V_{in} > V_{i} = \frac{i}{2^{N}}V_{ref}\]
+\[V_{in} > V_{i} = \dfrac{i}{2^{N}}V_{ref}\]
 
 L'uscita di un comparatore è alta finché la tensione in ingresso non è minore della tensione di riferimento. Da quel punto in poi tutte le uscite saranno nulle poiché la tensione di riferimento tende ad aumentare con \(i\).
 
 Se risulta che:
 
-\[V_{in} > \frac{2^{i} - 1}{2^{N}}\]
+\[V_{in} > \dfrac{2^{i} - 1}{2^{N}}\]
 
 L'uscita del compratore è sempre alta. Se, invece, risulta che:
 
-\[V_{in} < \frac{i}{2^{N}}V_{ref}\]
+\[V_{in} < \dfrac{i}{2^{N}}V_{ref}\]
 
 Le prime \(i\) uscite sono alte, mentre le restanti \(2^{N} - i - 1\) sono basse.
 

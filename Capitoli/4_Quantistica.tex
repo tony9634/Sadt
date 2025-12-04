@@ -322,13 +322,13 @@ Queste relazioni confermano in modo definitivo il \textbf{dualismo onda-corpusco
 
 \subsection{Funzione d'onda associata alla particella}\label{funzione-donda-associata-alla-particella}
 
-Si consideri una particella libera in moto lungo l'asse \(x\). In base all'ipotesi di de Broglie, a tale particella può essere associata una funzione d'onda \(\Psi(x,t)\), che ne descrive lo stato quantico. Nel caso più semplice, la funzione d'onda assume la forma di un'onda piana, espressa come esponenziale complesso:
+L'ipotesi di de Broglie stabilisce che a ogni particella (elettrone, protone, ecc.) è associata una \textbf{funzione d'onda} $\Psi(\vec{r}, t)$, che ne descrive lo stato quantico. Nel caso più semplice di una \textbf{particella libera} in moto (ad esempio, lungo l'asse $x$), la funzione d'onda assume la forma di un'onda piana, espressa mediante un esponenziale complesso:
 
 \[
-\Psi(x,t) = \exp\left( j(kx - \omega t) \right)
+\Psi(x,t) = A \exp\left( j(kx - \omega t) \right)
 \]
 
-Una qualsiasi forma d'onda può essere ottenuta come sovrapposizione di infinite onde piane.
+dove $A$ è l'ampiezza dell'onda, \(k\) è il numero d'onda, \(\omega\) è la pulsazione, e \(j\) è l'unità immaginaria (\(j^2 = -1\)). Una qualsiasi forma d'onda può essere ottenuta come sovrapposizione di infinite onde piane.
 
 I parametri \(k\) (numero d'onda) e \(\omega\) (pulsazione) possono essere espressi in funzione delle grandezze fisiche della particella:
 
@@ -336,28 +336,27 @@ I parametri \(k\) (numero d'onda) e \(\omega\) (pulsazione) possono essere espre
 k = \dfrac{p}{\hslash} \quad \text{e} \quad \omega = \dfrac{E}{\hslash}
 \]
 
-Sostituendo nella funzione d'onda si ottiene:
+Sostituendo i parametri ondulatori ($k$ e $\omega$) con le grandezze fisiche della particella (quantità di moto $p$ ed Energia $E$) tramite la relazione di De Broglie ($k = p/\hslash$ e $\omega = E/\hslash$), si ottiene:
 
 \[
-\Psi(x,t) = \exp\left( \dfrac{j}{\hslash}\left(px - Et\right) \right)
+\Psi(x,t) = A \exp\left( \dfrac{j}{\hslash}\left(px - Et\right) \right)
 \]
 
-Nel caso tridimensionale, la funzione d'onda assume la forma:
+Nel caso tridimensionale, l'espressione è generalizzata utilizzando il prodotto scalare tra il vettore quantità di moto $\vec{p}$ e il vettore posizione $\vec{r}$:
 
 \[
-\Psi(\vec{r},t) = \exp\left( \dfrac{j}{\hslash} \left(\vec{p} \cdot \vec{r} - Et\right) \right)
+\Psi(\vec{r},t) = A \exp\left( \dfrac{j}{\hslash} \left(\vec{p} \cdot \vec{r} - Et\right) \right)
 \]
 
-Secondo l'interpretazione di Born, il modulo quadro della funzione d'onda associata alla particella rappresenta la densità di probabilità di trovare la particella nella posizione \(\vec{r}\) al tempo \(t\):
+Secondo l'\textbf{interpretazione di Born}, la funzione d'onda $\Psi(\vec{r}, t)$ non ha un significato fisico diretto, ma il suo modulo quadro, $|\Psi(\vec{r}, t)|^2$, rappresenta la \textbf{densità di probabilità} $P(\vec{r}, t)$ di trovare la particella nella posizione $\vec{r}$ al tempo $t$:
 
 \[
 P(\vec{r},t) = \left| \Psi(\vec{r},t) \right|^{2}
 \]
 
-Nel caso dell’onda piana, la probabilità risulta uniforme nello spazio. Tuttavia, poiché tale funzione si estende all’infinito, non è normalizzabile e non rappresenta una situazione fisica realistica. Per descrivere particelle localizzate, si utilizzano combinazioni di onde piane, dette \textit{pacchetti d’onda}.
+Nel caso specifico dell'onda piana, la probabilità risulta uniforme in tutto lo spazio ($|\Psi|^2 = |A|^2 = \text{costante}$). Tuttavia, tale funzione si estende all'infinito e non è normalizzabile, pertanto non rappresenta una situazione fisica realistica di una particella localizzata. Per descrivere particelle localizzate, si utilizza il concetto di \textbf{pacchetti d’onda}, ottenuti come sovrapposizione di infinite onde piane con diverse lunghezze d'onda (e quindi diverse quantità di moto).
 
-In questo contesto, il concetto classico di orbita, inteso come traiettoria deterministica, non è più applicabile. La meccanica quantistica descrive la posizione della particella in termini probabilistici. Si definisce \textbf{orbitale} la regione dello spazio in cui è massima la probabilità di trovare l'elettrone ed è data da \(\left| \Psi(\vec{r},t) \right|^{2}\).
-
+In questo contesto probabilistico, il concetto classico di orbita (inteso come traiettoria deterministica) non è più applicabile. La regione dello spazio in cui la probabilità di trovare l'elettrone è massima viene definita \textbf{orbitale} (per gli stati legati negli atomi).
 
 \section{Principio di indeterminazione di Heisenberg}\label{principio-di-indeterminazione-di-heisenberg}
 

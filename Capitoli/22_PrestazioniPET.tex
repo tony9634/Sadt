@@ -32,7 +32,7 @@ Tra le caratteristiche principali di uno scanner PET vi è la risoluzione spazia
 
 \subsubsection{Detector Size}\label{detector-size}
 
-Detta \(d\) la dimensione del detettore, generalmente la risoluzione è variabile tre \(\frac{d}{2}\) al centro del \emph{Gantry} oppure \(d\) all'avvicinarsi del detettore. La risoluzione non è la stessa in tutto il \emph{Gantry}, ma dipende anche da fattori geometrici che riguardano la relazione geometrica tra detettori posti in coincidenza per determinate LOR.
+Detta \(d\) la dimensione del detettore, generalmente la risoluzione è variabile tre \(\dfrac{d}{2}\) al centro del \emph{Gantry} oppure \(d\) all'avvicinarsi del detettore. La risoluzione non è la stessa in tutto il \emph{Gantry}, ma dipende anche da fattori geometrici che riguardano la relazione geometrica tra detettori posti in coincidenza per determinate LOR.
 
 Per risoluzione si intende la differenza minima tra due oggetti rilevabili, ovvero due sorgenti puntiformi di radioattività. Tali sorgenti possono essere rilevate con maggiore risoluzione in prossimità del centro piuttosto che alla periferia, verso i detettori per motivi geometrici.
 
@@ -88,7 +88,7 @@ La FWHM (\emph{Full Width At Half Maximum}) è riportata lungo le direzioni tran
 
 \subsection{Sensitivity}\label{sensitivity}
 
-La \emph{Sensitivity} è un parametro molto importante per identificare le \emph{performance} della PET, definita come il numero di eventi rilevati come coincidenza nell'unità di tempo per unità di attività nella sorgente. Essa è misurata in \(\frac{Cps}{MBq}\), ovvero conteggi per secondo rispetto ai Megabecquerel emessi dalla sorgente. Questo parametro dipende da:
+La \emph{Sensitivity} è un parametro molto importante per identificare le \emph{performance} della PET, definita come il numero di eventi rilevati come coincidenza nell'unità di tempo per unità di attività nella sorgente. Essa è misurata in \(\dfrac{Cps}{MBq}\), ovvero conteggi per secondo rispetto ai Megabecquerel emessi dalla sorgente. Questo parametro dipende da:
 
 \begin{itemize}
 \item
@@ -105,7 +105,7 @@ La \emph{Sensitivity} è un parametro molto importante per identificare le \emph
 
 Gli eventi tipici della PET seguono la statistica di Poisson e, quindi, la deviazione standard è legata al numero di aventi rilevati \(N\) della relazione:
 
-\[\sigma = \frac{1}{\sqrt{N}}\]
+\[\sigma = \dfrac{1}{\sqrt{N}}\]
 
 Si potrebbe pensare che il rumore possa essere ridotto aumentando il numero di eventi \(N\) rilevati. Ciò non è possibile poiché bisognerebbe aumentare la dose somministrata al paziente, aumento, così, l'attività e, di conseguenza, il numero di eventi. Ciò, tuttavia, porta a:
 
@@ -122,7 +122,7 @@ Anche l'aumento dei tempi di esposizione, a parità di dose, risulta svantaggios
 
 Si introduce l'NECR (\emph{Noise Equivalent Count Rate}) come indice per quantificare il rumore e valutare le prestazioni dello scanner in termini di rumorosità dell'immagine.
 
-\[NECR\  = \ \frac{T^{2}}{T + R + S}\]
+\[NECR\  = \ \dfrac{T^{2}}{T + R + S}\]
 
 Dove \(T\) sono le coincidenze vere, \(R\) quelle di \emph{Random} e \(S\) quelle di \emph{Scatter}.
 
@@ -143,7 +143,7 @@ Per misurare l'NECR devono essere misurati gli eventi \emph{Scatter} e gli event
 
 La \emph{Scatter Fraction}, frazione di eventi \emph{Scatter} rispetto al totale, può essere misurata come numero di eventi \emph{Scatter} su numero di eventi \emph{Promp:}
 
-\[SF = \ \frac{C_{s}}{C_{p}}\]
+\[SF = \ \dfrac{C_{s}}{C_{p}}\]
 
 È necessario, quindi, stimare il numero di eventi \emph{Scatter} con varie metodiche.
 
@@ -151,7 +151,7 @@ La \emph{Scatter Fraction}, frazione di eventi \emph{Scatter} rispetto al totale
 
 Il contrasto in PET è definito come il numero di eventi registrato in un tessuto A rispetto a quello registrato in un tessuto B, normalizzati rispetto ad uno dei due tessuti.
 
-\[C = \ \frac{A - B}{B}\]
+\[C = \ \dfrac{A - B}{B}\]
 
 Tale rapporto dipenderà dall'attività emessa, dagli eventi \emph{Scatter}, dalla dimensione della lesione da osservare e dagli artefatti da movimento.
 
@@ -270,20 +270,20 @@ Per la valutazione della \emph{Scatter Fraction}, così come suggerito dalla NEM
   La \emph{Scatter Fraction} è valutata come:
 \end{itemize}
 
-\[SF\  = \frac{C_{s}}{C_{t}}\]
+\[SF\  = \dfrac{C_{s}}{C_{t}}\]
 
 \begin{itemize}
 \item
   Mentre gli eventi di coincidenza veri, avendo trascurato gli eventi \emph{Random}, come:
 \end{itemize}
 
-\[R_{true} = \frac{C_{t} - C_{s}}{tempo\ di\ esposizione}\]
+\[R_{true} = \dfrac{C_{t} - C_{s}}{tempo\ di\ esposizione}\]
 
 \subsubsection{Sensitivity}\label{sensitivity-1}
 
 La \emph{Sensitivity}, dal punto di vista analitico è definita come il conteggio al secondo rispetto all'attività della sorgente:
 
-\[S\  = \frac{Cps}{MBq}\]
+\[S\  = \dfrac{Cps}{MBq}\]
 
 Essa è valutata mediante un \emph{Phantom} capillare NEMA di 70cm rivestito con lamine di metallo con differente spessore ed emettente un livello di attività bassa per ridurre \emph{Random Events} e \emph{Dead-Time Loss}. La sorgente di radioattività è poi racchiusa in lamelle di metallo, generalmente in cinque lamelle con differente spessore. Teoricamente il conteggio dovrebbe essere realizzato senza rivestimento metallico, tuttavia, sperimentalmente, è stato osservato che, con l'uso del rivestimento metallico e una procedura più laboriosa, si riesce ad ottenere una stima migliore della \emph{Sensitivity}.
 
@@ -291,7 +291,7 @@ Si eseguono 5/6 scansioni con diversi spessori della lamina di metallo e da ques
 
 Con questi procedimenti, la \emph{Sensitivity} può essere valutata come rapporto tra il \emph{Count-Rate} in senza metallo di rivestimento e l'attività della sorgente:
 
-\[S = \frac{R_{0}}{A}\]
+\[S = \dfrac{R_{0}}{A}\]
 
 \subsubsection{Count Rate Losses}\label{count-rate-losses}
 
@@ -299,7 +299,7 @@ La perdita del tasso di conteggio è valutata mediante un fantoccio di F-18 che 
 
 Il \emph{Count-Rate} è stimato, poi, come il numero totale di eventi sul tempo di esposizione dei detettori alla sorgente:
 
-\[R_{t} = \frac{numero\ totale\ dieventi}{tempo\ di\ esposizione}\]
+\[R_{t} = \dfrac{numero\ totale\ dieventi}{tempo\ di\ esposizione}\]
 
 Dopo aver stimato lo \emph{Scatter Fraction} con uno dei metodi precedenti, raccomandanti dalle normative, si valuta il numero di conteggi veri come differenza tra il \emph{Count-Rate} e lo \emph{Scatter Fraction}:
 
@@ -307,7 +307,7 @@ Dopo aver stimato lo \emph{Scatter Fraction} con uno dei metodi precedenti, racc
 
 Infine, il \emph{Noise Equivalent Count Rate} è valutato come rapporto tra il quadrato degli eventi \emph{True}, rapportato al \emph{Count-Rate}:
 
-\[NECR\  = \frac{\left( R_{true} \right)^{2}}{R_{t}}\]
+\[NECR\  = \dfrac{\left( R_{true} \right)^{2}}{R_{t}}\]
 
 \subsection{PET/MRI}\label{petmri}
 
@@ -346,7 +346,7 @@ Ogni pixel dell'immagine presenta un valore numerico associato all'attività del
 
 A tale scopo è stato sviluppato lo \emph{Standard Uptake Value} o SUV come il rapporto tra l'attività in un certo voxel rispetto all'attività totale somministrata al paziente, normalizzato il suo peso. Analiticamente, questa quantità si esprime come:
 
-\[SUV = \frac{Act_{voi}}{\frac{Act_{administered}}{BW}}\lbrack = \rbrack\frac{\frac{kBq}{mL}}{\frac{MBq}{kg}}\ \]
+\[SUV = \dfrac{Act_{voi}}{\dfrac{Act_{administered}}{BW}}\lbrack = \rbrack\dfrac{\dfrac{kBq}{mL}}{\dfrac{MBq}{kg}}\ \]
 
 Questo fattore consente di normalizzare le diverse misure tra i vari pazienti. Il fattore peso del paziente è essenziale nel normalizzare e standardizzare la misura, in vista di esami effettuati a lunga distanza di tempo, considerando eventuali perdite di peso a causa della terapia somministra.
 

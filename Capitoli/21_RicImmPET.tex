@@ -85,7 +85,7 @@ In PET, il coefficiente di assorbimento non è noto e non può essere stimato se
 
 L'intensità di radiazione può essere espressa come il numero di fotoni che attraversa una data superficie, quindi, noto il numero dei fotoni emessi e rilevati è possibile valutare l'integrale di linea del coefficiente di attenuazione lineare come:
 
-\[\frac{N\left( d_{2} \right)}{N_{0}} = e^{- \int_{a}^{d_{2}}{\mu(s)ds}}\]
+\[\dfrac{N\left( d_{2} \right)}{N_{0}} = e^{- \int_{a}^{d_{2}}{\mu(s)ds}}\]
 
 In PET, invece, la radiazione non è generata all'esterno ma all'interno del corpo. A priori, quindi, non è possibile conoscere la radiazione emessa da un punto del corpo poiché non è nota la distribuzione del tracciante all'interno dell'organismo.
 
@@ -97,17 +97,17 @@ D'altro canto, la CT permette di ottenere delle immagini \emph{Total Body} in po
 
 Mediante la scansione trasmissiva che sia essa con CT o radioisotopo, è possibile stimare l'integrale di linea del coefficiente di assorbimento lineare come:
 
-\[\frac{N\left( d_{2} \right)}{N_{0}} = e^{- \int_{a}^{d_{2}}{\mu(s)ds}}\]
+\[\dfrac{N\left( d_{2} \right)}{N_{0}} = e^{- \int_{a}^{d_{2}}{\mu(s)ds}}\]
 
 Ovviamente nel caso della PET/CT il coefficiente \(\mu(s)\) deve essere ricalcolare per le energie tipiche della PET.
 
 Il numero di fotoni congiuntamente rilevati su entrambi i detettori può essere scritto come:
 
-\[N\left( d_{1},d_{2} \right) = \int_{d_{1}}^{d_{2}}{\lambda(s)ds}\ e^{- \int_{d_{1}}^{d_{2}}{\mu(s)ds}} = \frac{N\left( d_{2} \right)}{N_{0}}\int_{d_{1}}^{d_{2}}{\lambda(s)ds}\]
+\[N\left( d_{1},d_{2} \right) = \int_{d_{1}}^{d_{2}}{\lambda(s)ds}\ e^{- \int_{d_{1}}^{d_{2}}{\mu(s)ds}} = \dfrac{N\left( d_{2} \right)}{N_{0}}\int_{d_{1}}^{d_{2}}{\lambda(s)ds}\]
 
 Da quest'ultima relazione è possibile risalire all'integrale di linea della distribuzione del tracciante lungo la LOR individuata dai due detettori come:
 
-\[N\left( d_{1},d_{2} \right)\frac{N_{0}}{N\left( d_{2} \right)}\  = \int_{d_{1}}^{d_{2}}{\lambda(s)ds}\]
+\[N\left( d_{1},d_{2} \right)\dfrac{N_{0}}{N\left( d_{2} \right)}\  = \int_{d_{1}}^{d_{2}}{\lambda(s)ds}\]
 
 Con degli algoritmi di ricostruzione, noti il numero di fotoni congiuntamente rilevati da due detettori posti su una LOR e il numero di fotoni trasmesso e ricevuto, posti entrambi su una stessa retta coincidente con la LOR, è possibile determinare il modo in cui il radionuclide è distribuito nel corpo del paziente.
 
@@ -127,13 +127,13 @@ A partire dal sinogramma è possibile ricostruire l'immagine sfruttando un risul
 
 \[P_{\gamma}(q) = \left. \ F(q,p) \right|_{(q,\gamma)}\]
 
-Si può dimostrare che questo metodo introduce una \emph{Point Spread Function} o PSF del tipo \(\frac{1}{r}\) che provoca uno sfocamento dell'immagine ricostruita:
+Si può dimostrare che questo metodo introduce una \emph{Point Spread Function} o PSF del tipo \(\dfrac{1}{r}\) che provoca uno sfocamento dell'immagine ricostruita:
 
-\[g(x,y) = f\left( \mathbf{r} \right)*\frac{1}{\left| \mathbf{r} \right|}\]
+\[g(x,y) = f\left( \mathbf{r} \right)*\dfrac{1}{\left| \mathbf{r} \right|}\]
 
 L'effetto introdotto dalla PSF è detto \emph{Blurring} e per ridurlo si sfruttano algoritmi basati sulla retroproiezione filtrata. Questa metodica sfrutta dei filtri passa-basso che, inoltre, permettono di ridurre il rumore introdotto e il fenomeno di Gibbs. La frequenza di taglio del filtro deve essere opportunamente scelta per ridurre il rumore ma allo stesso tempo è necessario ridurre lo sfocamento introdotto dalla reiezione delle alte frequenze.
 
-\[g(x,y) = f\left( \mathbf{r} \right)*\frac{1}{\left| \mathbf{r} \right|}*h\left( \mathbf{r} \right)\]
+\[g(x,y) = f\left( \mathbf{r} \right)*\dfrac{1}{\left| \mathbf{r} \right|}*h\left( \mathbf{r} \right)\]
 
 I filtri implementati molto spesso sono anche dedicati solo a particolari distretti corporei, in cui il rumore può presentarsi con diverse caratteristiche. Le proprietà che deve possedere un filtro molto spesso sono determinate su base empirica. Uno dei filtri più utilizzati è la finestra di Hamming.
 
@@ -166,7 +166,7 @@ Ovviamente, per entrambe le possibili ricostruzioni, maggiore è il tempo di esp
 
 La retroproiezione filtrata risultata inefficiente, non solo per la scarsità delle coppie di fotoni assorbiti ma anche per la degradazione del segnale a opera del rumore Compton e di Poisson. Gli eventi di annichilazione, infatti, risultano rispettare la statistica di Poisson poiché l'interazione dei positroni con gli elettroni sono eventi statistici e indipendenti tra i vari atomi di radionuclide così come i fotoni che colpiscono il cristallo scintillatore. Ne discende che il numero delle coppie di fotoni incidenti sui detettori è assimilabile al numero di eventi verificatosi in un determinato intervallo spaziale. La distribuzione che meglio approssima il comportamento del rumore quantico sovrapposto al segnale segue la statistica di Poisson:
 
-\[P_{N}(\lambda) = \frac{\lambda\left( \mathbf{r} \right)^{N\left( \mathbf{r} \right)}e^{- \lambda\left( \mathbf{r} \right)}}{N\left( \mathbf{r} \right)!}\]
+\[P_{N}(\lambda) = \dfrac{\lambda\left( \mathbf{r} \right)^{N\left( \mathbf{r} \right)}e^{- \lambda\left( \mathbf{r} \right)}}{N\left( \mathbf{r} \right)!}\]
 
 Dove \(\mathbf{r}\) è la coordinata spaziale, \(N\) il numero di coppie ricevute, \(\lambda\) il numero medio di coppie.
 
@@ -181,7 +181,7 @@ Il modello di Poisson descrive tutti gli esperimenti di conteggio di piccole man
 
 Il rapporto segnale/rumore può essere espresso come:
 
-\[SNR = \frac{E\left\lbrack P_{N} \right\rbrack}{VAR\left\lbrack P_{N} \right\rbrack} = \sqrt{\lambda}\]
+\[SNR = \dfrac{E\left\lbrack P_{N} \right\rbrack}{VAR\left\lbrack P_{N} \right\rbrack} = \sqrt{\lambda}\]
 
 Le fluttuazioni introdotte da questo rumore diminuiscono all'aumentare del numero medio di coppie rilevato, ma ciò comporta una maggior dose al paziente che a sua volta aumenta i tempi dell'esame diagnostico. È, quindi, necessario un giusto compromesso tra tempistiche, dose assorbita dal paziente e SNR.
 
@@ -227,7 +227,7 @@ Se si indica con \(p_{i}\) le proiezioni effettivamente misurate sulla LOR i-esi
 
 L'errore è distribuito poi in maniera pesata sui pixel di una LOR così da poter correggere l'immagine stimata. Ai parametri \(C_{j}\) devono essere aggiunti delle quantità \(\mathrm{\Delta}C_{j}\) valutata secondo la relazione:
 
-\[\mathrm{\Delta}C_{j} = \frac{a_{ij}\left( p_{i} - q_{i} \right)}{\sum_{j}^{}a_{ij}} = \frac{a_{ij}\varepsilon}{\sum_{j}^{}a_{ij}}\]
+\[\mathrm{\Delta}C_{j} = \dfrac{a_{ij}\left( p_{i} - q_{i} \right)}{\sum_{j}^{}a_{ij}} = \dfrac{a_{ij}\varepsilon}{\sum_{j}^{}a_{ij}}\]
 
 In quest'ottica, i coefficienti \(a_{ij}\) rappresentano i fattori di peso con cui distribuire l'errore e di conseguenza correggere l'immagine.
 
@@ -322,7 +322,7 @@ Il principio di funzionamento del MLEM si basa su un approccio statistico detto 
 
 L'ultima probabilità è legata alle altre tramite la relazione di Bayes:
 
-\[p\left( \Lambda \middle| Q \right) = \frac{p\left( Q \middle| \Lambda \right)p(\Lambda)}{p(Q)}\ \]
+\[p\left( \Lambda \middle| Q \right) = \dfrac{p\left( Q \middle| \Lambda \right)p(\Lambda)}{p(Q)}\ \]
 
 Dove \(p(Q)\)è la probabilità di avere le proiezioni Q.
 
@@ -352,17 +352,17 @@ Il costruttore dello scanner PET fornisce una mappa tridimensionale dei coeffici
 
 Il metodo MAP, rispetto al metodo della retroproiezione filtrata, ingloba al suo interno la distribuzione di Poisson degli eventi probabilistici di annichilazione. Infatti, la probabilità di misurare un numero di fotoni \(q_{i}\) sul detettore \(i\), quando il valore atteso è il numero di fotoni che dovrebbe essere rilevato dall'i-esimo detettore \(r_{i}\), segue la relazione:
 
-\[p\left( q_{i} \middle| r_{i} \right) = \frac{r_{i}^{q_{i}}e^{- r_{i}}}{q_{i}!}\]
+\[p\left( q_{i} \middle| r_{i} \right) = \dfrac{r_{i}^{q_{i}}e^{- r_{i}}}{q_{i}!}\]
 
 Dato che ogni fotone che giunge sul detettore i-esimo è indipendente dagli altri, la probabilità complessiva di osservare le misurazioni, quando il valore atteso è l'immagine ricostruita \(\Lambda\), è data dal prodotto delle singole probabilità \(p\left( q_{i} \middle| r_{i} \right)\).
 
-\[p\left( Q \middle| \Lambda \right) = \prod_{i}^{}\frac{r_{i}^{q_{i}}e^{- r_{i}}}{q_{i}!}\]
+\[p\left( Q \middle| \Lambda \right) = \prod_{i}^{}\dfrac{r_{i}^{q_{i}}e^{- r_{i}}}{q_{i}!}\]
 
 Dove \(p\left( Q \middle| \Lambda \right)\) è la verosimiglianza delle osservazioni data l'immagine stimata corrente legate alle attività dei singoli pixel \(\lambda_{j}\). La quantità \(r_{i}\) dipende proprio dall'attività nel j-esimo pixel \(\lambda_{j}\). Dunque, la verosimiglianza dipende anche dall'immagine corrente tramite gli elementi \(\lambda_{j}\) che la compongono.
 
 Le misurazioni sono state eseguite prima dell'elaborazione delle immagini, quindi, \(q_{i}\) è costante tra un'iterazione e l'altra. Per poter massimizzare la verosimiglianza è necessario variare i parametri \(\lambda_{j}\), ovvero l'immagine corrente. Variando l'immagine complessiva, varia il numero di fotoni atteso sull'i-esimo detettore \(r_{i}\) e, in definitiva, la verosimiglianza. Trascurando \(q_{i}!\) al denominatore poiché costante, per calcolare il valore massimo della verosimiglianza si applica il logaritmo a entrami i membri dell'espressione:
 
-\[p\left( Q \middle| \Lambda \right) = \prod_{i}^{}\frac{r_{i}^{q_{i}}e^{- r_{i}}}{q_{i}!} \Leftrightarrow \log{p\left( Q \middle| \Lambda \right)} = \sum_{i}^{}\left( q_{i}\log r_{i} - r_{i} \right)\]
+\[p\left( Q \middle| \Lambda \right) = \prod_{i}^{}\dfrac{r_{i}^{q_{i}}e^{- r_{i}}}{q_{i}!} \Leftrightarrow \log{p\left( Q \middle| \Lambda \right)} = \sum_{i}^{}\left( q_{i}\log r_{i} - r_{i} \right)\]
 
 Si definisce \emph{Likelihood} come:
 
@@ -376,13 +376,13 @@ Se la matrice \(C\) dei coefficienti di attenuazione del pixel j-esimo rispetto 
 
 Per ottenere il massimo della \emph{Likelihood} bisogna porre il suo gradiente uguale a zero, ovvero:
 
-\[\frac{\partial L}{\partial\lambda_{j}} = \frac{\partial}{\partial\lambda_{j}}\sum_{i}^{}\left( q_{i}\log{\sum_{j = 1}^{J}{c_{ij}\lambda_{j}}}\  - \sum_{j = 1}^{J}{c_{ij}\lambda_{j}} \right) = 0\]
+\[\dfrac{\partial L}{\partial\lambda_{j}} = \dfrac{\partial}{\partial\lambda_{j}}\sum_{i}^{}\left( q_{i}\log{\sum_{j = 1}^{J}{c_{ij}\lambda_{j}}}\  - \sum_{j = 1}^{J}{c_{ij}\lambda_{j}} \right) = 0\]
 
-\[\frac{\partial}{\partial\lambda_{j}}\sum_{i}^{}{(q_{i}}\log{\sum_{j = 1}^{J}{c_{ij}\lambda_{j}}}\  - \sum_{j = 1}^{J}{c_{ij}\lambda_{j}}) = \sum_{i}^{}\left( \frac{q_{i}}{\sum_{j = 1}^{J}{c_{ij}\lambda_{j}}}\sum_{j = 1}^{J}c_{ij} - \sum_{j = 1}^{J}c_{ij} \right) = = \sum_{i}^{}\left( \left( \frac{q_{i}}{\sum_{j = 1}^{J}{c_{ij}\lambda_{j}}} - 1 \right)\sum_{j = 1}^{J}c_{ij} \right)\]
+\[\dfrac{\partial}{\partial\lambda_{j}}\sum_{i}^{}{(q_{i}}\log{\sum_{j = 1}^{J}{c_{ij}\lambda_{j}}}\  - \sum_{j = 1}^{J}{c_{ij}\lambda_{j}}) = \sum_{i}^{}\left( \dfrac{q_{i}}{\sum_{j = 1}^{J}{c_{ij}\lambda_{j}}}\sum_{j = 1}^{J}c_{ij} - \sum_{j = 1}^{J}c_{ij} \right) = = \sum_{i}^{}\left( \left( \dfrac{q_{i}}{\sum_{j = 1}^{J}{c_{ij}\lambda_{j}}} - 1 \right)\sum_{j = 1}^{J}c_{ij} \right)\]
 
 In definitiva, per massimizzare la funzione di \emph{Likelihood}, bisogna porre
 
-\[\sum_{i}^{}\left( \left( \frac{q_{i}}{\sum_{j = 1}^{J}{c_{ij}\lambda_{j}}} - 1 \right)\sum_{j = 1}^{J}{c_{ij}\lambda_{j}} \right) = 0\]
+\[\sum_{i}^{}\left( \left( \dfrac{q_{i}}{\sum_{j = 1}^{J}{c_{ij}\lambda_{j}}} - 1 \right)\sum_{j = 1}^{J}{c_{ij}\lambda_{j}} \right) = 0\]
 
 Da questa espressione è possibile calcolare le attività che devono avere i pixel affinché la \emph{Likelihood} sia massima.
 
@@ -426,7 +426,7 @@ Ovviamente, non essendo effettivamente noti i valori di \(x_{ij}\) non è possib
 
 \[{E\lbrack L_{x}}(X,\Lambda)\left| \ Q,\Lambda^{old}\  \right\rbrack = E\left\lbrack \sum_{i}^{}{\sum_{j = 1}^{J}{{(x}_{ij}\log\left( c_{ij}\lambda_{j} \right) - c_{ij}\lambda_{j})}} \right\rbrack = \ \sum_{i}^{}{\sum_{j = 1}^{J}{{(E\lbrack x}_{ij}\rbrack\log\left( c_{ij}\lambda_{j} \right) - c_{ij}\lambda_{j})}}\]
 
-Calcolando il valor medio è possibile, quindi, dimostrare che esso dipende solamente dall'attività del j-esimo pixel \(\lambda_{j}\). In questo modo è possibile procedere con la massimizzazione della funzione di verosimiglianza media calcolata nell'E-step con la stima precedente dell'immagine \(\Lambda^{old}\).Il processo di massimizzazione è noto come M-step e permette di determinare una nuova immagine \(\Lambda\) tale da massimizzare la verosimiglianza.
+Calcolando il valor medio è possibile, quindi, dimostrare che esso dipende solamente dall'attività del j-esimo pixel \(\lambda_{j}\). In questo modo è possibile procedere con la massimizzazione della funzione di verosimiglianza media calcolata nell'E-step con la stima precedente dell'immagine \(\Lambda^{old}\). Il processo di massimizzazione è noto come M-step e permette di determinare una nuova immagine \(\Lambda\) tale da massimizzare la verosimiglianza.
 
 Nell'E-step, si pone \(n_{ij}\) il valore atteso di \(x_{ij}\). La sommatoria su \(j\) di tutti i valor medi delle \(x_{ij}\) dovrebbe essere uguale alle osservazioni effettivamente misurate dal detettore i-esimo:
 
@@ -438,35 +438,35 @@ Infatti, deve risultare anche che \(n_{ij} = c_{ij}\lambda_{j}\). La sommatoria 
 
 Si può dimostrare che la quantità \(n_{ij}\) è dato da:
 
-\[n_{ij} = c_{ij}\lambda_{j}^{old}\frac{q_{i}}{\sum_{i}^{}{c_{ij}\lambda_{j}^{old}}}\]
+\[n_{ij} = c_{ij}\lambda_{j}^{old}\dfrac{q_{i}}{\sum_{i}^{}{c_{ij}\lambda_{j}^{old}}}\]
 
 Il valor medio della \emph{Likelihood} dipende dall'immagine stimata nello step precedente, i cui coefficienti sono noti, e da un'immagine \(\Lambda\) da valutare in modo da ottimizzare la verosimiglianza.
 
 Nel M-Step, si procede con il calcolo del gradiente del valor medio e la sua posizione a zero così da poter determinare le attività correnti del j-esimo pixel che massimizzano la \emph{Likehood}:
 
-\[\frac{\partial}{\partial\lambda_{j}}{E\lbrack L_{x}}(X,\Lambda)\left| \ Q,\Lambda^{old}\  \right\rbrack = \frac{\partial}{\partial\lambda_{j}}\sum_{i}^{}{\sum_{j = 1}^{J}{n_{ij}\ \log\left( c_{ij}\lambda_{j} \right) - c_{ij}\lambda_{j})}} = 0\]
+\[\dfrac{\partial}{\partial\lambda_{j}}{E\lbrack L_{x}}(X,\Lambda)\left| \ Q,\Lambda^{old}\  \right\rbrack = \dfrac{\partial}{\partial\lambda_{j}}\sum_{i}^{}{\sum_{j = 1}^{J}{n_{ij}\ \log\left( c_{ij}\lambda_{j} \right) - c_{ij}\lambda_{j})}} = 0\]
 
 Dove, derivando rispetto a \(\lambda_{j}\) la sommatoria su \(j\) si elimina poiché, tra tutti gli elementi, solamente il j-esimo è non nullo:
 
-\[\frac{\partial}{\partial\lambda_{j}}\sum_{i}^{}{\sum_{j = 1}^{J}{n_{ij}\log\left( c_{ij}\lambda_{j} \right) - c_{ij}\lambda_{j})}} = \sum_{i}^{}\left( \frac{n_{ij}}{\lambda_{j}} - c_{ij} \right)\]
+\[\dfrac{\partial}{\partial\lambda_{j}}\sum_{i}^{}{\sum_{j = 1}^{J}{n_{ij}\log\left( c_{ij}\lambda_{j} \right) - c_{ij}\lambda_{j})}} = \sum_{i}^{}\left( \dfrac{n_{ij}}{\lambda_{j}} - c_{ij} \right)\]
 
 Ponendo uguale a zero si ottiene l'attività del j-esimo pixel che massimizza la \emph{Likelihood}:
 
-\[\sum_{i}^{}{\left( \frac{n_{ij}}{\lambda_{j}} - c_{ij} \right) = 0}\]
+\[\sum_{i}^{}{\left( \dfrac{n_{ij}}{\lambda_{j}} - c_{ij} \right) = 0}\]
 
 La cui soluzione è:
 
-\[\lambda_{j} = \frac{\sum_{i}^{}n_{ij}}{\sum_{i}^{}c_{ij}}\]
+\[\lambda_{j} = \dfrac{\sum_{i}^{}n_{ij}}{\sum_{i}^{}c_{ij}}\]
 
 Sostituendo ai valori attesi delle variabili complesse l'espressione determinata:
 
-\[n_{ij} = c_{ij}\lambda_{j}^{old}\frac{q_{i}}{\sum_{i}^{}{c_{ij}\lambda_{j}^{old}}}\]
+\[n_{ij} = c_{ij}\lambda_{j}^{old}\dfrac{q_{i}}{\sum_{i}^{}{c_{ij}\lambda_{j}^{old}}}\]
 
 Si ottiene una relazione che lega l'attività del j-esimo pixel che massimizza la \emph{Likelihood} in funzione delle misure effettuate e le attività dell'immagine precedente:
 
-\[\lambda_{j} = \lambda_{j}^{old}\frac{1}{\sum_{m}^{}c_{mj}}\ \sum_{i}^{}{c_{ij}\frac{q_{i}}{\sum_{k}^{}{c_{ik}\lambda_{k}^{old}}}}\]
+\[\lambda_{j} = \lambda_{j}^{old}\dfrac{1}{\sum_{m}^{}c_{mj}}\ \sum_{i}^{}{c_{ij}\dfrac{q_{i}}{\sum_{k}^{}{c_{ik}\lambda_{k}^{old}}}}\]
 
-Dove \(\frac{1}{\sum_{m}^{}c_{mj}}\) è la \emph{Sensitivity} dello scanner per il j-esimo pixel mentre \(\sum_{k}^{}{c_{ik}\lambda_{k}^{old}}\) è la proiezione che sarebbe misurata se l'immagine precedente fosse la vera immagine. Entrambi i fattori rappresentano dei pesi con cui stimare la nuova immagine.
+Dove \(\dfrac{1}{\sum_{m}^{}c_{mj}}\) è la \emph{Sensitivity} dello scanner per il j-esimo pixel mentre \(\sum_{k}^{}{c_{ik}\lambda_{k}^{old}}\) è la proiezione che sarebbe misurata se l'immagine precedente fosse la vera immagine. Entrambi i fattori rappresentano dei pesi con cui stimare la nuova immagine.
 
 Nonostante la sua apparente complessità analitica, l'algoritmo \emph{Expectation Maximization} presenta un'ottima ricostruzione e un tempo di calcolo ridotto.
 

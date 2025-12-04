@@ -53,7 +53,7 @@ Per evitare riflessioni bisogna adattare l'impedenza della linea con quella del 
 
 Dal punto di visto analitico, il coefficiente di riflessione è dato da:
 
-\[\Gamma(d) = \frac{\dot{Z}(d) - {\dot{Z}}_{C}}{\dot{Z}(d) + {\dot{Z}}_{C}}\]
+\[\Gamma(d) = \dfrac{\dot{Z}(d) - {\dot{Z}}_{C}}{\dot{Z}(d) + {\dot{Z}}_{C}}\]
 
 Per annullare questa quantità, il carico deve essere uguale all'impedenza caratteristica del cavo coassiale.
 
@@ -85,19 +85,19 @@ Conoscere le costanti di tempo con cui il segnale evolve è fondamentale per cla
 Si suppone che l'impulso di corrente sia in uscita a un circuito \emph{Large RC}, le equazioni che descrivono la forma d'onda sono note:
 
 \[\left\{ \begin{array}{r}
-v_{C}(t) \simeq \frac{Q}{C}\left( 1 - e^{- \lambda t} \right),\ \ t \ll \frac{1}{\theta} \\
-v_{C}(t) \simeq \frac{Q}{C}e^{- \theta t},\ \ t \gg \frac{1}{\lambda}
+v_{C}(t) \simeq \dfrac{Q}{C}\left( 1 - e^{- \lambda t} \right),\ \ t \ll \dfrac{1}{\theta} \\
+v_{C}(t) \simeq \dfrac{Q}{C}e^{- \theta t},\ \ t \gg \dfrac{1}{\lambda}
 \end{array} \right.\ \]
 
 Si suppone che \(\theta = 0.1MHz\) e \(\lambda = 15MHz\).
 
 Il tempo di salita può essere stimato come tre-quattro volte la costante di tempo con cui l'impulso raggiunge il regime:
 
-\[\tau = 3\frac{1}{\lambda} = 12ns\]
+\[\tau = 3\dfrac{1}{\lambda} = 12ns\]
 
 Se la linea di trasmissione è lunga 1m, il tempo con cui il segnale è trasmesso è dato da:
 
-\[t = \frac{L}{v} = \frac{1m}{0.66 \cdot 3.00 \cdot \frac{10^{8}m}{s}} = 5.05ns\]
+\[t = \dfrac{L}{v} = \dfrac{1m}{0.66 \cdot 3.00 \cdot \dfrac{10^{8}m}{s}} = 5.05ns\]
 
 Il tempo di salita del segnale è maggiore del tempo di propagazione, quindi, si conclude che con queste caratteristiche l'impulso è lento.
 
@@ -116,11 +116,11 @@ Si considera un amplificatore invertente dato dal circuito:
 
 Idealmente, l'operazionale possiede un guadagno infinito, tuttavia, nella pratica tale quantità è elevata ma non infinita. Se risulta che:
 
-\[A \gg \frac{R_{2}}{R_{1}}\ \]
+\[A \gg \dfrac{R_{2}}{R_{1}}\ \]
 
 Allora la funzione di trasferimento è data da:
 
-\[V_{out} = - \frac{R_{2}}{R_{1}}V_{in}\]
+\[V_{out} = - \dfrac{R_{2}}{R_{1}}V_{in}\]
 
 Dove \(V_{in}\) è l'ampiezza dell'impulso di tensione in uscita dal fotomoltiplicatore legato sia alla carica Q depositata sull'anodo sia dalla capacità C del circuito anodica d'uscita.
 
@@ -133,20 +133,20 @@ Se il segnale è ottenuto come la sovrapposizione di un corrente alternata e una
 
 In questo caso, la funzione di trasferimento può essere scritta nel dominio dei fasori:
 
-\[G(\omega) = - \frac{R_{3}}{R_{2} + Z_{C}} = - \frac{j\omega CR_{3}}{1 + j\omega CR_{2}}\]
+\[G(\omega) = - \dfrac{R_{3}}{R_{2} + Z_{C}} = - \dfrac{j\omega CR_{3}}{1 + j\omega CR_{2}}\]
 
 La risposta in frequenza ha un carattere passa-alto con frequenza di taglio e guadagno di cortocircuito noti:
 
 \[\left\{ \begin{array}{r}
-G = - \frac{R_{3}}{R_{2}}\  \\
-f_{c} = \frac{1}{2\pi R_{2}C}
+G = - \dfrac{R_{3}}{R_{2}}\  \\
+f_{c} = \dfrac{1}{2\pi R_{2}C}
 \end{array} \right.\ \]
 
 Se si vuole realizzare un filtro passa-alto con frequenza di taglio di 100Hz e un guadagno di 100 allora bisogna dimensionare i componenti tali da soddisfare le relazioni:
 
 \[\left\{ \begin{array}{r}
-\frac{R_{3}}{R_{2}} = \ 100 \\
-\frac{1}{2\pi R_{2}C} = 100Hz
+\dfrac{R_{3}}{R_{2}} = \ 100 \\
+\dfrac{1}{2\pi R_{2}C} = 100Hz
 \end{array} \right.\ \]
 
 Se si pone \(R_{2} = 1k\mathrm{\Omega}\), allora la risoluzione del sistema è semplice:
@@ -165,13 +165,13 @@ Il blocco della componente in continua può essere eseguito anche tramite un amp
 
 La resistenza \(R_{1}\) è utilizzata per limitare la corrente di polarizzazione, dell'ordine di 10nA o minore, dell'operazionale. Questa resistenza è ottenuta col parallelo di \(R_{2}\) e \(R_{3}\):
 
-\[R_{1} = R_{2}||R_{3} = \frac{R_{2}R_{3}}{R_{2} + R_{3}}\]
+\[R_{1} = R_{2}||R_{3} = \dfrac{R_{2}R_{3}}{R_{2} + R_{3}}\]
 
 Con questa soluzione il guadagno e la frequenza di taglio sono dati dalle relazioni:
 
 \[\left\{ \begin{array}{r}
-G = 1 + \frac{R_{3}}{R_{2}}\  \\
-f_{c} = \frac{1}{2\pi R_{2}C}
+G = 1 + \dfrac{R_{3}}{R_{2}}\  \\
+f_{c} = \dfrac{1}{2\pi R_{2}C}
 \end{array} \right.\ \]
 
 Se si vuole ottenere un guadagno di 100 e una frequenza di taglio a 100Hz, in questo caso, ponendo \(R_{2} = 1k\mathrm{\Omega}\) si ottiene:
@@ -220,32 +220,32 @@ Se in ingresso si pone un segnale molo lento, schematizzabile come un gradino, i
 Siccome i due stadi sono separati da un buffer è possibile analizzare la risposta al gradino separatamente. Se le due costanti di tempo sono diverse, il segnale in uscita dal primo stadio deve rispettare l'equazione ottenuta dalla legge di Kirchhoff per le tensioni:
 
 \[\left\{ \begin{array}{r}
-\frac{dv_{C}}{dt} + \frac{1}{R_{1}C_{1}}v_{C} = \frac{E_{in}}{R_{1}C_{1}} \\
+\dfrac{dv_{C}}{dt} + \dfrac{1}{R_{1}C_{1}}v_{C} = \dfrac{E_{in}}{R_{1}C_{1}} \\
 v_{C}(0) = 0
 \end{array} \right.\ \]
 
 L'integrale generale dell'equazione differenziale è dato da:
 
-\[v_{C}(t) = ke^{- \frac{t}{\tau_{d}}} + E_{in}\]
+\[v_{C}(t) = ke^{- \dfrac{t}{\tau_{d}}} + E_{in}\]
 
 Imponendo la condizione iniziale:
 
-\[v_{C}(t) = E_{in}\left( 1 - e^{- \frac{t}{\tau_{d}}} \right)\]
+\[v_{C}(t) = E_{in}\left( 1 - e^{- \dfrac{t}{\tau_{d}}} \right)\]
 
 Questa tensione rappresenta il forzamento del secondo stadio, governato, quindi, dalle equazioni:
 
 \[\left\{ \begin{array}{r}
-\frac{dv_{C}}{dt} + \frac{1}{R_{2}C_{2}}v_{C} = \frac{E_{in}}{R_{2}C_{2}}\left( 1 - e^{- \frac{t}{\tau_{d}}} \right) \\
+\dfrac{dv_{C}}{dt} + \dfrac{1}{R_{2}C_{2}}v_{C} = \dfrac{E_{in}}{R_{2}C_{2}}\left( 1 - e^{- \dfrac{t}{\tau_{d}}} \right) \\
 v_{C}(\infty) = 0
 \end{array} \right.\ \]
 
 La soluzione del problema è nota:
 
-\[v_{C}(t) = \frac{\tau_{i}}{\left( \tau_{d} - \tau_{i} \right)}E_{in}\left( e^{- \frac{t}{\tau_{d}}} - e^{- \frac{t}{\tau_{i}}} \right)\]
+\[v_{C}(t) = \dfrac{\tau_{i}}{\left( \tau_{d} - \tau_{i} \right)}E_{in}\left( e^{- \dfrac{t}{\tau_{d}}} - e^{- \dfrac{t}{\tau_{i}}} \right)\]
 
 Nel caso in cui le due costanti di tempo siano uguali, per ottenere l'espressione dell'uscita è necessario eseguire un'operazione di limite:
 
-\[\lim_{\tau_{i} \rightarrow \tau_{d}}{v_{C}(t)} = \lim_{\tau_{i} \rightarrow \tau_{d}}{\frac{\tau_{i}}{\left( \tau_{d} - \tau_{i} \right)}E_{in}\left( e^{- \frac{t}{\tau_{d}}} - e^{- \frac{t}{\tau_{i}}} \right)} = E_{in}\lim_{\tau_{i} \rightarrow \tau_{d}}{\frac{e^{- \frac{t}{\tau_{d}}}\left( 1 - e^{- \frac{t}{\tau_{i}}}e^{\frac{t}{\tau_{d}}} \right)\tau_{i}}{\tau_{d}\left( 1 - \frac{\tau_{i}}{\tau_{d}} \right)}\frac{{(E}_{in}e^{- \frac{t}{\tau_{d}}})}{\tau_{d}}} = = \lim_{\tau_{i} \rightarrow \tau_{d}}{\tau_{i}\frac{\left( 1 - e^{- \frac{t}{\tau_{i}}}e^{\frac{t}{\tau_{d}}} \right)}{\left( 1 - \frac{\tau_{i}}{\tau_{d}} \right)}} = \frac{t}{\tau_{d}}E_{in}e^{- \frac{t}{\tau_{d}}}\]
+\[\lim_{\tau_{i} \rightarrow \tau_{d}}{v_{C}(t)} = \lim_{\tau_{i} \rightarrow \tau_{d}}{\dfrac{\tau_{i}}{\left( \tau_{d} - \tau_{i} \right)}E_{in}\left( e^{- \dfrac{t}{\tau_{d}}} - e^{- \dfrac{t}{\tau_{i}}} \right)} = E_{in}\lim_{\tau_{i} \rightarrow \tau_{d}}{\dfrac{e^{- \dfrac{t}{\tau_{d}}}\left( 1 - e^{- \dfrac{t}{\tau_{i}}}e^{\dfrac{t}{\tau_{d}}} \right)\tau_{i}}{\tau_{d}\left( 1 - \dfrac{\tau_{i}}{\tau_{d}} \right)}\dfrac{{(E}_{in}e^{- \dfrac{t}{\tau_{d}}})}{\tau_{d}}} = = \lim_{\tau_{i} \rightarrow \tau_{d}}{\tau_{i}\dfrac{\left( 1 - e^{- \dfrac{t}{\tau_{i}}}e^{\dfrac{t}{\tau_{d}}} \right)}{\left( 1 - \dfrac{\tau_{i}}{\tau_{d}} \right)}} = \dfrac{t}{\tau_{d}}E_{in}e^{- \dfrac{t}{\tau_{d}}}\]
 
 La soluzione CR-RC, grazie al filtraggio passa-banda del segnale, permette di incrementare il rapporto segnale/rumore.
 
@@ -263,7 +263,7 @@ Ponendo in ingresso un circuito CR e tanti circuiti RC in cascata, opportunament
 
 Dato che il filtro \emph{Sallen-Key} è composto da due blocchi integratori RC, avrà una funzione di trasferimento a due poli del tipo
 
-\[H(s) = \frac{A_{0}}{1 + \omega_{c}\left( C_{1}\left( R_{1} + R_{2} \right) + \left( 1 - A_{0} \right)R_{1}C_{2} \right)s + \omega_{c}^{2}R_{1}R_{2}C_{1}C_{2}s^{2}}\]
+\[H(s) = \dfrac{A_{0}}{1 + \omega_{c}\left( C_{1}\left( R_{1} + R_{2} \right) + \left( 1 - A_{0} \right)R_{1}C_{2} \right)s + \omega_{c}^{2}R_{1}R_{2}C_{1}C_{2}s^{2}}\]
 
 \subsubsection{Undershoot}\label{undershoot}
 
@@ -292,13 +292,13 @@ La problematica può essere risolta cancellando lo zero-polo nella funzione di t
 
 Dove sono presenti due circuiti RC in cascata, separati da uno stadio di buffer. La funzione di trasferimento è ottenuta moltiplicando le funzioni di trasferimento di ogni singolo stadio:
 
-\[H(s) = \frac{R_{1}\left( R_{pz}C_{1}s + 1 \right)}{\left( 1 + s\tau_{2} \right)\left( R_{pz} + R_{1}\left( R_{pz}C_{1}s + 1 \right) \right)}\]
+\[H(s) = \dfrac{R_{1}\left( R_{pz}C_{1}s + 1 \right)}{\left( 1 + s\tau_{2} \right)\left( R_{pz} + R_{1}\left( R_{pz}C_{1}s + 1 \right) \right)}\]
 
 Il numeratore introduce uno zero e, quindi, rappresenta il termine di differenziazione del segnale.
 
-Se si pone \(R_{pz} = \frac{\tau_{2}}{C_{1}}\) la funzione di trasferimento si riduce a una semplice cascata di filtri RC passivi:
+Se si pone \(R_{pz} = \dfrac{\tau_{2}}{C_{1}}\) la funzione di trasferimento si riduce a una semplice cascata di filtri RC passivi:
 
-\[H(s) = \frac{R_{1}}{\left( \frac{\tau_{2}}{C_{1}} + R_{1} + \frac{\tau_{1}\tau_{2}}{C_{1}}s \right)}\]
+\[H(s) = \dfrac{R_{1}}{\left( \dfrac{\tau_{2}}{C_{1}} + R_{1} + \dfrac{\tau_{1}\tau_{2}}{C_{1}}s \right)}\]
 
 Con questa soluzione si rimuove il fenomeno dell'\emph{Undershoot} così da avere un impulso di durata finita senza nessun attraversamento per lo zero.
 
@@ -430,15 +430,15 @@ Ovviamente se il segnale in ingresso è minore della soglia \(V_{S}(t) - V_{in} 
 
 La soglia di tensione del comparatore è variabile, nel senso che assume valori diversi a seconda dell'uscita. È possibile scrivere:
 
-\[V_{S}(t) = V_{R} + R_{2}i(t) = V_{R} + \frac{R_{2}}{R_{1} + R_{2}}\left( V_{out}(t) - V_{R} \right)\]
+\[V_{S}(t) = V_{R} + R_{2}i(t) = V_{R} + \dfrac{R_{2}}{R_{1} + R_{2}}\left( V_{out}(t) - V_{R} \right)\]
 
 Se la tensione di ingresso è minore della tensione di soglia superiore o \emph{High Threshold,} l'uscita sarà alta.
 
-\[V_{S}^{H}(t) = V_{R} + \frac{R_{2}}{R_{1} + R_{2}}\left( V_{H} - V_{R} \right)\]
+\[V_{S}^{H}(t) = V_{R} + \dfrac{R_{2}}{R_{1} + R_{2}}\left( V_{H} - V_{R} \right)\]
 
 Una volta che il segnale in ingresso supera la soglia l'uscita si porta al valore basso della saturazione negativa. Il valore della soglia si riduce portandosi al valore \emph{Low Threshold}.
 
-\[V_{S}^{L}(t) = V_{R} + \frac{R_{2}}{R_{1} + R_{2}}\left( V_{L} - V_{R} \right)\]
+\[V_{S}^{L}(t) = V_{R} + \dfrac{R_{2}}{R_{1} + R_{2}}\left( V_{L} - V_{R} \right)\]
 
 \begin{figure}
 \centering
@@ -447,7 +447,7 @@ Una volta che il segnale in ingresso supera la soglia l'uscita si porta al valor
 
 Il valore dell'isteresi è dato dall'ampiezza della striscia ottenuta come differenza delle due soglie:
 
-\[S = \frac{R_{2}}{R_{1} + R_{2}}\left( V_{H} - V_{L} \right)\]
+\[S = \dfrac{R_{2}}{R_{1} + R_{2}}\left( V_{H} - V_{L} \right)\]
 
 I segnali, per poter essere accettati, devono essere contenuti nella striscia di tensioni. I valori dei limiti superiore e inferiore sono imposti in modo che le energie rientrino nell'intervallo di 350-650keV. Le energie maggiore di 511keV possono essere dovute a \emph{Dark Current} oppure a fluttuazioni statistiche che portano il cristallo scintillatore a emettere un numero di fotoni maggiore del valore medio. Ancora, gli atomi droganti possono introdurre delle radiazioni \emph{Afterglow} indipendenti dai fotoni \(\gamma\) incidenti. Per energie non comprese nell'intervallo energetico di 350-650keV, il dato è considerato corrotto dal rumore e, quindi, scartato.
 
@@ -466,13 +466,13 @@ In ascissa è riportata l'ampiezza relativa del range di tensioni da codificare 
 
 Sulle ordinate si pongono i \(2^{m}\ \)livelli dove \(m\) è il numero di bit utilizzati. Si definisce risoluzione \(Q\) come:
 
-\[Q = \frac{E_{FSR}}{2^{m}}\]
+\[Q = \dfrac{E_{FSR}}{2^{m}}\]
 
 Q rappresenta l'ampiezza ideale degli intervalli di tensione da codificare. Possono, comunque, presentarsi degli errori dovuto allo scostamento della caratteristica reale da quella ideale.
 
 L'ampiezza degli intervalli, quindi, può variare e, per quantificare tale effetto, si definisce l'errore come non-linearità differenziale:
 
-\[DNL(k) = \frac{W(k) - Q}{Q}\]
+\[DNL(k) = \dfrac{W(k) - Q}{Q}\]
 
 Dove \(W(k)\) è l'ampiezza del \(k\)-esimo intervallo.
 

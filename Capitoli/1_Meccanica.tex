@@ -58,7 +58,7 @@ Questa espressione rappresenta il \textbf{Teorema della quantità di moto} (o \t
 {\vec{F}}_{\text{est}} = \dfrac{d\vec{P}}{dt} \quad \text{con } \vec{P} = \sum_{k=1}^n \vec{p}_k
 \]
 
-\begin{figure}[H]
+\begin{figure}[ht]
     \centering
     \resizebox{0.45\textwidth}{!}{%
     \input{Image/1_Meccanica/1_sistPart}
@@ -76,9 +76,9 @@ Per una particella soggetta a una forza \(\vec{F}\), si definisce \textbf{moment
 
 dove \(\vec{r}\) è il vettore posizione della particella rispetto a un polo (origine del sistema di riferimento).
 
-\begin{figure}[H]
+\begin{figure}[ht]
     \centering
-    \resizebox{0.44\textwidth}{!}{%
+    \resizebox{0.365\textwidth}{!}{%
     \input{Image/1_Meccanica/1_momTorc}
     }
     \caption{Definizione del momento torcente rispetto a un punto fisso}
@@ -92,9 +92,9 @@ Analogamente, si definisce \textbf{momento angolare} (o \textbf{quantità di mot
 \vec{L} = \vec{r} \times \vec{p}
 \]
 
-\begin{figure}[H]
+\begin{figure}[ht]
     \centering
-    \resizebox{0.8\textwidth}{!}{%
+    \resizebox{0.635\textwidth}{!}{%
     \input{Image/1_Meccanica/1_momAng}
     }
     \caption{Momento angolare di una particella rispetto a un'origine fissa}
@@ -133,13 +133,15 @@ Per un sistema di $N$ particelle, il teorema del momento angolare totale $\vec{L
 {\vec{N}}_{\text{tot}} = \sum_{k = 1}^{n}{{\vec{r}}_{k} \times {\vec{f}}_{k}} = \sum_{k = 1}^{n}{{\vec{r}}_{k} \times \dfrac{d{\vec{p}}_{k}}{dt}} = \dfrac{d\vec{L}}{dt}
 \]
 
-dove ${\vec{N}}_{\text{tot}}$ è il momento torcente totale (esterno + interno) agente sul sistema. In presenza di sole forze interne centrali (ovvero, se il momento torcente interno si annulla), si ha $\frac{d\vec{L}}{dt} = {\vec{N}}_{\text{est}}$, cioè la derivata temporale del momento angolare totale è pari alla somma dei momenti torcenti esterni:
+dove ${\vec{N}}_{\text{tot}}$ è il momento torcente totale (esterno + interno) agente sul sistema. In presenza di sole forze interne centrali (ovvero, se il momento torcente interno si annulla), si ha $d\vec{L}/{dt} = {\vec{N}}_{\text{est}}$, cioè la derivata temporale del momento angolare totale è pari alla somma dei momenti torcenti esterni:
 
 \[
 {\vec{N}}_{\text{est}} = \dfrac{d\vec{L}}{dt}
 \]
 
-Conoscendo le forze esterne agenti, è possibile determinare il moto della particella. Integrando la Seconda Legge di Newton rispetto al tempo si ottiene l'\textbf{impulso} $\vec{I}$, che per definizione è uguale alla variazione di quantità di moto ($\Delta \vec{p}$):
+Conoscendo le forze esterne agenti, è possibile determinare il moto della particella. 
+
+Integrando la Seconda Legge di Newton rispetto al tempo si ottiene l'\textbf{impulso} $\vec{I}$, che per definizione è uguale alla variazione di quantità di moto ($\Delta \vec{p}$):
 
 \[
 \vec{I} = \int_{t_{0}}^{t}{\vec{F}\, dt} = \vec{p}(t) - \vec{p}(t_{0}) = m\left[\vec{v}(t) - \vec{v}(t_{0})\right] \Leftrightarrow \left[\vec{v}(t) - \vec{v}(t_{0})\right] = \dfrac{1}{m}\int_{t_{0}}^{t}{\vec{F}\, dt}
@@ -162,24 +164,28 @@ dove \(\vec{r}(t)\) è il vettore spostamento.
 Nel caso generale, con velocità iniziale non nulla e tempo iniziale \(t=t_0\), l'equazione è:
 
 \[
-\vec{r}(t) = \vec{r}(t_0) + \vec{v}(t_0) (t-t_0) +\frac{1}{m} \int_{t_0}^t \left( \int_{t_0}^{t'} \vec{F}(\tau) d\tau \right) dt'
+\vec{r}(t) = \vec{r}(t_0) + \vec{v}(t_0) (t-t_0) +\dfrac{1}{m} \int_{t_0}^t \left( \int_{t_0}^{t'} \vec{F}(\tau) d\tau \right) dt'
 \]
 
 Il modello newtoniano descrive accuratamente molti fenomeni osservati nella sua epoca, come il moto dei pianeti, il comportamento dei corpi sotto l'azione di forze, e le interazioni meccaniche quotidiane.
 
 \section{Meccanica lagrangiana}\label{meccanica-lagrangiana}
 
-La \textbf{meccanica lagrangiana} è una formulazione della meccanica analitica introdotta nel XVIII secolo da Joseph-Louis Lagrange. Essa costituisce una riformulazione potente della meccanica newtoniana, spesso utilizzata come base concettuale per teorie più avanzate \cite{arnold1992matematici, landau1994meccanica}. Questa descrizione parte da un punto di vista globale e si propone di determinare il moto di un sistema basandosi sulla minimizzazione (o meglio, sulla stazionarietà) di una funzione scalare chiamata \textbf{azione}, che dipende dall'intero percorso del sistema. Il formalismo lagrangiano è fondamentale, in quanto il suo analogo variazionale è utilizzato come punto di partenza per la \textbf{teoria classica dei campi} e, tramite l'integrale sui cammini di Feynman, per la \textbf{meccanica quantistica}.
+La \textbf{meccanica lagrangiana} è una formulazione della meccanica analitica introdotta nel XVIII secolo da Joseph-Louis Lagrange. Essa costituisce una riformulazione potente della meccanica newtoniana, spesso utilizzata come base concettuale per teorie più avanzate \cite{arnold1992matematici, landau1994meccanica}. Questa descrizione parte da un punto di vista globale e si propone di determinare il moto di un sistema basandosi sulla minimizzazione (o meglio, sulla stazionarietà) di una funzione scalare chiamata \textbf{azione}, che dipende dall'intero percorso del sistema.
 
-Si considera un sistema composto da \(N\) particelle. La descrizione del loro moto secondo la meccanica newtoniana richiede l'uso di uno spazio tridimensionale cartesiano: a ciascuna particella \(m_{i}\) è associata una terna di coordinate \((x_{i},y_{i},z_{i})\), che variano nel tempo. Questo approccio porta alla necessità di risolvere \(3N\) equazioni differenziali per determinare il moto di tutte le particelle. Tuttavia, spesso le particelle sono soggette a vincoli che limitano il loro moto a determinate traiettorie o superfici. In questi casi, è possibile descrivere il sistema utilizzando \textbf{coordinate generalizzate} \(q_{i}\), con \(i = 1,2,\ldots,s\), dove \(s\) rappresenta il numero dei \textbf{gradi di libertà} del sistema. In generale, il moto del sistema è descritto mediante \(s\) equazioni differenziali del secondo ordine (le equazioni di Eulero-Lagrange).
+Il formalismo lagrangiano è fondamentale, in quanto il suo analogo variazionale è utilizzato come punto di partenza per la \textbf{teoria classica dei campi} e, tramite l'integrale sui cammini di Feynman, per la \textbf{meccanica quantistica}.
+
+Si considera un sistema composto da \(N\) particelle. La descrizione del loro moto secondo la meccanica newtoniana richiede l'uso di uno spazio tridimensionale cartesiano: a ciascuna particella \(m_{i}\) è associata una terna di coordinate \((x_{i},y_{i},z_{i})\), che variano nel tempo. 
+
+Questo approccio porta alla necessità di risolvere \(3N\) equazioni differenziali per determinare il moto di tutte le particelle. Tuttavia, spesso le particelle sono soggette a vincoli che limitano il loro moto a determinate traiettorie o superfici. In questi casi, è possibile descrivere il sistema utilizzando \textbf{coordinate generalizzate} \(q_{i}\), con \(i = 1,2,\ldots,s\), dove \(s\) rappresenta il numero dei \textbf{gradi di libertà} del sistema. In generale, il moto del sistema è descritto mediante \(s\) equazioni differenziali del secondo ordine (le equazioni di Eulero-Lagrange).
 
 Tra tutte le curve che collegano un punto (o configurazione) $\mathbf{q}\left(t_0\right)$ al tempo $t_{0}$ con un altro punto $\mathbf{q}\left(t_1\right)$ al tempo $t_{1}$, la traiettoria fisica $\mathbf{q}\left(t\right)$ è quella che rende stazionaria l'azione, ovvero l'integrale della funzione lagrangiana nel tempo.
 
-In fisica teorica e meccanica analitica, la convenzione più utilizzata, per indicare il vettore delle coordinate generalizzate $\mathbf{q} = (q_1, q_2, \ldots, q_s)$ nello spazio delle configurazioni, è  il grassetto ($\mathbf{q}$) piuttosto che la freccia ($\vec{q}$).Questo perché la freccia ($\vec{q}$) è tradizionalmente riservata ai vettori nello spazio euclideo tridimensionale ($\mathbb{R}^3$), mentre $\mathbf{q}$ è un vettore in uno spazio $s$-dimensionale, dove $s$ non è necessariamente 3.
+In fisica teorica e meccanica analitica, la convenzione più utilizzata, per indicare il vettore delle coordinate generalizzate $\mathbf{q} = (q_1, q_2, \ldots, q_s)$ nello spazio delle configurazioni, è  il grassetto ($\mathbf{q}$) piuttosto che la freccia ($\vec{q}$). Questo perché la freccia ($\vec{q}$) è tradizionalmente riservata ai vettori nello spazio euclideo tridimensionale ($\mathbb{R}^3$), mentre $\mathbf{q}$ è un vettore in uno spazio $s$-dimensionale, dove $s$ non è necessariamente 3.
 
-\begin{figure}[H]
+\begin{figure}[ht]
 \centering
-\resizebox{0.46\textwidth}{!}{%
+\resizebox{0.54\textwidth}{!}{%
 \input{Image/1_Meccanica/1_Traiettoria.tex}
 }
 \caption{Esempio di moto su traiettoria a azione stazionaria tra due punti nel tempo}
@@ -222,9 +228,9 @@ S + \delta S = \int_{t_{0}}^{t_{1}}{L\left( \mathbf{q} + \delta\mathbf{q},\mathb
 
 dove \(\mathbf{q}\) è la traiettoria fisica che rende stazionaria l'azione \(S\). Il Principio di Hamilton (o di Azione Stazionaria) stabilisce che la traiettoria rende l'azione stazionaria (ovvero $\delta S=0$). Non è garantito che sia un minimo poiché può coincidere un massimo o un punto di sella.
 
-\begin{figure}[H]
+\begin{figure}[ht]
     \centering
-    \resizebox{0.7\textwidth}{!}{%
+    \resizebox{0.63\textwidth}{!}{%
     \input{Image/1_Meccanica/1_TraiettoriaPertu}
     }
     \caption{Perturbazione della traiettoria}
@@ -363,17 +369,19 @@ Per una \textbf{particella libera} (cioè in assenza di forze  e non conservativ
 L = \dfrac{1}{2}mv^{2}
 \]
 
-Dove
+dove
 
 \[
 v^{2} = {\dot{x}}^{2} + {\dot{y}}^{2} + {\dot{z}}^{2}
 \]
 
-In altre parole, in questo caso la lagrangiana coincide con l'energia cinetica della particella. Inoltre, la descrizione lagrangiana si riduce alla modellazione newtoniana, dato che il sistema di riferimento corrisponde con quello cartesiano. Tuttavia, nella pratica non è sempre conveniente descrivere il moto in coordinate cartesiane. In presenza di vincoli o geometrie particolari, infatti, è utile ricorrere alle coordinate generalizzate \(\mathbf{q}\) e \(\mathbf{\dot{q}}\). È quindi necessario esprimere l'energia del sistema in funzione di queste coordinate.
+In altre parole, in questo caso la lagrangiana coincide con l'energia cinetica della particella. Inoltre, la descrizione lagrangiana si riduce alla modellazione newtoniana, dato che il sistema di riferimento corrisponde con quello cartesiano. 
+
+Nella pratica non è sempre conveniente descrivere il moto in coordinate cartesiane. In presenza di vincoli o geometrie particolari, infatti, è utile ricorrere alle coordinate generalizzate \(\mathbf{q}\) e \(\mathbf{\dot{q}}\). È quindi necessario esprimere l'energia del sistema in funzione di queste coordinate.
 
 \subsection{Energia cinetica in coordinate generalizzate}\label{energia-cinetica-in-generalizzate}
 
-Per un sistema di \(N\) particelle nelle coordinate generalizzate \(\mathbf{q}\) e \(\mathbf{\dot{q}}\), l'energia cinetica $T$ è data da:
+Per un sistema di \(N\) particelle nelle coordinate generalizzate \(\mathbf{q}\) e \(\mathbf{\dot{q}}\), l'energia cinetica $T$ è una funzione delle coordinate generalizzate e del tempo:
 
 \[
 T = T\left( \mathbf{q},{\dot{\mathbf{q}}}, t \right)
@@ -446,13 +454,7 @@ dove \(s\) è il numero di coordinate generalizzate.
 La meccanica classica assume che le interazioni tra le particelle avvengano istantaneamente (ovvero che il potenziale sia indipendente dalla velocità), non considerando gli effetti di propagazione dei cambiamenti nei campi di forza. Tuttavia, secondo la teoria della relatività di Einstein, le interazioni si propagano attraverso campi con velocità finita, non superiore alla velocità della luce \(c\). Questo implica che la descrizione classica è un'approssimazione valida solo quando le velocità coinvolte sono molto inferiori a \(c\) e gli effetti di ritardo possono essere trascurati.
 
 \subsection{Espressione della lagrangiana}\label{espressione-della-lagrangiana}
-La lagrangiana è la funzione scalare definita come la differenza tra l'energia cinetica \(T\) e l'energia potenziale \(U\), secondo la relazione \cite{arnold1992matematici, landau1994meccanica}:
-
-\[
-L\left( \mathbf{q},\mathbf{\dot{q}}, t \right) = T\left( \mathbf{q},\mathbf{\dot{q}}, t \right) - U\left( \mathbf{q}, t \right)
-\]
-
-dove \(s\) è il numero di gradi di libertà del sistema.
+La lagrangiana è la funzione scalare definita come la differenza tra l'energia cinetica \(T\) e l'energia potenziale \(U\), secondo la relazione $L\left( \mathbf{q},\mathbf{\dot{q}}, t \right) = T\left( \mathbf{q},\mathbf{\dot{q}}, t \right) - U\left( \mathbf{q}, t \right)$, dove \(s\) è il numero di gradi di libertà del sistema \cite{arnold1992matematici, landau1994meccanica}.
 
 In un sistema scleronomo (vincoli indipendenti dal tempo) e con potenziale indipendente dal tempo ($U=U(\mathbf{q})$), la Lagrangiana non dipende esplicitamente dal tempo $t$:
 
@@ -466,7 +468,7 @@ La lagrangiana \(L\) è, dunque, una funzione delle coordinate generalizzate di 
 L : TQ \times \mathbb{R} \rightarrow \mathbb{R}
 \]
 
-dove \(Q\) è lo \textbf{spazio delle configurazioni} e \(TQ\) indica il \textbf{fibrato tangente} dello spazio delle configurazioni, dove:
+con \(Q\) \textbf{spazio delle configurazioni} e \(TQ\) \textbf{fibrato tangente} dello spazio delle configurazioni, dove:
 
 \begin{itemize}
 \item Un elemento di \(Q\) è semplicemente una configurazione $\mathbf{q}$;
@@ -499,13 +501,7 @@ Per individuare una correlazione tra la meccanica newtoniana e quella lagrangian
 \dfrac{d}{dt}\dfrac{\partial L}{\partial{\dot{q}}_{i}} - \dfrac{\partial L}{\partial q_{i}} = 0
 \]
 
-È noto che la lagrangiana è data da:
-
-\[
-L\left( \mathbf{q},\mathbf{\dot{q}}, t \right) = T\left( \mathbf{q},\mathbf{\dot{q}}, t \right) - U\left( \mathbf{q}, t \right)
-\]
-
-Per cui, è possibile scrivere l'equazione in termini di energie:
+È noto che la lagrangiana è data da $L\left( \mathbf{q},\mathbf{\dot{q}}, t \right) = T\left( \mathbf{q},\mathbf{\dot{q}}, t \right) - U\left( \mathbf{q}, t \right)$, per cui è possibile scrivere l'equazione in termini di energie:
 
 \[
 \dfrac{d}{dt}\dfrac{\partial}{\partial{\dot{q}}_{i}}\left[ T\left( \mathbf{q},\mathbf{\dot{q}} \right) - U\left( \mathbf{q} \right) \right] - \dfrac{\partial}{\partial q_{i}}\left[ T\left( \mathbf{q},\mathbf{\dot{q}} \right) - U\left( \mathbf{q} \right) \right] = 0
@@ -517,9 +513,7 @@ Si considera il caso in cui le coordinate generalizzate coincidano con le coordi
 L\left( \mathbf{x},\mathbf{\dot{x}} \right) = T\left( \mathbf{\dot{x}} \right) - U\left( \mathbf{x} \right)
 \]
 
-dove l'energia cinetica $T$ dipende solo dalle velocità e l'energia potenziale $U$ dipende solo dalle posizioni.
-
-L'equazione di Eulero-Lagrange in coordinate cartesiane $x_i$ diventa:
+dove l'energia cinetica $T$ dipende solo dalle velocità e l'energia potenziale $U$ dipende solo dalle posizioni. L'equazione di Eulero-Lagrange in coordinate cartesiane $x_i$ diventa:
 
 \[
 \dfrac{d}{dt}\dfrac{\partial}{\partial{\dot{x}}_{i}}\left[ T\left( \mathbf{\dot{x}} \right) - U\left( \mathbf{x} \right) \right] - \dfrac{\partial}{\partial x_{i}}\left[ T\left( \mathbf{\dot{x}} \right) - U\left( \mathbf{x} \right) \right] = 0
@@ -555,27 +549,19 @@ Derivando quantità rispetto al tempo si ottiene il primo membro dell'equazione 
 \dfrac{d}{dt}\dfrac{\partial T}{\partial{\dot{x}}_{i}} = \dfrac{d}{dt}\left( m_{i}{\dot{x}}_{i} \right) = m_{i}{\ddot{x}}_{i}
 \]
 
-Sostituendo nell'equazione di Eulero-Lagrange si ottiene l'Equazione di Newton per la coordinata $x_i$:
+Sostituendo nell'equazione di Eulero-Lagrange si ottiene l'Equazione di Newton per la coordinata $x_i$ si ricava:
 
 \[
 \dfrac{d}{dt}\dfrac{\partial T}{\partial{\dot{x}}_{i}} = - \dfrac{\partial U}{\partial x_{i}} \Leftrightarrow m_{i}{\ddot{x}}_{i} = - \dfrac{\partial U}{\partial x_{i}}
 \]
 
-Dal secondo principio della dinamica è noto che:
-
-\[
-m_{i}{\ddot{x}}_{i} = F_{i}
-\]
-
-dove $F_{i}$ è la $i$-esima componente della forza conservativa agente sulla particella. Poiché la forza conservativa è data dal gradiente negativo dell'energia potenziale ($\mathbf{F} = -\mathbf{\nabla}U$):
+Dal secondo principio della dinamica è noto che $m_{i}{\ddot{x}}_{i} = F_{i}$, dove $F_{i}$ è la $i$-esima componente della forza conservativa agente sulla particella. Poiché la forza conservativa è data dal gradiente negativo dell'energia potenziale ($\mathbf{F} = -\mathbf{\nabla}U$):
 
 \[
 F_{i} = - \dfrac{\partial U}{\partial x_{i}}
 \]
 
-La Lagrangiana è quindi equivalente alle leggi di Newton (per sistemi conservativi). 
-
-Va notato che in coordinate cartesiane, l'energia potenziale non dipende dalla velocità, dunque:
+La Lagrangiana è quindi equivalente alle leggi di Newton (per sistemi conservativi). Va notato che in coordinate cartesiane, l'energia potenziale non dipende dalla velocità, dunque:
 
 \[
 \dfrac{\partial T}{\partial{\dot{x}}_{i}} = \dfrac{\partial}{\partial{\dot{x}}_{i}}\left(L + U\right) = \dfrac{\partial L}{\partial{\dot{x}}_{i}}
@@ -596,12 +582,10 @@ Q_{i} = - \dfrac{\partial U}{\partial q_{i}} & \quad (\text{Forza generalizzata 
 \end{cases}
 \]
 
-Le due relazioni sono note come definizioni fondamentali della meccanica lagrangiana. La prima (\(p_{i}\)) è detta \textbf{momento generalizzato coniugato}, mentre la seconda forza generalizzata. 
-
-Più in generale, la \textbf{forza generalizzata} $Q_i$ è definita come il coefficiente del lavoro virtuale $\delta W = \sum_i Q_i \delta q_i$:
+Le due relazioni sono note come definizioni fondamentali della meccanica lagrangiana. La prima (\(p_{i}\)) è detta \textbf{momento generalizzato coniugato}, mentre la seconda forza generalizzata. Più in generale, la \textbf{forza generalizzata} $Q_i$ è definita come il coefficiente del lavoro virtuale $\delta W = \sum_i Q_i \delta q_i$:
 
 \[
-Q_i = \sum_j \mathbf{F}_j \cdot \frac{\partial \mathbf{r}_j}{\partial q_i}
+Q_i = \sum_j \mathbf{F}_j \cdot \dfrac{\partial \mathbf{r}_j}{\partial q_i}
 \]
 
 Considerando l'equazione di Eulero-Lagrange e sostituendo la relazione per il momento coniugato generalizzato:
@@ -649,7 +633,9 @@ La derivata totale rispetto al tempo della lagrangiana, per la derivata delle fu
 \dfrac{d L}{d t} = \sum_{i=1}^s \left( \dfrac{\partial L}{\partial q_i}\dfrac{d q_i}{d t} + \dfrac{\partial L}{\partial \dot{q}_i}\dfrac{d \dot{q}_i}{d t} \right) + \dfrac{\partial L}{\partial t} 
 \] 
 
-Poiché si assume che la lagrangiana non dipendente esplicitamente dal tempo la sua derivata rispetto a tale variabile è nulla. Utilizzando la notazione vettoriale, mediante il prodotto scalare generalizzato, è possibile scrivere: 
+Poiché si assume che la lagrangiana non dipendente esplicitamente dal tempo la sua derivata rispetto a tale variabile è nulla. 
+
+Utilizzando la notazione vettoriale, mediante il prodotto scalare generalizzato, è possibile scrivere: 
 
 \[ 
 \dfrac{d L}{d t} = \dfrac{\partial L}{\partial\mathbf{q}}\cdot\mathbf{\dot{q}} + \dfrac{\partial L}{\partial\mathbf{\dot{q}}}\cdot\mathbf{\ddot{q}} 
@@ -828,12 +814,7 @@ Sommando su tutte le particelle $i=1, \ldots, N$:
 \sum_{i=1}^N \dfrac{\partial L}{\partial \mathbf{r}_i} = \sum_{i=1}^N \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial \mathbf{v}_i} \right) 
 \]
 
-Sostituendo la condizione di omogeneità spaziale:
-\[
-\sum_{i=1}^N \dfrac{\partial L}{\partial \mathbf{r}_i} = \mathbf{0}
-\]
-
-si ottiene:
+Sostituendo la condizione di omogeneità spaziale $\sum_{i=1}^N \dfrac{\partial L}{\partial \mathbf{r}_i} = \mathbf{0}$, si ottiene:
 
 \[ 
 \sum_{i=1}^N \dfrac{d}{dt}\left( \dfrac{\partial L}{\partial \mathbf{v}_i} \right) = \mathbf{0} 
@@ -851,9 +832,7 @@ Integrando rispetto al tempo si ottiene:
 \sum_{i=1}^N \dfrac{\partial L}{\partial \mathbf{v}_i} = \mathbf{const} 
 \] 
 
-In altre parole, il gradiente della lagrangiana rispetto alla velocità è costante.
-
-La Lagrangiana in coordinate cartesiane è: 
+In altre parole, il gradiente della lagrangiana rispetto alla velocità è costante. La Lagrangiana in coordinate cartesiane è: 
 
 \[ 
 L = \dfrac{1}{2}\sum_{i = 1}^{N}{m_{i} \mathbf{v}_{i} \cdot \mathbf{v}_{i}} - U\left( \mathbf{r}_{1}, \ldots, \mathbf{r}_{N} \right) 
@@ -939,13 +918,7 @@ Sostituendo nella condizione di simmetria:
 d\boldsymbol{\varphi} \cdot \sum_{i = 1}^{N}\left( \mathbf{v}_{i} \times \mathbf{p}_{i} + \mathbf{r}_{i} \times \dfrac{d\mathbf{p}_{i}}{dt} \right) = 0 
 \]
 
-Poiché la quantità di moto è parallela alla velocità ($\mathbf{p}_{i} = m_{i}\mathbf{v}_{i}$), il loro prodotto vettoriale è nullo:
-
-\[ 
-\mathbf{v}_{i} \times \mathbf{p}_{i} = \mathbf{0} 
-\] 
-
-Resta, dunque: 
+Poiché la quantità di moto è parallela alla velocità ($\mathbf{p}_{i} = m_{i}\mathbf{v}_{i}$), il loro prodotto vettoriale è nullo, $\mathbf{v}_{i} \times \mathbf{p}_{i} = \mathbf{0}$, resta, dunque: 
  
 \[ 
 d\boldsymbol{\varphi} \cdot \sum_{i = 1}^{N}\left( \mathbf{r}_{i} \times \dfrac{d\mathbf{p}_{i}}{dt} \right) = 0 
@@ -986,18 +959,18 @@ Da questa relazione discende la conservazione della componente del momento angol
 
 \subsection{Lagrangiana per pendolo}\label{lagrangiana-per-pendolo}
 
-Si considera un corpo di massa \(m\) sospeso a un filo di lunghezza \(l\) nel campo gravitazionale con accelerazione \(g\).
+Si considera un corpo di massa \(m\) sospeso a un filo di lunghezza \(l\) nel campo gravitazionale con accelerazione \(g\). Il pendolo possiede un solo grado di libertà, ovvero la rotazione intorno al proprio polo. Sia \(\vartheta\) l'angolo di cui la massa \(m\) è inclinata rispetto la verticale. 
 
-\begin{figure}[H]
-    \resizebox{0.5\textwidth}{!}{%
+\begin{figure}[ht]
     \centering
+    \resizebox{0.367\textwidth}{!}{%
     \input{Image/1_Meccanica/1_Pendolo}
     }
     \caption{Pendolo semplice}
     \label{fig:1_Pendolo}
 \end{figure}
 
-Il pendolo possiede un solo grado di libertà, ovvero la rotazione intorno al proprio polo. Sia \(\vartheta\) l'angolo di cui la massa \(m\) è inclinata rispetto la verticale. La funzione lagrangiana data da:
+La funzione lagrangiana per questo sistema è data da:
 
 \[L\left( \vartheta,\dot{\vartheta} \right) = T - U\]
 
@@ -1065,22 +1038,18 @@ In definitiva, si ottiene l'equazione dell'oscillatore armonico.
 
 \subsection{Lagrangiana per il doppio pendolo}\label{lagrangiana-per-il-doppio-pendolo}
 
-Si vuole scrivere la Lagrangiana per un doppio pendolo, costituito da due masse, $m_{1}$ e $m_{2}$, connesse tra loro. La prima massa è collegata al fulcro mediante un'asta (o cavo) rigida di lunghezza $l_{1}$; la seconda è connessa a $m_{1}$ mediante un'asta di lunghezza $l_{2}$. I parametri generalizzati del sistema sono gli angoli $\vartheta_{1}$ e $\vartheta_{2}$, misurati rispetto alla verticale, da cui si deduce che il sistema ha $2$ gradi di libertà.
+Si vuole scrivere la Lagrangiana per un doppio pendolo, costituito da due masse, $m_{1}$ e $m_{2}$, connesse tra loro. La prima massa è collegata al fulcro mediante un'asta (o cavo) rigida di lunghezza $l_{1}$; la seconda è connessa a $m_{1}$ mediante un'asta di lunghezza $l_{2}$. I parametri generalizzati del sistema sono gli angoli $\vartheta_{1}$ e $\vartheta_{2}$, misurati rispetto alla verticale, da cui si deduce che il sistema ha $2$ gradi di libertà. Si suppone che l'origine del sistema di riferimento sia nel fulcro. L'asse delle ascisse ($x$) è orientato verso destra mentre l'asse delle ordinate ($y$) è orientato verso il basso. Gli angoli $\vartheta_{1}$ e $\vartheta_{2}$ sono misurati dalla verticale negativa (verso il basso).
 
-\begin{figure}[H]
+\begin{figure}[ht]
 \centering
-\resizebox{0.49\textwidth}{!}{%
+\resizebox{0.48\textwidth}{!}{%
 \input{Image/1_Meccanica/1_DoublePendolo}
 }
 \caption{Doppio pendolo}
 \label{fig:1_DoublePendolo}
 \end{figure}
 
-Si suppone che l'origine del sistema di riferimento sia nel fulcro. L'asse delle ascisse ($x$) è orientato verso destra mentre l'asse delle ordinate ($y$) è orientato verso il basso. Gli angoli $\vartheta_{1}$ e $\vartheta_{2}$ sono misurati dalla verticale negativa (verso il basso).
-
 Le coordinate delle masse $m_1$ e $m_2$ sono:
-
-
 
 \[
 l_{1}: \begin{cases}
@@ -1118,10 +1087,12 @@ v_{1}^{2} = {\dot{x}}_{1}^{2} + {\dot{y}}_{1}^{2} = l_{1}^{2}{\dot{\vartheta}}_{
 
 La velocità al quadrato della massa $m_{2}$ è:
 
-\begin{align*}
+\[
+\begin{aligned}
 v_{2}^{2} &= {\dot{x}}_{2}^{2} + {\dot{y}}_{2}^{2} = \left( l_{1}\cos\vartheta_{1}\,{\dot{\vartheta}}_{1} + l_{2}\cos\vartheta_{2}\,{\dot{\vartheta}}_{2} \right)^{2} + \left( l_{1}\sin\vartheta_{1}\,{\dot{\vartheta}}_{1} + l_{2}\sin\vartheta_{2}\,{\dot{\vartheta}}_{2} \right)^{2} =\\
 &= l_{1}^{2}{\dot{\vartheta}}_{1}^{2} + l_{2}^{2}{\dot{\vartheta}}_{2}^{2} + 2l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\left( \cos\vartheta_{1}\cos\vartheta_{2} + \sin\vartheta_{1}\sin\vartheta_{2} \right) \\
-\end{align*}
+\end{aligned}
+\]
 
 Ricorrendo alle identità trigonometriche, è possibile scrivere:
 
@@ -1149,13 +1120,15 @@ U = m_{1}g\left( l_{1}\cos\vartheta_{1} \right) + m_{2}g\left( l_{1}\cos\varthet
 
 La Lagrangiana $L = T - U$ per questo sistema è data da:
 
-\begin{align*}
+\[
+\begin{aligned}
 L\left( \vartheta_{1},\vartheta_{2},{\dot{\vartheta}}_{1},{\dot{\vartheta}}_{2} \right)
 &= \dfrac{1}{2}\left( m_{1} + m_{2} \right)l_{1}^{2}{\dot{\vartheta}}_{1}^{2}
 + \dfrac{1}{2}m_{2}l_{2}^{2}{\dot{\vartheta}}_{2}^{2}
 + m_{2}l_{1}l_{2}{\dot{\vartheta}}_{1}{\dot{\vartheta}}_{2}\cos\left( \vartheta_{1} - \vartheta_{2} \right) + \\
 &\quad - g \left[ \left( m_{1} + m_{2} \right)l_{1}\cos\vartheta_{1} + m_{2}l_{2}\cos\vartheta_{2} \right]
-\end{align*}
+\end{aligned}
+\]
 
 La funzione Lagrangiana deve soddisfare le equazioni di Eulero-Lagrange:
 
@@ -1185,9 +1158,9 @@ m_{2}l_{2}^{2}{\ddot{\vartheta}}_{2} + m_{2}l_{1}l_{2}{\ddot{\vartheta}}_{1}\cos
 
 Risolte le due equazioni, si ottiene la traiettoria, descritta da \(\vartheta_{1}\) e \(\vartheta_{2}\), del doppio pendolo.
 
-\begin{figure}[H]
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=0.61\textwidth]{media/1_Meccanica/doppio_pendolo.eps}
+    \includegraphics[width=0.80\textwidth]{media/1_Meccanica/doppio_pendolo.eps}
     \caption{Sequenza temporale del moto del doppio pendolo in 10 istanti successivi}
     \label{fig:1_doppio_pendolo}
 \end{figure}
@@ -1236,7 +1209,7 @@ Si differenzia anche la lagrangiana $L(\mathbf{q},\mathbf{\dot{q}})$, anche in q
 dL\left( \mathbf{q},\mathbf{\dot{q}} \right) = \sum_{i = 1}^{s}\left( \dfrac{\partial L}{\partial q_{i}}dq_{i} + \dfrac{\partial L}{\partial{\dot{q}}_{i}}d{\dot{q}}_{i} \right)
 \]
 
-Combinando le definizioni fondamentali della Lagrangiana (il momento coniugato generalizzato e l'Equazione di Eulero-Lagrange) si ha:
+Combinando le definizioni fondamentali della Lagrangiana:
 
 \[
 \begin{cases}
@@ -1626,27 +1599,21 @@ global A
 A=[-5.5 1.1;1.1 -1.2]; % matrice dei coefficienti del sistema
 Ts=0.001;
 t_span=0:Ts:200;
-y0 = {.5,.5,0,0}'; % si usa il trasposto perche' e' necessario avere un vettore colonna
+y0 = {.5,.5,0,0}'; % il trasposto serve per avere un vettore colonna
 \end{lstlisting}
 
 Si risolve il sistema mediante ode45, il risolutore di equazioni differenziali. Bisogna utilizzare una funzione che implementa il sistema di equazioni differenziali.
 
 \begin{lstlisting}
-eq=@sistema\_f;
-[t,s]=ode45(eq,t\_span,y0);
-a\_val=eig(A);
-w=abs(a\_val);
+eq=@sistema_f;
+[t,s]=ode45(eq,t_span,y0);
+a_val=eig(A);
+w=abs(a_val);
 w1=sqrt(w(1))
 w2=sqrt(w(2))
 \end{lstlisting}
 
-risulta che:
-
-\[
-\omega_{1} = 2.4011 \quad \text{e} \quad \omega_{2} = 0.9669
-\]
-
-Si plottano le due funzioni e i picchi spettrali.
+risulta che $\omega_{1} = 2.4011$ e $\omega_{2} = 0.9669$. Si plottano le due funzioni e i picchi spettrali.
 
 \begin{lstlisting}
 subplot(1,2,1)
@@ -1658,9 +1625,9 @@ plot(fax,abs(fft(s(:,1:2))))
 set(gca,'xlim',[0 1])
 \end{lstlisting}
 
-\begin{figure}[H]
+\begin{figure}[ht]
 \centering
-\includegraphics[scale=0.27]{media/1_Meccanica/spettro_segnali.eps}
+\includegraphics[scale=0.278]{media/1_Meccanica/spettro_segnali.eps}
 \caption{Andamento delle soluzioni e relativa risposta spettrale}
 \label{fig:1_spettro_segnali}
 \end{figure}

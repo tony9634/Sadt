@@ -602,7 +602,7 @@ ds^2 = c^2 dt^2 - d\mathbf{x} \cdot d\mathbf{x} = c^2 d\tau^2
 Il tempo proprio $d\tau$ è legato al tempo misurato in un sistema di riferimento inerziale ($dt$) tramite il fattore di Lorentz $\gamma$:
 
 \[
-d\tau = \frac{1}{\gamma} dt = \sqrt{1 - \frac{v^{2}}{c^{2}}}dt
+d\tau = \dfrac{1}{\gamma} dt = \sqrt{1 - \dfrac{v^{2}}{c^{2}}}dt
 \]
 
 Per garantire l'invarianza dell'azione, l'integrando deve essere una quantità proporzionale al tempo proprio, l'unico intervallo di tempo intrinsecamente legato alla particella. Si definisce l'azione come: 
@@ -614,13 +614,13 @@ S = \int_{\tau_1}^{\tau_2}{\alpha d\tau}
 dove $\alpha$ è una costante scalare da determinare. Sostituendo l'espressione per $d\tau$, l'azione può essere riscritta in funzione del tempo coordinato $t$:
 
 \[
-S = \int_{t_1}^{t_2}{\alpha \sqrt{1 - \frac{v^{2}}{c^{2}}}dt}
+S = \int_{t_1}^{t_2}{\alpha \sqrt{1 - \dfrac{v^{2}}{c^{2}}}dt}
 \]
 
 Da cui si ricava la \textbf{Lagrangiana Relativistica} $L^{r}$: 
 
 \[
-L^{r} = \alpha \sqrt{1 - \frac{v^{2}}{c^{2}}}
+L^{r} = \alpha \sqrt{1 - \dfrac{v^{2}}{c^{2}}}
 \]
 
 La meccanica relativistica deve inglobare la meccanica classica nel caso limite in cui $v \ll c$. In questa condizione, la Lagrangiana relativistica approssimata $L_{appr}^{r}$ deve coincidere con la Lagrangiana classica $L_{class}$, a meno di una costante additiva. 
@@ -639,7 +639,7 @@ S = \int{\alpha\sqrt{1 - \dfrac{v^{2}}{c^{2}}}dt} \simeq \int{\alpha\left( 1 - \
 L'integrando coincide con la lagrangiana relativistica $L_{appr}^r$, nel limite delle meccanica classica, in cui le velocità in gioco sono molto minori della velocità della luce. Questa quantità deve coincidere con la lagrangiana classica ($L_{class}$), a meno di una costante additiva, in quanto le equazioni di Eulero-Lagrange dipendono solamente dalla derivata della lagrangiana. Per una particella libera, la Lagrangiana classica è:
 
 \[
-L_{class} = \frac{1}{2}m_{0}v^{2}
+L_{class} = \dfrac{1}{2}m_{0}v^{2}
 \]
 
 dove $m_{0}$ è la \textbf{massa a riposo} (o massa invariante). Nell'approssimazione classica, l'azione è data da:
@@ -676,9 +676,7 @@ La costante $- m_{0}c^{2}$ non influenza le equazioni del moto di Eulero-Lagrang
 L^{r} = - m_{0}c^{2}\sqrt{1 - \dfrac{v^{2}}{c^{2}}} = - m_{0}c^{2}\sqrt{1 - \dfrac{\mathbf{v} \cdot \mathbf{v}}{c^{2}}} 
 \]
 
-Con questo risultato si ha la certezza che, nel limite \(v \ll c\), la lagrangiana relativistica e quella classica coincidano, a meno di una costante \(- m_{0}c^{2}\).
-
-Dall'equivalenza tra meccanica newtoniana e meccanica lagrangiana è possibile ricavare la definizione di momento lineare generalizzato alla meccanica relativistica:
+Con questo risultato si ha la certezza che, nel limite \(v \ll c\), la lagrangiana relativistica e quella classica coincidano, a meno di una costante \(- m_{0}c^{2}\). Dall'equivalenza tra meccanica newtoniana e meccanica lagrangiana è possibile ricavare la definizione di momento lineare generalizzato alla meccanica relativistica:
 
 \[
 \mathbf{p} = \dfrac{\partial L}{\partial\mathbf{v}} = \dfrac{\partial}{\partial\mathbf{v}}\left( - m_{0}c^{2}\sqrt{1 - \dfrac{\mathbf{v} \cdot \mathbf{v}}{c^{2}}} \right) = \dfrac{m_{0}\mathbf{v}}{\sqrt{1 - \dfrac{v^{2}}{c^{2}}}}
@@ -690,9 +688,7 @@ Semplificando i termini, si ottiene la \textbf{quantità di moto relativistica}:
 \mathbf{p} = \dfrac{m_{0}\mathbf{v}}{\sqrt{1 - \dfrac{v^{2}}{c^{2}}}} = \gamma m_{0}\mathbf{v} 
 \] 
 
-dove $\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}$ è il fattore di Lorentz. 
-
-Da questa relazione è possibile osservare che la massa relativistica è legata alla massa inerziale dalla relazione:
+dove $\gamma = {\sqrt{1 - v^2/c^2}}^{-1}$ è il fattore di Lorentz. Da questa relazione è possibile osservare che la massa relativistica è legata alla massa inerziale dalla relazione:
 
 \[
 m = \dfrac{m_{0}}{\sqrt{1 - \dfrac{v^{2}}{c^{2}}}} = \gamma m_{0}
@@ -712,7 +708,7 @@ m \rightarrow \infty,\quad v \rightarrow c
 
 \begin{figure}[ht]
 \centering
-\resizebox{0.54\textwidth}{!}{%
+\resizebox{0.45\textwidth}{!}{%
 \input{Image/2_Relatività/2_MassRelav}
 }
 \caption{Andamento della massa relativistica in funzione della velocità}
@@ -737,7 +733,7 @@ La massa \(m\), nel piano \(p - v\), rappresenta la pendenza della curva quantit
 
 \begin{figure}[ht]
 \centering
-\resizebox{0.82\textwidth}{!}{%
+\resizebox{0.64\textwidth}{!}{%
 \input{Image/2_Relatività/2_qMotoRelativistica}
 }
 \caption{Andamento della quantità di moto relativistica}
@@ -793,15 +789,13 @@ E\simeq m_{0}c^{2} +\dfrac{1}{2}m_{0}v^{2} ,\ \ v \ll c
 
 L'energia totale della particella è la somma dell'\textbf{Energia a Riposo} ($E_0 = m_{0}c^{2}$) e dell'\textbf{Energia Cinetica Classica} per una particella libera.  
 
-L'\textbf{Energia Cinetica Relativistica} $K$ è definita come la differenza tra l'energia totale e l'energia a riposo: 
+L'\textbf{Energia Cinetica Relativistica} $K$ è definita come la differenza tra l'energia totale e l'energia a riposo
 
 \[ 
 K = E - E_0 = \gamma m_{0}c^{2} - m_{0}c^{2} = m_{0}c^{2} (\gamma - 1) 
 \]
 
-Se la velocità $v$ approssima quella della luce, il fattore $\gamma \rightarrow \infty$, e di conseguenza anche l'energia totale $E \rightarrow \infty$. Questo risultato implica che è \textbf{impossibile} accelerare una particella con massa a riposo non nulla fino alla velocità della luce, poiché richiederebbe un apporto energetico infinito. 
-
-Anche in meccanica relativistica valgono i teoremi di conservazione, tuttavia, i principi di conservazione della massa e dell'energia sono sostituiti dal principio di conservazione della massa-energia.
+Se la velocità $v$ approssima quella della luce, il fattore $\gamma \rightarrow \infty$, e di conseguenza anche l'energia totale $E \rightarrow \infty$. Questo risultato implica che è \textbf{impossibile} accelerare una particella con massa a riposo non nulla fino alla velocità della luce, poiché richiederebbe un apporto energetico infinito. Anche in meccanica relativistica valgono i teoremi di conservazione, tuttavia, i principi di conservazione della massa e dell'energia sono sostituiti dal principio di conservazione della massa-energia.
 
 Elevando al quadrato l'equazione dell'energia totale e della quantità di moto ($p=|\mathbf{p}|$), si ottiene una relazione fondamentale che non dipende dalla velocità:
 
@@ -828,9 +822,7 @@ Questa relazione mostra come $m_{0}c^2$ sia una quantità invariante di Lorentz,
 
 \section{Quadrivettori}\label{quadrivettori}
 
-Lo \textbf{spazio-tempo di Minkowski} o \textbf{cronotopo} è lo spazio quadridimensionale introdotto da Einstein nella relatività ristretta, composto da tre coordinate spaziali e una temporale. Ogni fenomeno fisico è descritto da eventi nello spazio-tempo, detti quadrivettori.
-
-Il quadrivettore posizione $\mathbf{x}^{\mu}$ è:
+Lo \textbf{spazio-tempo di Minkowski} o \textbf{cronotopo} è lo spazio quadridimensionale introdotto da Einstein nella relatività ristretta, composto da tre coordinate spaziali e una temporale. Ogni fenomeno fisico è descritto da eventi nello spazio-tempo, detti quadrivettori. Il quadrivettore posizione $\mathbf{x}^{\mu}$ è:
 
 \[ 
 {x}^{\mu} = \begin{pmatrix} 
@@ -846,11 +838,13 @@ Si definisce \textbf{intervallo spazio-temporale} $\Delta s^2$ la quantità (inv
 \Delta s^{2} = c^{2}\Delta t^{2} - \left( \Delta x^{2} + \Delta y^{2} + \Delta z^{2} \right) 
 \] 
 
-Il termine $\Delta x^{2} + \Delta y^{2} + \Delta z^{2}$ coincide con il quadrato della distanza euclidea. L'intervallo $\Delta s^{2}$ è una quantità \textbf{invariante} rispetto alle trasformazioni di Lorentz \cite{landau1994meccanica}. L'invarianza dell'intervallo rispetto al quadrato della distanza euclidea è dovuta al fatto che lo spazio-tempo non è piatto, ma quadridimensionale e definito dalla \textbf{metrica di Minkowski}, non euclidea (maggiori dettagli \hyperref[cono_luce]{Capitolo~\ref{cono_luce}}).  La definizione di \(s\) è scelta in modo da ottenere equazioni simili alla meccanica classica.
+Il termine $\Delta x^{2} + \Delta y^{2} + \Delta z^{2}$ coincide con il quadrato della distanza euclidea. L'intervallo $\Delta s^{2}$ è una quantità \textbf{invariante} rispetto alle trasformazioni di Lorentz \cite{landau1994meccanica}. 
+
+L'invarianza dell'intervallo rispetto al quadrato della distanza euclidea è dovuta al fatto che lo spazio-tempo non è piatto, ma quadridimensionale e definito dalla \textbf{metrica di Minkowski}, non euclidea (maggiori dettagli \hyperref[cono_luce]{Capitolo~\ref{cono_luce}}).  La definizione di \(s\) è scelta in modo da ottenere equazioni simili alla meccanica classica.
 
 \begin{figure}[ht] 
     \centering 
-    \resizebox{0.45\textwidth}{!}{%
+    \resizebox{0.387\textwidth}{!}{%
     \input{Image/2_Relatività/2_cono_luce}
     }
     \caption{Diagramma bidimensionale del Cono Luce nello Spazio-Tempo di Minkowski} 
@@ -1017,9 +1011,7 @@ p \simeq \dfrac{E}{c^{2}}c = \dfrac{E}{c}
 Questa è la relazione che descrive la quantità di moto dei fotoni. 
 
 \subsection{Legge di trasformazione dei quadrivettori}\label{legge-di-trasformazione-dei-quadrivettori}
-Per comodità è possibile scrivere le trasformazioni di Lorentz in forma matriciale; così è più semplice determinare il modo in cui un quadrivettore in un sistema di riferimento \(K\) si trasforma in un quadrivettore nel sistema di riferimento \(K'\). 
- 
-Si parte dalle trasformazioni di Lorentz per le coordinate: 
+Per comodità è possibile scrivere le trasformazioni di Lorentz in forma matriciale; così è più semplice determinare il modo in cui un quadrivettore in un sistema di riferimento \(K\) si trasforma in un quadrivettore nel sistema di riferimento \(K'\). Si parte dalle trasformazioni di Lorentz per le coordinate: 
 
 \[ 
 \begin{cases} 
@@ -1096,7 +1088,7 @@ In generale in forma compatta con notazione di Einstein, la legge di trasformazi
 Dato che la derivata del quadrivettore posizione $x^\mu$ rispetto al tempo proprio $\tau$ definisce la \textbf{quadrivelocità}: 
  
 \[ 
-u^\mu = \frac{dx^\mu}{d\tau} 
+u^\mu = \dfrac{dx^\mu}{d\tau} 
 \] 
  
 e che quest'ultima è un quadrivettore, si trasforma secondo la stessa matrice  $\boldsymbol{\Lambda}$: 
@@ -1106,10 +1098,10 @@ e che quest'ultima è un quadrivettore, si trasforma secondo la stessa matrice  
 \] 
  
  
-La matrice di trasformazione di Lorentz è costante rispetto al tempo poiché la velocità relativa tra i due sistemi di riferimento è fissata, dunque, i termini \(\beta\) e \(\gamma\) sono costanti.  Infine, la quadrivelocità esplicitata è: 
+La matrice di trasformazione di Lorentz è costante rispetto al tempo poiché la velocità relativa tra i due sistemi di riferimento è fissata, dunque, i termini \(\beta\) e \(\gamma\) sono costanti. Infine, la quadrivelocità esplicitata è: 
  
 \[ 
-u^\mu = \gamma(c, v_x, v_y, v_z), \quad \text{dove } \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} 
+u^\mu = \gamma(c, v_x, v_y, v_z), \quad \text{dove } \gamma = \dfrac{1}{\sqrt{1 - \dfrac{v^2}{c^2}}} 
 \] 
 
 Svolgendo la moltiplicazione per componenti del quadrivettore quadrivelocità ${u'}^{\mu} = \boldsymbol{\Lambda} u^{\mu}$, si ottengono: 
@@ -1137,22 +1129,22 @@ Poiché $u^{0}$ e $u^{1} = \gamma v_x$, le trasformazioni si scrivono come:
 Il rapporto tra le componenti del quadrivelocità nel sistema primato è quindi:
 
 \[
-\frac{{u'}^{1}}{{u'}^{0}} 
-= \frac{v_x - \beta c}{c - \beta v_x}.
+\dfrac{{u'}^{1}}{{u'}^{0}} 
+= \dfrac{v_x - \beta c}{c - \beta v_x}.
 \]
 
 Moltiplicando per \(c\), la velocità trasformata lungo l’asse \(x\) è:
 
 \[
-v'_x = c\,\frac{{u'}^{1}}{{u'}^{0}}
-     = \frac{v_x - V}{1 - \dfrac{V v_x}{c^2}}.
+v'_x = c\,\dfrac{{u'}^{1}}{{u'}^{0}}
+     = \dfrac{v_x - V}{1 - \dfrac{V v_x}{c^2}}.
 \]
 
 Queste relazioni sono fondamentali per derivare le \textbf{Formule di Composizione della Velocità di Einstein}. Ad esempio, dividendo la seconda equazione per la prima si ottiene ${v'}_x$: 
  
 \[
-{v'}_x = c\,\frac{{u'}^1}{{u'}^0}
-     = \frac{v_x - V}{1 - \dfrac{V v_x}{c^2}}.
+{v'}_x = c\,\dfrac{{u'}^1}{{u'}^0}
+     = \dfrac{v_x - V}{1 - \dfrac{V v_x}{c^2}}.
 \]
 
 dove $V = \beta c$ è la velocità di $K'$ rispetto a $K$. 
@@ -1225,6 +1217,16 @@ Il Cono di Luce è la manifestazione geometrica del principio secondo cui \textb
 
 Un urto anelastico è un particolare tipo di urto in cui si conservano la quantità di moto totale e l'energia totale. L'energia cinetica relativa \textbf{non} si conserva ma si trasforma in energia interna del sistema (incrementando la massa a riposo). Fondamentalmente, le due particelle dopo l'urto si fondono in un'unica particella, come, ad esempio, due nuclei di idrogeno che collidono, producendo un nucleo di elio.
 
+\begin{figure}[ht]
+    \centering
+    \resizebox{0.51\textwidth}{!}{%
+    \input{Image/2_Relatività/2_UrtoAnelastico.tex}
+    }
+    \caption{Urto anelastico tra due particelle}
+    \label{fig:2_UrtoAnelastico}
+\end{figure}
+
+
 Si pone l'origine del sistema di riferimento \(S\) nel centro di massa delle due particelle. Se le due particelle di masse identiche \(m_0\) hanno velocità uguali ed opposte, la quantità di moto totale deve essere nulla:
 
 \[
@@ -1232,18 +1234,10 @@ Si pone l'origine del sistema di riferimento \(S\) nel centro di massa delle due
 \]
 
 Poiché:
+
 \[
 m_{1} = m_{2} = m_{0} \quad \text{e} \quad {\mathbf{v}}_{1} = - {\mathbf{v}}_{2}
 \]
-
-\begin{figure}[ht]
-    \centering
-    \resizebox{0.4\textwidth}{!}{%
-    \input{Image/2_Relatività/2_UrtoAnelastico.tex}
-    }
-    \caption{Urto anelastico tra due particelle}
-    \label{fig:2_UrtoAnelastico}
-\end{figure}
 
 L'energia di una particella secondo la meccanica relativistica è data da:
 \[
@@ -1280,9 +1274,7 @@ Poiché le due particelle, prima dell'urto, erano in moto, il fattore di Lorentz
 
 \section{Conservazione dell'energia relativistica}\label{conservazione-dellenergia-relativistica}
 
-Il principio di conservazione dell'energia relativistica può essere dimostrato partendo dal principio di conservazione del quadrivettore energia-momento. Si considera la conservazione della quantità di moto in due sistemi di riferimento: il sistema del centro di massa (\(S\)) e un sistema traslato (\(S'\)) che si muove con velocità $V = \beta c$ lungo l'asse $x$ rispetto a $S$.
-
-Supponendo che il moto avvenga solamente lungo l'asse $x$, la conservazione della quantità di moto nel sistema $S'$ (traslato) è:
+Il principio di conservazione dell'energia relativistica può essere dimostrato partendo dal principio di conservazione del quadrivettore energia-momento. Si considera la conservazione della quantità di moto in due sistemi di riferimento: il sistema del centro di massa (\(S\)) e un sistema traslato (\(S'\)) che si muove con velocità $V = \beta c$ lungo l'asse $x$ rispetto a $S$. Supponendo che il moto avvenga solamente lungo l'asse $x$, la conservazione della quantità di moto nel sistema $S'$ (traslato) è:
 
 \[
 p_{x_{1}'} + p_{x_{2}'} = p_{x_{3}'}
@@ -1342,7 +1334,7 @@ Sostituendo il vincolo $p_{x_{1}} + p_{x_{2}} = 0$ e $p_{x_{3}} = 0$ nell'equazi
 - \dfrac{\beta\gamma}{c}\left( E_{1} + E_{2} \right) + \gamma\left( 0 \right) = - \dfrac{\beta\gamma}{c}E_{3} + \gamma (0)
 \]
 
-Semplificando i termini comuni $-\frac{\beta\gamma}{c}$ (assumendo $\beta \ne 0$), si ottiene:
+Semplificando i termini comuni $-{\beta\gamma}/{c}$ (assumendo $\beta \ne 0$), si ottiene:
 
 \[
 E_{1} + E_{2} = E_{3}

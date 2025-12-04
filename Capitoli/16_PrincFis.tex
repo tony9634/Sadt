@@ -198,13 +198,13 @@ Da cui risulta che:
 
 \[E\left\lbrack N(t + dt) - N(t) \right\rbrack = E\lbrack dN\rbrack = - E\left\lbrack N(t) \right\rbrack\lambda dt\]
 
-\[E\left\lbrack \frac{dN}{dt} \right\rbrack = - E\left\lbrack N(t) \right\rbrack\lambda\]
+\[E\left\lbrack \dfrac{dN}{dt} \right\rbrack = - E\left\lbrack N(t) \right\rbrack\lambda\]
 
 Si ottiene, quindi, un'equazione del tipo:
 
-\[- \frac{dN}{dt} = \lambda N\]
+\[- \dfrac{dN}{dt} = \lambda N\]
 
-Dove \(- \frac{dN}{dt}\) è il tasso di decadimento, o attività, e può essere anche indicato con \(A\). La soluzione è ovviamente del tipo esponenziale:
+Dove \(- \dfrac{dN}{dt}\) è il tasso di decadimento, o attività, e può essere anche indicato con \(A\). La soluzione è ovviamente del tipo esponenziale:
 
 \[A(t) = A_{0}e^{- \lambda t}\]
 
@@ -212,25 +212,25 @@ Dove \(\lambda\) è la costante di decadimento o di disintegrazione ed è specif
 
 Per praticità, poiché il fenomeno è esponenziale, si introduce il tempo di emivita, ovvero il tempo in cui l'attività del radionuclide si dimezza:
 
-\[A\left( t_{\frac{1}{2}} \right) = \frac{1}{2}A_{0}\]
+\[A\left( t_{\dfrac{1}{2}} \right) = \dfrac{1}{2}A_{0}\]
 
-\[A_{0}e^{- \lambda t} = \frac{1}{2}A_{0}\]
+\[A_{0}e^{- \lambda t} = \dfrac{1}{2}A_{0}\]
 
 Da quest'ultima relazione è possibile ricavare la definizione del tempo di emivita:
 
-\[t_{\frac{1}{2}} = \frac{\log(2)}{\lambda} = \frac{0.693}{\lambda}\]
+\[t_{\dfrac{1}{2}} = \dfrac{\log(2)}{\lambda} = \dfrac{0.693}{\lambda}\]
 
 Si definisce vita media come il reciproco della costante di decadimento:
 
-\[\tau = \frac{1}{\lambda}\]
+\[\tau = \dfrac{1}{\lambda}\]
 
 Si può dire che un radionuclide decade del 63\% in una vita media. Infatti, risulta che:
 
-\[A(\tau) = A_{0}e^{- \lambda\tau} = A_{0}e^{- \frac{\lambda}{\lambda}} = \frac{A_{0}}{e} = 0.63A_{0}\]
+\[A(\tau) = A_{0}e^{- \lambda\tau} = A_{0}e^{- \dfrac{\lambda}{\lambda}} = \dfrac{A_{0}}{e} = 0.63A_{0}\]
 
 Oltre al tempo di emivita del radionuclide, bisogna considerare il tempo impiegato dall'organismo umano per eliminare il radiofarmaco somministrato. Solitamente, infatti, i radiofarmaci sono espulsi attraverso le urine in un tempo dipendente dal farmaco stesso e dalla dose. Al tempo di decadimento, quindi, si aggiunge un tempo di decadimento biologico, definito dalla costante \(\lambda_{b}\), ovvero la costante di escrezione dal sistema biologico. Il tempo di decadimento biologico è calcolato come:
 
-\[T_{b} = \frac{0.693}{\lambda_{b}}\]
+\[T_{b} = \dfrac{0.693}{\lambda_{b}}\]
 
 Si definisce una costante efficace \(\lambda_{e}\), data da:
 
@@ -238,7 +238,7 @@ Si definisce una costante efficace \(\lambda_{e}\), data da:
 
 dove \(\lambda_{p}\) è la costante reale. Da questa scrittura è possibile, quindi, definire un tempo efficace, secondo la relazione:
 
-\[\frac{1}{T_{e}} = \frac{1}{T_{b}} + \frac{1}{T_{p}}\]
+\[\dfrac{1}{T_{e}} = \dfrac{1}{T_{b}} + \dfrac{1}{T_{p}}\]
 
 L'unità di misura utilizzata è il Bequerel (Bq), dove:
 
@@ -260,7 +260,7 @@ Una dose di \(_{}^{18}F - FDG\) ha un'attività di \(20\) \(mCi\) alle ore 10.00
 
 Si converte il tempo di emivita in ore:
 
-\[t_{\frac{1}{2}} = 110min \Leftrightarrow \ t_{\frac{1}{2}} = \frac{110min}{60min/h} = 1.8h\]
+\[t_{\dfrac{1}{2}} = 110min \Leftrightarrow \ t_{\dfrac{1}{2}} = \dfrac{110min}{60min/h} = 1.8h\]
 
 Per esprimere l'attività da \(Ci\) a \(Bq\) è necessario utilizzare la relazione tra le due misure:
 
@@ -268,7 +268,7 @@ Per esprimere l'attività da \(Ci\) a \(Bq\) è necessario utilizzare la relazio
 
 La costante di decadimento la si ottiene dalla relazione che la lega con il tempo di emivita:
 
-\[t_{\frac{1}{2}} = \frac{0.693}{\lambda} \Leftrightarrow \lambda = \frac{0.693}{t_{\frac{1}{2}}} = \frac{0.693}{1.8h} = 0.385\frac{1}{h}\]
+\[t_{\dfrac{1}{2}} = \dfrac{0.693}{\lambda} \Leftrightarrow \lambda = \dfrac{0.693}{t_{\dfrac{1}{2}}} = \dfrac{0.693}{1.8h} = 0.385\dfrac{1}{h}\]
 
 Dalla relazione del decadimento \(A(t) = A_{0}e^{- \lambda t}\), si ricava l'attività alle 7.00 e alle 14.00, ponendo
 
@@ -276,9 +276,9 @@ Dalla relazione del decadimento \(A(t) = A_{0}e^{- \lambda t}\), si ricava l'att
 
 Dunque:
 
-\[A(7h) = A(10h)e^{- \lambda t} = 740MBq \cdot e^{- 0.385\frac{1}{h} \cdot 7h} \simeq 51MBq\]
+\[A(7h) = A(10h)e^{- \lambda t} = 740MBq \cdot e^{- 0.385\dfrac{1}{h} \cdot 7h} \simeq 51MBq\]
 
-\[A(14h) = A(10h)e^{- \lambda t} = 740MBq \cdot e^{- 0.385\frac{1}{h} \cdot 14h} \simeq 3.5MBq\]
+\[A(14h) = A(10h)e^{- \lambda t} = 740MBq \cdot e^{- 0.385\dfrac{1}{h} \cdot 14h} \simeq 3.5MBq\]
 
 \subsection{Interazione particelle--materia}\label{interazione-particellemateria}
 
@@ -379,13 +379,13 @@ Nell'effetto fotoelettrico, un fotone \(\gamma\) trasferisce interamente la sua 
 
 La probabilità che questo processo avvenga è proporzionale al cubo del numero atomico del materiale assorbente e inversamente proporzionale al cubo dell'energia del fotone incidente:
 
-\[P \propto \frac{Z^{3}}{E_{\gamma}^{3}}\]
+\[P \propto \dfrac{Z^{3}}{E_{\gamma}^{3}}\]
 
 La vacanza nella \emph{K-Shell} è riempita da un elettrone proveniente dai livelli energetici superiori, a seguito dell'emissione di fotoni X oppure di un elettrone di Auger.
 
 Se il fotone incidente ha energia inferiore all'energia di legame dell'elettrone, l'interazione fotoelettrica non può avvenire. Non appena l'energia dei fotoni incidenti diventa uguale a quella di legame, l'effetto fotoelettrico diviene un meccanismo dominante di interazione. Quando l'energia del fotone incidente aumenta ulteriormente, la probabilità di questa interazione decresce come:
 
-\[\frac{1}{E_{\gamma}^{3}}\]
+\[\dfrac{1}{E_{\gamma}^{3}}\]
 
 Dopo l'effetto fotoelettrico, l'atomo risulta ionizzato poiché ha perso un elettrone appartenente alle \emph{Shell} più interne, mentre l'elettrone espulso può interagire con altri atomi, causando ulteriori ionizzazioni. Si ha, quindi, una cascata di transizioni elettroniche al fine di riempire la vacanza creata dall'espulsione dell'elettrone interno. Questo processo si manifesta con l'emissione di fotoni con energia pari alla differenza dei due livelli energetici. Siccome ogni atomo possiede dei livelli energetici ben determinati, la radiazione emessa da un materiale è diversa da un altro. A questi fotoni emergenti si dà il nome di radiazione caratteristica. Se il numero atomico dell'atomo preso in considerazione è basso, ovvero Z è piccolo, allora si ha una bassa energia di legame K; per queste sostanze, quindi, predomina l'effetto Auger.
 
@@ -412,7 +412,7 @@ L'energia dell'elettrone a riposo è data dalla relazione di Einstein:
 
 Inoltre, l'energia si può anche scrivere come:
 
-\[E = hf = h\frac{c}{\lambda}\]
+\[E = hf = h\dfrac{c}{\lambda}\]
 
 Dove \(h\) è la costante di Planck. Vale la conservazione della quantità di moto, per cui:
 
@@ -422,22 +422,22 @@ Vale, inoltre, anche la conservazione dell'energia, secondo cui l'energia del fo
 
 \[E_{e_{i}} + E_{f_{i}} = E_{f_{f}} + E_{e_{f}} + E_{c}\]
 
-\[m_{e_{i}}c^{2} + hf_{i} = m_{e_{f}}c^{2} + hf_{f} + \frac{1}{2}m_{e_{f}}v^{2}\]
+\[m_{e_{i}}c^{2} + hf_{i} = m_{e_{f}}c^{2} + hf_{f} + \dfrac{1}{2}m_{e_{f}}v^{2}\]
 
 Dove:
 
-\[m_{e_{f}} = \frac{m_{e_{i}}}{\sqrt{1 - \left( \frac{v^{2}}{c^{2}} \right)}}\]
+\[m_{e_{f}} = \dfrac{m_{e_{i}}}{\sqrt{1 - \left( \dfrac{v^{2}}{c^{2}} \right)}}\]
 
 Scomponendo l'equazione per la conservazione della quantità di moto si ottiene un sistema:
 
 \[\left\{ \begin{array}{r}
-\frac{h}{\lambda_{i}} = \frac{m_{e_{i}}}{\sqrt{1 - \left( \frac{v^{2}}{c^{2}} \right)}}\cos\varphi + \frac{h}{\lambda_{f}}\cos\varphi \\
-\frac{m_{e_{i}}}{\sqrt{1 - \left( \frac{v^{2}}{c^{2}} \right)}}\sin\theta = \frac{h}{\lambda_{f}}\sin\theta
+\dfrac{h}{\lambda_{i}} = \dfrac{m_{e_{i}}}{\sqrt{1 - \left( \dfrac{v^{2}}{c^{2}} \right)}}\cos\varphi + \dfrac{h}{\lambda_{f}}\cos\varphi \\
+\dfrac{m_{e_{i}}}{\sqrt{1 - \left( \dfrac{v^{2}}{c^{2}} \right)}}\sin\theta = \dfrac{h}{\lambda_{f}}\sin\theta
 \end{array} \right.\ \]
 
 Dal sistema, aggiungendo anche la conservazione dell'energia, si ricava che:
 
-\[\lambda_{f} - \lambda_{i} = \mathrm{\Delta}\lambda = \frac{h}{m_{e_{i}}c}\left( 1 - \cos\varphi \right)\]
+\[\lambda_{f} - \lambda_{i} = \mathrm{\Delta}\lambda = \dfrac{h}{m_{e_{i}}c}\left( 1 - \cos\varphi \right)\]
 
 Siccome la lunghezza d'onda dipende dall'angolo, è possibile realizzare un grafico, da cui si evince che per basse energie incidenti (linea tratteggiata a 20keV) si ha una probabilità uniforme che i fotoni siano deflessi in tutte le direzioni dello spazio.
 
@@ -518,11 +518,11 @@ Si definisce lo strato emivalente oppure \emph{Half Value Layer} (HVL) come lo s
 
 Dove \(N_{0}\) è il numero dei fotoni incidenti mentre \(e^{- \mu x}\) la probabilità con cui essi siano attenuati. Lo spessore emivalente può essere ricavato come:
 
-\[N(HVL) = \frac{N_{0}}{2} \Leftrightarrow \frac{N_{0}}{2} = N_{0}e^{- \mu HVL}\]
+\[N(HVL) = \dfrac{N_{0}}{2} \Leftrightarrow \dfrac{N_{0}}{2} = N_{0}e^{- \mu HVL}\]
 
 Da cui si ricava:
 
-\[HVL = - {\frac{\log\left( \frac{1}{2} \right)}{\mu} = \frac{\log(2)}{\mu} = \frac{0.693}{\mu}}\]
+\[HVL = - {\dfrac{\log\left( \dfrac{1}{2} \right)}{\mu} = \dfrac{\log(2)}{\mu} = \dfrac{0.693}{\mu}}\]
 
 Il concetto di strato emivalente è molto importante nella radioprotezione poiché è necessario che la radiazione scatterizzata dal paziente non colpisca il personale tecnico che esegue l'esame diagnostico oppure pazienti al di fuori della sala PET. Noto il coefficiente di assorbimento \(\mu\) è possibile dimensionare gli strati protettivi necessari a non diffondere la radiazione \(\gamma\) nei locali circostanti.
 
@@ -530,9 +530,9 @@ Spesso la schermatura è in piombo, alluminio e, dosando il giusto spessore dell
 
 Un altro parametro di fondamentale importanza è il \emph{Mass Attenuation Coefficient} o il coefficiente di attenuazione di massa \(\mu_{g}\), che si ottiene dal coefficiente di attenuazione lineare, normalizzato rispetto alla densità del materiale assorbitore:
 
-\[\mu_{g} = \frac{\mu}{\rho}\]
+\[\mu_{g} = \dfrac{\mu}{\rho}\]
 
-Il coefficiente di attenuazione massico è misurato in \(\frac{cm^{2}}{kg}\).
+Il coefficiente di attenuazione massico è misurato in \(\dfrac{cm^{2}}{kg}\).
 
 Questa quantità è definita perché alcuni materiali, cambiando la densità a seconda dello stato fisico, modificano anche il livello di attenuazione in funzione della densità. Si usa, quindi, il coefficiente di attenuazione massico \(\mu_{g}\) per compensare queste variazioni.
 

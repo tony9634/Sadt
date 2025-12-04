@@ -39,11 +39,11 @@ Dove \(\omega = \omega_{0}\) solamente nel caso in cui il campo magnetico princi
 
 Si suppone che il campo magnetico principale sia omogeneo, ovvero uguale a \(B_{0}\) sull'asse \(z\) in tutto lo spazio. Si ritiene, inoltre, che la finestra di acquisizione sia molto più piccola dei tempi di rilassamento longitudinale \(T_{1}\) e trasversale \(T_{2}\). Data che \(T_{1}\) è dell'ordine di \(1\ s\) e \(T_{2}\) di \(100\ ms\), la finestra di acquisizione deve avere un'ampizza di \(3 \div 4\ ms\). All'equilibrio la magnetizzazione può essere espressa in termini di densità protonica \(\rho\), definita come il numero di spin per unità di volume, mediante legge di Curie:
 
-\[M_{0} \simeq \rho\frac{\gamma^{2}\hslash^{2}}{4k_{B}T}B_{0},\ \ \rho = \frac{N}{V}\]
+\[M_{0} \simeq \rho\dfrac{\gamma^{2}\hslash^{2}}{4k_{B}T}B_{0},\ \ \rho = \dfrac{N}{V}\]
 
 Si applica un impulso a radiofrequenza all'istante \(t = 0\ s\), dopodiché il vettore di magnetizzazione è lasciato in evoluzione libera. Dopo il ribaltamento per l'effetto di un campo a radiofrequenza, la componente trasversale è:
 
-\[M_{\bot}\left( \overset{\underline{}}{r},0 \right) = M_{0}\left( \overset{\underline{}}{r} \right) = \frac{1}{4}\rho\left( \overset{\underline{}}{r} \right)\frac{\gamma^{2}\hslash^{2}}{k_{B}T}B_{0}\]
+\[M_{\bot}\left( \overset{\underline{}}{r},0 \right) = M_{0}\left( \overset{\underline{}}{r} \right) = \dfrac{1}{4}\rho\left( \overset{\underline{}}{r} \right)\dfrac{\gamma^{2}\hslash^{2}}{k_{B}T}B_{0}\]
 
 Il segnale registrato e demodulato:
 
@@ -51,11 +51,11 @@ Il segnale registrato e demodulato:
 
 può essere scritto come:
 
-\[s(t) = \Lambda\omega_{0}B_{\bot}\int_{V}^{}{\frac{1}{4}\rho\left( \overset{\underline{}}{r} \right)\frac{\gamma^{2}\hslash^{2}}{k_{B}T}B_{0}\exp\left( j\left( \Omega t + \phi\left( \overset{\underline{}}{r},t \right) \right) \right)dV}\]
+\[s(t) = \Lambda\omega_{0}B_{\bot}\int_{V}^{}{\dfrac{1}{4}\rho\left( \overset{\underline{}}{r} \right)\dfrac{\gamma^{2}\hslash^{2}}{k_{B}T}B_{0}\exp\left( j\left( \Omega t + \phi\left( \overset{\underline{}}{r},t \right) \right) \right)dV}\]
 
 Si definisce densità protonica efficace \(\widehat{\rho}\left( \overset{\underline{}}{r} \right)\) come:
 
-\[\widehat{\rho}\left( \overset{\underline{}}{r} \right) = \frac{1}{4}\Lambda\omega_{0}B_{\bot}\frac{\gamma^{2}\hslash^{2}}{k_{B}T}B_{0}\rho\left( \overset{\underline{}}{r} \right)\]
+\[\widehat{\rho}\left( \overset{\underline{}}{r} \right) = \dfrac{1}{4}\Lambda\omega_{0}B_{\bot}\dfrac{\gamma^{2}\hslash^{2}}{k_{B}T}B_{0}\rho\left( \overset{\underline{}}{r} \right)\]
 
 Questa relazione risulta valida anche nel caso in cui il campo irradiato dall'antenna ricevente, quando in essa scorre una corrente unitaria, non è omogeneo ma dipendente dalla posizione con un andamento noto:
 
@@ -81,7 +81,7 @@ Per eseguire l'imaging è necessario valutare la densità protonica, con tecnich
 
 Dove \(G_{z}\) è detto gradiente del campo magnetico principale ed è dato dalla relazione:
 
-\[G_{z}(t) = \frac{\partial B_{z}}{\partial z}\]
+\[G_{z}(t) = \dfrac{\partial B_{z}}{\partial z}\]
 
 La scelta di un gradiente del campo principale linearmente variabile con la posizione \(z\) permette di semplificare la logica di controllo e la trattazione analitica del comportamento degli spin.
 
@@ -181,7 +181,7 @@ Si scrive tale equazione in termini di frequenza, moltiplicando per \(2\pi\) amb
 
 Per l'idrogeno \(\overline{\gamma} = 42.5\ MH_{z}/\), per cui la differenza di frequenze ai due estremi del DSV è:
 
-\[\mathrm{\Delta}f = 42.5\ \frac{MHz}{T} \cdot 10\frac{mT}{m} \cdot 0.5\ m \simeq 200\ kHz\]
+\[\mathrm{\Delta}f = 42.5\ \dfrac{MHz}{T} \cdot 10\dfrac{mT}{m} \cdot 0.5\ m \simeq 200\ kHz\]
 
 Le frequenze di risonanze degli isocromati sono centrate intorno alla frequenza princi pale \(\omega_{0} = \gamma B_{0}\) con una banda di circa \(200\ kHz\). Nel momento in cui i segnale viene de modulato che resta del contenuto frequenziale del segnale è il solo spettro di \(200\ kHz\) centrato in banda base.
 
@@ -482,11 +482,11 @@ La densità protonica efficace è costante, poiché il materiale è uniforme, qu
 
 Per risolvere l'integrale si moltiplica e divide per il fattore moltiplicativo \(z\) nell'argomento dell'esponenziale:
 
-\[s(k) = {\widehat{\rho}}_{0}\int_{- z_{0}}^{z_{0}}{\exp( - j2\pi kz)dz} = - \frac{1}{j2\pi k}{\widehat{\rho}}_{0}\int_{- z_{0}}^{z_{0}}{\left\lbrack j2\pi kz\exp( - j2\pi kz) \right\rbrack dz} =\]
+\[s(k) = {\widehat{\rho}}_{0}\int_{- z_{0}}^{z_{0}}{\exp( - j2\pi kz)dz} = - \dfrac{1}{j2\pi k}{\widehat{\rho}}_{0}\int_{- z_{0}}^{z_{0}}{\left\lbrack j2\pi kz\exp( - j2\pi kz) \right\rbrack dz} =\]
 
 La cui soluzione è:
 
-\[= - \frac{1}{j2\pi k}{\widehat{\rho}}_{0}\left. \ \exp( - j2\pi kz) \right|_{- z_{0}}^{z_{0}} = - \frac{1}{j2\pi k}{\widehat{\rho}}_{0}\left\lbrack \exp\left( - j2\pi kz_{0} \right) - \exp\left( j2\pi kz_{0} \right) \right\rbrack\]
+\[= - \dfrac{1}{j2\pi k}{\widehat{\rho}}_{0}\left. \ \exp( - j2\pi kz) \right|_{- z_{0}}^{z_{0}} = - \dfrac{1}{j2\pi k}{\widehat{\rho}}_{0}\left\lbrack \exp\left( - j2\pi kz_{0} \right) - \exp\left( j2\pi kz_{0} \right) \right\rbrack\]
 
 Per le formule di Eulero, risulta che:
 
@@ -494,11 +494,11 @@ Per le formule di Eulero, risulta che:
 
 Il segnale registrato si scrive come:
 
-\[s(k) = {\widehat{\rho}}_{0}\left( - \frac{1}{j2\pi k} \right)\left\lbrack - 2j\sin\left( 2\pi kz_{0} \right) \right\rbrack = {\widehat{\rho}}_{0}\frac{\sin\left( 2\pi kz_{0} \right)}{\pi k}\]
+\[s(k) = {\widehat{\rho}}_{0}\left( - \dfrac{1}{j2\pi k} \right)\left\lbrack - 2j\sin\left( 2\pi kz_{0} \right) \right\rbrack = {\widehat{\rho}}_{0}\dfrac{\sin\left( 2\pi kz_{0} \right)}{\pi k}\]
 
 Per scrivere il segnale registrato nel \(k\)-spazio più compatto, si moltiplica e divide per \(2z_{0}\):
 
-\[s(k) = {\widehat{\rho}}_{0}\frac{\sin\left( 2\pi kz_{0} \right)}{\pi k}\frac{2z_{0}}{2z_{0}} = 2z_{0}{\widehat{\rho}}_{0}\frac{\sin\left( 2\pi kz_{0} \right)}{2\pi kz_{0}}\]
+\[s(k) = {\widehat{\rho}}_{0}\dfrac{\sin\left( 2\pi kz_{0} \right)}{\pi k}\dfrac{2z_{0}}{2z_{0}} = 2z_{0}{\widehat{\rho}}_{0}\dfrac{\sin\left( 2\pi kz_{0} \right)}{2\pi kz_{0}}\]
 
 Per la definizione di \(sinc\), si ha:
 
