@@ -1,100 +1,82 @@
-\begin{tikzpicture}[x=1cm,y=1cm]
+\begin{tikzpicture}
 
-  % Parametri condivisi
-  \def\W{12cm}     % larghezza pannelli
-  \def\H{1cm}      % altezza pannelli
-  \def\G{0.8cm}    % gap verticale tra i pannelli
-  \def\lambdaMin{380}
-  \def\lambdaMax{780}
+    %--------------------------
+    % Parametri condivisi
+    %--------------------------
+    \def\W{12cm}     % larghezza barre
+    \def\H{1cm}      % altezza barre
+    \def\V{3cm}    % passo verticale tra pannelli (titolo + barra)
+    \def\lambdaMin{380}
+    \def\lambdaMax{780}
 
-  % Punto di riferimento comune (sinistra dei pannelli)
-  \coordinate (left) at (0,0);
-
-  %--------------------------
-  % Spettro continuo
-  %--------------------------
-  \node[anchor=west] at ([yshift=1.2cm]left) {\Large\bfseries Spettro continuo};
-
-  %--------------------------
-  % Pannello superiore: spettro continuo
-  %--------------------------
-  \node[anchor=west] (spec) at (left) {%
-    \pgfspectra[
+    % Stile base per pannelli con asse e label
+    \pgfspectraStyle[
+      axis,                   % asse delle λ
+      begin=\lambdaMin,
+      end=\lambdaMax,
+      axis step=20,
+      axis ticks=9,
+      axis label,
+      axis label text={Lunghezza d'onda (nm)},
       width=\W,
       height=\H,
-      begin=\lambdaMin, end=\lambdaMax,
-      axis, axis step=20, axis ticks=9,
-      axis label, axis label text={Lunghezza d'onda (nm)},
-      label,
-      gamma=.8, brightness=1.0
-    ]%
-  };
-\end{tikzpicture}
-  %--------------------------
-  % Spettro emesso
-  %--------------------------
-\vfill
+      line width=1pt,
+      gamma=.8
+    ]
 
-\begin{tikzpicture}[x=1cm,y=1cm]
-  % Parametri condivisi
-  \def\W{12cm}     % larghezza pannelli
-  \def\H{1cm}
-  \def\G{0.8cm}    % gap verticale tra i pannelli
-  \def\lambdaMin{380}
-  \def\lambdaMax{780}
+    % ==========================
+    % PANNELLO 1: Spettro continuo
+    % ==========================
+    \begin{scope}[shift={(0,0)}]
+      \coordinate (left) at (0,0);
+      \node[anchor=west] at ([yshift=1.2cm]left) {\Large\bfseries Spettro continuo};
+      % barra continua
+      \node[anchor=west] at ([xshift=-0.8cm]left){%
+        \pgfspectra[
+          begin=\lambdaMin, end=\lambdaMax,
+          width=\W, height=\H,
+          axis, axis step=20, axis ticks=9,
+          axis label, axis label text={Lunghezza d'onda (nm)},
+          label,
+          gamma=.8, brightness=1.0
+        ]%
+      };
+    \end{scope}
 
-\node[anchor=west] at ([yshift=1.2cm]left) {\Large\bfseries Spettro di emissione dell'atomo di idrogeno};
+    % ==========================
+    % PANNELLO 2: Emissione H
+    % ==========================
+    \begin{scope}[shift={(0,-\V)}]
+      \coordinate (left) at (0,0);
+      \node[anchor=west] at ([yshift=1.2cm]left) {\Large\bfseries Spettro di emissione dell'atomo di idrogeno};
 
-\pgfspectraStyle[
-  axis,                 % mostra l'asse delle λ
-  begin=\lambdaMin,            % inizio (nm)
-  end=\lambdaMax,              % fine (nm) - visibile
-  axis step=20,         % passo delle tacche (nm)
-  axis ticks=9,         % densità tacche
-  axis label,
-  axis label text={Lunghezza d'onda (nm)},
-  width=\W,     % larghezza della barra
-  height=\H,         % altezza della barra
-  back=visible20,       % sfondo "arcobaleno" del visibile (30% opacità)
-  line width=1pt,       % spessore delle righe di emissione
-  gamma=.8              % correzione percettiva del colore (facoltativa)
-]
+      % sfondo visibile + linee di emissione
+      \node[anchor=west] at ([xshift=0cm]left) {%
+        \pgfspectra[
+          back=visible20
+        ]%
+      };
+      \node[anchor=west] at ([xshift=0cm]left) {%
+        \pgfspectra[element=H]%
+      };
+    \end{scope}
 
-\node[anchor=west] (spec) at ([xshift=0.8cm]left) {\pgfspectra[element=H]};
+    % ==========================
+    % PANNELLO 3: Assorbimento H
+    % ==========================
+    \begin{scope}[shift={(0,-2*\V)}]
+      \coordinate (left) at (0,0);
+      \node[anchor=west] at ([yshift=1.2cm]left) {\Large\bfseries Linee di assorbimento};
 
-\end{tikzpicture}
+      % sfondo visibile + linee di assorbimento
+      \node[anchor=west] at ([xshift=0cm]left) {%
+        \pgfspectra[
+          back=visible20
+        ]%
+      };
+      \node[anchor=west] at ([xshift=0cm]left) {%
+        \pgfspectra[element=H, absorption]%
+      };
+    \end{scope}
 
- %--------------------------
-  % Spettro uscente
-  %--------------------------
-
-\vfill
-
-\begin{tikzpicture}[x=1cm,y=1cm]
-  % Parametri condivisi
-  \def\W{12cm}     % larghezza pannelli
-  \def\H{1cm}
-  \def\G{0.8cm}    % gap verticale tra i pannelli
-  \def\lambdaMin{380}
-  \def\lambdaMax{780}
-
-\node[anchor=west] at ([yshift=1.2cm]left) {\Large\bfseries Linee di assorbimento};
-
-\pgfspectraStyle[
-  axis,                 % mostra l'asse delle λ
-  begin=\lambdaMin,            % inizio (nm)
-  end=\lambdaMax,              % fine (nm) - visibile
-  axis step=20,         % passo delle tacche (nm)
-  axis ticks=9,         % densità tacche
-  axis label,
-  axis label text={Lunghezza d'onda (nm)},
-  width=\W,     % larghezza della barra
-  height=\H,         % altezza della barra
-  back=visible20,       % sfondo "arcobaleno" del visibile (30% opacità)
-  line width=1pt,       % spessore delle righe di emissione
-  gamma=.8,              % correzione percettiva del colore
-]
-
-\node[anchor=west] (spec) at ([xshift=0.8cm]left) {\pgfspectra[element=H, absorption]};
-
-\end{tikzpicture}
+  \end{tikzpicture}
